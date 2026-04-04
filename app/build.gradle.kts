@@ -2,7 +2,7 @@ import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    // alias(libs.plugins.kotlin.android) // No longer required with built-in Kotlin in AGP 9.0
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
@@ -16,7 +16,7 @@ val localProps = Properties().apply {
 
 android {
     namespace = "com.germanverbmaster.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.germanverbmaster.android"
@@ -42,8 +42,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    kotlinOptions { jvmTarget = "17" }
 
     buildFeatures {
         compose = true
@@ -101,7 +99,9 @@ dependencies {
     implementation(libs.lifecycle.runtime.ktx)
 
     // Charts
+    implementation(libs.vico.core)
     implementation(libs.vico.compose)
+    implementation(libs.vico.m3)
 
     // WorkManager
     implementation(libs.workmanager.ktx)
