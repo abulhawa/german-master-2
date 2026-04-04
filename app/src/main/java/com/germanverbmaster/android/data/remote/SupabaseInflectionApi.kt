@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.remote
 
+import android.util.Log
 import com.germanverbmaster.android.data.local.entity.InflectionEntity
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
@@ -20,16 +21,30 @@ data class RemoteInflection(
 class SupabaseInflectionApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
-    suspend fun fetchAll(): List<RemoteInflection> =
-        client.postgrest["inflections"]
-            .select()
-            .decodeList<RemoteInflection>()
+    suspend fun fetchAll(): List<RemoteInflection> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteInflection>()
+        var from = 0
+        while (true) {
+            val page = client.postgrest["inflections"]
+                .select { 
+                    range(from.toLong(), (from + pageSize - 1).toLong())
+                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                }
+                .decodeList<RemoteInflection>()
+            all.addAll(page)
+            Log.d("SupabaseInflectionApi", "Fetched page from=$from, got ${page.size} rows, total=${all.size}")
+            if (page.size < pageSize) break
+            from += pageSize
+        }
+        return all
+    }
 
     fun RemoteInflection.toEntity() = InflectionEntity(
-        id = id,
-        lexemeId = lexemeId,
-        form = form,
+        id = id.trim(),
+        lexemeId = lexemeId.trim(),
+        form = form.trim(),
         featuresJson = features.toString(),
-        audioAsset = audioAsset,
+        audioAsset = audioAsset?.trim(),
     )
 }

@@ -6,6 +6,7 @@ import androidx.work.Configuration
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.germanverbmaster.android.data.remote.worker.SyncWorker
@@ -25,7 +26,19 @@ class MainApplication : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+        triggerImmediateSync()
         scheduleSync()
+    }
+
+    private fun triggerImmediateSync() {
+        val immediateSync = OneTimeWorkRequestBuilder<SyncWorker>()
+            .setConstraints(
+                Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.CONNECTED)
+                    .build()
+            )
+            .build()
+        WorkManager.getInstance(this).enqueue(immediateSync)
     }
 
     private fun scheduleSync() {

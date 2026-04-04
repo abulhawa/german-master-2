@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.germanverbmaster.android.data.local.dao.LexemeDao
+import com.germanverbmaster.android.data.remote.RemoteLexeme
 import com.germanverbmaster.android.data.remote.SupabaseLexemeApi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
@@ -38,25 +39,34 @@ class LexemeRepository @Inject constructor(
     private val api: SupabaseLexemeApi,
     private val prefs: SyncPreferences,
 ) {
-    /** Returns true if local DB is empty (first launch) */
-    suspend fun needsFullSync(): Boolean = dao.count() == 0
+    suspend fun deleteAll() = dao.deleteAll()
 
-    /**
-     * Sync from Supabase.
-     * On first launch: fetch everything.
-     * On subsequent launches: fetch only rows updated since last sync.
-     */
-    suspend fun sync() {
+    /** Returns true if local DB has fewer than a healthy threshold (e.g. 5000) */
+    suspend fun needsFullSync(): Boolean = dao.count() < 5000
+
+    suspend fun getAllIds(): List<String> = dao.getAllIds()
+
+    suspend fun countApprovedAndComplete(): Int = dao.countApprovedAndComplete()
+
+    suspend fun fetchRemote(): List<RemoteLexeme>? {
         val since = prefs.getLexemeLastSync()
-        val remote = if (since == null) api.fetchAll() else api.fetchUpdatedSince(since)
-        if (remote.isEmpty()) return
-        
-        // Use the extension function from SupabaseLexemeApi
-        val entities = remote.map { with(api) { it.toEntity() } }
-        dao.upsertAll(entities)
-
-        val latest = remote.maxOf { it.updatedAt }
-        prefs.setLexemeLastSync(latest)
+        val remote = if (since == null || needsFullSync()) api.fetchAll() else api.fetchUpdatedSince(since)
+        return if (remote.isEmpty()) null else remote
     }
 
+    suspend fun saveToLocal(remote: List<RemoteLexeme>) {
+        if (remote.isEmpty()) return
+        val entities = remote.map { with(api) { it.toEntity() } }
+        dao.upsertAll(entities)
+    }
+
+    /**
+     * Legacy sync from Supabase.
+     */
+    suspend fun sync() {
+        val remote = fetchRemote()
+        if (remote != null) {
+            saveToLocal(remote)
+        }
+    }
 }

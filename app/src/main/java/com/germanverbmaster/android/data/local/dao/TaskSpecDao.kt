@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskSpecDao {
@@ -47,4 +46,7 @@ interface TaskSpecDao {
 
     @Query("SELECT MAX(updatedAt) FROM task_specs")
     suspend fun latestUpdatedAt(): String?
+
+    @Query("DELETE FROM task_specs")
+    suspend fun deleteAll()
 }

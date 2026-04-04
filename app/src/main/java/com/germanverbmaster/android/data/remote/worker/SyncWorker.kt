@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.data.remote.worker
 
 import android.content.Context
+import android.util.Log
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
@@ -27,6 +28,7 @@ class SyncWorker @AssistedInject constructor(
             
             Result.success()
         } catch (e: Exception) {
+            Log.e("SyncWorker", "Sync failed (attempt $runAttemptCount): ${e.message}", e)
             if (runAttemptCount < 3) {
                 Result.retry()
             } else {

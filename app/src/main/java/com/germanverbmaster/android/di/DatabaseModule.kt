@@ -25,7 +25,7 @@ object DatabaseModule {
                 context,
                 AppDatabase::class.java,
                 "german_verb_master.db"
-            ).fallbackToDestructiveMigration(false).build()
+            ).fallbackToDestructiveMigration(true).build()
     }
 
     @Provides

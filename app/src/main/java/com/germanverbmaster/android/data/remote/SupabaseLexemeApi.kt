@@ -1,7 +1,9 @@
 package com.germanverbmaster.android.data.remote
 
+import android.util.Log
 import com.germanverbmaster.android.data.local.entity.LexemeEntity
 import io.github.jan.supabase.SupabaseClient
+import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -26,28 +28,71 @@ data class RemoteLexeme(
 class SupabaseLexemeApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
-    /** Full fetch on first launch */
-    suspend fun fetchAll(): List<RemoteLexeme> =
-        client.postgrest["lexemes"]
-            .select()
-            .decodeList<RemoteLexeme>()
+    /** Full fetch on first launch — paginates through all rows in batches of 1000 */
+    suspend fun fetchAll(): List<RemoteLexeme> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteLexeme>()
+        var from = 0
+        Log.d("SupabaseLexemeApi", "Fetching all lexemes... URL: ${client.supabaseUrl}")
+        try {
+            while (true) {
+                val page = client.postgrest["lexemes"]
+                    .select {
+                        range(from.toLong(), (from + pageSize - 1).toLong())
+                        order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                    }
+                    .decodeList<RemoteLexeme>()
+                all.addAll(page)
+                Log.d("SupabaseLexemeApi", "Fetched page from=$from, got ${page.size} rows, total=${all.size}")
+                if (page.size < pageSize) break
+                from += pageSize
+            }
+        } catch (e: PostgrestRestException) {
+            Log.e("SupabaseLexemeApi", "Postgrest Error: ${e.error} (Status: ${e.statusCode})", e)
+            Log.e("SupabaseLexemeApi", "Postgrest Hint: ${e.hint}")
+            throw e
+        } catch (e: Exception) {
+            Log.e("SupabaseLexemeApi", "General Error fetching lexemes", e)
+            throw e
+        }
+        return all
+    }
 
     /** Incremental sync — only rows updated after lastSyncedAt */
-    suspend fun fetchUpdatedSince(since: String): List<RemoteLexeme> =
-        client.postgrest["lexemes"]
-            .select { filter { gt("updated_at", since) } }
-            .decodeList<RemoteLexeme>()
+    suspend fun fetchUpdatedSince(since: String): List<RemoteLexeme> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteLexeme>()
+        var from = 0
+        while (true) {
+            val page = client.postgrest["lexemes"]
+                .select {
+                    filter { gt("updated_at", since) }
+                    range(from.toLong(), (from + pageSize - 1).toLong())
+                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                }
+                .decodeList<RemoteLexeme>()
+            all.addAll(page)
+            if (page.size < pageSize) break
+            from += pageSize
+        }
+        return all
+    }
 
     fun RemoteLexeme.toEntity(): LexemeEntity {
         val metadata = metadata ?: JsonObject(emptyMap())
         
-        val isApproved = metadata["approved"]?.jsonPrimitive?.booleanOrNull ?: false
+        fun getBool(key: String): Boolean {
+            val element = metadata[key] ?: return false
+            val content = element.jsonPrimitive.content.trim()
+            return content.equals("true", ignoreCase = true) || 
+                   content == "1" || 
+                   element.jsonPrimitive.booleanOrNull == true
+        }
+
+        val isApproved = getBool("approved")
         
-        // Completeness per POS:
-        // Verb: must have praeteritum, partizip_ii, perfekt
-        // Noun: must have gender, plural
-        // Adjective: must have comparative, superlative (or 'keine Steigerung')
-        val isComplete = when (pos) {
+        val posTrimmed = pos.trim()
+        val isComplete = when (posTrimmed) {
             "V" -> {
                 metadata.containsKey("praeteritum") && 
                 metadata.containsKey("partizip_ii") && 
@@ -58,21 +103,21 @@ class SupabaseLexemeApi @Inject constructor(
             }
             "Adj" -> {
                 (metadata.containsKey("comparative") && metadata.containsKey("superlative")) ||
-                metadata["no_comparison"]?.jsonPrimitive?.booleanOrNull == true
+                getBool("no_comparison")
             }
             else -> false
         }
 
         return LexemeEntity(
-            id = id,
-            lemma = lemma,
-            language = language,
-            pos = pos,
-            gender = gender,
+            id = id.trim(),
+            lemma = lemma.trim(),
+            language = language.trim(),
+            pos = posTrimmed,
+            gender = gender?.trim(),
             metadataJson = metadata.toString(),
             frequencyRank = frequencyRank,
             sourceIdsJson = sourceIds.toString(),
-            updatedAt = updatedAt,
+            updatedAt = updatedAt.trim(),
             isApproved = isApproved,
             isComplete = isComplete
         )

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c68fdd68a1eb2e7da1a92255633afd7d",
+    "identityHash": "2bda127b6babb910a70c9147ecd8eec6",
     "entities": [
       {
         "tableName": "lexemes",
@@ -82,13 +82,13 @@
         "indices": [
           {
             "name": "index_lexemes_lemma_pos",
-            "unique": true,
+            "unique": false,
             "columnNames": [
               "lemma",
               "pos"
             ],
             "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_lexemes_lemma_pos` ON `${TABLE_NAME}` (`lemma`, `pos`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_lexemes_lemma_pos` ON `${TABLE_NAME}` (`lemma`, `pos`)"
           }
         ]
       },
@@ -378,7 +378,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c68fdd68a1eb2e7da1a92255633afd7d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2bda127b6babb910a70c9147ecd8eec6')"
     ]
   }
 }

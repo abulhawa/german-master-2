@@ -3,14 +3,17 @@ package com.germanverbmaster.android.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.domain.model.PracticeMode
+import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.model.SessionStats
 import com.germanverbmaster.android.domain.model.TaskCard
 import com.germanverbmaster.android.domain.usecase.GetNextTaskUseCase
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
-import com.germanverbmaster.android.domain.model.PracticeResult
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -46,6 +49,7 @@ class HomeViewModel @Inject constructor(
         try {
             syncData()
         } catch (e: Exception) {
+            e.printStackTrace()
             _state.update { it.copy(isOffline = true) }
         }
         loadNextBatch()

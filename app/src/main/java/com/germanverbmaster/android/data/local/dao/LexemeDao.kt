@@ -19,8 +19,17 @@ interface LexemeDao {
     @Query("SELECT * FROM lexemes WHERE id = :id")
     suspend fun getById(id: String): LexemeEntity?
 
+    @Query("DELETE FROM lexemes")
+    suspend fun deleteAll()
+
+    @Query("SELECT id FROM lexemes")
+    suspend fun getAllIds(): List<String>
+
     @Query("SELECT COUNT(*) FROM lexemes")
     suspend fun count(): Int
+
+    @Query("SELECT COUNT(*) FROM lexemes WHERE isApproved = 1 AND isComplete = 1")
+    suspend fun countApprovedAndComplete(): Int
 
     @Query("SELECT MAX(updatedAt) FROM lexemes")
     suspend fun latestUpdatedAt(): String?

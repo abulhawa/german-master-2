@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "lexemes",
-    indices = [Index(value = ["lemma", "pos"], unique = true)]
+    indices = [Index(value = ["lemma", "pos"])] // Removed unique = true
 )
 data class LexemeEntity(
     @PrimaryKey val id: String,

@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.remote
 
+import android.util.Log
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
@@ -27,29 +28,63 @@ data class RemoteTaskSpec(
 class SupabaseTaskApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
-    suspend fun fetchAll(): List<RemoteTaskSpec> =
-        client.postgrest["task_specs"]
-            .select()
-            .decodeList<RemoteTaskSpec>()
+    suspend fun fetchAll(): List<RemoteTaskSpec> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteTaskSpec>()
+        var from = 0
+        Log.d("SupabaseTaskApi", "Fetching all task_specs...")
+        try {
+            while (true) {
+                val page = client.postgrest["task_specs"]
+                    .select {
+                        range(from.toLong(), (from + pageSize - 1).toLong())
+                        order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                    }
+                    .decodeList<RemoteTaskSpec>()
+                all.addAll(page)
+                Log.d("SupabaseTaskApi", "Fetched page from=$from, got ${page.size} rows, total=${all.size}")
+                if (page.size < pageSize) break
+                from += pageSize
+            }
+        } catch (e: Exception) {
+            Log.e("SupabaseTaskApi", "Error fetching task_specs", e)
+            throw e
+        }
+        return all
+    }
 
-    suspend fun fetchUpdatedSince(since: String): List<RemoteTaskSpec> =
-        client.postgrest["task_specs"]
-            .select { filter { gt("updated_at", since) } }
-            .decodeList<RemoteTaskSpec>()
+    suspend fun fetchUpdatedSince(since: String): List<RemoteTaskSpec> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteTaskSpec>()
+        var from = 0
+        while (true) {
+            val page = client.postgrest["task_specs"]
+                .select {
+                    filter { gt("updated_at", since) }
+                    range(from.toLong(), (from + pageSize - 1).toLong())
+                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                }
+                .decodeList<RemoteTaskSpec>()
+            all.addAll(page)
+            if (page.size < pageSize) break
+            from += pageSize
+        }
+        return all
+    }
 
     /** Extract CEFR level from task metadata or linked lexeme metadata */
     fun RemoteTaskSpec.toEntity(cefrLevel: String?): TaskSpecEntity = TaskSpecEntity(
-        id = id,
-        lexemeId = lexemeId,
-        pos = pos,
-        taskType = taskType,
-        renderer = renderer,
+        id = id.trim(),
+        lexemeId = lexemeId.trim(),
+        pos = pos.trim(),
+        taskType = taskType.trim(),
+        renderer = renderer.trim(),
         promptJson = prompt.toString(),
         solutionJson = solution.toString(),
         hintsJson = hints?.toString(),
         metadataJson = metadata?.toString(),
         cefrLevel = cefrLevel ?: metadata?.get("level")?.toString()?.trim('"'),
         revision = revision,
-        updatedAt = updatedAt,
+        updatedAt = updatedAt.trim(),
     )
 }
