@@ -17,7 +17,7 @@ private val TASK_LAST_SYNC   = stringPreferencesKey("task_last_sync")
 
 @Singleton
 class SyncPreferences @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
 ) {
     suspend fun getLexemeLastSync(): String? =
         context.dataStore.data.first()[LEXEME_LAST_SYNC]
@@ -59,5 +59,4 @@ class LexemeRepository @Inject constructor(
         prefs.setLexemeLastSync(latest)
     }
 
-    fun observeByPos(pos: String) = dao.observeByPos(pos)
 }
