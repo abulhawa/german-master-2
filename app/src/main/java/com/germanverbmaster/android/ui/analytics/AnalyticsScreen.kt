@@ -1,66 +1,152 @@
 package com.germanverbmaster.android.ui.analytics
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
+import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottomAxis
+import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStartAxis
+import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineCartesianLayer
+import com.patrykandpatrick.vico.compose.cartesian.rememberCartesianChart
+import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
+import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
+import java.util.Locale
 
 @Composable
 fun AnalyticsScreen(viewModel: AnalyticsViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text("Analytics", style = MaterialTheme.typography.headlineSmall)
-
-        // Today's stats
-        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            ElevatedCard(modifier = Modifier.weight(1f)) {
-                Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("${state.todayAccuracy.toInt()}%",
-                        style = MaterialTheme.typography.headlineMedium)
-                    Text("Genauigkeit heute", style = MaterialTheme.typography.labelSmall)
-                }
-            }
-            ElevatedCard(modifier = Modifier.weight(1f)) {
-                Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("${state.todayTotal}",
-                        style = MaterialTheme.typography.headlineMedium)
-                    Text("Aufgaben heute", style = MaterialTheme.typography.labelSmall)
-                }
-            }
-        }
-
-        // Placeholder for chart — Gemini fills this in with Vico
-        ElevatedCard(modifier = Modifier.fillMaxWidth().height(200.dp)) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Verlaufsdiagramm (Vico chart hier einbauen)",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f))
-            }
-        }
-
-        Text("Aufgabentyp-Verteilung", style = MaterialTheme.typography.titleMedium)
-        state.byTaskType.forEach { (type, count) ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                Text(type, style = MaterialTheme.typography.bodyMedium)
-                Text("$count", style = MaterialTheme.typography.bodyMedium)
-            }
-            LinearProgressIndicator(
-                progress = { if (state.todayTotal == 0) 0f else count.toFloat() / state.todayTotal },
-                modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+        item {
+            Text(
+                "Analytics",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold
             )
         }
+
+        // 1. Chart Item
+        item {
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text("Accuracy Trend (Last 7 Days)", style = MaterialTheme.typography.titleMedium)
+                    Spacer(Modifier.height(16.dp))
+                    
+                    if (state.dailyAccuracy.isEmpty()) {
+                        Box(Modifier.height(200.dp).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                            Text("Not enough data for chart", style = MaterialTheme.typography.bodyMedium)
+                        }
+                    } else {
+                        val modelProducer = remember { CartesianChartModelProducer() }
+                        LaunchedEffect(state.dailyAccuracy) {
+                            modelProducer.runTransaction {
+                                lineSeries {
+                                    series(state.dailyAccuracy.map { it.accuracy })
+                                }
+                            }
+                        }
+                        
+                        CartesianChartHost(
+                            chart = rememberCartesianChart(
+                                rememberLineCartesianLayer(),
+                                startAxis = rememberStartAxis(),
+                                bottomAxis = rememberBottomAxis(),
+                            ),
+                            modelProducer = modelProducer,
+                            modifier = Modifier.height(200.dp)
+                        )
+                    }
+                }
+            }
+        }
+
+        // 2. Today's Summary
+        item {
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text("Today's Progress", style = MaterialTheme.typography.titleMedium)
+                    Spacer(Modifier.height(8.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column {
+                            Text(
+                                "${state.accuracyToday.toInt()}%",
+                                style = MaterialTheme.typography.headlineLarge,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                            Text("Accuracy", style = MaterialTheme.typography.labelMedium)
+                        }
+                        Column(horizontalAlignment = Alignment.End) {
+                            Text(
+                                "${state.totalToday}",
+                                style = MaterialTheme.typography.headlineLarge
+                            )
+                            Text("Total Tasks", style = MaterialTheme.typography.labelMedium)
+                        }
+                    }
+                }
+            }
+        }
+
+        // 3. Task Type Breakdown
+        item {
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text("Performance by Task Type", style = MaterialTheme.typography.titleMedium)
+                    Spacer(Modifier.height(16.dp))
+                    
+                    if (state.taskTypeStats.isEmpty()) {
+                        Box(Modifier.height(100.dp).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                            Text("No data yet", style = MaterialTheme.typography.bodyMedium)
+                        }
+                    } else {
+                        state.taskTypeStats.forEach { stat ->
+                            TaskTypeStatRow(
+                                label = stat.taskType.replace("_", " ").replaceFirstChar { 
+                                    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() 
+                                },
+                                correct = stat.correctCount,
+                                total = stat.totalCount
+                            )
+                            Spacer(Modifier.height(8.dp))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun TaskTypeStatRow(label: String, correct: Int, total: Int) {
+    val progress = if (total == 0) 0f else correct.toFloat() / total
+    Column {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(label, style = MaterialTheme.typography.bodyMedium)
+            Text("${(progress * 100).toInt()}% ($correct/$total)", style = MaterialTheme.typography.labelSmall)
+        }
+        Spacer(Modifier.height(4.dp))
+        LinearProgressIndicator(
+            progress = { progress },
+            modifier = Modifier.fillMaxWidth(),
+            strokeCap = androidx.compose.ui.graphics.StrokeCap.Round
+        )
     }
 }

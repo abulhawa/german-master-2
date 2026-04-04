@@ -13,12 +13,14 @@ interface TaskSpecDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertAll(tasks: List<TaskSpecEntity>)
 
-    // Word acceptance rule: only show approved+complete tasks (cefrLevel not null = complete)
+    // Word acceptance rule: only show approved+complete tasks
     @Query("""
-        SELECT * FROM task_specs
-        WHERE (:pos IS NULL OR pos = :pos)
-          AND (:cefrLevel IS NULL OR cefrLevel = :cefrLevel)
-          AND cefrLevel IS NOT NULL
+        SELECT ts.* FROM task_specs ts
+        INNER JOIN lexemes l ON ts.lexemeId = l.id
+        WHERE (:pos IS NULL OR ts.pos = :pos)
+          AND (:cefrLevel IS NULL OR ts.cefrLevel = :cefrLevel)
+          AND l.isApproved = 1
+          AND l.isComplete = 1
         ORDER BY RANDOM()
         LIMIT :limit
     """)
@@ -28,11 +30,13 @@ interface TaskSpecDao {
         limit: Int = 20,
     ): List<TaskSpecEntity>
 
-    // B2 exam mode: B1+B2 across all task types
+    // B2 exam mode: B1+B2 across all task types, must be approved and complete
     @Query("""
-        SELECT * FROM task_specs
-        WHERE cefrLevel IN ('B1','B2')
-          AND cefrLevel IS NOT NULL
+        SELECT ts.* FROM task_specs ts
+        INNER JOIN lexemes l ON ts.lexemeId = l.id
+        WHERE ts.cefrLevel IN ('B1','B2')
+          AND l.isApproved = 1
+          AND l.isComplete = 1
         ORDER BY RANDOM()
         LIMIT :limit
     """)

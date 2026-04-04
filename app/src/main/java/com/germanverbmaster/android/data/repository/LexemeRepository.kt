@@ -6,7 +6,6 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.remote.SupabaseLexemeApi
-import com.germanverbmaster.android.data.remote.SupabaseLexemeApi.toEntity
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -51,7 +50,11 @@ class LexemeRepository @Inject constructor(
         val since = prefs.getLexemeLastSync()
         val remote = if (since == null) api.fetchAll() else api.fetchUpdatedSince(since)
         if (remote.isEmpty()) return
-        dao.upsertAll(remote.map { it.toEntity() })
+        
+        // Use the extension function from SupabaseLexemeApi
+        val entities = remote.map { with(api) { it.toEntity() } }
+        dao.upsertAll(entities)
+
         val latest = remote.maxOf { it.updatedAt }
         prefs.setLexemeLastSync(latest)
     }

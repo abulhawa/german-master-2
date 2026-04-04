@@ -14,8 +14,10 @@ data class LexemeEntity(
     val language: String = "de",
     val pos: String,           // "V" | "N" | "Adj"
     val gender: String? = null,
-    val metadataJson: String = "{}",   // serialized JSON
+    val metadataJson: String = "{}",
     val frequencyRank: Int? = null,
-    val sourceIdsJson: String = "[]",  // serialized JSON array
+    val sourceIdsJson: String = "[]",
     val updatedAt: String = "",
+    val isApproved: Boolean = false,
+    val isComplete: Boolean = false
 )

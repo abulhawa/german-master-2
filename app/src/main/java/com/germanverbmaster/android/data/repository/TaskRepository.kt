@@ -3,7 +3,6 @@ package com.germanverbmaster.android.data.repository
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
 import com.germanverbmaster.android.data.remote.SupabaseTaskApi
-import com.germanverbmaster.android.data.remote.SupabaseTaskApi.toEntity
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,8 +16,11 @@ class TaskRepository @Inject constructor(
         val since = prefs.getTaskLastSync()
         val remote = if (since == null) api.fetchAll() else api.fetchUpdatedSince(since)
         if (remote.isEmpty()) return
-        // cefrLevel extracted from metadata during mapping
-        dao.upsertAll(remote.map { it.toEntity(cefrLevel = null) })
+        
+        // Use extension function within context of api
+        val entities = remote.map { with(api) { it.toEntity(cefrLevel = null) } }
+        dao.upsertAll(entities)
+
         val latest = remote.maxOf { it.updatedAt }
         prefs.setTaskLastSync(latest)
     }

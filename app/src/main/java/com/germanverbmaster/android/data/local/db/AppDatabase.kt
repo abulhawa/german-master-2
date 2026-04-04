@@ -2,6 +2,7 @@ package com.germanverbmaster.android.data.local.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
@@ -24,4 +25,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun lexemeDao(): LexemeDao
     abstract fun taskSpecDao(): TaskSpecDao
     abstract fun practiceHistoryDao(): PracticeHistoryDao
+    abstract fun inflectionDao(): InflectionDao
 }

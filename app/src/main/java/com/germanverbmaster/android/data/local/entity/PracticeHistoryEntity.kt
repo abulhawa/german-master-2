@@ -8,12 +8,15 @@ data class PracticeHistoryEntity(
     @PrimaryKey(autoGenerate = true) val localId: Int = 0,
     val taskId: String,
     val lexemeId: String,
-    val pos: String,
+    val lemma: String = "",    // Added to avoid complex joins for history list
+    val pos: String,           // "V" | "N" | "Adj"
     val taskType: String,
     val result: String,        // "correct" | "incorrect"
+    val submittedAnswer: String = "",
+    val correctAnswer: String = "",
     val responseMs: Int,
     val cefrLevel: String? = null,
     val hintsUsed: Boolean = false,
     val submittedAt: String,
-    val synced: Boolean = false,   // false until successfully written to Supabase
+    val synced: Boolean = false,
 )

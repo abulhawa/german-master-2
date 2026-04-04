@@ -81,8 +81,12 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
             state.currentTask != null -> {
                 PracticeCard(
                     task = state.currentTask!!,
-                    onCorrect = { ms -> viewModel.submitResult(state.currentTask!!, true, ms) },
-                    onWrong = { ms -> viewModel.submitResult(state.currentTask!!, false, ms) },
+                    onCorrect = { submitted, correct, ms -> 
+                        viewModel.submitResult(state.currentTask!!, true, submitted, correct, ms) 
+                    },
+                    onWrong = { submitted, correct, ms -> 
+                        viewModel.submitResult(state.currentTask!!, false, submitted, correct, ms) 
+                    },
                     onSkip = viewModel::skip,
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )

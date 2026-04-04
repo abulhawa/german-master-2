@@ -32,7 +32,37 @@ interface PracticeHistoryDao {
         FROM practice_history
         WHERE submittedAt >= :since
     """)
-    suspend fun accuracySince(since: String): AccuracyResult?
+    suspend fun statsSince(since: String): AccuracyResult?
+
+    @Query("""
+        SELECT taskType, 
+               SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) as correctCount,
+               COUNT(*) as totalCount
+        FROM practice_history
+        GROUP BY taskType
+    """)
+    fun observeTaskTypeStats(): Flow<List<TaskTypeStat>>
+
+    @Query("""
+        SELECT DATE(submittedAt) as date,
+               SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) as accuracy
+        FROM practice_history
+        WHERE submittedAt >= :since
+        GROUP BY DATE(submittedAt)
+        ORDER BY date ASC
+    """)
+    suspend fun getDailyAccuracy(since: String): List<DailyAccuracy>
 }
 
 data class AccuracyResult(val accuracy: Float, val total: Int)
+
+data class TaskTypeStat(
+    val taskType: String,
+    val correctCount: Int,
+    val totalCount: Int
+)
+
+data class DailyAccuracy(
+    val date: String,
+    val accuracy: Float
+)

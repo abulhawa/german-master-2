@@ -1,6 +1,8 @@
 package com.germanverbmaster.android.data.repository
 
+import com.germanverbmaster.android.data.local.dao.DailyAccuracy
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
+import com.germanverbmaster.android.data.local.dao.TaskTypeStat
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
@@ -62,7 +64,11 @@ class PracticeRepository @Inject constructor(
 
     suspend fun accuracyToday(): Pair<Float, Int> {
         val since = Instant.now().minusSeconds(86400).toString()
-        val result = dao.accuracySince(since)
+        val result = dao.statsSince(since)
         return Pair(result?.accuracy ?: 0f, result?.total ?: 0)
     }
+
+    fun observeTaskTypeStats(): Flow<List<TaskTypeStat>> = dao.observeTaskTypeStats()
+
+    suspend fun getDailyAccuracy(since: String): List<DailyAccuracy> = dao.getDailyAccuracy(since)
 }

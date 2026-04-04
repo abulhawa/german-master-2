@@ -76,10 +76,10 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch { loadNextBatch() }
     }
 
-    fun submitResult(task: TaskCard, isCorrect: Boolean, responseMs: Int) {
+    fun submitResult(task: TaskCard, isCorrect: Boolean, submitted: String, correct: String, responseMs: Int) {
         viewModelScope.launch {
             submitAnswer(
-                PracticeResult(
+                result = PracticeResult(
                     taskId    = task.taskId,
                     lexemeId  = task.lexemeId,
                     pos       = task.pos,
@@ -87,7 +87,10 @@ class HomeViewModel @Inject constructor(
                     result    = if (isCorrect) "correct" else "incorrect",
                     responseMs = responseMs,
                     cefrLevel = task.cefrLevel,
-                )
+                ),
+                lemma = task.lemma,
+                submitted = submitted,
+                correct = correct
             )
             val newStats = if (isCorrect)
                 _state.value.stats.copy(correct = _state.value.stats.correct + 1)
