@@ -29,7 +29,7 @@ import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
@@ -69,7 +69,7 @@ fun B2PracticeScreen(
         )
 
         // Category tabs
-        ScrollableTabRow(
+        PrimaryScrollableTabRow(
             selectedTabIndex = B2Category.entries.indexOf(state.category),
             edgePadding = 0.dp,
             modifier = Modifier.fillMaxWidth(),
@@ -210,7 +210,6 @@ fun FlipCard(
                 modifier = Modifier
                     .fillMaxSize()
                     .graphicsLayer { rotationY = rotation },
-                isFront = true,
             ) {
                 val frontText = when (mode) {
                     CardMode.DE_TO_EN -> card.front
@@ -250,7 +249,6 @@ fun FlipCard(
                 modifier = Modifier
                     .fillMaxSize()
                     .graphicsLayer { rotationY = rotation - 180f },
-                isFront = false,
             ) {
                 val backText = when (mode) {
                     CardMode.DE_TO_EN -> card.back
@@ -290,7 +288,6 @@ fun FlipCard(
 @Composable
 private fun CardFace(
     modifier: Modifier = Modifier,
-    isFront: Boolean,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     ElevatedCard(
