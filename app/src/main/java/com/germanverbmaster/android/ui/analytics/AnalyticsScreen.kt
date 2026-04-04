@@ -26,12 +26,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
-import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottomAxis
-import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStartAxis
+import com.patrykandpatrick.vico.compose.cartesian.axis.HorizontalAxis
+import com.patrykandpatrick.vico.compose.cartesian.axis.VerticalAxis
+import com.patrykandpatrick.vico.compose.cartesian.data.CartesianChartModelProducer
+import com.patrykandpatrick.vico.compose.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineCartesianLayer
 import com.patrykandpatrick.vico.compose.cartesian.rememberCartesianChart
-import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
-import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import java.util.Locale
 
 @Composable
@@ -75,8 +75,8 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel = hiltViewModel()) {
                         CartesianChartHost(
                             chart = rememberCartesianChart(
                                 rememberLineCartesianLayer(),
-                                startAxis = rememberStartAxis(),
-                                bottomAxis = rememberBottomAxis(),
+                                startAxis = VerticalAxis.rememberStart(),
+                                bottomAxis = HorizontalAxis.rememberBottom(),
                             ),
                             modelProducer = modelProducer,
                             modifier = Modifier.height(200.dp)
