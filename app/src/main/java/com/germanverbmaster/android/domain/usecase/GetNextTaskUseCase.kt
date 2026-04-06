@@ -1,12 +1,15 @@
 package com.germanverbmaster.android.domain.usecase
 
+import android.util.Log
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.domain.model.PracticeMode
 import com.germanverbmaster.android.domain.model.TaskCard
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.jsonPrimitive
+import kotlinx.serialization.json.JsonPrimitive
 import javax.inject.Inject
 
 class GetNextTaskUseCase @Inject constructor(
@@ -20,13 +23,22 @@ class GetNextTaskUseCase @Inject constructor(
         batchSize: Int = 20,
     ): List<TaskCard> {
         val entities = when (mode) {
-            PracticeMode.B2_EXAM  -> taskRepository.fetchB2Batch(batchSize)
-            PracticeMode.VERBS    -> taskRepository.fetchBatch("V", cefrLevel, batchSize)
-            PracticeMode.NOUNS    -> taskRepository.fetchBatch("N", cefrLevel, batchSize)
+            PracticeMode.B2_EXAM    -> taskRepository.fetchB2Batch(batchSize)
+            PracticeMode.VERBS      -> taskRepository.fetchBatch("V", cefrLevel, batchSize)
+            PracticeMode.NOUNS      -> taskRepository.fetchBatch("N", cefrLevel, batchSize)
             PracticeMode.ADJECTIVES -> taskRepository.fetchBatch("Adj", cefrLevel, batchSize)
-            PracticeMode.ALL      -> taskRepository.fetchBatch(null, cefrLevel, batchSize)
+            PracticeMode.ALL        -> taskRepository.fetchBatch(null, cefrLevel, batchSize)
         }
-        return entities.mapNotNull { it.toTaskCard() }
+        Log.d("GetNextTaskUseCase", "fetchBatch returned ${entities.size} entities (mode=$mode, cefrLevel=$cefrLevel)")
+        val cards = entities.mapNotNull { entity ->
+            val card = entity.toTaskCard()
+            if (card == null) {
+                Log.w("GetNextTaskUseCase", "toTaskCard() returned null for task id=${entity.id} pos=${entity.pos} prompt=${entity.promptJson.take(120)}")
+            }
+            card
+        }
+        Log.d("GetNextTaskUseCase", "Mapped ${cards.size}/${entities.size} entities to TaskCards")
+        return cards
     }
 
     private fun TaskSpecEntity.toTaskCard(): TaskCard? = runCatching {
@@ -46,8 +58,26 @@ class GetNextTaskUseCase @Inject constructor(
         )
     }.getOrNull()
 
+    /**
+     * Converts a flat-or-nested JSON object to Map<String, String>.
+     * Primitives are unwrapped to their string value.
+     * Nested objects/arrays are kept as their JSON string representation
+     * so callers (renderers) can parse them further if needed.
+     * Previously this called jsonPrimitive.content on ALL values, which threw
+     * on any nested object/array and silently returned emptyMap() via runCatching.
+     */
     private fun parseJsonToMap(raw: String): Map<String, String> = runCatching {
         val obj = json.decodeFromString<JsonObject>(raw)
-        obj.entries.associate { (k, v) -> k to v.jsonPrimitive.content }
+        obj.entries.associate { (k, v) ->
+            k to when (v) {
+                is JsonPrimitive -> v.content          // unwrap string/number/bool
+                is JsonNull      -> ""                 // null → empty string
+                is JsonObject    -> v.toString()       // nested object → JSON string
+                is JsonArray     -> v.toString()       // array → JSON string
+                else             -> v.toString()
+            }
+        }
+    }.onFailure { e ->
+        Log.e("GetNextTaskUseCase", "parseJsonToMap failed for: ${raw.take(200)}", e)
     }.getOrDefault(emptyMap())
 }

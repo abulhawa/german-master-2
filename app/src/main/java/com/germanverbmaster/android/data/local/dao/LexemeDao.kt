@@ -31,6 +31,20 @@ interface LexemeDao {
     @Query("SELECT COUNT(*) FROM lexemes WHERE isApproved = 1 AND isComplete = 1")
     suspend fun countApprovedAndComplete(): Int
 
+    @Query("SELECT COUNT(*) FROM lexemes WHERE isApproved = 1")
+    suspend fun countApproved(): Int
+
+    @Query("SELECT COUNT(*) FROM lexemes WHERE isComplete = 1")
+    suspend fun countComplete(): Int
+
     @Query("SELECT MAX(updatedAt) FROM lexemes")
     suspend fun latestUpdatedAt(): String?
+
+    @Query("SELECT id, cefrLevel FROM lexemes")
+    suspend fun getAllLevels(): List<LexemeIdLevel>
 }
+
+data class LexemeIdLevel(
+    val id: String,
+    val cefrLevel: String?
+)

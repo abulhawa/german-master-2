@@ -20,6 +20,8 @@ data class RemoteLexeme(
     val pos: String,
     val gender: String? = null,
     val metadata: JsonObject? = null,
+    @SerialName("is_approved") val isApproved: Boolean? = null,
+    @SerialName("is_complete") val isComplete: Boolean? = null,
     @SerialName("frequency_rank") val frequencyRank: Int? = null,
     @SerialName("source_ids") val sourceIds: List<String> = emptyList(),
     @SerialName("updated_at") val updatedAt: String = "",
@@ -79,34 +81,33 @@ class SupabaseLexemeApi @Inject constructor(
     }
 
     fun RemoteLexeme.toEntity(): LexemeEntity {
-        val metadata = metadata ?: JsonObject(emptyMap())
+        val metadataMap = metadata ?: JsonObject(emptyMap())
         
-        fun getBool(key: String): Boolean {
-            val element = metadata[key] ?: return false
+        fun getBool(key: String): Boolean? {
+            val element = metadataMap[key] ?: return null
             val content = element.jsonPrimitive.content.trim()
             return content.equals("true", ignoreCase = true) || 
                    content == "1" || 
                    element.jsonPrimitive.booleanOrNull == true
         }
 
-        val isApproved = getBool("approved")
+        // Check top-level first, then various metadata keys
+        val approved = isApproved 
+            ?: getBool("approved") 
+            ?: getBool("is_approved") 
+            ?: true // Default to true if no approval field exists to ensure data is visible
         
         val posTrimmed = pos.trim()
-        val isComplete = when (posTrimmed) {
-            "V" -> {
-                metadata.containsKey("praeteritum") && 
-                metadata.containsKey("partizip_ii") && 
-                metadata.containsKey("perfekt")
-            }
-            "N" -> {
-                gender != null && metadata.containsKey("plural")
-            }
-            "Adj" -> {
-                (metadata.containsKey("comparative") && metadata.containsKey("superlative")) ||
-                getBool("no_comparison")
-            }
-            else -> false
-        }
+        // Trust the server's is_complete field. If the server doesn't send it, assume complete.
+        // The old metadata heuristic was wrong: inflections are stored as separate DB rows,
+        // not as keys inside the lexeme metadata object.
+        val complete = isComplete ?: true
+
+        // Extract CEFR level from metadata — try common key variants
+        val cefrLevel = metadataMap["level"]?.jsonPrimitive?.content?.trim()
+            ?: metadataMap["cefr_level"]?.jsonPrimitive?.content?.trim()
+            ?: metadataMap["cefrLevel"]?.jsonPrimitive?.content?.trim()
+            ?: metadataMap["cefr"]?.jsonPrimitive?.content?.trim()
 
         return LexemeEntity(
             id = id.trim(),
@@ -114,12 +115,13 @@ class SupabaseLexemeApi @Inject constructor(
             language = language.trim(),
             pos = posTrimmed,
             gender = gender?.trim(),
-            metadataJson = metadata.toString(),
+            metadataJson = metadataMap.toString(),
+            cefrLevel = cefrLevel,
             frequencyRank = frequencyRank,
             sourceIdsJson = sourceIds.toString(),
             updatedAt = updatedAt.trim(),
-            isApproved = isApproved,
-            isComplete = isComplete
+            isApproved = approved,
+            isComplete = complete,
         )
     }
 }

@@ -162,8 +162,14 @@ fun ModeSelector(
 }
 
 @Composable
-fun LevelSelector(current: String, onChange: (String) -> Unit) {
+fun LevelSelector(current: String?, onChange: (String?) -> Unit) {
     Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        // "Alle" chip — passes null to disable level filtering
+        FilterChip(
+            selected = current == null,
+            onClick = { onChange(null) },
+            label = { Text("Alle") },
+        )
         listOf("A1","A2","B1","B2","C1").forEach { level ->
             FilterChip(
                 selected = current == level,

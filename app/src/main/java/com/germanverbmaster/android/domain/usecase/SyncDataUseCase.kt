@@ -50,7 +50,9 @@ class SyncDataUseCase @Inject constructor(
                 val allLexemeIds = lexemeRepository.getAllIds().toSet()
                 val totalInDb = allLexemeIds.size
                 val approvedComplete = lexemeRepository.countApprovedAndComplete()
-                Log.d("SyncDataUseCase", "Local DB state: Total Lexemes=$totalInDb, Approved/Complete=$approvedComplete")
+                val approvedOnly = database.lexemeDao().countApproved()
+                val completeOnly = database.lexemeDao().countComplete()
+                Log.d("SyncDataUseCase", "Local DB state: Total=$totalInDb, Approved=$approvedOnly, Complete=$completeOnly, Approved+Complete=$approvedComplete")
 
                 inflectionResult?.let { inflections ->
                     val (safe, orphaned) = inflections.partition { it.lexemeId in allLexemeIds }
@@ -63,12 +65,22 @@ class SyncDataUseCase @Inject constructor(
                 }
                 
                 taskResult?.let { tasks ->
+                    // Build a map of Lexeme ID -> CEFR Level for level propagation
+                    val lexemeLevelMap = database.lexemeDao().getAllLevels().associate { it.id to it.cefrLevel }
+                    
                     val (safe, orphaned) = tasks.partition { it.lexemeId in allLexemeIds }
                     if (orphaned.isNotEmpty()) {
                         Log.w("SyncDataUseCase", "Skipping ${orphaned.size} tasks with unknown lexeme IDs.")
                     }
-                    Log.d("SyncDataUseCase", "Saving ${safe.size} safe tasks...")
-                    taskRepository.saveToLocal(safe)
+                    
+                    // Propagate level from lexeme to task entity if task level is missing
+                    val taskEntities = safe.map { remoteTask ->
+                        val lexemeLevel = lexemeLevelMap[remoteTask.lexemeId]
+                        with(taskRepository.api) { remoteTask.toEntity(cefrLevel = lexemeLevel) }
+                    }
+                    
+                    Log.d("SyncDataUseCase", "Saving ${taskEntities.size} safe tasks with propagated levels...")
+                    database.taskSpecDao().upsertAll(taskEntities)
                 }
                 success = true
             }

@@ -18,7 +18,7 @@ import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
         TaskSpecEntity::class,
         PracticeHistoryEntity::class,
     ],
-    version = 2,
+    version = 4,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {

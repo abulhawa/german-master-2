@@ -22,7 +22,7 @@ data class HomeUiState(
     val isSyncing: Boolean = false,
     val isOffline: Boolean = false,
     val mode: PracticeMode = PracticeMode.ALL,
-    val cefrLevel: String = "B2",
+    val cefrLevel: String? = null,  // null = no level filter; set explicitly by user
     val b2ExamMode: Boolean = false,
     val queue: List<TaskCard> = emptyList(),
     val currentTask: TaskCard? = null,
@@ -70,7 +70,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch { loadNextBatch() }
     }
 
-    fun setCefrLevel(level: String) {
+    fun setCefrLevel(level: String?) {
         _state.update { it.copy(cefrLevel = level) }
         viewModelScope.launch { loadNextBatch() }
     }

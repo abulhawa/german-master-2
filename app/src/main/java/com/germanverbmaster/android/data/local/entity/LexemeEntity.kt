@@ -15,6 +15,7 @@ data class LexemeEntity(
     val pos: String,           // "V" | "N" | "Adj"
     val gender: String? = null,
     val metadataJson: String = "{}",
+    val cefrLevel: String? = null,
     val frequencyRank: Int? = null,
     val sourceIdsJson: String = "[]",
     val updatedAt: String = "",
