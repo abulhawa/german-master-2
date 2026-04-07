@@ -6,10 +6,12 @@ import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
+import com.germanverbmaster.android.data.local.dao.WordDao
 import com.germanverbmaster.android.data.local.entity.InflectionEntity
 import com.germanverbmaster.android.data.local.entity.LexemeEntity
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
+import com.germanverbmaster.android.data.local.entity.WordEntity
 
 @Database(
     entities = [
@@ -17,8 +19,9 @@ import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
         InflectionEntity::class,
         TaskSpecEntity::class,
         PracticeHistoryEntity::class,
+        WordEntity::class,
     ],
-    version = 4,
+    version = 6,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -26,4 +29,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun taskSpecDao(): TaskSpecDao
     abstract fun practiceHistoryDao(): PracticeHistoryDao
     abstract fun inflectionDao(): InflectionDao
+    abstract fun wordDao(): WordDao
 }

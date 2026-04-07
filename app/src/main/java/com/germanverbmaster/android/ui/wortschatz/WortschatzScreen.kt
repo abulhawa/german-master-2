@@ -16,9 +16,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -38,9 +40,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.germanverbmaster.android.domain.model.B2Card
+import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import java.time.LocalDate
 
@@ -73,23 +75,74 @@ fun WortschatzScreen(
 
         Spacer(Modifier.height(8.dp))
 
-        // Topic filter chips
+        // Level filter
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
-            contentPadding = PaddingValues(bottom = 8.dp),
+            contentPadding = PaddingValues(bottom = 4.dp),
         ) {
-            items(state.topics) { topic ->
+            items(LEVEL_FILTERS) { level ->
                 FilterChip(
-                    selected = state.selectedTopic == topic,
-                    onClick = { viewModel.selectTopic(topic) },
-                    label = { Text(topic, style = MaterialTheme.typography.labelSmall) },
+                    selected = state.selectedLevel == level,
+                    onClick = { viewModel.selectLevel(level) },
+                    label = { Text(level, style = MaterialTheme.typography.labelSmall) },
                 )
             }
         }
 
-        when (state.tab) {
-            WortschatzTab.LIST  -> WordListContent(state.listCards)
-            WortschatzTab.DRILL -> DrillContent(state, viewModel)
+        // POS filter
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            contentPadding = PaddingValues(bottom = 8.dp),
+        ) {
+            items(POS_FILTERS) { pos ->
+                FilterChip(
+                    selected = state.selectedPos == pos,
+                    onClick = { viewModel.selectPos(pos) },
+                    label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
+                )
+            }
+        }
+
+        // Count label
+        if (!state.isLoading) {
+            Text(
+                "${state.listCards.size} Wörter",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                modifier = Modifier.padding(bottom = 6.dp),
+            )
+        }
+
+        // Sync error banner
+        state.syncError?.let { err ->
+            Surface(
+                color = MaterialTheme.colorScheme.errorContainer,
+                shape = MaterialTheme.shapes.small,
+                modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+            ) {
+                Text(
+                    err,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                    modifier = Modifier.padding(8.dp),
+                )
+            }
+        }
+
+        when {
+            state.isLoading -> {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        CircularProgressIndicator()
+                        Spacer(Modifier.height(12.dp))
+                        Text("Wörter werden geladen…", style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+            }
+            else -> when (state.tab) {
+                WortschatzTab.LIST  -> WordListContent(state.listCards)
+                WortschatzTab.DRILL -> DrillContent(state, viewModel)
+            }
         }
     }
 }
@@ -97,26 +150,29 @@ fun WortschatzScreen(
 // ─── Word List ────────────────────────────────────────────────────────────────
 
 @Composable
-private fun WordListContent(cards: List<B2Card>) {
+private fun WordListContent(cards: List<WordEntity>) {
     if (cards.isEmpty()) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("Keine Wörter für dieses Thema.", style = MaterialTheme.typography.bodyMedium)
+            Text("Keine Wörter für diese Filter.", style = MaterialTheme.typography.bodyMedium)
         }
         return
     }
 
-    // Group by topic sub-label
-    val grouped = cards.groupBy { it.topic ?: "Allgemein" }
+    // Group by POS for readability
+    val grouped = cards.groupBy { it.pos }
+    val posOrder = listOf("V", "N", "Adj")
+    val posNames = mapOf("V" to "Verben", "N" to "Nomen", "Adj" to "Adjektive")
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         contentPadding = PaddingValues(bottom = 24.dp),
     ) {
-        grouped.forEach { (topic, groupCards) ->
+        val sortedGroups = grouped.entries.sortedBy { posOrder.indexOf(it.key) }
+        sortedGroups.forEach { (pos, groupCards) ->
             item {
                 Text(
-                    text = topic,
+                    text = posNames[pos] ?: pos,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary,
@@ -140,7 +196,13 @@ private fun WordListContent(cards: List<B2Card>) {
 }
 
 @Composable
-private fun WordRow(card: B2Card) {
+private fun WordRow(card: WordEntity) {
+    // Build display label: add article for nouns
+    val displayLemma = when {
+        card.pos == "N" && card.gender != null -> "${genderArticle(card.gender)} ${card.lemma}"
+        else -> card.lemma
+    }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -150,20 +212,29 @@ private fun WordRow(card: B2Card) {
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = card.front,
+                text = displayLemma,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.SemiBold,
             )
-            Text(
-                text = card.example,
-                style = MaterialTheme.typography.bodySmall,
-                fontStyle = FontStyle.Italic,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
-            )
+            card.exampleDe?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.bodySmall,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
+                )
+            }
+            card.exampleEn?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
+                )
+            }
         }
         Spacer(Modifier.padding(horizontal = 8.dp))
         Text(
-            text = card.back,
+            text = card.english ?: "",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.primary,
             textAlign = TextAlign.End,
@@ -172,98 +243,111 @@ private fun WordRow(card: B2Card) {
     }
 }
 
+private fun genderArticle(gender: String): String = when (gender.lowercase()) {
+    "m"          -> "der"
+    "f"          -> "die"
+    "n"          -> "das"
+    else         -> ""
+}
+
 // ─── Drill ────────────────────────────────────────────────────────────────────
 
 @Composable
-private fun ColumnScope.DrillContent(state: WortschatzUiState, viewModel: WortschatzViewModel) {
-    // Stats row
-    Row(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        DrillStatChip("✓ ${state.drillCorrect}", MaterialTheme.colorScheme.primaryContainer, Modifier.weight(1f))
-        DrillStatChip("✗ ${state.drillWrong}", MaterialTheme.colorScheme.errorContainer, Modifier.weight(1f))
-        DrillStatChip("${state.drillAccuracy.toInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
-    }
+private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewModel) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            DrillStatChip("✓ ${state.drillCorrect}", MaterialTheme.colorScheme.primaryContainer, Modifier.weight(1f))
+            DrillStatChip("✗ ${state.drillWrong}",   MaterialTheme.colorScheme.errorContainer,   Modifier.weight(1f))
+            DrillStatChip("${state.drillAccuracy.toInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
+        }
 
-    LinearProgressIndicator(
-        progress = { state.drillProgress },
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-    )
-    Text(
-        "${minOf(state.drillIndex + 1, state.drillQueue.size)} / ${state.drillQueue.size}",
-        style = MaterialTheme.typography.labelSmall,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-        modifier = Modifier
-            .align(Alignment.End)
-            .padding(bottom = 8.dp),
-    )
-
-    if (state.drillDone) {
-        DrillDoneCard(
-            correct = state.drillCorrect,
-            wrong = state.drillWrong,
-            accuracy = state.drillAccuracy,
-            onRestart = viewModel::restartDrill,
+        LinearProgressIndicator(
+            progress = { state.drillProgress },
+            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
         )
-    } else {
-        state.drillCurrent?.let { card ->
-            DrillFlipCard(
-                card = card,
-                isFlipped = state.drillFlipped,
-                onFlip = viewModel::flip,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
+        Text(
+            "${minOf(state.drillIndex + 1, state.drillQueue.size)} / ${state.drillQueue.size}",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(bottom = 8.dp),
+        )
+
+        if (state.drillDone) {
+            DrillDoneCard(
+                correct  = state.drillCorrect,
+                wrong    = state.drillWrong,
+                accuracy = state.drillAccuracy,
+                onRestart = viewModel::restartDrill,
             )
+        } else {
+            state.drillCurrent?.let { card ->
+                DrillFlipCard(
+                    card      = card,
+                    isFlipped = state.drillFlipped,
+                    onFlip    = viewModel::flip,
+                    modifier  = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                )
 
-            if (state.drillFlipped) {
-                Spacer(Modifier.height(12.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Button(
-                        onClick = viewModel::markWrong,
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.errorContainer,
-                            contentColor = MaterialTheme.colorScheme.onErrorContainer,
-                        ),
-                        modifier = Modifier.weight(1f).height(48.dp),
-                    ) { Text("✗ Falsch") }
+                if (state.drillFlipped) {
+                    Spacer(Modifier.height(12.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Button(
+                            onClick = viewModel::markWrong,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.errorContainer,
+                                contentColor   = MaterialTheme.colorScheme.onErrorContainer,
+                            ),
+                            modifier = Modifier.weight(1f).height(48.dp),
+                        ) { Text("✗ Falsch") }
 
-                    OutlinedButton(
-                        onClick = viewModel::skip,
-                        modifier = Modifier.weight(1f).height(48.dp),
-                    ) { Text("→ Skip") }
+                        OutlinedButton(
+                            onClick  = viewModel::skip,
+                            modifier = Modifier.weight(1f).height(48.dp),
+                        ) { Text("→ Skip") }
 
-                    Button(
-                        onClick = viewModel::markCorrect,
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        ),
-                        modifier = Modifier.weight(1f).height(48.dp),
-                    ) { Text("✓ Richtig") }
+                        Button(
+                            onClick = viewModel::markCorrect,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                contentColor   = MaterialTheme.colorScheme.onPrimaryContainer,
+                            ),
+                            modifier = Modifier.weight(1f).height(48.dp),
+                        ) { Text("✓ Richtig") }
+                    }
                 }
+                Spacer(Modifier.height(16.dp))
             }
-            Spacer(Modifier.height(16.dp))
         }
     }
 }
 
 @Composable
 private fun DrillFlipCard(
-    card: B2Card,
+    card: WordEntity,
     isFlipped: Boolean,
     onFlip: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val rotation by animateFloatAsState(
-        targetValue = if (isFlipped) 180f else 0f,
-        animationSpec = tween(durationMillis = 400),
-        label = "drill_flip",
+        targetValue    = if (isFlipped) 180f else 0f,
+        animationSpec  = tween(durationMillis = 400),
+        label          = "drill_flip",
     )
+
+    val displayFront = when {
+        card.pos == "N" && card.gender != null -> "${genderArticle(card.gender)} ${card.lemma}"
+        else -> card.lemma
+    }
 
     Box(modifier = modifier.clickable { if (!isFlipped) onFlip() }) {
         if (rotation <= 90f) {
@@ -272,26 +356,39 @@ private fun DrillFlipCard(
                     .fillMaxSize()
                     .graphicsLayer { rotationY = rotation },
             ) {
-                // Topic badge
-                card.topic?.let { topic ->
+                // Level + POS badge row
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    card.level?.let { level ->
+                        Surface(
+                            shape = MaterialTheme.shapes.small,
+                            color = MaterialTheme.colorScheme.secondaryContainer,
+                        ) {
+                            Text(
+                                level,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            )
+                        }
+                    }
                     Surface(
                         shape = MaterialTheme.shapes.small,
-                        color = MaterialTheme.colorScheme.secondaryContainer,
+                        color = MaterialTheme.colorScheme.tertiaryContainer,
                     ) {
                         Text(
-                            topic,
+                            card.pos,
                             style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            color = MaterialTheme.colorScheme.onTertiaryContainer,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                         )
                     }
-                    Spacer(Modifier.height(12.dp))
                 }
+                Spacer(Modifier.height(16.dp))
                 Text(
-                    text = card.front,
+                    text  = displayFront,
                     style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = TextAlign.Center,
+                    fontWeight   = FontWeight.SemiBold,
+                    textAlign    = TextAlign.Center,
                 )
                 Spacer(Modifier.height(16.dp))
                 Text(
@@ -309,24 +406,35 @@ private fun DrillFlipCard(
                     .graphicsLayer { rotationY = rotation - 180f },
             ) {
                 Text(
-                    text = card.back,
+                    text  = card.english ?: "",
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.primary,
-                    textAlign = TextAlign.Center,
+                    color      = MaterialTheme.colorScheme.primary,
+                    textAlign  = TextAlign.Center,
                 )
-                Spacer(Modifier.height(14.dp))
-                Surface(
-                    shape = MaterialTheme.shapes.small,
-                    color = MaterialTheme.colorScheme.surfaceVariant,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(
-                        text = card.example,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontStyle = FontStyle.Italic,
-                        modifier = Modifier.padding(12.dp),
-                    )
+                card.exampleDe?.let { ex ->
+                    Spacer(Modifier.height(14.dp))
+                    Surface(
+                        shape    = MaterialTheme.shapes.small,
+                        color    = MaterialTheme.colorScheme.surfaceVariant,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp)) {
+                            Text(
+                                text     = ex,
+                                style    = MaterialTheme.typography.bodyMedium,
+                                fontStyle = FontStyle.Italic,
+                            )
+                            card.exampleEn?.let { en ->
+                                Spacer(Modifier.height(4.dp))
+                                Text(
+                                    text  = en,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -339,16 +447,16 @@ private fun DrillCardFace(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     ElevatedCard(
-        modifier = modifier,
+        modifier  = modifier,
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
     ) {
         Column(
-            modifier = Modifier
+            modifier              = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            content = content,
+            horizontalAlignment   = Alignment.CenterHorizontally,
+            verticalArrangement   = Arrangement.Center,
+            content               = content,
         )
     }
 }
@@ -358,9 +466,9 @@ private fun DrillStatChip(label: String, color: androidx.compose.ui.graphics.Col
     Surface(shape = MaterialTheme.shapes.small, color = color, modifier = modifier) {
         Text(
             label,
-            style = MaterialTheme.typography.labelLarge,
+            style     = MaterialTheme.typography.labelLarge,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(vertical = 6.dp),
+            modifier  = Modifier.padding(vertical = 6.dp),
         )
     }
 }
@@ -368,7 +476,7 @@ private fun DrillStatChip(label: String, color: androidx.compose.ui.graphics.Col
 @Composable
 private fun DrillDoneCard(correct: Int, wrong: Int, accuracy: Float, onRestart: () -> Unit) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(24.dp),
+        modifier            = Modifier.fillMaxWidth().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text("Runde abgeschlossen! 🎉", style = MaterialTheme.typography.headlineSmall)

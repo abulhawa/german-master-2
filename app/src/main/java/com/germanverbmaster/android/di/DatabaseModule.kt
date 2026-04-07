@@ -6,6 +6,7 @@ import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
+import com.germanverbmaster.android.data.local.dao.WordDao
 import com.germanverbmaster.android.data.local.db.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -39,4 +40,7 @@ object DatabaseModule {
 
     @Provides
     fun provideInflectionDao(db: AppDatabase): InflectionDao = db.inflectionDao()
+
+    @Provides
+    fun provideWordDao(db: AppDatabase): WordDao = db.wordDao()
 }
