@@ -17,5 +17,6 @@ data class WordEntity(
     val exampleDe: String?,
     val exampleEn: String?,
     val gender: String?,        // "m" | "f" | "n" — for nouns
+    val plural: String?,        // for nouns
     val updatedAt: String = "",
 )

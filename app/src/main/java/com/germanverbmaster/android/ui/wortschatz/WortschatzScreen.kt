@@ -197,10 +197,13 @@ private fun WordListContent(cards: List<WordEntity>) {
 
 @Composable
 private fun WordRow(card: WordEntity) {
-    // Build display label: add article for nouns
-    val displayLemma = when {
-        card.pos == "N" && card.gender != null -> "${genderArticle(card.gender)} ${card.lemma}"
-        else -> card.lemma
+    // Build display label: add article and plural for nouns
+    val displayLemma = if (card.pos == "N") {
+        val article = card.gender?.let { genderArticle(it) } ?: ""
+        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
+        if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, die ${card.plural}" else lemmaWithArticle
+    } else {
+        card.lemma
     }
 
     Row(
@@ -344,9 +347,12 @@ private fun DrillFlipCard(
         label          = "drill_flip",
     )
 
-    val displayFront = when {
-        card.pos == "N" && card.gender != null -> "${genderArticle(card.gender)} ${card.lemma}"
-        else -> card.lemma
+    val displayFront = if (card.pos == "N") {
+        val article = card.gender?.let { genderArticle(it) } ?: ""
+        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
+        if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, die ${card.plural}" else lemmaWithArticle
+    } else {
+        card.lemma
     }
 
     Box(modifier = modifier.clickable { if (!isFlipped) onFlip() }) {

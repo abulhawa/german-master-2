@@ -19,6 +19,7 @@ data class RemoteWord(
     @SerialName("example_de") val exampleDe: String? = null,
     @SerialName("example_en") val exampleEn: String? = null,
     val gender: String? = null,
+    val plural: String? = null,
     @SerialName("updated_at") val updatedAt: String = "",
 )
 
@@ -79,6 +80,7 @@ class SupabaseWordsApi @Inject constructor(
         exampleDe = exampleDe?.trim(),
         exampleEn = exampleEn?.trim(),
         gender = gender?.trim(),
+        plural = plural?.trim(),
         updatedAt = updatedAt.trim(),
     )
 }
