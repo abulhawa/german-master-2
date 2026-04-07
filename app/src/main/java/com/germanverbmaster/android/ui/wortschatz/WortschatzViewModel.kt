@@ -16,8 +16,19 @@ import javax.inject.Inject
 // ─── Filter options ───────────────────────────────────────────────────────────
 
 val LEVEL_FILTERS = listOf("Alle", "A1", "A2", "B1", "B2", "C1")
-val POS_FILTERS   = listOf("Alle", "V", "N", "Adj")
-val POS_LABELS    = mapOf("Alle" to "Alle", "V" to "Verben", "N" to "Nomen", "Adj" to "Adjektive")
+val POS_LABELS    = mapOf(
+    "Alle" to "Alle",
+    "V"    to "Verben",
+    "N"    to "Nomen",
+    "Adj"  to "Adjektive",
+    "Adv"  to "Adverbien",
+    "Prep" to "Präpositionen",
+    "Conj" to "Konjunktionen",
+    "Pron" to "Pronomen",
+    "Int"  to "Interjektionen",
+    "Art"  to "Artikel",
+    "Num"  to "Numerale"
+)
 
 // ─── Screen modes ─────────────────────────────────────────────────────────────
 
@@ -34,6 +45,7 @@ data class WortschatzUiState(
     // Filters
     val selectedLevel: String = "B2",
     val selectedPos: String = "Alle",
+    val posOptions: List<String> = listOf("Alle", "V", "N", "Adj"),
 
     // Loading
     val isLoading: Boolean = true,
@@ -81,6 +93,7 @@ class WortschatzViewModel @Inject constructor(
             }
         }
         observeWords()
+        observePosFilters()
     }
 
     fun selectTab(tab: WortschatzTab) {
@@ -111,6 +124,15 @@ class WortschatzViewModel @Inject constructor(
     // ─── private ──────────────────────────────────────────────────────────────
 
     private var observeJob: kotlinx.coroutines.Job? = null
+
+    private fun observePosFilters() {
+        viewModelScope.launch {
+            repo.observeDistinctPos().collect { posList ->
+                val filters = listOf("Alle") + posList
+                _state.update { it.copy(posOptions = filters) }
+            }
+        }
+    }
 
     private fun observeWords() {
         observeJob?.cancel()

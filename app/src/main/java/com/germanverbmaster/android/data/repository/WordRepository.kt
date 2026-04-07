@@ -22,6 +22,8 @@ class WordRepository @Inject constructor(
     fun observeByLevelAndPos(level: String, pos: String): Flow<List<WordEntity>> =
         dao.observeByLevelAndPos(level, pos)
 
+    fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
+
     suspend fun needsSync(): Boolean = dao.count() < 100
 
     suspend fun sync() {

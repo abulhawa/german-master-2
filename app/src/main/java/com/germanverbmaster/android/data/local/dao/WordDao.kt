@@ -29,6 +29,9 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE english IS NOT NULL AND level = :level AND pos = :pos ORDER BY lemma ASC")
     fun observeByLevelAndPos(level: String, pos: String): Flow<List<WordEntity>>
 
+    @Query("SELECT DISTINCT pos FROM words WHERE english IS NOT NULL ORDER BY pos ASC")
+    fun observeDistinctPos(): Flow<List<String>>
+
     @Query("SELECT COUNT(*) FROM words")
     suspend fun count(): Int
 

@@ -94,7 +94,7 @@ fun WortschatzScreen(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
             contentPadding = PaddingValues(bottom = 8.dp),
         ) {
-            items(POS_FILTERS) { pos ->
+            items(state.posOptions) { pos ->
                 FilterChip(
                     selected = state.selectedPos == pos,
                     onClick = { viewModel.selectPos(pos) },
@@ -160,19 +160,21 @@ private fun WordListContent(cards: List<WordEntity>) {
 
     // Group by POS for readability
     val grouped = cards.groupBy { it.pos }
-    val posOrder = listOf("V", "N", "Adj")
-    val posNames = mapOf("V" to "Verben", "N" to "Nomen", "Adj" to "Adjektive")
+    val posOrder = listOf("V", "N", "Adj", "Adv", "Prep", "Conj", "Pron", "Art", "Num", "Int")
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         contentPadding = PaddingValues(bottom = 24.dp),
     ) {
-        val sortedGroups = grouped.entries.sortedBy { posOrder.indexOf(it.key) }
+        val sortedGroups = grouped.entries.sortedBy { 
+            val idx = posOrder.indexOf(it.key)
+            if (idx == -1) 99 else idx
+        }
         sortedGroups.forEach { (pos, groupCards) ->
             item {
                 Text(
-                    text = posNames[pos] ?: pos,
+                    text = POS_LABELS[pos] ?: pos,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary,
