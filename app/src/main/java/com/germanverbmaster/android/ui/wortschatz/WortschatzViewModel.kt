@@ -98,7 +98,7 @@ class WortschatzViewModel @Inject constructor(
         observeWords()
     }
 
-    fun flip()        = _state.update { it.copy(drillFlipped = true) }
+    fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
     fun markCorrect() { _state.update { it.copy(drillCorrect = it.drillCorrect + 1) }; advance() }
     fun markWrong()   { _state.update { it.copy(drillWrong   = it.drillWrong   + 1) }; advance() }
     fun skip()        = advance()

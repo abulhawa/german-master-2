@@ -355,7 +355,7 @@ private fun DrillFlipCard(
         card.lemma
     }
 
-    Box(modifier = modifier.clickable { if (!isFlipped) onFlip() }) {
+    Box(modifier = modifier.clickable { onFlip() }) {
         if (rotation <= 90f) {
             DrillCardFace(
                 modifier = Modifier
