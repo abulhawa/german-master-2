@@ -40,7 +40,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
@@ -392,7 +392,7 @@ private fun DrillFlipCard(
                 Spacer(Modifier.height(16.dp))
                 Text(
                     text  = displayFront,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineLarge,
                     fontWeight   = FontWeight.SemiBold,
                     textAlign    = TextAlign.Center,
                 )
@@ -413,7 +413,7 @@ private fun DrillFlipCard(
             ) {
                 Text(
                     text  = card.english ?: "",
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineLarge,
                     fontWeight = FontWeight.SemiBold,
                     color      = MaterialTheme.colorScheme.primary,
                     textAlign  = TextAlign.Center,
@@ -428,14 +428,14 @@ private fun DrillFlipCard(
                         Column(modifier = Modifier.padding(12.dp)) {
                             Text(
                                 text     = ex,
-                                style    = MaterialTheme.typography.bodyMedium,
+                                style    = MaterialTheme.typography.titleLarge,
                                 fontStyle = FontStyle.Italic,
                             )
                             card.exampleEn?.let { en ->
                                 Spacer(Modifier.height(4.dp))
                                 Text(
                                     text  = en,
-                                    style = MaterialTheme.typography.bodySmall,
+                                    style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
                                 )
                             }
