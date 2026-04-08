@@ -85,14 +85,9 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
 
         // Practice card area
         when {
-            state.isLoading || state.isSyncing -> {
+            state.isLoading -> {
                 Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        CircularProgressIndicator()
-                        Spacer(Modifier.height(12.dp))
-                        Text(if (state.isSyncing) "Synchronisiere Daten…" else "Lade Aufgaben…",
-                            style = MaterialTheme.typography.bodyMedium)
-                    }
+                    CircularProgressIndicator()
                 }
             }
             state.currentTask != null -> {
@@ -108,13 +103,22 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )
             }
+            state.isSyncing -> {
+                Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        CircularProgressIndicator()
+                        Spacer(Modifier.height(12.dp))
+                        Text("Synchronisiere Daten…", style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+            }
             else -> {
                 Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text("Keine Aufgaben verfügbar",
                             style = MaterialTheme.typography.bodyLarge)
                         Spacer(Modifier.height(12.dp))
-                        Button(onClick = { viewModel.setMode(state.mode) }) {
+                        Button(onClick = { viewModel.refresh() }) {
                             Text("Neu laden")
                         }
                     }

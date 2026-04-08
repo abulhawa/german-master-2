@@ -65,6 +65,10 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun refresh() {
+        syncAndLoad()
+    }
+
     private suspend fun loadNextBatch() {
         val effectiveMode = if (_state.value.b2ExamMode) PracticeMode.B2_EXAM else _state.value.mode
         val tasks = getNextTask(
