@@ -45,15 +45,24 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun syncAndLoad() = viewModelScope.launch {
-        _state.update { it.copy(isSyncing = true, error = null) }
+        _state.update { it.copy(isLoading = true, error = null) }
+        
+        // 1. Load local data immediately so the app is usable offline/instantly
+        loadNextBatch()
+        _state.update { it.copy(isLoading = false) }
+
+        // 2. Run sync in the background
+        _state.update { it.copy(isSyncing = true) }
         try {
             syncData()
+            // 3. Refresh if sync brought in new/updated tasks
+            loadNextBatch()
         } catch (e: Exception) {
             e.printStackTrace()
             _state.update { it.copy(isOffline = true) }
+        } finally {
+            _state.update { it.copy(isSyncing = false) }
         }
-        loadNextBatch()
-        _state.update { it.copy(isSyncing = false, isLoading = false) }
     }
 
     private suspend fun loadNextBatch() {
