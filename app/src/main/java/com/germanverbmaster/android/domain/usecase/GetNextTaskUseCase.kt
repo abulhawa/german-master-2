@@ -70,11 +70,10 @@ class GetNextTaskUseCase @Inject constructor(
         val obj = json.decodeFromString<JsonObject>(raw)
         obj.entries.associate { (k, v) ->
             k to when (v) {
-                is JsonPrimitive -> v.content          // unwrap string/number/bool
                 is JsonNull      -> ""                 // null → empty string
+                is JsonPrimitive -> v.content          // unwrap string/number/bool
                 is JsonObject    -> v.toString()       // nested object → JSON string
                 is JsonArray     -> v.toString()       // array → JSON string
-                else             -> v.toString()
             }
         }
     }.onFailure { e ->

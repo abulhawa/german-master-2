@@ -11,6 +11,7 @@ data class PracticeHistoryEntity(
     val lemma: String = "",    // Added to avoid complex joins for history list
     val pos: String,           // "V" | "N" | "Adj"
     val taskType: String,
+    val renderer: String = "default", // Matches the renderer in task_specs
     val result: String,        // "correct" | "incorrect"
     val submittedAnswer: String = "",
     val correctAnswer: String = "",

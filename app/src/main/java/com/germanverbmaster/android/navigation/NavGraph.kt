@@ -2,8 +2,7 @@ package com.germanverbmaster.android.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Analytics
-import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Stars
@@ -21,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.germanverbmaster.android.ui.analytics.AnalyticsScreen
+import com.germanverbmaster.android.ui.auth.AuthScreen
 import com.germanverbmaster.android.ui.b2practice.B2PracticeScreen
 import com.germanverbmaster.android.ui.history.AnswerHistoryScreen
 import com.germanverbmaster.android.ui.home.HomeScreen
@@ -42,8 +42,7 @@ fun AppNavGraph() {
         NavItem(Screen.Home, "Practice") { Icon(Icons.Default.Stars, "Practice") },
         NavItem(Screen.B2Practice, "B2 Prüfung") { Icon(Icons.Default.School, "B2 Prüfung") },
         NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.Default.MenuBook, "Wortschatz") },
-        NavItem(Screen.Analytics, "Analytics") { Icon(Icons.Default.Analytics, "Analytics") },
-        NavItem(Screen.History, "History") { Icon(Icons.Default.History, "History") },
+        NavItem(Screen.Auth, "Account") { Icon(Icons.Default.AccountCircle, "Account") },
     )
 
     Scaffold(
@@ -81,6 +80,17 @@ fun AppNavGraph() {
             composable(Screen.Wortschatz.route)  { WortschatzScreen() }
             composable(Screen.Analytics.route)   { AnalyticsScreen() }
             composable(Screen.History.route)     { AnswerHistoryScreen() }
+            composable(Screen.Auth.route) {
+                AuthScreen(
+                    onNavigateToAnalytics = { navController.navigate(Screen.Analytics.route) },
+                    onNavigateToHistory = { navController.navigate(Screen.History.route) },
+                    onAuthSuccess = {
+                        navController.navigate(Screen.Home.route) {
+                            popUpTo(Screen.Auth.route) { inclusive = true }
+                        }
+                    }
+                )
+            }
         }
     }
 }

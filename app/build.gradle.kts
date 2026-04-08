@@ -31,6 +31,8 @@ android {
             "\"${localProps.getProperty("supabase.url", "")}\"")
         buildConfigField("String", "SUPABASE_ANON_KEY",
             "\"${localProps.getProperty("supabase.anon.key", "")}\"")
+        buildConfigField("String", "GOOGLE_WEB_CLIENT_ID",
+            "\"${localProps.getProperty("google.web.client.id", "YOUR_WEB_CLIENT_ID_HERE")}\"")
     }
 
     signingConfigs {
@@ -137,4 +139,9 @@ dependencies {
 
     // Core
     implementation(libs.core.ktx)
+
+    // Google Login & Credentials
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
 }

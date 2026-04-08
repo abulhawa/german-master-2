@@ -22,6 +22,14 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- Supabase Auth Redirect - Custom Scheme -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="callback" android:scheme="io.supabase.germanverbmaster" />
+            </intent-filter>
         </activity>
 
         <!-- Disable default WorkManager initializer for Hilt custom configuration -->

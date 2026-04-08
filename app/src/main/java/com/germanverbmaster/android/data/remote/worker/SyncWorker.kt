@@ -23,7 +23,10 @@ class SyncWorker @AssistedInject constructor(
             // 1. Sync lexemes and task specs from Supabase
             syncDataUseCase()
             
-            // 2. Flush local practice history to Supabase
+            // 2. RESTORE history from Supabase (Pull)
+            practiceRepository.fetchFromSupabase()
+            
+            // 3. Flush local practice history to Supabase (Push)
             practiceRepository.flushToSupabase()
             
             Result.success()

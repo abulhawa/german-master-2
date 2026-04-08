@@ -25,17 +25,27 @@ class SupabaseInflectionApi @Inject constructor(
         val pageSize = 1000
         val all = mutableListOf<RemoteInflection>()
         var from = 0
-        while (true) {
-            val page = client.postgrest["inflections"]
-                .select { 
-                    range(from.toLong(), (from + pageSize - 1).toLong())
-                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
-                }
-                .decodeList<RemoteInflection>()
-            all.addAll(page)
-            Log.d("SupabaseInflectionApi", "Fetched page from=$from, got ${page.size} rows, total=${all.size}")
-            if (page.size < pageSize) break
-            from += pageSize
+        Log.d("SupabaseInflectionApi", "Fetching all inflections...")
+        try {
+            while (true) {
+                val page = client.postgrest["inflections"]
+                    .select {
+                        range(from.toLong(), (from + pageSize - 1).toLong())
+                        order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                    }
+                    .decodeList<RemoteInflection>()
+                all.addAll(page)
+                Log.d("SupabaseInflectionApi", "Fetched page from=$from, got ${page.size} rows, total=${all.size}")
+                if (page.size < pageSize) break
+                from += pageSize
+            }
+        } catch (e: io.github.jan.supabase.postgrest.exception.PostgrestRestException) {
+            Log.e("SupabaseInflectionApi", "Postgrest Error: ${e.error} (Status: ${e.statusCode})", e)
+            Log.e("SupabaseInflectionApi", "Postgrest Hint: ${e.hint}")
+            throw e
+        } catch (e: Exception) {
+            Log.e("SupabaseInflectionApi", "General Error fetching inflections", e)
+            throw e
         }
         return all
     }

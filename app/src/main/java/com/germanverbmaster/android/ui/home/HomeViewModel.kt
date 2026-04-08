@@ -101,6 +101,7 @@ class HomeViewModel @Inject constructor(
                     lexemeId  = task.lexemeId,
                     pos       = task.pos,
                     taskType  = task.taskType,
+                    renderer  = task.renderer,
                     result    = if (isCorrect) "correct" else "incorrect",
                     responseMs = responseMs,
                     cefrLevel = task.cefrLevel,

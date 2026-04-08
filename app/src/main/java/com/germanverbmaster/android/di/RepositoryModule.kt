@@ -9,6 +9,7 @@ import com.germanverbmaster.android.data.remote.SupabaseInflectionApi
 import com.germanverbmaster.android.data.remote.SupabaseLexemeApi
 import com.germanverbmaster.android.data.remote.SupabaseTaskApi
 import com.germanverbmaster.android.data.remote.SupabaseWordsApi
+import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.InflectionRepository
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
@@ -46,8 +47,10 @@ object RepositoryModule {
     @Singleton
     fun providePracticeRepository(
         dao: PracticeHistoryDao,
-        client: SupabaseClient
-    ): PracticeRepository = PracticeRepository(dao, client)
+        client: SupabaseClient,
+        prefs: SyncPreferences,
+        authRepository: AuthRepository
+    ): PracticeRepository = PracticeRepository(dao, client, prefs, authRepository)
 
     @Provides
     @Singleton

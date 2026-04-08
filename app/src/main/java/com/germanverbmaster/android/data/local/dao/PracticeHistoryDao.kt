@@ -13,6 +13,12 @@ interface PracticeHistoryDao {
     @Insert
     suspend fun insert(entry: PracticeHistoryEntity): Long
 
+    @Insert(onConflict = androidx.room.OnConflictStrategy.IGNORE)
+    suspend fun insertIgnore(entries: List<PracticeHistoryEntity>)
+
+    @Query("SELECT COUNT(*) FROM practice_history")
+    suspend fun count(): Int
+
     @Update
     suspend fun update(entry: PracticeHistoryEntity)
 

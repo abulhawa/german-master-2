@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.wortschatz
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.WordEntity
@@ -88,6 +89,7 @@ class WortschatzViewModel @Inject constructor(
                 try {
                     repo.sync()
                 } catch (e: Exception) {
+                    Log.e("WortschatzViewModel", "Sync failed", e)
                     _state.update { it.copy(syncError = "Sync fehlgeschlagen: ${e.message}") }
                 }
             }

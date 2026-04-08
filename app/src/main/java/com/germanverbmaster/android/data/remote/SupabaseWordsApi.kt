@@ -3,6 +3,7 @@ package com.germanverbmaster.android.data.remote
 import android.util.Log
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import io.github.jan.supabase.SupabaseClient
+import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.filter.FilterOperator
 import kotlinx.serialization.SerialName
@@ -31,19 +32,28 @@ class SupabaseWordsApi @Inject constructor(
         val pageSize = 1000
         val all = mutableListOf<RemoteWord>()
         var from = 0
-        Log.d("SupabaseWordsApi", "Fetching all words...")
-        while (true) {
-            val page = client.postgrest["words"]
-                .select {
-                    filter { filterNot("english", FilterOperator.IS, null) }
-                    range(from.toLong(), (from + pageSize - 1).toLong())
-                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
-                }
-                .decodeList<RemoteWord>()
-            all.addAll(page)
-            Log.d("SupabaseWordsApi", "Page from=$from got ${page.size}, total=${all.size}")
-            if (page.size < pageSize) break
-            from += pageSize
+        Log.d("SupabaseWordsApi", "Fetching all words... URL: ${client.supabaseUrl}")
+        try {
+            while (true) {
+                val page = client.postgrest["words"]
+                    .select {
+                        filter { filterNot("english", FilterOperator.IS, null) }
+                        range(from.toLong(), (from + pageSize - 1).toLong())
+                        order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                    }
+                    .decodeList<RemoteWord>()
+                all.addAll(page)
+                Log.d("SupabaseWordsApi", "Page from=$from got ${page.size}, total=${all.size}")
+                if (page.size < pageSize) break
+                from += pageSize
+            }
+        } catch (e: PostgrestRestException) {
+            Log.e("SupabaseWordsApi", "Postgrest Error: ${e.error} (Status: ${e.statusCode})", e)
+            Log.e("SupabaseWordsApi", "Postgrest Hint: ${e.hint}")
+            throw e
+        } catch (e: Exception) {
+            Log.e("SupabaseWordsApi", "General Error fetching words", e)
+            throw e
         }
         return all
     }

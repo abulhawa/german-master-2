@@ -16,6 +16,7 @@ class SubmitAnswerUseCase @Inject constructor(
             lemma       = lemma,
             pos         = result.pos,
             taskType    = result.taskType,
+            renderer    = result.renderer,
             result      = result.result,
             submittedAnswer = submitted,
             correctAnswer = correct,

@@ -19,6 +19,7 @@ data class PracticeResult(
     val lexemeId: String,
     val pos: String,
     val taskType: String,
+    val renderer: String,
     val result: String,         // "correct" | "incorrect"
     val responseMs: Int,
     val cefrLevel: String?,
