@@ -1,15 +1,44 @@
 package com.germanverbmaster.android.ui.components
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.domain.model.TaskCard
+import com.germanverbmaster.android.speech.TextToSpeechHelper
 
 /**
  * Renders a practice card for any of the 3 task types:
@@ -25,10 +54,30 @@ fun PracticeCard(
     onSkip: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
+    val ttsHelper = remember { TextToSpeechHelper(context) }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            ttsHelper.shutdown()
+        }
+    }
+
     var answer by remember(task.taskId) { mutableStateOf("") }
     var revealed by remember(task.taskId) { mutableStateOf(false) }
     var hintsUsedCount by remember(task.taskId) { mutableIntStateOf(0) }
     val startMs = remember(task.taskId) { System.currentTimeMillis() }
+
+    // Speak prompt on new task
+    LaunchedEffect(task.taskId) {
+        val promptText = when (task.taskType) {
+            "conjugate_form" -> "${task.prompt["pronoun"] ?: ""} ${task.lemma}"
+            "noun_case_declension" -> task.prompt["context"] ?: task.lemma
+            "adj_ending" -> "${task.prompt["article_type"] ?: ""} ${task.lemma} ${task.prompt["noun"] ?: ""}"
+            else -> task.lemma
+        }
+        ttsHelper.speak(promptText)
+    }
 
     ElevatedCard(
         modifier = modifier,
@@ -68,7 +117,7 @@ fun PracticeCard(
             Spacer(Modifier.height(16.dp))
 
             // Prompt
-            PracticePrompt(task)
+            PracticePrompt(task, onSpeak = { ttsHelper.speak(it) })
 
             Spacer(Modifier.height(24.dp))
 
@@ -117,7 +166,12 @@ fun PracticeCard(
                         modifier = Modifier.weight(1f).height(48.dp),
                     ) { Text("Überspringen") }
                     Button(
-                        onClick = { revealed = true },
+                        onClick = { 
+                            revealed = true
+                            // Speak solution when revealed
+                            val solution = task.solution["form"] ?: task.solution["answer"] ?: task.solution.values.firstOrNull() ?: ""
+                            ttsHelper.speak(solution)
+                        },
                         modifier = Modifier.weight(1f).height(48.dp),
                         enabled = answer.isNotBlank(),
                     ) { Text("Prüfen") }
@@ -131,7 +185,7 @@ fun PracticeCard(
 
                 val isCorrect = answer.trim().equals(solution.trim(), ignoreCase = true)
 
-                ResultDisplay(isCorrect, answer, solution, task)
+                ResultDisplay(isCorrect, answer, solution, task, onSpeak = { ttsHelper.speak(it) })
 
                 Spacer(Modifier.weight(1f))
 
@@ -148,15 +202,20 @@ fun PracticeCard(
 }
 
 @Composable
-fun PracticePrompt(task: TaskCard) {
+fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         when (task.taskType) {
             "conjugate_form" -> {
-                Text(
-                    task.prompt["pronoun"] ?: "er/sie/es",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.primary
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        task.prompt["pronoun"] ?: "er/sie/es",
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    IconButton(onClick = { onSpeak("${task.prompt["pronoun"] ?: ""} ${task.lemma}") }) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
+                    }
+                }
                 Text(
                     "___",
                     style = MaterialTheme.typography.headlineLarge,
@@ -174,12 +233,17 @@ fun PracticePrompt(task: TaskCard) {
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.secondary
                 )
-                Text(
-                    task.prompt["context"] ?: task.lemma,
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        task.prompt["context"] ?: task.lemma,
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                    )
+                    IconButton(onClick = { onSpeak(task.prompt["context"] ?: task.lemma) }) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
+                    }
+                }
             }
             "adj_ending" -> {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -194,17 +258,25 @@ fun PracticePrompt(task: TaskCard) {
                     Text("___", style = MaterialTheme.typography.headlineSmall)
                     Spacer(Modifier.width(8.dp))
                     Text(task.prompt["noun"] ?: "", style = MaterialTheme.typography.bodyLarge)
+                    IconButton(onClick = { onSpeak("${task.prompt["article_type"] ?: ""} ${task.lemma} ${task.prompt["noun"] ?: ""}") }) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
+                    }
                 }
             }
             else -> {
-                Text(task.lemma, style = MaterialTheme.typography.headlineMedium)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(task.lemma, style = MaterialTheme.typography.headlineMedium)
+                    IconButton(onClick = { onSpeak(task.lemma) }) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
+                    }
+                }
             }
         }
     }
 }
 
 @Composable
-fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task: TaskCard) {
+fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task: TaskCard, onSpeak: (String) -> Unit) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Surface(
             shape = MaterialTheme.shapes.medium,
@@ -213,13 +285,27 @@ fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task:
             modifier = Modifier.fillMaxWidth(),
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    if (isCorrect) "✓ Richtig!" else "✗ Nicht ganz",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer
-                    else MaterialTheme.colorScheme.onErrorContainer,
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        if (isCorrect) "✓ Richtig!" else "✗ Nicht ganz",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer
+                        else MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                    IconButton(onClick = { onSpeak(solution) }) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.VolumeUp, 
+                            contentDescription = "Sprechen",
+                            tint = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer
+                                   else MaterialTheme.colorScheme.onErrorContainer
+                        )
+                    }
+                }
                 if (!isCorrect) {
                     Spacer(Modifier.height(8.dp))
                     Text(
@@ -241,7 +327,13 @@ fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task:
 
         // Example Sentence
         task.prompt["example"]?.let { ex ->
-            Text("Beispiel:", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("Beispiel:", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+                Spacer(Modifier.weight(1f))
+                IconButton(onClick = { onSpeak(ex) }, modifier = Modifier.size(24.dp)) {
+                    Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(16.dp))
+                }
+            }
             Text(
                 ex,
                 style = MaterialTheme.typography.bodyMedium,
@@ -257,9 +349,16 @@ fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task:
             ).joinToString(" | ")
             if (parts.isNotBlank()) {
                 Spacer(Modifier.height(8.dp))
-                Text("Stammformen:", style = MaterialTheme.typography.labelSmall)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Stammformen:", style = MaterialTheme.typography.labelSmall)
+                    Spacer(Modifier.weight(1f))
+                    IconButton(onClick = { onSpeak(parts.replace("|", ",")) }, modifier = Modifier.size(24.dp)) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(16.dp))
+                    }
+                }
                 Text(parts, style = MaterialTheme.typography.bodySmall)
             }
         }
     }
 }
+
