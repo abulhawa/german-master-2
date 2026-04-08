@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.play.publisher)
 }
 
 val localProps = Properties().apply {
@@ -23,8 +24,8 @@ android {
         applicationId = "com.germanverbmaster.android"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
@@ -32,8 +33,19 @@ android {
             "\"${localProps.getProperty("supabase.anon.key", "")}\"")
     }
 
+    signingConfigs {
+        create("release") {
+            val storeFilePath = localProps.getProperty("signing.storeFile")
+            storeFile = if (storeFilePath != null) file(storeFilePath) else file("placeholder.jks")
+            storePassword = localProps.getProperty("signing.storePassword")
+            keyAlias = localProps.getProperty("signing.keyAlias")
+            keyPassword = localProps.getProperty("signing.keyPassword")
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -55,6 +67,12 @@ android {
             keepDebugSymbols.add("**/libdatastore_shared_counter.so")
         }
     }
+}
+
+play {
+    serviceAccountCredentials.set(file("play-service-account.json"))
+    defaultToAppBundles.set(true)
+    track.set("alpha") // "alpha" corresponds to the Closed Testing track
 }
 
 room {
