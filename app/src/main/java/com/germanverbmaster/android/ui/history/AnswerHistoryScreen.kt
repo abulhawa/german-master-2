@@ -109,7 +109,10 @@ fun AnswerHistoryScreen(viewModel: AnswerHistoryViewModel = hiltViewModel()) {
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(state.attempts) { attempt ->
+                items(
+                    items = state.attempts,
+                    key = { it.localId } // Optimization: Stable keys for list items
+                ) { attempt ->
                     HistoryItem(attempt)
                 }
             }

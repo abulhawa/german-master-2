@@ -371,30 +371,49 @@ fun GrammarTabContent() {
         verticalArrangement = Arrangement.spacedBy(16.dp),
         contentPadding = PaddingValues(vertical = 12.dp),
     ) {
-        items(B2ContentData.deklTables) { table ->
+        items(
+            items = B2ContentData.deklTables,
+            key = { it.title }
+        ) { table ->
             DeklTableCard(table)
         }
-        item {
-            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+
+        item(key = "adj_header") {
+            Text(
+                "Wichtige B2-Adjektive",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            )
+        }
+
+        items(
+            items = B2ContentData.b2Adjectives,
+            key = { it.first }
+        ) { (adj, en, ex) ->
+            ElevatedCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+            ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("Wichtige B2-Adjektive",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold)
-                    Spacer(Modifier.height(8.dp))
-                    B2ContentData.b2Adjectives.forEach { (adj, en, ex) ->
-                        Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-                            Text(adj, fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.weight(1f))
-                            Text(en, style = MaterialTheme.typography.bodySmall,
-                                modifier = Modifier.weight(1f))
-                        }
-                        Text(ex, style = MaterialTheme.typography.bodySmall,
-                            fontStyle = FontStyle.Italic,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                            modifier = Modifier.padding(bottom = 4.dp))
-                        HorizontalDivider(thickness = 0.5.dp)
+                    Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+                        Text(
+                            adj, fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            en, style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.weight(1f)
+                        )
                     }
+                    Text(
+                        ex, style = MaterialTheme.typography.bodySmall,
+                        fontStyle = FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
                 }
             }
         }

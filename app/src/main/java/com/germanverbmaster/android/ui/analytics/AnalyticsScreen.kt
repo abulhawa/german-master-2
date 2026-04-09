@@ -129,6 +129,10 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel = hiltViewModel()) {
                             Text("No data yet", style = MaterialTheme.typography.bodyMedium)
                         }
                     } else {
+                        // Use items/itemsIndexed if this list ever grows large, 
+                        // but for a small fixed set of categories, we just need to avoid 
+                        // redundant recompositions by using remember or unique keys if it were in a LazyColumn.
+                        // Here it's inside a Column inside an 'item', so it's not lazy.
                         state.taskTypeStats.forEach { stat ->
                             TaskTypeStatRow(
                                 label = stat.taskType.replace("_", " ").replaceFirstChar { 
