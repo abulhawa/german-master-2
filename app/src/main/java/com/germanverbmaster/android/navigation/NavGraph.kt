@@ -2,8 +2,8 @@ package com.germanverbmaster.android.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Stars
 import androidx.compose.material3.Icon
@@ -41,7 +41,7 @@ fun AppNavGraph() {
     val items = listOf(
         NavItem(Screen.Home, "Practice") { Icon(Icons.Default.Stars, "Practice") },
         NavItem(Screen.B2Practice, "B2 Prüfung") { Icon(Icons.Default.School, "B2 Prüfung") },
-        NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.Default.MenuBook, "Wortschatz") },
+        NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.AutoMirrored.Filled.MenuBook, "Wortschatz") },
         NavItem(Screen.Auth, "Account") { Icon(Icons.Default.AccountCircle, "Account") },
     )
 

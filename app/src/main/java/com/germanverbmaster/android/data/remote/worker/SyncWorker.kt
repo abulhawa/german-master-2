@@ -20,15 +20,8 @@ class SyncWorker @AssistedInject constructor(
 
     override suspend fun doWork(): Result {
         return try {
-            // 1. Sync lexemes and task specs from Supabase
+            // Sync lexemes and task specs from Supabase
             syncDataUseCase()
-            
-            // 2. RESTORE history from Supabase (Pull)
-            practiceRepository.fetchFromSupabase()
-            
-            // 3. Flush local practice history to Supabase (Push)
-            practiceRepository.flushToSupabase()
-            
             Result.success()
         } catch (e: Exception) {
             Log.e("SyncWorker", "Sync failed (attempt $runAttemptCount): ${e.message}", e)

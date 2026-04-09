@@ -9,7 +9,6 @@ import com.germanverbmaster.android.data.remote.SupabaseInflectionApi
 import com.germanverbmaster.android.data.remote.SupabaseLexemeApi
 import com.germanverbmaster.android.data.remote.SupabaseTaskApi
 import com.germanverbmaster.android.data.remote.SupabaseWordsApi
-import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.InflectionRepository
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
@@ -20,7 +19,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.github.jan.supabase.SupabaseClient
 import javax.inject.Singleton
 
 @Module
@@ -46,11 +44,8 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun providePracticeRepository(
-        dao: PracticeHistoryDao,
-        client: SupabaseClient,
-        prefs: SyncPreferences,
-        authRepository: AuthRepository
-    ): PracticeRepository = PracticeRepository(dao, client, prefs, authRepository)
+        dao: PracticeHistoryDao
+    ): PracticeRepository = PracticeRepository(dao)
 
     @Provides
     @Singleton

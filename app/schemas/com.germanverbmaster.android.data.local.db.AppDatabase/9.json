@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 8,
-    "identityHash": "84b2f0a88f9ebfe632859bd2c54c33d5",
+    "version": 9,
+    "identityHash": "46e87eedffedc53daedfcdc4bcec2377",
     "entities": [
       {
         "tableName": "lexemes",
@@ -287,7 +287,7 @@
       },
       {
         "tableName": "practice_history",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`localId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `taskId` TEXT, `lexemeId` TEXT, `lemma` TEXT NOT NULL, `pos` TEXT NOT NULL, `taskType` TEXT NOT NULL, `renderer` TEXT NOT NULL, `result` TEXT NOT NULL, `submittedAnswer` TEXT NOT NULL, `correctAnswer` TEXT NOT NULL, `responseMs` INTEGER NOT NULL, `cefrLevel` TEXT, `hintsUsed` INTEGER NOT NULL, `submittedAt` TEXT NOT NULL, `synced` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`localId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `taskId` TEXT NOT NULL, `lexemeId` TEXT NOT NULL, `lemma` TEXT NOT NULL, `pos` TEXT NOT NULL, `taskType` TEXT NOT NULL, `renderer` TEXT NOT NULL, `result` TEXT NOT NULL, `submittedAnswer` TEXT NOT NULL, `correctAnswer` TEXT NOT NULL, `responseMs` INTEGER NOT NULL, `cefrLevel` TEXT, `hintsUsed` INTEGER NOT NULL, `submittedAt` TEXT NOT NULL, `synced` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "localId",
@@ -298,12 +298,14 @@
           {
             "fieldPath": "taskId",
             "columnName": "taskId",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
             "fieldPath": "lexemeId",
             "columnName": "lexemeId",
-            "affinity": "TEXT"
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
             "fieldPath": "lemma",
@@ -473,7 +475,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '84b2f0a88f9ebfe632859bd2c54c33d5')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '46e87eedffedc53daedfcdc4bcec2377')"
     ]
   }
 }

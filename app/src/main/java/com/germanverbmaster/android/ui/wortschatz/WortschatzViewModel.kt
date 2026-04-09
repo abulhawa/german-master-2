@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.domain.model.PracticeResult
+import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
+import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -77,25 +80,33 @@ data class WortschatzUiState(
 @HiltViewModel
 class WortschatzViewModel @Inject constructor(
     private val repo: WordRepository,
+    private val submitAnswerUseCase: SubmitAnswerUseCase,
+    private val syncDataUseCase: SyncDataUseCase,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(WortschatzUiState())
     val state: StateFlow<WortschatzUiState> = _state.asStateFlow()
 
     init {
-        // Trigger a background sync if the words table is empty
-        viewModelScope.launch {
-            if (repo.needsSync()) {
-                try {
-                    repo.sync()
-                } catch (e: Exception) {
-                    Log.e("WortschatzViewModel", "Sync failed", e)
-                    _state.update { it.copy(syncError = "Sync fehlgeschlagen: ${e.message}") }
-                }
-            }
-        }
+        triggerSync()
         observeWords()
         observePosFilters()
+    }
+
+    fun triggerSync() {
+        viewModelScope.launch {
+            _state.update { it.copy(isLoading = true, syncError = null) }
+            try {
+                if (repo.needsSync()) repo.sync()
+                syncDataUseCase()
+                Log.d("WortschatzViewModel", "Sync completed successfully")
+            } catch (e: Exception) {
+                Log.e("WortschatzViewModel", "Sync failed", e)
+                _state.update { it.copy(syncError = "Sync fehlgeschlagen: ${e.message}") }
+            } finally {
+                _state.update { it.copy(isLoading = false) }
+            }
+        }
     }
 
     fun selectTab(tab: WortschatzTab) {
@@ -114,9 +125,42 @@ class WortschatzViewModel @Inject constructor(
     }
 
     fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
-    fun markCorrect() { _state.update { it.copy(drillCorrect = it.drillCorrect + 1) }; advance() }
-    fun markWrong()   { _state.update { it.copy(drillWrong   = it.drillWrong   + 1) }; advance() }
-    fun skip()        = advance()
+
+    fun markCorrect() {
+        val word = _state.value.drillCurrent ?: return
+        recordResult(word, "correct")
+        _state.update { it.copy(drillCorrect = it.drillCorrect + 1) }
+        advance()
+    }
+
+    fun markWrong() {
+        val word = _state.value.drillCurrent ?: return
+        recordResult(word, "incorrect")
+        _state.update { it.copy(drillWrong = it.drillWrong + 1) }
+        advance()
+    }
+
+    fun skip() = advance()
+
+    private fun recordResult(word: WordEntity, result: String) {
+        viewModelScope.launch {
+            submitAnswerUseCase(
+                result = PracticeResult(
+                    taskId = "word_${word.id}",
+                    lexemeId = "word_${word.id}",
+                    pos = word.pos,
+                    taskType = "vocabulary_drill",
+                    renderer = "word_card",
+                    result = result,
+                    responseMs = 0, // Timing not yet tracked in this UI
+                    cefrLevel = word.level
+                ),
+                lemma = word.lemma,
+                submitted = if (result == "correct") word.lemma else "",
+                correct = word.lemma
+            )
+        }
+    }
 
     fun restartDrill() {
         _state.update { it.copy(drillCorrect = 0, drillWrong = 0, drillDone = false) }

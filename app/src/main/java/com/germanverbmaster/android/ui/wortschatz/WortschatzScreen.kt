@@ -129,21 +129,7 @@ fun WortschatzScreen(
             )
         }
 
-        // Sync error banner
-        state.syncError?.let { err ->
-            Surface(
-                color = MaterialTheme.colorScheme.errorContainer,
-                shape = MaterialTheme.shapes.small,
-                modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-            ) {
-                Text(
-                    err,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onErrorContainer,
-                    modifier = Modifier.padding(8.dp),
-                )
-            }
-        }
+        // Sync error banner removed
 
         when {
             state.isLoading -> {

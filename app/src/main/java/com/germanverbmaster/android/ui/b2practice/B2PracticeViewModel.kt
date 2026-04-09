@@ -1,14 +1,18 @@
 package com.germanverbmaster.android.ui.b2practice
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
 import com.germanverbmaster.android.domain.model.CardMode
+import com.germanverbmaster.android.domain.model.PracticeResult
+import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class B2PracticeUiState(
@@ -32,7 +36,9 @@ data class B2PracticeUiState(
 }
 
 @HiltViewModel
-class B2PracticeViewModel @Inject constructor() : ViewModel() {
+class B2PracticeViewModel @Inject constructor(
+    private val submitAnswerUseCase: SubmitAnswerUseCase,
+) : ViewModel() {
 
     private val _state = MutableStateFlow(B2PracticeUiState())
     val state: StateFlow<B2PracticeUiState> = _state.asStateFlow()
@@ -58,11 +64,15 @@ class B2PracticeViewModel @Inject constructor() : ViewModel() {
     }
 
     fun markCorrect() {
+        val card = _state.value.current ?: return
+        recordResult(card, "correct")
         _state.update { it.copy(correct = it.correct + 1) }
         advance()
     }
 
     fun markWrong() {
+        val card = _state.value.current ?: return
+        recordResult(card, "incorrect")
         _state.update { it.copy(wrong = it.wrong + 1) }
         advance()
     }
@@ -70,6 +80,30 @@ class B2PracticeViewModel @Inject constructor() : ViewModel() {
     fun skip() {
         _state.update { it.copy(skipped = it.skipped + 1) }
         advance()
+    }
+
+    private fun recordResult(card: B2Card, result: String) {
+        viewModelScope.launch {
+            submitAnswerUseCase(
+                result = PracticeResult(
+                    taskId = card.id,
+                    lexemeId = card.id,
+                    pos = when(card.category) {
+                        B2Category.VERBEN_PRAEP -> "V"
+                        B2Category.NOMEN_VERB -> "N"
+                        else -> "Misc"
+                    },
+                    taskType = "b2_practice_${card.category.name.lowercase()}",
+                    renderer = "b2_card",
+                    result = result,
+                    responseMs = 0,
+                    cefrLevel = "B2"
+                ),
+                lemma = card.front,
+                submitted = if (result == "correct") card.back else "",
+                correct = card.back
+            )
+        }
     }
 
     fun restart() {
