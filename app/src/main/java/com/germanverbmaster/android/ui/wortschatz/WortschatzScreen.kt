@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.Button
@@ -41,6 +43,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
@@ -170,41 +173,68 @@ private fun WordListContent(
         return
     }
 
-    // Group by POS for readability
-    val grouped = cards.groupBy { it.pos }
-    val posOrder = listOf("V", "N", "Adj", "Adv", "Prep", "Conj", "Pron", "Art", "Num", "Int")
-
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        contentPadding = PaddingValues(bottom = 24.dp),
-    ) {
-        val sortedGroups = grouped.entries.sortedBy { 
+    // Group by POS for readability - optimized with remember to avoid re-calculating on every recompose
+    val sortedGroups = remember(cards) {
+        val grouped = cards.groupBy { it.pos }
+        val posOrder = listOf("V", "N", "Adj", "Adv", "Prep", "Conj", "Pron", "Art", "Num", "Int")
+        grouped.entries.sortedBy {
             val idx = posOrder.indexOf(it.key)
             if (idx == -1) 99 else idx
         }
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(bottom = 24.dp),
+    ) {
         sortedGroups.forEach { (pos, groupCards) ->
-            item {
+            item(key = "header_$pos") {
                 Text(
                     text = POS_LABELS[pos] ?: pos,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(top = 4.dp, bottom = 2.dp),
+                    modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
                 )
             }
-            item {
-                ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+
+            // Optimization: Use itemsIndexed instead of a nested Column inside a single item.
+            // This allows LazyColumn to only compose and draw the words actually visible on screen,
+            // which is essential for performance with large lists (like the 1800 nouns).
+            itemsIndexed(
+                items = groupCards,
+                key = { _, card -> card.id }
+            ) { index, card ->
+                val isFirst = index == 0
+                val isLast = index == groupCards.lastIndex
+
+                // Maintain the "Card" look by rounding only the top of the first item
+                // and the bottom of the last item in the group.
+                val shape = when {
+                    isFirst && isLast -> RoundedCornerShape(12.dp)
+                    isFirst -> RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)
+                    isLast -> RoundedCornerShape(bottomStart = 12.dp, bottomEnd = 12.dp)
+                    else -> RectangleShape
+                }
+
+                Surface(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = shape,
+                    tonalElevation = 2.dp,
+                    // Subtle shadow on outer edges
+                    shadowElevation = if (isFirst || isLast) 1.dp else 0.dp
+                ) {
                     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                        groupCards.forEachIndexed { i, card ->
-                            WordRow(
-                                card = card,
-                                onSpeak = onSpeak,
-                                onClick = { onWordClick(card.id) }
+                        WordRow(
+                            card = card,
+                            onSpeak = onSpeak,
+                            onClick = { onWordClick(card.id) }
+                        )
+                        if (!isLast) {
+                            HorizontalDivider(
+                                thickness = 0.5.dp,
+                                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
                             )
-                            if (i < groupCards.lastIndex) {
-                                HorizontalDivider(thickness = 0.5.dp)
-                            }
                         }
                     }
                 }
