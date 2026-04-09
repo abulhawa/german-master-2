@@ -220,13 +220,7 @@ private fun WordRow(card: WordEntity, onSpeak: (String) -> Unit) {
         val posClean = card.pos.trim().uppercase()
         val isNoun = posClean == "N" || posClean == "NOMEN"
         if (isNoun) {
-            val g = card.gender?.trim()?.lowercase() ?: ""
-            val article = when {
-                g.startsWith("m") || g == "der" || g == "r" -> "der"
-                g.startsWith("f") || g == "die" || g == "e" -> "die"
-                g.startsWith("n") || g == "das" || g == "s" -> "das"
-                else -> ""
-            }
+            val article = genderArticle(card.gender)
             val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
             val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
             val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
@@ -297,11 +291,14 @@ private fun WordRow(card: WordEntity, onSpeak: (String) -> Unit) {
     }
 }
 
-private fun genderArticle(gender: String): String = when (gender.lowercase()) {
-    "m"          -> "der"
-    "f"          -> "die"
-    "n"          -> "das"
-    else         -> ""
+private fun genderArticle(gender: String?): String {
+    val g = gender?.trim()?.lowercase() ?: return ""
+    return when {
+        g.startsWith("m") || g == "der" || g == "r" -> "der"
+        g.startsWith("f") || g == "die" || g == "e" -> "die"
+        g.startsWith("n") || g == "das" || g == "s" -> "das"
+        else -> ""
+    }
 }
 
 // ─── Drill ────────────────────────────────────────────────────────────────────
@@ -344,13 +341,7 @@ private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewMode
                     val posClean = card.pos.trim().uppercase()
                     val isNoun = posClean == "N" || posClean == "NOMEN"
                     if (isNoun) {
-                        val g = card.gender?.trim()?.lowercase() ?: ""
-                        val article = when {
-                            g.startsWith("m") || g == "der" || g == "r" -> "der"
-                            g.startsWith("f") || g == "die" || g == "e" -> "die"
-                            g.startsWith("n") || g == "das" || g == "s" -> "das"
-                            else -> ""
-                        }
+                        val article = genderArticle(card.gender)
                         val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
                         val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
                         val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
