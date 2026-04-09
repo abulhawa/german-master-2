@@ -57,6 +57,8 @@ import java.time.LocalDate
 @Composable
 fun WortschatzScreen(
     viewModel: WortschatzViewModel = hiltViewModel(),
+    onNavigateToHistory: (String) -> Unit,
+    onNavigateToWordDetail: (Int) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -142,8 +144,12 @@ fun WortschatzScreen(
                 }
             }
             else -> when (state.tab) {
-                WortschatzTab.LIST  -> WordListContent(state.listCards, onSpeak = { ttsHelper.speak(it) })
-                WortschatzTab.DRILL -> DrillContent(state, viewModel, onSpeak = { ttsHelper.speak(it) })
+                WortschatzTab.LIST  -> WordListContent(
+                    state.listCards,
+                    onSpeak = { ttsHelper.speak(it) },
+                    onWordClick = onNavigateToWordDetail
+                )
+                WortschatzTab.DRILL -> DrillContent(state, viewModel, onNavigateToHistory, onSpeak = { ttsHelper.speak(it) })
             }
         }
     }
@@ -152,7 +158,11 @@ fun WortschatzScreen(
 // ─── Word List ────────────────────────────────────────────────────────────────
 
 @Composable
-private fun WordListContent(cards: List<WordEntity>, onSpeak: (String) -> Unit) {
+private fun WordListContent(
+    cards: List<WordEntity>,
+    onSpeak: (String) -> Unit,
+    onWordClick: (Int) -> Unit
+) {
     if (cards.isEmpty()) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("Keine Wörter für diese Filter.", style = MaterialTheme.typography.bodyMedium)
@@ -187,7 +197,11 @@ private fun WordListContent(cards: List<WordEntity>, onSpeak: (String) -> Unit) 
                 ElevatedCard(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
                         groupCards.forEachIndexed { i, card ->
-                            WordRow(card, onSpeak = onSpeak)
+                            WordRow(
+                                card = card,
+                                onSpeak = onSpeak,
+                                onClick = { onWordClick(card.id) }
+                            )
                             if (i < groupCards.lastIndex) {
                                 HorizontalDivider(thickness = 0.5.dp)
                             }
@@ -200,7 +214,11 @@ private fun WordListContent(cards: List<WordEntity>, onSpeak: (String) -> Unit) 
 }
 
 @Composable
-private fun WordRow(card: WordEntity, onSpeak: (String) -> Unit) {
+private fun WordRow(
+    card: WordEntity,
+    onSpeak: (String) -> Unit,
+    onClick: () -> Unit
+) {
     // Build display label: add article and plural for nouns
     val (displayText, speakText) = remember(card) {
         val posClean = card.pos.trim().uppercase()
@@ -219,6 +237,7 @@ private fun WordRow(card: WordEntity, onSpeak: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable { onClick() }
             .padding(vertical = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -290,14 +309,27 @@ private fun genderArticle(gender: String?): String {
 // ─── Drill ────────────────────────────────────────────────────────────────────
 
 @Composable
-private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewModel, onSpeak: (String) -> Unit) {
+private fun DrillContent(
+    state: WortschatzUiState,
+    viewModel: WortschatzViewModel,
+    onNavigateToHistory: (String) -> Unit,
+    onSpeak: (String) -> Unit,
+) {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            DrillStatChip("✓ ${state.drillCorrect}", MaterialTheme.colorScheme.primaryContainer, Modifier.weight(1f))
-            DrillStatChip("✗ ${state.drillWrong}",   MaterialTheme.colorScheme.errorContainer,   Modifier.weight(1f))
+            DrillStatChip(
+                label = "✓ ${state.drillCorrect}",
+                color = MaterialTheme.colorScheme.primaryContainer,
+                modifier = Modifier.weight(1f).clickable { onNavigateToHistory("correct") }
+            )
+            DrillStatChip(
+                label = "✗ ${state.drillWrong}",
+                color = MaterialTheme.colorScheme.errorContainer,
+                modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
+            )
             DrillStatChip("${state.drillAccuracy.toInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
         }
 
@@ -529,7 +561,11 @@ private fun DrillCardFace(
 }
 
 @Composable
-private fun DrillStatChip(label: String, color: androidx.compose.ui.graphics.Color, modifier: Modifier) {
+private fun DrillStatChip(
+    label: String,
+    color: androidx.compose.ui.graphics.Color,
+    modifier: Modifier = Modifier,
+) {
     Surface(shape = MaterialTheme.shapes.small, color = color, modifier = modifier) {
         Text(
             label,

@@ -15,15 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.germanverbmaster.android.ui.analytics.AnalyticsScreen
 import com.germanverbmaster.android.ui.auth.AuthScreen
 import com.germanverbmaster.android.ui.b2practice.B2PracticeScreen
 import com.germanverbmaster.android.ui.history.AnswerHistoryScreen
 import com.germanverbmaster.android.ui.home.HomeScreen
+import com.germanverbmaster.android.ui.worddetail.WordDetailScreen
 import com.germanverbmaster.android.ui.wortschatz.WortschatzScreen
 
 private data class NavItem(
@@ -75,11 +78,29 @@ fun AppNavGraph() {
             startDestination = Screen.Home.route,
             modifier = androidx.compose.ui.Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route)        { HomeScreen() }
-            composable(Screen.B2Practice.route)  { B2PracticeScreen() }
-            composable(Screen.Wortschatz.route)  { WortschatzScreen() }
+            composable(Screen.Home.route)        { HomeScreen(onNavigateToHistory = { res -> navController.navigate(Screen.History.createRoute(res)) }) }
+            composable(Screen.B2Practice.route)  { B2PracticeScreen(onNavigateToHistory = { res -> navController.navigate(Screen.History.createRoute(res)) }) }
+            composable(Screen.Wortschatz.route)  { 
+                WortschatzScreen(
+                    onNavigateToHistory = { res -> navController.navigate(Screen.History.createRoute(res)) },
+                    onNavigateToWordDetail = { wordId -> navController.navigate(Screen.WordDetail.createRoute(wordId)) }
+                ) 
+            }
+            composable(
+                route = Screen.WordDetail.route,
+                arguments = listOf(navArgument("wordId") { type = NavType.IntType })
+            ) {
+                WordDetailScreen(onBack = { navController.popBackStack() })
+            }
             composable(Screen.Analytics.route)   { AnalyticsScreen() }
-            composable(Screen.History.route)     { AnswerHistoryScreen() }
+            composable(
+                route = Screen.History.route + "?result={result}",
+                arguments = listOf(navArgument("result") { 
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                })
+            ) { AnswerHistoryScreen() }
             composable(Screen.Auth.route) {
                 AuthScreen(
                     onNavigateToAnalytics = { navController.navigate(Screen.Analytics.route) },

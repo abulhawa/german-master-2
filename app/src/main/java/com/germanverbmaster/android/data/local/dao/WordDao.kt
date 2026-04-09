@@ -32,6 +32,9 @@ interface WordDao {
     @Query("SELECT DISTINCT pos FROM words WHERE english IS NOT NULL ORDER BY pos ASC")
     fun observeDistinctPos(): Flow<List<String>>
 
+    @Query("SELECT * FROM words WHERE id = :id")
+    fun observeById(id: Int): Flow<WordEntity?>
+
     @Query("SELECT COUNT(*) FROM words")
     suspend fun count(): Int
 
