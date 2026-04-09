@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -24,6 +26,8 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -32,10 +36,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -43,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.speech.TextToSpeechHelper
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import java.time.LocalDate
 
@@ -51,6 +59,14 @@ fun WortschatzScreen(
     viewModel: WortschatzViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+    val ttsHelper = remember { TextToSpeechHelper(context) }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            ttsHelper.shutdown()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -140,8 +156,8 @@ fun WortschatzScreen(
                 }
             }
             else -> when (state.tab) {
-                WortschatzTab.LIST  -> WordListContent(state.listCards)
-                WortschatzTab.DRILL -> DrillContent(state, viewModel)
+                WortschatzTab.LIST  -> WordListContent(state.listCards, onSpeak = { ttsHelper.speak(it) })
+                WortschatzTab.DRILL -> DrillContent(state, viewModel, onSpeak = { ttsHelper.speak(it) })
             }
         }
     }
@@ -150,7 +166,7 @@ fun WortschatzScreen(
 // ─── Word List ────────────────────────────────────────────────────────────────
 
 @Composable
-private fun WordListContent(cards: List<WordEntity>) {
+private fun WordListContent(cards: List<WordEntity>, onSpeak: (String) -> Unit) {
     if (cards.isEmpty()) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("Keine Wörter für diese Filter.", style = MaterialTheme.typography.bodyMedium)
@@ -185,7 +201,7 @@ private fun WordListContent(cards: List<WordEntity>) {
                 ElevatedCard(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
                         groupCards.forEachIndexed { i, card ->
-                            WordRow(card)
+                            WordRow(card, onSpeak = onSpeak)
                             if (i < groupCards.lastIndex) {
                                 HorizontalDivider(thickness = 0.5.dp)
                             }
@@ -198,14 +214,26 @@ private fun WordListContent(cards: List<WordEntity>) {
 }
 
 @Composable
-private fun WordRow(card: WordEntity) {
+private fun WordRow(card: WordEntity, onSpeak: (String) -> Unit) {
     // Build display label: add article and plural for nouns
-    val displayLemma = if (card.pos == "N") {
-        val article = card.gender?.let { genderArticle(it) } ?: ""
-        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
-        if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, die ${card.plural}" else lemmaWithArticle
-    } else {
-        card.lemma
+    val (displayText, speakText) = remember(card) {
+        val posClean = card.pos.trim().uppercase()
+        val isNoun = posClean == "N" || posClean == "NOMEN"
+        if (isNoun) {
+            val g = card.gender?.trim()?.lowercase() ?: ""
+            val article = when {
+                g.startsWith("m") || g == "der" || g == "r" -> "der"
+                g.startsWith("f") || g == "die" || g == "e" -> "die"
+                g.startsWith("n") || g == "das" || g == "s" -> "das"
+                else -> ""
+            }
+            val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
+            val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
+            val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
+            display to speak
+        } else {
+            card.lemma to card.lemma
+        }
     }
 
     Row(
@@ -213,21 +241,42 @@ private fun WordRow(card: WordEntity) {
             .fillMaxWidth()
             .padding(vertical = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.Top,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = displayLemma,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.SemiBold,
-            )
-            card.exampleDe?.let {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = it,
-                    style = MaterialTheme.typography.bodySmall,
-                    fontStyle = FontStyle.Italic,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
+                    text = displayText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
                 )
+                IconButton(onClick = { onSpeak(speakText) }, modifier = Modifier.padding(start = 4.dp)) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.VolumeUp,
+                        contentDescription = "Sprechen",
+                        modifier = Modifier.padding(4.dp),
+                        tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f)
+                    )
+                }
+            }
+            card.exampleDe?.let {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                        fontStyle = FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = { onSpeak(it) }, modifier = Modifier.padding(start = 4.dp)) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.VolumeUp,
+                            contentDescription = "Sprechen",
+                            modifier = Modifier.padding(4.dp),
+                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+                        )
+                    }
+                }
             }
             card.exampleEn?.let {
                 Text(
@@ -258,7 +307,7 @@ private fun genderArticle(gender: String): String = when (gender.lowercase()) {
 // ─── Drill ────────────────────────────────────────────────────────────────────
 
 @Composable
-private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewModel) {
+private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewModel, onSpeak: (String) -> Unit) {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
@@ -291,10 +340,33 @@ private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewMode
             )
         } else {
             state.drillCurrent?.let { card ->
+                val (displayFront, speakFront) = remember(card) {
+                    val posClean = card.pos.trim().uppercase()
+                    val isNoun = posClean == "N" || posClean == "NOMEN"
+                    if (isNoun) {
+                        val g = card.gender?.trim()?.lowercase() ?: ""
+                        val article = when {
+                            g.startsWith("m") || g == "der" || g == "r" -> "der"
+                            g.startsWith("f") || g == "die" || g == "e" -> "die"
+                            g.startsWith("n") || g == "das" || g == "s" -> "das"
+                            else -> ""
+                        }
+                        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
+                        val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
+                        val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
+                        display to speak
+                    } else {
+                        card.lemma to card.lemma
+                    }
+                }
+
                 DrillFlipCard(
                     card      = card,
+                    displayFront = displayFront,
+                    speakFront = speakFront,
                     isFlipped = state.drillFlipped,
                     onFlip    = viewModel::flip,
+                    onSpeak   = onSpeak,
                     modifier  = Modifier
                         .fillMaxWidth()
                         .weight(1f),
@@ -339,8 +411,11 @@ private fun DrillContent(state: WortschatzUiState, viewModel: WortschatzViewMode
 @Composable
 private fun DrillFlipCard(
     card: WordEntity,
+    displayFront: String,
+    speakFront: String,
     isFlipped: Boolean,
     onFlip: () -> Unit,
+    onSpeak: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val rotation by animateFloatAsState(
@@ -348,14 +423,6 @@ private fun DrillFlipCard(
         animationSpec  = tween(durationMillis = 400),
         label          = "drill_flip",
     )
-
-    val displayFront = if (card.pos == "N") {
-        val article = card.gender?.let { genderArticle(it) } ?: ""
-        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
-        if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, die ${card.plural}" else lemmaWithArticle
-    } else {
-        card.lemma
-    }
 
     Box(modifier = modifier.clickable { onFlip() }) {
         if (rotation <= 90f) {
@@ -365,30 +432,39 @@ private fun DrillFlipCard(
                     .graphicsLayer { rotationY = rotation },
             ) {
                 // Level + POS badge row
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    card.level?.let { level ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Top
+                ) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        card.level?.let { level ->
+                            Surface(
+                                shape = MaterialTheme.shapes.small,
+                                color = MaterialTheme.colorScheme.secondaryContainer,
+                            ) {
+                                Text(
+                                    level,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                )
+                            }
+                        }
                         Surface(
                             shape = MaterialTheme.shapes.small,
-                            color = MaterialTheme.colorScheme.secondaryContainer,
+                            color = MaterialTheme.colorScheme.tertiaryContainer,
                         ) {
                             Text(
-                                level,
+                                card.pos,
                                 style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                color = MaterialTheme.colorScheme.onTertiaryContainer,
                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                             )
                         }
                     }
-                    Surface(
-                        shape = MaterialTheme.shapes.small,
-                        color = MaterialTheme.colorScheme.tertiaryContainer,
-                    ) {
-                        Text(
-                            card.pos,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onTertiaryContainer,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                        )
+                    IconButton(onClick = { onSpeak(speakFront) }) {
+                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
                     }
                 }
                 Spacer(Modifier.height(16.dp))
@@ -428,11 +504,17 @@ private fun DrillFlipCard(
                         modifier = Modifier.fillMaxWidth(),
                     ) {
                         Column(modifier = Modifier.padding(12.dp)) {
-                            Text(
-                                text     = ex,
-                                style    = MaterialTheme.typography.titleLarge,
-                                fontStyle = FontStyle.Italic,
-                            )
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    text     = ex,
+                                    style    = MaterialTheme.typography.titleLarge,
+                                    fontStyle = FontStyle.Italic,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(onClick = { onSpeak(ex) }) {
+                                    Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
+                                }
+                            }
                             card.exampleEn?.let { en ->
                                 Spacer(Modifier.height(4.dp))
                                 Text(
