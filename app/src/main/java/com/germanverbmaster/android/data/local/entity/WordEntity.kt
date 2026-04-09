@@ -14,9 +14,9 @@ data class WordEntity(
     val pos: String,            // "V" | "N" | "Adj"
     val level: String?,         // "A1" | "A2" | "B1" | "B2" | "C1"
     val english: String?,
-    val exampleDe: String?,
-    val exampleEn: String?,
-    val gender: String?,        // "m" | "f" | "n" — for nouns
-    val plural: String?,        // for nouns
+    val exampleDe: String? = null,
+    val exampleEn: String? = null,
+    val gender: String? = null,        // "m" | "f" | "n" — for nouns
+    val plural: String? = null,        // for nouns
     val updatedAt: String = "",
 )
