@@ -54,6 +54,7 @@ import java.time.LocalDate
 @Composable
 fun B2PracticeScreen(
     viewModel: B2PracticeViewModel = hiltViewModel(),
+    onNavigateToHistory: (String) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -114,7 +115,12 @@ fun B2PracticeScreen(
             }
 
             // Stats bar
-            StatsBar(correct = state.correct, wrong = state.wrong, accuracy = state.accuracy)
+            StatsBar(
+                correct = state.correct,
+                wrong = state.wrong,
+                accuracy = state.accuracy,
+                onNavigateToHistory = onNavigateToHistory
+            )
 
             // Progress
             LinearProgressIndicator(
@@ -306,19 +312,31 @@ private fun CardFace(
 }
 
 @Composable
-fun StatsBar(correct: Int, wrong: Int, accuracy: Float) {
+fun StatsBar(correct: Int, wrong: Int, accuracy: Float, onNavigateToHistory: (String) -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        StatChip("✓ $correct", MaterialTheme.colorScheme.primaryContainer, Modifier.weight(1f))
-        StatChip("✗ $wrong", MaterialTheme.colorScheme.errorContainer, Modifier.weight(1f))
+        StatChip(
+            label = "✓ $correct",
+            color = MaterialTheme.colorScheme.primaryContainer,
+            modifier = Modifier.weight(1f).clickable { onNavigateToHistory("correct") }
+        )
+        StatChip(
+            label = "✗ $wrong",
+            color = MaterialTheme.colorScheme.errorContainer,
+            modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
+        )
         StatChip("${accuracy.toInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
     }
 }
 
 @Composable
-private fun StatChip(label: String, color: androidx.compose.ui.graphics.Color, modifier: Modifier) {
+private fun StatChip(
+    label: String,
+    color: androidx.compose.ui.graphics.Color,
+    modifier: Modifier = Modifier,
+) {
     Surface(shape = MaterialTheme.shapes.small, color = color, modifier = modifier) {
         Text(
             label,

@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +33,10 @@ import com.germanverbmaster.android.ui.components.PracticeCard
 import java.time.LocalDate
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel(),
+    onNavigateToHistory: (String) -> Unit,
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Column(
@@ -76,8 +80,16 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
 
         // Session stats
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            StatCard("✓ ${state.stats.correct}", "Richtig", Modifier.weight(1f))
-            StatCard("✗ ${state.stats.incorrect}", "Falsch", Modifier.weight(1f))
+            StatCard(
+                "✓ ${state.stats.correct}",
+                "Richtig",
+                Modifier.weight(1f).clickable { onNavigateToHistory("correct") }
+            )
+            StatCard(
+                "✗ ${state.stats.incorrect}",
+                "Falsch",
+                Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
+            )
             StatCard("${state.stats.accuracy.toInt()}%", "Quote", Modifier.weight(1f))
         }
 

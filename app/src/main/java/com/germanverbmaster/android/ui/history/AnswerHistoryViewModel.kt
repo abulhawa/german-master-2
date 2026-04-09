@@ -1,11 +1,16 @@
 package com.germanverbmaster.android.ui.history
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 data class HistoryUiState(
@@ -17,10 +22,12 @@ data class HistoryUiState(
 
 @HiltViewModel
 class AnswerHistoryViewModel @Inject constructor(
-    private val practiceRepository: PracticeRepository
+    private val practiceRepository: PracticeRepository,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _filterResult = MutableStateFlow<String?>(null)
+    private val initialResult: String? = savedStateHandle["result"]
+    private val _filterResult = MutableStateFlow<String?>(initialResult)
     private val _filterPos = MutableStateFlow<String?>(null)
 
     val state: StateFlow<HistoryUiState> = combine(
