@@ -127,7 +127,7 @@ fun HistoryItem(attempt: PracticeHistoryEntity) {
         .withZone(ZoneId.systemDefault())
     val dateStr = try {
         formatter.format(Instant.parse(attempt.submittedAt))
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         attempt.submittedAt
     }
 
