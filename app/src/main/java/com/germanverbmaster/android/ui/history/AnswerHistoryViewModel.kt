@@ -23,13 +23,13 @@ data class HistoryUiState(
 
 @HiltViewModel
 class AnswerHistoryViewModel @Inject constructor(
-    private val practiceRepository: PracticeRepository,
+    practiceRepository: PracticeRepository,
     private val wordRepository: WordRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val initialResult: String? = savedStateHandle["result"]
-    private val _filterResult = MutableStateFlow<String?>(initialResult)
+    private val _filterResult = MutableStateFlow(initialResult)
     private val _filterPos = MutableStateFlow<String?>(null)
 
     val state: StateFlow<HistoryUiState> = combine(

@@ -35,8 +35,25 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE id = :id")
     fun observeById(id: Int): Flow<WordEntity?>
 
-    @Query("SELECT id FROM words WHERE lemma = :lemma AND pos = :pos LIMIT 1")
+    /**
+     * Finds a word ID by lemma and POS. 
+     * Uses case-insensitive matching and handles potential POS mismatches (e.g. 'V' vs 'Verb').
+     */
+    @Query("""
+        SELECT id FROM words 
+        WHERE LOWER(TRIM(lemma)) = LOWER(TRIM(:lemma)) 
+        AND (
+            LOWER(TRIM(pos)) = LOWER(TRIM(:pos)) 
+            OR pos LIKE :pos || '%' 
+            OR :pos LIKE pos || '%'
+        )
+        LIMIT 1
+    """)
     suspend fun findIdByLemmaAndPos(lemma: String, pos: String): Int?
+
+    /** Fallback search by lemma only */
+    @Query("SELECT id FROM words WHERE LOWER(TRIM(lemma)) = LOWER(TRIM(:lemma)) LIMIT 1")
+    suspend fun findIdByLemma(lemma: String): Int?
 
     @Query("SELECT COUNT(*) FROM words")
     suspend fun count(): Int
