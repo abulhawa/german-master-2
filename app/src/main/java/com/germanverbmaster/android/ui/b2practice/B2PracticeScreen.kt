@@ -217,6 +217,17 @@ fun FlipCard(
                     .fillMaxSize()
                     .graphicsLayer { rotationY = rotation },
             ) {
+                Text(
+                    text = when (mode) {
+                        CardMode.DE_TO_EN -> "Was bedeutet das auf Englisch?"
+                        CardMode.EN_TO_DE -> "Was bedeutet das auf Deutsch?"
+                        CardMode.EXAMPLE  -> "Welcher Begriff wird hier verwendet?"
+                    },
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                    modifier = Modifier.padding(bottom = 20.dp)
+                )
+
                 val frontText = when (mode) {
                     CardMode.DE_TO_EN -> card.front
                     CardMode.EN_TO_DE -> card.back

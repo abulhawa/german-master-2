@@ -208,15 +208,36 @@ fun PracticeCard(
 @Composable
 fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        val taskInstruction = task.prompt["instructions"]
+            ?: task.prompt["description"]
+            ?: task.prompt["task"]
+            ?: when (task.taskType) {
+                "conjugate_form" -> "Konjugiere das Verb:"
+                "noun_case_declension" -> "Bilde die richtige Form:"
+                "adj_ending" -> "Ergänze die Adjektivendung:"
+                else -> "Löse die folgende Aufgabe:"
+            }
+
+        Text(
+            text = taskInstruction,
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
+
         when (task.taskType) {
             "conjugate_form" -> {
+                val person = task.prompt["person"] ?: task.prompt["pronoun"] ?: "er/sie/es"
+                val tense = task.prompt["tense"]
+                val label = listOfNotNull(person, tense).joinToString(", ")
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        task.prompt["pronoun"] ?: "er/sie/es",
+                        text = label,
                         style = MaterialTheme.typography.headlineSmall,
                         color = MaterialTheme.colorScheme.primary
                     )
-                    IconButton(onClick = { onSpeak("${task.prompt["pronoun"] ?: ""} ${task.lemma}") }) {
+                    IconButton(onClick = { onSpeak("$person ${task.lemma}") }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
@@ -232,22 +253,34 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                 )
             }
             "noun_case_declension" -> {
+                val case = task.prompt["case"] ?: "Nominativ"
+                val number = task.prompt["number"]
+                val gender = task.prompt["gender"]
+                val label = listOfNotNull(case, number, gender).joinToString(" ")
+
                 Text(
-                    task.prompt["case"] ?: "Nominativ",
+                    text = label,
                     style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.secondary
+                    color = if (label.contains("Plural", ignoreCase = true))
+                        MaterialTheme.colorScheme.tertiary
+                    else
+                        MaterialTheme.colorScheme.secondary
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        task.prompt["context"] ?: task.lemma,
-                        style = MaterialTheme.typography.headlineMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                        "___",
+                        style = MaterialTheme.typography.headlineLarge,
+                        fontWeight = FontWeight.Bold
                     )
                     IconButton(onClick = { onSpeak(task.prompt["context"] ?: task.lemma) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
+                Text(
+                    "(${task.prompt["context"] ?: task.lemma})",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                )
             }
             "adj_ending" -> {
                 Row(verticalAlignment = Alignment.CenterVertically) {
