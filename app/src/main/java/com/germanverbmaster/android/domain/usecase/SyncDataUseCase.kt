@@ -107,6 +107,4 @@ class SyncDataUseCase @Inject constructor(
         
         Log.d("SyncDataUseCase", "Synchronization step completed. Success=$success")
     }
-
-    suspend fun needsFullSync(): Boolean = lexemeRepository.needsFullSync()
 }

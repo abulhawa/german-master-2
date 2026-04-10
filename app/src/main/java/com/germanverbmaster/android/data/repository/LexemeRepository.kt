@@ -16,24 +16,11 @@ private val Context.dataStore by preferencesDataStore(name = "sync_prefs")
 private val LEXEME_LAST_SYNC = stringPreferencesKey("lexeme_last_sync")
 private val TASK_LAST_SYNC   = stringPreferencesKey("task_last_sync")
 private val INFLECTION_LAST_SYNC = stringPreferencesKey("inflection_last_sync")
-private val PRACTICE_LAST_SYNC = stringPreferencesKey("practice_last_sync")
-private val USER_ID = stringPreferencesKey("user_id")
 
 @Singleton
 class SyncPreferences @Inject constructor(
     @param:ApplicationContext private val context: Context,
 ) {
-    suspend fun getUserId(): String {
-        val current = context.dataStore.data.first()[USER_ID]
-        if (current != null) return current
-        
-        val newId = java.util.UUID.randomUUID().toString()
-        setUserId(newId)
-        return newId
-    }
-
-    suspend fun setUserId(value: String) =
-        context.dataStore.edit { it[USER_ID] = value }
     suspend fun getLexemeLastSync(): String? =
         context.dataStore.data.first()[LEXEME_LAST_SYNC]
 
@@ -51,12 +38,6 @@ class SyncPreferences @Inject constructor(
 
     suspend fun setInflectionLastSync(value: String) =
         context.dataStore.edit { it[INFLECTION_LAST_SYNC] = value }
-
-    suspend fun getPracticeLastSync(): String? =
-        context.dataStore.data.first()[PRACTICE_LAST_SYNC]
-
-    suspend fun setPracticeLastSync(value: String) =
-        context.dataStore.edit { it[PRACTICE_LAST_SYNC] = value }
 }
 
 @Singleton

@@ -21,11 +21,6 @@ class InflectionRepository @Inject constructor(
         return if (remote.isEmpty()) null else remote
     }
 
-    suspend fun saveEntities(entities: List<com.germanverbmaster.android.data.local.entity.InflectionEntity>) {
-        if (entities.isEmpty()) return
-        dao.upsertAll(entities)
-    }
-
     suspend fun saveToLocal(remote: List<RemoteInflection>) {
         if (remote.isEmpty()) return
         
