@@ -35,6 +35,9 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE id = :id")
     fun observeById(id: Int): Flow<WordEntity?>
 
+    @Query("SELECT id FROM words WHERE lemma = :lemma AND pos = :pos LIMIT 1")
+    suspend fun findIdByLemmaAndPos(lemma: String, pos: String): Int?
+
     @Query("SELECT COUNT(*) FROM words")
     suspend fun count(): Int
 

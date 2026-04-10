@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
+import com.germanverbmaster.android.data.repository.WordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,6 +24,7 @@ data class HistoryUiState(
 @HiltViewModel
 class AnswerHistoryViewModel @Inject constructor(
     private val practiceRepository: PracticeRepository,
+    private val wordRepository: WordRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -53,5 +55,14 @@ class AnswerHistoryViewModel @Inject constructor(
 
     fun setFilterPos(pos: String?) {
         _filterPos.value = pos
+    }
+
+    suspend fun getWordIdForHistory(attempt: PracticeHistoryEntity): Int? {
+        // Case 1: Direct "word_ID" format from Wortschatz drill
+        if (attempt.lexemeId.startsWith("word_")) {
+            return attempt.lexemeId.removePrefix("word_").toIntOrNull()
+        }
+        // Case 2: Lexeme ID from main practice — lookup by lemma and pos
+        return wordRepository.findIdByLemmaAndPos(attempt.lemma, attempt.pos)
     }
 }

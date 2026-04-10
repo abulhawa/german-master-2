@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.history
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,12 +28,16 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun AnswerHistoryScreen(viewModel: AnswerHistoryViewModel = hiltViewModel()) {
+fun AnswerHistoryScreen(
+    viewModel: AnswerHistoryViewModel = hiltViewModel(),
+    onNavigateToWordDetail: (Int) -> Unit = {}
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -104,6 +109,7 @@ fun AnswerHistoryScreen(viewModel: AnswerHistoryViewModel = hiltViewModel()) {
                 Text("Keine Einträge gefunden", style = MaterialTheme.typography.bodyLarge)
             }
         } else {
+            val scope = androidx.compose.runtime.rememberCoroutineScope()
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(16.dp),
@@ -113,7 +119,16 @@ fun AnswerHistoryScreen(viewModel: AnswerHistoryViewModel = hiltViewModel()) {
                     items = state.attempts,
                     key = { it.localId } // Optimization: Stable keys for list items
                 ) { attempt ->
-                    HistoryItem(attempt)
+                    HistoryItem(
+                        attempt = attempt,
+                        onClick = {
+                            scope.launch {
+                                viewModel.getWordIdForHistory(attempt)?.let { wordId ->
+                                    onNavigateToWordDetail(wordId)
+                                }
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -121,7 +136,10 @@ fun AnswerHistoryScreen(viewModel: AnswerHistoryViewModel = hiltViewModel()) {
 }
 
 @Composable
-fun HistoryItem(attempt: PracticeHistoryEntity) {
+fun HistoryItem(
+    attempt: PracticeHistoryEntity,
+    onClick: () -> Unit = {}
+) {
     val isCorrect = attempt.result == "correct"
     val formatter = DateTimeFormatter.ofPattern("dd.MM. HH:mm")
         .withZone(ZoneId.systemDefault())
@@ -131,7 +149,11 @@ fun HistoryItem(attempt: PracticeHistoryEntity) {
         attempt.submittedAt
     }
 
-    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+    ) {
         Row(
             modifier = Modifier
                 .padding(16.dp)

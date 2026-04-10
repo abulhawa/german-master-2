@@ -100,7 +100,11 @@ fun AppNavGraph() {
                     nullable = true
                     defaultValue = null
                 })
-            ) { AnswerHistoryScreen() }
+            ) {
+                AnswerHistoryScreen(
+                    onNavigateToWordDetail = { wordId -> navController.navigate(Screen.WordDetail.createRoute(wordId)) }
+                )
+            }
             composable(Screen.Auth.route) {
                 AuthScreen(
                     onNavigateToAnalytics = { navController.navigate(Screen.Analytics.route) },
