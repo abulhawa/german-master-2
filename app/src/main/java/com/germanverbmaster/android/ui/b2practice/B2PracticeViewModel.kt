@@ -2,6 +2,7 @@ package com.germanverbmaster.android.ui.b2practice
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
 import com.germanverbmaster.android.domain.model.CardMode
@@ -38,16 +39,43 @@ data class B2PracticeUiState(
 @HiltViewModel
 class B2PracticeViewModel @Inject constructor(
     private val submitAnswerUseCase: SubmitAnswerUseCase,
+    private val prefs: SyncPreferences,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(B2PracticeUiState())
     val state: StateFlow<B2PracticeUiState> = _state.asStateFlow()
 
-    init { buildQueue() }
+    init {
+        viewModelScope.launch {
+            val savedCategory = prefs.getB2Category()?.let { B2Category.valueOf(it) } ?: B2Category.ALL
+            val savedShuffle = prefs.getB2Shuffle()
+            val savedIndex = prefs.getB2Index() ?: 0
+            val savedCorrect = prefs.getB2Correct()
+            val savedWrong = prefs.getB2Wrong()
+            val savedSkipped = prefs.getB2Skipped()
+
+            _state.update {
+                it.copy(
+                    category = savedCategory,
+                    shuffle = savedShuffle,
+                    correct = savedCorrect,
+                    wrong = savedWrong,
+                    skipped = savedSkipped
+                )
+            }
+            buildQueue(savedIndex)
+        }
+    }
 
     fun setCategory(category: B2Category) {
-        _state.update { it.copy(category = category) }
-        buildQueue()
+        _state.update { it.copy(category = category, correct = 0, wrong = 0, skipped = 0) }
+        viewModelScope.launch {
+            prefs.setB2Category(category.name)
+            prefs.setB2Correct(0)
+            prefs.setB2Wrong(0)
+            prefs.setB2Skipped(0)
+        }
+        buildQueue(0)
     }
 
     fun setMode(mode: CardMode) {
@@ -55,8 +83,10 @@ class B2PracticeViewModel @Inject constructor(
     }
 
     fun toggleShuffle() {
-        _state.update { it.copy(shuffle = !it.shuffle) }
-        buildQueue()
+        val newVal = !_state.value.shuffle
+        _state.update { it.copy(shuffle = newVal) }
+        viewModelScope.launch { prefs.setB2Shuffle(newVal) }
+        buildQueue(0)
     }
 
     fun flip() {
@@ -66,19 +96,25 @@ class B2PracticeViewModel @Inject constructor(
     fun markCorrect() {
         val card = _state.value.current ?: return
         recordResult(card, "correct")
-        _state.update { it.copy(correct = it.correct + 1) }
+        val nextCorrect = _state.value.correct + 1
+        _state.update { it.copy(correct = nextCorrect) }
+        viewModelScope.launch { prefs.setB2Correct(nextCorrect) }
         advance()
     }
 
     fun markWrong() {
         val card = _state.value.current ?: return
         recordResult(card, "incorrect")
-        _state.update { it.copy(wrong = it.wrong + 1) }
+        val nextWrong = _state.value.wrong + 1
+        _state.update { it.copy(wrong = nextWrong) }
+        viewModelScope.launch { prefs.setB2Wrong(nextWrong) }
         advance()
     }
 
     fun skip() {
-        _state.update { it.copy(skipped = it.skipped + 1) }
+        val nextSkipped = _state.value.skipped + 1
+        _state.update { it.copy(skipped = nextSkipped) }
+        viewModelScope.launch { prefs.setB2Skipped(nextSkipped) }
         advance()
     }
 
@@ -108,7 +144,12 @@ class B2PracticeViewModel @Inject constructor(
 
     fun restart() {
         _state.update { it.copy(correct = 0, wrong = 0, skipped = 0, sessionDone = false) }
-        buildQueue()
+        viewModelScope.launch {
+            prefs.setB2Correct(0)
+            prefs.setB2Wrong(0)
+            prefs.setB2Skipped(0)
+        }
+        buildQueue(0)
     }
 
     private fun advance() {
@@ -120,18 +161,22 @@ class B2PracticeViewModel @Inject constructor(
                 sessionDone = next >= it.queue.size,
             )
         }
+        viewModelScope.launch { prefs.setB2Index(next) }
     }
 
-    private fun buildQueue() {
+    private fun buildQueue(startIndex: Int = 0) {
         val cards = B2ContentData.cardsForCategory(_state.value.category)
         val ordered = if (_state.value.shuffle) cards.shuffled() else cards
         _state.update {
             it.copy(
                 queue = ordered,
-                currentIndex = 0,
+                currentIndex = if (startIndex < ordered.size) startIndex else 0,
                 isFlipped = false,
-                sessionDone = false,
+                sessionDone = startIndex >= ordered.size && ordered.isNotEmpty(),
             )
+        }
+        if (startIndex != _state.value.currentIndex) {
+            viewModelScope.launch { prefs.setB2Index(_state.value.currentIndex) }
         }
     }
 }

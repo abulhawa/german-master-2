@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
@@ -82,6 +83,7 @@ class WortschatzViewModel @Inject constructor(
     private val repo: WordRepository,
     private val submitAnswerUseCase: SubmitAnswerUseCase,
     private val syncDataUseCase: SyncDataUseCase,
+    private val prefs: SyncPreferences,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(WortschatzUiState())
@@ -129,14 +131,18 @@ class WortschatzViewModel @Inject constructor(
     fun markCorrect() {
         val word = _state.value.drillCurrent ?: return
         recordResult(word, "correct")
-        _state.update { it.copy(drillCorrect = it.drillCorrect + 1) }
+        val nextCorrect = _state.value.drillCorrect + 1
+        _state.update { it.copy(drillCorrect = nextCorrect) }
+        viewModelScope.launch { prefs.setDrillCorrect(nextCorrect) }
         advance()
     }
 
     fun markWrong() {
         val word = _state.value.drillCurrent ?: return
         recordResult(word, "incorrect")
-        _state.update { it.copy(drillWrong = it.drillWrong + 1) }
+        val nextWrong = _state.value.drillWrong + 1
+        _state.update { it.copy(drillWrong = nextWrong) }
+        viewModelScope.launch { prefs.setDrillWrong(nextWrong) }
         advance()
     }
 
@@ -164,7 +170,12 @@ class WortschatzViewModel @Inject constructor(
 
     fun restartDrill() {
         _state.update { it.copy(drillCorrect = 0, drillWrong = 0, drillDone = false) }
-        buildDrill()
+        viewModelScope.launch {
+            prefs.setDrillCorrect(0)
+            prefs.setDrillWrong(0)
+            prefs.setDrillIndex(0)
+        }
+        buildDrill(0)
     }
 
     // ─── private ──────────────────────────────────────────────────────────────
@@ -196,27 +207,52 @@ class WortschatzViewModel @Inject constructor(
             flow.catch { e ->
                 _state.update { it.copy(isLoading = false, syncError = e.message) }
             }.collect { words ->
+                val savedIndex = prefs.getDrillIndex()
+                val savedCorrect = prefs.getDrillCorrect()
+                val savedWrong = prefs.getDrillWrong()
+                
                 _state.update { s ->
+                    val isFirstLoad = s.drillQueue.isEmpty()
+                    
+                    // Only reset if session was done. Don't reset just because index is 0 if it's the first load.
+                    val shouldReset = s.drillDone || (s.drillIndex == 0 && !isFirstLoad)
+                    
+                    val queue = if (shouldReset || isFirstLoad) words.shuffled() else s.drillQueue
+                    
+                    // If first load, use saved stats. Otherwise, follow current state or reset if finished.
+                    val finalIndex = if (isFirstLoad) {
+                        if (savedIndex < queue.size) savedIndex else 0
+                    } else if (shouldReset) {
+                        0
+                    } else {
+                        s.drillIndex
+                    }
+                    
+                    val finalCorrect = if (isFirstLoad) savedCorrect else if (shouldReset) 0 else s.drillCorrect
+                    val finalWrong = if (isFirstLoad) savedWrong else if (shouldReset) 0 else s.drillWrong
+
                     s.copy(
                         isLoading = false,
                         listCards = words,
-                        // Rebuild drill queue live if user hasn't started yet
-                        drillQueue = if (s.drillDone || s.drillIndex == 0) words.shuffled()
-                                     else s.drillQueue,
+                        drillQueue = queue,
+                        drillIndex = finalIndex,
+                        drillCorrect = finalCorrect,
+                        drillWrong = finalWrong,
+                        drillDone = finalIndex >= queue.size && queue.isNotEmpty()
                     )
                 }
             }
         }
     }
 
-    private fun buildDrill() {
+    private fun buildDrill(startIndex: Int = 0) {
         val shuffled = _state.value.listCards.shuffled()
         _state.update {
             it.copy(
                 drillQueue  = shuffled,
-                drillIndex  = 0,
+                drillIndex  = startIndex,
                 drillFlipped = false,
-                drillDone   = false,
+                drillDone   = startIndex >= shuffled.size && shuffled.isNotEmpty(),
             )
         }
     }
@@ -230,5 +266,6 @@ class WortschatzViewModel @Inject constructor(
                 drillDone    = next >= it.drillQueue.size,
             )
         }
+        viewModelScope.launch { prefs.setDrillIndex(next) }
     }
 }
