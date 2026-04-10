@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Lightbulb
@@ -38,6 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.domain.model.TaskCard
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import kotlinx.serialization.json.Json
 
 /**
  * Renders a practice card for any of the 3 task types:
@@ -77,84 +80,103 @@ fun PracticeCard(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            // Header: CEFR + Task Type
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                task.cefrLevel?.let {
-                    Surface(
-                        color = MaterialTheme.colorScheme.secondaryContainer,
-                        shape = MaterialTheme.shapes.extraSmall
-                    ) {
-                        Text(
-                            it,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
-                            style = MaterialTheme.typography.labelSmall
-                        )
+                // Header: CEFR + Task Type
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    task.cefrLevel?.let {
+                        Surface(
+                            color = MaterialTheme.colorScheme.secondaryContainer,
+                            shape = MaterialTheme.shapes.extraSmall
+                        ) {
+                            Text(
+                                it,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
                     }
+                    Text(
+                        task.taskType.replace("_", " ").uppercase(),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+                    )
                 }
-                Text(
-                    task.taskType.replace("_", " ").uppercase(),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-                )
+
+                Spacer(Modifier.height(16.dp))
+
+                // Prompt
+                PracticePrompt(task, onSpeak = { ttsHelper.speak(it) })
+
+                Spacer(Modifier.height(24.dp))
+
+                if (!revealed) {
+                    // Input area
+                    OutlinedTextField(
+                        value = answer,
+                        onValueChange = { answer = it },
+                        label = { Text("Antwort") },
+                        placeholder = { Text("Hier schreiben...") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+
+                    // Hints area
+                    if (task.hints.isNotEmpty() && hintsUsedCount < task.hints.size) {
+                        TextButton(
+                            onClick = { hintsUsedCount++ },
+                            modifier = Modifier.align(Alignment.Start)
+                        ) {
+                            Icon(Icons.Default.Lightbulb, contentDescription = null, modifier = Modifier.size(16.dp))
+                            Spacer(Modifier.width(4.dp))
+                            Text("Tipp anzeigen (${hintsUsedCount}/${task.hints.size})")
+                        }
+                    }
+
+                    if (hintsUsedCount > 0) {
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant,
+                            shape = MaterialTheme.shapes.small,
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+                        ) {
+                            Column(modifier = Modifier.padding(8.dp)) {
+                                for (i in 0 until hintsUsedCount) {
+                                    Text("• ${task.hints[i]}", style = MaterialTheme.typography.bodySmall)
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    // Result area
+                    val solution = task.solution["form"]
+                        ?: task.solution["answer"]
+                        ?: task.solution.values.firstOrNull()
+                        ?: "—"
+
+                    val isCorrect = answer.trim().equals(solution.trim(), ignoreCase = true)
+
+                    ResultDisplay(isCorrect, answer, solution, task, onSpeak = { ttsHelper.speak(it) })
+                }
             }
 
             Spacer(Modifier.height(16.dp))
 
-            // Prompt
-            PracticePrompt(task, onSpeak = { ttsHelper.speak(it) })
-
-            Spacer(Modifier.height(24.dp))
-
             if (!revealed) {
-                // Input area
-                OutlinedTextField(
-                    value = answer,
-                    onValueChange = { answer = it },
-                    label = { Text("Antwort") },
-                    placeholder = { Text("Hier schreiben...") },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-
-                // Hints area
-                if (task.hints.isNotEmpty() && hintsUsedCount < task.hints.size) {
-                    TextButton(
-                        onClick = { hintsUsedCount++ },
-                        modifier = Modifier.align(Alignment.Start)
-                    ) {
-                        Icon(Icons.Default.Lightbulb, contentDescription = null, modifier = Modifier.size(16.dp))
-                        Spacer(Modifier.width(4.dp))
-                        Text("Tipp anzeigen (${hintsUsedCount}/${task.hints.size})")
-                    }
-                }
-
-                if (hintsUsedCount > 0) {
-                    Surface(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
-                        shape = MaterialTheme.shapes.small,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(8.dp)) {
-                            for (i in 0 until hintsUsedCount) {
-                                Text("• ${task.hints[i]}", style = MaterialTheme.typography.bodySmall)
-                            }
-                        }
-                    }
-                }
-
-                Spacer(Modifier.weight(1f))
-
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     OutlinedButton(
                         onClick = onSkip,
                         modifier = Modifier.weight(1f).height(48.dp),
                     ) { Text("Überspringen") }
                     Button(
-                        onClick = { 
+                        onClick = {
                             revealed = true
                             // Speak solution when revealed
                             val solution = task.solution["form"] ?: task.solution["answer"] ?: task.solution.values.firstOrNull() ?: ""
@@ -165,17 +187,11 @@ fun PracticeCard(
                     ) { Text("Prüfen") }
                 }
             } else {
-                // Result area
                 val solution = task.solution["form"]
                     ?: task.solution["answer"]
                     ?: task.solution.values.firstOrNull()
                     ?: "—"
-
                 val isCorrect = answer.trim().equals(solution.trim(), ignoreCase = true)
-
-                ResultDisplay(isCorrect, answer, solution, task, onSpeak = { ttsHelper.speak(it) })
-
-                Spacer(Modifier.weight(1f))
 
                 Button(
                     onClick = {
@@ -265,6 +281,20 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
 
 @Composable
 fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task: TaskCard, onSpeak: (String) -> Unit) {
+    val examplePair = remember(task.prompt["example"]) {
+        val raw = task.prompt["example"] ?: return@remember null
+        try {
+            if (raw.trim().startsWith("{")) {
+                val map = Json.decodeFromString<Map<String, String>>(raw)
+                map["de"] to map["en"]
+            } else {
+                raw to null
+            }
+        } catch (e: Exception) {
+            raw to null
+        }
+    }
+
     Column(modifier = Modifier.fillMaxWidth()) {
         Surface(
             shape = MaterialTheme.shapes.medium,
@@ -314,19 +344,27 @@ fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task:
         Spacer(Modifier.height(16.dp))
 
         // Example Sentence
-        task.prompt["example"]?.let { ex ->
+        examplePair?.let { (german, english) ->
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text("Beispiel:", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
                 Spacer(Modifier.weight(1f))
-                IconButton(onClick = { onSpeak(ex) }, modifier = Modifier.size(24.dp)) {
+                IconButton(onClick = { onSpeak(german ?: "") }, modifier = Modifier.size(24.dp)) {
                     Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(16.dp))
                 }
             }
             Text(
-                ex,
+                german ?: "",
                 style = MaterialTheme.typography.bodyMedium,
                 fontStyle = androidx.compose.ui.text.font.FontStyle.Italic
             )
+            english?.let {
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    it,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                )
+            }
         }
 
         // Additional Info (e.g. Principal parts for verbs)
