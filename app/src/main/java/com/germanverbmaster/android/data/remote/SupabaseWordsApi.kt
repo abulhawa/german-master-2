@@ -21,6 +21,12 @@ data class RemoteWord(
     @SerialName("example_en") val exampleEn: String? = null,
     val gender: String? = null,
     val plural: String? = null,
+    val separable: Boolean? = null,
+    val aux: String? = null,
+    val praeteritum: String? = null,
+    @SerialName("partizip_ii") val partizipIi: String? = null,
+    val comparative: String? = null,
+    val superlative: String? = null,
     @SerialName("updated_at") val updatedAt: String = "",
 )
 
@@ -91,6 +97,12 @@ class SupabaseWordsApi @Inject constructor(
         exampleEn = exampleEn?.trim(),
         gender = gender?.trim(),
         plural = plural?.trim(),
+        separable = separable,
+        aux = aux?.trim(),
+        praeteritum = praeteritum?.trim(),
+        partizip2 = partizipIi?.trim(),
+        comparative = comparative?.trim(),
+        superlative = superlative?.trim(),
         updatedAt = updatedAt.trim(),
     )
 }

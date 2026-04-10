@@ -21,7 +21,7 @@ import com.germanverbmaster.android.data.local.entity.WordEntity
         PracticeHistoryEntity::class,
         WordEntity::class,
     ],
-    version = 9,
+    version = 10,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {

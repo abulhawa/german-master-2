@@ -18,5 +18,14 @@ data class WordEntity(
     val exampleEn: String? = null,
     val gender: String? = null,        // "m" | "f" | "n" — for nouns
     val plural: String? = null,        // for nouns
+    val separable: Boolean? = null,    // for verbs
+    val aux: String? = null,           // for verbs: "haben", "sein", "haben / sein"
+    val praeteritum: String? = null,   // for verbs
+    val partizip2: String? = null,     // for verbs
+    val perfekt: String? = null,       // for verbs
+    val praesensIch: String? = null,   // for verbs
+    val praesensEr: String? = null,    // for verbs
+    val comparative: String? = null,   // for adjectives
+    val superlative: String? = null,   // for adjectives
     val updatedAt: String = "",
 )

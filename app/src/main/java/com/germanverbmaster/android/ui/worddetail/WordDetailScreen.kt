@@ -133,8 +133,27 @@ private fun WordDetailContent(word: WordEntity, onSpeak: (String) -> Unit) {
     Spacer(Modifier.height(24.dp))
 
     // Grammatical Info
-    if (word.pos == "N" || word.pos == "NOMEN") {
-        DetailSection(title = "Plural", content = word.plural ?: "Keine Angabe")
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        when (word.pos.uppercase()) {
+            "V", "VERB" -> {
+                DetailSection(title = "Hilfsverb", content = word.aux ?: "Keine Angabe")
+                DetailSection(title = "Präteritum", content = word.praeteritum ?: "Keine Angabe")
+                DetailSection(title = "Partizip II", content = word.partizip2 ?: "Keine Angabe")
+                if (!word.praesensEr.isNullOrBlank()) {
+                    DetailSection(title = "Präsens (er/sie/es)", content = word.praesensEr)
+                }
+            }
+            "N", "NOMEN" -> {
+                DetailSection(title = "Plural", content = word.plural ?: "Keine Angabe")
+            }
+            "ADJ", "ADJEKTIV" -> {
+                DetailSection(title = "Komparativ", content = word.comparative ?: "Keine Angabe")
+                DetailSection(title = "Superlativ", content = word.superlative ?: "Keine Angabe")
+            }
+        }
     }
 
     // Example Section
