@@ -14,6 +14,9 @@ interface InflectionDao {
     @Query("SELECT * FROM inflections WHERE lexemeId = :lexemeId")
     suspend fun getByLexemeId(lexemeId: String): List<InflectionEntity>
 
+    @Query("SELECT COUNT(*) FROM inflections")
+    suspend fun count(): Int
+
     @Query("DELETE FROM inflections")
     suspend fun deleteAll()
 }

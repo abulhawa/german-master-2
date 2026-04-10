@@ -16,11 +16,13 @@ data class RemoteInflection(
     val form: String,
     val features: JsonObject,
     @SerialName("audio_asset") val audioAsset: String? = null,
+    @SerialName("updated_at") val updatedAt: String = "",
 )
 
 class SupabaseInflectionApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
+    /** Full fetch — paginates through all rows in batches of 1000 */
     suspend fun fetchAll(): List<RemoteInflection> {
         val pageSize = 1000
         val all = mutableListOf<RemoteInflection>()
@@ -46,6 +48,26 @@ class SupabaseInflectionApi @Inject constructor(
         } catch (e: Exception) {
             Log.e("SupabaseInflectionApi", "General Error fetching inflections", e)
             throw e
+        }
+        return all
+    }
+
+    /** Incremental sync — only rows updated after lastSyncedAt */
+    suspend fun fetchUpdatedSince(since: String): List<RemoteInflection> {
+        val pageSize = 1000
+        val all = mutableListOf<RemoteInflection>()
+        var from = 0
+        while (true) {
+            val page = client.postgrest["inflections"]
+                .select {
+                    filter { gt("updated_at", since) }
+                    range(from.toLong(), (from + pageSize - 1).toLong())
+                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                }
+                .decodeList<RemoteInflection>()
+            all.addAll(page)
+            if (page.size < pageSize) break
+            from += pageSize
         }
         return all
     }

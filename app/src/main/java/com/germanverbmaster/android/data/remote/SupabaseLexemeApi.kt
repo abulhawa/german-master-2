@@ -95,12 +95,10 @@ class SupabaseLexemeApi @Inject constructor(
         val approved = isApproved 
             ?: getBool("approved") 
             ?: getBool("is_approved") 
-            ?: true // Default to true if no approval field exists to ensure data is visible
+            ?: true // Default to true so data is visible by default
         
         val posTrimmed = pos.trim()
-        // Trust the server's is_complete field. If the server doesn't send it, assume complete.
-        // The old metadata heuristic was wrong: inflections are stored as separate DB rows,
-        // not as keys inside the lexeme metadata object.
+        // Default to true if not specified to avoid hiding data
         val complete = isComplete ?: true
 
         // Extract CEFR level from metadata — try common key variants

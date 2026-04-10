@@ -15,6 +15,7 @@ import javax.inject.Singleton
 private val Context.dataStore by preferencesDataStore(name = "sync_prefs")
 private val LEXEME_LAST_SYNC = stringPreferencesKey("lexeme_last_sync")
 private val TASK_LAST_SYNC   = stringPreferencesKey("task_last_sync")
+private val INFLECTION_LAST_SYNC = stringPreferencesKey("inflection_last_sync")
 private val PRACTICE_LAST_SYNC = stringPreferencesKey("practice_last_sync")
 private val USER_ID = stringPreferencesKey("user_id")
 
@@ -45,6 +46,12 @@ class SyncPreferences @Inject constructor(
     suspend fun setTaskLastSync(value: String) =
         context.dataStore.edit { it[TASK_LAST_SYNC] = value }
 
+    suspend fun getInflectionLastSync(): String? =
+        context.dataStore.data.first()[INFLECTION_LAST_SYNC]
+
+    suspend fun setInflectionLastSync(value: String) =
+        context.dataStore.edit { it[INFLECTION_LAST_SYNC] = value }
+
     suspend fun getPracticeLastSync(): String? =
         context.dataStore.data.first()[PRACTICE_LAST_SYNC]
 
@@ -60,8 +67,8 @@ class LexemeRepository @Inject constructor(
 ) {
     suspend fun deleteAll() = dao.deleteAll()
 
-    /** Returns true if local DB has fewer than a healthy threshold (e.g. 5000) */
-    suspend fun needsFullSync(): Boolean = dao.count() < 5000
+    /** Returns true if local DB has fewer than a healthy threshold (e.g. 500) */
+    suspend fun needsFullSync(): Boolean = dao.count() < 500
 
     suspend fun getAllIds(): List<String> = dao.getAllIds()
 

@@ -51,8 +51,9 @@ object RepositoryModule {
     @Singleton
     fun provideInflectionRepository(
         dao: InflectionDao,
-        api: SupabaseInflectionApi
-    ): InflectionRepository = InflectionRepository(dao, api)
+        api: SupabaseInflectionApi,
+        prefs: SyncPreferences
+    ): InflectionRepository = InflectionRepository(dao, api, prefs)
 
     @Provides
     @Singleton

@@ -95,6 +95,10 @@ class SyncDataUseCase @Inject constructor(
                 prefs.setLexemeLastSync(it)
                 Log.d("SyncDataUseCase", "Updated lexeme last sync to $it")
             }
+            inflectionResult?.filter { it.updatedAt.isNotEmpty() }?.maxOfOrNull { it.updatedAt }?.let {
+                prefs.setInflectionLastSync(it)
+                Log.d("SyncDataUseCase", "Updated inflection last sync to $it")
+            }
             taskResult?.filter { it.updatedAt.isNotEmpty() }?.maxOfOrNull { it.updatedAt }?.let {
                 prefs.setTaskLastSync(it)
                 Log.d("SyncDataUseCase", "Updated task last sync to $it")

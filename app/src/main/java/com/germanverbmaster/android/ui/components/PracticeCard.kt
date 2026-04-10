@@ -26,7 +26,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -67,17 +66,6 @@ fun PracticeCard(
     var revealed by remember(task.taskId) { mutableStateOf(false) }
     var hintsUsedCount by remember(task.taskId) { mutableIntStateOf(0) }
     val startMs = remember(task.taskId) { System.currentTimeMillis() }
-
-    // Speak prompt on new task
-    LaunchedEffect(task.taskId) {
-        val promptText = when (task.taskType) {
-            "conjugate_form" -> "${task.prompt["pronoun"] ?: ""} ${task.lemma}"
-            "noun_case_declension" -> task.prompt["context"] ?: task.lemma
-            "adj_ending" -> "${task.prompt["article_type"] ?: ""} ${task.lemma} ${task.prompt["noun"] ?: ""}"
-            else -> task.lemma
-        }
-        ttsHelper.speak(promptText)
-    }
 
     ElevatedCard(
         modifier = modifier,
