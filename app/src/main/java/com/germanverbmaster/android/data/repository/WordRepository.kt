@@ -27,6 +27,9 @@ class WordRepository @Inject constructor(
     suspend fun findIdByLemmaAndPos(lemma: String, pos: String): Int? =
         dao.findIdByLemmaAndPos(lemma, pos)
 
+    suspend fun findTranslationByLemmaAndPos(lemma: String, pos: String): String? =
+        dao.findTranslationByLemmaAndPos(lemma, pos)
+
     fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
 
     suspend fun needsSync(): Boolean = dao.count() < 100

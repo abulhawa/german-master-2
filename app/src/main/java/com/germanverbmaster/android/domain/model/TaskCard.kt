@@ -12,6 +12,7 @@ data class TaskCard(
     val prompt: Map<String, String>,    // parsed from JSON
     val solution: Map<String, String>,  // parsed from JSON
     val hints: List<String> = emptyList(),
+    val translation: String? = null,
 )
 
 data class PracticeResult(

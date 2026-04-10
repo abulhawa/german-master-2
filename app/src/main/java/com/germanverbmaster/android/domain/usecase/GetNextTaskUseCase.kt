@@ -3,6 +3,7 @@ package com.germanverbmaster.android.domain.usecase
 import android.util.Log
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
 import com.germanverbmaster.android.data.repository.TaskRepository
+import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeMode
 import com.germanverbmaster.android.domain.model.TaskCard
 import kotlinx.serialization.json.Json
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 class GetNextTaskUseCase @Inject constructor(
     private val taskRepository: TaskRepository,
+    private val wordRepository: WordRepository,
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -36,8 +38,15 @@ class GetNextTaskUseCase @Inject constructor(
             }
             card
         }
-        Log.d("GetNextTaskUseCase", "Mapped ${cards.size}/${entities.size} entities to TaskCards")
-        return cards
+
+        // Fetch translations for each card
+        val cardsWithTranslation = cards.map { card ->
+            val translation = wordRepository.findTranslationByLemmaAndPos(card.lemma, card.pos)
+            card.copy(translation = translation)
+        }
+
+        Log.d("GetNextTaskUseCase", "Mapped ${cardsWithTranslation.size}/${entities.size} entities to TaskCards")
+        return cardsWithTranslation
     }
 
     private fun TaskSpecEntity.toTaskCard(): TaskCard? = runCatching {

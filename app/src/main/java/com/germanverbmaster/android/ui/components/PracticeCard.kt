@@ -114,7 +114,11 @@ fun PracticeCard(
                 Spacer(Modifier.height(16.dp))
 
                 // Prompt
-                PracticePrompt(task, onSpeak = { ttsHelper.speak(it) })
+                PracticePrompt(
+                    task = task,
+                    translation = task.translation,
+                    onSpeak = { ttsHelper.speak(it) }
+                )
 
                 Spacer(Modifier.height(24.dp))
 
@@ -206,7 +210,7 @@ fun PracticeCard(
 }
 
 @Composable
-fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
+fun PracticePrompt(task: TaskCard, translation: String? = null, onSpeak: (String) -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         val taskInstruction = task.prompt["instructions"]
             ?: task.prompt["description"]
@@ -247,6 +251,13 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
+                translation?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
             }
             "noun_case_declension" -> {
                 val case = task.prompt["case"] ?: "Nominativ"
@@ -274,6 +285,13 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
+                translation?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
             }
             "adj_ending" -> {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -292,6 +310,13 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
+                translation?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
             }
             else -> {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -299,6 +324,13 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                     IconButton(onClick = { onSpeak(task.lemma) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
+                }
+                translation?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
                 }
             }
         }

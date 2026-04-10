@@ -51,6 +51,18 @@ interface WordDao {
     """)
     suspend fun findIdByLemmaAndPos(lemma: String, pos: String): Int?
 
+    @Query("""
+        SELECT english FROM words 
+        WHERE LOWER(TRIM(lemma)) = LOWER(TRIM(:lemma)) 
+        AND (
+            LOWER(TRIM(pos)) = LOWER(TRIM(:pos)) 
+            OR pos LIKE :pos || '%' 
+            OR :pos LIKE pos || '%'
+        )
+        LIMIT 1
+    """)
+    suspend fun findTranslationByLemmaAndPos(lemma: String, pos: String): String?
+
     /** Fallback search by lemma only */
     @Query("SELECT id FROM words WHERE LOWER(TRIM(lemma)) = LOWER(TRIM(:lemma)) LIMIT 1")
     suspend fun findIdByLemma(lemma: String): Int?
