@@ -290,7 +290,7 @@ fun ResultDisplay(isCorrect: Boolean, submitted: String, solution: String, task:
             } else {
                 raw to null
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             raw to null
         }
     }
