@@ -231,32 +231,29 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                 val tense = task.prompt["tense"]
                 val label = listOfNotNull(person, tense).joinToString(", ")
 
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = label,
-                        style = MaterialTheme.typography.headlineSmall,
+                        task.lemma,
+                        style = MaterialTheme.typography.headlineLarge,
+                        fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.primary
                     )
                     IconButton(onClick = { onSpeak("$person ${task.lemma}") }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
-                Text(
-                    "___",
-                    style = MaterialTheme.typography.headlineLarge,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    "(${task.lemma})",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                )
             }
             "noun_case_declension" -> {
                 val case = task.prompt["case"] ?: "Nominativ"
                 val number = task.prompt["number"]
                 val gender = task.prompt["gender"]
                 val label = listOfNotNull(case, number, gender).joinToString(" ")
+                val mainWord = task.prompt["context"] ?: task.lemma
 
                 Text(
                     text = label,
@@ -268,19 +265,15 @@ fun PracticePrompt(task: TaskCard, onSpeak: (String) -> Unit) {
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        "___",
+                        mainWord,
                         style = MaterialTheme.typography.headlineLarge,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
                     )
-                    IconButton(onClick = { onSpeak(task.prompt["context"] ?: task.lemma) }) {
+                    IconButton(onClick = { onSpeak(mainWord) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen", modifier = Modifier.size(20.dp))
                     }
                 }
-                Text(
-                    "(${task.prompt["context"] ?: task.lemma})",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                )
             }
             "adj_ending" -> {
                 Row(verticalAlignment = Alignment.CenterVertically) {
