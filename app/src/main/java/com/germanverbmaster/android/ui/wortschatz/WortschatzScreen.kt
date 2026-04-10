@@ -1,7 +1,10 @@
 package com.germanverbmaster.android.ui.wortschatz
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -21,6 +26,9 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -40,7 +48,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
@@ -96,33 +106,13 @@ fun WortschatzScreen(
 
         Spacer(Modifier.height(8.dp))
 
-        // Level filter
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            contentPadding = PaddingValues(bottom = 4.dp),
-        ) {
-            items(LEVEL_FILTERS) { level ->
-                FilterChip(
-                    selected = state.selectedLevel == level,
-                    onClick = { viewModel.selectLevel(level) },
-                    label = { Text(level, style = MaterialTheme.typography.labelSmall) },
-                )
-            }
-        }
-
-        // POS filter
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            contentPadding = PaddingValues(bottom = 8.dp),
-        ) {
-            items(state.posOptions) { pos ->
-                FilterChip(
-                    selected = state.selectedPos == pos,
-                    onClick = { viewModel.selectPos(pos) },
-                    label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
-                )
-            }
-        }
+        FilterSection(
+            selectedLevel = state.selectedLevel,
+            onLevelChange = viewModel::selectLevel,
+            selectedPos = state.selectedPos,
+            onPosChange = viewModel::selectPos,
+            posOptions = state.posOptions
+        )
 
         // Count label
         if (!state.isLoading) {
@@ -323,6 +313,90 @@ private fun WordRow(
             textAlign = TextAlign.End,
             modifier = Modifier.weight(0.9f),
         )
+    }
+}
+
+@Composable
+fun FilterSection(
+    selectedLevel: String,
+    onLevelChange: (String) -> Unit,
+    selectedPos: String,
+    onPosChange: (String) -> Unit,
+    posOptions: List<String>
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { expanded = !expanded }
+                .padding(vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Default.Tune,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = "Filter",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+            Icon(
+                imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                contentDescription = if (expanded) "Collapse" else "Expand"
+            )
+        }
+
+        AnimatedVisibility(
+            visible = expanded,
+            enter = expandVertically(),
+            exit = shrinkVertically()
+        ) {
+            Column {
+                // Level filter
+                Text("Niveau", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.secondary)
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    contentPadding = PaddingValues(bottom = 8.dp),
+                ) {
+                    items(LEVEL_FILTERS) { level ->
+                        FilterChip(
+                            selected = selectedLevel == level,
+                            onClick = { onLevelChange(level) },
+                            label = { Text(level, style = MaterialTheme.typography.labelSmall) },
+                        )
+                    }
+                }
+
+                // POS filter
+                Text("Wortart", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.secondary)
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    contentPadding = PaddingValues(bottom = 8.dp),
+                ) {
+                    items(posOptions) { pos ->
+                        FilterChip(
+                            selected = selectedPos == pos,
+                            onClick = { onPosChange(pos) },
+                            label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
+                        )
+                    }
+                }
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), thickness = 0.5.dp)
+            }
+        }
     }
 }
 

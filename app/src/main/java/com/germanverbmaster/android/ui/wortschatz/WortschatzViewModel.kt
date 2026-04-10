@@ -47,7 +47,7 @@ data class WortschatzUiState(
     val tab: WortschatzTab = WortschatzTab.LIST,
 
     // Filters
-    val selectedLevel: String = "B2",
+    val selectedLevel: String = "Alle",
     val selectedPos: String = "Alle",
     val posOptions: List<String> = listOf("Alle", "V", "N", "Adj"),
 
