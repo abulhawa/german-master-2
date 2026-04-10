@@ -23,7 +23,6 @@ data class HomeUiState(
     val isOffline: Boolean = false,
     val mode: PracticeMode = PracticeMode.ALL,
     val cefrLevel: String? = null,  // null = no level filter; set explicitly by user
-    val b2ExamMode: Boolean = false,
     val queue: List<TaskCard> = emptyList(),
     val currentTask: TaskCard? = null,
     val stats: SessionStats = SessionStats(),
@@ -70,10 +69,9 @@ class HomeViewModel @Inject constructor(
     }
 
     private suspend fun loadNextBatch() {
-        val effectiveMode = if (_state.value.b2ExamMode) PracticeMode.B2_EXAM else _state.value.mode
         val tasks = getNextTask(
-            mode = effectiveMode,
-            cefrLevel = if (_state.value.b2ExamMode) null else _state.value.cefrLevel,
+            mode = _state.value.mode,
+            cefrLevel = _state.value.cefrLevel,
         )
         _state.update { it.copy(queue = tasks, currentTask = tasks.firstOrNull()) }
     }
@@ -88,10 +86,6 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch { loadNextBatch() }
     }
 
-    fun toggleB2ExamMode() {
-        _state.update { it.copy(b2ExamMode = !it.b2ExamMode) }
-        viewModelScope.launch { loadNextBatch() }
-    }
 
     fun submitResult(task: TaskCard, isCorrect: Boolean, submitted: String, correct: String, responseMs: Int) {
         viewModelScope.launch {

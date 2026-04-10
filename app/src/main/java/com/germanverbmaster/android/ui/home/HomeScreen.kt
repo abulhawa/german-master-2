@@ -67,14 +67,10 @@ fun HomeScreen(
         // Mode + Level selectors
         ModeSelector(
             current = state.mode,
-            b2ExamMode = state.b2ExamMode,
             onModeChange = viewModel::setMode,
-            onToggleB2 = viewModel::toggleB2ExamMode,
         )
 
-        if (!state.b2ExamMode) {
-            LevelSelector(current = state.cefrLevel, onChange = viewModel::setCefrLevel)
-        }
+        LevelSelector(current = state.cefrLevel, onChange = viewModel::setCefrLevel)
 
         Spacer(Modifier.height(12.dp))
 
@@ -143,9 +139,7 @@ fun HomeScreen(
 @Composable
 fun ModeSelector(
     current: PracticeMode,
-    b2ExamMode: Boolean,
     onModeChange: (PracticeMode) -> Unit,
-    onToggleB2: () -> Unit,
 ) {
     Column {
         Row(
@@ -159,20 +153,11 @@ fun ModeSelector(
                 PracticeMode.ADJECTIVES to "Adj.",
             ).forEach { (mode, label) ->
                 FilterChip(
-                    selected = current == mode && !b2ExamMode,
+                    selected = current == mode,
                     onClick = { onModeChange(mode) },
                     label = { Text(label, style = MaterialTheme.typography.labelSmall) },
                 )
             }
-        }
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(top = 4.dp),
-        ) {
-            Switch(checked = b2ExamMode, onCheckedChange = { onToggleB2() })
-            Spacer(Modifier.width(8.dp))
-            Text("B2 Prüfungsmodus (B1+B2, alle Typen)",
-                style = MaterialTheme.typography.labelMedium)
         }
     }
 }

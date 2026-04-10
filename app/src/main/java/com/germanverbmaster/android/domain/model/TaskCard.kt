@@ -26,7 +26,7 @@ data class PracticeResult(
     val hintsUsed: Boolean = false,
 )
 
-enum class PracticeMode { ALL, VERBS, NOUNS, ADJECTIVES, B2_EXAM }
+enum class PracticeMode { ALL, VERBS, NOUNS, ADJECTIVES }
 
 data class SessionStats(
     val correct: Int = 0,

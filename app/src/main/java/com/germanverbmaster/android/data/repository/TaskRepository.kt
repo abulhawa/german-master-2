@@ -43,8 +43,6 @@ class TaskRepository @Inject constructor(
         limit: Int = 20,
     ): List<TaskSpecEntity> = dao.fetchBatch(pos, cefrLevel, limit)
 
-    suspend fun fetchB2Batch(limit: Int = 20): List<TaskSpecEntity> =
-        dao.fetchB2Batch(limit)
 
     suspend fun count(): Int = dao.count()
 }

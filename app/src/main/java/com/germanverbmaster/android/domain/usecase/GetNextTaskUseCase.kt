@@ -23,7 +23,6 @@ class GetNextTaskUseCase @Inject constructor(
         batchSize: Int = 20,
     ): List<TaskCard> {
         val entities = when (mode) {
-            PracticeMode.B2_EXAM    -> taskRepository.fetchB2Batch(batchSize)
             PracticeMode.VERBS      -> taskRepository.fetchBatch("V", cefrLevel, batchSize)
             PracticeMode.NOUNS      -> taskRepository.fetchBatch("N", cefrLevel, batchSize)
             PracticeMode.ADJECTIVES -> taskRepository.fetchBatch("Adj", cefrLevel, batchSize)
