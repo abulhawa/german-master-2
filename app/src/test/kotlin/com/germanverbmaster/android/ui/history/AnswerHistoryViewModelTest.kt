@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
+import com.germanverbmaster.android.data.repository.WordRepository
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ import org.junit.Test
 class AnswerHistoryViewModelTest {
 
     private val practiceRepository: PracticeRepository = mockk()
+    private val wordRepository: WordRepository = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
     private val mockAttempts = listOf(
@@ -68,7 +70,7 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `initial state reflects all attempts from repository`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
 
         viewModel.state.test {
             // Initial state (isLoading = true)
@@ -86,7 +88,7 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `filtering by result correctly filters attempts`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
 
         viewModel.state.test {
             awaitItem() // Skip loading
@@ -103,7 +105,7 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `filtering by POS correctly filters attempts`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
 
         viewModel.state.test {
             awaitItem() // Skip loading
@@ -121,7 +123,7 @@ class AnswerHistoryViewModelTest {
     @Test
     fun `initial result from SavedStateHandle is applied`() = runTest {
         val savedStateHandle = SavedStateHandle(mapOf("result" to "incorrect"))
-        val viewModel = AnswerHistoryViewModel(practiceRepository, savedStateHandle)
+        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, savedStateHandle)
 
         viewModel.state.test {
             awaitItem() // Skip loading
