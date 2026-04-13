@@ -15,12 +15,12 @@ class WordRepository @Inject constructor(
 ) {
     fun observeAll(): Flow<List<WordEntity>> = dao.observeAll()
 
-    fun observeByLevel(level: String): Flow<List<WordEntity>> = dao.observeByLevel(level)
+    fun observeByLevels(levels: List<String>): Flow<List<WordEntity>> = dao.observeByLevels(levels)
 
-    fun observeByPos(pos: String): Flow<List<WordEntity>> = dao.observeByPos(pos)
+    fun observeByPosTypes(posTypes: List<String>): Flow<List<WordEntity>> = dao.observeByPosTypes(posTypes)
 
-    fun observeByLevelAndPos(level: String, pos: String): Flow<List<WordEntity>> =
-        dao.observeByLevelAndPos(level, pos)
+    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>): Flow<List<WordEntity>> =
+        dao.observeByLevelsAndPos(levels, posTypes)
 
     fun observeById(id: Int): Flow<WordEntity?> = dao.observeById(id)
 

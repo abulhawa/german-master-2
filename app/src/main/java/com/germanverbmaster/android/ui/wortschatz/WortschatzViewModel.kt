@@ -48,8 +48,8 @@ data class WortschatzUiState(
     val tab: WortschatzTab = WortschatzTab.DRILL,
 
     // Filters
-    val selectedLevel: String = "Alle",
-    val selectedPos: String = "Alle",
+    val selectedLevels: Set<String> = emptySet(),
+    val selectedPosSet: Set<String> = emptySet(),
     val posOptions: List<String> = listOf("Alle", "V", "N", "Adj"),
 
     // Loading
@@ -116,14 +116,28 @@ class WortschatzViewModel @Inject constructor(
         if (tab == WortschatzTab.DRILL) buildDrill()
     }
 
-    fun selectLevel(level: String) {
-        _state.update { it.copy(selectedLevel = level) }
-        observeWords()
+    fun toggleLevel(level: String) {
+        _state.update { s ->
+            val next = if (level == "Alle") {
+                emptySet()
+            } else {
+                if (s.selectedLevels.contains(level)) s.selectedLevels - level else s.selectedLevels + level
+            }
+            s.copy(selectedLevels = next)
+        }
+        observeWords(forceReset = true)
     }
 
-    fun selectPos(pos: String) {
-        _state.update { it.copy(selectedPos = pos) }
-        observeWords()
+    fun togglePos(pos: String) {
+        _state.update { s ->
+            val next = if (pos == "Alle") {
+                emptySet()
+            } else {
+                if (s.selectedPosSet.contains(pos)) s.selectedPosSet - pos else s.selectedPosSet + pos
+            }
+            s.copy(selectedPosSet = next)
+        }
+        observeWords(forceReset = true)
     }
 
     fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
@@ -191,36 +205,45 @@ class WortschatzViewModel @Inject constructor(
         }
     }
 
-    private fun observeWords() {
+    private fun observeWords(forceReset: Boolean = false) {
         observeJob?.cancel()
-        val level = _state.value.selectedLevel
-        val pos   = _state.value.selectedPos
+        _state.update { it.copy(isLoading = true) }
+        val levels = _state.value.selectedLevels.toList()
+        val posList = _state.value.selectedPosSet.toList()
 
         val flow = when {
-            level == "Alle" && pos == "Alle" -> repo.observeAll()
-            level == "Alle"                  -> repo.observeByPos(pos)
-            pos   == "Alle"                  -> repo.observeByLevel(level)
-            else                             -> repo.observeByLevelAndPos(level, pos)
+            levels.isEmpty() && posList.isEmpty() -> repo.observeAll()
+            levels.isEmpty()                      -> repo.observeByPosTypes(posList)
+            posList.isEmpty()                     -> repo.observeByLevels(levels)
+            else                                  -> repo.observeByLevelsAndPos(levels, posList)
         }
 
         observeJob = viewModelScope.launch {
             flow.catch { e ->
                 _state.update { it.copy(isLoading = false, syncError = e.message) }
             }.collect { words ->
-                val savedIndex = prefs.getDrillIndex()
-                val savedCorrect = prefs.getDrillCorrect()
-                val savedWrong = prefs.getDrillWrong()
+                val savedIndex = if (forceReset) 0 else prefs.getDrillIndex()
+                val savedCorrect = if (forceReset) 0 else prefs.getDrillCorrect()
+                val savedWrong = if (forceReset) 0 else prefs.getDrillWrong()
                 
+                if (forceReset) {
+                    viewModelScope.launch {
+                        prefs.setDrillIndex(0)
+                        prefs.setDrillCorrect(0)
+                        prefs.setDrillWrong(0)
+                    }
+                }
+
                 _state.update { s ->
                     val isFirstLoad = s.drillQueue.isEmpty()
                     
-                    // Only reset if session was done. Don't reset just because index is 0 if it's the first load.
-                    val shouldReset = s.drillDone || (s.drillIndex == 0 && !isFirstLoad)
+                    // Force reset if filters changed, or if session was done, or if at start.
+                    val shouldReset = forceReset || s.drillDone || (s.drillIndex == 0 && !isFirstLoad)
                     
                     val queue = if (shouldReset || isFirstLoad) words.shuffled() else s.drillQueue
                     
-                    // If first load, use saved stats. Otherwise, follow current state or reset if finished.
-                    val finalIndex = if (isFirstLoad) {
+                    // If first load or forced reset, use saved stats (0 if forced). Otherwise, follow current state or reset if finished.
+                    val finalIndex = if (isFirstLoad || forceReset) {
                         if (savedIndex < queue.size) savedIndex else 0
                     } else if (shouldReset) {
                         0
@@ -228,8 +251,8 @@ class WortschatzViewModel @Inject constructor(
                         s.drillIndex
                     }
                     
-                    val finalCorrect = if (isFirstLoad) savedCorrect else if (shouldReset) 0 else s.drillCorrect
-                    val finalWrong = if (isFirstLoad) savedWrong else if (shouldReset) 0 else s.drillWrong
+                    val finalCorrect = if (isFirstLoad || forceReset) savedCorrect else if (shouldReset) 0 else s.drillCorrect
+                    val finalWrong = if (isFirstLoad || forceReset) savedWrong else if (shouldReset) 0 else s.drillWrong
 
                     s.copy(
                         isLoading = false,
@@ -238,7 +261,8 @@ class WortschatzViewModel @Inject constructor(
                         drillIndex = finalIndex,
                         drillCorrect = finalCorrect,
                         drillWrong = finalWrong,
-                        drillDone = finalIndex >= queue.size && queue.isNotEmpty()
+                        drillDone = finalIndex >= queue.size && queue.isNotEmpty(),
+                        drillFlipped = false
                     )
                 }
             }

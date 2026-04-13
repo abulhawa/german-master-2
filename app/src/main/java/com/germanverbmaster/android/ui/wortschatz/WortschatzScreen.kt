@@ -107,10 +107,10 @@ fun WortschatzScreen(
         Spacer(Modifier.height(8.dp))
 
         FilterSection(
-            selectedLevel = state.selectedLevel,
-            onLevelChange = viewModel::selectLevel,
-            selectedPos = state.selectedPos,
-            onPosChange = viewModel::selectPos,
+            selectedLevels = state.selectedLevels,
+            onLevelToggle = viewModel::toggleLevel,
+            selectedPosSet = state.selectedPosSet,
+            onPosToggle = viewModel::togglePos,
             posOptions = state.posOptions
         )
 
@@ -318,10 +318,10 @@ private fun WordRow(
 
 @Composable
 fun FilterSection(
-    selectedLevel: String,
-    onLevelChange: (String) -> Unit,
-    selectedPos: String,
-    onPosChange: (String) -> Unit,
+    selectedLevels: Set<String>,
+    onLevelToggle: (String) -> Unit,
+    selectedPosSet: Set<String>,
+    onPosToggle: (String) -> Unit,
     posOptions: List<String>
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -347,8 +347,9 @@ fun FilterSection(
                     tint = MaterialTheme.colorScheme.primary
                 )
                 Spacer(Modifier.width(8.dp))
+                val activeFilters = selectedLevels.size + selectedPosSet.size
                 Text(
-                    text = "Filter",
+                    text = if (activeFilters > 0) "Filter ($activeFilters)" else "Filter",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -373,8 +374,8 @@ fun FilterSection(
                 ) {
                     items(LEVEL_FILTERS) { level ->
                         FilterChip(
-                            selected = selectedLevel == level,
-                            onClick = { onLevelChange(level) },
+                            selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
+                            onClick = { onLevelToggle(level) },
                             label = { Text(level, style = MaterialTheme.typography.labelSmall) },
                         )
                     }
@@ -388,8 +389,8 @@ fun FilterSection(
                 ) {
                     items(posOptions) { pos ->
                         FilterChip(
-                            selected = selectedPos == pos,
-                            onClick = { onPosChange(pos) },
+                            selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
+                            onClick = { onPosToggle(pos) },
                             label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
                         )
                     }

@@ -17,17 +17,17 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE english IS NOT NULL ORDER BY lemma ASC")
     fun observeAll(): Flow<List<WordEntity>>
 
-    /** Filtered by CEFR level */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level = :level ORDER BY lemma ASC")
-    fun observeByLevel(level: String): Flow<List<WordEntity>>
+    /** Filtered by CEFR levels */
+    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level IN (:levels) ORDER BY lemma ASC")
+    fun observeByLevels(levels: List<String>): Flow<List<WordEntity>>
 
-    /** Filtered by POS */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND pos = :pos ORDER BY lemma ASC")
-    fun observeByPos(pos: String): Flow<List<WordEntity>>
+    /** Filtered by POS types */
+    @Query("SELECT * FROM words WHERE english IS NOT NULL AND pos IN (:posTypes) ORDER BY lemma ASC")
+    fun observeByPosTypes(posTypes: List<String>): Flow<List<WordEntity>>
 
-    /** Filtered by level + pos */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level = :level AND pos = :pos ORDER BY lemma ASC")
-    fun observeByLevelAndPos(level: String, pos: String): Flow<List<WordEntity>>
+    /** Filtered by levels + POS types */
+    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level IN (:levels) AND pos IN (:posTypes) ORDER BY lemma ASC")
+    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>): Flow<List<WordEntity>>
 
     @Query("SELECT DISTINCT pos FROM words WHERE english IS NOT NULL ORDER BY pos ASC")
     fun observeDistinctPos(): Flow<List<String>>
