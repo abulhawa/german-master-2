@@ -42,9 +42,9 @@ fun AppNavGraph() {
     val currentDestination = navBackStackEntry?.destination
 
     val items = listOf(
-        NavItem(Screen.Home, "Practice") { Icon(Icons.Default.Stars, "Practice") },
-        NavItem(Screen.B2Practice, "B2 Prüfung") { Icon(Icons.Default.School, "B2 Prüfung") },
         NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.AutoMirrored.Filled.MenuBook, "Wortschatz") },
+        NavItem(Screen.B2Practice, "B2 Prüfung") { Icon(Icons.Default.School, "B2 Prüfung") },
+        NavItem(Screen.Home, "Practice") { Icon(Icons.Default.Stars, "Practice") },
         NavItem(Screen.Auth, "Account") { Icon(Icons.Default.AccountCircle, "Account") },
     )
 
@@ -81,7 +81,7 @@ fun AppNavGraph() {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route,
+            startDestination = Screen.Wortschatz.route,
             modifier = androidx.compose.ui.Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route)        { HomeScreen(onNavigateToHistory = { res -> navController.navigate(Screen.History.createRoute(res)) }) }

@@ -38,14 +38,14 @@ val POS_LABELS    = mapOf(
 // ─── Screen modes ─────────────────────────────────────────────────────────────
 
 enum class WortschatzTab(val label: String) {
-    LIST("Wortliste"),
     DRILL("Schnell-Drill"),
+    LIST("Wortliste"),
 }
 
 // ─── UI state ─────────────────────────────────────────────────────────────────
 
 data class WortschatzUiState(
-    val tab: WortschatzTab = WortschatzTab.LIST,
+    val tab: WortschatzTab = WortschatzTab.DRILL,
 
     // Filters
     val selectedLevel: String = "Alle",
