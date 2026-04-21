@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.di
 
+import android.content.Context
 import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
@@ -18,6 +19,7 @@ import com.germanverbmaster.android.data.repository.WordRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -60,6 +62,7 @@ object RepositoryModule {
     fun provideWordRepository(
         dao: WordDao,
         api: SupabaseWordsApi,
-        prefs: SyncPreferences
-    ): WordRepository = WordRepository(dao, api, prefs)
+        prefs: SyncPreferences,
+        @ApplicationContext context: Context,
+    ): WordRepository = WordRepository(dao, api, prefs, context)
 }

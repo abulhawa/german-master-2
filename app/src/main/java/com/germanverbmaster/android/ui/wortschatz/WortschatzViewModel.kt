@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 // ─── Filter options ───────────────────────────────────────────────────────────
 
-val LEVEL_FILTERS = listOf("Alle", "A1", "A2", "B1", "B2", "C1")
+val LEVEL_FILTERS = listOf("Alle", "A1", "A2", "B1", "B2", "C1", "B2 Beruf")
 val POS_LABELS    = mapOf(
     "Alle" to "Alle",
     "V"    to "Verben",
@@ -99,6 +99,7 @@ class WortschatzViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, syncError = null) }
             try {
+                repo.upsertBundledB2BerufWordsIfAvailable()
                 if (repo.needsSync()) repo.sync()
                 syncDataUseCase()
                 Log.d("WortschatzViewModel", "Sync completed successfully")

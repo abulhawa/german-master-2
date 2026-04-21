@@ -19,11 +19,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.ExpandLess
@@ -488,6 +490,14 @@ private fun DrillContent(
 
                 if (state.drillFlipped) {
                     Spacer(Modifier.height(12.dp))
+                    OutlinedButton(
+                        onClick = viewModel::flip,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(44.dp),
+                    ) { Text("Zurück zur Frage") }
+
+                    Spacer(Modifier.height(8.dp))
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -538,7 +548,7 @@ private fun DrillFlipCard(
         label          = "drill_flip",
     )
 
-    Box(modifier = modifier.clickable { onFlip() }) {
+    Box(modifier = if (!isFlipped) modifier.clickable { onFlip() } else modifier) {
         if (rotation <= 90f) {
             DrillCardFace(
                 modifier = Modifier
@@ -650,6 +660,7 @@ private fun DrillCardFace(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val scrollState = rememberScrollState()
     ElevatedCard(
         modifier  = modifier,
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
@@ -657,6 +668,7 @@ private fun DrillCardFace(
         Column(
             modifier              = Modifier
                 .fillMaxSize()
+                .verticalScroll(scrollState)
                 .padding(24.dp),
             horizontalAlignment   = Alignment.CenterHorizontally,
             verticalArrangement   = Arrangement.Center,
