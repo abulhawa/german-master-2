@@ -70,6 +70,13 @@ interface WordDao {
     @Query("SELECT COUNT(*) FROM words")
     suspend fun count(): Int
 
+    @Query("""
+        SELECT COUNT(*) FROM words
+        WHERE english IS NOT NULL
+        AND (level IS NULL OR level != :excludedLevel)
+    """)
+    suspend fun countByLevelExcluding(excludedLevel: String): Int
+
     @Query("SELECT MAX(updatedAt) FROM words")
     suspend fun latestUpdatedAt(): String?
 

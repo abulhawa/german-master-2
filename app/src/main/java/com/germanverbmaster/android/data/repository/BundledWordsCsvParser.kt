@@ -44,12 +44,19 @@ internal object BundledWordsCsvParser {
             val (lemma, plural) = splitLemmaAndPlural(rawWord, pos)
             if (lemma.isBlank()) continue
 
-            val key = "${lemma.lowercase(Locale.US)}|$pos"
-            if (!dedupe.add(key)) continue
-
             val articlePrefix = articleIndex?.let { normalized.getOrNull(it).orEmpty() }.orEmpty()
             val exampleDe = exampleDeIndex?.let { normalized.getOrNull(it).orEmpty().trim().ifBlank { null } }
             val exampleEn = exampleEnIndex?.let { normalized.getOrNull(it).orEmpty().trim().ifBlank { null } }
+            val dedupeKey = listOf(
+                lemma.lowercase(Locale.US),
+                pos,
+                english.lowercase(Locale.US),
+                articlePrefix.lowercase(Locale.US),
+                (exampleDe ?: "").lowercase(Locale.US),
+                (exampleEn ?: "").lowercase(Locale.US),
+            ).joinToString("|")
+            val key = dedupeKey
+            if (!dedupe.add(key)) continue
 
             entities += WordEntity(
                 id = idBase + entities.size + 1,

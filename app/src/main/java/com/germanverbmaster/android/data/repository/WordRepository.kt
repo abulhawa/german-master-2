@@ -19,6 +19,7 @@ class WordRepository @Inject constructor(
         const val BUNDLED_WORDLIST_ASSET = "b2_wortliste.csv"
         const val BUNDLED_WORDLIST_VERSION = "bundled_b2_beruf_2026_04_21"
         const val BUNDLED_BERUF_LEVEL = "B2 Beruf"
+        const val MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB = 100
     }
 
     fun observeAll(): Flow<List<WordEntity>> = dao.observeAll()
@@ -40,7 +41,8 @@ class WordRepository @Inject constructor(
 
     fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
 
-    suspend fun needsSync(): Boolean = dao.count() < 100
+    suspend fun needsSync(): Boolean =
+        dao.countByLevelExcluding(BUNDLED_BERUF_LEVEL) < MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB
 
     suspend fun upsertBundledB2BerufWordsIfAvailable(): Int {
         val csvText = runCatching {

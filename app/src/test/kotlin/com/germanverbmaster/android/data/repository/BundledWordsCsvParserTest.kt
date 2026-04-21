@@ -59,4 +59,24 @@ class BundledWordsCsvParserTest {
         assertEquals("turn out,prove", parsed[0].english)
         assertEquals("N", parsed[1].pos)
     }
+
+    @Test
+    fun `parse keeps duplicate lemma-pos rows when examples differ`() {
+        val csv = """
+            Article/Prefix,Word,English Translation,Example Sentence,English Translation (Sentence),POS
+            die,"Bescheinigung, -en",certificate(s),Bitte reichen Sie die Bescheinigung ein.,Please submit the certificate.,N
+            die,"Bescheinigung, -en",certificate(s),Fuer diesen Kurs erhalten Sie eine Bescheinigung.,You will receive a certificate for this course.,N
+            die,"Bescheinigung, -en",certificate(s),Bitte reichen Sie die Bescheinigung ein.,Please submit the certificate.,N
+        """.trimIndent()
+
+        val parsed = BundledWordsCsvParser.parse(
+            csvText = csv,
+            level = "B2 Beruf",
+            versionTag = "test-version",
+        )
+
+        assertEquals(2, parsed.size)
+        assertEquals("Bitte reichen Sie die Bescheinigung ein.", parsed[0].exampleDe)
+        assertEquals("Fuer diesen Kurs erhalten Sie eine Bescheinigung.", parsed[1].exampleDe)
+    }
 }

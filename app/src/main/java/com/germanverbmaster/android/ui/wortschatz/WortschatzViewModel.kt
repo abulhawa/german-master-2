@@ -99,8 +99,9 @@ class WortschatzViewModel @Inject constructor(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, syncError = null) }
             try {
+                val shouldRunRemoteWordSync = repo.needsSync()
                 repo.upsertBundledB2BerufWordsIfAvailable()
-                if (repo.needsSync()) repo.sync()
+                if (shouldRunRemoteWordSync) repo.sync()
                 syncDataUseCase()
                 Log.d("WortschatzViewModel", "Sync completed successfully")
             } catch (e: Exception) {
