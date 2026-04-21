@@ -55,8 +55,7 @@ internal object BundledWordsCsvParser {
                 (exampleDe ?: "").lowercase(Locale.US),
                 (exampleEn ?: "").lowercase(Locale.US),
             ).joinToString("|")
-            val key = dedupeKey
-            if (!dedupe.add(key)) continue
+            if (!dedupe.add(dedupeKey)) continue
 
             entities += WordEntity(
                 id = idBase + entities.size + 1,
@@ -160,8 +159,7 @@ internal object BundledWordsCsvParser {
         var i = 0
 
         while (i < csvText.length) {
-            val ch = csvText[i]
-            when (ch) {
+            when (val ch = csvText[i]) {
                 '"' -> {
                     if (inQuotes && i + 1 < csvText.length && csvText[i + 1] == '"') {
                         field.append('"')
