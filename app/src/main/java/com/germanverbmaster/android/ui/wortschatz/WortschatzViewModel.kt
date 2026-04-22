@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 // ─── Filter options ───────────────────────────────────────────────────────────
 
-val LEVEL_FILTERS = listOf("Alle", "A1", "A2", "B1", "B2", "C1", "B2 Beruf")
+val LEVEL_FILTERS = listOf("B2 Beruf", "Alle", "A1", "A2", "B1", "B2", "C1")
 val POS_LABELS    = mapOf(
     "Alle" to "Alle",
     "V"    to "Verben",
@@ -48,7 +48,7 @@ data class WortschatzUiState(
     val tab: WortschatzTab = WortschatzTab.DRILL,
 
     // Filters
-    val selectedLevels: Set<String> = emptySet(),
+    val selectedLevels: Set<String> = setOf("B2 Beruf"),
     val selectedPosSet: Set<String> = emptySet(),
     val posOptions: List<String> = listOf("Alle", "V", "N", "Adj"),
 

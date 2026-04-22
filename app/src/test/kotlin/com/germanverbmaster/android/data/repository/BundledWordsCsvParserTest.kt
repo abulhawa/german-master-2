@@ -98,4 +98,33 @@ class BundledWordsCsvParserTest {
         assertEquals("der/die", parsed[0].gender)
         assertEquals("der/das", parsed[1].gender)
     }
+
+    @Test
+    fun `parse splits noun singular and plural tokens exactly from csv word field`() {
+        val csv = """
+            Article/Prefix,Word,English Translation,Example Sentence,English Translation (Sentence),POS
+            der/die,"Techniker/in, -/-nen",technician,Die Techniker arbeiten im Team.,Technicians work in a team.,N
+            die,"Tierhaltung, -en",animal husbandry,Die Tierhaltung ist streng geregelt.,Animal husbandry is strictly regulated.,N
+            der,"Umgang, -ä-e",handling,Der Umgang mit Kunden ist wichtig.,Handling customers is important.,N
+        """.trimIndent()
+
+        val parsed = BundledWordsCsvParser.parse(
+            csvText = csv,
+            level = "B2 Beruf",
+            versionTag = "test-version",
+        )
+
+        assertEquals(3, parsed.size)
+        assertEquals("Techniker/in", parsed[0].lemma)
+        assertEquals("-/-nen", parsed[0].plural)
+        assertEquals("der/die", parsed[0].gender)
+
+        assertEquals("Tierhaltung", parsed[1].lemma)
+        assertEquals("-en", parsed[1].plural)
+        assertEquals("f", parsed[1].gender)
+
+        assertEquals("Umgang", parsed[2].lemma)
+        assertEquals("-ä-e", parsed[2].plural)
+        assertEquals("m", parsed[2].gender)
+    }
 }

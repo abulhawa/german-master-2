@@ -241,18 +241,17 @@ private fun WordRow(
     onSpeak: (String) -> Unit,
     onClick: () -> Unit
 ) {
-    // Build display label: add article and plural for nouns
-    val (displayText, speakText) = remember(card) {
-        val posClean = card.pos.trim().uppercase()
-        val isNoun = posClean == "N" || posClean == "NOMEN"
-        if (isNoun) {
+    val (displayText, pluralText, speakText) = remember(card) {
+        if (isNoun(card.pos)) {
             val article = genderArticle(card.gender)
-            val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
-            val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
-            val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
-            display to speak
+            val singularWithArticle = if (article.isNotBlank()) "$article ${card.lemma}" else card.lemma
+            Triple(
+                singularWithArticle,
+                card.plural?.trim()?.takeIf { it.isNotEmpty() },
+                singularWithArticle,
+            )
         } else {
-            card.lemma to card.lemma
+            Triple(card.lemma, null, card.lemma)
         }
     }
 
@@ -279,6 +278,14 @@ private fun WordRow(
                         tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f)
                     )
                 }
+            }
+            pluralText?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                    modifier = Modifier.padding(bottom = 2.dp),
+                )
             }
             card.exampleDe?.let {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -403,6 +410,13 @@ fun FilterSection(
     }
 }
 
+// ─── Drill ────────────────────────────────────────────────────────────────────
+
+private fun isNoun(pos: String): Boolean {
+    val normalized = pos.trim().uppercase()
+    return normalized == "N" || normalized == "NOMEN"
+}
+
 private fun genderArticle(gender: String?): String {
     val normalized = " ${gender?.trim()?.lowercase() ?: return ""} "
     val hasDer = Regex("""\bder\b""").containsMatchIn(normalized) ||
@@ -421,8 +435,6 @@ private fun genderArticle(gender: String?): String {
         if (hasDas) add("das")
     }.joinToString("/")
 }
-
-// ─── Drill ────────────────────────────────────────────────────────────────────
 
 @Composable
 private fun DrillContent(
@@ -472,14 +484,17 @@ private fun DrillContent(
         } else {
             state.drillCurrent?.let { card ->
                 val (displayFront, speakFront) = remember(card) {
-                    val posClean = card.pos.trim().uppercase()
-                    val isNoun = posClean == "N" || posClean == "NOMEN"
-                    if (isNoun) {
+                    if (isNoun(card.pos)) {
                         val article = genderArticle(card.gender)
-                        val lemmaWithArticle = if (article.isNotEmpty()) "$article ${card.lemma}" else card.lemma
-                        val display = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle\n${card.plural}" else lemmaWithArticle
-                        val speak = if (!card.plural.isNullOrBlank()) "$lemmaWithArticle, ${card.plural}" else lemmaWithArticle
-                        display to speak
+                        val singularWithArticle = if (article.isNotBlank()) "$article ${card.lemma}" else card.lemma
+                        val display = buildString {
+                            append(singularWithArticle)
+                            card.plural?.trim()?.takeIf { it.isNotEmpty() }?.let {
+                                append("\n")
+                                append(it)
+                            }
+                        }
+                        display to singularWithArticle
                     } else {
                         card.lemma to card.lemma
                     }
@@ -519,11 +534,6 @@ private fun DrillContent(
                             ),
                             modifier = Modifier.weight(1f).height(48.dp),
                         ) { Text("✗ Falsch") }
-
-                        OutlinedButton(
-                            onClick  = viewModel::skip,
-                            modifier = Modifier.weight(1f).height(48.dp),
-                        ) { Text("→ Skip") }
 
                         Button(
                             onClick = viewModel::markCorrect,
