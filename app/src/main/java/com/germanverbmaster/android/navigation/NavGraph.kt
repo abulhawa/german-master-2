@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -60,15 +61,15 @@ fun AppNavGraph() {
             (context as? Activity)?.finish()
         } else {
             lastBackPressTime = currentTime
-            Toast.makeText(context, context.getString(R.string.press_back_again_to_exit), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.press_back_again_to_exit, Toast.LENGTH_SHORT).show()
         }
     }
 
     val items = listOf(
-        NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.AutoMirrored.Filled.MenuBook, "Wortschatz") },
-        NavItem(Screen.B2Practice, "B2 Prüfung") { Icon(Icons.Default.School, "B2 Prüfung") },
-        NavItem(Screen.Home, "Practice") { Icon(Icons.Default.Stars, "Practice") },
-        NavItem(Screen.Auth, "Account") { Icon(Icons.Default.AccountCircle, "Account") },
+        NavItem(Screen.Wortschatz, stringResource(R.string.nav_wortschatz)) { Icon(Icons.AutoMirrored.Filled.MenuBook, stringResource(R.string.nav_wortschatz)) },
+        NavItem(Screen.B2Practice, stringResource(R.string.nav_b2_practice)) { Icon(Icons.Default.School, stringResource(R.string.nav_b2_practice)) },
+        NavItem(Screen.Home, stringResource(R.string.nav_practice)) { Icon(Icons.Default.Stars, stringResource(R.string.nav_practice)) },
+        NavItem(Screen.Auth, stringResource(R.string.nav_account)) { Icon(Icons.Default.AccountCircle, stringResource(R.string.nav_account)) },
     )
 
     Scaffold(
