@@ -198,18 +198,9 @@ fun WortschatzScreen(
                 onLevelToggle = viewModel::toggleLevel,
                 selectedPosSet = state.selectedPosSet,
                 onPosToggle = viewModel::togglePos,
-                posOptions = state.posOptions
+                posOptions = state.posOptions,
+                wordCount = if (state.isLoading) null else state.listCards.size,
             )
-
-            // Count label
-            if (!state.isLoading) {
-                Text(
-                    "${state.listCards.size} Wörter",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                    modifier = Modifier.padding(bottom = 4.dp),
-                )
-            }
 
             // Sync error banner removed
 
@@ -421,7 +412,8 @@ fun FilterSection(
     onLevelToggle: (String) -> Unit,
     selectedPosSet: Set<String>,
     onPosToggle: (String) -> Unit,
-    posOptions: List<String>
+    posOptions: List<String>,
+    wordCount: Int? = null,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -438,7 +430,10 @@ fun FilterSection(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                modifier = Modifier.weight(1f),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Icon(
                     imageVector = Icons.Default.Tune,
                     contentDescription = null,
@@ -453,10 +448,23 @@ fun FilterSection(
                     fontWeight = FontWeight.SemiBold
                 )
             }
-            Icon(
-                imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
-                contentDescription = if (expanded) "Collapse" else "Expand"
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                wordCount?.let {
+                    Text(
+                        text = "$it Wörter",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                        textAlign = TextAlign.End,
+                    )
+                }
+                Icon(
+                    imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                    contentDescription = if (expanded) "Collapse" else "Expand"
+                )
+            }
         }
 
         AnimatedVisibility(
