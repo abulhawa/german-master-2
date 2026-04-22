@@ -64,6 +64,12 @@ android {
         buildConfig = true
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     packaging {
         jniLibs {
             keepDebugSymbols.add("**/libandroidx.graphics.path.so")
@@ -82,6 +88,11 @@ room {
     schemaDirectory("$projectDir/schemas")
 }
 
+tasks.withType<Test>().configureEach {
+    System.getProperty("roborazzi.test.record")?.let { systemProperty("roborazzi.test.record", it) }
+    System.getProperty("roborazzi.test.verify")?.let { systemProperty("roborazzi.test.verify", it) }
+}
+
 dependencies {
     // Compose
     implementation(platform(libs.compose.bom))
@@ -92,6 +103,7 @@ dependencies {
     implementation(libs.compose.material.icons)
     implementation(libs.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
 
     // Navigation
     implementation(libs.navigation.compose)
@@ -151,6 +163,10 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)
+    testImplementation(libs.compose.ui.test.junit4)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.roborazzi.junit.rule)
+    testImplementation(libs.roborazzi.compose)
 
     // Instrumented Testing
     androidTestImplementation(libs.androidx.junit)
