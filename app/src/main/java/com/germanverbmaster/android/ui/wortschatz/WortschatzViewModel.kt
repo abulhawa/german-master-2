@@ -79,8 +79,6 @@ data class WortschatzUiState(
 
     val masteredCount: Int get() = listCards.count { masteredIds.contains("word_${it.id}") }
 
-    val drillProgress: Float get() =
-        if (drillQueue.isEmpty()) 0f else drillIndex.toFloat() / drillQueue.size
     val drillAccuracy: Float get() {
         val total = drillCorrect + drillWrong
         return if (total == 0) 0f else drillCorrect.toFloat() / total * 100f
