@@ -51,6 +51,7 @@ data class WortschatzUiState(
     val selectedLevels: Set<String> = setOf("B2 Beruf"),
     val selectedPosSet: Set<String> = emptySet(),
     val posOptions: List<String> = listOf("Alle", "V", "N", "Adj"),
+    val searchQuery: String = "",
 
     // Loading
     val isLoading: Boolean = true,
@@ -142,6 +143,11 @@ class WortschatzViewModel @Inject constructor(
         observeWords(forceReset = true)
     }
 
+    fun updateSearchQuery(query: String) {
+        _state.update { it.copy(searchQuery = query) }
+        observeWords(forceReset = false) // No need to reset drill for search, but wait, usually search is for the list
+    }
+
     fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
 
     fun markCorrect() {
@@ -224,6 +230,16 @@ class WortschatzViewModel @Inject constructor(
             flow.catch { e ->
                 _state.update { it.copy(isLoading = false, syncError = e.message) }
             }.collect { words ->
+                val query = _state.value.searchQuery.trim().lowercase()
+                val filteredWords = if (query.isEmpty()) {
+                    words
+                } else {
+                    words.filter { word ->
+                        word.lemma.lowercase().contains(query) ||
+                                (word.english?.lowercase()?.contains(query) ?: false)
+                    }
+                }
+
                 val savedIndex = if (forceReset) 0 else prefs.getDrillIndex()
                 val savedCorrect = if (forceReset) 0 else prefs.getDrillCorrect()
                 val savedWrong = if (forceReset) 0 else prefs.getDrillWrong()
@@ -242,7 +258,7 @@ class WortschatzViewModel @Inject constructor(
                     // Force reset if filters changed, or if session was done, or if at start.
                     val shouldReset = forceReset || s.drillDone || (s.drillIndex == 0 && !isFirstLoad)
                     
-                    val queue = if (shouldReset || isFirstLoad) words.shuffled() else s.drillQueue
+                    val queue = if (shouldReset || isFirstLoad) filteredWords.shuffled() else s.drillQueue
                     
                     // If first load or forced reset, use saved stats (0 if forced). Otherwise, follow current state or reset if finished.
                     val finalIndex = if (isFirstLoad || forceReset) {
@@ -258,7 +274,7 @@ class WortschatzViewModel @Inject constructor(
 
                     s.copy(
                         isLoading = false,
-                        listCards = words,
+                        listCards = filteredWords,
                         drillQueue = queue,
                         drillIndex = finalIndex,
                         drillCorrect = finalCorrect,
