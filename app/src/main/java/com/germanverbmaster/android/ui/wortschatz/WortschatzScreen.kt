@@ -470,95 +470,116 @@ fun FilterBottomSheet(
         },
         // windowInsets = WindowInsets(0)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-                .padding(bottom = 32.dp)
+        FilterSection(
+            selectedLevels = selectedLevels,
+            onLevelToggle = onLevelToggle,
+            selectedPosSet = selectedPosSet,
+            onPosToggle = onPosToggle,
+            posOptions = posOptions,
+            wordCount = wordCount,
+            onApply = onDismiss
+        )
+    }
+}
+
+@Composable
+fun FilterSection(
+    selectedLevels: Set<String>,
+    onLevelToggle: (String) -> Unit,
+    selectedPosSet: Set<String>,
+    onPosToggle: (String) -> Unit,
+    posOptions: List<String>,
+    wordCount: Int? = null,
+    onApply: () -> Unit = {},
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp)
+            .padding(bottom = 32.dp)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Wortschatz-Filter",
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold
+            Text(
+                text = "Wortschatz-Filter",
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold
+            )
+            wordCount?.let {
+                Surface(
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Text(
+                        text = "$it Wörter",
+                        style = MaterialTheme.typography.labelMedium,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
+
+        // Level filter
+        Text(
+            "Niveau",
+            style = MaterialTheme.typography.titleSmall,
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.SemiBold
+        )
+        Spacer(Modifier.height(8.dp))
+        @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            LEVEL_FILTERS.forEach { level ->
+                FilterChip(
+                    selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
+                    onClick = { onLevelToggle(level) },
+                    label = { Text(level, style = MaterialTheme.typography.labelSmall) },
                 )
-                wordCount?.let {
-                    Surface(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Text(
-                            text = "$it Wörter",
-                            style = MaterialTheme.typography.labelMedium,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        )
-                    }
-                }
             }
+        }
 
-            Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(20.dp))
 
-            // Level filter
-            Text(
-                "Niveau",
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.SemiBold
-            )
-            Spacer(Modifier.height(8.dp))
-            @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                LEVEL_FILTERS.forEach { level ->
-                    FilterChip(
-                        selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
-                        onClick = { onLevelToggle(level) },
-                        label = { Text(level, style = MaterialTheme.typography.labelSmall) },
-                    )
-                }
+        // POS filter
+        Text(
+            "Wortart",
+            style = MaterialTheme.typography.titleSmall,
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.SemiBold
+        )
+        Spacer(Modifier.height(8.dp))
+        @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            posOptions.forEach { pos ->
+                FilterChip(
+                    selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
+                    onClick = { onPosToggle(pos) },
+                    label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
+                )
             }
+        }
 
-            Spacer(Modifier.height(20.dp))
+        Spacer(Modifier.height(24.dp))
 
-            // POS filter
-            Text(
-                "Wortart",
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.SemiBold
-            )
-            Spacer(Modifier.height(8.dp))
-            @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                posOptions.forEach { pos ->
-                    FilterChip(
-                        selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
-                        onClick = { onPosToggle(pos) },
-                        label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            Button(
-                onClick = onDismiss,
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text("Anwenden")
-            }
+        Button(
+            onClick = onApply,
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp)
+        ) {
+            Text("Anwenden")
         }
     }
 }
