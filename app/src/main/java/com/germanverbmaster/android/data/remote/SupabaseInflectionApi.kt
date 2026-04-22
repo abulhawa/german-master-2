@@ -32,7 +32,7 @@ class SupabaseInflectionApi @Inject constructor(
             while (true) {
                 val page = client.postgrest["inflections"]
                     .select {
-                        range(from.toLong(), (from + pageSize - 1).toLong())
+                        range(from.toLong(), (from + (pageSize - 1)).toLong())
                         order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
                     }
                     .decodeList<RemoteInflection>()
@@ -61,7 +61,7 @@ class SupabaseInflectionApi @Inject constructor(
             val page = client.postgrest["inflections"]
                 .select {
                     filter { gt("updated_at", since) }
-                    range(from.toLong(), (from + pageSize - 1).toLong())
+                    range(from.toLong(), (from + (pageSize - 1)).toLong())
                     order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
                 }
                 .decodeList<RemoteInflection>()

@@ -21,7 +21,6 @@ private val B2_INDEX = stringPreferencesKey("b2_index")
 private val B2_SHUFFLE = stringPreferencesKey("b2_shuffle")
 private val B2_CORRECT = stringPreferencesKey("b2_correct")
 private val B2_WRONG = stringPreferencesKey("b2_wrong")
-private val B2_SKIPPED = stringPreferencesKey("b2_skipped")
 private val DRILL_INDEX = stringPreferencesKey("drill_index")
 private val DRILL_CORRECT = stringPreferencesKey("drill_correct")
 private val DRILL_WRONG = stringPreferencesKey("drill_wrong")
@@ -78,12 +77,6 @@ class SyncPreferences @Inject constructor(
     suspend fun setB2Wrong(value: Int) =
         context.dataStore.edit { it[B2_WRONG] = value.toString() }
 
-    suspend fun getB2Skipped(): Int =
-        context.dataStore.data.first()[B2_SKIPPED]?.toIntOrNull() ?: 0
-
-    suspend fun setB2Skipped(value: Int) =
-        context.dataStore.edit { it[B2_SKIPPED] = value.toString() }
-
     suspend fun getDrillIndex(): Int =
         context.dataStore.data.first()[DRILL_INDEX]?.toIntOrNull() ?: 0
 
@@ -120,8 +113,8 @@ class LexemeRepository @Inject constructor(
 
     suspend fun fetchRemote(): List<RemoteLexeme>? {
         val since = prefs.getLexemeLastSync()
-        val remote = if (since == null || needsFullSync()) api.fetchAll() else api.fetchUpdatedSince(since)
-        return if (remote.isEmpty()) null else remote
+        val remote = if ((since == null) || needsFullSync()) api.fetchAll() else api.fetchUpdatedSince(since)
+        return remote.ifEmpty { null }
     }
 
     suspend fun saveToLocal(remote: List<RemoteLexeme>) {
@@ -134,9 +127,8 @@ class LexemeRepository @Inject constructor(
      * Legacy sync from Supabase.
      */
     suspend fun sync() {
-        val remote = fetchRemote()
-        if (remote != null) {
-            saveToLocal(remote)
+        fetchRemote()?.let {
+            saveToLocal(it)
         }
     }
 }

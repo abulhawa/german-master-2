@@ -25,8 +25,8 @@ data class B2PracticeUiState(
     val isFlipped: Boolean = false,
     val correct: Int = 0,
     val wrong: Int = 0,
-    val skipped: Int = 0,
     val sessionDone: Boolean = false,
+    val isLoading: Boolean = true,
 ) {
     val current: B2Card? get() = queue.getOrNull(currentIndex)
     val progress: Float get() = if (queue.isEmpty()) 0f else currentIndex.toFloat() / queue.size
@@ -52,7 +52,6 @@ class B2PracticeViewModel @Inject constructor(
             val savedIndex = prefs.getB2Index() ?: 0
             val savedCorrect = prefs.getB2Correct()
             val savedWrong = prefs.getB2Wrong()
-            val savedSkipped = prefs.getB2Skipped()
 
             _state.update {
                 it.copy(
@@ -60,7 +59,7 @@ class B2PracticeViewModel @Inject constructor(
                     shuffle = savedShuffle,
                     correct = savedCorrect,
                     wrong = savedWrong,
-                    skipped = savedSkipped
+                    isLoading = false
                 )
             }
             buildQueue(savedIndex)
@@ -68,12 +67,11 @@ class B2PracticeViewModel @Inject constructor(
     }
 
     fun setCategory(category: B2Category) {
-        _state.update { it.copy(category = category, correct = 0, wrong = 0, skipped = 0) }
+        _state.update { it.copy(category = category, correct = 0, wrong = 0) }
         viewModelScope.launch {
             prefs.setB2Category(category.name)
             prefs.setB2Correct(0)
             prefs.setB2Wrong(0)
-            prefs.setB2Skipped(0)
         }
         buildQueue(0)
     }
@@ -111,13 +109,6 @@ class B2PracticeViewModel @Inject constructor(
         advance()
     }
 
-    fun skip() {
-        val nextSkipped = _state.value.skipped + 1
-        _state.update { it.copy(skipped = nextSkipped) }
-        viewModelScope.launch { prefs.setB2Skipped(nextSkipped) }
-        advance()
-    }
-
     private fun recordResult(card: B2Card, result: String) {
         viewModelScope.launch {
             submitAnswerUseCase(
@@ -143,11 +134,10 @@ class B2PracticeViewModel @Inject constructor(
     }
 
     fun restart() {
-        _state.update { it.copy(correct = 0, wrong = 0, skipped = 0, sessionDone = false) }
+        _state.update { it.copy(correct = 0, wrong = 0, sessionDone = false) }
         viewModelScope.launch {
             prefs.setB2Correct(0)
             prefs.setB2Wrong(0)
-            prefs.setB2Skipped(0)
         }
         buildQueue(0)
     }

@@ -76,8 +76,8 @@ class GetNextTaskUseCase @Inject constructor(
      */
     private fun parseJsonToMap(raw: String): Map<String, String> = runCatching {
         val obj = json.decodeFromString<JsonObject>(raw)
-        obj.entries.associate { (k, v) ->
-            k to when (v) {
+        obj.mapValues { (_, v) ->
+            when (v) {
                 is JsonNull      -> ""                 // null → empty string
                 is JsonPrimitive -> v.content          // unwrap string/number/bool
                 is JsonObject    -> v.toString()       // nested object → JSON string

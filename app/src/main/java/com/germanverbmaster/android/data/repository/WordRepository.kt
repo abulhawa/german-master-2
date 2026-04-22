@@ -62,7 +62,7 @@ class WordRepository @Inject constructor(
 
     suspend fun sync() {
         val since = prefs.getLexemeLastSync()
-        val remote = if (since == null || needsSync()) api.fetchAll()
+        val remote = if ((since == null) || needsSync()) api.fetchAll()
         else api.fetchUpdatedSince(since)
         if (remote.isNotEmpty()) {
             val entities = remote.map { with(api) { it.toEntity() } }

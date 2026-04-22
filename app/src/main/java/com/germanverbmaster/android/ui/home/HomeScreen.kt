@@ -20,7 +20,7 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -42,6 +42,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.domain.model.PracticeMode
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import com.germanverbmaster.android.ui.components.PracticeCard
+import com.germanverbmaster.android.ui.components.ShimmerItem
 import java.time.LocalDate
 
 @Composable
@@ -105,9 +106,7 @@ fun HomeScreen(
         // Practice card area
         when {
             state.isLoading -> {
-                Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
-                }
+                PracticeSkeleton(modifier = Modifier.fillMaxWidth().weight(1f))
             }
             state.currentTask != null -> {
                 PracticeCard(
@@ -122,13 +121,7 @@ fun HomeScreen(
                 )
             }
             state.isSyncing -> {
-                Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        CircularProgressIndicator()
-                        Spacer(Modifier.height(12.dp))
-                        Text("Synchronisiere Daten…", style = MaterialTheme.typography.bodyMedium)
-                    }
-                }
+                PracticeSkeleton(modifier = Modifier.fillMaxWidth().weight(1f))
             }
             else -> {
                 Box(Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
@@ -142,6 +135,45 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun PracticeSkeleton(modifier: Modifier = Modifier) {
+    ElevatedCard(
+        modifier = modifier,
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 6.dp),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                ShimmerItem(height = 20.dp, widthFraction = 0.15f)
+                ShimmerItem(height = 16.dp, widthFraction = 0.3f)
+            }
+            
+            Spacer(Modifier.height(32.dp))
+            
+            ShimmerItem(height = 16.dp, widthFraction = 0.4f)
+            Spacer(Modifier.height(16.dp))
+            ShimmerItem(height = 36.dp, widthFraction = 0.7f)
+            Spacer(Modifier.height(12.dp))
+            ShimmerItem(height = 20.dp, widthFraction = 0.5f)
+            
+            Spacer(Modifier.height(48.dp))
+            
+            ShimmerItem(height = 56.dp, widthFraction = 1f) // TextField shimmer
+            
+            Spacer(Modifier.weight(1f))
+            
+            ShimmerItem(height = 48.dp, widthFraction = 1f) // Button shimmer
         }
     }
 }

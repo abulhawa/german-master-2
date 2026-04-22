@@ -38,7 +38,6 @@ import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
@@ -72,6 +71,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.speech.TextToSpeechHelper
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
+import com.germanverbmaster.android.ui.components.ShimmerItem
 import java.time.LocalDate
 
 @Composable
@@ -196,12 +196,10 @@ fun WortschatzScreen(
 
         when {
             state.isLoading -> {
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        CircularProgressIndicator()
-                        Spacer(Modifier.height(12.dp))
-                        Text("Wörter werden geladen…", style = MaterialTheme.typography.bodyMedium)
-                    }
+                if (state.tab == WortschatzTab.DRILL) {
+                    DrillSkeleton()
+                } else {
+                    WortschatzSkeleton()
                 }
             }
             else -> when (state.tab) {
@@ -775,6 +773,83 @@ private fun DrillStatChip(
             textAlign = TextAlign.Center,
             modifier  = Modifier.padding(vertical = 6.dp),
         )
+    }
+}
+
+@Composable
+private fun WortschatzSkeleton() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Spacer(Modifier.height(8.dp))
+        repeat(6) {
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                tonalElevation = 2.dp
+            ) {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        ShimmerItem(height = 20.dp, widthFraction = 0.6f)
+                        Spacer(Modifier.height(8.dp))
+                        ShimmerItem(height = 14.dp, widthFraction = 0.4f)
+                    }
+                    ShimmerItem(height = 16.dp, widthFraction = 0.2f)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun DrillSkeleton() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            repeat(3) {
+                ShimmerItem(height = 36.dp, modifier = Modifier.weight(1f))
+            }
+        }
+
+        LinearProgressIndicator(
+            progress = { 0f },
+            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        )
+        
+        Spacer(Modifier.height(8.dp))
+
+        ElevatedCard(
+            modifier = Modifier.fillMaxWidth().weight(1f),
+            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize().padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        ShimmerItem(height = 24.dp, widthFraction = 0.2f)
+                        ShimmerItem(height = 24.dp, widthFraction = 0.2f)
+                    }
+                    ShimmerItem(height = 24.dp, widthFraction = 0.1f)
+                }
+                Spacer(Modifier.height(32.dp))
+                ShimmerItem(height = 40.dp, widthFraction = 0.7f)
+                Spacer(Modifier.height(16.dp))
+                ShimmerItem(height = 14.dp, widthFraction = 0.4f)
+            }
+        }
+        Spacer(Modifier.height(16.dp))
     }
 }
 

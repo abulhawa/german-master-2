@@ -48,6 +48,7 @@ import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
 import com.germanverbmaster.android.domain.model.CardMode
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
+import com.germanverbmaster.android.ui.components.ShimmerItem
 import java.time.LocalDate
 
 @Composable
@@ -85,7 +86,9 @@ fun B2PracticeScreen(
 
         Spacer(Modifier.height(8.dp))
 
-        if (state.category == B2Category.GRAMMAR) {
+        if (state.isLoading) {
+            B2PracticeSkeleton()
+        } else if (state.category == B2Category.GRAMMAR) {
             GrammarTabContent()
         } else {
             // Mode + shuffle row
@@ -185,6 +188,60 @@ fun B2PracticeScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun B2PracticeSkeleton() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        // Mode + shuffle row
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                repeat(3) { ShimmerItem(height = 32.dp, widthFraction = 0.2f) }
+            }
+            ShimmerItem(height = 32.dp, widthFraction = 0.1f)
+        }
+        
+        Spacer(Modifier.height(8.dp))
+        
+        // Stats bar
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            repeat(3) { ShimmerItem(height = 36.dp, modifier = Modifier.weight(1f)) }
+        }
+
+        Spacer(Modifier.height(8.dp))
+        
+        // Progress
+        ShimmerItem(height = 4.dp, widthFraction = 1f)
+        Spacer(Modifier.height(4.dp))
+        ShimmerItem(height = 12.dp, widthFraction = 0.1f, modifier = Modifier.align(Alignment.End))
+
+        Spacer(Modifier.height(8.dp))
+
+        ElevatedCard(
+            modifier = Modifier.fillMaxWidth().weight(1f),
+            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize().padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                ShimmerItem(height = 16.dp, widthFraction = 0.5f)
+                Spacer(Modifier.height(24.dp))
+                ShimmerItem(height = 32.dp, widthFraction = 0.8f)
+                Spacer(Modifier.height(16.dp))
+                ShimmerItem(height = 14.dp, widthFraction = 0.4f)
+            }
+        }
+        Spacer(Modifier.height(16.dp))
     }
 }
 

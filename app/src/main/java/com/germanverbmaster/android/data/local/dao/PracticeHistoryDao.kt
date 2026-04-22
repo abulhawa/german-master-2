@@ -31,32 +31,38 @@ interface PracticeHistoryDao {
     @Query("UPDATE practice_history SET synced = 1 WHERE localId IN (:ids)")
     suspend fun markSynced(ids: List<Int>)
 
-    @Query("""
+    @Query(
+        """
         SELECT
           SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) as accuracy,
           COUNT(*) as total
         FROM practice_history
         WHERE submittedAt >= :since
-    """)
+        """,
+    )
     suspend fun statsSince(since: String): AccuracyResult?
 
-    @Query("""
+    @Query(
+        """
         SELECT taskType, 
                SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) as correctCount,
                COUNT(*) as totalCount
         FROM practice_history
         GROUP BY taskType
-    """)
+        """,
+    )
     fun observeTaskTypeStats(): Flow<List<TaskTypeStat>>
 
-    @Query("""
+    @Query(
+        """
         SELECT DATE(submittedAt) as date,
                SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) as accuracy
         FROM practice_history
         WHERE submittedAt >= :since
         GROUP BY DATE(submittedAt)
         ORDER BY date ASC
-    """)
+        """,
+    )
     suspend fun getDailyAccuracy(since: String): List<DailyAccuracy>
 }
 
@@ -65,10 +71,10 @@ data class AccuracyResult(val accuracy: Float, val total: Int)
 data class TaskTypeStat(
     val taskType: String,
     val correctCount: Int,
-    val totalCount: Int
+    val totalCount: Int,
 )
 
 data class DailyAccuracy(
     val date: String,
-    val accuracy: Float
+    val accuracy: Float,
 )
