@@ -113,27 +113,30 @@ fun WortschatzScreen(
         ) {
             ExamCountdownBanner(
                 examDate = LocalDate.of(2026, 4, 30),
-                modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
+                modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
             )
 
             // Tab row: Wortliste | Schnell-Drill
-            PrimaryTabRow(selectedTabIndex = WortschatzTab.entries.indexOf(state.tab)) {
+            PrimaryTabRow(
+                selectedTabIndex = WortschatzTab.entries.indexOf(state.tab),
+                modifier = Modifier.height(40.dp)
+            ) {
                 WortschatzTab.entries.forEach { tab ->
                     Tab(
                         selected = state.tab == tab,
                         onClick = { viewModel.selectTab(tab) },
-                        text = { Text(tab.label, style = MaterialTheme.typography.labelLarge) },
+                        text = { Text(tab.label, style = MaterialTheme.typography.labelMedium) },
                     )
                 }
             }
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(4.dp))
 
             // Search Bar (Compact)
             Surface(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(44.dp),
+                    .height(38.dp),
                 shape = RoundedCornerShape(12.dp),
                 color = MaterialTheme.colorScheme.surface,
                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
@@ -147,7 +150,7 @@ fun WortschatzScreen(
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = null,
-                        modifier = Modifier.size(20.dp),
+                        modifier = Modifier.size(18.dp),
                         tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(Modifier.width(8.dp))
@@ -157,7 +160,7 @@ fun WortschatzScreen(
                     ) {
                         if (state.searchQuery.isEmpty()) {
                             Text(
-                                text = "Suchen…",
+                                text = "Suchen (Deutsch oder Englisch)…",
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
                             )
@@ -188,7 +191,7 @@ fun WortschatzScreen(
                 }
             }
 
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(2.dp))
 
             FilterSection(
                 selectedLevels = state.selectedLevels,
@@ -204,7 +207,7 @@ fun WortschatzScreen(
                     "${state.listCards.size} Wörter",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                    modifier = Modifier.padding(bottom = 6.dp),
+                    modifier = Modifier.padding(bottom = 4.dp),
                 )
             }
 
@@ -431,7 +434,7 @@ fun FilterSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { expanded = !expanded }
-                .padding(vertical = 8.dp),
+                .padding(vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -532,7 +535,7 @@ private fun DrillContent(
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
+            modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             DrillStatChip(
@@ -550,7 +553,7 @@ private fun DrillContent(
 
         LinearProgressIndicator(
             progress = { state.drillProgress },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
         )
         Text(
             "${minOf(state.drillIndex + 1, state.drillQueue.size)} / ${state.drillQueue.size}",
@@ -558,7 +561,7 @@ private fun DrillContent(
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
             modifier = Modifier
                 .align(Alignment.End)
-                .padding(bottom = 8.dp),
+                .padding(bottom = 4.dp),
         )
 
         if (state.drillDone) {
@@ -860,7 +863,7 @@ private fun DrillStatChip(
             label,
             style     = MaterialTheme.typography.labelLarge,
             textAlign = TextAlign.Center,
-            modifier  = Modifier.padding(vertical = 6.dp),
+            modifier  = Modifier.padding(vertical = 4.dp),
         )
     }
 }
@@ -898,20 +901,20 @@ private fun WortschatzSkeleton() {
 private fun DrillSkeleton() {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
+            modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             repeat(3) {
-                ShimmerItem(height = 36.dp, modifier = Modifier.weight(1f))
+                ShimmerItem(height = 32.dp, modifier = Modifier.weight(1f))
             }
         }
 
         LinearProgressIndicator(
             progress = { 0f },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
         )
         
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(4.dp))
 
         ElevatedCard(
             modifier = Modifier.fillMaxWidth().weight(1f),
