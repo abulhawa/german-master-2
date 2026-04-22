@@ -64,6 +64,9 @@ interface PracticeHistoryDao {
         """,
     )
     suspend fun getDailyAccuracy(since: String): List<DailyAccuracy>
+
+    @Query("SELECT DISTINCT taskId FROM practice_history WHERE result = 'correct'")
+    fun observeCorrectTaskIds(): Flow<List<String>>
 }
 
 data class AccuracyResult(val accuracy: Float, val total: Int)

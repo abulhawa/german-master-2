@@ -25,6 +25,7 @@ private val B2_WRONG = stringPreferencesKey("b2_wrong")
 private val DRILL_INDEX = stringPreferencesKey("drill_index")
 private val DRILL_CORRECT = stringPreferencesKey("drill_correct")
 private val DRILL_WRONG = stringPreferencesKey("drill_wrong")
+private val DRILL_SEED = stringPreferencesKey("drill_seed")
 
 @Singleton
 class SyncPreferences @Inject constructor(
@@ -101,6 +102,12 @@ class SyncPreferences @Inject constructor(
 
     suspend fun setDrillWrong(value: Int) =
         context.dataStore.edit { it[DRILL_WRONG] = value.toString() }
+
+    suspend fun getDrillSeed(): Long? =
+        context.dataStore.data.first()[DRILL_SEED]?.toLongOrNull()
+
+    suspend fun setDrillSeed(value: Long) =
+        context.dataStore.edit { it[DRILL_SEED] = value.toString() }
 }
 
 @Singleton

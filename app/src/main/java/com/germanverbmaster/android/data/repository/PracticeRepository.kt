@@ -5,6 +5,7 @@ import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.dao.TaskTypeStat
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,4 +29,6 @@ class PracticeRepository @Inject constructor(
     fun observeTaskTypeStats(): Flow<List<TaskTypeStat>> = dao.observeTaskTypeStats()
 
     suspend fun getDailyAccuracy(since: String): List<DailyAccuracy> = dao.getDailyAccuracy(since)
+
+    fun observeCorrectTaskIds(): Flow<Set<String>> = dao.observeCorrectTaskIds().map { it.toSet() }
 }

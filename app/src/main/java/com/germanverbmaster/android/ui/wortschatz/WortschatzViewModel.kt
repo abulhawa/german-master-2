@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeResult
@@ -17,6 +18,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 // ─── Filter options ───────────────────────────────────────────────────────────
 
@@ -67,8 +69,16 @@ data class WortschatzUiState(
     val drillCorrect: Int = 0,
     val drillWrong: Int = 0,
     val drillDone: Boolean = false,
+    val masteredIds: Set<String> = emptySet(),
 ) {
     val drillCurrent: WordEntity? get() = drillQueue.getOrNull(drillIndex)
+
+    // Progress is based on overall mastery in the current selection
+    val masteryProgress: Float get() =
+        if (listCards.isEmpty()) 0f else masteredCount.toFloat() / listCards.size
+
+    val masteredCount: Int get() = listCards.count { masteredIds.contains("word_${it.id}") }
+
     val drillProgress: Float get() =
         if (drillQueue.isEmpty()) 0f else drillIndex.toFloat() / drillQueue.size
     val drillAccuracy: Float get() {
@@ -82,6 +92,7 @@ data class WortschatzUiState(
 @HiltViewModel
 class WortschatzViewModel @Inject constructor(
     private val repo: WordRepository,
+    private val practiceRepo: PracticeRepository,
     private val submitAnswerUseCase: SubmitAnswerUseCase,
     private val syncDataUseCase: SyncDataUseCase,
     private val prefs: SyncPreferences,
@@ -94,6 +105,15 @@ class WortschatzViewModel @Inject constructor(
         triggerSync(force = false)
         observeWords()
         observePosFilters()
+        observeMastery()
+    }
+
+    private fun observeMastery() {
+        viewModelScope.launch {
+            practiceRepo.observeCorrectTaskIds().collect { ids ->
+                _state.update { it.copy(masteredIds = ids) }
+            }
+        }
     }
 
     fun triggerSync(force: Boolean) {
@@ -126,7 +146,10 @@ class WortschatzViewModel @Inject constructor(
 
     fun selectTab(tab: WortschatzTab) {
         _state.update { it.copy(tab = tab) }
-        if (tab == WortschatzTab.DRILL) buildDrill()
+        // Only build drill if it's empty, to avoid resetting progress on tab switch
+        if (tab == WortschatzTab.DRILL && _state.value.drillQueue.isEmpty()) {
+            buildDrill()
+        }
     }
 
     fun toggleLevel(level: String) {
@@ -138,7 +161,9 @@ class WortschatzViewModel @Inject constructor(
             }
             s.copy(selectedLevels = next)
         }
-        observeWords(forceReset = true)
+        // Force reset drill if we are currently in DRILL tab, otherwise just update list
+        val shouldReset = _state.value.tab == WortschatzTab.DRILL
+        observeWords(forceReset = shouldReset)
     }
 
     fun togglePos(pos: String) {
@@ -150,7 +175,8 @@ class WortschatzViewModel @Inject constructor(
             }
             s.copy(selectedPosSet = next)
         }
-        observeWords(forceReset = true)
+        val shouldReset = _state.value.tab == WortschatzTab.DRILL
+        observeWords(forceReset = shouldReset)
     }
 
     fun updateSearchQuery(query: String) {
@@ -252,6 +278,12 @@ class WortschatzViewModel @Inject constructor(
                 val savedCorrect = if (forceReset) 0 else prefs.getDrillCorrect()
                 val savedWrong = if (forceReset) 0 else prefs.getDrillWrong()
                 
+                var seed = prefs.getDrillSeed()
+                if (seed == null || forceReset) {
+                    seed = System.currentTimeMillis()
+                    viewModelScope.launch { prefs.setDrillSeed(seed) }
+                }
+
                 if (forceReset) {
                     viewModelScope.launch {
                         prefs.setDrillIndex(0)
@@ -266,7 +298,11 @@ class WortschatzViewModel @Inject constructor(
                     // Force reset if filters changed or if session was already done.
                     val shouldReset = forceReset || s.drillDone
                     
-                    val queue = if (shouldReset || isFirstLoad) filteredWords.shuffled() else s.drillQueue
+                    val queue = if (shouldReset || isFirstLoad) {
+                        filteredWords.shuffled(Random(seed))
+                    } else {
+                        s.drillQueue
+                    }
                     
                     // If first load or forced reset, use saved stats (0 if forced). Otherwise, follow current state or reset if finished.
                     val finalIndex = if (isFirstLoad || forceReset) {
@@ -296,14 +332,18 @@ class WortschatzViewModel @Inject constructor(
     }
 
     private fun buildDrill(startIndex: Int = 0) {
-        val shuffled = _state.value.listCards.shuffled()
-        _state.update {
-            it.copy(
-                drillQueue  = shuffled,
-                drillIndex  = startIndex,
-                drillFlipped = false,
-                drillDone   = startIndex >= shuffled.size && shuffled.isNotEmpty(),
-            )
+        viewModelScope.launch {
+            val seed = System.currentTimeMillis()
+            prefs.setDrillSeed(seed)
+            val shuffled = _state.value.listCards.shuffled(Random(seed))
+            _state.update {
+                it.copy(
+                    drillQueue = shuffled,
+                    drillIndex = startIndex,
+                    drillFlipped = false,
+                    drillDone = startIndex >= shuffled.size && shuffled.isNotEmpty(),
+                )
+            }
         }
     }
 

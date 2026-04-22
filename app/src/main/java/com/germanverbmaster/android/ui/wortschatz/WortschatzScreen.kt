@@ -636,17 +636,26 @@ private fun DrillContent(
         }
 
         LinearProgressIndicator(
-            progress = { state.drillProgress },
+            progress = { state.masteryProgress },
             modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
         )
-        Text(
-            "${minOf(state.drillIndex + 1, state.drillQueue.size)} / ${state.drillQueue.size}",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-            modifier = Modifier
-                .align(Alignment.End)
-                .padding(bottom = 4.dp),
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                "Gesamtfortschritt",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+            )
+            Text(
+                "${state.masteredCount} / ${state.listCards.size} Wörter",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+            )
+        }
+
+        Spacer(Modifier.height(8.dp))
 
         if (state.drillDone) {
             Box(
