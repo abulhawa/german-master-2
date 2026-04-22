@@ -19,13 +19,14 @@ val localProps = Properties().apply {
 android {
     namespace = "com.germanverbmaster.android"
     compileSdk = 37
+    ndkVersion = "29.0.14206865"
 
     defaultConfig {
         applicationId = "com.germanverbmaster.android"
         minSdk = 26
         targetSdk = 37
-        versionCode = 9
-        versionName = "0.1.8"
+        versionCode = 11
+        versionName = "0.1.10"
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
@@ -33,6 +34,10 @@ android {
             "\"${localProps.getProperty("supabase.anon.key", "")}\"")
         buildConfigField("String", "GOOGLE_WEB_CLIENT_ID",
             "\"${localProps.getProperty("google.web.client.id", "YOUR_WEB_CLIENT_ID_HERE")}\"")
+
+        ndk {
+            debugSymbolLevel = "FULL"
+        }
     }
 
     signingConfigs {
@@ -51,6 +56,9 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
     }
 
@@ -72,8 +80,8 @@ android {
 
     packaging {
         jniLibs {
-            keepDebugSymbols.add("**/libandroidx.graphics.path.so")
-            keepDebugSymbols.add("**/libdatastore_shared_counter.so")
+            // keepDebugSymbols.add("**/libandroidx.graphics.path.so")
+            // keepDebugSymbols.add("**/libdatastore_shared_counter.so")
         }
     }
 }
