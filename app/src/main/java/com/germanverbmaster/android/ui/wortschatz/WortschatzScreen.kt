@@ -404,13 +404,22 @@ fun FilterSection(
 }
 
 private fun genderArticle(gender: String?): String {
-    val g = gender?.trim()?.lowercase() ?: return ""
-    return when {
-        g.startsWith("m") || g == "der" || g == "r" -> "der"
-        g.startsWith("f") || g == "die" || g == "e" -> "die"
-        g.startsWith("n") || g == "das" || g == "s" -> "das"
-        else -> ""
-    }
+    val normalized = " ${gender?.trim()?.lowercase() ?: return ""} "
+    val hasDer = Regex("""\bder\b""").containsMatchIn(normalized) ||
+        Regex("""\bm\b""").containsMatchIn(normalized) ||
+        Regex("""\br\b""").containsMatchIn(normalized)
+    val hasDie = Regex("""\bdie\b""").containsMatchIn(normalized) ||
+        Regex("""\bf\b""").containsMatchIn(normalized) ||
+        Regex("""\be\b""").containsMatchIn(normalized)
+    val hasDas = Regex("""\bdas\b""").containsMatchIn(normalized) ||
+        Regex("""\bn\b""").containsMatchIn(normalized) ||
+        Regex("""\bs\b""").containsMatchIn(normalized)
+
+    return buildList {
+        if (hasDer) add("der")
+        if (hasDie) add("die")
+        if (hasDas) add("das")
+    }.joinToString("/")
 }
 
 // ─── Drill ────────────────────────────────────────────────────────────────────

@@ -108,12 +108,17 @@ internal object BundledWordsCsvParser {
         val hasDas = Regex("""\bdas\b""").containsMatchIn(normalized)
 
         return when (listOf(hasDer, hasDie, hasDas).count { it }) {
+            0 -> null
             1 -> when {
                 hasDer -> "m"
                 hasDie -> "f"
                 else -> "n"
             }
-            else -> null
+            else -> buildList {
+                if (hasDer) add("der")
+                if (hasDie) add("die")
+                if (hasDas) add("das")
+            }.joinToString("/")
         }
     }
 

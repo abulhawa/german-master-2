@@ -79,4 +79,23 @@ class BundledWordsCsvParserTest {
         assertEquals("Bitte reichen Sie die Bescheinigung ein.", parsed[0].exampleDe)
         assertEquals("Fuer diesen Kurs erhalten Sie eine Bescheinigung.", parsed[1].exampleDe)
     }
+
+    @Test
+    fun `parse preserves multiple noun articles from article prefix`() {
+        val csv = """
+            Article/Prefix,Word,English Translation,Example Sentence,English Translation (Sentence),POS
+            der/die,"Entwickler/in, -/-nen",developer,Die Entwickler arbeiten im Team.,Developers work in teams.,N
+            der/das,"Fakt, -en",fact,Das ist ein wichtiger Fakt.,That is an important fact.,N
+        """.trimIndent()
+
+        val parsed = BundledWordsCsvParser.parse(
+            csvText = csv,
+            level = "B2 Beruf",
+            versionTag = "test-version",
+        )
+
+        assertEquals(2, parsed.size)
+        assertEquals("der/die", parsed[0].gender)
+        assertEquals("der/das", parsed[1].gender)
+    }
 }
