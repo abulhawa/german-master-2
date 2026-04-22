@@ -2,27 +2,32 @@ package com.germanverbmaster.android.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Primary brand colour — matches web app --accent: hsl(221, 83%, 54%)
-val Brand400 = Color(0xFF3B72F0)
-val Brand500 = Color(0xFF2362D4)
-val Brand600 = Color(0xFF1A4FB8)
-val BrandOnPrimary = Color(0xFFFFFFFF)
+// Reduced-hue palette for easier color parsing with moderate color blindness.
+val AccentLight = Color(0xFF3A5A78)
+val AccentDark = Color(0xFF8FB0CF)
+val AccentContainerLight = Color(0xFFDCE7F3)
+val AccentContainerDark = Color(0xFF2B445F)
 
-// Surface / background — matches web app light tokens
-val SurfaceLight = Color(0xFFF8F9FB)   // --bg 210 20% 98%
-val CardLight    = Color(0xFFFFFFFF)   // --card 0 0% 100%
-val BorderLight  = Color(0xFFCDD3DC)   // --border 214 17% 82%
-val FgLight      = Color(0xFF0F1A2E)   // --fg  222 47% 12%
-val MutedFgLight = Color(0xFF3D4F6A)   // --muted-fg 217 19% 27%
+val SurfaceLight = Color(0xFFF3F5F7)
+val CardLight = Color(0xFFFFFFFF)
+val SurfaceVariantLight = Color(0xFFE6EBF1)
+val BorderLight = Color(0xFFB6C1CC)
+val OutlineVariantLight = Color(0xFFD0D7DF)
+val OnLight = Color(0xFF1E242C)
+val OnLightMuted = Color(0xFF4D5A69)
 
-// Dark tokens — matches web app dark class
-val SurfaceDark  = Color(0xFF191C22)   // --bg  222 15% 10%
-val CardDark     = Color(0xFF1C2029)   // --card 222 15% 12%
-val BorderDark   = Color(0xFF2D3447)   // --border 222 14% 24%
-val FgDark       = Color(0xFFF5F7FA)   // --fg  210 20% 98%
-val MutedFgDark  = Color(0xFFACB4C4)   // --muted-fg 216 12% 72%
+val SurfaceDark = Color(0xFF171C22)
+val CardDark = Color(0xFF1F2630)
+val SurfaceVariantDark = Color(0xFF2A3340)
+val BorderDark = Color(0xFF647284)
+val OutlineVariantDark = Color(0xFF4A5667)
+val OnDark = Color(0xFFE8EEF5)
+val OnDarkMuted = Color(0xFFB8C3D1)
 
-// Semantic
-val Success = Color(0xFF0BA5D3)        // --success 199 89% 48%
-val Warning = Color(0xFFCB7214)        // --warning 32 95% 44%
-val Danger  = Color(0xFFDC2626)
+val ErrorLight = Color(0xFF8A3E3E)
+val ErrorContainerLight = Color(0xFFF3DCDC)
+val OnErrorContainerLight = Color(0xFF3E1A1A)
+
+val ErrorDark = Color(0xFFE2A6A6)
+val ErrorContainerDark = Color(0xFF5A2E2E)
+val OnErrorContainerDark = Color(0xFFF9E6E6)

@@ -7,35 +7,62 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val LightColorScheme = lightColorScheme(
-    primary          = Brand500,
-    onPrimary        = BrandOnPrimary,
-    primaryContainer = Brand400,
+    primary = AccentLight,
+    onPrimary = Color.White,
+    primaryContainer = AccentContainerLight,
+    onPrimaryContainer = OnLight,
+    secondary = OnLightMuted,
+    onSecondary = Color.White,
+    secondaryContainer = SurfaceVariantLight,
+    onSecondaryContainer = OnLight,
+    tertiary = OnLightMuted,
+    onTertiary = Color.White,
+    tertiaryContainer = SurfaceVariantLight,
+    onTertiaryContainer = OnLight,
     background       = SurfaceLight,
     surface          = CardLight,
-    onSurface        = FgLight,
-    onBackground     = FgLight,
+    surfaceVariant = SurfaceVariantLight,
+    onSurface        = OnLight,
+    onSurfaceVariant = OnLightMuted,
+    onBackground     = OnLight,
     outline          = BorderLight,
-    secondary        = Brand400,
-    onSecondary      = BrandOnPrimary,
-    error            = Danger,
+    outlineVariant = OutlineVariantLight,
+    error = ErrorLight,
+    onError = Color.White,
+    errorContainer = ErrorContainerLight,
+    onErrorContainer = OnErrorContainerLight,
 )
 
 private val DarkColorScheme = darkColorScheme(
-    primary          = Brand400,
-    onPrimary        = BrandOnPrimary,
-    primaryContainer = Brand600,
+    primary = AccentDark,
+    onPrimary = Color(0xFF0F1F30),
+    primaryContainer = AccentContainerDark,
+    onPrimaryContainer = OnDark,
+    secondary = OnDarkMuted,
+    onSecondary = Color(0xFF1A2532),
+    secondaryContainer = SurfaceVariantDark,
+    onSecondaryContainer = OnDark,
+    tertiary = OnDarkMuted,
+    onTertiary = Color(0xFF1A2532),
+    tertiaryContainer = SurfaceVariantDark,
+    onTertiaryContainer = OnDark,
     background       = SurfaceDark,
     surface          = CardDark,
-    onSurface        = FgDark,
-    onBackground     = FgDark,
+    surfaceVariant = SurfaceVariantDark,
+    onSurface        = OnDark,
+    onSurfaceVariant = OnDarkMuted,
+    onBackground     = OnDark,
     outline          = BorderDark,
-    secondary        = Brand400,
-    onSecondary      = BrandOnPrimary,
-    error            = Danger,
+    outlineVariant = OutlineVariantDark,
+    error = ErrorDark,
+    onError = Color(0xFF421F1F),
+    errorContainer = ErrorContainerDark,
+    onErrorContainer = OnErrorContainerDark,
 )
 
 @Composable
