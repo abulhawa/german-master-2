@@ -91,19 +91,29 @@ class WortschatzViewModel @Inject constructor(
     val state: StateFlow<WortschatzUiState> = _state.asStateFlow()
 
     init {
-        triggerSync()
+        triggerSync(force = false)
         observeWords()
         observePosFilters()
     }
 
-    fun triggerSync() {
+    fun triggerSync(force: Boolean) {
         viewModelScope.launch {
+            val lastSync = prefs.getWortschatzLastSync()
+            val now = System.currentTimeMillis()
+            val twentyFourHours = 24 * 60 * 60 * 1000L
+
+            if (!force && (now - lastSync) < twentyFourHours) {
+                Log.d("WortschatzViewModel", "Skipping sync, last sync was less than 24h ago")
+                return@launch
+            }
+
             _state.update { it.copy(isLoading = true, syncError = null) }
             try {
                 val shouldRunRemoteWordSync = repo.needsSync()
                 repo.upsertBundledB2BerufWordsIfAvailable()
                 if (shouldRunRemoteWordSync) repo.sync()
                 syncDataUseCase()
+                prefs.setWortschatzLastSync(now)
                 Log.d("WortschatzViewModel", "Sync completed successfully")
             } catch (e: Exception) {
                 Log.e("WortschatzViewModel", "Sync failed", e)

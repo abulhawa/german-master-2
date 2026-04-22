@@ -53,6 +53,7 @@ import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -83,6 +84,7 @@ import java.time.LocalDate
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun WortschatzScreen(
     viewModel: WortschatzViewModel = hiltViewModel(),
@@ -99,125 +101,137 @@ fun WortschatzScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 16.dp),
+    PullToRefreshBox(
+        isRefreshing = state.isLoading,
+        onRefresh = { viewModel.triggerSync(force = true) },
+        modifier = Modifier.fillMaxSize()
     ) {
-        ExamCountdownBanner(
-            examDate = LocalDate.of(2026, 4, 30),
-            modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
-        )
-
-        // Tab row: Wortliste | Schnell-Drill
-        PrimaryTabRow(selectedTabIndex = WortschatzTab.entries.indexOf(state.tab)) {
-            WortschatzTab.entries.forEach { tab ->
-                Tab(
-                    selected = state.tab == tab,
-                    onClick = { viewModel.selectTab(tab) },
-                    text = { Text(tab.label, style = MaterialTheme.typography.labelLarge) },
-                )
-            }
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        // Search Bar (Compact)
-        Surface(
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(44.dp),
-            shape = RoundedCornerShape(12.dp),
-            color = MaterialTheme.colorScheme.surface,
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
+                .fillMaxSize()
+                .padding(horizontal = 16.dp),
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 12.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(Modifier.width(8.dp))
-                Box(
-                    modifier = Modifier.weight(1f),
-                    contentAlignment = Alignment.CenterStart
-                ) {
-                    if (state.searchQuery.isEmpty()) {
-                        Text(
-                            text = "Suchen…",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                        )
-                    }
-                    BasicTextField(
-                        value = state.searchQuery,
-                        onValueChange = viewModel::updateSearchQuery,
-                        singleLine = true,
-                        textStyle = MaterialTheme.typography.bodyMedium.copy(
-                            color = MaterialTheme.colorScheme.onSurface
-                        ),
-                        cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
-                        modifier = Modifier.fillMaxWidth()
+            ExamCountdownBanner(
+                examDate = LocalDate.of(2026, 4, 30),
+                modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
+            )
+
+            // Tab row: Wortliste | Schnell-Drill
+            PrimaryTabRow(selectedTabIndex = WortschatzTab.entries.indexOf(state.tab)) {
+                WortschatzTab.entries.forEach { tab ->
+                    Tab(
+                        selected = state.tab == tab,
+                        onClick = { viewModel.selectTab(tab) },
+                        text = { Text(tab.label, style = MaterialTheme.typography.labelLarge) },
                     )
                 }
-                if (state.searchQuery.isNotEmpty()) {
-                    IconButton(
-                        onClick = { viewModel.updateSearchQuery("") },
-                        modifier = Modifier.size(28.dp)
+            }
+
+            Spacer(Modifier.height(8.dp))
+
+            // Search Bar (Compact)
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(44.dp),
+                shape = RoundedCornerShape(12.dp),
+                color = MaterialTheme.colorScheme.surface,
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Box(
+                        modifier = Modifier.weight(1f),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Clear,
-                            contentDescription = "Löschen",
-                            modifier = Modifier.size(18.dp)
+                        if (state.searchQuery.isEmpty()) {
+                            Text(
+                                text = "Suchen…",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                            )
+                        }
+                        BasicTextField(
+                            value = state.searchQuery,
+                            onValueChange = viewModel::updateSearchQuery,
+                            singleLine = true,
+                            textStyle = MaterialTheme.typography.bodyMedium.copy(
+                                color = MaterialTheme.colorScheme.onSurface
+                            ),
+                            cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+                            modifier = Modifier.fillMaxWidth()
                         )
+                    }
+                    if (state.searchQuery.isNotEmpty()) {
+                        IconButton(
+                            onClick = { viewModel.updateSearchQuery("") },
+                            modifier = Modifier.size(28.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = "Löschen",
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
                     }
                 }
             }
-        }
 
-        Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(4.dp))
 
-        FilterSection(
-            selectedLevels = state.selectedLevels,
-            onLevelToggle = viewModel::toggleLevel,
-            selectedPosSet = state.selectedPosSet,
-            onPosToggle = viewModel::togglePos,
-            posOptions = state.posOptions
-        )
-
-        // Count label
-        if (!state.isLoading) {
-            Text(
-                "${state.listCards.size} Wörter",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                modifier = Modifier.padding(bottom = 6.dp),
+            FilterSection(
+                selectedLevels = state.selectedLevels,
+                onLevelToggle = viewModel::toggleLevel,
+                selectedPosSet = state.selectedPosSet,
+                onPosToggle = viewModel::togglePos,
+                posOptions = state.posOptions
             )
-        }
 
-        // Sync error banner removed
-
-        when {
-            state.isLoading -> {
-                if (state.tab == WortschatzTab.DRILL) {
-                    DrillSkeleton()
-                } else {
-                    WortschatzSkeleton()
-                }
-            }
-            else -> when (state.tab) {
-                WortschatzTab.LIST  -> WordListContent(
-                    state.listCards,
-                    onSpeak = { ttsHelper.speak(it) },
-                    onWordClick = onNavigateToWordDetail
+            // Count label
+            if (!state.isLoading) {
+                Text(
+                    "${state.listCards.size} Wörter",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                    modifier = Modifier.padding(bottom = 6.dp),
                 )
-                WortschatzTab.DRILL -> DrillContent(state, viewModel, onNavigateToHistory, onSpeak = { ttsHelper.speak(it) })
+            }
+
+            // Sync error banner removed
+
+            when {
+                state.isLoading -> {
+                    if (state.tab == WortschatzTab.DRILL) {
+                        DrillSkeleton()
+                    } else {
+                        WortschatzSkeleton()
+                    }
+                }
+
+                else -> when (state.tab) {
+                    WortschatzTab.LIST -> WordListContent(
+                        state.listCards,
+                        onSpeak = { ttsHelper.speak(it) },
+                        onWordClick = onNavigateToWordDetail
+                    )
+
+                    WortschatzTab.DRILL -> DrillContent(
+                        state,
+                        viewModel,
+                        onNavigateToHistory,
+                        onSpeak = { ttsHelper.speak(it) })
+                }
             }
         }
     }
