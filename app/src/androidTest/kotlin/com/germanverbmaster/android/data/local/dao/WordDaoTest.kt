@@ -59,7 +59,7 @@ class WordDaoTest {
 
         wordDao.upsertAll(words)
 
-        val a1Words = wordDao.observeByLevel("A1").first()
+        val a1Words = wordDao.observeByLevels(listOf("A1")).first()
         assertEquals(1, a1Words.size)
         assertEquals("Haus", a1Words[0].lemma)
     }
@@ -73,7 +73,7 @@ class WordDaoTest {
 
         wordDao.upsertAll(words)
 
-        val nouns = wordDao.observeByPos("N").first()
+        val nouns = wordDao.observeByPosTypes(listOf("N")).first()
         assertEquals(1, nouns.size)
         assertEquals("Haus", nouns[0].lemma)
     }
