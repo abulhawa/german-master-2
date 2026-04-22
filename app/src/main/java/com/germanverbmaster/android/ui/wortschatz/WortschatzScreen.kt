@@ -130,7 +130,7 @@ fun WortschatzScreen(
             // Tab row: Wortliste | Schnell-Drill
             PrimaryTabRow(
                 selectedTabIndex = WortschatzTab.entries.indexOf(state.tab),
-                modifier = Modifier.height(40.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 WortschatzTab.entries.forEach { tab ->
                     Tab(

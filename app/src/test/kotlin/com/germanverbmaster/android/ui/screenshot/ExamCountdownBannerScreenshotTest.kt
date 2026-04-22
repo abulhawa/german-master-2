@@ -1,18 +1,20 @@
 package com.germanverbmaster.android.ui.screenshot
 
-import com.github.takahirom.roborazzi.RoborazziRule
-import com.github.takahirom.roborazzi.captureRoboImage
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import com.germanverbmaster.android.ui.theme.GermanVerbMasterTheme
+import com.github.takahirom.roborazzi.RoborazziRule
+import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 import java.time.LocalDate
 
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
+@Config(sdk = [35])
 class ExamCountdownBannerScreenshotTest {
     // Record: .\gradlew :app:testDebugUnitTest --tests "*ScreenshotTest" -Droborazzi.test.record=true
     // Verify: .\gradlew :app:testDebugUnitTest --tests "*ScreenshotTest" -Droborazzi.test.verify=true
