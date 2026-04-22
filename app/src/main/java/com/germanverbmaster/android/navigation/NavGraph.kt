@@ -1,5 +1,8 @@
 package com.germanverbmaster.android.navigation
 
+import android.app.Activity
+import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
@@ -13,6 +16,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -21,6 +28,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.germanverbmaster.android.R
 import com.germanverbmaster.android.ui.analytics.AnalyticsScreen
 import com.germanverbmaster.android.ui.auth.AuthScreen
 import com.germanverbmaster.android.ui.b2practice.B2PracticeScreen
@@ -40,6 +48,21 @@ fun AppNavGraph() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+
+    // Double back to exit logic
+    val context = LocalContext.current
+    var lastBackPressTime by remember { mutableLongStateOf(0L) }
+    val isAtRoot = navController.previousBackStackEntry == null
+
+    BackHandler(enabled = isAtRoot) {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastBackPressTime < 2000) {
+            (context as? Activity)?.finish()
+        } else {
+            lastBackPressTime = currentTime
+            Toast.makeText(context, context.getString(R.string.press_back_again_to_exit), Toast.LENGTH_SHORT).show()
+        }
+    }
 
     val items = listOf(
         NavItem(Screen.Wortschatz, "Wortschatz") { Icon(Icons.AutoMirrored.Filled.MenuBook, "Wortschatz") },
