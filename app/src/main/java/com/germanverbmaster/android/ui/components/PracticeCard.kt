@@ -21,7 +21,6 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -53,7 +52,6 @@ fun PracticeCard(
     task: TaskCard,
     onCorrect: (submitted: String, correct: String, responseMs: Int) -> Unit,
     onWrong: (submitted: String, correct: String, responseMs: Int) -> Unit,
-    onSkip: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -174,22 +172,16 @@ fun PracticeCard(
             Spacer(Modifier.height(16.dp))
 
             if (!revealed) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(
-                        onClick = onSkip,
-                        modifier = Modifier.weight(1f).height(48.dp),
-                    ) { Text("Überspringen") }
-                    Button(
-                        onClick = {
-                            revealed = true
-                            // Speak solution when revealed
-                            val solution = task.solution["form"] ?: task.solution["answer"] ?: task.solution.values.firstOrNull() ?: ""
-                            ttsHelper.speak(solution)
-                        },
-                        modifier = Modifier.weight(1f).height(48.dp),
-                        enabled = answer.isNotBlank(),
-                    ) { Text("Prüfen") }
-                }
+                Button(
+                    onClick = {
+                        revealed = true
+                        // Speak solution when revealed
+                        val solution = task.solution["form"] ?: task.solution["answer"] ?: task.solution.values.firstOrNull() ?: ""
+                        ttsHelper.speak(solution)
+                    },
+                    modifier = Modifier.fillMaxWidth().height(48.dp),
+                    enabled = answer.isNotBlank(),
+                ) { Text("Prüfen") }
             } else {
                 val solution = task.solution["form"]
                     ?: task.solution["answer"]

@@ -118,7 +118,6 @@ fun HomeScreen(
                     onWrong = { submitted, correct, ms -> 
                         viewModel.submitResult(state.currentTask!!, false, submitted, correct, ms) 
                     },
-                    onSkip = viewModel::skip,
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )
             }

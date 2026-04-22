@@ -28,7 +28,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Surface
@@ -170,12 +169,6 @@ fun B2PracticeScreen(
                                 ),
                                 modifier = Modifier.weight(1f).height(48.dp),
                             ) { Text("✗ Falsch") }
-
-                            // Skip
-                            OutlinedButton(
-                                onClick = viewModel::skip,
-                                modifier = Modifier.weight(1f).height(48.dp),
-                            ) { Text("→ Skip") }
 
                             // Correct
                             Button(
