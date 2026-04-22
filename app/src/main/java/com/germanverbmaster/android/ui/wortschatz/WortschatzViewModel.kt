@@ -178,8 +178,6 @@ class WortschatzViewModel @Inject constructor(
         advance()
     }
 
-    fun skip() = advance()
-
     private fun recordResult(word: WordEntity, result: String) {
         viewModelScope.launch {
             submitAnswerUseCase(
@@ -265,8 +263,8 @@ class WortschatzViewModel @Inject constructor(
                 _state.update { s ->
                     val isFirstLoad = s.drillQueue.isEmpty()
                     
-                    // Force reset if filters changed, or if session was done, or if at start.
-                    val shouldReset = forceReset || s.drillDone || (s.drillIndex == 0 && !isFirstLoad)
+                    // Force reset if filters changed or if session was already done.
+                    val shouldReset = forceReset || s.drillDone
                     
                     val queue = if (shouldReset || isFirstLoad) filteredWords.shuffled() else s.drillQueue
                     

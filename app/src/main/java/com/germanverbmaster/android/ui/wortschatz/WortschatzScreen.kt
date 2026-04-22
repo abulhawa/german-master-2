@@ -109,7 +109,7 @@ fun WortschatzScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 12.dp),
         ) {
             ExamCountdownBanner(
                 examDate = LocalDate.of(2026, 4, 30),
@@ -556,7 +556,7 @@ private fun DrillContent(
                 color = MaterialTheme.colorScheme.errorContainer,
                 modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
             )
-            DrillStatChip("${state.drillAccuracy.toInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
+            DrillStatChip("${state.drillAccuracy.roundToInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
         }
 
         LinearProgressIndicator(
@@ -579,6 +579,15 @@ private fun DrillContent(
                 accuracy = state.drillAccuracy,
                 onRestart = viewModel::restartDrill,
             )
+        } else if (state.drillQueue.isEmpty() && !state.isLoading) {
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Text(
+                    "Keine Wörter für diese Filter gefunden.\nWähle andere Filter oder suche etwas anderes.",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         } else {
             state.drillCurrent?.let { card ->
                 val (displayFront, speakFront) = remember(card) {
@@ -772,27 +781,31 @@ private fun DrillFlipCard(
             ) {
                 Text(
                     text  = card.english ?: "",
-                    style = MaterialTheme.typography.headlineLarge,
+                    style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.SemiBold,
                     color      = MaterialTheme.colorScheme.primary,
                     textAlign  = TextAlign.Center,
+                    modifier   = Modifier.fillMaxWidth()
                 )
                 card.exampleDe?.let { ex ->
-                    Spacer(Modifier.height(14.dp))
+                    Spacer(Modifier.height(12.dp))
                     Surface(
                         shape    = MaterialTheme.shapes.small,
                         color    = MaterialTheme.colorScheme.surfaceVariant,
                         modifier = Modifier.fillMaxWidth(),
                     ) {
                         Column(modifier = Modifier.padding(12.dp)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
+                            Row(verticalAlignment = Alignment.Top) {
                                 Text(
                                     text     = ex,
-                                    style    = MaterialTheme.typography.titleLarge,
+                                    style    = MaterialTheme.typography.titleMedium,
                                     fontStyle = FontStyle.Italic,
                                     modifier = Modifier.weight(1f)
                                 )
-                                IconButton(onClick = { onSpeak(ex) }) {
+                                IconButton(
+                                    onClick = { onSpeak(ex) },
+                                    modifier = Modifier.offset(y = (-4).dp)
+                                ) {
                                     Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
                                 }
                             }
@@ -852,7 +865,7 @@ private fun DrillCardFace(
             modifier              = Modifier
                 .fillMaxSize()
                 .verticalScroll(scrollState)
-                .padding(24.dp),
+                .padding(horizontal = 12.dp, vertical = 24.dp),
             horizontalAlignment   = Alignment.CenterHorizontally,
             verticalArrangement   = Arrangement.Center,
             content               = content,
@@ -962,7 +975,7 @@ fun DrillDoneCard(correct: Int, wrong: Int, accuracy: Float, onRestart: () -> Un
         Text("Runde abgeschlossen! 🎉", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))
         Text(
-            "Richtig: $correct  |  Falsch: $wrong  |  Quote: ${accuracy.toInt()}%",
+            "Richtig: $correct  |  Falsch: $wrong  |  Quote: ${accuracy.roundToInt()}%",
             style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(Modifier.height(20.dp))
