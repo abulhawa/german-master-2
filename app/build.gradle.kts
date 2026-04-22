@@ -18,14 +18,14 @@ val localProps = Properties().apply {
 
 android {
     namespace = "com.germanverbmaster.android"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.germanverbmaster.android"
         minSdk = 26
-        targetSdk = 36
-        versionCode = 8
-        versionName = "0.1.7"
+        targetSdk = 37
+        versionCode = 9
+        versionName = "0.1.8"
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
