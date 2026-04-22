@@ -1,12 +1,14 @@
 package com.germanverbmaster.android.ui.wortschatz
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -55,16 +58,19 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -72,7 +78,10 @@ import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.speech.TextToSpeechHelper
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import com.germanverbmaster.android.ui.components.ShimmerItem
+import kotlinx.coroutines.launch
 import java.time.LocalDate
+import kotlin.math.abs
+import kotlin.math.roundToInt
 
 @Composable
 fun WortschatzScreen(
@@ -571,6 +580,8 @@ private fun DrillContent(
                     isFlipped = state.drillFlipped,
                     onFlip    = viewModel::flip,
                     onSpeak   = onSpeak,
+                    onMarkCorrect = viewModel::markCorrect,
+                    onMarkWrong   = viewModel::markWrong,
                     modifier  = Modifier
                         .fillMaxWidth()
                         .weight(1f),
@@ -623,20 +634,58 @@ private fun DrillFlipCard(
     isFlipped: Boolean,
     onFlip: () -> Unit,
     onSpeak: (String) -> Unit,
+    onMarkCorrect: () -> Unit,
+    onMarkWrong: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val rotation by animateFloatAsState(
+    val offsetX = remember(card) { Animatable(0f) }
+    val scope = rememberCoroutineScope()
+
+    val rotationY by animateFloatAsState(
         targetValue    = if (isFlipped) 180f else 0f,
         animationSpec  = tween(durationMillis = 400),
         label          = "drill_flip",
     )
 
-    Box(modifier = if (!isFlipped) modifier.clickable { onFlip() } else modifier) {
-        if (rotation <= 90f) {
+    Box(
+        modifier = modifier
+            .offset { IntOffset(offsetX.value.roundToInt(), 0) }
+            .graphicsLayer {
+                rotationZ = (offsetX.value / 20).coerceIn(-15f, 15f)
+                alpha = (1f - (abs(offsetX.value) / 800f)).coerceAtLeast(0.6f)
+            }
+            .pointerInput(card, isFlipped) {
+                if (!isFlipped) return@pointerInput
+                detectHorizontalDragGestures(
+                    onDragEnd = {
+                        val threshold = size.width / 4f
+                        if (offsetX.value > threshold) {
+                            scope.launch {
+                                offsetX.animateTo(size.width.toFloat() * 1.5f, tween(300))
+                                onMarkCorrect()
+                            }
+                        } else if (offsetX.value < -threshold) {
+                            scope.launch {
+                                offsetX.animateTo(-size.width.toFloat() * 1.5f, tween(300))
+                                onMarkWrong()
+                            }
+                        } else {
+                            scope.launch { offsetX.animateTo(0f, tween(300)) }
+                        }
+                    },
+                    onHorizontalDrag = { change, dragAmount ->
+                        change.consume()
+                        scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
+                    }
+                )
+            }
+            .then(if (!isFlipped) Modifier.clickable { onFlip() } else Modifier)
+    ) {
+        if (rotationY <= 90f) {
             DrillCardFace(
                 modifier = Modifier
                     .fillMaxSize()
-                    .graphicsLayer { rotationY = rotation },
+                    .graphicsLayer { this.rotationY = rotationY },
             ) {
                 // Level + POS badge row
                 Row(
@@ -690,11 +739,11 @@ private fun DrillFlipCard(
             }
         }
 
-        if (rotation > 90f) {
+        if (rotationY > 90f) {
             DrillCardFace(
                 modifier = Modifier
                     .fillMaxSize()
-                    .graphicsLayer { rotationY = rotation - 180f },
+                    .graphicsLayer { this.rotationY = rotationY - 180f },
             ) {
                 Text(
                     text  = card.english ?: "",
@@ -731,6 +780,32 @@ private fun DrillFlipCard(
                                 )
                             }
                         }
+                    }
+                }
+            }
+
+            // Swipe indicators
+            if (abs(offsetX.value) > 50) {
+                val alpha = ((abs(offsetX.value) - 50) / 150f).coerceIn(0f, 1f)
+                val isCorrect = offsetX.value > 0
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(24.dp),
+                    contentAlignment = if (isCorrect) Alignment.TopStart else Alignment.TopEnd
+                ) {
+                    Surface(
+                        color = (if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer).copy(alpha = alpha),
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(2.dp, if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error)
+                    ) {
+                        Text(
+                            text = if (isCorrect) "RICHTIG" else "FALSCH",
+                            color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
+                            fontWeight = FontWeight.Black,
+                            style = MaterialTheme.typography.headlineSmall,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                        )
                     }
                 }
             }
