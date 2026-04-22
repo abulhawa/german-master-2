@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -40,8 +41,8 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -573,14 +574,22 @@ private fun DrillContent(
         )
 
         if (state.drillDone) {
-            DrillDoneCard(
-                correct  = state.drillCorrect,
-                wrong    = state.drillWrong,
-                accuracy = state.drillAccuracy,
-                onRestart = viewModel::restartDrill,
-            )
+            Box(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                DrillDoneCard(
+                    correct = state.drillCorrect,
+                    wrong = state.drillWrong,
+                    accuracy = state.drillAccuracy,
+                    onRestart = viewModel::restartDrill,
+                )
+            }
         } else if (state.drillQueue.isEmpty() && !state.isLoading) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Box(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
                 Text(
                     "Keine Wörter für diese Filter gefunden.\nWähle andere Filter oder suche etwas anderes.",
                     textAlign = TextAlign.Center,
@@ -607,19 +616,24 @@ private fun DrillContent(
                     }
                 }
 
-                DrillFlipCard(
-                    card      = card,
-                    displayFront = displayFront,
-                    speakFront = speakFront,
-                    isFlipped = state.drillFlipped,
-                    onFlip    = viewModel::flip,
-                    onSpeak   = onSpeak,
-                    onMarkCorrect = viewModel::markCorrect,
-                    onMarkWrong   = viewModel::markWrong,
-                    modifier  = Modifier
+                Box(
+                    modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f),
-                )
+                    contentAlignment = Alignment.Center
+                ) {
+                    DrillFlipCard(
+                        card = card,
+                        displayFront = displayFront,
+                        speakFront = speakFront,
+                        isFlipped = state.drillFlipped,
+                        onFlip = viewModel::flip,
+                        onSpeak = onSpeak,
+                        onMarkCorrect = viewModel::markCorrect,
+                        onMarkWrong = viewModel::markWrong,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
 
                 if (state.drillFlipped) {
                     Spacer(Modifier.height(12.dp))
@@ -718,7 +732,7 @@ private fun DrillFlipCard(
         if (rotationY <= 90f) {
             DrillCardFace(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .graphicsLayer { this.rotationY = rotationY },
             ) {
                 // Level + POS badge row
@@ -776,7 +790,7 @@ private fun DrillFlipCard(
         if (rotationY > 90f) {
             DrillCardFace(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .graphicsLayer { this.rotationY = rotationY - 180f },
             ) {
                 Text(
@@ -857,15 +871,21 @@ private fun DrillCardFace(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val scrollState = rememberScrollState()
-    ElevatedCard(
+    Card(
         modifier  = modifier,
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+        shape = RoundedCornerShape(20.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f)),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
     ) {
         Column(
             modifier              = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                .heightIn(min = 340.dp)
                 .verticalScroll(scrollState)
-                .padding(horizontal = 12.dp, vertical = 24.dp),
+                .padding(horizontal = 20.dp, vertical = 32.dp),
             horizontalAlignment   = Alignment.CenterHorizontally,
             verticalArrangement   = Arrangement.Center,
             content               = content,
@@ -934,32 +954,42 @@ private fun DrillSkeleton() {
             progress = { 0f },
             modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
         )
-        
+
         Spacer(Modifier.height(4.dp))
 
-        ElevatedCard(
+        Box(
             modifier = Modifier.fillMaxWidth().weight(1f),
-            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+            Card(
+                modifier = Modifier.fillMaxWidth().heightIn(min = 340.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+                shape = RoundedCornerShape(20.dp),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f)),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface
+                )
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        ShimmerItem(height = 24.dp, widthFraction = 0.2f)
-                        ShimmerItem(height = 24.dp, widthFraction = 0.2f)
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            ShimmerItem(height = 24.dp, widthFraction = 0.2f)
+                            ShimmerItem(height = 24.dp, widthFraction = 0.2f)
+                        }
+                        ShimmerItem(height = 24.dp, widthFraction = 0.1f)
                     }
-                    ShimmerItem(height = 24.dp, widthFraction = 0.1f)
+                    Spacer(Modifier.height(32.dp))
+                    ShimmerItem(height = 40.dp, widthFraction = 0.7f)
+                    Spacer(Modifier.height(16.dp))
+                    ShimmerItem(height = 14.dp, widthFraction = 0.4f)
                 }
-                Spacer(Modifier.height(32.dp))
-                ShimmerItem(height = 40.dp, widthFraction = 0.7f)
-                Spacer(Modifier.height(16.dp))
-                ShimmerItem(height = 14.dp, widthFraction = 0.4f)
             }
         }
         Spacer(Modifier.height(16.dp))
