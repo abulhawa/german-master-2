@@ -7,6 +7,8 @@ import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.ui.wortschatz.POS_LABELS
+import com.germanverbmaster.android.ui.wortschatz.canonicalPos
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,7 +41,7 @@ class AnswerHistoryViewModel @Inject constructor(
     private val initialResult: String? = savedStateHandle["result"]
     private val _filterResult = MutableStateFlow(initialResult)
     private val _filterPosSet = MutableStateFlow<Set<String>>(emptySet())
-    private val _posOptions = MutableStateFlow<List<String>>(emptyList())
+    private val _rawPosOptions = MutableStateFlow<List<String>>(emptyList())
 
     init {
         viewModelScope.launch {
@@ -54,8 +56,8 @@ class AnswerHistoryViewModel @Inject constructor(
 
     private fun observePosOptions() {
         viewModelScope.launch {
-            practiceRepository.observeDistinctPos().collect { posList ->
-                _posOptions.value = listOf("Alle") + posList
+            this@AnswerHistoryViewModel.practiceRepository.observeDistinctPos().collect { posList ->
+                _rawPosOptions.value = posList
             }
         }
     }
@@ -64,17 +66,22 @@ class AnswerHistoryViewModel @Inject constructor(
         practiceRepository.observeRecent(200),
         _filterResult,
         _filterPosSet,
-        _posOptions
-    ) { attempts, result, posSet, posOptions ->
+        _rawPosOptions
+    ) { attempts, result, posSet, rawOptions ->
+        // Normalize the attempts for filtering
         val filtered = attempts.filter {
             (result == null || it.result == result) &&
-            (posSet.isEmpty() || posSet.contains(it.pos))
+            (posSet.isEmpty() || posSet.contains(canonicalPos(it.pos)))
         }
+        
+        // Normalize the UI options
+        val displayOptions = listOf("Alle") + rawOptions.map { canonicalPos(it) }.distinct()
+        
         HistoryUiState(
             attempts = hydrateAttempts(filtered),
             filterResult = result,
             filterPosSet = posSet,
-            posOptions = posOptions,
+            posOptions = displayOptions,
             isLoading = false,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
