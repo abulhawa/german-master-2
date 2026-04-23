@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
+import androidx.credentials.exceptions.GetCredentialException
+import androidx.credentials.exceptions.NoCredentialException
 import com.germanverbmaster.android.BuildConfig
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
@@ -50,7 +52,16 @@ class AuthRepository @Inject constructor(
                 .addCredentialOption(googleIdOption)
                 .build()
 
-            val result = credentialManager.getCredential(context, request)
+            val result = try {
+                credentialManager.getCredential(context, request)
+            } catch (e: NoCredentialException) {
+                Log.e("AuthRepository", "No credentials found", e)
+                return Result.failure(e)
+            } catch (e: GetCredentialException) {
+                Log.e("AuthRepository", "Failed to get credential", e)
+                return Result.failure(e)
+            }
+
             val credential = result.credential
 
             Log.d("AuthRepository", "Received credential type: ${credential.type}")

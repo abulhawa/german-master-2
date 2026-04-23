@@ -21,8 +21,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.os.ConfigurationCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
@@ -129,6 +131,9 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel = hiltViewModel()) {
                             Text("No data yet", style = MaterialTheme.typography.bodyMedium)
                         }
                     } else {
+                        val configuration = LocalConfiguration.current
+                        val locale = ConfigurationCompat.getLocales(configuration).get(0) ?: Locale.getDefault()
+                        
                         // Use items/itemsIndexed if this list ever grows large, 
                         // but for a small fixed set of categories, we just need to avoid 
                         // redundant recompositions by using remember or unique keys if it were in a LazyColumn.
@@ -136,7 +141,7 @@ fun AnalyticsScreen(viewModel: AnalyticsViewModel = hiltViewModel()) {
                         state.taskTypeStats.forEach { stat ->
                             TaskTypeStatRow(
                                 label = stat.taskType.replace("_", " ").replaceFirstChar { 
-                                    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() 
+                                    if (it.isLowerCase()) it.titlecase(locale) else it.toString()
                                 },
                                 correct = stat.correctCount,
                                 total = stat.totalCount
