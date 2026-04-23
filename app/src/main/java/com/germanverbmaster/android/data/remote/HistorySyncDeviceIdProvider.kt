@@ -1,7 +1,7 @@
 package com.germanverbmaster.android.data.remote
 
 import android.content.Context
-import android.provider.Settings
+import androidx.core.content.edit
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.UUID
 import javax.inject.Inject
@@ -21,12 +21,9 @@ class HistorySyncDeviceIdProvider @Inject constructor(
         val existing = prefs.getString(KEY_DEVICE_ID, null)?.trim().orEmpty()
         if (existing.isNotEmpty()) return existing
 
-        val androidId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-            ?.trim()
-            .orEmpty()
-        val resolved = androidId.ifEmpty { UUID.randomUUID().toString() }
+        val resolved = UUID.randomUUID().toString()
 
-        prefs.edit().putString(KEY_DEVICE_ID, resolved).apply()
+        prefs.edit { putString(KEY_DEVICE_ID, resolved) }
         return resolved
     }
 }
