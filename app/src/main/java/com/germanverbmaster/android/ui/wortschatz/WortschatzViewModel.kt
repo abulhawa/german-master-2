@@ -10,6 +10,7 @@ import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
+import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -93,6 +94,7 @@ class WortschatzViewModel @Inject constructor(
     private val practiceRepo: PracticeRepository,
     private val submitAnswerUseCase: SubmitAnswerUseCase,
     private val syncDataUseCase: SyncDataUseCase,
+    private val syncHistoryUseCase: SyncHistoryUseCase,
     private val prefs: SyncPreferences,
 ) : ViewModel() {
 
@@ -131,6 +133,7 @@ class WortschatzViewModel @Inject constructor(
                 repo.upsertBundledB2BerufWordsIfAvailable()
                 if (shouldRunRemoteWordSync) repo.sync()
                 syncDataUseCase()
+                syncHistoryUseCase()
                 prefs.setWortschatzLastSync(now)
                 Log.d("WortschatzViewModel", "Sync completed successfully")
             } catch (e: Exception) {
