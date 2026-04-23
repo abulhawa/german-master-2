@@ -103,7 +103,7 @@ class SyncHistoryUseCaseTest {
         every { with(historyApi) { remoteHistory.toEntity() } } returns entityFromRemote
         
         coEvery { historyDao.upsertAll(listOf(entityFromRemote)) } just Runs
-        coEvery { prefs.setHistoryLastSync("2023-10-01T12:00:00Z") } just Runs
+        coEvery { prefs.setHistoryLastSync("2023-10-01T12:00:00Z") } returns mockk()
 
         syncHistoryUseCase()
 

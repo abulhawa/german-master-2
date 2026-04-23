@@ -8,6 +8,7 @@ import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
+import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -34,6 +35,7 @@ class WortschatzViewModelTest {
     private val practiceRepo: PracticeRepository = mockk()
     private val submitAnswerUseCase: SubmitAnswerUseCase = mockk()
     private val syncDataUseCase: SyncDataUseCase = mockk()
+    private val syncHistoryUseCase: SyncHistoryUseCase = mockk()
     private val prefs: SyncPreferences = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
@@ -71,6 +73,7 @@ class WortschatzViewModelTest {
         coEvery { repo.needsSync() } returns false
         coEvery { repo.upsertBundledB2BerufWordsIfAvailable() } returns 0
         coEvery { syncDataUseCase() } returns Unit
+        coEvery { syncHistoryUseCase() } returns Unit
     }
 
     @After
@@ -81,7 +84,7 @@ class WortschatzViewModelTest {
 
     @Test
     fun `selectTab to DRILL does not reset queue if already built`() = runTest {
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, prefs)
+        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs)
         
         viewModel.state.test {
             // Initial load
@@ -118,7 +121,7 @@ class WortschatzViewModelTest {
         val masteredFlow = MutableStateFlow(emptySet<String>())
         every { practiceRepo.observeCorrectTaskIds() } returns masteredFlow
         
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, prefs)
+        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs)
         
         viewModel.state.test {
             var state = awaitItem()
