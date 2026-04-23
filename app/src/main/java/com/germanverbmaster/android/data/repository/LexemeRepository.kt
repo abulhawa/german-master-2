@@ -17,6 +17,7 @@ private val LEXEME_LAST_SYNC = stringPreferencesKey("lexeme_last_sync")
 private val TASK_LAST_SYNC   = stringPreferencesKey("task_last_sync")
 private val INFLECTION_LAST_SYNC = stringPreferencesKey("inflection_last_sync")
 private val WORTSCHATZ_LAST_SYNC = stringPreferencesKey("wortschatz_last_sync")
+private val HISTORY_LAST_SYNC = stringPreferencesKey("history_last_sync")
 private val B2_CATEGORY = stringPreferencesKey("b2_category")
 private val B2_INDEX = stringPreferencesKey("b2_index")
 private val B2_SHUFFLE = stringPreferencesKey("b2_shuffle")
@@ -54,6 +55,12 @@ class SyncPreferences @Inject constructor(
 
     suspend fun setWortschatzLastSync(value: Long) =
         context.dataStore.edit { it[WORTSCHATZ_LAST_SYNC] = value.toString() }
+
+    suspend fun getHistoryLastSync(): String? =
+        context.dataStore.data.first()[HISTORY_LAST_SYNC]
+
+    suspend fun setHistoryLastSync(value: String) =
+        context.dataStore.edit { it[HISTORY_LAST_SYNC] = value }
 
     suspend fun getB2Category(): String? =
         context.dataStore.data.first()[B2_CATEGORY]

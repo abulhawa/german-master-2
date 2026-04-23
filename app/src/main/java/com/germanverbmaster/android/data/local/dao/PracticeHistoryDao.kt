@@ -25,11 +25,14 @@ interface PracticeHistoryDao {
     @Query("SELECT * FROM practice_history ORDER BY submittedAt DESC LIMIT :limit")
     fun observeRecent(limit: Int = 100): Flow<List<PracticeHistoryEntity>>
 
-    @Query("SELECT * FROM practice_history WHERE synced = 0 LIMIT 50")
-    suspend fun unsynced(): List<PracticeHistoryEntity>
+    @Query("SELECT * FROM practice_history WHERE synced = 0 AND (userId = :userId OR (userId IS NULL AND :userId IS NULL)) LIMIT 50")
+    suspend fun unsyncedForUser(userId: String?): List<PracticeHistoryEntity>
 
     @Query("UPDATE practice_history SET synced = 1 WHERE localId IN (:ids)")
     suspend fun markSynced(ids: List<Int>)
+
+    @Insert(onConflict = androidx.room.OnConflictStrategy.REPLACE)
+    suspend fun upsertAll(entries: List<PracticeHistoryEntity>)
 
     @Query(
         """
