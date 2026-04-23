@@ -65,7 +65,7 @@ class PracticeHistoryDaoTest {
         assertEquals(2, unsyncedBefore.size)
         
         val ids = unsyncedBefore.map { it.localId }
-        dao.markSynced(ids)
+        dao.markSynced(ids, "user1")
         
         val unsyncedAfter = dao.unsyncedForUser("user1")
         assertEquals(0, unsyncedAfter.size)
