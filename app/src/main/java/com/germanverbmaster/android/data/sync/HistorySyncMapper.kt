@@ -24,20 +24,27 @@ class HistorySyncMapper @Inject constructor(
         const val LOCAL_WORD_PREFIX = "word_"
     }
 
-    suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory? {
-        val resolvedIds = resolveRemoteIds(entity) ?: return null
-        if (BuildConfig.DEBUG && (resolvedIds.taskId != entity.taskId || resolvedIds.lexemeId != entity.lexemeId)) {
+    suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory {
+        val resolvedIds = resolveRemoteIds(entity)
+        
+        // Final fallback: If we can't map to a real remote ID, but we have a lemma and pos,
+        // we still upload it using the local identities. 
+        // This ensures EVERYTHING syncs (Präp, etc), even if it's not perfectly linked to a remote task.
+        val finalTaskId = resolvedIds?.taskId ?: entity.taskId
+        val finalLexemeId = resolvedIds?.lexemeId ?: entity.lexemeId
+
+        if (BuildConfig.DEBUG && (finalTaskId != entity.taskId || finalLexemeId != entity.lexemeId)) {
             Log.d(
                 TAG,
-                "Resolved local history row ${entity.localId} to remote ids taskId=${resolvedIds.taskId} lexemeId=${resolvedIds.lexemeId}",
+                "Resolved local history row ${entity.localId} to remote ids taskId=$finalTaskId lexemeId=$finalLexemeId",
             )
         }
 
         return RemoteHistory(
             remoteId = entity.remoteId.toLongOrNull(),
             userId = userId,
-            taskId = resolvedIds.taskId,
-            lexemeId = resolvedIds.lexemeId,
+            taskId = finalTaskId,
+            lexemeId = finalLexemeId,
             lemma = entity.lemma,
             pos = entity.pos,
             taskType = entity.taskType,
@@ -53,12 +60,15 @@ class HistorySyncMapper @Inject constructor(
         )
     }
 
-    suspend fun toFingerprint(entity: PracticeHistoryEntity, userId: String): HistorySyncFingerprint? {
-        val resolvedIds = resolveRemoteIds(entity) ?: return null
+    suspend fun toFingerprint(entity: PracticeHistoryEntity, userId: String): HistorySyncFingerprint {
+        val resolvedIds = resolveRemoteIds(entity)
+        val finalTaskId = resolvedIds?.taskId ?: entity.taskId
+        val finalLexemeId = resolvedIds?.lexemeId ?: entity.lexemeId
+        
         return HistorySyncFingerprint(
             userId = userId,
-            taskId = resolvedIds.taskId,
-            lexemeId = resolvedIds.lexemeId,
+            taskId = finalTaskId,
+            lexemeId = finalLexemeId,
             taskType = entity.taskType,
             result = entity.result,
             submittedAt = DateTimeUtils.normalizeIso8601(entity.submittedAt),
