@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.data.repository
 
 import com.germanverbmaster.android.data.local.dao.DailyAccuracy
+import com.germanverbmaster.android.data.local.dao.DrillStats
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.dao.TaskTypeStat
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
@@ -33,4 +34,14 @@ class PracticeRepository @Inject constructor(
     fun observeCorrectTaskIds(): Flow<Set<String>> = dao.observeCorrectTaskIds().map { it.toSet() }
 
     fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
+
+    fun observeStats(
+        levels: List<String>,
+        posTypes: List<String>
+    ): Flow<DrillStats> = dao.observeStats(
+        levels = levels,
+        allLevels = levels.isEmpty(),
+        posTypes = posTypes,
+        allPos = posTypes.isEmpty()
+    ).map { it ?: DrillStats(0, 0) }
 }

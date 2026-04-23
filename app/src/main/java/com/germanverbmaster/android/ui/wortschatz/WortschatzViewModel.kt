@@ -86,6 +86,8 @@ data class WortschatzUiState(
     val drillFlipped: Boolean = false,
     val drillCorrect: Int = 0,
     val drillWrong: Int = 0,
+    val historicalCorrect: Int = 0,
+    val historicalWrong: Int = 0,
     val drillDone: Boolean = false,
     val masteredIds: Set<String> = emptySet(),
 ) {
@@ -97,9 +99,9 @@ data class WortschatzUiState(
 
     val masteredCount: Int get() = listCards.count { masteredIds.contains("word_${it.id}") }
 
-    val drillAccuracy: Float get() {
-        val total = drillCorrect + drillWrong
-        return if (total == 0) 0f else drillCorrect.toFloat() / total * 100f
+    val overallAccuracy: Float get() {
+        val total = historicalCorrect + historicalWrong
+        return if (total == 0) 0f else historicalCorrect.toFloat() / total * 100f
     }
 }
 
@@ -125,6 +127,7 @@ class WortschatzViewModel @Inject constructor(
         observeWords()
         observePosFilters()
         observeMastery()
+        observeHistoricalStats()
     }
 
     private fun observeMastery() {
@@ -184,6 +187,7 @@ class WortschatzViewModel @Inject constructor(
         // Force reset drill if we are currently in DRILL tab, otherwise just update list
         val shouldReset = _state.value.tab == WortschatzTab.DRILL
         observeWords(forceReset = shouldReset)
+        observeHistoricalStats()
     }
 
     fun togglePos(pos: String) {
@@ -197,6 +201,7 @@ class WortschatzViewModel @Inject constructor(
         }
         val shouldReset = _state.value.tab == WortschatzTab.DRILL
         observeWords(forceReset = shouldReset)
+        observeHistoricalStats()
     }
 
     fun updateSearchQuery(query: String) {
@@ -257,6 +262,26 @@ class WortschatzViewModel @Inject constructor(
     // ─── private ──────────────────────────────────────────────────────────────
 
     private var observeJob: kotlinx.coroutines.Job? = null
+    private var statsJob: kotlinx.coroutines.Job? = null
+
+    private fun observeHistoricalStats() {
+        statsJob?.cancel()
+        val levels = _state.value.selectedLevels.toList()
+        val posList = _state.value.selectedPosSet.flatMap { selected ->
+            rawPosValues.filter { canonicalPos(it) == selected }
+        }
+
+        statsJob = viewModelScope.launch {
+            practiceRepo.observeStats(levels, posList).collect { stats ->
+                _state.update {
+                    it.copy(
+                        historicalCorrect = stats.correct,
+                        historicalWrong = stats.wrong
+                    )
+                }
+            }
+        }
+    }
 
     private fun observePosFilters() {
         viewModelScope.launch {
@@ -264,6 +289,7 @@ class WortschatzViewModel @Inject constructor(
                 rawPosValues = posList
                 val filters = listOf("Alle") + posList.map { canonicalPos(it) }.distinct()
                 _state.update { it.copy(posOptions = filters) }
+                observeHistoricalStats()
             }
         }
     }

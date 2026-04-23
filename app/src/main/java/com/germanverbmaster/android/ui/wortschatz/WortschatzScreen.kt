@@ -623,16 +623,16 @@ private fun DrillContent(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             DrillStatChip(
-                label = "✓ ${state.drillCorrect}",
+                label = "✓ ${state.historicalCorrect}",
                 color = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier.weight(1f).clickable { onNavigateToHistory("correct") }
             )
             DrillStatChip(
-                label = "✗ ${state.drillWrong}",
+                label = "✗ ${state.historicalWrong}",
                 color = MaterialTheme.colorScheme.errorContainer,
                 modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
             )
-            DrillStatChip("${state.drillAccuracy.roundToInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
+            DrillStatChip("${state.overallAccuracy.roundToInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
         }
 
         LinearProgressIndicator(
@@ -663,9 +663,9 @@ private fun DrillContent(
                 contentAlignment = Alignment.Center
             ) {
                 DrillDoneCard(
-                    correct = state.drillCorrect,
-                    wrong = state.drillWrong,
-                    accuracy = state.drillAccuracy,
+                    correct = state.historicalCorrect,
+                    wrong = state.historicalWrong,
+                    accuracy = state.overallAccuracy,
                     onRestart = viewModel::restartDrill,
                 )
             }

@@ -76,6 +76,24 @@ interface PracticeHistoryDao {
 
     @Query("SELECT DISTINCT pos FROM practice_history ORDER BY pos ASC")
     fun observeDistinctPos(): Flow<List<String>>
+
+    @Query(
+        """
+        SELECT 
+          SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) as correct,
+          SUM(CASE WHEN result = 'incorrect' THEN 1 ELSE 0 END) as wrong
+        FROM practice_history
+        WHERE (:allLevels = 1 OR cefrLevel IN (:levels))
+          AND (:allPos = 1 OR pos IN (:posTypes))
+          AND taskType = 'vocabulary_drill'
+        """
+    )
+    fun observeStats(
+        levels: List<String>,
+        allLevels: Boolean,
+        posTypes: List<String>,
+        allPos: Boolean
+    ): Flow<DrillStats?>
 }
 
 data class AccuracyResult(val accuracy: Float, val total: Int)
@@ -89,4 +107,9 @@ data class TaskTypeStat(
 data class DailyAccuracy(
     val date: String,
     val accuracy: Float,
+)
+
+data class DrillStats(
+    val correct: Int,
+    val wrong: Int
 )
