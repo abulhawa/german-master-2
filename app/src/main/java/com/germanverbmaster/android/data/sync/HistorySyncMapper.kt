@@ -8,6 +8,7 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.data.util.DateTimeUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -48,7 +49,30 @@ class HistorySyncMapper @Inject constructor(
             responseMs = entity.responseMs,
             cefrLevel = entity.cefrLevel,
             hintsUsed = entity.hintsUsed,
-            submittedAt = entity.submittedAt,
+            submittedAt = DateTimeUtils.normalizeIso8601(entity.submittedAt),
+        )
+    }
+
+    suspend fun toFingerprint(entity: PracticeHistoryEntity, userId: String): HistorySyncFingerprint? {
+        val resolvedIds = resolveRemoteIds(entity) ?: return null
+        return HistorySyncFingerprint(
+            userId = userId,
+            taskId = resolvedIds.taskId,
+            lexemeId = resolvedIds.lexemeId,
+            taskType = entity.taskType,
+            result = entity.result,
+            submittedAt = DateTimeUtils.normalizeIso8601(entity.submittedAt),
+        )
+    }
+
+    fun toFingerprint(remote: RemoteHistory): HistorySyncFingerprint {
+        return HistorySyncFingerprint(
+            userId = remote.userId,
+            taskId = remote.taskId,
+            lexemeId = remote.lexemeId,
+            taskType = remote.taskType,
+            result = remote.result,
+            submittedAt = DateTimeUtils.normalizeIso8601(remote.submittedAt),
         )
     }
 
@@ -68,12 +92,12 @@ class HistorySyncMapper @Inject constructor(
                 taskType = remote.taskType,
                 renderer = remote.renderer,
                 result = remote.result,
-                submittedAnswer = "",
-                correctAnswer = "",
+                submittedAnswer = remote.submittedAnswer,
+                correctAnswer = remote.correctAnswer,
                 responseMs = remote.responseMs,
                 cefrLevel = cefrLevel,
                 hintsUsed = remote.hintsUsed,
-                submittedAt = remote.submittedAt,
+                submittedAt = DateTimeUtils.normalizeIso8601(remote.submittedAt),
                 synced = true,
             )
         }
@@ -93,12 +117,12 @@ class HistorySyncMapper @Inject constructor(
             taskType = remote.taskType,
             renderer = remote.renderer,
             result = remote.result,
-            submittedAnswer = "",
-            correctAnswer = "",
+            submittedAnswer = remote.submittedAnswer,
+            correctAnswer = remote.correctAnswer,
             responseMs = remote.responseMs,
             cefrLevel = cefrLevel,
             hintsUsed = remote.hintsUsed,
-            submittedAt = remote.submittedAt,
+            submittedAt = DateTimeUtils.normalizeIso8601(remote.submittedAt),
             synced = true,
         )
     }

@@ -6,6 +6,7 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
+import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
 import io.mockk.Runs
 import io.mockk.coEvery
@@ -95,6 +96,12 @@ class SyncHistoryUseCaseTest {
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(unsyncedEntity)
         coEvery { historyDao.allForUser(userId) } returns listOf(unsyncedEntity)
 
+        val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(unsyncedEntity, userId) } returns fingerprint
+        
+        val remoteFingerprint = HistorySyncFingerprint(userId, "t2", "l2", "drill", "correct", "2023-10-01T12:00:00Z")
+        every { historySyncMapper.toFingerprint(remoteHistory) } returns remoteFingerprint
+
         val remoteFromLocal = RemoteHistory(
             remoteId = null,
             userId = userId,
@@ -152,6 +159,9 @@ class SyncHistoryUseCaseTest {
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(anonymousRecord)
         coEvery { historyDao.allForUser(userId) } returns listOf(anonymousRecord)
+
+        val fingerprint = HistorySyncFingerprint(userId, "t5", "l5", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(anonymousRecord, userId) } returns fingerprint
 
         val remoteFromLocal = RemoteHistory(
             remoteId = null,
@@ -223,6 +233,10 @@ class SyncHistoryUseCaseTest {
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(uploadedEntity)
         coEvery { historyDao.allForUser(userId) } returns listOf(uploadedEntity)
 
+        val fingerprint = HistorySyncFingerprint(userId, uploadedEntity.taskId, uploadedEntity.lexemeId, uploadedEntity.taskType, uploadedEntity.result, "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(uploadedEntity, userId) } returns fingerprint
+        every { historySyncMapper.toFingerprint(matchingRemote) } returns fingerprint
+
         val remoteFromLocal = mockk<RemoteHistory>()
         every { remoteFromLocal.userId } returns userId
         every { remoteFromLocal.taskId } returns uploadedEntity.taskId
@@ -281,5 +295,119 @@ class SyncHistoryUseCaseTest {
 
         coVerify(exactly = 0) { historyApi.upsert(any()) }
         coVerify(exactly = 0) { historyDao.markSynced(any(), any()) }
+    }
+
+    @Test
+    fun `should skip downloaded rows with slightly different timestamp formatting`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val existingLocal = PracticeHistoryEntity(
+            localId = 1,
+            taskId = "t1",
+            lexemeId = "l1",
+            pos = "V",
+            taskType = "drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z", // Normalized form
+            synced = true,
+            userId = userId
+        )
+        // Remote has same time but different format (+00:00 instead of Z)
+        val remoteHistory = RemoteHistory(
+            remoteId = 2,
+            userId = userId,
+            taskId = "t1",
+            lexemeId = "l1",
+            lemma = "lemma1",
+            pos = "V",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00+00:00",
+            hintsUsed = false
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
+        coEvery { historyDao.allForUser(userId) } returns listOf(existingLocal)
+        
+        val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(existingLocal, userId) } returns fingerprint
+        every { historySyncMapper.toFingerprint(remoteHistory) } returns fingerprint
+
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(remoteHistory)
+        coJustRun { prefs.setHistoryLastSync(any()) }
+
+        syncHistoryUseCase()
+
+        // Should NOT call upsertAll because the fingerprint should match after normalization
+        coVerify(exactly = 0) { historyDao.upsertAll(any()) }
+    }
+
+    @Test
+    fun `should skip downloaded rows that match mapped Wortschatz fingerprints`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val localWortschatz = PracticeHistoryEntity(
+            localId = 1,
+            taskId = "word_12", // Local ID
+            lexemeId = "word_12", // Local ID
+            pos = "V",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = true,
+            userId = userId
+        )
+        val remoteWortschatz = RemoteHistory(
+            remoteId = 100,
+            userId = userId,
+            taskId = "real_task_id", // Remote ID
+            lexemeId = "real_lex_id", // Remote ID
+            lemma = "machen",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            renderer = "word_card",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "",
+            correctAnswer = "",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            hintsUsed = false
+        )
+
+        val mappedFingerprint = HistorySyncFingerprint(
+            userId = userId,
+            taskId = "real_task_id",
+            lexemeId = "real_lex_id",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            submittedAt = "2023-10-01T11:00:00Z"
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
+        coEvery { historyDao.allForUser(userId) } returns listOf(localWortschatz)
+        
+        // Mapper resolves the local word_12 to the real remote IDs
+        coEvery { historySyncMapper.toFingerprint(localWortschatz, userId) } returns mappedFingerprint
+        every { historySyncMapper.toFingerprint(remoteWortschatz) } returns mappedFingerprint
+
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(remoteWortschatz)
+        coJustRun { prefs.setHistoryLastSync(any()) }
+
+        syncHistoryUseCase()
+
+        // De-duplication should succeed because fingerprints match after resolution
+        coVerify(exactly = 0) { historyDao.upsertAll(any()) }
     }
 }

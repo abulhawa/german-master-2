@@ -110,4 +110,52 @@ class PracticeHistoryDaoTest {
         assertEquals("2023-10-02", daily[1].date)
         assertEquals(100f, daily[1].accuracy)
     }
+
+    @Test
+    fun uniqueConstraintViolation() = runBlocking {
+        val entry1 = PracticeHistoryEntity(
+            taskId = "t1",
+            lexemeId = "l1",
+            pos = "V",
+            taskType = "type",
+            result = "correct",
+            responseMs = 1000,
+            submittedAt = "2023-10-01T10:00:00Z",
+            userId = "user1"
+        )
+        val entry2 = entry1.copy(result = "incorrect") // Same task, same time, same user, but different result
+
+        dao.insert(entry1)
+        
+        // Attempting to insert a duplicate with insertIgnore should do nothing
+        dao.insertIgnore(listOf(entry2))
+        
+        var all = dao.allForUser("user1")
+        assertEquals(1, all.size)
+        assertEquals("correct", all[0].result)
+
+        // Attempting to upsert should replace the existing one
+        dao.upsertAll(listOf(entry2))
+        all = dao.allForUser("user1")
+        assertEquals(1, all.size)
+        assertEquals("incorrect", all[0].result)
+    }
+
+    @Test
+    fun deleteDuplicates() = runBlocking {
+        // We need to bypass the unique constraint to insert duplicates for testing deleteDuplicates
+        // But since we have the constraint now, we can only test it if we had duplicates BEFORE the constraint.
+        // Or we can test that it doesn't delete non-duplicates.
+        
+        val entries = listOf(
+            PracticeHistoryEntity(taskId = "t1", lexemeId = "l1", pos = "V", taskType = "t", result = "c", responseMs = 1, submittedAt = "a", userId = "u1"),
+            PracticeHistoryEntity(taskId = "t2", lexemeId = "l2", pos = "V", taskType = "t", result = "c", responseMs = 1, submittedAt = "b", userId = "u1")
+        )
+        dao.upsertAll(entries)
+        
+        dao.deleteDuplicates()
+        
+        val all = dao.allForUser("u1")
+        assertEquals(2, all.size)
+    }
 }

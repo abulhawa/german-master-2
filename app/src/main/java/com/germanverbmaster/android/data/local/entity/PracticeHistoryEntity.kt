@@ -7,7 +7,10 @@ import java.util.UUID
 
 @Entity(
     tableName = "practice_history",
-    indices = [Index(value = ["remoteId"], unique = true)]
+    indices = [
+        Index(value = ["remoteId"], unique = true),
+        Index(value = ["userId", "taskId", "lexemeId", "submittedAt"], unique = true)
+    ]
 )
 data class PracticeHistoryEntity(
     @PrimaryKey(autoGenerate = true) val localId: Int = 0,

@@ -220,4 +220,60 @@ class HistorySyncMapperTest {
         assertEquals("Haus", entity.lemma)
         assertEquals("A1", entity.cefrLevel)
     }
+
+    @Test
+    fun `toLocalEntity normalizes submittedAt timestamp`() = runTest {
+        val remote = RemoteHistory(
+            remoteId = 10,
+            userId = "user-1",
+            taskId = "t1",
+            lexemeId = "l1",
+            lemma = "lemma",
+            pos = "V",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "",
+            correctAnswer = "",
+            responseMs = 100,
+            submittedAt = "2026-04-23T11:00:00+00:00", // Different format
+            hintsUsed = false
+        )
+
+        coEvery { lexemeRepository.getById("l1") } returns null
+
+        val entity = mapper.toLocalEntity(remote)
+
+        assertEquals("2026-04-23T11:00:00Z", entity.submittedAt) // Should be normalized to Z
+    }
+
+    @Test
+    fun `toFingerprint resolves local IDs to remote IDs`() = runTest {
+        val entity = PracticeHistoryEntity(
+            localId = 8,
+            taskId = "word_12",
+            lexemeId = "word_12",
+            lemma = "machen",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            renderer = "word_card",
+            result = "correct",
+            responseMs = 150,
+            submittedAt = "2026-04-23T10:15:30Z",
+        )
+
+        coEvery { taskRepository.exists("word_12") } returns false
+        coEvery { lexemeRepository.exists("word_12") } returns false
+        coEvery { lexemeRepository.findIdByLemmaAndPos("machen", "V") } returns "lex-42"
+        coEvery { taskRepository.findHistoryAnchorTaskId("lex-42", "V") } returns "task-42"
+
+        val fingerprint = mapper.toFingerprint(entity, "user-1")
+
+        requireNotNull(fingerprint)
+        assertEquals("user-1", fingerprint.userId)
+        assertEquals("task-42", fingerprint.taskId)
+        assertEquals("lex-42", fingerprint.lexemeId)
+        assertEquals("2026-04-23T10:15:30Z", fingerprint.submittedAt)
+    }
 }

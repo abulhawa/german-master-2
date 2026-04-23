@@ -63,6 +63,9 @@ class SyncPreferences @Inject constructor(
     suspend fun setHistoryLastSync(value: String) =
         context.dataStore.edit { it[HISTORY_LAST_SYNC] = value }
 
+    suspend fun clearHistoryLastSync() =
+        context.dataStore.edit { it.remove(HISTORY_LAST_SYNC) }
+
     suspend fun getB2Category(): String? =
         context.dataStore.data.first()[B2_CATEGORY]
 

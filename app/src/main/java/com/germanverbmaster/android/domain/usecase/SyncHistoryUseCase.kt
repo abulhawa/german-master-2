@@ -8,35 +8,10 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
+import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
+import com.germanverbmaster.android.data.util.DateTimeUtils
 import javax.inject.Inject
-
-private data class HistorySyncFingerprint(
-    val userId: String,
-    val taskId: String,
-    val lexemeId: String,
-    val taskType: String,
-    val result: String,
-    val submittedAt: String,
-)
-
-private fun RemoteHistory.syncFingerprint() = HistorySyncFingerprint(
-    userId = userId,
-    taskId = taskId,
-    lexemeId = lexemeId,
-    taskType = taskType,
-    result = result,
-    submittedAt = submittedAt,
-)
-
-private fun PracticeHistoryEntity.syncFingerprint(userId: String) = HistorySyncFingerprint(
-    userId = userId,
-    taskId = taskId,
-    lexemeId = lexemeId,
-    taskType = taskType,
-    result = result,
-    submittedAt = submittedAt,
-)
 
 class SyncHistoryUseCase @Inject constructor(
     private val historyDao: PracticeHistoryDao,
@@ -105,10 +80,12 @@ class SyncHistoryUseCase @Inject constructor(
                 // Robust De-duplication: Compare downloaded records against local records.
                 // We fetch all records for the user to ensure we don't miss anything that was uploaded from another device.
                 val existingLocal = historyDao.allForUser(userId)
-                val existingFingerprints = existingLocal.map { it.syncFingerprint(userId) }.toSet()
+                val existingFingerprints = existingLocal.mapNotNull { 
+                    historySyncMapper.toFingerprint(it, userId) 
+                }.toSet()
                 
                 val dedupedRemote = remoteNew.filterNot { remote ->
-                    remote.syncFingerprint() in existingFingerprints
+                    historySyncMapper.toFingerprint(remote) in existingFingerprints
                 }
                 
                 if (dedupedRemote.size != remoteNew.size) {
@@ -124,10 +101,12 @@ class SyncHistoryUseCase @Inject constructor(
                         entities += historySyncMapper.toLocalEntity(remote)
                     }
                     historyDao.upsertAll(entities)
+                    
+                    // Only update the last sync time if we actually processed and saved records successfully.
+                    // This ensures that if a sync is interrupted, we don't skip records next time.
+                    val latest = remoteNew.maxOf { it.submittedAt }
+                    prefs.setHistoryLastSync(latest)
                 }
-
-                val latest = remoteNew.maxOf { it.submittedAt }
-                prefs.setHistoryLastSync(latest)
             }
         } catch (e: Exception) {
             Log.e("SyncHistoryUseCase", "Failed to download remote history", e)

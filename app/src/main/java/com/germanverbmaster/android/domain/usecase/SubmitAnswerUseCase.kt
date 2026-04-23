@@ -3,6 +3,7 @@ package com.germanverbmaster.android.domain.usecase
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
+import com.germanverbmaster.android.data.util.DateTimeUtils
 import com.germanverbmaster.android.domain.model.PracticeResult
 import java.time.Instant
 import javax.inject.Inject
@@ -25,7 +26,7 @@ class SubmitAnswerUseCase @Inject constructor(
             responseMs  = result.responseMs,
             cefrLevel   = result.cefrLevel,
             hintsUsed   = result.hintsUsed,
-            submittedAt = Instant.now().toString(),
+            submittedAt = DateTimeUtils.normalizeIso8601(Instant.now().toString()),
             synced      = false,
             userId      = authRepository.currentUserId
         )
