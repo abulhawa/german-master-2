@@ -65,7 +65,9 @@ class WordRepository @Inject constructor(
         val remote = if ((since == null) || needsSync()) api.fetchAll()
         else api.fetchUpdatedSince(since)
         if (remote.isNotEmpty()) {
-            val entities = remote.map { with(api) { it.toEntity() } }
+            val entities = remote
+                .filter { it.level != BUNDLED_BERUF_LEVEL }
+                .map { with(api) { it.toEntity() } }
             dao.upsertAll(entities)
         }
     }
