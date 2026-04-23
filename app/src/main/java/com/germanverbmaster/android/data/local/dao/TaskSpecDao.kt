@@ -29,6 +29,32 @@ interface TaskSpecDao {
         limit: Int = 20,
     ): List<TaskSpecEntity>
 
+    @Query("SELECT EXISTS(SELECT 1 FROM task_specs WHERE id = :id)")
+    suspend fun exists(id: String): Boolean
+
+    @Query(
+        """
+        SELECT id FROM task_specs
+        WHERE lexemeId = :lexemeId
+        ORDER BY
+          CASE
+            WHEN :pos = 'V' AND taskType = 'conjugate_form' THEN 0
+            WHEN :pos = 'N' AND taskType = 'noun_case_declension' THEN 0
+            WHEN :pos = 'Adj' AND taskType = 'adj_ending' THEN 0
+            ELSE 1
+          END,
+          CASE taskType
+            WHEN 'conjugate_form' THEN 0
+            WHEN 'noun_case_declension' THEN 1
+            WHEN 'adj_ending' THEN 2
+            ELSE 3
+          END,
+          id ASC
+        LIMIT 1
+        """,
+    )
+    suspend fun findHistoryAnchorTaskId(lexemeId: String, pos: String): String?
+
 
     @Query("SELECT COUNT(*) FROM task_specs")
     suspend fun count(): Int

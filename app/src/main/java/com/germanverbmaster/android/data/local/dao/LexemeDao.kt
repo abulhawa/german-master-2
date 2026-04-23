@@ -19,6 +19,29 @@ interface LexemeDao {
     @Query("SELECT * FROM lexemes WHERE id = :id")
     suspend fun getById(id: String): LexemeEntity?
 
+    @Query("SELECT * FROM lexemes WHERE id IN (:ids)")
+    suspend fun getByIds(ids: List<String>): List<LexemeEntity>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM lexemes WHERE id = :id)")
+    suspend fun exists(id: String): Boolean
+
+    @Query(
+        """
+        SELECT id FROM lexemes
+        WHERE LOWER(TRIM(lemma)) = LOWER(TRIM(:lemma))
+          AND (
+            LOWER(TRIM(pos)) = LOWER(TRIM(:pos))
+            OR pos LIKE :pos || '%'
+            OR :pos LIKE pos || '%'
+          )
+        ORDER BY
+          CASE WHEN LOWER(TRIM(pos)) = LOWER(TRIM(:pos)) THEN 0 ELSE 1 END,
+          id ASC
+        LIMIT 1
+        """,
+    )
+    suspend fun findIdByLemmaAndPos(lemma: String, pos: String): String?
+
     @Query("DELETE FROM lexemes")
     suspend fun deleteAll()
 

@@ -1,20 +1,52 @@
 package com.germanverbmaster.android.domain.usecase
 
 import android.util.Log
+import com.germanverbmaster.android.BuildConfig
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
+import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
+import com.germanverbmaster.android.data.sync.HistorySyncMapper
 import javax.inject.Inject
+
+private data class HistorySyncFingerprint(
+    val userId: String,
+    val taskId: String,
+    val lexemeId: String,
+    val pos: String,
+    val taskType: String,
+    val renderer: String,
+    val result: String,
+    val responseMs: Int,
+    val hintsUsed: Boolean,
+    val submittedAt: String,
+)
+
+private fun RemoteHistory.syncFingerprint() = HistorySyncFingerprint(
+    userId = userId,
+    taskId = taskId,
+    lexemeId = lexemeId,
+    pos = pos,
+    taskType = taskType,
+    renderer = renderer,
+    result = result,
+    responseMs = responseMs,
+    hintsUsed = hintsUsed,
+    submittedAt = submittedAt,
+)
 
 class SyncHistoryUseCase @Inject constructor(
     private val historyDao: PracticeHistoryDao,
     private val historyApi: SupabaseHistoryApi,
+    private val historySyncMapper: HistorySyncMapper,
     private val authRepository: AuthRepository,
     private val prefs: SyncPreferences,
 ) {
     suspend operator fun invoke() {
         val userId = authRepository.currentUserId
+        var uploadedFingerprints = emptySet<HistorySyncFingerprint>()
         if (userId == null) {
             Log.d("SyncHistoryUseCase", "No user logged in, skipping history sync")
             return
@@ -25,11 +57,42 @@ class SyncHistoryUseCase @Inject constructor(
         // 1. Upload unsynced local records
         try {
             val unsynced = historyDao.unsyncedForUser(userId)
-            if (unsynced.isNotEmpty()) {
-                Log.d("SyncHistoryUseCase", "Uploading ${unsynced.size} unsynced records")
-                val remotes = unsynced.map { with(historyApi) { it.toRemote(userId) } }
+            val uploadBatch = mutableListOf<UploadCandidate>()
+            val blockedRows = mutableListOf<PracticeHistoryEntity>()
+
+            for (entry in unsynced) {
+                val remote = historySyncMapper.toRemote(entry, userId)
+                if (remote != null) {
+                    uploadBatch += UploadCandidate(localId = entry.localId, remote = remote)
+                } else {
+                    blockedRows += entry
+                }
+            }
+
+            val blockedCount = blockedRows.size
+            if (blockedCount > 0) {
+                Log.d(
+                    "SyncHistoryUseCase",
+                    "Skipping $blockedCount unsynced history rows because they could not be mapped to remote task and lexeme identities",
+                )
+                if (BuildConfig.DEBUG) {
+                    blockedRows.take(3).forEach { row ->
+                        Log.d(
+                            "SyncHistoryUseCase",
+                            "Blocked history row localId=${row.localId} taskId=${row.taskId} lexemeId=${row.lexemeId} taskType=${row.taskType} renderer=${row.renderer} lemma=${row.lemma}",
+                        )
+                    }
+                }
+            }
+
+            if (uploadBatch.isNotEmpty()) {
+                val remotes = uploadBatch.map { it.remote }
+                Log.d("SyncHistoryUseCase", "Uploading ${remotes.size} unsynced records")
                 historyApi.upsert(remotes)
-                historyDao.markSynced(unsynced.map { it.localId })
+                uploadedFingerprints = remotes
+                    .map { it.syncFingerprint() }
+                    .toSet()
+                historyDao.markSynced(uploadBatch.map { it.localId }, userId)
             }
         } catch (e: Exception) {
             Log.e("SyncHistoryUseCase", "Failed to upload unsynced history", e)
@@ -41,10 +104,23 @@ class SyncHistoryUseCase @Inject constructor(
             val remoteNew = historyApi.fetchUpdatedSince(lastSync, userId)
             if (remoteNew.isNotEmpty()) {
                 Log.d("SyncHistoryUseCase", "Downloaded ${remoteNew.size} new records")
-                val entities = remoteNew.map { with(historyApi) { it.toEntity() } }
-                historyDao.upsertAll(entities)
-                
-                // Update last sync time to the latest submittedAt
+                val dedupedRemote = remoteNew.filterNot { remote ->
+                    remote.syncFingerprint() in uploadedFingerprints
+                }
+                if (dedupedRemote.size != remoteNew.size) {
+                    Log.d(
+                        "SyncHistoryUseCase",
+                        "Skipping ${remoteNew.size - dedupedRemote.size} records that match the just-uploaded batch",
+                    )
+                }
+                if (dedupedRemote.isNotEmpty()) {
+                    val entities = mutableListOf<PracticeHistoryEntity>()
+                    for (remote in dedupedRemote) {
+                        entities += historySyncMapper.toLocalEntity(remote)
+                    }
+                    historyDao.upsertAll(entities)
+                }
+
                 val latest = remoteNew.maxOf { it.submittedAt }
                 prefs.setHistoryLastSync(latest)
             }
@@ -55,3 +131,8 @@ class SyncHistoryUseCase @Inject constructor(
         Log.d("SyncHistoryUseCase", "History sync completed")
     }
 }
+
+private data class UploadCandidate(
+    val localId: Int,
+    val remote: RemoteHistory,
+)

@@ -34,6 +34,7 @@ class HomeViewModel @Inject constructor(
     private val getNextTask: GetNextTaskUseCase,
     private val submitAnswer: SubmitAnswerUseCase,
     private val syncData: SyncDataUseCase,
+    private val syncHistory: com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeUiState())
@@ -54,6 +55,7 @@ class HomeViewModel @Inject constructor(
         _state.update { it.copy(isSyncing = true) }
         try {
             syncData()
+            syncHistory()
             // 3. Refresh if sync brought in new/updated tasks
             loadNextBatch()
         } catch (e: Exception) {

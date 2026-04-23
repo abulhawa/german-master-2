@@ -141,6 +141,7 @@ fun HistoryItem(
     onClick: () -> Unit = {}
 ) {
     val isCorrect = attempt.result == "correct"
+    val displayLemma = attempt.lemma.ifBlank { "Unbekannt" }
     val formatter = DateTimeFormatter.ofPattern("dd.MM. HH:mm")
         .withZone(ZoneId.systemDefault())
     val dateStr = try {
@@ -163,7 +164,7 @@ fun HistoryItem(
             Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        attempt.lemma,
+                        displayLemma,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -175,16 +176,24 @@ fun HistoryItem(
                     )
                 }
                 Spacer(Modifier.height(4.dp))
-                Row {
-                    Text("Deine Antwort: ", style = MaterialTheme.typography.bodySmall)
+                if (attempt.submittedAnswer.isNotBlank()) {
+                    Row {
+                        Text("Deine Antwort: ", style = MaterialTheme.typography.bodySmall)
+                        Text(
+                            attempt.submittedAnswer,
+                            style = MaterialTheme.typography.bodySmall,
+                            fontWeight = FontWeight.SemiBold,
+                            color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                        )
+                    }
+                } else {
                     Text(
-                        attempt.submittedAnswer,
+                        "Antwortdetails auf diesem Gerat nicht verfugbar",
                         style = MaterialTheme.typography.bodySmall,
-                        fontWeight = FontWeight.SemiBold,
-                        color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
                 }
-                if (!isCorrect) {
+                if (!isCorrect && attempt.correctAnswer.isNotBlank()) {
                     Row {
                         Text("Richtig: ", style = MaterialTheme.typography.bodySmall)
                         Text(

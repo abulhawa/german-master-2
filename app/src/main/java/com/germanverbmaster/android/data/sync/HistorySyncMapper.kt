@@ -1,0 +1,156 @@
+package com.germanverbmaster.android.data.sync
+
+import android.util.Log
+import com.germanverbmaster.android.BuildConfig
+import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.data.remote.HistorySyncDeviceIdProvider
+import com.germanverbmaster.android.data.remote.RemoteHistory
+import com.germanverbmaster.android.data.repository.LexemeRepository
+import com.germanverbmaster.android.data.repository.TaskRepository
+import com.germanverbmaster.android.data.repository.WordRepository
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class HistorySyncMapper @Inject constructor(
+    private val lexemeRepository: LexemeRepository,
+    private val taskRepository: TaskRepository,
+    private val wordRepository: WordRepository,
+    private val deviceIdProvider: HistorySyncDeviceIdProvider,
+) {
+    private companion object {
+        const val TAG = "HistorySyncMapper"
+        const val LOCAL_WORD_PREFIX = "word_"
+    }
+
+    suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory? {
+        val resolvedIds = resolveRemoteIds(entity) ?: return null
+        if (BuildConfig.DEBUG && (resolvedIds.taskId != entity.taskId || resolvedIds.lexemeId != entity.lexemeId)) {
+            Log.d(
+                TAG,
+                "Resolved local history row ${entity.localId} to remote ids taskId=${resolvedIds.taskId} lexemeId=${resolvedIds.lexemeId}",
+            )
+        }
+
+        return RemoteHistory(
+            remoteId = entity.remoteId.toLongOrNull(),
+            userId = userId,
+            taskId = resolvedIds.taskId,
+            lexemeId = resolvedIds.lexemeId,
+            lemma = entity.lemma,
+            pos = entity.pos,
+            taskType = entity.taskType,
+            renderer = entity.renderer,
+            deviceId = deviceIdProvider.get(),
+            result = entity.result,
+            submittedAnswer = entity.submittedAnswer,
+            correctAnswer = entity.correctAnswer,
+            responseMs = entity.responseMs,
+            cefrLevel = entity.cefrLevel,
+            hintsUsed = entity.hintsUsed,
+            submittedAt = entity.submittedAt,
+        )
+    }
+
+    suspend fun toLocalEntity(remote: RemoteHistory): PracticeHistoryEntity {
+        val lexeme = lexemeRepository.getById(remote.lexemeId)
+        val lemma = lexeme?.lemma.orEmpty()
+        val cefrLevel = lexeme?.cefrLevel
+
+        if (!isWordCard(remote.taskType, remote.renderer)) {
+            return PracticeHistoryEntity(
+                remoteId = remote.remoteId?.toString() ?: "",
+                userId = remote.userId,
+                taskId = remote.taskId,
+                lexemeId = remote.lexemeId,
+                lemma = lemma,
+                pos = remote.pos,
+                taskType = remote.taskType,
+                renderer = remote.renderer,
+                result = remote.result,
+                submittedAnswer = "",
+                correctAnswer = "",
+                responseMs = remote.responseMs,
+                cefrLevel = cefrLevel,
+                hintsUsed = remote.hintsUsed,
+                submittedAt = remote.submittedAt,
+                synced = true,
+            )
+        }
+
+        val localWordId = lemma
+            .takeIf { it.isNotBlank() }
+            ?.let { resolvedLemma -> wordRepository.findIdByLemmaAndPos(resolvedLemma, remote.pos) }
+            ?.let { "$LOCAL_WORD_PREFIX$it" }
+
+        return PracticeHistoryEntity(
+            remoteId = remote.remoteId?.toString() ?: "",
+            userId = remote.userId,
+            taskId = localWordId ?: remote.taskId,
+            lexemeId = localWordId ?: remote.lexemeId,
+            lemma = lemma,
+            pos = remote.pos,
+            taskType = remote.taskType,
+            renderer = remote.renderer,
+            result = remote.result,
+            submittedAnswer = "",
+            correctAnswer = "",
+            responseMs = remote.responseMs,
+            cefrLevel = cefrLevel,
+            hintsUsed = remote.hintsUsed,
+            submittedAt = remote.submittedAt,
+            synced = true,
+        )
+    }
+
+    private suspend fun resolveRemoteIds(entity: PracticeHistoryEntity): ResolvedRemoteIds? {
+        val taskId = entity.taskId
+        val lexemeId = entity.lexemeId
+        if (taskRepository.exists(taskId) && lexemeRepository.exists(lexemeId)) {
+            return ResolvedRemoteIds(taskId = taskId, lexemeId = lexemeId)
+        }
+
+        if (!isWordCard(entity.taskType, entity.renderer)) {
+            if (BuildConfig.DEBUG) {
+                Log.d(
+                    TAG,
+                    "Unable to map local history row ${entity.localId} because taskId=$taskId lexemeId=$lexemeId are not remote-backed",
+                )
+            }
+            return null
+        }
+
+        val resolvedLexemeId = lexemeRepository.findIdByLemmaAndPos(entity.lemma, entity.pos)
+            ?: run {
+                if (BuildConfig.DEBUG) {
+                    Log.d(
+                        TAG,
+                        "No lexeme match for Wortschatz row ${entity.localId} lemma=${entity.lemma} pos=${entity.pos}",
+                    )
+                }
+                return null
+            }
+
+        val resolvedTaskId = taskRepository.findHistoryAnchorTaskId(resolvedLexemeId, entity.pos)
+            ?: run {
+                if (BuildConfig.DEBUG) {
+                    Log.d(
+                        TAG,
+                        "No task anchor for Wortschatz row ${entity.localId} lexemeId=$resolvedLexemeId pos=${entity.pos}",
+                    )
+                }
+                return null
+            }
+
+        return ResolvedRemoteIds(taskId = resolvedTaskId, lexemeId = resolvedLexemeId)
+    }
+
+    private fun isWordCard(taskType: String, renderer: String): Boolean {
+        return taskType == "vocabulary_drill" || renderer == "word_card"
+    }
+}
+
+private data class ResolvedRemoteIds(
+    val taskId: String,
+    val lexemeId: String,
+)

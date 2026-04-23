@@ -13,6 +13,11 @@ class TaskRepository @Inject constructor(
     val api: SupabaseTaskApi,
     private val prefs: SyncPreferences,
 ) {
+    suspend fun exists(id: String): Boolean = dao.exists(id)
+
+    suspend fun findHistoryAnchorTaskId(lexemeId: String, pos: String): String? =
+        dao.findHistoryAnchorTaskId(lexemeId, pos)
+
     /** Returns true if local DB is empty */
     suspend fun needsFullSync(): Boolean = dao.count() == 0
 

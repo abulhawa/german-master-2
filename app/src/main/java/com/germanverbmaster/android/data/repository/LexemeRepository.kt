@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.germanverbmaster.android.data.local.dao.LexemeDao
+import com.germanverbmaster.android.data.local.entity.LexemeEntity
 import com.germanverbmaster.android.data.remote.RemoteLexeme
 import com.germanverbmaster.android.data.remote.SupabaseLexemeApi
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -123,6 +124,16 @@ class LexemeRepository @Inject constructor(
     private val api: SupabaseLexemeApi,
     private val prefs: SyncPreferences,
 ) {
+    suspend fun exists(id: String): Boolean = dao.exists(id)
+
+    suspend fun getById(id: String): LexemeEntity? = dao.getById(id)
+
+    suspend fun getByIds(ids: List<String>): List<LexemeEntity> =
+        if (ids.isEmpty()) emptyList() else dao.getByIds(ids)
+
+    suspend fun findIdByLemmaAndPos(lemma: String, pos: String): String? =
+        dao.findIdByLemmaAndPos(lemma, pos)
+
     suspend fun deleteAll() = dao.deleteAll()
 
     /** Returns true if local DB has fewer than a healthy threshold (e.g. 500) */

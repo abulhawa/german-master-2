@@ -2,15 +2,20 @@ package com.germanverbmaster.android.ui.history
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import com.germanverbmaster.android.data.local.entity.LexemeEntity
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -24,6 +29,8 @@ class AnswerHistoryViewModelTest {
 
     private val practiceRepository: PracticeRepository = mockk()
     private val wordRepository: WordRepository = mockk()
+    private val lexemeRepository: LexemeRepository = mockk()
+    private val syncHistoryUseCase: SyncHistoryUseCase = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
     private val mockAttempts = listOf(
@@ -38,7 +45,7 @@ class AnswerHistoryViewModelTest {
             submittedAnswer = "mache",
             correctAnswer = "mache",
             responseMs = 1000,
-            submittedAt = "2023-10-01T10:00:00Z"
+            submittedAt = "2023-10-01T10:00:00Z",
         ),
         PracticeHistoryEntity(
             localId = 2,
@@ -51,8 +58,8 @@ class AnswerHistoryViewModelTest {
             submittedAnswer = "Hous",
             correctAnswer = "Haus",
             responseMs = 2000,
-            submittedAt = "2023-10-01T11:00:00Z"
-        )
+            submittedAt = "2023-10-01T11:00:00Z",
+        ),
     )
 
     private val attemptsFlow = MutableStateFlow(mockAttempts)
@@ -61,6 +68,9 @@ class AnswerHistoryViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         every { practiceRepository.observeRecent(200) } returns attemptsFlow
+        coEvery { lexemeRepository.getByIds(any()) } returns emptyList()
+        coEvery { lexemeRepository.getById(any()) } returns null
+        coEvery { syncHistoryUseCase() } returns Unit
     }
 
     @After
@@ -70,14 +80,19 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `initial state reflects all attempts from repository`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            SavedStateHandle(),
+        )
 
         viewModel.state.test {
-            // Initial state (isLoading = true)
             val initialState = awaitItem()
             assertEquals(true, initialState.isLoading)
 
-            // State after repository data is emitted
+            advanceUntilIdle()
             val loadedState = awaitItem()
             assertEquals(false, loadedState.isLoading)
             assertEquals(2, loadedState.attempts.size)
@@ -88,14 +103,22 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `filtering by result correctly filters attempts`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            SavedStateHandle(),
+        )
 
         viewModel.state.test {
-            awaitItem() // Skip loading
-            awaitItem() // Skip initial loaded state
+            awaitItem()
+            advanceUntilIdle()
+            awaitItem()
 
             viewModel.setFilterResult("correct")
 
+            advanceUntilIdle()
             val filteredState = awaitItem()
             assertEquals("correct", filteredState.filterResult)
             assertEquals(1, filteredState.attempts.size)
@@ -105,14 +128,22 @@ class AnswerHistoryViewModelTest {
 
     @Test
     fun `filtering by POS correctly filters attempts`() = runTest {
-        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, SavedStateHandle())
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            SavedStateHandle(),
+        )
 
         viewModel.state.test {
-            awaitItem() // Skip loading
-            awaitItem() // Skip initial loaded state
+            awaitItem()
+            advanceUntilIdle()
+            awaitItem()
 
             viewModel.setFilterPos("N")
 
+            advanceUntilIdle()
             val filteredState = awaitItem()
             assertEquals("N", filteredState.filterPos)
             assertEquals(1, filteredState.attempts.size)
@@ -123,15 +154,93 @@ class AnswerHistoryViewModelTest {
     @Test
     fun `initial result from SavedStateHandle is applied`() = runTest {
         val savedStateHandle = SavedStateHandle(mapOf("result" to "incorrect"))
-        val viewModel = AnswerHistoryViewModel(practiceRepository, wordRepository, savedStateHandle)
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            savedStateHandle,
+        )
 
         viewModel.state.test {
-            awaitItem() // Skip loading
-            
+            awaitItem()
+            advanceUntilIdle()
             val loadedState = awaitItem()
             assertEquals("incorrect", loadedState.filterResult)
             assertEquals(1, loadedState.attempts.size)
             assertEquals("Haus", loadedState.attempts[0].lemma)
         }
+    }
+
+    @Test
+    fun `blank remote lemma is hydrated from local lexemes`() = runTest {
+        attemptsFlow.value = listOf(
+            PracticeHistoryEntity(
+                localId = 3,
+                taskId = "t3",
+                lexemeId = "lex-3",
+                lemma = "",
+                pos = "V",
+                taskType = "conjugation",
+                result = "correct",
+                responseMs = 900,
+                submittedAt = "2023-10-01T12:00:00Z",
+            ),
+        )
+        coEvery { lexemeRepository.getByIds(listOf("lex-3")) } returns listOf(
+            LexemeEntity(
+                id = "lex-3",
+                lemma = "gehen",
+                pos = "V",
+                cefrLevel = "B1",
+            ),
+        )
+
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            SavedStateHandle(),
+        )
+
+        viewModel.state.test {
+            awaitItem()
+            advanceUntilIdle()
+            val loadedState = awaitItem()
+            assertEquals("gehen", loadedState.attempts[0].lemma)
+            assertEquals("B1", loadedState.attempts[0].cefrLevel)
+        }
+    }
+
+    @Test
+    fun `word lookup falls back to lexeme hydration when lemma is blank`() = runTest {
+        val attempt = PracticeHistoryEntity(
+            localId = 4,
+            taskId = "t4",
+            lexemeId = "lex-4",
+            lemma = "",
+            pos = "N",
+            taskType = "translation",
+            result = "incorrect",
+            responseMs = 700,
+            submittedAt = "2023-10-01T13:00:00Z",
+        )
+        coEvery { lexemeRepository.getById("lex-4") } returns LexemeEntity(
+            id = "lex-4",
+            lemma = "Haus",
+            pos = "N",
+        )
+        coEvery { wordRepository.findIdByLemmaAndPos("Haus", "N") } returns 41
+
+        val viewModel = AnswerHistoryViewModel(
+            practiceRepository,
+            wordRepository,
+            lexemeRepository,
+            syncHistoryUseCase,
+            SavedStateHandle(),
+        )
+
+        assertEquals(41, viewModel.getWordIdForHistory(attempt))
     }
 }
