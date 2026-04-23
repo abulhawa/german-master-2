@@ -31,4 +31,6 @@ class PracticeRepository @Inject constructor(
     suspend fun getDailyAccuracy(since: String): List<DailyAccuracy> = dao.getDailyAccuracy(since)
 
     fun observeCorrectTaskIds(): Flow<Set<String>> = dao.observeCorrectTaskIds().map { it.toSet() }
+
+    fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
 }

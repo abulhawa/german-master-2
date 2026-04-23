@@ -73,6 +73,9 @@ interface PracticeHistoryDao {
 
     @Query("SELECT DISTINCT taskId FROM practice_history WHERE result = 'correct'")
     fun observeCorrectTaskIds(): Flow<List<String>>
+
+    @Query("SELECT DISTINCT pos FROM practice_history ORDER BY pos ASC")
+    fun observeDistinctPos(): Flow<List<String>>
 }
 
 data class AccuracyResult(val accuracy: Float, val total: Int)

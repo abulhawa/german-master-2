@@ -11,15 +11,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.ui.wortschatz.FilterBottomSheet
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
@@ -38,20 +48,64 @@ fun AnswerHistoryScreen(
     onNavigateToWordDetail: (Int) -> Unit = {}
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val showFilterSheet = remember { mutableStateOf(false) }
+
+    if (showFilterSheet.value) {
+        FilterBottomSheet(
+            selectedLevels = emptySet(), // No level filter in history yet
+            onLevelToggle = {},
+            selectedPosSet = state.filterPosSet,
+            onPosToggle = viewModel::togglePos,
+            posOptions = state.posOptions,
+            wordCount = if (state.isLoading) null else state.attempts.size,
+            onDismiss = { showFilterSheet.value = false }
+        )
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        Text(
-            "Verlauf",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(16.dp)
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                "Verlauf",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(16.dp)
+            )
+
+            BadgedBox(
+                badge = {
+                    if (state.filterPosSet.isNotEmpty()) {
+                        Badge(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = MaterialTheme.colorScheme.onPrimary
+                        ) {
+                            Text(state.filterPosSet.size.toString())
+                        }
+                    }
+                },
+                modifier = Modifier.padding(end = 16.dp)
+            ) {
+                IconButton(
+                    onClick = { showFilterSheet.value = true },
+                    modifier = Modifier.size(40.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Tune,
+                        contentDescription = "Filter",
+                        tint = if (state.filterPosSet.isNotEmpty()) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        }
 
         // Filters
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 16.dp, vertical = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             FilterChip(
@@ -68,34 +122,6 @@ fun AnswerHistoryScreen(
                 selected = state.filterResult == "incorrect",
                 onClick = { viewModel.setFilterResult("incorrect") },
                 label = { Text("Falsch") }
-            )
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            FilterChip(
-                selected = state.filterPos == null,
-                onClick = { viewModel.setFilterPos(null) },
-                label = { Text("Alle POS") }
-            )
-            FilterChip(
-                selected = state.filterPos == "V",
-                onClick = { viewModel.setFilterPos("V") },
-                label = { Text("Verben") }
-            )
-            FilterChip(
-                selected = state.filterPos == "N",
-                onClick = { viewModel.setFilterPos("N") },
-                label = { Text("Nomen") }
-            )
-            FilterChip(
-                selected = state.filterPos == "Adj",
-                onClick = { viewModel.setFilterPos("Adj") },
-                label = { Text("Adj.") }
             )
         }
 
