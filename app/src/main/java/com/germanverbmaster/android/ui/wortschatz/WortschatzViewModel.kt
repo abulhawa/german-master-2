@@ -38,6 +38,23 @@ val POS_LABELS    = mapOf(
     "Num"  to "Numerale"
 )
 
+fun canonicalPos(raw: String): String {
+    val upper = raw.trim().uppercase()
+    return when {
+        upper == "V" || upper == "VERB" -> "V"
+        upper == "N" || upper == "NOMEN" -> "N"
+        upper == "ADJ" || upper == "ADJEKTIV" -> "Adj"
+        upper == "ADV" || upper == "ADVERB" -> "Adv"
+        upper == "PREP" || upper == "PRÄP" || upper == "PRÄPOSITION" || upper == "PRÄPOSITIONEN" -> "Prep"
+        upper == "CONJ" || upper == "KONJ" || upper == "KONJUNKTION" -> "Conj"
+        upper == "PRON" || upper == "PRONOMEN" -> "Pron"
+        upper == "INT" || upper == "INTERJEKTION" -> "Int"
+        upper == "ART" || upper == "ARTIKEL" -> "Art"
+        upper == "NUM" || upper == "NUMERALE" -> "Num"
+        else -> raw
+    }
+}
+
 // ─── Screen modes ─────────────────────────────────────────────────────────────
 
 enum class WortschatzTab(val label: String) {
@@ -100,6 +117,8 @@ class WortschatzViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(WortschatzUiState())
     val state: StateFlow<WortschatzUiState> = _state.asStateFlow()
+
+    private var rawPosValues: List<String> = emptyList()
 
     init {
         triggerSync(force = false)
@@ -242,7 +261,8 @@ class WortschatzViewModel @Inject constructor(
     private fun observePosFilters() {
         viewModelScope.launch {
             repo.observeDistinctPos().collect { posList ->
-                val filters = listOf("Alle") + posList
+                rawPosValues = posList
+                val filters = listOf("Alle") + posList.map { canonicalPos(it) }.distinct()
                 _state.update { it.copy(posOptions = filters) }
             }
         }
@@ -252,7 +272,11 @@ class WortschatzViewModel @Inject constructor(
         observeJob?.cancel()
         _state.update { it.copy(isLoading = true) }
         val levels = _state.value.selectedLevels.toList()
-        val posList = _state.value.selectedPosSet.toList()
+        
+        // Expand canonical POS keys back to all matching raw values from DB
+        val posList = _state.value.selectedPosSet.flatMap { selected ->
+            rawPosValues.filter { canonicalPos(it) == selected }
+        }
 
         val flow = when {
             levels.isEmpty() && posList.isEmpty() -> repo.observeAll()
