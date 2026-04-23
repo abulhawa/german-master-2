@@ -15,12 +15,8 @@ private data class HistorySyncFingerprint(
     val userId: String,
     val taskId: String,
     val lexemeId: String,
-    val pos: String,
     val taskType: String,
-    val renderer: String,
     val result: String,
-    val responseMs: Int,
-    val hintsUsed: Boolean,
     val submittedAt: String,
 )
 
@@ -28,12 +24,8 @@ private fun RemoteHistory.syncFingerprint() = HistorySyncFingerprint(
     userId = userId,
     taskId = taskId,
     lexemeId = lexemeId,
-    pos = pos,
     taskType = taskType,
-    renderer = renderer,
     result = result,
-    responseMs = responseMs,
-    hintsUsed = hintsUsed,
     submittedAt = submittedAt,
 )
 
@@ -41,12 +33,8 @@ private fun PracticeHistoryEntity.syncFingerprint(userId: String) = HistorySyncF
     userId = userId,
     taskId = taskId,
     lexemeId = lexemeId,
-    pos = pos,
     taskType = taskType,
-    renderer = renderer,
     result = result,
-    responseMs = responseMs,
-    hintsUsed = hintsUsed,
     submittedAt = submittedAt,
 )
 

@@ -132,15 +132,19 @@ class HistorySyncMapper @Inject constructor(
             }
 
         val resolvedTaskId = taskRepository.findHistoryAnchorTaskId(resolvedLexemeId, entity.pos)
-            ?: run {
-                if (BuildConfig.DEBUG) {
-                    Log.d(
-                        TAG,
-                        "No task anchor for Wortschatz row ${entity.localId} lexemeId=$resolvedLexemeId pos=${entity.pos}",
-                    )
-                }
-                return null
+            ?: if (isWordCard(entity.taskType, entity.renderer)) {
+                "drill_anchor_${entity.pos.lowercase()}"
+            } else null
+
+        if (resolvedTaskId == null) {
+            if (BuildConfig.DEBUG) {
+                Log.d(
+                    TAG,
+                    "No task anchor for Wortschatz row ${entity.localId} lexemeId=$resolvedLexemeId pos=${entity.pos}",
+                )
             }
+            return null
+        }
 
         return ResolvedRemoteIds(taskId = resolvedTaskId, lexemeId = resolvedLexemeId)
     }

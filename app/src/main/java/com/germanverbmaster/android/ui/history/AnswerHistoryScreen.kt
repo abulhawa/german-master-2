@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
@@ -192,12 +191,6 @@ fun HistoryItem(
                                 color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
                             )
                         }
-                    } else {
-                        Text(
-                            "Antwortdetails auf diesem Gerat nicht verfugbar",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                        )
                     }
                     if (!isCorrect && attempt.correctAnswer.isNotBlank()) {
                         Row {
