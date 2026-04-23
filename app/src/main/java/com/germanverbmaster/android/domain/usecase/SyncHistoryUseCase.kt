@@ -37,6 +37,19 @@ private fun RemoteHistory.syncFingerprint() = HistorySyncFingerprint(
     submittedAt = submittedAt,
 )
 
+private fun PracticeHistoryEntity.syncFingerprint(userId: String) = HistorySyncFingerprint(
+    userId = userId,
+    taskId = taskId,
+    lexemeId = lexemeId,
+    pos = pos,
+    taskType = taskType,
+    renderer = renderer,
+    result = result,
+    responseMs = responseMs,
+    hintsUsed = hintsUsed,
+    submittedAt = submittedAt,
+)
+
 class SyncHistoryUseCase @Inject constructor(
     private val historyDao: PracticeHistoryDao,
     private val historyApi: SupabaseHistoryApi,
@@ -46,7 +59,6 @@ class SyncHistoryUseCase @Inject constructor(
 ) {
     suspend operator fun invoke() {
         val userId = authRepository.currentUserId
-        var uploadedFingerprints = emptySet<HistorySyncFingerprint>()
         if (userId == null) {
             Log.d("SyncHistoryUseCase", "No user logged in, skipping history sync")
             return
@@ -89,9 +101,6 @@ class SyncHistoryUseCase @Inject constructor(
                 val remotes = uploadBatch.map { it.remote }
                 Log.d("SyncHistoryUseCase", "Uploading ${remotes.size} unsynced records")
                 historyApi.upsert(remotes)
-                uploadedFingerprints = remotes
-                    .map { it.syncFingerprint() }
-                    .toSet()
                 historyDao.markSynced(uploadBatch.map { it.localId }, userId)
             }
         } catch (e: Exception) {
@@ -104,15 +113,23 @@ class SyncHistoryUseCase @Inject constructor(
             val remoteNew = historyApi.fetchUpdatedSince(lastSync, userId)
             if (remoteNew.isNotEmpty()) {
                 Log.d("SyncHistoryUseCase", "Downloaded ${remoteNew.size} new records")
+                
+                // Robust De-duplication: Compare downloaded records against local records.
+                // We fetch all records for the user to ensure we don't miss anything that was uploaded from another device.
+                val existingLocal = historyDao.allForUser(userId)
+                val existingFingerprints = existingLocal.map { it.syncFingerprint(userId) }.toSet()
+                
                 val dedupedRemote = remoteNew.filterNot { remote ->
-                    remote.syncFingerprint() in uploadedFingerprints
+                    remote.syncFingerprint() in existingFingerprints
                 }
+                
                 if (dedupedRemote.size != remoteNew.size) {
                     Log.d(
                         "SyncHistoryUseCase",
-                        "Skipping ${remoteNew.size - dedupedRemote.size} records that match the just-uploaded batch",
+                        "Skipping ${remoteNew.size - dedupedRemote.size} records that match existing local history",
                     )
                 }
+
                 if (dedupedRemote.isNotEmpty()) {
                     val entities = mutableListOf<PracticeHistoryEntity>()
                     for (remote in dedupedRemote) {

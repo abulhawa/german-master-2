@@ -25,6 +25,9 @@ interface PracticeHistoryDao {
     @Query("SELECT * FROM practice_history ORDER BY submittedAt DESC LIMIT :limit")
     fun observeRecent(limit: Int = 100): Flow<List<PracticeHistoryEntity>>
 
+    @Query("SELECT * FROM practice_history WHERE userId = :userId OR userId IS NULL")
+    suspend fun allForUser(userId: String): List<PracticeHistoryEntity>
+
     @Query("SELECT * FROM practice_history WHERE synced = 0 AND (userId = :userId OR userId IS NULL) LIMIT 50")
     suspend fun unsyncedForUser(userId: String?): List<PracticeHistoryEntity>
 

@@ -142,10 +142,14 @@ fun HistoryItem(
 ) {
     val isCorrect = attempt.result == "correct"
     val displayLemma = attempt.lemma.ifBlank { "Unbekannt" }
-    val formatter = DateTimeFormatter.ofPattern("dd.MM. HH:mm")
-        .withZone(ZoneId.systemDefault())
+    
     val dateStr = try {
-        formatter.format(Instant.parse(attempt.submittedAt))
+        // Handle various ISO formats robustly
+        val accessor = DateTimeFormatter.ISO_DATE_TIME.parse(attempt.submittedAt)
+        val instant = Instant.from(accessor)
+        DateTimeFormatter.ofPattern("dd.MM. HH:mm")
+            .withZone(ZoneId.systemDefault())
+            .format(instant)
     } catch (_: Exception) {
         attempt.submittedAt
     }
@@ -162,46 +166,49 @@ fun HistoryItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        displayLemma,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        attempt.taskType.replace("_", " "),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    )
-                }
+                Text(
+                    displayLemma,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    attempt.taskType.replace("_", " "),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                )
+
                 Spacer(Modifier.height(4.dp))
-                if (attempt.submittedAnswer.isNotBlank()) {
-                    Row {
-                        Text("Deine Antwort: ", style = MaterialTheme.typography.bodySmall)
+                
+                val isDrill = attempt.taskType == "vocabulary_drill" || attempt.renderer == "word_card"
+                
+                if (!isDrill) {
+                    if (attempt.submittedAnswer.isNotBlank()) {
+                        Row {
+                            Text("Deine Antwort: ", style = MaterialTheme.typography.bodySmall)
+                            Text(
+                                attempt.submittedAnswer,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                            )
+                        }
+                    } else {
                         Text(
-                            attempt.submittedAnswer,
+                            "Antwortdetails auf diesem Gerat nicht verfugbar",
                             style = MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                         )
                     }
-                } else {
-                    Text(
-                        "Antwortdetails auf diesem Gerat nicht verfugbar",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                    )
-                }
-                if (!isCorrect && attempt.correctAnswer.isNotBlank()) {
-                    Row {
-                        Text("Richtig: ", style = MaterialTheme.typography.bodySmall)
-                        Text(
-                            attempt.correctAnswer,
-                            style = MaterialTheme.typography.bodySmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
+                    if (!isCorrect && attempt.correctAnswer.isNotBlank()) {
+                        Row {
+                            Text("Richtig: ", style = MaterialTheme.typography.bodySmall)
+                            Text(
+                                attempt.correctAnswer,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
                     }
                 }
             }

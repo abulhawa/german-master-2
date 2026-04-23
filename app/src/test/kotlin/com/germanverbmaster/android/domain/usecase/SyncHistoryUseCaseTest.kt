@@ -93,6 +93,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(unsyncedEntity)
+        coEvery { historyDao.allForUser(userId) } returns listOf(unsyncedEntity)
 
         val remoteFromLocal = RemoteHistory(
             remoteId = null,
@@ -150,6 +151,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(anonymousRecord)
+        coEvery { historyDao.allForUser(userId) } returns listOf(anonymousRecord)
 
         val remoteFromLocal = RemoteHistory(
             remoteId = null,
@@ -219,6 +221,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(uploadedEntity)
+        coEvery { historyDao.allForUser(userId) } returns listOf(uploadedEntity)
 
         val remoteFromLocal = mockk<RemoteHistory>()
         every { remoteFromLocal.userId } returns userId
@@ -269,6 +272,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(blockedEntity)
+        coEvery { historyDao.allForUser(userId) } returns listOf(blockedEntity)
         coEvery { historySyncMapper.toRemote(blockedEntity, userId) } returns null
         coEvery { prefs.getHistoryLastSync() } returns null
         coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
