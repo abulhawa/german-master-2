@@ -36,6 +36,13 @@ object DatabaseModule {
         }
     }
 
+    private val MIGRATION_14_15 = object : Migration(14, 15) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // Wipe again to clear the old 'word_xxx' records and replace with 'identity:pos:lemma'
+            db.execSQL("DELETE FROM practice_history")
+        }
+    }
+
     @Provides
     @Singleton
     fun provideDatabase(
@@ -47,7 +54,7 @@ object DatabaseModule {
                 AppDatabase::class.java,
                 "german_verb_master.db"
             )
-            .addMigrations(MIGRATION_11_14)
+            .addMigrations(MIGRATION_11_14, MIGRATION_14_15)
             .fallbackToDestructiveMigration(true)
             .build()
             

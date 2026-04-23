@@ -22,16 +22,18 @@ class HistorySyncMapper @Inject constructor(
     private companion object {
         const val TAG = "HistorySyncMapper"
         const val LOCAL_WORD_PREFIX = "word_"
+        const val IDENTITY_PREFIX = "identity:"
     }
 
     suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory {
         val resolvedIds = resolveRemoteIds(entity)
         
-        // Final fallback: If we can't map to a real remote ID, but we have a lemma and pos,
-        // we still upload it using the local identities. 
-        // This ensures EVERYTHING syncs (Präp, etc), even if it's not perfectly linked to a remote task.
-        val finalTaskId = resolvedIds?.taskId ?: entity.taskId
-        val finalLexemeId = resolvedIds?.lexemeId ?: entity.lexemeId
+        // Use a standardized content-based identity if no remote ID is found.
+        // This ensures that "word_123" (local) becomes "identity:präp:dank + gen" (global).
+        val fallbackIdentity = "$IDENTITY_PREFIX${entity.pos.lowercase()}:${entity.lemma.lowercase().trim()}"
+        
+        val finalTaskId = resolvedIds?.taskId ?: if (entity.taskId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.taskId
+        val finalLexemeId = resolvedIds?.lexemeId ?: if (entity.lexemeId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.lexemeId
 
         if (BuildConfig.DEBUG && (finalTaskId != entity.taskId || finalLexemeId != entity.lexemeId)) {
             Log.d(
@@ -62,8 +64,10 @@ class HistorySyncMapper @Inject constructor(
 
     suspend fun toFingerprint(entity: PracticeHistoryEntity, userId: String): HistorySyncFingerprint {
         val resolvedIds = resolveRemoteIds(entity)
-        val finalTaskId = resolvedIds?.taskId ?: entity.taskId
-        val finalLexemeId = resolvedIds?.lexemeId ?: entity.lexemeId
+        val fallbackIdentity = "$IDENTITY_PREFIX${entity.pos.lowercase()}:${entity.lemma.lowercase().trim()}"
+        
+        val finalTaskId = resolvedIds?.taskId ?: if (entity.taskId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.taskId
+        val finalLexemeId = resolvedIds?.lexemeId ?: if (entity.lexemeId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.lexemeId
         
         return HistorySyncFingerprint(
             userId = userId,
