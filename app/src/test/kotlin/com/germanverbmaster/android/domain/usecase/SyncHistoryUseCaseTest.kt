@@ -231,10 +231,11 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(uploadedEntity)
-        coEvery { historyDao.allForUser(userId) } returns listOf(uploadedEntity)
+        // Simulate local DB containing the record after it was marked as synced
+        coEvery { historyDao.allForUser(userId) } returns listOf(uploadedEntity.copy(synced = true))
 
         val fingerprint = HistorySyncFingerprint(userId, uploadedEntity.taskId, uploadedEntity.lexemeId, uploadedEntity.taskType, uploadedEntity.result, "2023-10-01T11:00:00Z")
-        coEvery { historySyncMapper.toFingerprint(uploadedEntity, userId) } returns fingerprint
+        coEvery { historySyncMapper.toFingerprint(any(), userId) } returns fingerprint
         every { historySyncMapper.toFingerprint(matchingRemote) } returns fingerprint
 
         val remoteFromLocal = mockk<RemoteHistory>()
@@ -257,12 +258,15 @@ class SyncHistoryUseCaseTest {
         coEvery { historyDao.markSynced(listOf(9), userId) } just Runs
         coEvery { prefs.getHistoryLastSync() } returns lastSync
         coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(matchingRemote)
-        coJustRun { prefs.setHistoryLastSync(uploadedEntity.submittedAt) }
+        
+        coJustRun { prefs.setHistoryLastSync(any()) }
 
         syncHistoryUseCase()
 
+        // It should SKIP calling upsertAll because the fingerprint matches
         coVerify(exactly = 0) { historyDao.upsertAll(any()) }
-        coVerify { prefs.setHistoryLastSync(uploadedEntity.submittedAt) }
+        // BUT it should update the sync cursor to avoid re-checking these in the future
+        coVerify(exactly = 1) { prefs.setHistoryLastSync(any()) }
     }
 
     @Test

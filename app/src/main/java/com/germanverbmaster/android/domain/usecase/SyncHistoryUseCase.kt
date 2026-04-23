@@ -8,9 +8,7 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
-import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
-import com.germanverbmaster.android.data.util.DateTimeUtils
 import javax.inject.Inject
 
 class SyncHistoryUseCase @Inject constructor(
@@ -101,12 +99,14 @@ class SyncHistoryUseCase @Inject constructor(
                         entities += historySyncMapper.toLocalEntity(remote)
                     }
                     historyDao.upsertAll(entities)
-                    
-                    // Only update the last sync time if we actually processed and saved records successfully.
-                    // This ensures that if a sync is interrupted, we don't skip records next time.
-                    val latest = remoteNew.maxOf { it.submittedAt }
-                    prefs.setHistoryLastSync(latest)
                 }
+
+                // Update the last sync time if we downloaded new records.
+                // We moved this outside the dedupedRemote.isNotEmpty() block because
+                // even if all remote records were duplicates (dedupedRemote empty),
+                // we still want to update the cursor so we don't fetch them again next time.
+                val latest = remoteNew.maxOf { it.submittedAt }
+                prefs.setHistoryLastSync(latest)
             }
         } catch (e: Exception) {
             Log.e("SyncHistoryUseCase", "Failed to download remote history", e)
