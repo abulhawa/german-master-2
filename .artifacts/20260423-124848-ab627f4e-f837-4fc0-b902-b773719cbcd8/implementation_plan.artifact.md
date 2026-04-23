@@ -2,58 +2,57 @@
 
 This plan outlines how to sync practice history (including "Schnell-Drill" progress) across devices using the existing Supabase infrastructure.
 
+## Implementation Strategy: Test-First
+
+To ensure stability, I will follow a test-driven approach:
+1.  **Baseline Tests**: Enhance/Add unit tests for `PracticeHistoryDao` and `PracticeRepository` *before* modifying them to ensure existing functionality (recording results, observing stats) is stable.
+2.  **Incremental Implementation**: Add fields/APIs one by one, updating tests at each step.
+3.  **Sync Logic Tests**: Implement `SyncHistoryUseCase` with 100% test coverage for edge cases (no login, network error, conflicting IDs).
+
 ## User Review Required
 
 > [!IMPORTANT]
-> This sync requires users to be signed in (Google login).
-> The local `PracticeHistoryEntity` will need a new `remoteId` field (UUID) to uniquely identify records across devices.
+> **Database Migration**: I will need to increment the Room database version and add a migration. Since `remoteId` is new, existing local records will be assigned a random UUID upon first sync.
+> **Supabase Schema**: This plan assumes a `practice_history` table exists in Supabase with columns: `id` (UUID), `user_id` (UUID), `task_id`, `lexeme_id`, `lemma`, `pos`, `task_type`, `renderer`, `result`, `submitted_answer`, `correct_answer`, `response_ms`, `cefr_level`, `hints_used`, `submitted_at`.
 
 ## Proposed Changes
 
-### Data Model & Persistence
+### 1. Verification of Existing State (Tests)
+
+#### [PracticeHistoryDaoTest.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/androidTest/kotlin/com/germanverbmaster/android/data/local/dao/PracticeHistoryDaoTest.kt)
+- Add tests for `observeTaskTypeStats` and `getDailyAccuracy` to ensure they remain correct after adding the `remoteId` column.
+
+### 2. Data Model & Persistence
 
 #### [PracticeHistoryEntity.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/local/entity/PracticeHistoryEntity.kt)
-- Add `remoteId: String` field (default to a new UUID for local-only records).
-- Add it to the `@Entity` definition and update Room database version.
+- Add `remoteId: String` (default `UUID.randomUUID().toString()`).
+- Add `userId: String?` to track which user the record belongs to locally.
+
+#### [AppDatabase.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/local/db/AppDatabase.kt)
+- Increment version to `11`.
+- Add migration logic (likely `fallbackToDestructiveMigration()` or a simple `ALTER TABLE` if schema preservation is critical).
 
 #### [PracticeHistoryDao.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/local/dao/PracticeHistoryDao.kt)
-- Add `@Query("SELECT * FROM practice_history WHERE synced = 0")` if not present.
-- Add `@Query("UPDATE practice_history SET synced = 1 WHERE localId IN (:ids)")`.
+- Add `@Query("SELECT * FROM practice_history WHERE synced = 0 AND userId = :userId")`.
 - Add `@Insert(onConflict = OnConflictStrategy.IGNORE)` for merging remote data.
 
----
-
-### Remote API (Supabase)
+### 3. Remote API & Sync Logic
 
 #### [NEW] [SupabaseHistoryApi.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/remote/SupabaseHistoryApi.kt)
-- Define `RemoteHistory` DTO matching the Supabase table schema.
-- Implement `upsert(entries: List<RemoteHistory>)`.
-- Implement `fetchUpdatedSince(since: String, userId: String)`.
-
----
-
-### Sync Logic
-
-#### [SyncPreferences.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/repository/SyncPreferences.kt)
-- Add `HISTORY_LAST_SYNC` key and getter/setter.
+- `upsert(entries: List<RemoteHistory>)`: Push local changes.
+- `fetchUpdatedSince(since: String, userId: String)`: Pull remote changes.
 
 #### [NEW] [SyncHistoryUseCase.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/domain/usecase/SyncHistoryUseCase.kt)
-- Coordinate the upload of unsynced local records.
-- Fetch new records from Supabase since the last sync.
-- Update local database and sync preferences.
+- Logic: `if (notLoggedIn) return` -> `Upload Unsynced` -> `Download Remote` -> `Mark Synced`.
 
 #### [SyncWorker.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/data/remote/worker/SyncWorker.kt)
-- Call `SyncHistoryUseCase` alongside existing sync logic.
+- Integrate `SyncHistoryUseCase`.
 
 ## Verification Plan
 
 ### Automated Tests
-- `SyncHistoryUseCaseTest`: Mock repository and API to verify that unsynced records are uploaded and remote records are merged.
-- `PracticeHistoryDaoTest`: Verify that `unsynced()` and `markSynced()` work as expected with the new `remoteId` field.
+- `gradle_build("app:connectedCheck")` to run instrumented Dao tests.
+- `gradle_build("app:testDebugUnitTest")` for UseCase and ViewModel tests.
 
 ### Manual Verification
-1.  Sign in on Device A.
-2.  Complete a few "Schnell-Drill" sessions.
-3.  Trigger manual sync (or wait for worker).
-4.  Sign in on Device B.
-5.  Verify that the "mastered" counts and history list reflect Device A's progress.
+- Log in on two devices, complete drills on one, and check "Answer History" and "Mastery Progress" on the other after a sync.
