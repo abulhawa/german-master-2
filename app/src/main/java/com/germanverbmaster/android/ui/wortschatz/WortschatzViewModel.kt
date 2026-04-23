@@ -40,17 +40,17 @@ val POS_LABELS    = mapOf(
 
 fun canonicalPos(raw: String): String {
     val upper = raw.trim().uppercase()
-    return when {
-        upper == "V" || upper == "VERB" -> "V"
-        upper == "N" || upper == "NOMEN" -> "N"
-        upper == "ADJ" || upper == "ADJEKTIV" -> "Adj"
-        upper == "ADV" || upper == "ADVERB" -> "Adv"
-        upper == "PREP" || upper == "PRÄP" || upper == "PRÄPOSITION" || upper == "PRÄPOSITIONEN" -> "Prep"
-        upper == "CONJ" || upper == "KONJ" || upper == "KONJUNKTION" -> "Conj"
-        upper == "PRON" || upper == "PRONOMEN" -> "Pron"
-        upper == "INT" || upper == "INTERJEKTION" -> "Int"
-        upper == "ART" || upper == "ARTIKEL" -> "Art"
-        upper == "NUM" || upper == "NUMERALE" -> "Num"
+    return when (upper) {
+        "V", "VERB" -> "V"
+        "N", "NOMEN" -> "N"
+        "ADJ", "ADJEKTIV" -> "Adj"
+        "ADV", "ADVERB" -> "Adv"
+        "PREP", "PRÄP", "PRÄPOSITION", "PRÄPOSITIONEN" -> "Prep"
+        "CONJ", "KONJ", "KONJUNKTION" -> "Conj"
+        "PRON", "PRONOMEN" -> "Pron"
+        "INT", "INTERJEKTION" -> "Int"
+        "ART", "ARTIKEL" -> "Art"
+        "NUM", "NUMERALE" -> "Num"
         else -> raw
     }
 }
