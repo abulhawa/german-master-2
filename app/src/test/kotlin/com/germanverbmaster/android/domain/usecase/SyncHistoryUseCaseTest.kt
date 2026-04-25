@@ -292,7 +292,7 @@ class SyncHistoryUseCaseTest {
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(blockedEntity)
         every { historyDao.observeRecent(500) } returns flowOf(listOf(blockedEntity))
-        coEvery { historySyncMapper.toRemote(blockedEntity, userId) } throws IllegalStateException("Mock error")
+        coEvery { historySyncMapper.toRemote(blockedEntity, userId) } returns null
         coEvery { prefs.getHistoryLastSync() } returns null
         coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
 

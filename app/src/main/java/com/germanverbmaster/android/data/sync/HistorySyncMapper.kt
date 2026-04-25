@@ -25,9 +25,13 @@ class HistorySyncMapper @Inject constructor(
         const val IDENTITY_PREFIX = "identity:"
     }
 
-    suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory {
+    suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory? {
         val resolvedIds = resolveRemoteIds(entity)
-        
+
+        if (resolvedIds == null && !entity.taskId.startsWith(LOCAL_WORD_PREFIX)) {
+            return null
+        }
+
         // Use a standardized content-based identity if no remote ID is found.
         // This ensures that "word_123" (local) becomes "identity:präp:dank + gen" (global).
         val fallbackIdentity = "$IDENTITY_PREFIX${entity.pos.lowercase()}:${entity.lemma.lowercase().trim()}"
