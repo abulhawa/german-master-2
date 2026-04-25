@@ -27,7 +27,9 @@ data class HistoryUiState(
     val posOptions: List<String> = emptyList(),
     val isLoading: Boolean = true,
     val correctCount: Int = 0,
-    val incorrectCount: Int = 0
+    val incorrectCount: Int = 0,
+    val showLatestOnly: Boolean = false,
+    val attemptCounts: Map<String, Int> = emptyMap()
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -44,6 +46,7 @@ class AnswerHistoryViewModel @Inject constructor(
     private val _filterResult = MutableStateFlow(initialResult)
     private val _filterPosSet = MutableStateFlow<Set<String>>(emptySet())
     private val _filterLevelSet = MutableStateFlow<Set<String>>(emptySet())
+    private val _showLatestOnly = MutableStateFlow(false)
     private val _rawPosOptions = MutableStateFlow<List<String>>(emptyList())
 
     init {
@@ -65,43 +68,72 @@ class AnswerHistoryViewModel @Inject constructor(
         }
     }
 
+    private data class FilterParams(
+        val result: String?,
+        val posSet: Set<String>,
+        val levelSet: Set<String>,
+        val latestOnly: Boolean
+    )
+
+    private val _filterParams = combine(
+        _filterResult, _filterPosSet, _filterLevelSet, _showLatestOnly
+    ) { result, pos, level, latest ->
+        FilterParams(result, pos, level, latest)
+    }
+
     val state: StateFlow<HistoryUiState> = combine(
-        practiceRepository.observeRecent(200),
-        _filterResult,
-        _filterPosSet,
-        _filterLevelSet,
+        practiceRepository.observeRecent(500),
+        _filterParams,
         _rawPosOptions
-    ) { attempts, result, posSet, levelSet, rawOptions ->
+    ) { attempts, filters, rawOptions ->
         // Normalize the UI options
         val displayOptions = listOf("Alle") + rawOptions.map { canonicalPos(it) }.distinct()
 
         // 1. First hydrate basic lemma/level if missing so we can filter by them
         val hydrated = hydrateAttempts(attempts)
 
-        // 2. Apply POS and Level filters for count calculations
-        val categoryFiltered = hydrated.filter {
-            (posSet.isEmpty() || posSet.contains(canonicalPos(it.pos))) &&
-            (levelSet.isEmpty() || levelSet.contains(it.cefrLevel))
+        // 2. Calculate attempt counts per lexemeId (before de-duplication)
+        val attemptCounts = hydrated.groupBy { it.lexemeId }.mapValues { it.value.size }
+
+        // 3. Optional De-duplication: Only keep the latest attempt per word
+        val processed = if (filters.latestOnly) {
+            hydrated.groupBy { it.lexemeId }
+                .map { (_, group) -> group.maxBy { it.submittedAt } }
+                .sortedByDescending { it.submittedAt }
+        } else {
+            hydrated
+        }
+
+        // 4. Apply POS and Level filters for count calculations
+        val categoryFiltered = processed.filter {
+            (filters.posSet.isEmpty() || filters.posSet.contains(canonicalPos(it.pos))) &&
+            (filters.levelSet.isEmpty() || filters.levelSet.contains(it.cefrLevel))
         }
 
         val correctCount = categoryFiltered.count { it.result == "correct" }
         val incorrectCount = categoryFiltered.count { it.result == "incorrect" }
 
-        // 3. Final filter for display (Correct/Incorrect toggle)
-        val filtered = if (result == null) categoryFiltered else categoryFiltered.filter { it.result == result }
+        // 5. Final filter for display (Correct/Incorrect toggle)
+        val filtered = if (filters.result == null) categoryFiltered else categoryFiltered.filter { it.result == filters.result }
 
         HistoryUiState(
             attempts = filtered,
-            filterResult = result,
-            filterPosSet = posSet,
-            filterLevelSet = levelSet,
+            filterResult = filters.result,
+            filterPosSet = filters.posSet,
+            filterLevelSet = filters.levelSet,
             posOptions = displayOptions,
             isLoading = false,
             correctCount = correctCount,
-            incorrectCount = incorrectCount
+            incorrectCount = incorrectCount,
+            showLatestOnly = filters.latestOnly,
+            attemptCounts = attemptCounts
         )
     }
     .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
+
+    fun toggleLatestOnly() {
+        _showLatestOnly.update { !it }
+    }
 
     fun setFilterResult(result: String?) {
         _filterResult.value = result

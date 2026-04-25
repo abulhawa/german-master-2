@@ -67,7 +67,7 @@ class AnswerHistoryViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        every { practiceRepository.observeRecent(200) } returns attemptsFlow
+        every { practiceRepository.observeRecent(500) } returns attemptsFlow
         every { practiceRepository.observeDistinctPos() } returns MutableStateFlow(listOf("V", "N", "Adj"))
         coEvery { lexemeRepository.getByIds(any()) } returns emptyList()
         coEvery { lexemeRepository.getById(any()) } returns null
