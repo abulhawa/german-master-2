@@ -2,10 +2,10 @@ package com.germanverbmaster.android.ui.wortschatz
 
 import android.util.Log
 import app.cash.turbine.test
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.DrillStats
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
@@ -37,7 +37,7 @@ class WortschatzViewModelTest {
     private val submitAnswerUseCase: SubmitAnswerUseCase = mockk()
     private val syncDataUseCase: SyncDataUseCase = mockk()
     private val syncHistoryUseCase: SyncHistoryUseCase = mockk()
-    private val prefs: SyncPreferences = mockk()
+    private val prefs: AppPreferences = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
     private val mockWords = listOf(

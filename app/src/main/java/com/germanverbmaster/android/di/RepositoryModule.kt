@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.di
 
 import android.content.Context
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
@@ -13,7 +14,6 @@ import com.germanverbmaster.android.data.remote.SupabaseWordsApi
 import com.germanverbmaster.android.data.repository.InflectionRepository
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.data.repository.WordRepository
 import dagger.Module
@@ -32,7 +32,7 @@ object RepositoryModule {
     fun provideLexemeRepository(
         dao: LexemeDao,
         api: SupabaseLexemeApi,
-        prefs: SyncPreferences
+        prefs: AppPreferences
     ): LexemeRepository = LexemeRepository(dao, api, prefs)
 
     @Provides
@@ -40,7 +40,7 @@ object RepositoryModule {
     fun provideTaskRepository(
         dao: TaskSpecDao,
         api: SupabaseTaskApi,
-        prefs: SyncPreferences
+        prefs: AppPreferences
     ): TaskRepository = TaskRepository(dao, api, prefs)
 
     @Provides
@@ -54,7 +54,7 @@ object RepositoryModule {
     fun provideInflectionRepository(
         dao: InflectionDao,
         api: SupabaseInflectionApi,
-        prefs: SyncPreferences
+        prefs: AppPreferences
     ): InflectionRepository = InflectionRepository(dao, api, prefs)
 
     @Provides
@@ -62,7 +62,7 @@ object RepositoryModule {
     fun provideWordRepository(
         dao: WordDao,
         api: SupabaseWordsApi,
-        prefs: SyncPreferences,
+        prefs: AppPreferences,
         @ApplicationContext context: Context,
     ): WordRepository = WordRepository(dao, api, prefs, context)
 }

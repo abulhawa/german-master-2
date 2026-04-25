@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.data.repository
 
 import android.content.Context
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.WordDao
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.remote.SupabaseWordsApi
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 class WordRepository @Inject constructor(
     private val dao: WordDao,
     private val api: SupabaseWordsApi,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
     private val context: Context,
 ) {
     private companion object {

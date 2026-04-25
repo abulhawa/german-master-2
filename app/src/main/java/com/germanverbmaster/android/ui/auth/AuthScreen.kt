@@ -3,6 +3,7 @@ package com.germanverbmaster.android.ui.auth
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +11,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -24,11 +27,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.germanverbmaster.android.BuildConfig
+import com.germanverbmaster.android.domain.model.AppTheme
+import com.germanverbmaster.android.ui.theme.ThemeViewModel
 import io.github.jan.supabase.auth.status.SessionStatus
 
 @Composable
 fun AuthScreen(
     viewModel: AuthViewModel = hiltViewModel(),
+    themeViewModel: ThemeViewModel = hiltViewModel(),
     onNavigateToAnalytics: () -> Unit,
     onNavigateToHistory: () -> Unit,
     onAuthSuccess: () -> Unit
@@ -37,6 +43,7 @@ fun AuthScreen(
     val uiState by viewModel.uiState.collectAsState()
     val sessionStatus by viewModel.sessionStatus.collectAsState()
     val userEmail by viewModel.userEmail.collectAsState()
+    val themeMode by themeViewModel.themeMode.collectAsState()
 
     LaunchedEffect(uiState) {
         if (uiState is AuthState.Success) {
@@ -47,9 +54,10 @@ fun AuthScreen(
     Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Column(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(32.dp))
             Text(
                 text = "Account",
                 style = MaterialTheme.typography.headlineMedium
@@ -69,31 +77,13 @@ fun AuthScreen(
                         color = MaterialTheme.colorScheme.primary
                     )
 
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(24.dp))
 
                     Button(
                         onClick = { viewModel.signOut() },
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text("Sign Out")
-                    }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    OutlinedButton(
-                        onClick = onNavigateToAnalytics,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text("Analytics")
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    OutlinedButton(
-                        onClick = onNavigateToHistory,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text("History")
                     }
                 }
 
@@ -104,7 +94,7 @@ fun AuthScreen(
                         textAlign = TextAlign.Center
                     )
 
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(24.dp))
 
                     when (val state = uiState) {
                         is AuthState.Loading -> CircularProgressIndicator()
@@ -126,6 +116,67 @@ fun AuthScreen(
                     ) {
                         Text("Sign in with Google")
                     }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+            HorizontalDivider(thickness = 0.5.dp)
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Appearance Section
+            Text(
+                text = "Appearance",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
+            )
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                AppTheme.entries.forEach { mode ->
+                    FilterChip(
+                        selected = themeMode == mode,
+                        onClick = { themeViewModel.setThemeMode(mode) },
+                        label = { 
+                            Text(
+                                text = when(mode) {
+                                    AppTheme.LIGHT -> "Light"
+                                    AppTheme.DARK -> "Dark"
+                                    AppTheme.SYSTEM -> "System"
+                                },
+                                modifier = Modifier.fillMaxWidth(),
+                                textAlign = TextAlign.Center
+                            )
+                        },
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+            HorizontalDivider(thickness = 0.5.dp)
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Navigation Options (Only if authenticated for some)
+            if (sessionStatus is SessionStatus.Authenticated) {
+                OutlinedButton(
+                    onClick = onNavigateToAnalytics,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Analytics")
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                OutlinedButton(
+                    onClick = onNavigateToHistory,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("History")
                 }
             }
         }

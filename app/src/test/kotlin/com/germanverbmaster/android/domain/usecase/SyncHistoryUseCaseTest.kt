@@ -1,11 +1,11 @@
 package com.germanverbmaster.android.domain.usecase
 
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
 import io.mockk.Runs
@@ -27,7 +27,7 @@ class SyncHistoryUseCaseTest {
     private val historyApi: SupabaseHistoryApi = mockk()
     private val historySyncMapper: HistorySyncMapper = mockk()
     private val authRepository: AuthRepository = mockk()
-    private val prefs: SyncPreferences = mockk()
+    private val prefs: AppPreferences = mockk()
 
     private lateinit var syncHistoryUseCase: SyncHistoryUseCase
 

@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.repository
 
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
 import com.germanverbmaster.android.data.remote.RemoteTaskSpec
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 class TaskRepository @Inject constructor(
     val dao: TaskSpecDao,
     val api: SupabaseTaskApi,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
 ) {
     suspend fun exists(id: String): Boolean = dao.exists(id)
 

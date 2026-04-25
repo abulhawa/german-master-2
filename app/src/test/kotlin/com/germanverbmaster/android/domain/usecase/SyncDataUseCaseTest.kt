@@ -1,13 +1,13 @@
 package com.germanverbmaster.android.domain.usecase
 
 import androidx.room.withTransaction
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.dao.TaskSpecDao
 import com.germanverbmaster.android.data.local.db.AppDatabase
 import com.germanverbmaster.android.data.remote.RemoteLexeme
 import com.germanverbmaster.android.data.repository.InflectionRepository
 import com.germanverbmaster.android.data.repository.LexemeRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.TaskRepository
 import io.mockk.Runs
 import io.mockk.coEvery
@@ -27,7 +27,7 @@ class SyncDataUseCaseTest {
     private val taskRepository: TaskRepository = mockk()
     private val inflectionRepository: InflectionRepository = mockk()
     private val database: AppDatabase = mockk()
-    private val prefs: SyncPreferences = mockk()
+    private val prefs: AppPreferences = mockk()
     
     private val lexemeDao: LexemeDao = mockk()
     private val taskSpecDao: TaskSpecDao = mockk()

@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.data.repository
 
 import android.content.Context
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.WordDao
 import com.germanverbmaster.android.data.remote.SupabaseWordsApi
 import io.mockk.coEvery
@@ -16,7 +17,7 @@ class WordRepositoryTest {
 
     private val dao: WordDao = mockk()
     private val api: SupabaseWordsApi = mockk()
-    private val prefs: SyncPreferences = mockk()
+    private val prefs: AppPreferences = mockk()
     private val context: Context = mockk(relaxed = true)
     private lateinit var repository: WordRepository
 

@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.repository
 
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.LexemeDao
 import com.germanverbmaster.android.data.local.entity.LexemeEntity
 import com.germanverbmaster.android.data.remote.RemoteLexeme
@@ -18,7 +19,7 @@ class LexemeRepositoryTest {
 
     private val dao: LexemeDao = mockk()
     private val api: SupabaseLexemeApi = mockk()
-    private val prefs: SyncPreferences = mockk()
+    private val prefs: AppPreferences = mockk()
     private lateinit var repository: LexemeRepository
 
     @Before

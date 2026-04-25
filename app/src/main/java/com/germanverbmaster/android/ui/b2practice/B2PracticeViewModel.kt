@@ -2,7 +2,7 @@ package com.germanverbmaster.android.ui.b2practice
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.germanverbmaster.android.data.repository.SyncPreferences
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
 import com.germanverbmaster.android.domain.model.CardMode
@@ -39,7 +39,7 @@ data class B2PracticeUiState(
 @HiltViewModel
 class B2PracticeViewModel @Inject constructor(
     private val submitAnswerUseCase: SubmitAnswerUseCase,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(B2PracticeUiState())

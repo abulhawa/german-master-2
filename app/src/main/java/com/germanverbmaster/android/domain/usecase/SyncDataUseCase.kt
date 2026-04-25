@@ -2,6 +2,7 @@ package com.germanverbmaster.android.domain.usecase
 
 import android.util.Log
 import androidx.room.withTransaction
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.db.AppDatabase
 import com.germanverbmaster.android.data.repository.InflectionRepository
 import com.germanverbmaster.android.data.repository.LexemeRepository
@@ -13,7 +14,7 @@ class SyncDataUseCase @Inject constructor(
     private val taskRepository: TaskRepository,
     private val inflectionRepository: InflectionRepository,
     private val database: AppDatabase,
-    private val prefs: com.germanverbmaster.android.data.repository.SyncPreferences,
+    private val prefs: AppPreferences,
 ) {
     suspend operator fun invoke() {
         Log.d("SyncDataUseCase", "Starting data synchronization...")

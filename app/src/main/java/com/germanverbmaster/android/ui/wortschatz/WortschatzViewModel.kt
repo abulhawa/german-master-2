@@ -3,9 +3,9 @@ package com.germanverbmaster.android.ui.wortschatz
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
@@ -109,7 +109,7 @@ class WortschatzViewModel @Inject constructor(
     private val submitAnswerUseCase: SubmitAnswerUseCase,
     private val syncDataUseCase: SyncDataUseCase,
     private val syncHistoryUseCase: SyncHistoryUseCase,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(WortschatzUiState())

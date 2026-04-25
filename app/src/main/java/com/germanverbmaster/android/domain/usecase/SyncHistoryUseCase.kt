@@ -2,12 +2,12 @@ package com.germanverbmaster.android.domain.usecase
 
 import android.util.Log
 import com.germanverbmaster.android.BuildConfig
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
-import com.germanverbmaster.android.data.repository.SyncPreferences
 import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
 import kotlinx.coroutines.flow.first
@@ -18,7 +18,7 @@ class SyncHistoryUseCase @Inject constructor(
     private val historyApi: SupabaseHistoryApi,
     private val historySyncMapper: HistorySyncMapper,
     private val authRepository: AuthRepository,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
 ) {
     suspend operator fun invoke() {
         val userId = authRepository.currentUserId

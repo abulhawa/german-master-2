@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.repository
 
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.InflectionDao
 import com.germanverbmaster.android.data.remote.RemoteInflection
 import com.germanverbmaster.android.data.remote.SupabaseInflectionApi
@@ -10,7 +11,7 @@ import javax.inject.Singleton
 class InflectionRepository @Inject constructor(
     private val dao: InflectionDao,
     val api: SupabaseInflectionApi,
-    private val prefs: SyncPreferences,
+    private val prefs: AppPreferences,
 ) {
     /** Returns true if local DB has fewer than a healthy threshold (e.g. 500) */
     suspend fun needsFullSync(): Boolean = dao.count() < 500
