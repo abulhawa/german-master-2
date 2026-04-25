@@ -8,7 +8,9 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
+import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
 import com.germanverbmaster.android.data.sync.HistorySyncMapper
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class SyncHistoryUseCase @Inject constructor(
@@ -76,11 +78,12 @@ class SyncHistoryUseCase @Inject constructor(
                 Log.d("SyncHistoryUseCase", "Downloaded ${remoteNew.size} new records")
                 
                 // Robust De-duplication: Compare downloaded records against local records.
-                // We fetch all records for the user to ensure we don't miss anything that was uploaded from another device.
-                val existingLocal = historyDao.allForUser(userId)
-                val existingFingerprints = existingLocal.mapNotNull { 
-                    historySyncMapper.toFingerprint(it, userId) 
-                }.toSet()
+                // We fetch recent records for comparison instead of ALL to avoid massive sequential fingerprinting.
+                val existingLocal = historyDao.observeRecent(500).first()
+                val existingFingerprints = mutableSetOf<HistorySyncFingerprint>()
+                for (entry in existingLocal) {
+                    existingFingerprints.add(historySyncMapper.toFingerprint(entry, userId))
+                }
                 
                 val dedupedRemote = remoteNew.filterNot { remote ->
                     historySyncMapper.toFingerprint(remote) in existingFingerprints

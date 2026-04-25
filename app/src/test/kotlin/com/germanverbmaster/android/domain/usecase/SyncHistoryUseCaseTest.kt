@@ -16,6 +16,7 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
@@ -94,7 +95,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(unsyncedEntity)
-        coEvery { historyDao.allForUser(userId) } returns listOf(unsyncedEntity)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(unsyncedEntity))
 
         val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
         coEvery { historySyncMapper.toFingerprint(unsyncedEntity, userId) } returns fingerprint
@@ -158,7 +159,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(anonymousRecord)
-        coEvery { historyDao.allForUser(userId) } returns listOf(anonymousRecord)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(anonymousRecord))
 
         val fingerprint = HistorySyncFingerprint(userId, "t5", "l5", "drill", "correct", "2023-10-01T11:00:00Z")
         coEvery { historySyncMapper.toFingerprint(anonymousRecord, userId) } returns fingerprint
@@ -232,7 +233,7 @@ class SyncHistoryUseCaseTest {
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(uploadedEntity)
         // Simulate local DB containing the record after it was marked as synced
-        coEvery { historyDao.allForUser(userId) } returns listOf(uploadedEntity.copy(synced = true))
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(uploadedEntity.copy(synced = true)))
 
         val fingerprint = HistorySyncFingerprint(userId, uploadedEntity.taskId, uploadedEntity.lexemeId, uploadedEntity.taskType, uploadedEntity.result, "2023-10-01T11:00:00Z")
         coEvery { historySyncMapper.toFingerprint(any(), userId) } returns fingerprint
@@ -290,8 +291,8 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns listOf(blockedEntity)
-        coEvery { historyDao.allForUser(userId) } returns listOf(blockedEntity)
-        coEvery { historySyncMapper.toRemote(blockedEntity, userId) } returns null
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(blockedEntity))
+        coEvery { historySyncMapper.toRemote(blockedEntity, userId) } throws IllegalStateException("Mock error")
         coEvery { prefs.getHistoryLastSync() } returns null
         coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
 
@@ -338,7 +339,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
-        coEvery { historyDao.allForUser(userId) } returns listOf(existingLocal)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(existingLocal))
         
         val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
         coEvery { historySyncMapper.toFingerprint(existingLocal, userId) } returns fingerprint
@@ -399,7 +400,7 @@ class SyncHistoryUseCaseTest {
 
         every { authRepository.currentUserId } returns userId
         coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
-        coEvery { historyDao.allForUser(userId) } returns listOf(localWortschatz)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(localWortschatz))
         
         // Mapper resolves the local word_12 to the real remote IDs
         coEvery { historySyncMapper.toFingerprint(localWortschatz, userId) } returns mappedFingerprint

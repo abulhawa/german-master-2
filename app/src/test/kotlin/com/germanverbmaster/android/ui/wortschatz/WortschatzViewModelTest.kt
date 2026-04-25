@@ -2,6 +2,7 @@ package com.germanverbmaster.android.ui.wortschatz
 
 import android.util.Log
 import app.cash.turbine.test
+import com.germanverbmaster.android.data.local.dao.DrillStats
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.SyncPreferences
@@ -68,7 +69,8 @@ class WortschatzViewModelTest {
         every { repo.observeByPosTypes(any()) } returns flowOf(mockWords)
         every { repo.observeByLevelsAndPos(any(), any()) } returns flowOf(mockWords)
         every { repo.observeDistinctPos() } returns flowOf(listOf("V", "N", "Adj"))
-        every { practiceRepo.observeCorrectTaskIds() } returns flowOf(emptySet())
+        every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns flowOf(emptySet())
+        every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>()) } returns flowOf(DrillStats(0, 0))
         
         coEvery { repo.needsSync() } returns false
         coEvery { repo.upsertBundledB2BerufWordsIfAvailable() } returns 0
@@ -119,7 +121,7 @@ class WortschatzViewModelTest {
     @Test
     fun `mastery count is correctly calculated from masteredIds`() = runTest {
         val masteredFlow = MutableStateFlow(emptySet<String>())
-        every { practiceRepo.observeCorrectTaskIds() } returns masteredFlow
+        every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns masteredFlow
         
         val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs)
         

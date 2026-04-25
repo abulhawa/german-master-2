@@ -7,7 +7,6 @@ import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
-import com.germanverbmaster.android.ui.wortschatz.POS_LABELS
 import com.germanverbmaster.android.ui.wortschatz.canonicalPos
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -73,10 +72,10 @@ class AnswerHistoryViewModel @Inject constructor(
             (result == null || it.result == result) &&
             (posSet.isEmpty() || posSet.contains(canonicalPos(it.pos)))
         }
-        
+
         // Normalize the UI options
         val displayOptions = listOf("Alle") + rawOptions.map { canonicalPos(it) }.distinct()
-        
+
         HistoryUiState(
             attempts = hydrateAttempts(filtered),
             filterResult = result,
@@ -84,7 +83,8 @@ class AnswerHistoryViewModel @Inject constructor(
             posOptions = displayOptions,
             isLoading = false,
         )
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
+    }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
 
     fun setFilterResult(result: String?) {
         _filterResult.value = result

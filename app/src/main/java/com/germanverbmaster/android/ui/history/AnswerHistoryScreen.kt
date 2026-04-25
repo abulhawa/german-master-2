@@ -167,16 +167,18 @@ fun HistoryItem(
 ) {
     val isCorrect = attempt.result == "correct"
     val displayLemma = attempt.lemma.ifBlank { "Unbekannt" }
-    
-    val dateStr = try {
-        // Handle various ISO formats robustly
-        val accessor = DateTimeFormatter.ISO_DATE_TIME.parse(attempt.submittedAt)
-        val instant = Instant.from(accessor)
-        DateTimeFormatter.ofPattern("dd.MM. HH:mm")
-            .withZone(ZoneId.systemDefault())
-            .format(instant)
-    } catch (_: Exception) {
-        attempt.submittedAt
+
+    val dateStr = remember(attempt.submittedAt) {
+        try {
+            // Handle various ISO formats robustly
+            val accessor = DateTimeFormatter.ISO_DATE_TIME.parse(attempt.submittedAt)
+            val instant = Instant.from(accessor)
+            DateTimeFormatter.ofPattern("dd.MM. HH:mm")
+                .withZone(ZoneId.systemDefault())
+                .format(instant)
+        } catch (_: Exception) {
+            attempt.submittedAt
+        }
     }
 
     ElevatedCard(

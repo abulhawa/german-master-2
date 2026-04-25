@@ -98,11 +98,6 @@ data class WortschatzUiState(
         if (listCards.isEmpty()) 0f else masteredCount.toFloat() / listCards.size
 
     val masteredCount: Int get() = listCards.count { masteredIds.contains("word_${it.id}") }
-
-    val overallAccuracy: Float get() {
-        val total = historicalCorrect + historicalWrong
-        return if (total == 0) 0f else historicalCorrect.toFloat() / total * 100f
-    }
 }
 
 // ─── ViewModel ────────────────────────────────────────────────────────────────
@@ -132,7 +127,7 @@ class WortschatzViewModel @Inject constructor(
 
     private fun observeMastery() {
         viewModelScope.launch {
-            practiceRepo.observeCorrectTaskIds().collect { ids ->
+            practiceRepo.observeCorrectTaskIds("vocabulary_drill").collect { ids ->
                 _state.update { it.copy(masteredIds = ids) }
             }
         }

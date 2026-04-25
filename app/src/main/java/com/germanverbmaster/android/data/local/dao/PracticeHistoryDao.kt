@@ -71,8 +71,8 @@ interface PracticeHistoryDao {
     )
     suspend fun getDailyAccuracy(since: String): List<DailyAccuracy>
 
-    @Query("SELECT DISTINCT taskId FROM practice_history WHERE result = 'correct'")
-    fun observeCorrectTaskIds(): Flow<List<String>>
+    @Query("SELECT DISTINCT taskId FROM practice_history WHERE result = 'correct' AND (:taskType IS NULL OR taskType = :taskType)")
+    fun observeCorrectTaskIds(taskType: String?): Flow<List<String>>
 
     @Query("SELECT DISTINCT pos FROM practice_history ORDER BY pos ASC")
     fun observeDistinctPos(): Flow<List<String>>

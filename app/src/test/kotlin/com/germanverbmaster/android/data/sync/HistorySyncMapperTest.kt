@@ -7,16 +7,16 @@ import com.germanverbmaster.android.data.remote.RemoteHistory
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.data.repository.WordRepository
-import io.mockk.every
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
 import kotlinx.coroutines.test.runTest
 import org.junit.After
-import org.junit.Before
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Before
 import org.junit.Test
 
 class HistorySyncMapperTest {
@@ -142,7 +142,8 @@ class HistorySyncMapperTest {
 
         val remote = mapper.toRemote(entity, "user-1")
 
-        assertNull(remote)
+        requireNotNull(remote)
+        assertEquals("identity:v:machen", remote.taskId)
     }
 
     @Test

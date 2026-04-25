@@ -68,6 +68,7 @@ class AnswerHistoryViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         every { practiceRepository.observeRecent(200) } returns attemptsFlow
+        every { practiceRepository.observeDistinctPos() } returns MutableStateFlow(listOf("V", "N", "Adj"))
         coEvery { lexemeRepository.getByIds(any()) } returns emptyList()
         coEvery { lexemeRepository.getById(any()) } returns null
         coEvery { syncHistoryUseCase() } returns Unit
@@ -97,7 +98,7 @@ class AnswerHistoryViewModelTest {
             assertEquals(false, loadedState.isLoading)
             assertEquals(2, loadedState.attempts.size)
             assertEquals(null, loadedState.filterResult)
-            assertEquals(null, loadedState.filterPos)
+            assertEquals(emptySet<String>(), loadedState.filterPosSet)
         }
     }
 
@@ -141,11 +142,11 @@ class AnswerHistoryViewModelTest {
             advanceUntilIdle()
             awaitItem()
 
-            viewModel.setFilterPos("N")
+            viewModel.togglePos("N")
 
             advanceUntilIdle()
             val filteredState = awaitItem()
-            assertEquals("N", filteredState.filterPos)
+            assertEquals(setOf("N"), filteredState.filterPosSet)
             assertEquals(1, filteredState.attempts.size)
             assertEquals("Haus", filteredState.attempts[0].lemma)
         }

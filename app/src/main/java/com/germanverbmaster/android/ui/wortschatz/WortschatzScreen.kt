@@ -632,7 +632,6 @@ private fun DrillContent(
                 color = MaterialTheme.colorScheme.errorContainer,
                 modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
             )
-            DrillStatChip("${state.overallAccuracy.roundToInt()}%", MaterialTheme.colorScheme.surfaceVariant, Modifier.weight(1f))
         }
 
         LinearProgressIndicator(
@@ -665,7 +664,6 @@ private fun DrillContent(
                 DrillDoneCard(
                     correct = state.historicalCorrect,
                     wrong = state.historicalWrong,
-                    accuracy = state.overallAccuracy,
                     onRestart = viewModel::restartDrill,
                 )
             }
@@ -1029,7 +1027,7 @@ private fun DrillSkeleton() {
             modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            repeat(3) {
+            repeat(2) {
                 ShimmerItem(height = 32.dp, modifier = Modifier.weight(1f))
             }
         }
@@ -1081,7 +1079,7 @@ private fun DrillSkeleton() {
 }
 
 @Composable
-fun DrillDoneCard(correct: Int, wrong: Int, accuracy: Float, onRestart: () -> Unit) {
+fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
     Column(
         modifier            = Modifier.fillMaxWidth().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -1089,7 +1087,7 @@ fun DrillDoneCard(correct: Int, wrong: Int, accuracy: Float, onRestart: () -> Un
         Text("Runde abgeschlossen! 🎉", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))
         Text(
-            "Richtig: $correct  |  Falsch: $wrong  |  Quote: ${accuracy.roundToInt()}%",
+            "Richtig: $correct  |  Falsch: $wrong",
             style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(Modifier.height(20.dp))
