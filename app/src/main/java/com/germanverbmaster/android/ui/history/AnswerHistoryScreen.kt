@@ -54,8 +54,8 @@ fun AnswerHistoryScreen(
 
     if (showFilterSheet.value) {
         FilterBottomSheet(
-            selectedLevels = emptySet(), // No level filter in history yet
-            onLevelToggle = {},
+            selectedLevels = state.filterLevelSet,
+            onLevelToggle = viewModel::toggleLevel,
             selectedPosSet = state.filterPosSet,
             onPosToggle = viewModel::togglePos,
             posOptions = state.posOptions,
@@ -90,12 +90,13 @@ fun AnswerHistoryScreen(
 
             BadgedBox(
                 badge = {
-                    if (state.filterPosSet.isNotEmpty()) {
+                    val filterCount = state.filterPosSet.size + state.filterLevelSet.size
+                    if (filterCount > 0) {
                         Badge(
                             containerColor = MaterialTheme.colorScheme.primary,
                             contentColor = MaterialTheme.colorScheme.onPrimary
                         ) {
-                            Text(state.filterPosSet.size.toString())
+                            Text(filterCount.toString())
                         }
                     }
                 },
@@ -108,7 +109,7 @@ fun AnswerHistoryScreen(
                     Icon(
                         imageVector = Icons.Default.Tune,
                         contentDescription = "Filter",
-                        tint = if (state.filterPosSet.isNotEmpty()) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                        tint = if (state.filterPosSet.isNotEmpty() || state.filterLevelSet.isNotEmpty()) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -124,17 +125,17 @@ fun AnswerHistoryScreen(
             FilterChip(
                 selected = state.filterResult == null,
                 onClick = { viewModel.setFilterResult(null) },
-                label = { Text("Alle") }
+                label = { Text("Alle (${state.correctCount + state.incorrectCount})") }
             )
             FilterChip(
                 selected = state.filterResult == "correct",
                 onClick = { viewModel.setFilterResult("correct") },
-                label = { Text("Richtig") }
+                label = { Text("Richtig (${state.correctCount})") }
             )
             FilterChip(
                 selected = state.filterResult == "incorrect",
                 onClick = { viewModel.setFilterResult("incorrect") },
-                label = { Text("Falsch") }
+                label = { Text("Falsch (${state.incorrectCount})") }
             )
         }
 

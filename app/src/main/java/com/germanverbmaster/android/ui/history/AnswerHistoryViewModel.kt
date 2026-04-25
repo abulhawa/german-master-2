@@ -23,8 +23,11 @@ data class HistoryUiState(
     val attempts: List<PracticeHistoryEntity> = emptyList(),
     val filterResult: String? = null, // "correct", "incorrect", null
     val filterPosSet: Set<String> = emptySet(),
+    val filterLevelSet: Set<String> = emptySet(),
     val posOptions: List<String> = emptyList(),
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    val correctCount: Int = 0,
+    val incorrectCount: Int = 0
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -40,6 +43,7 @@ class AnswerHistoryViewModel @Inject constructor(
     private val initialResult: String? = savedStateHandle["result"]
     private val _filterResult = MutableStateFlow(initialResult)
     private val _filterPosSet = MutableStateFlow<Set<String>>(emptySet())
+    private val _filterLevelSet = MutableStateFlow<Set<String>>(emptySet())
     private val _rawPosOptions = MutableStateFlow<List<String>>(emptyList())
 
     init {
@@ -65,26 +69,39 @@ class AnswerHistoryViewModel @Inject constructor(
         practiceRepository.observeRecent(200),
         _filterResult,
         _filterPosSet,
+        _filterLevelSet,
         _rawPosOptions
-    ) { attempts, result, posSet, rawOptions ->
-        // Normalize the attempts for filtering
-        val filtered = attempts.filter {
-            (result == null || it.result == result) &&
-            (posSet.isEmpty() || posSet.contains(canonicalPos(it.pos)))
-        }
-
+    ) { attempts, result, posSet, levelSet, rawOptions ->
         // Normalize the UI options
         val displayOptions = listOf("Alle") + rawOptions.map { canonicalPos(it) }.distinct()
 
+        // 1. First hydrate basic lemma/level if missing so we can filter by them
+        val hydrated = hydrateAttempts(attempts)
+
+        // 2. Apply POS and Level filters for count calculations
+        val categoryFiltered = hydrated.filter {
+            (posSet.isEmpty() || posSet.contains(canonicalPos(it.pos))) &&
+            (levelSet.isEmpty() || levelSet.contains(it.cefrLevel))
+        }
+
+        val correctCount = categoryFiltered.count { it.result == "correct" }
+        val incorrectCount = categoryFiltered.count { it.result == "incorrect" }
+
+        // 3. Final filter for display (Correct/Incorrect toggle)
+        val filtered = if (result == null) categoryFiltered else categoryFiltered.filter { it.result == result }
+
         HistoryUiState(
-            attempts = hydrateAttempts(filtered),
+            attempts = filtered,
             filterResult = result,
             filterPosSet = posSet,
+            filterLevelSet = levelSet,
             posOptions = displayOptions,
             isLoading = false,
+            correctCount = correctCount,
+            incorrectCount = incorrectCount
         )
     }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
+    .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
 
     fun setFilterResult(result: String?) {
         _filterResult.value = result
@@ -96,6 +113,16 @@ class AnswerHistoryViewModel @Inject constructor(
                 emptySet()
             } else {
                 if (current.contains(pos)) current - pos else current + pos
+            }
+        }
+    }
+
+    fun toggleLevel(level: String) {
+        _filterLevelSet.update { current ->
+            if (level == "Alle") {
+                emptySet()
+            } else {
+                if (current.contains(level)) current - level else current + level
             }
         }
     }
