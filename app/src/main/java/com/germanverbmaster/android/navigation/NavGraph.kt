@@ -132,6 +132,7 @@ fun AppNavGraph() {
                 })
             ) {
                 AnswerHistoryScreen(
+                    onBack = { navController.popBackStack() },
                     onNavigateToWordDetail = { wordId -> navController.navigate(Screen.WordDetail.createRoute(wordId)) }
                 )
             }

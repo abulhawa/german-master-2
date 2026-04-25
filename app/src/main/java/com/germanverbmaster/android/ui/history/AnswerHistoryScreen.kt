@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -45,6 +46,7 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun AnswerHistoryScreen(
     viewModel: AnswerHistoryViewModel = hiltViewModel(),
+    onBack: () -> Unit = {},
     onNavigateToWordDetail: (Int) -> Unit = {}
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -65,14 +67,25 @@ fun AnswerHistoryScreen(
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            IconButton(
+                onClick = onBack,
+                modifier = Modifier.padding(start = 8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back"
+                )
+            }
+
             Text(
                 "Verlauf",
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(16.dp)
             )
 
             BadgedBox(
