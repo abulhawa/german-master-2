@@ -59,7 +59,8 @@ fun HomeScreen(
         onSetCefrLevel = viewModel::setCefrLevel,
         onRefresh = viewModel::refresh,
         onNavigateToHistory = onNavigateToHistory,
-        onSubmitResult = viewModel::submitResult
+        onSubmitResult = viewModel::submitResult,
+        onSpeak = viewModel::speak
     )
 }
 
@@ -71,6 +72,7 @@ fun HomeScreenContent(
     onRefresh: () -> Unit,
     onNavigateToHistory: (String) -> Unit,
     onSubmitResult: (TaskCard, Boolean, String, String, Int) -> Unit,
+    onSpeak: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -137,6 +139,7 @@ fun HomeScreenContent(
                     onWrong = { submitted, correct, ms -> 
                         onSubmitResult(state.currentTask, false, submitted, correct, ms)
                     },
+                    onSpeak = onSpeak,
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )
             }

@@ -9,6 +9,7 @@ import com.germanverbmaster.android.domain.model.TaskCard
 import com.germanverbmaster.android.domain.usecase.GetNextTaskUseCase
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
+import com.germanverbmaster.android.speech.TextToSpeechHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -35,6 +36,7 @@ class HomeViewModel @Inject constructor(
     private val submitAnswer: SubmitAnswerUseCase,
     private val syncData: SyncDataUseCase,
     private val syncHistory: com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase,
+    private val tts: TextToSpeechHelper,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeUiState())
@@ -42,6 +44,10 @@ class HomeViewModel @Inject constructor(
 
     init {
         syncAndLoad()
+    }
+
+    fun speak(text: String) {
+        tts.speak(text)
     }
 
     private fun syncAndLoad() = viewModelScope.launch {

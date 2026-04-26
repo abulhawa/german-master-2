@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.speech.TextToSpeechHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -15,6 +16,7 @@ import javax.inject.Inject
 class WordDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     repository: WordRepository,
+    private val tts: TextToSpeechHelper,
 ) : ViewModel() {
 
     private val wordId: Int = checkNotNull(savedStateHandle["wordId"])
@@ -25,4 +27,8 @@ class WordDetailViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = null
         )
+
+    fun speak(text: String) {
+        tts.speak(text)
+    }
 }

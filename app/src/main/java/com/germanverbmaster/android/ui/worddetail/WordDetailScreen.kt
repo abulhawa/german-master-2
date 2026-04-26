@@ -25,12 +25,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -38,7 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
-import com.germanverbmaster.android.speech.TextToSpeechHelper
 import com.germanverbmaster.android.ui.common.NounFormFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,12 +45,6 @@ fun WordDetailScreen(
     viewModel: WordDetailViewModel = hiltViewModel()
 ) {
     val word by viewModel.word.collectAsStateWithLifecycle()
-    val context = LocalContext.current
-    val ttsHelper = remember { TextToSpeechHelper(context) }
-
-    DisposableEffect(Unit) {
-        onDispose { ttsHelper.shutdown() }
-    }
 
     Scaffold(
         topBar = {
@@ -79,7 +70,7 @@ fun WordDetailScreen(
             if (currentWord == null) {
                 CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
             } else {
-                WordDetailContent(currentWord, onSpeak = { ttsHelper.speak(it) })
+                WordDetailContent(currentWord, onSpeak = { viewModel.speak(it) })
             }
         }
     }

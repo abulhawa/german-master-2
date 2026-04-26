@@ -26,7 +26,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -34,11 +33,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.domain.model.TaskCard
-import com.germanverbmaster.android.speech.TextToSpeechHelper
 import kotlinx.serialization.json.Json
 
 /**
@@ -52,17 +49,9 @@ fun PracticeCard(
     task: TaskCard,
     onCorrect: (submitted: String, correct: String, responseMs: Int) -> Unit,
     onWrong: (submitted: String, correct: String, responseMs: Int) -> Unit,
+    onSpeak: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
-    val ttsHelper = remember { TextToSpeechHelper(context) }
-
-    DisposableEffect(Unit) {
-        onDispose {
-            ttsHelper.shutdown()
-        }
-    }
-
     var answer by remember(task.taskId) { mutableStateOf("") }
     var revealed by remember(task.taskId) { mutableStateOf(false) }
     var hintsUsedCount by remember(task.taskId) { mutableIntStateOf(0) }
@@ -115,7 +104,7 @@ fun PracticeCard(
                 PracticePrompt(
                     task = task,
                     translation = task.translation,
-                    onSpeak = { ttsHelper.speak(it) }
+                    onSpeak = onSpeak
                 )
 
                 Spacer(Modifier.height(24.dp))
@@ -165,7 +154,7 @@ fun PracticeCard(
 
                     val isCorrect = answer.trim().equals(solution.trim(), ignoreCase = true)
 
-                    ResultDisplay(isCorrect, answer, solution, task, onSpeak = { ttsHelper.speak(it) })
+                    ResultDisplay(isCorrect, answer, solution, task, onSpeak = onSpeak)
                 }
             }
 
@@ -177,7 +166,7 @@ fun PracticeCard(
                         revealed = true
                         // Speak solution when revealed
                         val solution = task.solution["form"] ?: task.solution["answer"] ?: task.solution.values.firstOrNull() ?: ""
-                        ttsHelper.speak(solution)
+                        onSpeak(solution)
                     },
                     modifier = Modifier.fillMaxWidth().height(48.dp),
                     enabled = answer.isNotBlank(),

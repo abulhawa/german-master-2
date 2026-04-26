@@ -11,6 +11,7 @@ import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
+import com.germanverbmaster.android.speech.TextToSpeechHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -110,6 +111,7 @@ class WortschatzViewModel @Inject constructor(
     private val syncDataUseCase: SyncDataUseCase,
     private val syncHistoryUseCase: SyncHistoryUseCase,
     private val prefs: AppPreferences,
+    private val tts: TextToSpeechHelper,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(WortschatzUiState())
@@ -123,6 +125,10 @@ class WortschatzViewModel @Inject constructor(
         observePosFilters()
         observeMastery()
         observeHistoricalStats()
+    }
+
+    fun speak(text: String) {
+        tts.speak(text)
     }
 
     private fun observeMastery() {

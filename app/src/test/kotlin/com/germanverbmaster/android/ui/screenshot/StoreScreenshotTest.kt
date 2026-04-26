@@ -213,7 +213,8 @@ class StoreScreenshotTest {
                 HomeScreenContent(
                     state = homeBaseState,
                     onSetMode = {}, onSetCefrLevel = {}, onRefresh = {}, onNavigateToHistory = {},
-                    onSubmitResult = { _, _, _, _, _ -> }
+                    onSubmitResult = { _, _, _, _, _ -> },
+                    onSpeak = {}
                 )
             }
         }
@@ -247,7 +248,8 @@ class StoreScreenshotTest {
                         )
                     ),
                     onSetMode = {}, onSetCefrLevel = {}, onRefresh = {}, onNavigateToHistory = {},
-                    onSubmitResult = { _, _, _, _, _ -> }
+                    onSubmitResult = { _, _, _, _, _ -> },
+                    onSpeak = {}
                 )
             }
         }
