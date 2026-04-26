@@ -58,6 +58,31 @@ fun B2PracticeScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    B2PracticeScreenContent(
+        state = state,
+        onSetCategory = viewModel::setCategory,
+        onSetMode = viewModel::setMode,
+        onToggleShuffle = viewModel::toggleShuffle,
+        onNavigateToHistory = onNavigateToHistory,
+        onRestart = viewModel::restart,
+        onFlip = viewModel::flip,
+        onMarkCorrect = viewModel::markCorrect,
+        onMarkWrong = viewModel::markWrong,
+    )
+}
+
+@Composable
+fun B2PracticeScreenContent(
+    state: B2PracticeUiState,
+    onSetCategory: (B2Category) -> Unit,
+    onSetMode: (CardMode) -> Unit,
+    onToggleShuffle: () -> Unit,
+    onNavigateToHistory: (String) -> Unit,
+    onRestart: () -> Unit,
+    onFlip: () -> Unit,
+    onMarkCorrect: () -> Unit,
+    onMarkWrong: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -78,7 +103,7 @@ fun B2PracticeScreen(
             B2Category.entries.forEach { cat ->
                 Tab(
                     selected = state.category == cat,
-                    onClick = { viewModel.setCategory(cat) },
+                    onClick = { onSetCategory(cat) },
                     text = { Text(cat.label, style = MaterialTheme.typography.labelLarge) },
                 )
             }
@@ -100,14 +125,14 @@ fun B2PracticeScreen(
                 CardMode.entries.forEach { m ->
                     FilterChip(
                         selected = state.mode == m,
-                        onClick = { viewModel.setMode(m) },
+                        onClick = { onSetMode(m) },
                         label = { Text(m.label, style = MaterialTheme.typography.labelSmall) },
                         modifier = Modifier.padding(end = 4.dp),
                     )
                 }
                 IconToggleButton(
                     checked = state.shuffle,
-                    onCheckedChange = { viewModel.toggleShuffle() },
+                    onCheckedChange = { onToggleShuffle() },
                 ) {
                     Icon(Icons.Default.Shuffle,
                         contentDescription = "Shuffle",
@@ -143,7 +168,7 @@ fun B2PracticeScreen(
                     correct = state.correct,
                     wrong = state.wrong,
                     accuracy = state.accuracy,
-                    onRestart = viewModel::restart,
+                    onRestart = onRestart,
                 )
             } else {
                 state.current?.let { card ->
@@ -151,7 +176,7 @@ fun B2PracticeScreen(
                         card = card,
                         mode = state.mode,
                         isFlipped = state.isFlipped,
-                        onFlip = viewModel::flip,
+                        onFlip = onFlip,
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(1f),
@@ -165,7 +190,7 @@ fun B2PracticeScreen(
                         ) {
                             // Wrong
                             Button(
-                                onClick = viewModel::markWrong,
+                                onClick = onMarkWrong,
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = MaterialTheme.colorScheme.errorContainer,
                                     contentColor = MaterialTheme.colorScheme.onErrorContainer,
@@ -175,7 +200,7 @@ fun B2PracticeScreen(
 
                             // Correct
                             Button(
-                                onClick = viewModel::markCorrect,
+                                onClick = onMarkCorrect,
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                                     contentColor = MaterialTheme.colorScheme.onPrimaryContainer,

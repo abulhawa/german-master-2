@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.domain.model.PracticeMode
+import com.germanverbmaster.android.domain.model.TaskCard
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import com.germanverbmaster.android.ui.components.PracticeCard
 import com.germanverbmaster.android.ui.components.ShimmerItem
@@ -52,6 +53,25 @@ fun HomeScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    HomeScreenContent(
+        state = state,
+        onSetMode = viewModel::setMode,
+        onSetCefrLevel = viewModel::setCefrLevel,
+        onRefresh = viewModel::refresh,
+        onNavigateToHistory = onNavigateToHistory,
+        onSubmitResult = viewModel::submitResult
+    )
+}
+
+@Composable
+fun HomeScreenContent(
+    state: HomeUiState,
+    onSetMode: (PracticeMode) -> Unit,
+    onSetCefrLevel: (String?) -> Unit,
+    onRefresh: () -> Unit,
+    onNavigateToHistory: (String) -> Unit,
+    onSubmitResult: (TaskCard, Boolean, String, String, Int) -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,9 +99,9 @@ fun HomeScreen(
 
         FilterSection(
             mode = state.mode,
-            onModeChange = viewModel::setMode,
+            onModeChange = onSetMode,
             cefrLevel = state.cefrLevel,
-            onLevelChange = viewModel::setCefrLevel,
+            onLevelChange = onSetCefrLevel,
         )
 
         Spacer(Modifier.height(12.dp))
@@ -112,10 +132,10 @@ fun HomeScreen(
                 PracticeCard(
                     task = state.currentTask!!,
                     onCorrect = { submitted, correct, ms -> 
-                        viewModel.submitResult(state.currentTask!!, true, submitted, correct, ms) 
+                        onSubmitResult(state.currentTask!!, true, submitted, correct, ms) 
                     },
                     onWrong = { submitted, correct, ms -> 
-                        viewModel.submitResult(state.currentTask!!, false, submitted, correct, ms) 
+                        onSubmitResult(state.currentTask!!, false, submitted, correct, ms) 
                     },
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )
@@ -129,7 +149,7 @@ fun HomeScreen(
                         Text("Keine Aufgaben verfügbar",
                             style = MaterialTheme.typography.bodyLarge)
                         Spacer(Modifier.height(12.dp))
-                        Button(onClick = { viewModel.refresh() }) {
+                        Button(onClick = onRefresh) {
                             Text("Neu laden")
                         }
                     }

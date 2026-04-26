@@ -96,6 +96,8 @@ room {
     schemaDirectory("$projectDir/schemas")
 }
 
+apply(from = "../gradle/tasks/screenshots.gradle.kts")
+
 tasks.withType<Test>().configureEach {
     System.getProperty("roborazzi.test.record")?.let { systemProperty("roborazzi.test.record", it) }
     System.getProperty("roborazzi.test.verify")?.let { systemProperty("roborazzi.test.verify", it) }
