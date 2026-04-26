@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Singleton
 class TextToSpeechHelper @Inject constructor(
-    @ApplicationContext private val context: Context
+    @param:ApplicationContext private val context: Context
 ) {
     private var tts: TextToSpeech? = null
     private var isInitialized = false
@@ -50,20 +50,5 @@ class TextToSpeechHelper @Inject constructor(
                 initializeTts()
             }
         }
-    }
-
-    fun stop() {
-        tts?.stop()
-    }
-
-    /**
-     * Should only be called when the application is actually being destroyed
-     * if managed as a Singleton.
-     */
-    fun shutdown() {
-        tts?.stop()
-        tts?.shutdown()
-        tts = null
-        isInitialized = false
     }
 }

@@ -123,15 +123,4 @@ class HomeViewModel @Inject constructor(
             if (remaining.size < 5) viewModelScope.launch { loadNextBatch() }
         }
     }
-
-    fun skip() {
-        val remaining = _state.value.queue.drop(1)
-        _state.update {
-            it.copy(
-                queue = remaining,
-                currentTask = remaining.firstOrNull(),
-                stats = it.stats.copy(skipped = it.stats.skipped + 1),
-            )
-        }
-    }
 }
