@@ -130,12 +130,12 @@ fun HomeScreenContent(
             }
             state.currentTask != null -> {
                 PracticeCard(
-                    task = state.currentTask!!,
+                    task = state.currentTask,
                     onCorrect = { submitted, correct, ms -> 
-                        onSubmitResult(state.currentTask!!, true, submitted, correct, ms) 
+                        onSubmitResult(state.currentTask, true, submitted, correct, ms) 
                     },
                     onWrong = { submitted, correct, ms -> 
-                        onSubmitResult(state.currentTask!!, false, submitted, correct, ms) 
+                        onSubmitResult(state.currentTask, false, submitted, correct, ms)
                     },
                     modifier = Modifier.fillMaxWidth().weight(1f),
                 )
