@@ -207,7 +207,8 @@ class WortschatzViewModel @Inject constructor(
 
     fun updateSearchQuery(query: String) {
         _state.update { it.copy(searchQuery = query) }
-        observeWords(forceReset = false) // No need to reset drill for search, but wait, usually search is for the list
+        val shouldReset = _state.value.tab == WortschatzTab.DRILL
+        observeWords(forceReset = shouldReset)
     }
 
     fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
