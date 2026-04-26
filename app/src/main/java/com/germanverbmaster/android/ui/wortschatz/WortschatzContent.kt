@@ -297,6 +297,15 @@ private fun WordListContent(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 24.dp),
     ) {
+        item {
+            Text(
+                text = "${cards.size} Wörter",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
+            )
+        }
+
         sortedGroups.forEach { (pos, groupCards) ->
             item(key = "header_$pos") {
                 Text(
