@@ -1,6 +1,6 @@
 package com.germanverbmaster.android.ui.wortschatz
 
-import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -30,6 +30,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Tune
@@ -55,15 +56,19 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.util.VelocityTracker
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -688,56 +693,65 @@ private fun DrillContent(
                     }
                 }
 
-                Box(
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f),
-                    contentAlignment = Alignment.Center
+                        .weight(1f)
                 ) {
-                    DrillFlipCard(
-                        card = card,
-                        displayFront = displayFront,
-                        speakFront = speakFront,
-                        isFlipped = state.drillFlipped,
-                        onFlip = onFlip,
-                        onSpeak = onSpeak,
-                        onMarkCorrect = onMarkCorrect,
-                        onMarkWrong = onMarkWrong,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                }
+                    Box(modifier = Modifier.weight(1f)) {
+                        DrillFlipCard(
+                            card = card,
+                            displayFront = displayFront,
+                            speakFront = speakFront,
+                            isFlipped = state.drillFlipped,
+                            onFlip = onFlip,
+                            onSpeak = onSpeak,
+                            onMarkCorrect = onMarkCorrect,
+                            onMarkWrong = onMarkWrong,
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    }
 
-                if (state.drillFlipped) {
-                    Spacer(Modifier.height(12.dp))
-                    OutlinedButton(
-                        onClick = onFlip,
+                    // Bottom controls - constant height to prevent jumping
+                    Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(44.dp),
-                    ) { Text("Zurück zur Frage") }
-
-                    Spacer(Modifier.height(8.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            .padding(bottom = 8.dp, top = 12.dp)
+                            .height(110.dp), // Fixed height for buttons
+                        verticalArrangement = Arrangement.Bottom
                     ) {
-                        Button(
-                            onClick = onMarkWrong,
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = MaterialTheme.colorScheme.errorContainer,
-                                contentColor   = MaterialTheme.colorScheme.onErrorContainer,
-                            ),
-                            modifier = Modifier.weight(1f).height(48.dp),
-                        ) { Text("✗ Falsch") }
+                        if (state.drillFlipped) {
+                            OutlinedButton(
+                                onClick = onFlip,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(44.dp),
+                            ) { Text("Zurück zur Frage") }
 
-                        Button(
-                            onClick = onMarkCorrect,
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                contentColor   = MaterialTheme.colorScheme.onPrimaryContainer,
-                            ),
-                            modifier = Modifier.weight(1f).height(48.dp),
-                        ) { Text("✓ Richtig") }
+                            Spacer(Modifier.height(8.dp))
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            ) {
+                                Button(
+                                    onClick = onMarkWrong,
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = MaterialTheme.colorScheme.errorContainer,
+                                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                                    ),
+                                    modifier = Modifier.weight(1f).height(48.dp),
+                                ) { Text("✗ Falsch") }
+
+                                Button(
+                                    onClick = onMarkCorrect,
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    ),
+                                    modifier = Modifier.weight(1f).height(48.dp),
+                                ) { Text("✓ Richtig") }
+                            }
+                        }
                     }
                 }
                 Spacer(Modifier.height(16.dp))
@@ -758,8 +772,8 @@ private fun DrillFlipCard(
     onMarkWrong: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val offsetX = remember(card) { Animatable(0f) }
     val scope = rememberCoroutineScope()
+    var dragX by remember(card) { mutableFloatStateOf(0f) }
 
     val rotationY by animateFloatAsState(
         targetValue    = if (isFlipped) 180f else 0f,
@@ -769,166 +783,194 @@ private fun DrillFlipCard(
 
     Box(
         modifier = modifier
-            .offset { IntOffset(offsetX.value.roundToInt(), 0) }
-            .graphicsLayer {
-                rotationZ = (offsetX.value / 20).coerceIn(-15f, 15f)
-                alpha = (1f - (abs(offsetX.value) / 800f)).coerceAtLeast(0.6f)
-            }
             .pointerInput(card, isFlipped) {
                 if (!isFlipped) return@pointerInput
+                val velocityTracker = VelocityTracker()
+                
                 detectHorizontalDragGestures(
+                    onDragStart = { velocityTracker.resetTracking() },
                     onDragEnd = {
+                        val velocity = velocityTracker.calculateVelocity().x
                         val threshold = size.width / 4f
-                        if (offsetX.value > threshold) {
-                            scope.launch {
-                                offsetX.animateTo(size.width.toFloat() * 1.5f, tween(300))
-                                onMarkCorrect()
+                        val velocityThreshold = 1000f
+
+                        scope.launch {
+                            val targetX = if (dragX > threshold || velocity > velocityThreshold) {
+                                size.width.toFloat() * 1.5f
+                            } else if (dragX < -threshold || velocity < -velocityThreshold) {
+                                -size.width.toFloat() * 1.5f
+                            } else {
+                                0f
                             }
-                        } else if (offsetX.value < -threshold) {
-                            scope.launch {
-                                offsetX.animateTo(-size.width.toFloat() * 1.5f, tween(300))
-                                onMarkWrong()
+
+                            animate(initialValue = dragX, targetValue = targetX, animationSpec = tween(300)) { value, _ ->
+                                dragX = value
                             }
-                        } else {
-                            scope.launch { offsetX.animateTo(0f, tween(300)) }
+
+                            if (targetX > 0) onMarkCorrect()
+                            else if (targetX < 0) onMarkWrong()
+                        }
+                    },
+                    onDragCancel = {
+                        scope.launch {
+                            animate(initialValue = dragX, targetValue = 0f, animationSpec = tween(300)) { value, _ ->
+                                dragX = value
+                            }
                         }
                     },
                     onHorizontalDrag = { change, dragAmount ->
                         change.consume()
-                        scope.launch { offsetX.snapTo(offsetX.value + dragAmount) }
+                        dragX += dragAmount
+                        velocityTracker.addPosition(change.uptimeMillis, change.position)
                     }
                 )
             }
-            .then(if (!isFlipped) Modifier.clickable { onFlip() } else Modifier)
+            .then(if (!isFlipped) Modifier.clickable { onFlip() } else Modifier),
+        contentAlignment = Alignment.Center
     ) {
-        if (rotationY <= 90f) {
-            DrillCardFace(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .graphicsLayer { this.rotationY = rotationY },
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.Top
+        // Wrapper for the card that actually moves
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .offset { IntOffset(dragX.roundToInt(), 0) }
+                .graphicsLayer {
+                    rotationZ = (dragX / 20f).coerceIn(-15f, 15f)
+                    transformOrigin = TransformOrigin(0.5f, 1.2f) // Pivot below card for wiper effect
+                    alpha = (1f - (abs(dragX) / 800f)).coerceAtLeast(0.6f)
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            if (rotationY <= 90f) {
+                DrillCardFace(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .graphicsLayer { this.rotationY = rotationY },
                 ) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        card.level?.let { level ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            card.level?.let { level ->
+                                Surface(
+                                    shape = MaterialTheme.shapes.small,
+                                    color = MaterialTheme.colorScheme.secondaryContainer,
+                                ) {
+                                    Text(
+                                        level,
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                    )
+                                }
+                            }
                             Surface(
                                 shape = MaterialTheme.shapes.small,
-                                color = MaterialTheme.colorScheme.secondaryContainer,
+                                color = MaterialTheme.colorScheme.tertiaryContainer,
                             ) {
                                 Text(
-                                    level,
+                                    card.pos,
                                     style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
                                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                                 )
                             }
                         }
-                        Surface(
-                            shape = MaterialTheme.shapes.small,
-                            color = MaterialTheme.colorScheme.tertiaryContainer,
-                        ) {
-                            Text(
-                                card.pos,
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onTertiaryContainer,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                            )
+                        IconButton(onClick = { onSpeak(speakFront) }) {
+                            Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
                         }
                     }
-                    IconButton(onClick = { onSpeak(speakFront) }) {
-                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        text  = displayFront,
+                        style = MaterialTheme.typography.headlineLarge,
+                        fontWeight   = FontWeight.SemiBold,
+                        textAlign    = TextAlign.Center,
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        "Tippen zum Aufdecken",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
+                    )
+                }
+            }
+
+            if (rotationY > 90f) {
+                DrillCardFace(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .graphicsLayer { this.rotationY = rotationY - 180f },
+                ) {
+                    Text(
+                        text  = card.english ?: "",
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color      = MaterialTheme.colorScheme.primary,
+                        textAlign  = TextAlign.Center,
+                        modifier   = Modifier.fillMaxWidth()
+                    )
+                    card.exampleDe?.let { ex ->
+                        Spacer(Modifier.height(12.dp))
+                        Surface(
+                            shape    = MaterialTheme.shapes.small,
+                            color    = MaterialTheme.colorScheme.surfaceVariant,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Column(modifier = Modifier.padding(12.dp)) {
+                                Row(verticalAlignment = Alignment.Top) {
+                                    Text(
+                                        text     = ex,
+                                        style    = MaterialTheme.typography.titleMedium,
+                                        fontStyle = FontStyle.Italic,
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    IconButton(
+                                        onClick = { onSpeak(ex) },
+                                        modifier = Modifier.offset(y = (-4).dp)
+                                    ) {
+                                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
+                                    }
+                                }
+                                card.exampleEn?.let { en ->
+                                    Spacer(Modifier.height(4.dp))
+                                    Text(
+                                        text  = en,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    text  = displayFront,
-                    style = MaterialTheme.typography.headlineLarge,
-                    fontWeight   = FontWeight.SemiBold,
-                    textAlign    = TextAlign.Center,
-                )
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    "Tippen zum Aufdecken",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
-                )
             }
         }
 
-        if (rotationY > 90f) {
-            DrillCardFace(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .graphicsLayer { this.rotationY = rotationY - 180f },
+        if (rotationY > 90f && abs(dragX) > 40) {
+            val alpha = ((abs(dragX) - 40) / 160f).coerceIn(0f, 1f)
+            val isCorrect = dragX > 0
+            
+            Box(
+                modifier = Modifier.matchParentSize(),
+                contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text  = card.english ?: "",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color      = MaterialTheme.colorScheme.primary,
-                    textAlign  = TextAlign.Center,
-                    modifier   = Modifier.fillMaxWidth()
-                )
-                card.exampleDe?.let { ex ->
-                    Spacer(Modifier.height(12.dp))
-                    Surface(
-                        shape    = MaterialTheme.shapes.small,
-                        color    = MaterialTheme.colorScheme.surfaceVariant,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        Column(modifier = Modifier.padding(12.dp)) {
-                            Row(verticalAlignment = Alignment.Top) {
-                                Text(
-                                    text     = ex,
-                                    style    = MaterialTheme.typography.titleMedium,
-                                    fontStyle = FontStyle.Italic,
-                                    modifier = Modifier.weight(1f)
-                                )
-                                IconButton(
-                                    onClick = { onSpeak(ex) },
-                                    modifier = Modifier.offset(y = (-4).dp)
-                                ) {
-                                    Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
-                                }
-                            }
-                            card.exampleEn?.let { en ->
-                                Spacer(Modifier.height(4.dp))
-                                Text(
-                                    text  = en,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
-                                )
-                            }
-                        }
+                Surface(
+                    shape = RoundedCornerShape(24.dp),
+                    color = (if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer).copy(alpha = alpha * 0.85f),
+                    border = BorderStroke(4.dp, (if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error).copy(alpha = alpha)),
+                    modifier = Modifier.graphicsLayer {
+                        scaleX = 0.5f + (alpha * 0.7f) // Starts at 0.5 and grows to 1.2
+                        scaleY = 0.5f + (alpha * 0.7f)
                     }
-                }
-            }
-
-            if (abs(offsetX.value) > 50) {
-                val alpha = ((abs(offsetX.value) - 50) / 150f).coerceIn(0f, 1f)
-                val isCorrect = offsetX.value > 0
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(24.dp),
-                    contentAlignment = if (isCorrect) Alignment.TopStart else Alignment.TopEnd
                 ) {
-                    Surface(
-                        color = (if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer).copy(alpha = alpha),
-                        shape = RoundedCornerShape(8.dp),
-                        border = BorderStroke(2.dp, if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error)
-                    ) {
-                        Text(
-                            text = if (isCorrect) "RICHTIG" else "FALSCH",
-                            color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
-                            fontWeight = FontWeight.Black,
-                            style = MaterialTheme.typography.headlineSmall,
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
-                        )
-                    }
+                    Icon(
+                        imageVector = if (isCorrect) Icons.Default.Check else Icons.Default.Clear,
+                        contentDescription = null,
+                        modifier = Modifier.size(80.dp).padding(16.dp),
+                        tint = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer
+                    )
                 }
             }
         }
