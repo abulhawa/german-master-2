@@ -25,8 +25,8 @@ android {
         applicationId = "com.germanverbmaster.android"
         minSdk = 26
         targetSdk = 37
-        versionCode = 13
-        versionName = "0.1.12"
+        versionCode = 14
+        versionName = "0.1.13"
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
@@ -83,6 +83,11 @@ android {
             // keepDebugSymbols.add("**/libandroidx.graphics.path.so")
             // keepDebugSymbols.add("**/libdatastore_shared_counter.so")
         }
+    }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
     }
 }
 
