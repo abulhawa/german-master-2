@@ -1,5 +1,8 @@
 package com.germanverbmaster.android.ui.components
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +29,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -39,8 +44,11 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -59,7 +67,7 @@ fun GrammarBottomSheetPreview() {
     MaterialTheme {
         GrammarBottomSheetContent(
             currentPage = -1, // Menu
-            totalPages = 7,
+            totalPages = grammarLogicalPages(B2ContentData.grammarTables).size,
             onPrev = {},
             content = {
                 GrammarMenu(
@@ -142,23 +150,17 @@ fun GrammarMenu(
     onSelectTable: (Int) -> Unit
 ) {
     val menuItems = remember(tables) {
-        val list = mutableListOf<Pair<String, Int>>()
-        var skipNext = false
-        tables.forEachIndexed { index, table ->
-            if (skipNext) {
-                skipNext = false
-                return@forEachIndexed
-            }
-            if (table.title.contains("Adjektivdeklination") && 
-                index + 1 < tables.size && 
-                tables[index+1].title.contains("Adjektivdeklination")) {
-                list.add("Adjektivdeklination" to index)
-                skipNext = true
+        var tableIndex = 0
+        grammarLogicalPages(tables).map { pageTables ->
+            val title = if (pageTables.size > 1 && pageTables.first().title.contains("Adjektivdeklination")) {
+                "Adjektivdeklination"
             } else {
-                list.add(table.title to index)
+                pageTables.first().title
             }
+            val item = title to tableIndex
+            tableIndex += pageTables.size
+            item
         }
-        list
     }
 
     LazyColumn(
@@ -197,23 +199,7 @@ fun GrammarBottomSheet(
     val tables = B2ContentData.grammarTables
     
     val logicalPages = remember(tables) {
-        val list = mutableListOf<List<GrammarTable>>()
-        var skipNext = false
-        tables.forEachIndexed { index, table ->
-            if (skipNext) {
-                skipNext = false
-                return@forEachIndexed
-            }
-            if (table.title.contains("Adjektivdeklination") && 
-                index + 1 < tables.size && 
-                tables[index+1].title.contains("Adjektivdeklination")) {
-                list.add(listOf(table, tables[index+1]))
-                skipNext = true
-            } else {
-                list.add(listOf(table))
-            }
-        }
-        list
+        grammarLogicalPages(tables)
     }
 
     val pagerState = rememberPagerState(pageCount = { logicalPages.size + 1 })
@@ -342,13 +328,107 @@ fun GrammarTableCard(table: GrammarTable) {
                 }
             }
             
-            if (table.examples.isNotEmpty()) {
+            if (table.rule.isNotBlank()) {
                 Spacer(Modifier.height(10.dp))
-                table.examples.forEach { ex ->
-                    Text("• $ex", style = MaterialTheme.typography.bodySmall,
-                        fontStyle = FontStyle.Italic,
+                GrammarReferenceSection(
+                    title = "Regel",
+                    items = listOf(table.rule),
+                    initiallyExpanded = true
+                )
+            }
+
+            if (table.examples.isNotEmpty()) {
+                GrammarReferenceSection(
+                    title = "Beispiele",
+                    items = table.examples,
+                    initiallyExpanded = false,
+                    italic = true
+                )
+            }
+
+            if (table.mistakes.isNotEmpty()) {
+                GrammarReferenceSection(
+                    title = "Typische Fehler",
+                    items = table.mistakes,
+                    initiallyExpanded = false
+                )
+            }
+
+            table.extraSections.forEach { section ->
+                GrammarReferenceSection(
+                    title = section.title,
+                    items = section.items,
+                    initiallyExpanded = false
+                )
+            }
+        }
+    }
+}
+
+private fun grammarLogicalPages(tables: List<GrammarTable>): List<List<GrammarTable>> {
+    val pages = mutableListOf<List<GrammarTable>>()
+    var index = 0
+    while (index < tables.size) {
+        val table = tables[index]
+        if (table.title.contains("Adjektivdeklination")) {
+            val group = tables
+                .drop(index)
+                .takeWhile { it.title.contains("Adjektivdeklination") }
+            pages.add(group)
+            index += group.size
+        } else {
+            pages.add(listOf(table))
+            index++
+        }
+    }
+    return pages
+}
+
+@Composable
+private fun GrammarReferenceSection(
+    title: String,
+    items: List<String>,
+    initiallyExpanded: Boolean,
+    italic: Boolean = false
+) {
+    var expanded by remember(title, items) { mutableStateOf(initiallyExpanded) }
+
+    Column(modifier = Modifier.padding(top = 8.dp)) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { expanded = !expanded }
+                .padding(vertical = 4.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Icon(
+                imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                contentDescription = if (expanded) "Collapse $title" else "Expand $title",
+                modifier = Modifier.size(20.dp)
+            )
+        }
+
+        AnimatedVisibility(
+            visible = expanded,
+            enter = expandVertically(),
+            exit = shrinkVertically()
+        ) {
+            Column {
+                items.forEach { item ->
+                    Text(
+                        text = "• $item",
+                        style = MaterialTheme.typography.bodySmall,
+                        fontStyle = if (italic) FontStyle.Italic else FontStyle.Normal,
                         color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.padding(vertical = 2.dp))
+                        modifier = Modifier.padding(vertical = 2.dp)
+                    )
                 }
             }
         }

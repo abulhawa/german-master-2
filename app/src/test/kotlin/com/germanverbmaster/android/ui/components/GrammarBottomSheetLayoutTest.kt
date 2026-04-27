@@ -7,9 +7,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertHeightIsEqualTo
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.compose.ui.unit.dp
+import com.germanverbmaster.android.domain.model.GrammarTable
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -43,6 +47,34 @@ class GrammarBottomSheetLayoutTest {
         composeRule
             .onNodeWithTag(SHEET_CONTENT_TAG)
             .assertHeightIsEqualTo(640.dp)
+    }
+
+    @Test
+    fun grammarTableCard_showsRuleAndExpandsExamples() {
+        composeRule.setContent {
+            MaterialTheme {
+                GrammarTableCard(
+                    table = GrammarTable(
+                        title = "Test",
+                        note = "Note",
+                        headers = listOf("A", "B"),
+                        rows = listOf(listOf("a", "b")),
+                        examples = listOf("Ein Beispiel."),
+                        rule = "Eine klare Regel.",
+                        mistakes = listOf("Ein typischer Fehler.")
+                    )
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Regel").assertIsDisplayed()
+        composeRule.onNodeWithText("• Eine klare Regel.").assertIsDisplayed()
+
+        composeRule.onNodeWithText("Beispiele").performClick()
+        composeRule.onNodeWithText("• Ein Beispiel.").assertIsDisplayed()
+
+        composeRule.onNodeWithText("Typische Fehler").performClick()
+        composeRule.onNodeWithText("• Ein typischer Fehler.").assertIsDisplayed()
     }
 
     private companion object {

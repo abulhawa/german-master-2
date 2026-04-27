@@ -2,6 +2,7 @@ package com.germanverbmaster.android.ui.b2practice
 
 import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
+import com.germanverbmaster.android.domain.model.GrammarSection
 import com.germanverbmaster.android.domain.model.GrammarTable
 
 object B2ContentData {
@@ -81,7 +82,7 @@ object B2ContentData {
         B2Card("nv07", B2Category.NOMEN_VERB, "eine Lösung finden", "to find a solution", null, "Gemeinsam finden wir eine Lösung."),
         B2Card("nv08", B2Category.NOMEN_VERB, "einen Antrag stellen", "to submit an application", null, "Sie müssen einen Antrag stellen."),
         B2Card("nv09", B2Category.NOMEN_VERB, "eine Beschwerde einreichen", "to file a complaint", null, "Er hat eine Beschwerde eingereicht."),
-        B2Card("nv10", B2Category.NOMEN_VERB, "Rücksicht nehmen", "to show consideration", null, "Bitte nehmen Sie Rückschrift auf Kollegen."),
+        B2Card("nv10", B2Category.NOMEN_VERB, "Rücksicht nehmen", "to show consideration", null, "Bitte nehmen Sie Rücksicht auf Kollegen."),
         B2Card("nv11", B2Category.NOMEN_VERB, "zur Verfügung stehen", "to be available", null, "Ich stehe Ihnen gerne zur Verfügung."),
         B2Card("nv12", B2Category.NOMEN_VERB, "in Betracht ziehen", "to consider", null, "Das sollten wir in Betracht ziehen."),
         B2Card("nv13", B2Category.NOMEN_VERB, "in Frage kommen", "to be possible / eligible", null, "Das kommt leider nicht in Frage."),
@@ -161,7 +162,7 @@ object B2ContentData {
         B2Card("ws39", B2Category.WORTSCHATZ, "genehmigen", "to approve", null, "Der Antrag wurde genehmigt.", "Arbeitsalltag"),
         B2Card("ws40", B2Category.WORTSCHATZ, "der Ansprechpartner", "contact person", null, "Wer ist Ihr Ansprechpartner?", "Arbeitsalltag"),
         // Formell
-        B2Card("ws41", B2Category.WORTSCHATZ, "bezüglich / betreff", "regarding / re:", null, "Bezüglich Ihres Schreibens vom 01.04.", "Formell"),
+        B2Card("ws41", B2Category.WORTSCHATZ, "bezüglich / betreffend", "regarding / re:", null, "Bezüglich Ihres Schreibens vom 01.04.", "Formell"),
         B2Card("ws42", B2Category.WORTSCHATZ, "hiermit", "hereby", null, "Hiermit bestätige ich den Erhalt.", "Formell"),
         B2Card("ws43", B2Category.WORTSCHATZ, "anbei / beigefügt", "enclosed / attached", null, "Anbei sende ich Ihnen die Unterlagen.", "Formell"),
         B2Card("ws44", B2Category.WORTSCHATZ, "unverzüglich", "immediately / without delay", null, "Bitte antworten Sie unverzüglich.", "Formell"),
@@ -236,6 +237,11 @@ object B2ContentData {
                 "Pl+Akk: Wir prüfen die neuen Fristen.",
                 "Pl+Dat: Mit den neuen Fristen haben wir mehr Zeit.",
                 "Pl+Gen: Die Einhaltung der neuen Fristen ist Pflicht."
+            ),
+            rule = "Der Artikel zeigt Genus, Kasus und Numerus bereits deutlich; deshalb trägt das Adjektiv meistens die schwache Endung -e oder -en.",
+            mistakes = listOf(
+                "Nicht: der neuer Kollege. Richtig: der neue Kollege.",
+                "Nach Dativ und Genitiv fast immer -en: mit dem neuen Plan, wegen des neuen Plans."
             )
         ),
         GrammarTable(
@@ -263,8 +269,39 @@ object B2ContentData {
                 "N+Gen: Er macht das trotz eines neuen Arguments.",
                 "Pl+Nom: Keine großen Probleme treten auf.",
                 "Pl+Akk: Wir haben keine großen Probleme.",
-                "Pl+Dat: Bei keinen großen Problemen ist alles okay.",
-                "Pl+Gen: Wir arbeiten trotz keiner großen Probleme weiter."
+                "Pl+Dat: Bei keinen großen Problemen läuft alles planmäßig.",
+                "Pl+Gen: Trotz keiner großen Probleme prüfen wir den Ablauf noch einmal."
+            ),
+            rule = "Wenn der Artikel eine Endung trägt, übernimmt das Adjektiv meist -en. Wo der Artikel keine Endung zeigt, trägt das Adjektiv die starke Endung: ein guter Plan, ein neues Projekt.",
+            mistakes = listOf(
+                "Nicht: ein gute Plan. Richtig: ein guter Plan.",
+                "Kein im Plural verhält sich wie ein Artikel mit Endung: keine großen Probleme."
+            )
+        ),
+        GrammarTable(
+            title = "Adjektivdeklination: Ohne Artikel",
+            note = "Starke Deklination nach Nullartikel, Mengenangaben oder unbestimmten Pluralformen.",
+            headers = listOf("Kasus", "Mask.", "Fem.", "Neut.", "Plural"),
+            rows = listOf(
+                listOf("Nominativ", "-er", "-e",  "-es", "-e"),
+                listOf("Akkusativ", "-en", "-e",  "-es", "-e"),
+                listOf("Dativ",     "-em", "-er", "-em", "-en"),
+                listOf("Genitiv",   "-en", "-er", "-en", "-er"),
+            ),
+            examples = listOf(
+                "M+Nom: Guter Service ist wichtig.",
+                "M+Akk: Wir brauchen guten Service.",
+                "F+Nom: Schnelle Hilfe spart Zeit.",
+                "F+Dat: Mit schneller Hilfe lösen wir das Problem.",
+                "N+Nom: Gutes Feedback hilft dem Team.",
+                "N+Akk: Ich erwarte gutes Feedback.",
+                "Pl+Nom: Neue Ideen entstehen im Gespräch.",
+                "Pl+Dat: Mit neuen Ideen verbessern wir den Prozess."
+            ),
+            rule = "Ohne Artikel muss das Adjektiv die fehlende Kasus- und Genusinformation selbst tragen.",
+            mistakes = listOf(
+                "Nicht: mit neu Ideen. Richtig: mit neuen Ideen.",
+                "Im Genitiv Maskulin/Neutrum steht beim Adjektiv meist -en: guten Mutes, schweren Herzens."
             )
         ),
         GrammarTable(
@@ -283,6 +320,21 @@ object B2ContentData {
                 "Subjunktionen: Obwohl es regnete, gingen wir.",
                 "Adverbien: Es regnete stark, dennoch gingen wir spazieren.",
                 "Adverbien: Ich habe viel zu tun, trotzdem komme ich."
+            ),
+            rule = "Konnektoren verbinden Aussagen, bestimmen aber auch die Verbposition. ADUSO verbindet Hauptsätze ohne Umstellung; Subjunktionen schicken das finite Verb ans Ende; Konjunktionaladverbien stehen im Satzfeld und lösen Inversion aus.",
+            mistakes = listOf(
+                "Nicht: Weil ich habe Zeit. Richtig: Weil ich Zeit habe.",
+                "Nicht: Deshalb ich komme später. Richtig: Deshalb komme ich später."
+            ),
+            extraSections = listOf(
+                GrammarSection(
+                    title = "Doppelkonnektoren",
+                    items = listOf(
+                        "je ... desto: Je früher wir anfangen, desto schneller sind wir fertig.",
+                        "entweder ... oder: Entweder wir verschieben den Termin, oder wir verkürzen die Agenda.",
+                        "weder ... noch: Weder der Preis noch die Lieferzeit passen."
+                    )
+                )
             ),
             useListLayout = true
         ),
@@ -313,40 +365,81 @@ object B2ContentData {
                 "Pl+Akk: Die Kunden, die ich besuche, warten.",
                 "Pl+Dat: Das sind die Kunden, denen ich antworte.",
                 "Pl+Gen: Das sind die Kunden, deren Projekt nun endet."
+            ),
+            rule = "Genus und Numerus kommen vom Bezugswort; der Kasus kommt aus der Funktion im Relativsatz.",
+            mistakes = listOf(
+                "Nicht automatisch den Kasus des Bezugsworts übernehmen: Ich kenne den Kollegen, der heute kommt.",
+                "Bei Dativ Plural heißt es denen, nicht den: Kunden, denen ich helfe."
             )
         ),
         GrammarTable(
             title = "Konjunktiv II (Gegenwart & Vergangenheit)",
-            note = "Wünsche, Träume, Höflichkeit",
-            headers = listOf("Zeitform", "Struktur"),
+            note = "Wünsche, irreale Bedingungen, Höflichkeit und vorsichtige Aussagen.",
+            headers = listOf("Funktion", "Struktur"),
             rows = listOf(
-                listOf("Gegenwart", "würde + Infinitiv"),
-                listOf("haben / sein", "hätte / wäre"),
+                listOf("Höfliche Bitte", "könnte / würde + Infinitiv"),
+                listOf("Irreale Bedingung", "wenn + Konjunktiv II, dann ..."),
+                listOf("Wunsch", "wäre / hätte / würde gern ..."),
+                listOf("Rat / Vorschlag", "sollte / könnte + Infinitiv"),
                 listOf("Vergangenheit", "hätte/wäre + Partizip II"),
             ),
             examples = listOf(
-                "Gegenwart: Ich würde gerne kommen.",
-                "Gegenwart: Er würde sich entspannen.",
-                "haben / sein: Wenn ich Zeit hätte, käme ich.",
-                "haben / sein: Ich wäre gerne arbeitsfähig.",
-                "Vergangenheit: Ich hätte gerne ein Angebot unterbreitet."
+                "Bitte: Könnten Sie mir die Unterlagen schicken?",
+                "Bedingung: Wenn ich Zeit hätte, würde ich den Bericht überarbeiten.",
+                "Wunsch: Ich wäre gern bei der Besprechung dabei.",
+                "Rat: Du solltest die Frist schriftlich bestätigen.",
+                "Vergangenheit: Ich hätte früher reagieren sollen."
+            ),
+            rule = "Für viele Verben ist würde + Infinitiv die normale Form. Bei sein, haben und Modalverben sind die einfachen Formen sehr häufig: wäre, hätte, könnte, müsste, sollte, dürfte.",
+            mistakes = listOf(
+                "Nicht: Wenn ich würde Zeit haben. Richtig: Wenn ich Zeit hätte.",
+                "Vergangenheit braucht hätte/wäre + Partizip II: Ich hätte angerufen."
+            ),
+            extraSections = listOf(
+                GrammarSection(
+                    title = "Modalverben",
+                    items = listOf(
+                        "könnte: vorsichtige Möglichkeit oder höfliche Bitte.",
+                        "müsste: vorsichtige Notwendigkeit oder Vermutung.",
+                        "sollte: Rat oder Empfehlung.",
+                        "dürfte: vorsichtige Wahrscheinlichkeit."
+                    )
+                )
             )
         ),
         GrammarTable(
             title = "Passiv (Vorgangspassiv)",
             note = "Fokus auf die Handlung, nicht die Person.",
-            headers = listOf("Zeitform", "Struktur"),
+            headers = listOf("Form", "Struktur"),
             rows = listOf(
                 listOf("Präsens", "werden + Partizip II"),
                 listOf("Präteritum", "wurden + Partizip II"),
                 listOf("Perfekt", "ist ... worden"),
                 listOf("Modalverb", "muss ... werden"),
+                listOf("Zustandspassiv", "sein + Partizip II"),
+                listOf("Unpersönlich", "Es wird + Partizip II"),
             ),
             examples = listOf(
                 "Präsens: Die Rechnung wird heute bezahlt.",
                 "Präteritum: Die Passagiere wurden zügig abgefertigt.",
-                "Perfekt: Das Haus ist gebaut worden.",
-                "Modalverb: Die Pflichten müssen genau geregelt werden."
+                "Perfekt: Der Vertrag ist unterschrieben worden.",
+                "Modalverb: Die Pflichten müssen genau geregelt werden.",
+                "Zustand: Das Büro ist schon geschlossen.",
+                "Unpersönlich: In der Besprechung wird viel diskutiert."
+            ),
+            rule = "Vorgangspassiv beschreibt den Ablauf einer Handlung. Zustandspassiv beschreibt das Ergebnis. Der Handelnde kann mit von oder durch ergänzt werden.",
+            mistakes = listOf(
+                "Nicht: Die Rechnung ist bezahlt worden, wenn nur der Zustand gemeint ist. Besser: Die Rechnung ist bezahlt.",
+                "Bei Perfekt Vorgangspassiv steht worden, nicht geworden: Der Antrag ist geprüft worden."
+            ),
+            extraSections = listOf(
+                GrammarSection(
+                    title = "Agens",
+                    items = listOf(
+                        "von + Dativ für Personen/Institutionen: Der Antrag wird vom Amt geprüft.",
+                        "durch + Akkusativ für Mittel/Ursachen: Die Lieferung wurde durch den Streik verzögert."
+                    )
+                )
             )
         ),
         GrammarTable(
@@ -364,6 +457,11 @@ object B2ContentData {
                 "Berufe: Er sucht einen neuen Praktikanten (Akkusativ).",
                 "Nationalitäten: Ich kenne einen netten Franzosen.",
                 "Sonderfall: Der Name des Kunden steht auf der Rechnung."
+            ),
+            rule = "Betroffen sind vor allem maskuline Personen- und Berufsbezeichnungen sowie einige feste Sonderfälle.",
+            mistakes = listOf(
+                "Nicht: mit dem Kollege. Richtig: mit dem Kollegen.",
+                "Der Herr bekommt -n: Ich frage den Herrn."
             )
         ),
         GrammarTable(
@@ -383,6 +481,140 @@ object B2ContentData {
                 "während: Während der Arbeitszeit ist es verboten.",
                 "außer/inner: Außerhalb der Geschäftszeiten per E-Mail.",
                 "aufgrund: Aufgrund der hohen Kosten wurde es gestrichen."
+            ),
+            rule = "Diese Präpositionen verlangen in Standardsprache den Genitiv; in Alltagssprache kommt besonders bei wegen auch Dativ vor.",
+            mistakes = listOf(
+                "In formellen Texten besser Genitiv: wegen eines Fehlers, nicht wegen einem Fehler.",
+                "Bei Plural ohne Artikel muss die Endung sichtbar sein: trotz guter Ergebnisse."
+            )
+        ),
+        GrammarTable(
+            title = "Infinitiv mit zu / ohne zu",
+            note = "B2-relevant für komplexe Sätze und formelle Redemittel.",
+            headers = listOf("Typ", "Struktur"),
+            rows = listOf(
+                listOf("mit zu", "versuchen, planen, bitten, empfehlen + zu + Infinitiv"),
+                listOf("trennbare Verben", "zu zwischen Präfix und Verb"),
+                listOf("ohne zu", "Modalverben, lassen, gehen, bleiben, hören/sehen"),
+            ),
+            examples = listOf(
+                "Mit zu: Wir planen, den Vertrag morgen zu unterschreiben.",
+                "Trennbar: Ich bitte Sie, die Unterlagen weiterzuleiten.",
+                "Ohne zu: Wir müssen die Frist einhalten.",
+                "Ohne zu: Ich lasse den Antrag prüfen."
+            ),
+            rule = "Zu steht vor dem Infinitiv; bei trennbaren Verben steht es zwischen Präfix und Verbstamm.",
+            mistakes = listOf(
+                "Nicht: weiter zu leiten. Richtig: weiterzuleiten.",
+                "Nach Modalverben kein zu: Wir müssen antworten."
+            )
+        ),
+        GrammarTable(
+            title = "Partizip I & II als Adjektive",
+            note = "Verdichtet Informationen in formeller Schriftsprache.",
+            headers = listOf("Form", "Bedeutung"),
+            rows = listOf(
+                listOf("Partizip I", "aktiv / gleichzeitig: der wartende Kunde"),
+                listOf("Partizip II", "passiv oder abgeschlossen: der unterschriebene Vertrag"),
+            ),
+            examples = listOf(
+                "Partizip I: Die wartenden Kunden wurden informiert.",
+                "Partizip II: Die bezahlte Rechnung liegt im System.",
+                "Erweitert: Die gestern eingereichten Unterlagen werden geprüft."
+            ),
+            rule = "Partizipien werden wie Adjektive dekliniert und können vor dem Nomen ganze Relativsätze ersetzen.",
+            mistakes = listOf(
+                "Nicht die Adjektivendung vergessen: die wartenden Kunden.",
+                "Aktiv/passiv unterscheiden: der prüfende Mitarbeiter, der geprüfte Antrag."
+            )
+        ),
+        GrammarTable(
+            title = "Nominalisierung",
+            note = "Macht Aussagen sachlicher und formeller.",
+            headers = listOf("Verbaler Stil", "Nominaler Stil"),
+            rows = listOf(
+                listOf("Wir prüfen den Antrag.", "die Prüfung des Antrags"),
+                listOf("Die Preise steigen.", "der Anstieg der Preise"),
+                listOf("Wir entscheiden morgen.", "die Entscheidung am morgigen Tag"),
+            ),
+            examples = listOf(
+                "Verbal: Wir prüfen den Antrag bis Freitag.",
+                "Nominal: Die Prüfung des Antrags erfolgt bis Freitag.",
+                "Verbal: Weil die Nachfrage steigt, erhöhen wir die Produktion.",
+                "Nominal: Aufgrund der steigenden Nachfrage erhöhen wir die Produktion."
+            ),
+            rule = "Nominalisierung ersetzt Verben oder Nebensätze durch Nomen, oft mit Genitiv oder Präposition.",
+            mistakes = listOf(
+                "Nominalstil nicht übertreiben; zu viele Nomen machen Texte schwer lesbar.",
+                "Genitiv sauber bilden: die Prüfung des Antrags, nicht die Prüfung den Antrag."
+            )
+        ),
+        GrammarTable(
+            title = "Subjektive Bedeutung der Modalverben",
+            note = "Modalverben können Vermutungen ausdrücken.",
+            headers = listOf("Form", "Bedeutung"),
+            rows = listOf(
+                listOf("muss", "sehr sicher: Das muss ein Fehler sein."),
+                listOf("dürfte", "wahrscheinlich: Das dürfte reichen."),
+                listOf("könnte", "möglich: Das könnte funktionieren."),
+                listOf("soll", "man sagt / angeblich: Er soll krank sein."),
+            ),
+            examples = listOf(
+                "Das muss ein Missverständnis sein.",
+                "Die Lieferung dürfte morgen eintreffen.",
+                "Der Termin könnte verschoben werden.",
+                "Der neue Vertrag soll bereits unterschrieben sein."
+            ),
+            rule = "Die subjektive Bedeutung bewertet, wie sicher die Aussage ist. Sie beschreibt nicht Fähigkeit, Erlaubnis oder Pflicht.",
+            mistakes = listOf(
+                "Nicht jede Form von müssen bedeutet Pflicht: Das muss stimmen = Ich bin fast sicher.",
+                "Für vorsichtige Vermutungen ist dürfte oft formeller als könnte."
+            )
+        ),
+        GrammarTable(
+            title = "Rektion von Adjektiven",
+            note = "Viele Adjektive verlangen eine feste Präposition mit Kasus.",
+            headers = listOf("Adjektiv", "Ergänzung"),
+            rows = listOf(
+                listOf("zufrieden", "mit + Dat"),
+                listOf("abhängig", "von + Dat"),
+                listOf("verantwortlich", "für + Akk"),
+                listOf("interessiert", "an + Dat"),
+                listOf("geeignet", "für + Akk"),
+            ),
+            examples = listOf(
+                "Wir sind mit dem Ergebnis zufrieden.",
+                "Der Erfolg ist von der Vorbereitung abhängig.",
+                "Sie ist für die Abrechnung verantwortlich.",
+                "Ich bin an einer schnellen Lösung interessiert.",
+                "Diese Methode ist für Anfänger geeignet."
+            ),
+            rule = "Die Präposition gehört zum Adjektiv und bestimmt den Kasus der Ergänzung.",
+            mistakes = listOf(
+                "Nicht aus dem Englischen übertragen: interessiert an, nicht interessiert in.",
+                "Kasus mitlernen: zufrieden mit dem Ergebnis, verantwortlich für den Ablauf."
+            )
+        ),
+        GrammarTable(
+            title = "Wortstellung im Mittelfeld",
+            note = "Hilft bei längeren Haupt- und Nebensätzen.",
+            headers = listOf("Bereich", "Tendenz"),
+            rows = listOf(
+                listOf("Pronomen", "vor Nomen: Ich gebe es dem Kollegen."),
+                listOf("Zeit", "meist vor Grund/Art/Ort"),
+                listOf("Negation", "nicht vor dem Teil, der verneint wird"),
+                listOf("Ort", "oft nach Zeit und Art"),
+            ),
+            examples = listOf(
+                "Ich schicke dem Kunden morgen per E-Mail die Unterlagen.",
+                "Ich schicke sie ihm morgen per E-Mail.",
+                "Wir treffen uns morgen wegen des Projekts im Büro.",
+                "Ich habe den Vertrag nicht gestern unterschrieben, sondern heute."
+            ),
+            rule = "Die Reihenfolge ist nicht mechanisch, aber Pronomen stehen früh; neue oder betonte Informationen stehen oft später.",
+            mistakes = listOf(
+                "Nicht jedes nicht steht am Satzende; es steht vor dem verneinten Satzteil.",
+                "Bei zwei Pronomen steht Akkusativ meist vor Dativ: Ich gebe es ihm."
             )
         ),
     )
