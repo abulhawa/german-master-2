@@ -208,12 +208,26 @@ fun PrivacyPolicyLink(modifier: Modifier = Modifier) {
 }
 
 @Composable
+fun DeleteAccountLink(modifier: Modifier = Modifier) {
+    val uriHandler = LocalUriHandler.current
+
+    Text(
+        text = "Delete Account",
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.clickable { uriHandler.openUri(DELETE_ACCOUNT_URL) }
+    )
+}
+
+@Composable
 fun AccountFooter(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         PrivacyPolicyLink()
+        Spacer(modifier = Modifier.height(4.dp))
+        DeleteAccountLink()
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = "Version ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})",
@@ -253,3 +267,4 @@ fun AccountBrandHeader(modifier: Modifier = Modifier) {
 }
 
 private const val PRIVACY_POLICY_URL = "https://gvm.qortxai.com/privacy"
+private const val DELETE_ACCOUNT_URL = "https://gvm.qortxai.com/delete-account"
