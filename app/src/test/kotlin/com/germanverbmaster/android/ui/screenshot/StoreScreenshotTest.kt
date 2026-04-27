@@ -284,11 +284,11 @@ class StoreScreenshotTest {
     }
 
     @Test
-    fun capture_8_lernen_grammar_dark() {
-        captureRoboImage("../play-store-listing/8_lernen_grammar_dark.png") {
+    fun capture_8_lernen_cards_dark() {
+        captureRoboImage("../play-store-listing/8_lernen_cards_dark.png") {
             StoreShell(darkTheme = true, selectedTab = 1) {
                 B2PracticeScreenContent(
-                    state = b2BaseState.copy(category = B2Category.GRAMMAR),
+                    state = b2BaseState.copy(category = B2Category.VERBEN_PRAEP),
                     onSetCategory = {}, onSetMode = {}, onToggleShuffle = {}, onNavigateToHistory = {},
                     onRestart = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {}
                 )

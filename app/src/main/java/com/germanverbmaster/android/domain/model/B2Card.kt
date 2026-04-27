@@ -17,7 +17,6 @@ enum class B2Category(val label: String) {
     NOMEN_VERB("Nomen-Verb"),
     WORTSCHATZ("Wortschatz"),
     REDEMITTEL("Redemittel"),
-    GRAMMAR("Adjektiv-Deklination"),
 }
 
 enum class CardMode(val label: String) {
@@ -25,18 +24,3 @@ enum class CardMode(val label: String) {
     EN_TO_DE("EN → DE"),
     EXAMPLE("Beispielsatz"),
 }
-
-data class DeklTable(
-    val title: String,
-    val note: String,
-    val rows: List<DeklRow>,
-    val examples: List<String>,
-)
-
-data class DeklRow(
-    val kasus: String,
-    val maskulin: String,
-    val feminin: String,
-    val neutrum: String,
-    val plural: String,
-)

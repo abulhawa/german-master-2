@@ -47,7 +47,14 @@ class B2PracticeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val savedCategory = prefs.getB2Category()?.let { B2Category.valueOf(it) } ?: B2Category.ALL
+            val savedCategoryName = prefs.getB2Category()
+            val savedCategory = try {
+                if (savedCategoryName != null) B2Category.valueOf(savedCategoryName) else B2Category.ALL
+            } catch (e: IllegalArgumentException) {
+                // If the saved category (like "GRAMMAR") no longer exists, clear it and default to ALL
+                prefs.setB2Category(B2Category.ALL.name)
+                B2Category.ALL
+            }
             val savedShuffle = prefs.getB2Shuffle()
             val savedIndex = prefs.getB2Index() ?: 0
             val savedCorrect = prefs.getB2Correct()

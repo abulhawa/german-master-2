@@ -7,15 +7,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material3.Button
@@ -23,7 +20,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -113,8 +109,6 @@ fun B2PracticeScreenContent(
 
         if (state.isLoading) {
             B2PracticeSkeleton()
-        } else if (state.category == B2Category.GRAMMAR) {
-            GrammarTabContent()
         } else {
             // Mode + shuffle row
             Row(
@@ -450,97 +444,3 @@ fun SessionDoneCard(correct: Int, wrong: Int, accuracy: Float, onRestart: () -> 
     }
 }
 
-@Composable
-fun GrammarTabContent() {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(vertical = 12.dp),
-    ) {
-        items(
-            items = B2ContentData.deklTables,
-            key = { it.title }
-        ) { table ->
-            DeklTableCard(table)
-        }
-
-        item(key = "adj_header") {
-            Text(
-                "Wichtige B2-Adjektive",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-            )
-        }
-
-        items(
-            items = B2ContentData.b2Adjectives,
-            key = { it.first }
-        ) { (adj, en, ex) ->
-            ElevatedCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-                        Text(
-                            adj, fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.weight(1f)
-                        )
-                        Text(
-                            en, style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier.weight(1f)
-                        )
-                    }
-                    Text(
-                        ex, style = MaterialTheme.typography.bodySmall,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                        modifier = Modifier.padding(bottom = 4.dp)
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun DeklTableCard(table: com.germanverbmaster.android.domain.model.DeklTable) {
-    ElevatedCard(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(table.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-            Text(table.note, style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-            Spacer(Modifier.height(10.dp))
-            // Header
-            Row(Modifier.fillMaxWidth()) {
-                listOf("Kasus", "Mask.", "Fem.", "Neut.", "Pl.").forEach { h ->
-                    Text(h, fontWeight = FontWeight.SemiBold,
-                        style = MaterialTheme.typography.labelSmall,
-                        modifier = Modifier.weight(1f))
-                }
-            }
-            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-            table.rows.forEach { row ->
-                Row(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
-                    Text(row.kasus, style = MaterialTheme.typography.bodySmall, modifier = Modifier.weight(1f))
-                    listOf(row.maskulin, row.feminin, row.neutrum, row.plural).forEach { ending ->
-                        Text(ending, fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f))
-                    }
-                }
-            }
-            Spacer(Modifier.height(10.dp))
-            table.examples.forEach { ex ->
-                Text("• $ex", style = MaterialTheme.typography.bodySmall,
-                    fontStyle = FontStyle.Italic,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-                    modifier = Modifier.padding(vertical = 2.dp))
-            }
-        }
-    }
-}

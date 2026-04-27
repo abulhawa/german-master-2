@@ -2,8 +2,7 @@ package com.germanverbmaster.android.ui.b2practice
 
 import com.germanverbmaster.android.domain.model.B2Card
 import com.germanverbmaster.android.domain.model.B2Category
-import com.germanverbmaster.android.domain.model.DeklRow
-import com.germanverbmaster.android.domain.model.DeklTable
+import com.germanverbmaster.android.domain.model.GrammarTable
 
 object B2ContentData {
 
@@ -82,7 +81,7 @@ object B2ContentData {
         B2Card("nv07", B2Category.NOMEN_VERB, "eine Lösung finden", "to find a solution", null, "Gemeinsam finden wir eine Lösung."),
         B2Card("nv08", B2Category.NOMEN_VERB, "einen Antrag stellen", "to submit an application", null, "Sie müssen einen Antrag stellen."),
         B2Card("nv09", B2Category.NOMEN_VERB, "eine Beschwerde einreichen", "to file a complaint", null, "Er hat eine Beschwerde eingereicht."),
-        B2Card("nv10", B2Category.NOMEN_VERB, "Rücksicht nehmen", "to show consideration", null, "Bitte nehmen Sie Rücksicht auf Kollegen."),
+        B2Card("nv10", B2Category.NOMEN_VERB, "Rücksicht nehmen", "to show consideration", null, "Bitte nehmen Sie Rückschrift auf Kollegen."),
         B2Card("nv11", B2Category.NOMEN_VERB, "zur Verfügung stehen", "to be available", null, "Ich stehe Ihnen gerne zur Verfügung."),
         B2Card("nv12", B2Category.NOMEN_VERB, "in Betracht ziehen", "to consider", null, "Das sollten wir in Betracht ziehen."),
         B2Card("nv13", B2Category.NOMEN_VERB, "in Frage kommen", "to be possible / eligible", null, "Das kommt leider nicht in Frage."),
@@ -207,75 +206,185 @@ object B2ContentData {
         B2Card("rm28", B2Category.REDEMITTEL, "Grußformel (formell)", "Mit freundlichen Grüßen / Hochachtungsvoll", null, "Formal closing", "Schreiben"),
     )
 
-    // ─── Adjektiv-Deklination tables ─────────────────────────────────────────
+    // ─── Grammar tables ──────────────────────────────────────────────────────
 
-    val deklTables: List<DeklTable> = listOf(
-        DeklTable(
-            title = "Nach dem bestimmten Artikel (der/die/das)",
-            note = "Endungen sind fast immer -e oder -en",
+    val grammarTables: List<GrammarTable> = listOf(
+        GrammarTable(
+            title = "Adjektivdeklination: Bestimmter Artikel",
+            note = "Nach: der, die, das, dieser, jener, jeder, welcher",
+            headers = listOf("Kasus", "Mask.", "Fem.", "Neut.", "Plural"),
             rows = listOf(
-                DeklRow("Nominativ", "-e",  "-e",  "-e",  "-en"),
-                DeklRow("Akkusativ", "-en", "-e",  "-e",  "-en"),
-                DeklRow("Dativ",     "-en", "-en", "-en", "-en"),
-                DeklRow("Genitiv",   "-en", "-en", "-en", "-en"),
+                listOf("Nominativ", "-e",  "-e",  "-e",  "-en"),
+                listOf("Akkusativ", "-en", "-e",  "-e",  "-en"),
+                listOf("Dativ",     "-en", "-en", "-en", "-en"),
+                listOf("Genitiv",   "-en", "-en", "-en", "-en"),
             ),
             examples = listOf(
-                "der alt-e Mann → den alt-en Mann (Akk)",
-                "die neu-e Stelle → der neu-en Stelle (Gen)",
-                "das wichtig-e Dokument → dem wichtig-en Dokument (Dat)",
-                "die lang-en Gespräche → den lang-en Gesprächen (Dat pl)",
+                "M+Nom: Der neue Kollege ist nett.",
+                "M+Akk: Ich sehe den neuen Kollegen.",
+                "M+Dat: Ich helfe dem neuen Kollegen.",
+                "M+Gen: Das ist der Wagen des neuen Kollegen.",
+                "F+Nom: Die wichtige Sitzung beginnt.",
+                "F+Akk: Wir planen die wichtige Sitzung.",
+                "F+Dat: In der wichtigen Sitzung besprechen wir das Projekt.",
+                "F+Gen: Das ist das Ende der wichtigen Sitzung.",
+                "N+Nom: Das neue Projekt startet.",
+                "N+Akk: Wir leiten das neue Projekt.",
+                "N+Dat: Bei dem neuen Projekt gibt es Verzögerungen.",
+                "N+Gen: Der Erfolg des neuen Projekts ist uns wichtig.",
+                "Pl+Nom: Die neuen Fristen gelten.",
+                "Pl+Akk: Wir prüfen die neuen Fristen.",
+                "Pl+Dat: Mit den neuen Fristen haben wir mehr Zeit.",
+                "Pl+Gen: Die Einhaltung der neuen Fristen ist Pflicht."
             )
         ),
-        DeklTable(
-            title = "Nach dem unbestimmten Artikel (ein/eine)",
-            note = "Adjektiv trägt das Genus-Signal im Nominativ + Akk Neutrum",
+        GrammarTable(
+            title = "Adjektivdeklination: Unbestimmter Artikel",
+            note = "Nach: ein, eine, kein, mein, dein, sein, ihr...",
+            headers = listOf("Kasus", "Mask.", "Fem.", "Neut.", "Plural"),
             rows = listOf(
-                DeklRow("Nominativ", "-er", "-e",  "-es", "-en"),
-                DeklRow("Akkusativ", "-en", "-e",  "-es", "-en"),
-                DeklRow("Dativ",     "-en", "-en", "-en", "-en"),
-                DeklRow("Genitiv",   "-en", "-en", "-en", "-en"),
+                listOf("Nominativ", "-er", "-e",  "-es", "-en"),
+                listOf("Akkusativ", "-en", "-e",  "-es", "-en"),
+                listOf("Dativ",     "-en", "-en", "-en", "-en"),
+                listOf("Genitiv",   "-en", "-en", "-en", "-en"),
             ),
             examples = listOf(
-                "ein gut-er Kollege (Nom m)",
-                "eine wichtig-e Aufgabe (Nom f)",
-                "ein neu-es Projekt (Nom n)",
-                "mit einem gut-en Team (Dat n)",
+                "M+Nom: Ein guter Plan hilft.",
+                "M+Akk: Wir brauchen einen guten Plan.",
+                "M+Dat: Mit einem guten Plan sind wir schneller.",
+                "M+Gen: Das ist der Erfolg eines guten Plans.",
+                "F+Nom: Eine neue Stelle ist frei.",
+                "F+Akk: Er sucht eine neue Stelle.",
+                "F+Dat: In einer neuen Stelle findet man neue Freunde.",
+                "F+Gen: Das sind die Anforderungen einer neuen Stelle.",
+                "N+Nom: Ein neues Argument zählt.",
+                "N+Akk: Er nennt ein neues Argument.",
+                "N+Dat: Mit einem neuen Argument überzeugst du mich.",
+                "N+Gen: Er macht das trotz eines neuen Arguments.",
+                "Pl+Nom: Keine großen Probleme treten auf.",
+                "Pl+Akk: Wir haben keine großen Probleme.",
+                "Pl+Dat: Bei keinen großen Problemen ist alles okay.",
+                "Pl+Gen: Wir arbeiten trotz keiner großen Probleme weiter."
             )
         ),
-        DeklTable(
-            title = "Ohne Artikel (starke Deklination)",
-            note = "Adjektiv allein trägt alle Genus- und Kasusinformationen",
+        GrammarTable(
+            title = "Satzverbindungen (Konnektoren)",
+            note = "Wichtig: Die Position des Verbs ändert sich!",
+            headers = listOf("Typ", "Beispiele", "Verbposition"),
             rows = listOf(
-                DeklRow("Nominativ", "-er", "-e",  "-es", "-e"),
-                DeklRow("Akkusativ", "-en", "-e",  "-es", "-e"),
-                DeklRow("Dativ",     "-em", "-er", "-em", "-en"),
-                DeklRow("Genitiv",   "-en", "-er", "-en", "-er"),
+                listOf("ADUSO", "aber, denn, und, sondern, oder", "Position 0 (keine Änderung)"),
+                listOf("Subjunktionen", "weil, obwohl, dass, wenn, da", "Verb am Ende"),
+                listOf("Konjunktionaladverbien", "deshalb, trotzdem, außerdem", "Inversion (Verb an Pos. 2)"),
             ),
             examples = listOf(
-                "mit freundlich-en Grüßen (Dat pl)",
-                "bei schlechtem Wetter (Dat n)",
-                "trotz groß-er Probleme (Gen pl)",
-                "frisch-er Kaffee (Nom m)",
+                "ADUSO: Ich arbeite viel, aber es macht Spaß.",
+                "ADUSO: Ich fange an und du hilfst mir.",
+                "Subjunktionen: Ich arbeite viel, weil ich Erfolg haben will.",
+                "Subjunktionen: Obwohl es regnete, gingen wir.",
+                "Adverbien: Es regnete stark, dennoch gingen wir spazieren.",
+                "Adverbien: Ich habe viel zu tun, trotzdem komme ich."
+            ),
+            useListLayout = true
+        ),
+        GrammarTable(
+            title = "Relativpronomen",
+            note = "Das Relativpronomen richtet sich im Genus nach dem Bezugswort.",
+            headers = listOf("Kasus", "Mask.", "Fem.", "Neut.", "Plural"),
+            rows = listOf(
+                listOf("Nominativ", "der", "die", "das", "die"),
+                listOf("Akkusativ", "den", "die", "das", "die"),
+                listOf("Dativ",     "dem", "der", "dem", "denen"),
+                listOf("Genitiv",   "dessen", "deren", "dessen", "deren"),
+            ),
+            examples = listOf(
+                "M+Nom: Der Kollege, der heute kommt, ist nett.",
+                "M+Akk: Den Kollegen, den ich kenne, habe ich angerufen.",
+                "M+Dat: Dem Kollegen, dem ich helfe, danke ich.",
+                "M+Gen: Das ist der Kollege, dessen Auto alt ist.",
+                "F+Nom: Die Firma, die dort ist, ist groß.",
+                "F+Akk: Die Firma, die ich mag, hat Erfolg.",
+                "F+Dat: Das ist die Firma, der ich vertraue.",
+                "F+Gen: Das ist die Firma, deren Chef sehr freundlich ist.",
+                "N+Nom: Das Kind, das dort spielt, lacht.",
+                "N+Akk: Das Kind, das ich sehe, ist klein.",
+                "N+Dat: Das ist das Kind, dem ich vorlese.",
+                "N+Gen: Ich kenne das Kind, dessen Eltern dort wohnen.",
+                "Pl+Nom: Die Kunden, die anrufen, sind wichtig.",
+                "Pl+Akk: Die Kunden, die ich besuche, warten.",
+                "Pl+Dat: Das sind die Kunden, denen ich antworte.",
+                "Pl+Gen: Das sind die Kunden, deren Projekt nun endet."
             )
         ),
-    )
-
-    val b2Adjectives: List<Triple<String, String, String>> = listOf(
-        Triple("beruflich",     "professional/occupational", "berufliche Erfahrung"),
-        Triple("schriftlich",   "written",                   "eine schriftliche Bestätigung"),
-        Triple("mündlich",      "oral/verbal",               "eine mündliche Vereinbarung"),
-        Triple("gegenseitig",   "mutual",                    "gegenseitiges Vertrauen"),
-        Triple("zuständig",     "responsible/competent",     "der zuständige Mitarbeiter"),
-        Triple("verfügbar",     "available",                 "ein verfügbarer Termin"),
-        Triple("verbindlich",   "binding/obligatory",        "eine verbindliche Zusage"),
-        Triple("dringend",      "urgent",                    "eine dringende Angelegenheit"),
-        Triple("nachhaltig",    "sustainable/lasting",       "nachhaltige Lösungen"),
-        Triple("selbstständig", "independent/self-employed", "selbstständiges Arbeiten"),
-        Triple("teamfähig",     "able to work in a team",   "ein teamfähiger Mitarbeiter"),
-        Triple("leistungsfähig","efficient/capable",         "ein leistungsfähiges System"),
-        Triple("kurzfristig",   "short-term",                "kurzfristige Maßnahmen"),
-        Triple("langfristig",   "long-term",                 "langfristige Planung"),
-        Triple("gelegentlich",  "occasional",                "gelegentliche Überstunden"),
+        GrammarTable(
+            title = "Konjunktiv II (Gegenwart & Vergangenheit)",
+            note = "Wünsche, Träume, Höflichkeit",
+            headers = listOf("Zeitform", "Struktur"),
+            rows = listOf(
+                listOf("Gegenwart", "würde + Infinitiv"),
+                listOf("haben / sein", "hätte / wäre"),
+                listOf("Vergangenheit", "hätte/wäre + Partizip II"),
+            ),
+            examples = listOf(
+                "Gegenwart: Ich würde gerne kommen.",
+                "Gegenwart: Er würde sich entspannen.",
+                "haben / sein: Wenn ich Zeit hätte, käme ich.",
+                "haben / sein: Ich wäre gerne arbeitsfähig.",
+                "Vergangenheit: Ich hätte gerne ein Angebot unterbreitet."
+            )
+        ),
+        GrammarTable(
+            title = "Passiv (Vorgangspassiv)",
+            note = "Fokus auf die Handlung, nicht die Person.",
+            headers = listOf("Zeitform", "Struktur"),
+            rows = listOf(
+                listOf("Präsens", "werden + Partizip II"),
+                listOf("Präteritum", "wurden + Partizip II"),
+                listOf("Perfekt", "ist ... worden"),
+                listOf("Modalverb", "muss ... werden"),
+            ),
+            examples = listOf(
+                "Präsens: Die Rechnung wird heute bezahlt.",
+                "Präteritum: Die Passagiere wurden zügig abgefertigt.",
+                "Perfekt: Das Haus ist gebaut worden.",
+                "Modalverb: Die Pflichten müssen genau geregelt werden."
+            )
+        ),
+        GrammarTable(
+            title = "N-Deklination",
+            note = "Maskuline Nomen mit -n/-en in allen Kasus außer Nominativ.",
+            headers = listOf("Gruppe", "Beispiele"),
+            rows = listOf(
+                listOf("Personen", "der Kollege, der Kunde, der Mensch"),
+                listOf("Berufe", "der Praktikant, der Journalist"),
+                listOf("Nationalitäten", "der Franzose, der Pole"),
+                listOf("Sonderfall", "der Name, der Herr"),
+            ),
+            examples = listOf(
+                "Personen: Ich spreche mit dem Kollegen (Dativ).",
+                "Berufe: Er sucht einen neuen Praktikanten (Akkusativ).",
+                "Nationalitäten: Ich kenne einen netten Franzosen.",
+                "Sonderfall: Der Name des Kunden steht auf der Rechnung."
+            )
+        ),
+        GrammarTable(
+            title = "Präpositionen mit Genitiv",
+            note = "Oft in der Schriftsprache oder formellen Kontexten.",
+            headers = listOf("Präposition", "Bedeutung"),
+            rows = listOf(
+                listOf("trotz", "despite"),
+                listOf("wegen", "because of"),
+                listOf("während", "during"),
+                listOf("außerhalb / innerhalb", "outside / inside"),
+                listOf("aufgrund", "due to"),
+            ),
+            examples = listOf(
+                "trotz: Trotz des Fehlers gab es keinen Tadel.",
+                "wegen: Wegen eines Termins kann ich nicht kommen.",
+                "während: Während der Arbeitszeit ist es verboten.",
+                "außer/inner: Außerhalb der Geschäftszeiten per E-Mail.",
+                "aufgrund: Aufgrund der hohen Kosten wurde es gestrichen."
+            )
+        ),
     )
 
     // ─── Convenience: all flashcard-able cards combined ──────────────────────
@@ -288,6 +397,5 @@ object B2ContentData {
         B2Category.NOMEN_VERB    -> nomenVerb
         B2Category.WORTSCHATZ    -> wortschatz
         B2Category.REDEMITTEL    -> redemittel
-        B2Category.GRAMMAR       -> emptyList() // Grammar tab uses deklTables instead
     }
 }

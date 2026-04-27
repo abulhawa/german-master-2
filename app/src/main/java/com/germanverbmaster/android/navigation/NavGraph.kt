@@ -3,24 +3,35 @@ package com.germanverbmaster.android.navigation
 import android.app.Activity
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Stars
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -33,6 +44,7 @@ import com.germanverbmaster.android.R
 import com.germanverbmaster.android.ui.analytics.AnalyticsScreen
 import com.germanverbmaster.android.ui.auth.AuthScreen
 import com.germanverbmaster.android.ui.b2practice.B2PracticeScreen
+import com.germanverbmaster.android.ui.components.GrammarBottomSheet
 import com.germanverbmaster.android.ui.history.AnswerHistoryScreen
 import com.germanverbmaster.android.ui.home.HomeScreen
 import com.germanverbmaster.android.ui.worddetail.WordDetailScreen
@@ -44,11 +56,16 @@ private data class NavItem(
     val icon: @Composable () -> Unit,
 )
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppNavGraph() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+
+    // Grammar Sheet State
+    var showGrammarSheet by remember { mutableStateOf(false) }
+    val sheetState = rememberModalBottomSheetState()
 
     // Double back to exit logic
     val context = LocalContext.current
@@ -101,6 +118,23 @@ fun AppNavGraph() {
                     )
                 }
             }
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { showGrammarSheet = true },
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier.size(56.dp)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Text(
+                        text = "G",
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
         }
     ) { innerPadding ->
         NavHost(
@@ -148,5 +182,12 @@ fun AppNavGraph() {
                 )
             }
         }
+    }
+
+    if (showGrammarSheet) {
+        GrammarBottomSheet(
+            onDismissRequest = { showGrammarSheet = false },
+            sheetState = sheetState
+        )
     }
 }
