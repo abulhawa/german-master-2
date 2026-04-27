@@ -29,4 +29,16 @@ class AccountBrandHeaderTest {
         composeRule.onNodeWithText("Account").assertIsDisplayed()
         composeRule.onNodeWithContentDescription("German Master icon").assertIsDisplayed()
     }
+
+    @Test
+    fun accountFooter_showsPrivacyPolicyAndVersion() {
+        composeRule.setContent {
+            MaterialTheme {
+                AccountFooter()
+            }
+        }
+
+        composeRule.onNodeWithText("Privacy Policy").assertIsDisplayed()
+        composeRule.onNodeWithText("Version", substring = true).assertIsDisplayed()
+    }
 }

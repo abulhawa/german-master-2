@@ -1,6 +1,7 @@
 package com.germanverbmaster.android.ui.auth
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -182,13 +184,41 @@ fun AuthScreen(
                     Text("History")
                 }
             }
+
         }
 
+        AccountFooter(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 8.dp)
+        )
+    }
+}
+
+@Composable
+fun PrivacyPolicyLink(modifier: Modifier = Modifier) {
+    val uriHandler = LocalUriHandler.current
+
+    Text(
+        text = "Privacy Policy",
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier.clickable { uriHandler.openUri(PRIVACY_POLICY_URL) }
+    )
+}
+
+@Composable
+fun AccountFooter(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        PrivacyPolicyLink()
+        Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = "Version ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})",
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
-            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
         )
     }
 }
@@ -221,3 +251,5 @@ fun AccountBrandHeader(modifier: Modifier = Modifier) {
         )
     }
 }
+
+private const val PRIVACY_POLICY_URL = "https://gvm.qortxai.com/privacy"
