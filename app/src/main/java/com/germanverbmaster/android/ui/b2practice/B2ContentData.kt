@@ -6,6 +6,12 @@ import com.germanverbmaster.android.domain.model.GrammarSection
 import com.germanverbmaster.android.domain.model.GrammarTable
 
 object B2ContentData {
+    private val adjectiveDeclensionCoverageItems = listOf(
+        "M+Nom", "M+Akk", "M+Dat", "M+Gen",
+        "F+Nom", "F+Akk", "F+Dat", "F+Gen",
+        "N+Nom", "N+Akk", "N+Dat", "N+Gen",
+        "Pl+Nom", "Pl+Akk", "Pl+Dat", "Pl+Gen"
+    )
 
     // ─── Verben + Präpositionen (58) ─────────────────────────────────────────
 
@@ -242,7 +248,8 @@ object B2ContentData {
             mistakes = listOf(
                 "Nicht: der neuer Kollege. Richtig: der neue Kollege.",
                 "Nach Dativ und Genitiv fast immer -en: mit dem neuen Plan, wegen des neuen Plans."
-            )
+            ),
+            coverageItems = adjectiveDeclensionCoverageItems
         ),
         GrammarTable(
             title = "Adjektivdeklination: Unbestimmter Artikel",
@@ -276,7 +283,8 @@ object B2ContentData {
             mistakes = listOf(
                 "Nicht: ein gute Plan. Richtig: ein guter Plan.",
                 "Kein im Plural verhält sich wie ein Artikel mit Endung: keine großen Probleme."
-            )
+            ),
+            coverageItems = adjectiveDeclensionCoverageItems
         ),
         GrammarTable(
             title = "Adjektivdeklination: Ohne Artikel",
@@ -291,40 +299,62 @@ object B2ContentData {
             examples = listOf(
                 "M+Nom: Guter Service ist wichtig.",
                 "M+Akk: Wir brauchen guten Service.",
+                "M+Dat: Mit gutem Service gewinnen wir Kunden.",
+                "M+Gen: Trotz guten Services gab es Beschwerden.",
                 "F+Nom: Schnelle Hilfe spart Zeit.",
+                "F+Akk: Wir bieten schnelle Hilfe an.",
                 "F+Dat: Mit schneller Hilfe lösen wir das Problem.",
+                "F+Gen: Wegen schneller Hilfe konnten wir den Termin halten.",
                 "N+Nom: Gutes Feedback hilft dem Team.",
                 "N+Akk: Ich erwarte gutes Feedback.",
+                "N+Dat: Mit gutem Feedback verbessern wir den Kurs.",
+                "N+Gen: Trotz guten Feedbacks ändern wir die Aufgabe.",
                 "Pl+Nom: Neue Ideen entstehen im Gespräch.",
-                "Pl+Dat: Mit neuen Ideen verbessern wir den Prozess."
+                "Pl+Akk: Wir sammeln neue Ideen.",
+                "Pl+Dat: Mit neuen Ideen verbessern wir den Prozess.",
+                "Pl+Gen: Wegen neuer Ideen planen wir einen Workshop."
             ),
             rule = "Ohne Artikel muss das Adjektiv die fehlende Kasus- und Genusinformation selbst tragen.",
             mistakes = listOf(
                 "Nicht: mit neu Ideen. Richtig: mit neuen Ideen.",
                 "Im Genitiv Maskulin/Neutrum steht beim Adjektiv meist -en: guten Mutes, schweren Herzens."
-            )
+            ),
+            coverageItems = adjectiveDeclensionCoverageItems
         ),
         GrammarTable(
             title = "Satzverbindungen (Konnektoren)",
-            note = "Wichtig: Die Position des Verbs ändert sich!",
+            note = "TELC B2 Beruf: Ursache, Folge, Gegensatz, Bedingung, Zweck und zeitliche Abfolge sicher verbinden.",
             headers = listOf("Typ", "Beispiele", "Verbposition"),
             rows = listOf(
                 listOf("ADUSO", "aber, denn, und, sondern, oder", "Position 0 (keine Änderung)"),
-                listOf("Subjunktionen", "weil, obwohl, dass, wenn, da", "Verb am Ende"),
-                listOf("Konjunktionaladverbien", "deshalb, trotzdem, außerdem", "Inversion (Verb an Pos. 2)"),
+                listOf("Subjunktionen: Grund", "weil, da, zumal", "Verb am Ende"),
+                listOf("Subjunktionen: Gegensatz", "obwohl, auch wenn, während", "Verb am Ende"),
+                listOf("Subjunktionen: Bedingung", "wenn, falls, sofern", "Verb am Ende"),
+                listOf("Subjunktionen: Zeit", "bevor, nachdem, während, sobald, seitdem, bis", "Verb am Ende"),
+                listOf("Subjunktionen: Zweck/Folge", "damit, sodass", "Verb am Ende"),
+                listOf("Konjunktionaladverbien: Folge", "deshalb, deswegen, daher, darum, folglich, somit", "Inversion (Verb an Pos. 2)"),
+                listOf("Konjunktionaladverbien: Gegensatz", "trotzdem, dennoch, allerdings, jedoch", "Inversion (Verb an Pos. 2)"),
+                listOf("Konjunktionaladverbien: Ergänzung", "außerdem, zudem, darüber hinaus", "Inversion (Verb an Pos. 2)"),
+                listOf("Konjunktionaladverbien: Ablauf", "zuerst, anschließend, danach, inzwischen, schließlich", "Inversion (Verb an Pos. 2)"),
+                listOf("Nominale Konnektoren", "wegen, aufgrund, trotz, während, infolge", "Präposition + Kasus"),
             ),
             examples = listOf(
-                "ADUSO: Ich arbeite viel, aber es macht Spaß.",
-                "ADUSO: Ich fange an und du hilfst mir.",
-                "Subjunktionen: Ich arbeite viel, weil ich Erfolg haben will.",
-                "Subjunktionen: Obwohl es regnete, gingen wir.",
-                "Adverbien: Es regnete stark, dennoch gingen wir spazieren.",
-                "Adverbien: Ich habe viel zu tun, trotzdem komme ich."
+                "ADUSO: Die Lieferung ist angekommen, aber die Rechnung fehlt noch.",
+                "Grund: Wir verschieben den Termin, weil mehrere Kollegen krank sind.",
+                "Gegensatz: Obwohl die Kosten gestiegen sind, halten wir am Projekt fest.",
+                "Bedingung: Falls Sie Rückfragen haben, wenden Sie sich bitte an die Personalabteilung.",
+                "Zeit: Nachdem wir die Unterlagen geprüft haben, schicken wir Ihnen eine Rückmeldung.",
+                "Zweck: Ich sende Ihnen die Liste, damit Sie die Daten kontrollieren können.",
+                "Folge: Die Frist ist sehr kurz; deshalb brauchen wir heute eine Entscheidung.",
+                "Ergänzung: Wir benötigen Ihre Unterschrift; außerdem fehlt noch die Kopie Ihres Ausweises.",
+                "Nominal: Aufgrund der hohen Nachfrage verlängern sich die Lieferzeiten."
             ),
-            rule = "Konnektoren verbinden Aussagen, bestimmen aber auch die Verbposition. ADUSO verbindet Hauptsätze ohne Umstellung; Subjunktionen schicken das finite Verb ans Ende; Konjunktionaladverbien stehen im Satzfeld und lösen Inversion aus.",
+            rule = "Konnektoren verbinden Aussagen, bestimmen aber auch die Verbposition. ADUSO verbindet Hauptsätze ohne Umstellung; Subjunktionen schicken das finite Verb ans Ende; Konjunktionaladverbien stehen im Satzfeld und lösen Inversion aus. Nominale Konnektoren verbinden mit einem Nomen statt mit einem Nebensatz.",
             mistakes = listOf(
                 "Nicht: Weil ich habe Zeit. Richtig: Weil ich Zeit habe.",
-                "Nicht: Deshalb ich komme später. Richtig: Deshalb komme ich später."
+                "Nicht: Deshalb ich komme später. Richtig: Deshalb komme ich später.",
+                "Nicht da und denn mischen: Da die Frist abläuft, brauchen wir eine Entscheidung. / Die Frist läuft ab, denn wir haben nur zwei Tage Zeit.",
+                "Trotzdem ist ein Adverb mit Inversion; obwohl ist eine Subjunktion mit Verb am Ende."
             ),
             extraSections = listOf(
                 GrammarSection(
@@ -332,9 +362,38 @@ object B2ContentData {
                     items = listOf(
                         "je ... desto: Je früher wir anfangen, desto schneller sind wir fertig.",
                         "entweder ... oder: Entweder wir verschieben den Termin, oder wir verkürzen die Agenda.",
-                        "weder ... noch: Weder der Preis noch die Lieferzeit passen."
+                        "weder ... noch: Weder der Preis noch die Lieferzeit passen.",
+                        "sowohl ... als auch: Das Angebot ist sowohl günstig als auch zuverlässig.",
+                        "nicht nur ... sondern auch: Die Lösung spart nicht nur Zeit, sondern verbessert auch die Qualität."
+                    )
+                ),
+                GrammarSection(
+                    title = "TELC Beruf Funktionen",
+                    items = listOf(
+                        "Begründen: weil, da, denn, aufgrund, wegen.",
+                        "Einschränken: obwohl, trotzdem, dennoch, allerdings, jedoch.",
+                        "Bedingung nennen: wenn, falls, sofern, andernfalls.",
+                        "Folge ausdrücken: deshalb, deswegen, daher, folglich, somit, sodass.",
+                        "Ergänzen: außerdem, zudem, darüber hinaus.",
+                        "Ablauf strukturieren: zuerst, anschließend, danach, inzwischen, schließlich.",
+                        "Zweck nennen: damit, um ... zu."
                     )
                 )
+            ),
+            coverageItems = listOf(
+                "ADUSO",
+                "Subjunktionen: Grund",
+                "Subjunktionen: Gegensatz",
+                "Subjunktionen: Bedingung",
+                "Subjunktionen: Zeit",
+                "Subjunktionen: Zweck/Folge",
+                "Konjunktionaladverbien: Folge",
+                "Konjunktionaladverbien: Gegensatz",
+                "Konjunktionaladverbien: Ergänzung",
+                "Konjunktionaladverbien: Ablauf",
+                "Nominale Konnektoren",
+                "Doppelkonnektoren",
+                "TELC Beruf Funktionen"
             ),
             useListLayout = true
         ),
@@ -370,7 +429,8 @@ object B2ContentData {
             mistakes = listOf(
                 "Nicht automatisch den Kasus des Bezugsworts übernehmen: Ich kenne den Kollegen, der heute kommt.",
                 "Bei Dativ Plural heißt es denen, nicht den: Kunden, denen ich helfe."
-            )
+            ),
+            coverageItems = adjectiveDeclensionCoverageItems
         ),
         GrammarTable(
             title = "Konjunktiv II (Gegenwart & Vergangenheit)",
@@ -397,6 +457,16 @@ object B2ContentData {
             ),
             extraSections = listOf(
                 GrammarSection(
+                    title = "Weitere Beispiele",
+                    items = listOf(
+                        "Höfliche Bitte: Würden Sie bitte kurz warten?",
+                        "Irreale Bedingung: Wenn die Software stabiler wäre, könnten wir schneller arbeiten.",
+                        "Wunsch: Ich hätte gern mehr Zeit für die Vorbereitung.",
+                        "Rat: An Ihrer Stelle würde ich die Antwort schriftlich bestätigen.",
+                        "Vergangenheit: Wenn wir früher bestellt hätten, wäre die Ware pünktlich angekommen."
+                    )
+                ),
+                GrammarSection(
                     title = "Modalverben",
                     items = listOf(
                         "könnte: vorsichtige Möglichkeit oder höfliche Bitte.",
@@ -405,6 +475,15 @@ object B2ContentData {
                         "dürfte: vorsichtige Wahrscheinlichkeit."
                     )
                 )
+            ),
+            coverageItems = listOf(
+                "Höfliche Bitte",
+                "Irreale Bedingung",
+                "Wunsch",
+                "Rat / Vorschlag",
+                "Vergangenheit",
+                "Weitere Beispiele",
+                "Modalverben"
             )
         ),
         GrammarTable(
@@ -434,12 +513,99 @@ object B2ContentData {
             ),
             extraSections = listOf(
                 GrammarSection(
+                    title = "Weitere Beispiele",
+                    items = listOf(
+                        "Präsens mit Agens: Der Antrag wird vom Amt bearbeitet.",
+                        "Präteritum: Die Kundin wurde gestern informiert.",
+                        "Perfekt: Die Unterlagen sind bereits weitergeleitet worden.",
+                        "Plusquamperfekt: Die Rechnung war schon bezahlt worden.",
+                        "Futur: Die Ergebnisse werden morgen veröffentlicht werden.",
+                        "Zustandspassiv: Der Termin ist bestätigt.",
+                        "Unpersönlich: Es wurde lange über die Lösung diskutiert."
+                    )
+                ),
+                GrammarSection(
                     title = "Agens",
                     items = listOf(
                         "von + Dativ für Personen/Institutionen: Der Antrag wird vom Amt geprüft.",
                         "durch + Akkusativ für Mittel/Ursachen: Die Lieferung wurde durch den Streik verzögert."
                     )
                 )
+            ),
+            coverageItems = listOf(
+                "Präsens",
+                "Präteritum",
+                "Perfekt",
+                "Modalverb",
+                "Zustandspassiv",
+                "Unpersönlich",
+                "Weitere Beispiele",
+                "Agens"
+            )
+        ),
+        GrammarTable(
+            title = "werden, worden, geworden & Passiversatzformen",
+            note = "Werden bildet auch das Futur: werden + Infinitiv. Davon getrennt: Passiv, worden und geworden.",
+            headers = listOf("Form", "Funktion"),
+            rows = listOf(
+                listOf("werden + Infinitiv", "Futur oder Vermutung: Der Termin wird stattfinden."),
+                listOf("werden + Partizip II", "Vorgangspassiv: Der Antrag wird geprüft."),
+                listOf("sein + Partizip II", "Zustandspassiv: Der Antrag ist geprüft."),
+                listOf("worden", "Perfekt Passiv: Der Antrag ist geprüft worden."),
+                listOf("geworden", "Vollverb werden: Die Lage ist schwieriger geworden."),
+                listOf("Passiversatz: sich lassen + Infinitiv", "Das Problem lässt sich lösen."),
+                listOf("Passiversatz: sein + zu + Infinitiv", "Die Frist ist einzuhalten."),
+                listOf("Passiversatz: Adjektiv auf -bar/-lich", "Die Daten sind überprüfbar."),
+            ),
+            examples = listOf(
+                "Futur: Wir werden die Unterlagen morgen senden.",
+                "Vorgangspassiv Präsens: Die Unterlagen werden geprüft.",
+                "Zustandspassiv: Die Unterlagen sind geprüft.",
+                "Perfekt Passiv: Die Unterlagen sind geprüft worden.",
+                "Vollverb werden: Die Bearbeitung ist schneller geworden.",
+                "sich lassen: Der Fehler lässt sich leicht beheben.",
+                "sein + zu: Die Vorschriften sind unbedingt zu beachten.",
+                "-bar/-lich: Die Entscheidung ist nachvollziehbar."
+            ),
+            rule = "Werden + Infinitiv bildet Futur oder eine Vermutung. Werden + Partizip II bildet Vorgangspassiv. Worden steht nur im Perfekt/Plusquamperfekt des Vorgangspassivs. Geworden ist das Partizip II des Vollverbs werden. Bei sich lassen richtet sich lassen nach dem Subjekt: Das Problem lässt sich lösen, die Probleme lassen sich lösen.",
+            mistakes = listOf(
+                "Nicht: Der Antrag ist geprüft geworden. Richtig: Der Antrag ist geprüft worden.",
+                "Nicht jedes werden ist Passiv: Wir werden antworten = Futur, nicht Passiv.",
+                "Zustand und Vorgang trennen: Die Tür wird geöffnet = jemand öffnet sie; die Tür ist geöffnet = sie ist offen.",
+                "Bei sich lassen nicht immer lässt sich verwenden: Die Daten lassen sich exportieren."
+            ),
+            extraSections = listOf(
+                GrammarSection(
+                    title = "sich lassen Beispiele",
+                    items = listOf(
+                        "Präsens Singular: Das Problem lässt sich lösen.",
+                        "Präsens Plural: Die Daten lassen sich exportieren.",
+                        "Präteritum: Der Fehler ließ sich gestern nicht reproduzieren.",
+                        "Präteritum Plural: Die Dateien ließen sich nicht öffnen.",
+                        "Perfekt: Der Termin hat sich kurzfristig verschieben lassen.",
+                        "Modalverb: Die Kosten müssen sich transparent darstellen lassen."
+                    )
+                ),
+                GrammarSection(
+                    title = "Schnelltest",
+                    items = listOf(
+                        "Kannst du eine handelnde Person mit von ergänzen? Dann ist oft Vorgangspassiv möglich.",
+                        "Beschreibt der Satz nur das Ergebnis? Dann ist Zustandspassiv mit sein oft besser.",
+                        "Bedeutet werden eine Entwicklung? Dann ist geworden richtig: Es ist besser geworden."
+                    )
+                )
+            ),
+            coverageItems = listOf(
+                "werden + Infinitiv",
+                "werden + Partizip II",
+                "sein + Partizip II",
+                "worden",
+                "geworden",
+                "sich lassen + Infinitiv",
+                "sich lassen Beispiele",
+                "sein + zu + Infinitiv",
+                "-bar/-lich",
+                "Schnelltest"
             )
         ),
         GrammarTable(
@@ -456,13 +622,26 @@ object B2ContentData {
                 "Personen: Ich spreche mit dem Kollegen (Dativ).",
                 "Berufe: Er sucht einen neuen Praktikanten (Akkusativ).",
                 "Nationalitäten: Ich kenne einen netten Franzosen.",
-                "Sonderfall: Der Name des Kunden steht auf der Rechnung."
+                "Sonderfall Name: Der Name des Kunden steht auf der Rechnung.",
+                "Sonderfall Herr: Ich begrüße den Herrn am Empfang."
             ),
             rule = "Betroffen sind vor allem maskuline Personen- und Berufsbezeichnungen sowie einige feste Sonderfälle.",
             mistakes = listOf(
                 "Nicht: mit dem Kollege. Richtig: mit dem Kollegen.",
                 "Der Herr bekommt -n: Ich frage den Herrn."
-            )
+            ),
+            extraSections = listOf(
+                GrammarSection(
+                    title = "Kasusbeispiele",
+                    items = listOf(
+                        "Nominativ: Der Kunde wartet am Empfang.",
+                        "Akkusativ: Ich rufe den Kunden zurück.",
+                        "Dativ: Wir senden dem Kunden die Bestätigung.",
+                        "Genitiv: Die Anfrage des Kunden ist dringend."
+                    )
+                )
+            ),
+            coverageItems = listOf("Personen", "Berufe", "Nationalitäten", "Sonderfall")
         ),
         GrammarTable(
             title = "Präpositionen mit Genitiv",
@@ -479,14 +658,16 @@ object B2ContentData {
                 "trotz: Trotz des Fehlers gab es keinen Tadel.",
                 "wegen: Wegen eines Termins kann ich nicht kommen.",
                 "während: Während der Arbeitszeit ist es verboten.",
-                "außer/inner: Außerhalb der Geschäftszeiten per E-Mail.",
+                "außerhalb: Außerhalb der Geschäftszeiten erreichen Sie uns per E-Mail.",
+                "innerhalb: Innerhalb einer Woche erhalten Sie eine Antwort.",
                 "aufgrund: Aufgrund der hohen Kosten wurde es gestrichen."
             ),
             rule = "Diese Präpositionen verlangen in Standardsprache den Genitiv; in Alltagssprache kommt besonders bei wegen auch Dativ vor.",
             mistakes = listOf(
                 "In formellen Texten besser Genitiv: wegen eines Fehlers, nicht wegen einem Fehler.",
                 "Bei Plural ohne Artikel muss die Endung sichtbar sein: trotz guter Ergebnisse."
-            )
+            ),
+            coverageItems = listOf("trotz", "wegen", "während", "außerhalb", "innerhalb", "aufgrund")
         ),
         GrammarTable(
             title = "Infinitiv mit zu / ohne zu",
@@ -499,15 +680,20 @@ object B2ContentData {
             ),
             examples = listOf(
                 "Mit zu: Wir planen, den Vertrag morgen zu unterschreiben.",
+                "Mit zu: Ich empfehle Ihnen, die Unterlagen vollständig einzureichen.",
+                "Mit zu: Es ist wichtig, die Frist einzuhalten.",
                 "Trennbar: Ich bitte Sie, die Unterlagen weiterzuleiten.",
+                "Trennbar: Wir versuchen, den Termin vorzuziehen.",
                 "Ohne zu: Wir müssen die Frist einhalten.",
-                "Ohne zu: Ich lasse den Antrag prüfen."
+                "Ohne zu: Ich lasse den Antrag prüfen.",
+                "Ohne zu: Ich gehe die Unterlagen holen."
             ),
             rule = "Zu steht vor dem Infinitiv; bei trennbaren Verben steht es zwischen Präfix und Verbstamm.",
             mistakes = listOf(
                 "Nicht: weiter zu leiten. Richtig: weiterzuleiten.",
                 "Nach Modalverben kein zu: Wir müssen antworten."
-            )
+            ),
+            coverageItems = listOf("mit zu", "trennbare Verben", "ohne zu")
         ),
         GrammarTable(
             title = "Partizip I & II als Adjektive",
@@ -519,14 +705,18 @@ object B2ContentData {
             ),
             examples = listOf(
                 "Partizip I: Die wartenden Kunden wurden informiert.",
+                "Partizip I: Der fehlende Nachweis muss nachgereicht werden.",
                 "Partizip II: Die bezahlte Rechnung liegt im System.",
-                "Erweitert: Die gestern eingereichten Unterlagen werden geprüft."
+                "Partizip II: Die verschobene Sitzung findet nächste Woche statt.",
+                "Erweitert: Die gestern eingereichten Unterlagen werden geprüft.",
+                "Erweitert: Der von der Firma angebotene Kurs beginnt im Mai."
             ),
             rule = "Partizipien werden wie Adjektive dekliniert und können vor dem Nomen ganze Relativsätze ersetzen.",
             mistakes = listOf(
                 "Nicht die Adjektivendung vergessen: die wartenden Kunden.",
                 "Aktiv/passiv unterscheiden: der prüfende Mitarbeiter, der geprüfte Antrag."
-            )
+            ),
+            coverageItems = listOf("Partizip I", "Partizip II", "Erweitert")
         ),
         GrammarTable(
             title = "Nominalisierung",
@@ -541,13 +731,18 @@ object B2ContentData {
                 "Verbal: Wir prüfen den Antrag bis Freitag.",
                 "Nominal: Die Prüfung des Antrags erfolgt bis Freitag.",
                 "Verbal: Weil die Nachfrage steigt, erhöhen wir die Produktion.",
-                "Nominal: Aufgrund der steigenden Nachfrage erhöhen wir die Produktion."
+                "Nominal: Aufgrund der steigenden Nachfrage erhöhen wir die Produktion.",
+                "Verbal: Nachdem wir entschieden haben, informieren wir das Team.",
+                "Nominal: Nach der Entscheidung informieren wir das Team.",
+                "Verbal: Weil sich die Lieferung verspätet, ändern wir den Plan.",
+                "Nominal: Wegen der verspäteten Lieferung ändern wir den Plan."
             ),
             rule = "Nominalisierung ersetzt Verben oder Nebensätze durch Nomen, oft mit Genitiv oder Präposition.",
             mistakes = listOf(
                 "Nominalstil nicht übertreiben; zu viele Nomen machen Texte schwer lesbar.",
                 "Genitiv sauber bilden: die Prüfung des Antrags, nicht die Prüfung den Antrag."
-            )
+            ),
+            coverageItems = listOf("prüfen", "steigen", "entscheiden", "Aufgrund")
         ),
         GrammarTable(
             title = "Subjektive Bedeutung der Modalverben",
@@ -561,15 +756,20 @@ object B2ContentData {
             ),
             examples = listOf(
                 "Das muss ein Missverständnis sein.",
+                "Das muss gestern passiert sein.",
                 "Die Lieferung dürfte morgen eintreffen.",
+                "Die Lösung dürfte für alle Abteilungen passen.",
                 "Der Termin könnte verschoben werden.",
-                "Der neue Vertrag soll bereits unterschrieben sein."
+                "Der Fehler könnte durch das Update entstanden sein.",
+                "Der neue Vertrag soll bereits unterschrieben sein.",
+                "Die Firma soll nächste Woche eine Entscheidung treffen."
             ),
             rule = "Die subjektive Bedeutung bewertet, wie sicher die Aussage ist. Sie beschreibt nicht Fähigkeit, Erlaubnis oder Pflicht.",
             mistakes = listOf(
                 "Nicht jede Form von müssen bedeutet Pflicht: Das muss stimmen = Ich bin fast sicher.",
                 "Für vorsichtige Vermutungen ist dürfte oft formeller als könnte."
-            )
+            ),
+            coverageItems = listOf("muss", "dürfte", "könnte", "soll")
         ),
         GrammarTable(
             title = "Rektion von Adjektiven",
@@ -584,16 +784,21 @@ object B2ContentData {
             ),
             examples = listOf(
                 "Wir sind mit dem Ergebnis zufrieden.",
+                "Der Kunde ist mit der Lieferzeit unzufrieden.",
                 "Der Erfolg ist von der Vorbereitung abhängig.",
+                "Die Entscheidung ist von mehreren Faktoren abhängig.",
                 "Sie ist für die Abrechnung verantwortlich.",
+                "Unser Team ist für die technische Umsetzung zuständig.",
                 "Ich bin an einer schnellen Lösung interessiert.",
-                "Diese Methode ist für Anfänger geeignet."
+                "Diese Methode ist für Anfänger geeignet.",
+                "Die Schulung ist für neue Mitarbeiter hilfreich."
             ),
             rule = "Die Präposition gehört zum Adjektiv und bestimmt den Kasus der Ergänzung.",
             mistakes = listOf(
                 "Nicht aus dem Englischen übertragen: interessiert an, nicht interessiert in.",
                 "Kasus mitlernen: zufrieden mit dem Ergebnis, verantwortlich für den Ablauf."
-            )
+            ),
+            coverageItems = listOf("zufrieden", "abhängig", "verantwortlich", "interessiert", "geeignet", "zuständig")
         ),
         GrammarTable(
             title = "Wortstellung im Mittelfeld",
@@ -609,13 +814,18 @@ object B2ContentData {
                 "Ich schicke dem Kunden morgen per E-Mail die Unterlagen.",
                 "Ich schicke sie ihm morgen per E-Mail.",
                 "Wir treffen uns morgen wegen des Projekts im Büro.",
-                "Ich habe den Vertrag nicht gestern unterschrieben, sondern heute."
+                "Ich habe den Vertrag nicht gestern unterschrieben, sondern heute.",
+                "Ich habe gestern wegen der Reklamation lange mit dem Kunden telefoniert.",
+                "Leider können wir Ihnen die Ware erst nächste Woche liefern.",
+                "Wir stellen dem Kunden die neuen Bedingungen schriftlich vor.",
+                "Wir stellen sie ihm morgen schriftlich vor."
             ),
             rule = "Die Reihenfolge ist nicht mechanisch, aber Pronomen stehen früh; neue oder betonte Informationen stehen oft später.",
             mistakes = listOf(
                 "Nicht jedes nicht steht am Satzende; es steht vor dem verneinten Satzteil.",
                 "Bei zwei Pronomen steht Akkusativ meist vor Dativ: Ich gebe es ihm."
-            )
+            ),
+            coverageItems = listOf("Pronomen", "Zeit", "Negation", "Ort")
         ),
     )
 

@@ -10,6 +10,7 @@ data class GrammarTable(
     val rule: String = "",
     val mistakes: List<String> = emptyList(),
     val extraSections: List<GrammarSection> = emptyList(),
+    val coverageItems: List<String> = emptyList(),
     val useListLayout: Boolean = false
 )
 
