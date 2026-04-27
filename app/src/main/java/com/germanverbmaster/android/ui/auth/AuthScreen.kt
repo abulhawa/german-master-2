@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.auth
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
@@ -23,10 +25,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.germanverbmaster.android.BuildConfig
+import com.germanverbmaster.android.R
 import com.germanverbmaster.android.domain.model.AppTheme
 import com.germanverbmaster.android.ui.theme.ThemeViewModel
 import io.github.jan.supabase.auth.status.SessionStatus
@@ -58,10 +64,7 @@ fun AuthScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(32.dp))
-            Text(
-                text = "Account",
-                style = MaterialTheme.typography.headlineMedium
-            )
+            AccountBrandHeader()
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -186,6 +189,35 @@ fun AuthScreen(
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
             modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
+        )
+    }
+}
+
+@Composable
+fun AccountBrandHeader(modifier: Modifier = Modifier) {
+    val appName = stringResource(R.string.app_name)
+
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(R.mipmap.ic_launcher_foreground),
+            contentDescription = "$appName icon",
+            modifier = Modifier.size(72.dp)
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        Text(
+            text = appName,
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = "Account",
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            textAlign = TextAlign.Center
         )
     }
 }
