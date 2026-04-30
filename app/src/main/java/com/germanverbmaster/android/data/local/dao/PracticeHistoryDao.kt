@@ -39,6 +39,18 @@ interface PracticeHistoryDao {
 
     @Query(
         """
+        DELETE FROM practice_history
+        WHERE localId NOT IN (
+          SELECT MIN(localId)
+          FROM practice_history
+          GROUP BY COALESCE(userId, ''), taskId, lexemeId, submittedAt
+        )
+        """,
+    )
+    suspend fun deleteDuplicates()
+
+    @Query(
+        """
         SELECT
           SUM(CASE WHEN result = 'correct' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) as accuracy,
           COUNT(*) as total

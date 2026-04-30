@@ -79,4 +79,36 @@ class TaskSpecDaoTest {
         assertEquals(1, batch.size)
         assertEquals("t1", batch[0].id)
     }
+
+    @Test
+    fun findHistoryAnchorTaskId_prefersVocabularyDrill() = runBlocking {
+        val lexeme = LexemeEntity(id = "l1", lemma = "Wort", pos = "N", isApproved = true, isComplete = true)
+        lexemeDao.upsertAll(listOf(lexeme))
+
+        val tasks = listOf(
+            TaskSpecEntity(
+                id = "task:noun",
+                lexemeId = "l1",
+                pos = "N",
+                taskType = "noun_case_declension",
+                renderer = "case_grid",
+                promptJson = "{}",
+                solutionJson = "{}",
+            ),
+            TaskSpecEntity(
+                id = "task:vocab",
+                lexemeId = "l1",
+                pos = "N",
+                taskType = "vocabulary_drill",
+                renderer = "word_card",
+                promptJson = "{}",
+                solutionJson = "{}",
+            ),
+        )
+        taskSpecDao.upsertAll(tasks)
+
+        val anchorTaskId = taskSpecDao.findHistoryAnchorTaskId("l1", "N")
+
+        assertEquals("task:vocab", anchorTaskId)
+    }
 }

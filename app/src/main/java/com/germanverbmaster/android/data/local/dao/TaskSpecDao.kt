@@ -38,16 +38,18 @@ interface TaskSpecDao {
         WHERE lexemeId = :lexemeId
         ORDER BY
           CASE
+            WHEN taskType = 'vocabulary_drill' THEN 0
             WHEN :pos = 'V' AND taskType = 'conjugate_form' THEN 0
             WHEN :pos = 'N' AND taskType = 'noun_case_declension' THEN 0
             WHEN :pos = 'Adj' AND taskType = 'adj_ending' THEN 0
             ELSE 1
           END,
           CASE taskType
-            WHEN 'conjugate_form' THEN 0
-            WHEN 'noun_case_declension' THEN 1
-            WHEN 'adj_ending' THEN 2
-            ELSE 3
+            WHEN 'vocabulary_drill' THEN 0
+            WHEN 'conjugate_form' THEN 1
+            WHEN 'noun_case_declension' THEN 2
+            WHEN 'adj_ending' THEN 3
+            ELSE 4
           END,
           id ASC
         LIMIT 1

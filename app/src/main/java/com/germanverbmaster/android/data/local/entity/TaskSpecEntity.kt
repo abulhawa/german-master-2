@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-// task_type values: "conjugate_form" | "noun_case_declension" | "adj_ending"
+// task_type values include "vocabulary_drill", "conjugate_form", "noun_case_declension", "adj_ending"
 @Entity(
     tableName = "task_specs",
     foreignKeys = [ForeignKey(
