@@ -47,7 +47,7 @@ class HistorySyncMapperTest {
     }
 
     @Test
-    fun `toRemote keeps remote-backed ids and parses nullable remote id`() = runTest {
+    fun `toRemote keeps grammar remote-backed ids and parses nullable remote id`() = runTest {
         val entity = PracticeHistoryEntity(
             taskId = "task-1",
             lexemeId = "lex-1",
@@ -83,7 +83,7 @@ class HistorySyncMapperTest {
     }
 
     @Test
-    fun `toRemote resolves Wortschatz rows to real remote identities`() = runTest {
+    fun `toRemote resolves Wortschatz rows to canonical vocabulary drill task ids`() = runTest {
         val entity = PracticeHistoryEntity(
             localId = 8,
             taskId = "word_12",
@@ -104,13 +104,13 @@ class HistorySyncMapperTest {
         coEvery { taskRepository.exists("word_12") } returns false
         coEvery { lexemeRepository.exists("word_12") } returns false
         coEvery { lexemeRepository.findIdByLemmaAndPos("machen", "V") } returns "lex-42"
-        coEvery { taskRepository.findHistoryAnchorTaskId("lex-42", "V") } returns "task-42"
+        coEvery { taskRepository.findHistoryAnchorTaskId("lex-42", "V") } returns "vocabulary_drill:lex-42"
 
         val remote = mapper.toRemote(entity, "user-1")
 
         requireNotNull(remote)
         assertNull(remote.remoteId)
-        assertEquals("task-42", remote.taskId)
+        assertEquals("vocabulary_drill:lex-42", remote.taskId)
         assertEquals("lex-42", remote.lexemeId)
         assertEquals("machen", remote.lemma)
         assertEquals("V", remote.pos)
@@ -123,7 +123,7 @@ class HistorySyncMapperTest {
     }
 
     @Test
-    fun `toRemote returns null when Wortschatz row cannot be resolved`() = runTest {
+    fun `toRemote keeps legacy Wortschatz fallback attempts sync safe when canonical specs are missing`() = runTest {
         val entity = PracticeHistoryEntity(
             taskId = "word_12",
             lexemeId = "word_12",
@@ -144,6 +144,31 @@ class HistorySyncMapperTest {
 
         requireNotNull(remote)
         assertEquals("identity:v:machen", remote.taskId)
+        assertEquals("identity:v:machen", remote.lexemeId)
+        assertEquals("vocabulary_drill", remote.taskType)
+        assertEquals("word_card", remote.renderer)
+    }
+
+    @Test
+    fun `toRemote returns null for grammar rows that are not remote backed`() = runTest {
+        val entity = PracticeHistoryEntity(
+            taskId = "local-grammar-task",
+            lexemeId = "local-grammar-lexeme",
+            lemma = "machen",
+            pos = "V",
+            taskType = "conjugate_form",
+            renderer = "conjugate_form",
+            result = "correct",
+            responseMs = 150,
+            submittedAt = "2026-04-23T10:15:30Z",
+        )
+
+        coEvery { taskRepository.exists("local-grammar-task") } returns false
+        coEvery { lexemeRepository.exists("local-grammar-lexeme") } returns false
+
+        val remote = mapper.toRemote(entity, "user-1")
+
+        assertNull(remote)
     }
 
     @Test
