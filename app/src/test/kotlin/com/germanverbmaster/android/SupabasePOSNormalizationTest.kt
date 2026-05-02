@@ -4,27 +4,54 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonPrimitive
 import org.junit.Test
 import java.io.File
 import java.util.Properties
 
 class SupabasePOSNormalizationTest {
 
-    private val posMapping = mapOf(
+    // For the 'words' table (shorthand format)
+    private val shorthandPosMapping = mapOf(
         "noun" to "N",
         "verb" to "V",
         "adjective" to "Adj",
         "adverb" to "Adv",
-        "preposition" to "Prep",
-        "conjunction" to "Conj",
+        "preposition" to "Präp",
+        "conjunction" to "Konj",
         "pronoun" to "Pron",
+        "determiner" to "Det",
         "particle" to "Part",
-        "NOMEN" to "N",
-        "VERB" to "V",
-        "ADJEKTIV" to "Adj",
-        "PrΣp" to "Prep",
-        "Konj" to "Conj"
+        "interjection" to "Interj",
+        "numeral" to "Num"
+    )
+
+    // For 'lexemes', 'task_specs', 'practice_history' (canonical format)
+    private val canonicalPosMapping = mapOf(
+        "v" to "verb",
+        "n" to "noun",
+        "adj" to "adjective",
+        "adv" to "adverb",
+        "prep" to "preposition",
+        "konj" to "conjunction",
+        "pron" to "pronoun",
+        "det" to "determiner",
+        "part" to "particle",
+        "int" to "interjection",
+        "num" to "numeral",
+        "V" to "verb",
+        "N" to "noun",
+        "Adj" to "adjective",
+        "Adv" to "adverb",
+        "Präp" to "preposition",
+        "Konj" to "conjunction",
+        "Pron" to "pronoun",
+        "Det" to "determiner",
+        "Part" to "particle",
+        "Interj" to "interjection",
+        "Num" to "numeral"
     )
 
     private val sourceIdMapping = mapOf(
@@ -43,6 +70,11 @@ class SupabasePOSNormalizationTest {
         val supabaseUrl = localProps.getProperty("supabase.url")
         val serviceRoleKey = localProps.getProperty("supabase.service.role")
 
+        if (supabaseUrl.isNullOrBlank() || serviceRoleKey.isNullOrBlank()) {
+            println("Skipping normalization: supabase.url or supabase.service.role missing in local.properties")
+            return@runBlocking
+        }
+
         val supabase = createSupabaseClient(supabaseUrl, serviceRoleKey) {
             install(Postgrest)
         }
@@ -51,21 +83,23 @@ class SupabasePOSNormalizationTest {
 
         for (tableName in tables) {
             println("\n--- Processing Table: $tableName ---")
+            val mapping = if (tableName == "words") shorthandPosMapping else canonicalPosMapping
+            
             try {
                 // 1. Normalize 'pos' column
-                for ((oldValue, newValue) in posMapping) {
+                for ((oldValue, newValue) in mapping) {
                     try {
-                        val result = supabase.from(tableName).update(
+                        supabase.from(tableName).update(
                             mapOf("pos" to newValue)
                         ) {
                             filter { eq("pos", oldValue) }
                         }
-                        println("  Updated 'pos': $oldValue -> $newValue")
+                        println("  Updated '$tableName.pos': $oldValue -> $newValue")
                     } catch (e: Exception) {
                         if (e.message?.contains("column") == true && e.message?.contains("does not exist") == true) {
                             // Column might not exist in this table, skip
                         } else {
-                            println("  Error updating 'pos' ($oldValue): ${e.message}")
+                            println("  Error updating '$tableName.pos' ($oldValue): ${e.message}")
                         }
                     }
                 }
@@ -74,7 +108,7 @@ class SupabasePOSNormalizationTest {
                 if (tableName == "lexemes") {
                     println("  Checking source_ids for normalization...")
                     val lexemesWithSourceIds = supabase.from("lexemes").select {
-                        range(0, 1000) // Doing it in batches if needed, but let's see
+                        range(0, 1000)
                     }.decodeList<JsonObject>()
                     
                     var updateCount = 0

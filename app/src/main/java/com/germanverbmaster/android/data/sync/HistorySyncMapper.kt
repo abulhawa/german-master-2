@@ -34,7 +34,8 @@ class HistorySyncMapper @Inject constructor(
 
         // Use a standardized content-based identity if no remote ID is found.
         // This ensures that "word_123" (local) becomes "identity:präp:dank + gen" (global).
-        val fallbackIdentity = "$IDENTITY_PREFIX${entity.pos.lowercase()}:${entity.lemma.lowercase().trim()}"
+        val canonicalPos = PartOfSpeechMapper.toCanonical(entity.pos)
+        val fallbackIdentity = "$IDENTITY_PREFIX$canonicalPos:${entity.lemma.lowercase().trim()}"
         
         val finalTaskId = resolvedIds?.taskId ?: if (entity.taskId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.taskId
         val finalLexemeId = resolvedIds?.lexemeId ?: if (entity.lexemeId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.lexemeId
@@ -52,7 +53,7 @@ class HistorySyncMapper @Inject constructor(
             taskId = finalTaskId,
             lexemeId = finalLexemeId,
             lemma = entity.lemma,
-            pos = entity.pos,
+            pos = canonicalPos,
             taskType = entity.taskType,
             renderer = entity.renderer,
             deviceId = deviceIdProvider.get(),
@@ -68,7 +69,8 @@ class HistorySyncMapper @Inject constructor(
 
     suspend fun toFingerprint(entity: PracticeHistoryEntity, userId: String): HistorySyncFingerprint {
         val resolvedIds = resolveRemoteIds(entity)
-        val fallbackIdentity = "$IDENTITY_PREFIX${entity.pos.lowercase()}:${entity.lemma.lowercase().trim()}"
+        val canonicalPos = PartOfSpeechMapper.toCanonical(entity.pos)
+        val fallbackIdentity = "$IDENTITY_PREFIX$canonicalPos:${entity.lemma.lowercase().trim()}"
         
         val finalTaskId = resolvedIds?.taskId ?: if (entity.taskId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.taskId
         val finalLexemeId = resolvedIds?.lexemeId ?: if (entity.lexemeId.startsWith(LOCAL_WORD_PREFIX)) fallbackIdentity else entity.lexemeId
@@ -96,8 +98,8 @@ class HistorySyncMapper @Inject constructor(
 
     suspend fun toLocalEntity(remote: RemoteHistory): PracticeHistoryEntity {
         val lexeme = lexemeRepository.getById(remote.lexemeId)
-        val lemma = lexeme?.lemma.orEmpty()
-        val cefrLevel = lexeme?.cefrLevel
+        val lemma = remote.lemma ?: lexeme?.lemma ?: ""
+        val cefrLevel = remote.cefrLevel ?: lexeme?.cefrLevel
 
         if (!isWordCard(remote.taskType, remote.renderer)) {
             return PracticeHistoryEntity(
@@ -110,8 +112,8 @@ class HistorySyncMapper @Inject constructor(
                 taskType = remote.taskType,
                 renderer = remote.renderer,
                 result = remote.result,
-                submittedAnswer = remote.submittedAnswer,
-                correctAnswer = remote.correctAnswer,
+                submittedAnswer = remote.submittedAnswer.orEmpty(),
+                correctAnswer = remote.correctAnswer.orEmpty(),
                 responseMs = remote.responseMs,
                 cefrLevel = cefrLevel,
                 hintsUsed = remote.hintsUsed,
@@ -135,8 +137,8 @@ class HistorySyncMapper @Inject constructor(
             taskType = remote.taskType,
             renderer = remote.renderer,
             result = remote.result,
-            submittedAnswer = remote.submittedAnswer,
-            correctAnswer = remote.correctAnswer,
+            submittedAnswer = remote.submittedAnswer.orEmpty(),
+            correctAnswer = remote.correctAnswer.orEmpty(),
             responseMs = remote.responseMs,
             cefrLevel = cefrLevel,
             hintsUsed = remote.hintsUsed,
