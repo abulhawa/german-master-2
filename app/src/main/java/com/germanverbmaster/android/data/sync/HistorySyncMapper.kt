@@ -177,7 +177,7 @@ class HistorySyncMapper @Inject constructor(
 
         val resolvedTaskId = taskRepository.findHistoryAnchorTaskId(resolvedLexemeId, entity.pos)
             ?: if (isWordCard(entity.taskType, entity.renderer)) {
-                "drill_anchor_${entity.pos.lowercase()}"
+                "drill_anchor_${PartOfSpeechMapper.toCanonical(entity.pos)}"
             } else null
 
         if (resolvedTaskId == null) {
