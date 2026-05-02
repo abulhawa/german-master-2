@@ -72,13 +72,13 @@ class SupabaseHistoryApi @Inject constructor(
     suspend fun upsert(entries: List<RemoteHistory>) {
         if (entries.isEmpty()) return
         val payload = serializeRemoteHistory(entries)
-        Log.d(TAG, "Upserting ${entries.size} history records to user_practice_history")
+        Log.d(TAG, "Upserting ${entries.size} history records to practice_history")
         if (BuildConfig.DEBUG) {
             val columns = payload.flatMap { it.jsonObject.keys }.distinct().sorted()
-            Log.d(TAG, "Outgoing user_practice_history columns=$columns")
+            Log.d(TAG, "Outgoing practice_history columns=$columns")
         }
         try {
-            client.postgrest["user_practice_history"].upsert(payload)
+            client.postgrest["practice_history"].upsert(payload)
         } catch (e: Exception) {
             Log.e(TAG, "Error upserting history", e)
             throw e
@@ -89,10 +89,10 @@ class SupabaseHistoryApi @Inject constructor(
         val pageSize = 1000
         val all = mutableListOf<RemoteHistory>()
         var from = 0
-        Log.d(TAG, "Fetching history since $since for user $userId from user_practice_history")
+        Log.d(TAG, "Fetching history since $since for user $userId from practice_history")
         try {
             while (true) {
-                val page = client.postgrest["user_practice_history"]
+                val page = client.postgrest["practice_history"]
                     .select(columns = PRACTICE_HISTORY_SELECT_COLUMNS) {
                         filter { 
                             eq("user_id", userId)

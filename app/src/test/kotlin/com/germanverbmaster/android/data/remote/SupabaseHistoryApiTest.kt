@@ -2,13 +2,12 @@ package com.germanverbmaster.android.data.remote
 
 import kotlinx.serialization.json.jsonObject
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class SupabaseHistoryApiTest {
 
     @Test
-    fun `remote history payload uses all fields for user_practice_history`() {
+    fun `remote history payload uses all fields for practice_history`() {
         val remote = RemoteHistory(
             remoteId = 42,
             userId = "user-1",
@@ -54,7 +53,7 @@ class SupabaseHistoryApiTest {
     }
 
     @Test
-    fun `remote history select columns match the user_practice_history schema`() {
+    fun `remote history select columns match the practice_history schema`() {
         assertEquals(
             "id,user_id,task_id,lexeme_id,lemma,pos,task_type,renderer,device_id,result,submitted_answer,correct_answer,response_ms,cefr_level,hints_used,submitted_at",
             PRACTICE_HISTORY_SELECT_COLUMNS.value,
