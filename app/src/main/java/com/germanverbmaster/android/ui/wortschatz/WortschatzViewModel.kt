@@ -24,7 +24,7 @@ import kotlin.random.Random
 
 // ─── Filter options ───────────────────────────────────────────────────────────
 
-val LEVEL_FILTERS = listOf("B2 Beruf", "Alle", "A1", "A2", "B1", "B2", "C1")
+val LEVEL_FILTERS = listOf("B2 Beruf", "Alle", "A1", "A2", "B1", "B2")
 val POS_LABELS    = mapOf(
     "Alle" to "Alle",
     "V"    to "Verben",

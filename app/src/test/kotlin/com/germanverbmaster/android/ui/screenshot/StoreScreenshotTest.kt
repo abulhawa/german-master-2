@@ -69,7 +69,7 @@ class StoreScreenshotTest {
             exampleDe = "Das Buch gefällt mir sehr gut.", exampleEn = "I like the book very much."
         ),
         WordEntity(
-            id = 5, lemma = "Nachhaltigkeit", pos = "N", level = "C1", english = "sustainability", gender = "f",
+            id = 5, lemma = "Nachhaltigkeit", pos = "N", level = "B2", english = "sustainability", gender = "f",
             plural = "-", exampleDe = "Nachhaltigkeit ist heute sehr wichtig.",
             exampleEn = "Sustainability is very important today."
         )

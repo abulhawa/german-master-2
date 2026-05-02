@@ -39,9 +39,9 @@ class SupabaseLexemeApiTest {
         val metadataVariants = listOf(
             JsonObject(mapOf("level" to JsonPrimitive("A1"))),
             JsonObject(mapOf("cefr_level" to JsonPrimitive("B2"))),
-            JsonObject(mapOf("cefr" to JsonPrimitive("C1")))
+            JsonObject(mapOf("cefr" to JsonPrimitive("B1")))
         )
-        val expectedLevels = listOf("A1", "B2", "C1")
+        val expectedLevels = listOf("A1", "B2", "B1")
 
         with(api) {
             metadataVariants.forEachIndexed { index, metadata ->

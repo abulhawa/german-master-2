@@ -303,7 +303,7 @@ fun LevelSelector(current: String?, onChange: (String?) -> Unit) {
                 onClick = { onChange(null) },
                 label = { Text("Alle", style = MaterialTheme.typography.labelSmall) },
             )
-            listOf("A1", "A2", "B1", "B2", "C1").forEach { level ->
+            listOf("A1", "A2", "B1", "B2").forEach { level ->
                 FilterChip(
                     selected = current == level,
                     onClick = { onChange(level) },
