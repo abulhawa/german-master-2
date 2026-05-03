@@ -156,51 +156,49 @@ fun WordDetailScreen(
             )
         }
     ) { innerPadding ->
-        SelectionContainer {
-            Column(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
-                    .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                val currentWord = word
-                if (currentWord == null) {
-                    CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
-                } else {
-                    val nounPresentation = remember(currentWord) {
-                        if (NounFormFormatter.isNoun(currentWord.pos)) {
-                            NounFormFormatter.present(
-                                lemma = currentWord.lemma,
-                                gender = currentWord.gender,
-                                plural = currentWord.plural,
-                            )
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            val currentWord = word
+            if (currentWord == null) {
+                CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
+            } else {
+                val nounPresentation = remember(currentWord) {
+                    if (NounFormFormatter.isNoun(currentWord.pos)) {
+                        NounFormFormatter.present(
+                            lemma = currentWord.lemma,
+                            gender = currentWord.gender,
+                            plural = currentWord.plural,
+                        )
+                    } else {
+                        null
+                    }
+                }
+                val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
+
+                WordDetailContent(
+                    word = currentWord,
+                    onSpeak = { viewModel.speak(it) },
+                    aiTranslation = aiTranslation,
+                    aiExampleTranslation = aiExampleTranslation,
+                    isModelDownloaded = isModelDownloaded,
+                    isDownloading = isDownloading,
+                    downloadError = downloadError,
+                    targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
+                    targetLanguageCode = targetLanguage,
+                    onRefreshAi = { 
+                        if (isModelDownloaded) {
+                            viewModel.requestAiTranslation(headlineText)
                         } else {
-                            null
+                            showDownloadDialog = true
                         }
                     }
-                    val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
-
-                    WordDetailContent(
-                        word = currentWord,
-                        onSpeak = { viewModel.speak(it) },
-                        aiTranslation = aiTranslation,
-                        aiExampleTranslation = aiExampleTranslation,
-                        isModelDownloaded = isModelDownloaded,
-                        isDownloading = isDownloading,
-                        downloadError = downloadError,
-                        targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
-                        targetLanguageCode = targetLanguage,
-                        onRefreshAi = { 
-                            if (isModelDownloaded) {
-                                viewModel.requestAiTranslation(headlineText)
-                            } else {
-                                showDownloadDialog = true
-                            }
-                        }
-                    )
-                }
+                )
             }
         }
     }
@@ -240,14 +238,15 @@ private fun WordDetailContent(
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Text(
-            text = headlineText,
-            style = MaterialTheme.typography.displaySmall,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.weight(1f),
-        )
+        SelectionContainer(modifier = Modifier.weight(1f)) {
+            Text(
+                text = headlineText,
+                style = MaterialTheme.typography.displaySmall,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+                textAlign = TextAlign.Center,
+            )
+        }
         IconButton(onClick = { onSpeak(headlineSpeak) }) {
             Icon(
                 Icons.AutoMirrored.Filled.VolumeUp,
@@ -259,11 +258,13 @@ private fun WordDetailContent(
 
     // Translation
     word.english?.let {
-        Text(
-            text = it,
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.secondary
-        )
+        SelectionContainer {
+            Text(
+                text = it,
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.secondary
+            )
+        }
     }
 
     Spacer(Modifier.height(16.dp))
@@ -354,23 +355,26 @@ private fun WordDetailContent(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = word.exampleDe,
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontStyle = FontStyle.Italic,
-                        modifier = Modifier.weight(1f)
-                    )
+                    SelectionContainer(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = word.exampleDe,
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontStyle = FontStyle.Italic,
+                        )
+                    }
                     IconButton(onClick = { onSpeak(word.exampleDe) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
                     }
                 }
                 word.exampleEn?.let {
                     Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
-                    )
+                    SelectionContainer {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                        )
+                    }
                 }
 
                 // KI Example Translation
@@ -396,34 +400,39 @@ private fun WordDetailContent(
                             )
                         }
                         
-                        when (result) {
-                            is TranslationManager.TranslationResult.Success -> {
-                                Text(
-                                    text = result.translation,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    fontWeight = FontWeight.Medium
-                                )
-                            }
-                            is TranslationManager.TranslationResult.LowConfidence -> {
-                                Text(
-                                    text = result.translation,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                                Surface(
-                                    shape = MaterialTheme.shapes.extraSmall,
-                                    color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
-                                    modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
-                                ) {
+                        SelectionContainer {
+                            when (result) {
+                                is TranslationManager.TranslationResult.Success -> {
                                     Text(
-                                        "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
-                                        style = MaterialTheme.typography.labelSmall,
-                                        modifier = Modifier.padding(4.dp)
+                                        text = result.translation,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        fontWeight = FontWeight.Medium
                                     )
                                 }
+                                is TranslationManager.TranslationResult.LowConfidence -> {
+                                    Text(
+                                        text = result.translation,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                                is TranslationManager.TranslationResult.Error -> {
+                                    Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                                }
                             }
-                            is TranslationManager.TranslationResult.Error -> {
-                                Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                        }
+
+                        if (result is TranslationManager.TranslationResult.LowConfidence) {
+                            Surface(
+                                shape = MaterialTheme.shapes.extraSmall,
+                                color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
+                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
+                            ) {
+                                Text(
+                                    "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    modifier = Modifier.padding(4.dp)
+                                )
                             }
                         }
                         
@@ -618,36 +627,39 @@ private fun TranslationResultView(title: String, result: TranslationManager.Tran
     Column {
         Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
 
-        when (result) {
-            is TranslationManager.TranslationResult.Success -> {
-                Text(
-                    text = result.translation,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            is TranslationManager.TranslationResult.LowConfidence -> {
-                Column(modifier = Modifier.fillMaxWidth()) {
+        SelectionContainer {
+            when (result) {
+                is TranslationManager.TranslationResult.Success -> {
+                    Text(
+                        text = result.translation,
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                is TranslationManager.TranslationResult.LowConfidence -> {
                     Text(
                         text = result.translation,
                         style = MaterialTheme.typography.bodyLarge,
                         fontWeight = FontWeight.Medium
                     )
-                    Surface(
-                        shape = MaterialTheme.shapes.extraSmall,
-                        color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
-                            style = MaterialTheme.typography.labelSmall,
-                            modifier = Modifier.padding(4.dp)
-                        )
-                    }
+                }
+                is TranslationManager.TranslationResult.Error -> {
+                    Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
                 }
             }
-            is TranslationManager.TranslationResult.Error -> {
-                Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+        }
+
+        if (result is TranslationManager.TranslationResult.LowConfidence) {
+            Surface(
+                shape = MaterialTheme.shapes.extraSmall,
+                color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
+                    style = MaterialTheme.typography.labelSmall,
+                    modifier = Modifier.padding(4.dp)
+                )
             }
         }
     }
