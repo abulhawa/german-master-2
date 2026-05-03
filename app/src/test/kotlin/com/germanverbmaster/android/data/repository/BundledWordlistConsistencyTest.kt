@@ -34,13 +34,19 @@ class BundledWordlistConsistencyTest {
     }
 
     private fun wordlistPath(): Path {
+        val rootDataPath = Paths.get("..", "data", "b2_wortliste.csv")
+        if (Files.exists(rootDataPath)) return rootDataPath
+
+        val subDataPath = Paths.get("data", "b2_wortliste.csv")
+        if (Files.exists(subDataPath)) return subDataPath
+
         val directModulePath = Paths.get("src", "main", "assets", "b2_wortliste.csv")
         if (Files.exists(directModulePath)) return directModulePath
 
         val rootPath = Paths.get("app", "src", "main", "assets", "b2_wortliste.csv")
         if (Files.exists(rootPath)) return rootPath
 
-        error("Could not locate b2_wortliste.csv from current working directory")
+        error("Could not locate b2_wortliste.csv from current working directory (${System.getProperty("user.dir")})")
     }
 
     private fun previewRows(rows: List<IndexedValue<String>>): String =

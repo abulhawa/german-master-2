@@ -43,7 +43,7 @@ class WordRepository @Inject constructor(
     fun observeDistinctPos(): Flow<List<String>> = dao.observeDistinctPos()
 
     suspend fun needsSync(): Boolean =
-        dao.countByLevelExcluding(BUNDLED_BERUF_LEVEL) < MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB
+        dao.count() < MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB
 
     suspend fun upsertBundledB2BerufWordsIfAvailable(): Int {
         val csvText = runCatching {
@@ -66,9 +66,7 @@ class WordRepository @Inject constructor(
         val remote = if ((since == null) || needsSync()) api.fetchAll()
         else api.fetchUpdatedSince(since)
         if (remote.isNotEmpty()) {
-            val entities = remote
-                .filter { it.level != BUNDLED_BERUF_LEVEL }
-                .map { with(api) { it.toEntity() } }
+            val entities = remote.map { with(api) { it.toEntity() } }
             dao.upsertAll(entities)
         }
     }
