@@ -9,9 +9,9 @@ We have successfully integrated Google ML Kit for on-device translation to impro
 - **Round-Trip Verification**: Implemented a logic where we translate `DE -> EN` and then `EN -> DE`. If the result matches the original German word, we mark it as "Success" (High Confidence). Otherwise, it's flagged as "Low Confidence".
 
 ### 2. UI Enhancements
-- **[WordDetailScreen.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/ui/worddetail/WordDetailScreen.kt)**: Added an "ML Kit Übersetzung" box below the primary translation.
-    - Users can tap the ✨ icon to request an AI translation.
-    - If the AI suggests a different translation and the app is in **DEBUG** mode, a "Datenbank aktualisieren" (Update Database) button appears.
+- **[WordDetailScreen.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/ui/worddetail/WordDetailScreen.kt)**: Added a "KI Übersetzung" box below the primary translation.
+    - Users can tap the ✨ icon to request a KI translation.
+    - If the KI suggests a different translation and the app is in **DEBUG** mode, a "Datenbank aktualisieren" (Update Database) button appears.
 
 ### 3. Data Integrity
 - **Debug-Only Updates**: The logic to overwrite the database with AI suggestions is strictly wrapped in `BuildConfig.DEBUG` checks in the [WordDetailViewModel.kt](file:///C:/Projects/GermanVerbMaster-Android/app/src/main/java/com/germanverbmaster/android/ui/worddetail/WordDetailViewModel.kt).

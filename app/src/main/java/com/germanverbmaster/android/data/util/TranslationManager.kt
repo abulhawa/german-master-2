@@ -1,7 +1,6 @@
 package com.germanverbmaster.android.data.util
 
 import android.util.Log
-import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
@@ -28,7 +27,6 @@ class TranslationManager @Inject constructor() {
     suspend fun translateDeToEn(text: String): String? {
         if (text.isBlank()) return null
         return try {
-            ensureModelDownloaded(isDeToEn = true)
             deEnTranslator.translate(text).await()
         } catch (e: Exception) {
             Log.e("TranslationManager", "Error translating DE to EN", e)
@@ -39,7 +37,6 @@ class TranslationManager @Inject constructor() {
     suspend fun translateEnToDe(text: String): String? {
         if (text.isBlank()) return null
         return try {
-            ensureModelDownloaded(isDeToEn = false)
             enDeTranslator.translate(text).await()
         } catch (e: Exception) {
             Log.e("TranslationManager", "Error translating EN to DE", e)
@@ -52,11 +49,15 @@ class TranslationManager @Inject constructor() {
      * Translates DE -> EN, then EN -> DE.
      * Returns the EN translation if the DE -> EN -> DE result matches the original.
      */
-    suspend fun verifyWithRoundTrip(germanText: String): TranslationResult {
+    suspend fun verifyWithRoundTrip(germanText: String, originalLemma: String? = null): TranslationResult {
         val english = translateDeToEn(germanText) ?: return TranslationResult.Error("Translation failed")
         val backToGerman = translateEnToDe(english) ?: return TranslationResult.Error("Verification failed")
 
-        return if (backToGerman.equals(germanText, ignoreCase = true)) {
+        // Use originalLemma for comparison if provided (e.g. for reflexive verbs)
+        val comparisonText = originalLemma ?: germanText
+
+        return if (backToGerman.contains(comparisonText, ignoreCase = true) || 
+            comparisonText.contains(backToGerman, ignoreCase = true)) {
             TranslationResult.Success(english)
         } else {
             TranslationResult.LowConfidence(english, backToGerman)
@@ -64,14 +65,7 @@ class TranslationManager @Inject constructor() {
     }
 
     private suspend fun ensureModelDownloaded(isDeToEn: Boolean) {
-        val conditions = DownloadConditions.Builder()
-            .requireWifi()
-            .build()
-        if (isDeToEn) {
-            deEnTranslator.downloadModelIfNeeded(conditions).await()
-        } else {
-            enDeTranslator.downloadModelIfNeeded(conditions).await()
-        }
+        // Models are now managed by ModelDownloadManager
     }
 
     sealed class TranslationResult {
