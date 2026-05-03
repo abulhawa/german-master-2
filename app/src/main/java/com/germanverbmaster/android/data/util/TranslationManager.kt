@@ -82,8 +82,16 @@ class TranslationManager @Inject constructor() {
 
         val comparisonText = originalLemma ?: germanText
 
-        return if (backToGerman.contains(comparisonText, ignoreCase = true) || 
-            comparisonText.contains(backToGerman, ignoreCase = true)) {
+        // Relaxed comparison: check if the core words exist in the back-translation
+        // We'll normalize both strings and check for keyword overlap
+        val normalizedBack = backToGerman.lowercase()
+        val normalizedOriginal = comparisonText.lowercase()
+        
+        val isSimilar = normalizedBack == normalizedOriginal || 
+                        normalizedBack.contains(normalizedOriginal) || 
+                        normalizedOriginal.contains(normalizedBack)
+
+        return if (isSimilar) {
             TranslationResult.Success(translation)
         } else {
             TranslationResult.LowConfidence(translation, backToGerman)

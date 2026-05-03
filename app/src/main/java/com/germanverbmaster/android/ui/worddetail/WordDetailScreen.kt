@@ -21,6 +21,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Button
@@ -89,14 +90,15 @@ fun WordDetailScreen(
     val isDownloading by viewModel.isDownloading.collectAsStateWithLifecycle()
     val downloadError by viewModel.downloadError.collectAsStateWithLifecycle()
     val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
+    val downloadedCodes by viewModel.downloadedLanguageCodes.collectAsStateWithLifecycle()
 
     var showDownloadDialog by remember { mutableStateOf(false) }
     var showLanguagePicker by remember { mutableStateOf(false) }
 
-    val allLanguages = remember {
+    val allLanguages = remember(downloadedCodes) {
         TranslateLanguage.getAllLanguages().map { 
             it to (languageNameMap[it] ?: it)
-        }.sortedBy { it.second }
+        }.sortedWith(compareByDescending<Pair<String, String>> { downloadedCodes.contains(it.first) }.thenBy { it.second })
     }
 
     if (showDownloadDialog) {
@@ -114,9 +116,13 @@ fun WordDetailScreen(
         LanguagePickerDialog(
             languages = allLanguages,
             currentLanguageCode = targetLanguage,
+            downloadedCodes = downloadedCodes,
             onLanguageSelected = { code ->
                 viewModel.setTargetLanguage(code)
                 showLanguagePicker = false
+            },
+            onDeleteLanguage = { code ->
+                viewModel.deleteLanguageModel(code)
             },
             onDismiss = { showLanguagePicker = false }
         )
@@ -520,7 +526,7 @@ private fun TranslationResultView(title: String, result: TranslationManager.Tran
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(
-                            "Unsicher: Rückübersetzung '${result.backTranslation}'",
+                            "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
                             style = MaterialTheme.typography.labelSmall,
                             modifier = Modifier.padding(4.dp)
                         )
@@ -539,11 +545,13 @@ private fun TranslationResultView(title: String, result: TranslationManager.Tran
 fun LanguagePickerDialog(
     languages: List<Pair<String, String>>,
     currentLanguageCode: String,
+    downloadedCodes: Set<String>,
     onLanguageSelected: (String) -> Unit,
+    onDeleteLanguage: (String) -> Unit,
     onDismiss: () -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
-    val filteredLanguages = remember(searchQuery) {
+    val filteredLanguages = remember(searchQuery, languages) {
         languages.filter { 
             it.second.contains(searchQuery, ignoreCase = true) || 
             it.first.contains(searchQuery, ignoreCase = true)
@@ -580,6 +588,7 @@ fun LanguagePickerDialog(
 
                 LazyColumn(modifier = Modifier.weight(1f)) {
                     items(filteredLanguages) { (code, name) ->
+                        val isDownloaded = downloadedCodes.contains(code)
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -587,12 +596,30 @@ fun LanguagePickerDialog(
                                 .padding(vertical = 12.dp, horizontal = 8.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text(
-                                text = name,
-                                modifier = Modifier.weight(1f),
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = if (code == currentLanguageCode) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                            )
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = name,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = if (code == currentLanguageCode) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                                )
+                                if (isDownloaded) {
+                                    Text(
+                                        "Bereit für offline",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.7f)
+                                    )
+                                }
+                            }
+                            if (isDownloaded && code != TranslateLanguage.GERMAN && code != TranslateLanguage.ENGLISH) {
+                                IconButton(onClick = { onDeleteLanguage(code) }) {
+                                    Icon(
+                                        Icons.Default.Delete,
+                                        contentDescription = "Löschen",
+                                        tint = MaterialTheme.colorScheme.error.copy(alpha = 0.6f),
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
+                            }
                             if (code == currentLanguageCode) {
                                 Text("✓", color = MaterialTheme.colorScheme.primary)
                             }

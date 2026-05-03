@@ -48,6 +48,9 @@ class WordDetailViewModel @Inject constructor(
     private val _isModelDownloaded = MutableStateFlow(false)
     val isModelDownloaded = _isModelDownloaded.asStateFlow()
 
+    private val _downloadedLanguageCodes = MutableStateFlow<Set<String>>(emptySet())
+    val downloadedLanguageCodes = _downloadedLanguageCodes.asStateFlow()
+
     val targetLanguage = prefs.kiTargetLanguage.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
@@ -63,6 +66,7 @@ class WordDetailViewModel @Inject constructor(
         viewModelScope.launch {
             targetLanguage.collect { checkModelStatus() }
         }
+        refreshDownloadedLanguages()
     }
 
     private fun checkModelStatus() {
@@ -70,6 +74,15 @@ class WordDetailViewModel @Inject constructor(
             val de = modelDownloadManager.isModelDownloaded(TranslateLanguage.GERMAN)
             val target = modelDownloadManager.isModelDownloaded(targetLanguage.value)
             _isModelDownloaded.value = de && target
+            refreshDownloadedLanguages()
+        }
+    }
+
+    fun refreshDownloadedLanguages() {
+        viewModelScope.launch {
+            val allCodes = TranslateLanguage.getAllLanguages()
+            val downloaded = allCodes.filter { modelDownloadManager.isModelDownloaded(it) }.toSet()
+            _downloadedLanguageCodes.value = downloaded
         }
     }
 
@@ -85,6 +98,14 @@ class WordDetailViewModel @Inject constructor(
         viewModelScope.launch {
             modelDownloadManager.downloadModels(targetLanguage.value, allowMobileData)
             checkModelStatus()
+        }
+    }
+
+    fun deleteLanguageModel(langCode: String) {
+        viewModelScope.launch {
+            modelDownloadManager.deleteModels(langCode)
+            checkModelStatus()
+            refreshDownloadedLanguages()
         }
     }
 
