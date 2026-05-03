@@ -1,10 +1,16 @@
 package com.germanverbmaster.android.ui.wortschatz
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.remote.worker.SyncWorker
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.domain.model.PracticeResult
@@ -13,6 +19,7 @@ import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -112,6 +119,7 @@ class WortschatzViewModel @Inject constructor(
     private val syncHistoryUseCase: SyncHistoryUseCase,
     private val prefs: AppPreferences,
     private val tts: TextToSpeechHelper,
+    @param:ApplicationContext private val context: Context,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(WortschatzUiState())
@@ -259,6 +267,18 @@ class WortschatzViewModel @Inject constructor(
             prefs.setDrillIndex(0)
         }
         buildDrill(0)
+    }
+
+    fun onExitDrill() {
+        val syncRequest = OneTimeWorkRequestBuilder<SyncWorker>()
+            .setConstraints(
+                Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.CONNECTED)
+                    .build()
+            )
+            .build()
+        WorkManager.getInstance(context).enqueue(syncRequest)
+        Log.d("WortschatzViewModel", "Enqueued background sync on drill exit")
     }
 
     // ─── private ──────────────────────────────────────────────────────────────

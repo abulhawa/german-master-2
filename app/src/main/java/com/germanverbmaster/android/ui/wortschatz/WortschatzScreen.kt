@@ -26,6 +26,7 @@ fun WortschatzScreen(
         onMarkCorrect = viewModel::markCorrect,
         onMarkWrong = viewModel::markWrong,
         onRestartDrill = viewModel::restartDrill,
+        onExitDrill = viewModel::onExitDrill,
         onSpeak = { viewModel.speak(it) }
     )
 }

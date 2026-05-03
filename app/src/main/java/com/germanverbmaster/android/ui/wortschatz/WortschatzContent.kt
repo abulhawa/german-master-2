@@ -55,6 +55,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -97,6 +98,7 @@ fun WortschatzScreenContent(
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
     onRestartDrill: () -> Unit,
+    onExitDrill: () -> Unit,
     onSpeak: (String) -> Unit,
 ) {
     val showFilterSheet = remember { mutableStateOf(false) }
@@ -253,15 +255,20 @@ fun WortschatzScreenContent(
                         onWordClick = onNavigateToWordDetail
                     )
 
-                    WortschatzTab.DRILL -> DrillContent(
-                        state = state,
-                        onNavigateToHistory = onNavigateToHistory,
-                        onSpeak = onSpeak,
-                        onFlip = onFlip,
-                        onMarkCorrect = onMarkCorrect,
-                        onMarkWrong = onMarkWrong,
-                        onRestartDrill = onRestartDrill
-                    )
+                    WortschatzTab.DRILL -> {
+                        DisposableEffect(Unit) {
+                            onDispose { onExitDrill() }
+                        }
+                        DrillContent(
+                            state = state,
+                            onNavigateToHistory = onNavigateToHistory,
+                            onSpeak = onSpeak,
+                            onFlip = onFlip,
+                            onMarkCorrect = onMarkCorrect,
+                            onMarkWrong = onMarkWrong,
+                            onRestartDrill = onRestartDrill
+                        )
+                    }
                 }
             }
         }
