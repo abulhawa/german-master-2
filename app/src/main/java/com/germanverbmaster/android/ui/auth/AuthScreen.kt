@@ -221,6 +221,7 @@ fun DeleteAccountLink(modifier: Modifier = Modifier) {
 
 @Composable
 fun AccountFooter(modifier: Modifier = Modifier) {
+    val uriHandler = LocalUriHandler.current
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -228,6 +229,13 @@ fun AccountFooter(modifier: Modifier = Modifier) {
         PrivacyPolicyLink()
         Spacer(modifier = Modifier.height(4.dp))
         DeleteAccountLink()
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = "AI Translation powered by Google",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f),
+            modifier = Modifier.clickable { uriHandler.openUri("https://cloud.google.com/translation") }
+        )
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = "Version ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})",

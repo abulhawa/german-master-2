@@ -393,6 +393,13 @@ private fun WordDetailContent(
                                 Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
                             }
                         }
+                        
+                        Text(
+                            "powered by Google",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                            modifier = Modifier.align(Alignment.End)
+                        )
                     }
                 }
             }
@@ -501,6 +508,14 @@ private fun AiTranslationBox(
                         TranslationResultView(title = "Wort (basierend auf Beispielsatz)", result = it)
                     }
                 }
+                
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "powered by Google",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                    modifier = Modifier.align(Alignment.End)
+                )
             }
         }
     }
