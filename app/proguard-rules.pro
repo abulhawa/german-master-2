@@ -10,17 +10,9 @@
 # Add any project specific keep rules here:
 
 # ML Kit Translation rules
--keep class com.google.mlkit.nl.translate.** { *; }
 -keep class com.google.mlkit.common.internal.CommonComponentRegistrar { <init>(); }
 -keep class com.google.mlkit.nl.translate.NaturalLanguageTranslateRegistrar { <init>(); }
-
-# General ML Kit rules for registrar instantiation
--keepclassmembers class * extends com.google.firebase.components.ComponentRegistrar {
-    <init>();
-}
--keepclassmembers class * extends com.google.mlkit.common.sdkinternal.ModelRegistrar {
-    <init>();
-}
+-keep class com.google.mlkit.nl.translate.** { *; }
 
 # If your project uses WebView with JS, uncomment the following:
 # -keepclassmembers class fqcn.of.javascript.interface.for.webview {
