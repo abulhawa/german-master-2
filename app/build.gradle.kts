@@ -147,6 +147,7 @@ dependencies {
 
     // Coroutines
     implementation(libs.coroutines.android)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
 
     // Serialization
     implementation(libs.serialization.json)
@@ -172,6 +173,9 @@ dependencies {
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
+
+    // ML Kit
+    implementation(libs.mlkit.translate)
 
     // Unit Testing
     testImplementation(libs.junit)

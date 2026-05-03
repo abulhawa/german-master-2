@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.Flow
 interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(word: WordEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertAll(words: List<WordEntity>)
 
     /** All words that have a translation — used for Wortschatz drill */

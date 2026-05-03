@@ -9,11 +9,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.Save
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -36,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.ui.common.NounFormFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,6 +53,8 @@ fun WordDetailScreen(
     viewModel: WordDetailViewModel = hiltViewModel()
 ) {
     val word by viewModel.word.collectAsStateWithLifecycle()
+    val aiTranslation by viewModel.aiTranslation.collectAsStateWithLifecycle()
+    val isUpdatingDb by viewModel.isUpdatingDb.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
@@ -70,14 +80,30 @@ fun WordDetailScreen(
             if (currentWord == null) {
                 CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
             } else {
-                WordDetailContent(currentWord, onSpeak = { viewModel.speak(it) })
+                WordDetailContent(
+                    word = currentWord,
+                    onSpeak = { viewModel.speak(it) },
+                    aiTranslation = aiTranslation,
+                    isUpdatingDb = isUpdatingDb,
+                    isDebug = viewModel.isDebug,
+                    onRefreshAi = { viewModel.requestAiTranslation() },
+                    onUpdateDb = { viewModel.updateDatabaseWithAi() }
+                )
             }
         }
     }
 }
 
 @Composable
-private fun WordDetailContent(word: WordEntity, onSpeak: (String) -> Unit) {
+private fun WordDetailContent(
+    word: WordEntity,
+    onSpeak: (String) -> Unit,
+    aiTranslation: TranslationManager.TranslationResult?,
+    isUpdatingDb: Boolean,
+    isDebug: Boolean,
+    onRefreshAi: () -> Unit,
+    onUpdateDb: () -> Unit
+) {
     val nounPresentation = remember(word) {
         if (NounFormFormatter.isNoun(word.pos)) {
             NounFormFormatter.present(
@@ -124,6 +150,18 @@ private fun WordDetailContent(word: WordEntity, onSpeak: (String) -> Unit) {
             color = MaterialTheme.colorScheme.secondary
         )
     }
+
+    Spacer(Modifier.height(16.dp))
+
+    // AI Translation Section
+    AiTranslationBox(
+        currentTranslation = word.english,
+        result = aiTranslation,
+        isUpdatingDb = isUpdatingDb,
+        isDebug = isDebug,
+        onRefresh = onRefreshAi,
+        onUpdateDb = onUpdateDb
+    )
 
     Spacer(Modifier.height(24.dp))
 
@@ -224,5 +262,113 @@ private fun DetailSection(title: String, content: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(title, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
         Text(content, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
+    }
+}
+
+@Composable
+private fun AiTranslationBox(
+    currentTranslation: String?,
+    result: TranslationManager.TranslationResult?,
+    isUpdatingDb: Boolean,
+    isDebug: Boolean,
+    onRefresh: () -> Unit,
+    onUpdateDb: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+        )
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Default.AutoAwesome,
+                        contentDescription = null,
+                        modifier = Modifier.size(16.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        "KI Übersetzung",
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                IconButton(onClick = onRefresh, modifier = Modifier.size(24.dp)) {
+                    Icon(Icons.Default.AutoAwesome, contentDescription = "KI Refresh", modifier = Modifier.size(16.dp))
+                }
+            }
+
+            Spacer(Modifier.height(8.dp))
+
+            when (result) {
+                null -> {
+                    Text(
+                        "Klicken Sie auf das Icon oben, um eine KI-Übersetzung anzufordern.",
+                        style = MaterialTheme.typography.bodySmall,
+                        fontStyle = FontStyle.Italic
+                    )
+                }
+                is TranslationManager.TranslationResult.Success -> {
+                    Column {
+                        Text(
+                            text = result.translation,
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                        if (isDebug && result.translation != currentTranslation) {
+                            Spacer(Modifier.height(8.dp))
+                            Button(
+                                onClick = onUpdateDb,
+                                enabled = !isUpdatingDb,
+                                modifier = Modifier.fillMaxWidth(),
+                                contentPadding = ButtonDefaults.TextButtonContentPadding
+                            ) {
+                                if (isUpdatingDb) {
+                                    CircularProgressIndicator(modifier = Modifier.size(16.dp), strokeWidth = 2.dp)
+                                } else {
+                                    Icon(Icons.Default.Save, contentDescription = null, modifier = Modifier.size(16.dp))
+                                    Spacer(Modifier.width(8.dp))
+                                    Text("Datenbank aktualisieren")
+                                }
+                            }
+                        }
+                    }
+                }
+                is TranslationManager.TranslationResult.LowConfidence -> {
+                    Column {
+                        Text(
+                            "Niedrige Konfidenz:",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                        Text(
+                            text = result.translation,
+                            style = MaterialTheme.typography.bodyMedium,
+                            textDecoration = androidx.compose.ui.text.style.TextDecoration.LineThrough
+                        )
+                        Text(
+                            "Rückübersetzung: ${result.backTranslation}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+                    }
+                }
+                is TranslationManager.TranslationResult.Error -> {
+                    Text(
+                        result.message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
+            }
+        }
     }
 }

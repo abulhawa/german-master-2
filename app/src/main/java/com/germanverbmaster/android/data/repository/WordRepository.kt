@@ -70,4 +70,8 @@ class WordRepository @Inject constructor(
             dao.upsertAll(entities)
         }
     }
+
+    suspend fun updateWord(word: WordEntity) {
+        dao.upsert(word)
+    }
 }
