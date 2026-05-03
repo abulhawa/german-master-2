@@ -1,15 +1,19 @@
 package com.germanverbmaster.android.ui.worddetail
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -17,6 +21,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,6 +33,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -49,6 +56,25 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.ui.common.NounFormFormatter
+import com.google.mlkit.nl.translate.TranslateLanguage
+
+private val languageNameMap = mapOf(
+    "af" to "Afrikaans", "sq" to "Albanisch", "ar" to "Arabisch", "be" to "Belarussisch",
+    "bn" to "Bengalisch", "bg" to "Bulgarisch", "ca" to "Katalanisch", "zh" to "Chinesisch",
+    "hr" to "Kroatisch", "cs" to "Tschechisch", "da" to "Dänisch", "nl" to "Niederländisch",
+    "en" to "Englisch", "eo" to "Esperanto", "et" to "Estnisch", "fi" to "Finnisch",
+    "fr" to "Französisch", "gl" to "Galicisch", "ka" to "Georgisch", "de" to "Deutsch",
+    "el" to "Griechisch", "gu" to "Gujarati", "ht" to "Haitianisch", "he" to "Hebräisch",
+    "hi" to "Hindi", "hu" to "Ungarisch", "is" to "Isländisch", "id" to "Indonesisch",
+    "ga" to "Irisch", "it" to "Italienisch", "ja" to "Japanisch", "kn" to "Kannada",
+    "ko" to "Koreanisch", "lv" to "Lettisch", "lt" to "Litauisch", "mk" to "Mazedonisch",
+    "ms" to "Malaiisch", "mt" to "Maltesisch", "mr" to "Marathi", "no" to "Norwegisch",
+    "fa" to "Persisch", "pl" to "Polnisch", "pt" to "Portugiesisch", "ro" to "Rumänisch",
+    "ru" to "Russisch", "sk" to "Slowakisch", "sl" to "Slowenisch", "es" to "Spanisch",
+    "sw" to "Swahili", "sv" to "Schwedisch", "tl" to "Tagalog", "ta" to "Tamil",
+    "te" to "Telugu", "th" to "Thailändisch", "tr" to "Türkisch", "uk" to "Ukrainisch",
+    "ur" to "Urdu", "vi" to "Vietnamesisch", "cy" to "Walisisch"
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,16 +88,37 @@ fun WordDetailScreen(
     val isModelDownloaded by viewModel.isModelDownloaded.collectAsStateWithLifecycle()
     val isDownloading by viewModel.isDownloading.collectAsStateWithLifecycle()
     val downloadError by viewModel.downloadError.collectAsStateWithLifecycle()
+    val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
 
     var showDownloadDialog by remember { mutableStateOf(false) }
+    var showLanguagePicker by remember { mutableStateOf(false) }
+
+    val allLanguages = remember {
+        TranslateLanguage.getAllLanguages().map { 
+            it to (languageNameMap[it] ?: it)
+        }.sortedBy { it.second }
+    }
 
     if (showDownloadDialog) {
         DownloadPermissionDialog(
+            targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
             onConfirm = { allowMobile ->
                 viewModel.downloadModels(allowMobile)
                 showDownloadDialog = false
             },
             onDismiss = { showDownloadDialog = false }
+        )
+    }
+
+    if (showLanguagePicker) {
+        LanguagePickerDialog(
+            languages = allLanguages,
+            currentLanguageCode = targetLanguage,
+            onLanguageSelected = { code ->
+                viewModel.setTargetLanguage(code)
+                showLanguagePicker = false
+            },
+            onDismiss = { showLanguagePicker = false }
         )
     }
 
@@ -82,6 +129,11 @@ fun WordDetailScreen(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Zurück")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { showLanguagePicker = true }) {
+                        Icon(Icons.Default.Translate, contentDescription = "Sprache wählen")
                     }
                 }
             )
@@ -107,6 +159,7 @@ fun WordDetailScreen(
                     isModelDownloaded = isModelDownloaded,
                     isDownloading = isDownloading,
                     downloadError = downloadError,
+                    targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
                     onRefreshAi = { 
                         if (isModelDownloaded) {
                             viewModel.requestAiTranslation()
@@ -129,6 +182,7 @@ private fun WordDetailContent(
     isModelDownloaded: Boolean,
     isDownloading: Boolean,
     downloadError: String?,
+    targetLanguageName: String,
     onRefreshAi: () -> Unit,
 ) {
     val nounPresentation = remember(word) {
@@ -187,6 +241,7 @@ private fun WordDetailContent(
         isModelDownloaded = isModelDownloaded,
         isDownloading = isDownloading,
         downloadError = downloadError,
+        targetLanguageName = targetLanguageName,
         onRefresh = onRefreshAi,
     )
 
@@ -299,6 +354,7 @@ private fun AiTranslationBox(
     isModelDownloaded: Boolean,
     isDownloading: Boolean,
     downloadError: String?,
+    targetLanguageName: String,
     onRefresh: () -> Unit,
 ) {
     Card(
@@ -322,7 +378,7 @@ private fun AiTranslationBox(
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        "KI Übersetzung",
+                        "KI Übersetzung ($targetLanguageName)",
                         style = MaterialTheme.typography.labelMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -350,13 +406,13 @@ private fun AiTranslationBox(
 
             if (!isModelDownloaded && !isDownloading) {
                 Text(
-                    "KI-Modelle müssen heruntergeladen werden (ca. 60MB). Klicken Sie auf das Cloud-Icon.",
+                    "KI-Modelle für $targetLanguageName müssen heruntergeladen werden (ca. 60MB). Klicken Sie auf das Cloud-Icon.",
                     style = MaterialTheme.typography.bodySmall,
                     fontStyle = FontStyle.Italic
                 )
             } else if (isDownloading) {
                 Text(
-                    "Modelle werden heruntergeladen...",
+                    "Modelle für $targetLanguageName werden heruntergeladen...",
                     style = MaterialTheme.typography.bodySmall,
                     fontStyle = FontStyle.Italic
                 )
@@ -382,6 +438,7 @@ private fun AiTranslationBox(
 
 @Composable
 fun DownloadPermissionDialog(
+    targetLanguageName: String,
     onConfirm: (Boolean) -> Unit,
     onDismiss: () -> Unit
 ) {
@@ -404,7 +461,7 @@ fun DownloadPermissionDialog(
                 )
                 Spacer(Modifier.height(16.dp))
                 Text(
-                    "Für die KI-Übersetzung müssen Sprachmodelle heruntergeladen werden (ca. 60MB).",
+                    "Für die KI-Übersetzung nach $targetLanguageName müssen Sprachmodelle heruntergeladen werden (ca. 60MB).",
                     textAlign = TextAlign.Center
                 )
                 Spacer(Modifier.height(16.dp))
@@ -472,6 +529,90 @@ private fun TranslationResultView(title: String, result: TranslationManager.Tran
             }
             is TranslationManager.TranslationResult.Error -> {
                 Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun LanguagePickerDialog(
+    languages: List<Pair<String, String>>,
+    currentLanguageCode: String,
+    onLanguageSelected: (String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    var searchQuery by remember { mutableStateOf("") }
+    val filteredLanguages = remember(searchQuery) {
+        languages.filter { 
+            it.second.contains(searchQuery, ignoreCase = true) || 
+            it.first.contains(searchQuery, ignoreCase = true)
+        }
+    }
+
+    Dialog(onDismissRequest = onDismiss) {
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.8f),
+            shape = MaterialTheme.shapes.large,
+            color = MaterialTheme.colorScheme.surface,
+            tonalElevation = 8.dp
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    "Zielsprache wählen",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+
+                OutlinedTextField(
+                    value = searchQuery,
+                    onValueChange = { searchQuery = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    placeholder = { Text("Suchen...") },
+                    leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                    singleLine = true
+                )
+
+                Spacer(Modifier.height(16.dp))
+
+                LazyColumn(modifier = Modifier.weight(1f)) {
+                    items(filteredLanguages) { (code, name) ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { onLanguageSelected(code) }
+                                .padding(vertical = 12.dp, horizontal = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = name,
+                                modifier = Modifier.weight(1f),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = if (code == currentLanguageCode) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                            )
+                            if (code == currentLanguageCode) {
+                                Text("✓", color = MaterialTheme.colorScheme.primary)
+                            }
+                        }
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 8.dp),
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outlineVariant
+                        )
+                    }
+                }
+
+                Spacer(Modifier.height(16.dp))
+
+                TextButton(
+                    onClick = onDismiss,
+                    modifier = Modifier.align(Alignment.End)
+                ) {
+                    Text("Schließen")
+                }
             }
         }
     }

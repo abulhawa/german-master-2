@@ -28,6 +28,7 @@ private val DRILL_CORRECT = stringPreferencesKey("drill_correct")
 private val DRILL_WRONG = stringPreferencesKey("drill_wrong")
 private val DRILL_SEED = stringPreferencesKey("drill_seed")
 private val THEME_MODE = stringPreferencesKey("theme_mode")
+private val KI_TARGET_LANGUAGE = stringPreferencesKey("ki_target_language")
 
 @Singleton
 class AppPreferences @Inject constructor(
@@ -127,4 +128,12 @@ class AppPreferences @Inject constructor(
 
     suspend fun setDrillSeed(value: Long) =
         context.dataStore.edit { it[DRILL_SEED] = value.toString() }
+
+    val kiTargetLanguage: Flow<String> = context.dataStore.data.map { prefs ->
+        prefs[KI_TARGET_LANGUAGE] ?: "en"
+    }
+
+    suspend fun setKiTargetLanguage(langCode: String) {
+        context.dataStore.edit { it[KI_TARGET_LANGUAGE] = langCode }
+    }
 }

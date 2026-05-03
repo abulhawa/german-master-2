@@ -26,7 +26,7 @@ class ModelDownloadManager @Inject constructor() {
         return modelManager.isModelDownloaded(model).await()
     }
 
-    suspend fun downloadModels(allowMobileData: Boolean) {
+    suspend fun downloadModels(targetLanguage: String, allowMobileData: Boolean) {
         _isDownloading.value = true
         _error.value = null
         try {
@@ -37,11 +37,11 @@ class ModelDownloadManager @Inject constructor() {
             val conditions = conditionsBuilder.build()
 
             val germanModel = TranslateRemoteModel.Builder(TranslateLanguage.GERMAN).build()
-            val englishModel = TranslateRemoteModel.Builder(TranslateLanguage.ENGLISH).build()
+            val targetModel = TranslateRemoteModel.Builder(targetLanguage).build()
 
-            // Download both needed for DE <-> EN
+            // Download both needed for DE <-> Target
             modelManager.download(germanModel, conditions).await()
-            modelManager.download(englishModel, conditions).await()
+            modelManager.download(targetModel, conditions).await()
             
             Log.d("ModelDownloadManager", "Models downloaded successfully")
         } catch (e: Exception) {
@@ -52,10 +52,8 @@ class ModelDownloadManager @Inject constructor() {
         }
     }
 
-    suspend fun deleteModels() {
-        val germanModel = TranslateRemoteModel.Builder(TranslateLanguage.GERMAN).build()
-        val englishModel = TranslateRemoteModel.Builder(TranslateLanguage.ENGLISH).build()
-        modelManager.deleteDownloadedModel(germanModel).await()
-        modelManager.deleteDownloadedModel(englishModel).await()
+    suspend fun deleteModels(language: String) {
+        val model = TranslateRemoteModel.Builder(language).build()
+        modelManager.deleteDownloadedModel(model).await()
     }
 }
