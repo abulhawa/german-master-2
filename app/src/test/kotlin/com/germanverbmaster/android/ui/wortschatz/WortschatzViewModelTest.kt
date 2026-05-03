@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.wortschatz
 
+import android.content.Context
 import android.util.Log
 import app.cash.turbine.test
 import com.germanverbmaster.android.data.local.AppPreferences
@@ -40,6 +41,7 @@ class WortschatzViewModelTest {
     private val syncHistoryUseCase: SyncHistoryUseCase = mockk()
     private val prefs: AppPreferences = mockk()
     private val tts: TextToSpeechHelper = mockk(relaxed = true)
+    private val context: Context = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
     private val mockWords = listOf(
@@ -88,7 +90,7 @@ class WortschatzViewModelTest {
 
     @Test
     fun `selectTab to DRILL does not reset queue if already built`() = runTest {
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts)
+        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts, context)
         
         viewModel.state.test {
             // Initial load
@@ -125,7 +127,7 @@ class WortschatzViewModelTest {
         val masteredFlow = MutableStateFlow(emptySet<String>())
         every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns masteredFlow
         
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts)
+        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts, context)
         
         viewModel.state.test {
             var state = awaitItem()

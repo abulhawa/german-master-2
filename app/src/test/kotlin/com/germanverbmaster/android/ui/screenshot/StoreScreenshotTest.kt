@@ -185,8 +185,8 @@ class StoreScreenshotTest {
                 WortschatzScreenContent(
                     state = wortschatzBaseState,
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
-                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onSpeak = {}
+                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {}
                 )
             }
         }
@@ -198,8 +198,8 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = false, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(tab = WortschatzTab.DRILL),
-                    onNavigateToHistory = {}, onSpeak = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
+                    onNavigateToHistory = {}, onSpeak = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
                     onToggleLevel = {}, onTogglePos = {}, onNavigateToWordDetail = {}
                 )
             }
@@ -262,8 +262,8 @@ class StoreScreenshotTest {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(searchQuery = "beo"),
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
-                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onSpeak = {}
+                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {}
                 )
             }
         }
@@ -275,8 +275,8 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = true, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(tab = WortschatzTab.DRILL, drillFlipped = true),
-                    onNavigateToHistory = {}, onSpeak = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
+                    onNavigateToHistory = {}, onSpeak = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
                     onToggleLevel = {}, onTogglePos = {}, onNavigateToWordDetail = {}
                 )
             }
