@@ -3,6 +3,7 @@ package com.germanverbmaster.android.ui.worddetail
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -81,6 +83,7 @@ private val languageNameMap = mapOf(
 @Composable
 fun WordDetailScreen(
     onBack: () -> Unit,
+    onShowGrammar: () -> Unit,
     viewModel: WordDetailViewModel = hiltViewModel()
 ) {
     val word by viewModel.word.collectAsStateWithLifecycle()
@@ -138,6 +141,14 @@ fun WordDetailScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = onShowGrammar) {
+                        Text(
+                            text = "G",
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
                     IconButton(onClick = { showLanguagePicker = true }) {
                         Icon(Icons.Default.Translate, contentDescription = "Sprache wählen")
                     }
@@ -145,48 +156,51 @@ fun WordDetailScreen(
             )
         }
     ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .padding(innerPadding)
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            val currentWord = word
-            if (currentWord == null) {
-                CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
-            } else {
-                val nounPresentation = remember(currentWord) {
-                    if (NounFormFormatter.isNoun(currentWord.pos)) {
-                        NounFormFormatter.present(
-                            lemma = currentWord.lemma,
-                            gender = currentWord.gender,
-                            plural = currentWord.plural,
-                        )
-                    } else {
-                        null
-                    }
-                }
-                val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
-
-                WordDetailContent(
-                    word = currentWord,
-                    onSpeak = { viewModel.speak(it) },
-                    aiTranslation = aiTranslation,
-                    aiExampleTranslation = aiExampleTranslation,
-                    isModelDownloaded = isModelDownloaded,
-                    isDownloading = isDownloading,
-                    downloadError = downloadError,
-                    targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
-                    onRefreshAi = { 
-                        if (isModelDownloaded) {
-                            viewModel.requestAiTranslation(headlineText)
+        SelectionContainer {
+            Column(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                val currentWord = word
+                if (currentWord == null) {
+                    CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
+                } else {
+                    val nounPresentation = remember(currentWord) {
+                        if (NounFormFormatter.isNoun(currentWord.pos)) {
+                            NounFormFormatter.present(
+                                lemma = currentWord.lemma,
+                                gender = currentWord.gender,
+                                plural = currentWord.plural,
+                            )
                         } else {
-                            showDownloadDialog = true
+                            null
                         }
                     }
-                )
+                    val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
+
+                    WordDetailContent(
+                        word = currentWord,
+                        onSpeak = { viewModel.speak(it) },
+                        aiTranslation = aiTranslation,
+                        aiExampleTranslation = aiExampleTranslation,
+                        isModelDownloaded = isModelDownloaded,
+                        isDownloading = isDownloading,
+                        downloadError = downloadError,
+                        targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
+                        targetLanguageCode = targetLanguage,
+                        onRefreshAi = { 
+                            if (isModelDownloaded) {
+                                viewModel.requestAiTranslation(headlineText)
+                            } else {
+                                showDownloadDialog = true
+                            }
+                        }
+                    )
+                }
             }
         }
     }
@@ -202,6 +216,7 @@ private fun WordDetailContent(
     isDownloading: Boolean,
     downloadError: String?,
     targetLanguageName: String,
+    targetLanguageCode: String,
     onRefreshAi: () -> Unit,
 ) {
     val nounPresentation = remember(word) {
@@ -306,13 +321,31 @@ private fun WordDetailContent(
 
     // Example Section
     if (!word.exampleDe.isNullOrBlank()) {
+        val uriHandler = androidx.compose.ui.platform.LocalUriHandler.current
         Spacer(Modifier.height(16.dp))
-        Text(
-            text = "Beispiel",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.fillMaxWidth()
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Beispiel",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            TextButton(
+                onClick = {
+                    val url = "https://translate.google.com/?sl=de&tl=$targetLanguageCode&text=${java.net.URLEncoder.encode(word.exampleDe, "UTF-8")}&op=translate"
+                    uriHandler.openUri(url)
+                },
+                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+                modifier = Modifier.height(32.dp)
+            ) {
+                Icon(Icons.Default.AutoAwesome, contentDescription = null, modifier = Modifier.size(14.dp))
+                Spacer(Modifier.width(4.dp))
+                Text("Google Web", style = MaterialTheme.typography.labelSmall)
+            }
+        }
         Spacer(Modifier.height(8.dp))
         Surface(
             shape = MaterialTheme.shapes.medium,
@@ -584,6 +617,7 @@ fun DownloadPermissionDialog(
 private fun TranslationResultView(title: String, result: TranslationManager.TranslationResult) {
     Column {
         Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+
         when (result) {
             is TranslationManager.TranslationResult.Success -> {
                 Text(

@@ -94,6 +94,7 @@ fun WortschatzScreenContent(
     onTogglePos: (String) -> Unit,
     onNavigateToHistory: (String) -> Unit,
     onNavigateToWordDetail: (Int) -> Unit,
+    onShowGrammar: () -> Unit,
     onFlip: () -> Unit,
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
@@ -212,6 +213,17 @@ fun WortschatzScreenContent(
                 Spacer(Modifier.width(8.dp))
 
                 val activeFilters = state.selectedLevels.size + state.selectedPosSet.size
+                IconButton(onClick = onShowGrammar, modifier = Modifier.size(40.dp)) {
+                    Text(
+                        text = "G",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+                
+                Spacer(Modifier.width(4.dp))
+
                 BadgedBox(
                     badge = {
                         if (activeFilters > 0) {

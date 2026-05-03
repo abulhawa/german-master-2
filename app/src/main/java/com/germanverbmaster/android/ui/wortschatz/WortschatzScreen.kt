@@ -10,6 +10,7 @@ fun WortschatzScreen(
     viewModel: WortschatzViewModel = hiltViewModel(),
     onNavigateToHistory: (String) -> Unit,
     onNavigateToWordDetail: (Int) -> Unit,
+    onShowGrammar: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -22,6 +23,7 @@ fun WortschatzScreen(
         onTogglePos = viewModel::togglePos,
         onNavigateToHistory = onNavigateToHistory,
         onNavigateToWordDetail = onNavigateToWordDetail,
+        onShowGrammar = onShowGrammar,
         onFlip = viewModel::flip,
         onMarkCorrect = viewModel::markCorrect,
         onMarkWrong = viewModel::markWrong,
