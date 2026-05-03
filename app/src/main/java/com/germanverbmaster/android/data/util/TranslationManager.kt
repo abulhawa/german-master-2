@@ -74,16 +74,21 @@ class TranslationManager @Inject constructor() {
         targetLang: String,
         originalLemma: String? = null
     ): TranslationResult {
-        val translation = translateDeToTarget(germanText, targetLang) 
+        val translationRaw = translateDeToTarget(germanText, targetLang) 
             ?: return TranslationResult.Error("Translation failed")
+
+        // Clean up translation: If KI translated our prompt format, try to extract the core word.
+        // We look for patterns like "Word: [result]" or "[result] (Context: ...)"
+        val cleanedTranslation = cleanTranslationResult(translationRaw)
             
-        val backToGerman = translateTargetToDe(translation, targetLang) 
+        val backToGermanRaw = translateTargetToDe(cleanedTranslation, targetLang) 
             ?: return TranslationResult.Error("Verification failed")
+
+        val backToGerman = cleanTranslationResult(backToGermanRaw)
 
         val comparisonText = originalLemma ?: germanText
 
         // Relaxed comparison: check if the core words exist in the back-translation
-        // We'll normalize both strings and check for keyword overlap
         val normalizedBack = backToGerman.lowercase()
         val normalizedOriginal = comparisonText.lowercase()
         
@@ -92,10 +97,37 @@ class TranslationManager @Inject constructor() {
                         normalizedOriginal.contains(normalizedBack)
 
         return if (isSimilar) {
-            TranslationResult.Success(translation)
+            TranslationResult.Success(cleanedTranslation)
         } else {
-            TranslationResult.LowConfidence(translation, backToGerman)
+            TranslationResult.LowConfidence(cleanedTranslation, backToGerman)
         }
+    }
+
+    /**
+     * Extracts the core translated word if the KI included the prompt structure in its response.
+     */
+    private fun cleanTranslationResult(raw: String): String {
+        var text = raw.trim()
+        
+        // Handle "Word: [Result] (Context: ...)" pattern
+        // The KI might translate the labels too, so we look for colons and parentheses.
+        
+        // 1. Remove anything after a '(' if it likely contains "Context" or similar
+        val parenIndex = text.indexOf('(')
+        if (parenIndex != -1) {
+            text = text.substring(0, parenIndex).trim()
+        }
+        
+        // 2. Remove anything before a ':' if it likely contains "Word" or similar
+        val colonIndex = text.indexOf(':')
+        if (colonIndex != -1 && colonIndex < text.length / 2) { // Colon should be near the start
+            text = text.substring(colonIndex + 1).trim()
+        }
+
+        // 3. Remove leading/trailing quotes or punctuation often added by KI
+        text = text.removeSurrounding("\"").removeSurrounding("'").trim()
+        
+        return text.ifBlank { raw }
     }
 
     sealed class TranslationResult {

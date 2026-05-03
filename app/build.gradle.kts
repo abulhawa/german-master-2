@@ -147,7 +147,7 @@ dependencies {
 
     // Coroutines
     implementation(libs.coroutines.android)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+    implementation(libs.kotlinx.coroutines.play.services)
 
     // Serialization
     implementation(libs.serialization.json)

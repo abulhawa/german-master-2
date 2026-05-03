@@ -113,7 +113,7 @@ class WordDetailViewModel @Inject constructor(
         tts.speak(text)
     }
 
-    fun requestAiTranslation() {
+    fun requestAiTranslation(displayText: String) {
         val currentWord = word.value ?: return
         viewModelScope.launch {
             if (!_isModelDownloaded.value) {
@@ -122,15 +122,19 @@ class WordDetailViewModel @Inject constructor(
             }
 
             val lang = targetLanguage.value
-            val isVerb = currentWord.pos.uppercase().startsWith("V")
-            val translationInput = if (isVerb && !currentWord.lemma.startsWith("sich", ignoreCase = true)) {
-                "sich ${currentWord.lemma}"
+
+            // 1. Prepare word for translation (Use the exact text shown in UI headline)
+            val translationInput = displayText
+
+            // 2. Translate Word (Lemma) with Context
+            val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
+                "Wort: $translationInput (Kontext: ${currentWord.exampleDe})"
             } else {
-                currentWord.lemma
+                translationInput
             }
 
             _aiTranslation.value = translationManager.verifyWithRoundTrip(
-                germanText = translationInput,
+                germanText = contextPrompt,
                 targetLang = lang,
                 originalLemma = currentWord.lemma
             )

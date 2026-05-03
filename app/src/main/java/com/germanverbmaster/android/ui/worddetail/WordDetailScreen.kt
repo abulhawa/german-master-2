@@ -157,6 +157,19 @@ fun WordDetailScreen(
             if (currentWord == null) {
                 CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
             } else {
+                val nounPresentation = remember(currentWord) {
+                    if (NounFormFormatter.isNoun(currentWord.pos)) {
+                        NounFormFormatter.present(
+                            lemma = currentWord.lemma,
+                            gender = currentWord.gender,
+                            plural = currentWord.plural,
+                        )
+                    } else {
+                        null
+                    }
+                }
+                val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
+
                 WordDetailContent(
                     word = currentWord,
                     onSpeak = { viewModel.speak(it) },
@@ -168,7 +181,7 @@ fun WordDetailScreen(
                     targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
                     onRefreshAi = { 
                         if (isModelDownloaded) {
-                            viewModel.requestAiTranslation()
+                            viewModel.requestAiTranslation(headlineText)
                         } else {
                             showDownloadDialog = true
                         }
@@ -243,7 +256,6 @@ private fun WordDetailContent(
     // AI Translation Section
     AiTranslationBox(
         wordResult = aiTranslation,
-        exampleResult = aiExampleTranslation,
         isModelDownloaded = isModelDownloaded,
         isDownloading = isDownloading,
         downloadError = downloadError,
@@ -327,6 +339,62 @@ private fun WordDetailContent(
                         color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
                     )
                 }
+
+                // KI Example Translation
+                aiExampleTranslation?.let { result ->
+                    Spacer(Modifier.height(8.dp))
+                    HorizontalDivider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+                    Spacer(Modifier.height(8.dp))
+                    
+                    Column {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                Icons.Default.AutoAwesome,
+                                contentDescription = null,
+                                modifier = Modifier.size(12.dp),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
+                            Spacer(Modifier.width(4.dp))
+                            Text(
+                                "KI Übersetzung ($targetLanguageName)",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        
+                        when (result) {
+                            is TranslationManager.TranslationResult.Success -> {
+                                Text(
+                                    text = result.translation,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                            is TranslationManager.TranslationResult.LowConfidence -> {
+                                Text(
+                                    text = result.translation,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                                Surface(
+                                    shape = MaterialTheme.shapes.extraSmall,
+                                    color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
+                                    modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
+                                ) {
+                                    Text(
+                                        "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        modifier = Modifier.padding(4.dp)
+                                    )
+                                }
+                            }
+                            is TranslationManager.TranslationResult.Error -> {
+                                Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -356,7 +424,6 @@ private fun DetailSection(title: String, content: String) {
 @Composable
 private fun AiTranslationBox(
     wordResult: TranslationManager.TranslationResult?,
-    exampleResult: TranslationManager.TranslationResult?,
     isModelDownloaded: Boolean,
     isDownloading: Boolean,
     downloadError: String?,
@@ -422,7 +489,7 @@ private fun AiTranslationBox(
                     style = MaterialTheme.typography.bodySmall,
                     fontStyle = FontStyle.Italic
                 )
-            } else if (wordResult == null && exampleResult == null) {
+            } else if (wordResult == null) {
                 Text(
                     "Klicken Sie auf das Icon oben, um eine KI-Übersetzung anzufordern.",
                     style = MaterialTheme.typography.bodySmall,
@@ -430,11 +497,8 @@ private fun AiTranslationBox(
                 )
             } else {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    wordResult?.let {
-                        TranslationResultView(title = "Wort (mit Kontext)", result = it)
-                    }
-                    exampleResult?.let {
-                        TranslationResultView(title = "Beispielsatz", result = it)
+                    wordResult.let {
+                        TranslationResultView(title = "Wort (basierend auf Beispielsatz)", result = it)
                     }
                 }
             }
