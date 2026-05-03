@@ -28,7 +28,13 @@ interface PracticeHistoryDao {
     @Query("SELECT * FROM practice_history WHERE userId = :userId OR userId IS NULL")
     suspend fun allForUser(userId: String): List<PracticeHistoryEntity>
 
-    @Query("SELECT * FROM practice_history WHERE synced = 0 AND (userId = :userId OR userId IS NULL) LIMIT 50")
+    @Query(
+        """
+        SELECT * FROM practice_history
+        WHERE synced = 0 AND (userId = :userId OR userId IS NULL)
+        ORDER BY submittedAt ASC, localId ASC
+        """
+    )
     suspend fun unsyncedForUser(userId: String?): List<PracticeHistoryEntity>
 
     @Query("UPDATE practice_history SET synced = 1, userId = :userId WHERE localId IN (:ids)")

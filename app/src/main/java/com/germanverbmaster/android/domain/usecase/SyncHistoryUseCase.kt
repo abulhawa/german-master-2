@@ -20,6 +20,10 @@ class SyncHistoryUseCase @Inject constructor(
     private val authRepository: AuthRepository,
     private val prefs: AppPreferences,
 ) {
+    private companion object {
+        const val UPLOAD_BATCH_SIZE = 50
+    }
+
     suspend operator fun invoke() {
         val userId = authRepository.currentUserId
         if (userId == null) {
@@ -61,10 +65,11 @@ class SyncHistoryUseCase @Inject constructor(
             }
 
             if (uploadBatch.isNotEmpty()) {
-                val remotes = uploadBatch.map { it.remote }
-                Log.d("SyncHistoryUseCase", "Uploading ${remotes.size} unsynced records")
-                historyApi.upsert(remotes)
-                historyDao.markSynced(uploadBatch.map { it.localId }, userId)
+                Log.d("SyncHistoryUseCase", "Uploading ${uploadBatch.size} unsynced records")
+                uploadBatch.chunked(UPLOAD_BATCH_SIZE).forEach { chunk ->
+                    historyApi.upsert(chunk.map { it.remote })
+                    historyDao.markSynced(chunk.map { it.localId }, userId)
+                }
             }
         } catch (e: Exception) {
             Log.e("SyncHistoryUseCase", "Failed to upload unsynced history", e)

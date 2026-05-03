@@ -72,6 +72,51 @@ class PracticeHistoryDaoTest {
     }
 
     @Test
+    fun unsyncedForUserIncludesAllEligibleLocalAndUserRows() = runBlocking {
+        val entries = (1..75).map { index ->
+            PracticeHistoryEntity(
+                taskId = "t$index",
+                lexemeId = "l$index",
+                pos = "V",
+                taskType = "vocabulary_drill",
+                result = "correct",
+                responseMs = 1,
+                submittedAt = "2023-10-01T10:00:00.${index.toString().padStart(3, '0')}Z",
+                synced = false,
+                userId = if (index % 2 == 0) "user1" else null,
+            )
+        } + PracticeHistoryEntity(
+            taskId = "other-user",
+            lexemeId = "other-user",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            responseMs = 1,
+            submittedAt = "2023-10-01T12:00:00Z",
+            synced = false,
+            userId = "user2",
+        ) + PracticeHistoryEntity(
+            taskId = "already-synced",
+            lexemeId = "already-synced",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            responseMs = 1,
+            submittedAt = "2023-10-01T12:01:00Z",
+            synced = true,
+            userId = null,
+        )
+
+        dao.insertIgnore(entries)
+
+        val unsynced = dao.unsyncedForUser("user1")
+
+        assertEquals(75, unsynced.size)
+        assertEquals("t1", unsynced.first().taskId)
+        assertEquals("t75", unsynced.last().taskId)
+    }
+
+    @Test
     fun observeTaskTypeStats() = runBlocking {
         val entries = listOf(
             PracticeHistoryEntity(taskId = "t1", lexemeId = "l1", pos = "V", taskType = "verb_drill", result = "correct", responseMs = 1, submittedAt = "2023-10-01T10:00:00Z"),

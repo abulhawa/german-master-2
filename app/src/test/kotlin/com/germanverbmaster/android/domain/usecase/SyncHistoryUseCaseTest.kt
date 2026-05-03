@@ -195,6 +195,61 @@ class SyncHistoryUseCaseTest {
     }
 
     @Test
+    fun `should upload all eligible unsynced records in bounded chunks`() = runTest {
+        val userId = "user123"
+        val unsynced = (1..75).map { index ->
+            PracticeHistoryEntity(
+                localId = index,
+                taskId = "t$index",
+                lexemeId = "l$index",
+                lemma = "lemma$index",
+                pos = "V",
+                taskType = "conjugate_form",
+                renderer = "conjugate_form",
+                result = "correct",
+                responseMs = 100,
+                submittedAt = "2023-10-01T11:00:00.${index.toString().padStart(3, '0')}Z",
+                synced = false,
+                userId = null,
+            )
+        }
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns unsynced
+        coEvery { historySyncMapper.toRemote(any(), userId) } coAnswers {
+            val entity = arg<PracticeHistoryEntity>(0)
+            RemoteHistory(
+                remoteId = null,
+                userId = userId,
+                taskId = entity.taskId,
+                lexemeId = entity.lexemeId,
+                lemma = entity.lemma,
+                pos = entity.pos,
+                taskType = entity.taskType,
+                renderer = entity.renderer,
+                deviceId = "device-1",
+                result = entity.result,
+                submittedAnswer = entity.submittedAnswer,
+                correctAnswer = entity.correctAnswer,
+                responseMs = entity.responseMs,
+                hintsUsed = entity.hintsUsed,
+                submittedAt = entity.submittedAt,
+            )
+        }
+        coEvery { historyApi.upsert(any()) } just Runs
+        coEvery { historyDao.markSynced(any(), userId) } just Runs
+        coEvery { prefs.getHistoryLastSync() } returns null
+        coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
+
+        syncHistoryUseCase()
+
+        coVerify(exactly = 1) { historyApi.upsert(match { it.size == 50 }) }
+        coVerify(exactly = 1) { historyApi.upsert(match { it.size == 25 }) }
+        coVerify(exactly = 1) { historyDao.markSynced(match { it.size == 50 }, userId) }
+        coVerify(exactly = 1) { historyDao.markSynced(match { it.size == 25 }, userId) }
+    }
+
+    @Test
     fun `should skip downloaded rows that match the just-uploaded batch`() = runTest {
         val userId = "user123"
         val lastSync = "2023-10-01T10:00:00Z"
