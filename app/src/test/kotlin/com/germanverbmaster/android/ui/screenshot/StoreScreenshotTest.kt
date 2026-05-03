@@ -184,9 +184,13 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = false, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState,
+                    targetLanguage = "en",
+                    isDownloading = false,
+                    downloadError = null,
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {}
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
+                    onRefreshAi = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}
                 )
             }
         }
@@ -198,9 +202,13 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = false, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(tab = WortschatzTab.DRILL),
-                    onNavigateToHistory = {}, onSpeak = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onExitDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
-                    onToggleLevel = {}, onTogglePos = {}, onNavigateToWordDetail = {}
+                    targetLanguage = "en",
+                    isDownloading = false,
+                    downloadError = null,
+                    onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
+                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
+                    onRefreshAi = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}
                 )
             }
         }
@@ -261,9 +269,13 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = true, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(searchQuery = "beo"),
+                    targetLanguage = "en",
+                    isDownloading = false,
+                    downloadError = null,
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {}
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
+                    onRefreshAi = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}
                 )
             }
         }
@@ -275,9 +287,13 @@ class StoreScreenshotTest {
             StoreShell(darkTheme = true, selectedTab = 0) {
                 WortschatzScreenContent(
                     state = wortschatzBaseState.copy(tab = WortschatzTab.DRILL, drillFlipped = true),
-                    onNavigateToHistory = {}, onSpeak = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
-                    onRestartDrill = {}, onExitDrill = {}, onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {},
-                    onToggleLevel = {}, onTogglePos = {}, onNavigateToWordDetail = {}
+                    targetLanguage = "en",
+                    isDownloading = false,
+                    downloadError = null,
+                    onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
+                    onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
+                    onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
+                    onRefreshAi = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}
                 )
             }
         }

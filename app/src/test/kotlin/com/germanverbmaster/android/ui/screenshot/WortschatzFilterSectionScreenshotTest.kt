@@ -31,6 +31,7 @@ class WortschatzFilterSectionScreenshotTest {
                         onPosToggle = {},
                         posOptions = listOf("Alle", "N", "V"),
                         wordCount = 1668,
+                        onDismiss = {},
                     )
                 }
             },

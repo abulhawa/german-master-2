@@ -13,17 +13,22 @@ import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.remote.worker.SyncWorker
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.data.util.ModelDownloadManager
+import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import com.google.mlkit.nl.translate.TranslateLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -98,6 +103,12 @@ data class WortschatzUiState(
     val historicalWrong: Int = 0,
     val drillDone: Boolean = false,
     val masteredIds: Set<String> = emptySet(),
+
+    // Translation & Selection
+    val aiTranslation: TranslationManager.TranslationResult? = null,
+    val selectionKey: Int = 0,
+    val isModelDownloaded: Boolean = false,
+    val downloadedLanguageCodes: Set<String> = emptySet(),
 ) {
     val drillCurrent: WordEntity? get() = drillQueue.getOrNull(drillIndex)
 
@@ -119,6 +130,8 @@ class WortschatzViewModel @Inject constructor(
     private val syncHistoryUseCase: SyncHistoryUseCase,
     private val prefs: AppPreferences,
     private val tts: TextToSpeechHelper,
+    private val translationManager: TranslationManager,
+    private val modelDownloadManager: ModelDownloadManager,
     @param:ApplicationContext private val context: Context,
 ) : ViewModel() {
 
@@ -127,12 +140,26 @@ class WortschatzViewModel @Inject constructor(
 
     private var rawPosValues: List<String> = emptyList()
 
+    val targetLanguage = prefs.kiTargetLanguage.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = TranslateLanguage.ENGLISH
+    )
+
+    val isDownloading = modelDownloadManager.isDownloading
+    val downloadError = modelDownloadManager.error
+
     init {
         triggerSync(force = false)
         observeWords()
         observePosFilters()
         observeMastery()
         observeHistoricalStats()
+
+        viewModelScope.launch {
+            targetLanguage.collect { checkModelStatus() }
+        }
+        refreshDownloadedLanguages()
     }
 
     fun speak(text: String) {
@@ -281,6 +308,82 @@ class WortschatzViewModel @Inject constructor(
         Log.d("WortschatzViewModel", "Enqueued background sync on drill exit")
     }
 
+    // ─── AI Translation Logic ───────────────────────────────────────────────
+
+    private fun checkModelStatus() {
+        viewModelScope.launch {
+            val de = modelDownloadManager.isModelDownloaded(TranslateLanguage.GERMAN)
+            val target = modelDownloadManager.isModelDownloaded(targetLanguage.value)
+            _state.update { it.copy(isModelDownloaded = de && target) }
+            refreshDownloadedLanguages()
+        }
+    }
+
+    fun refreshDownloadedLanguages() {
+        viewModelScope.launch {
+            val allCodes = TranslateLanguage.getAllLanguages()
+            val downloaded = mutableSetOf<String>()
+            for (code in allCodes) {
+                if (modelDownloadManager.isModelDownloaded(code)) {
+                    downloaded.add(code)
+                }
+            }
+            _state.update { it.copy(downloadedLanguageCodes = downloaded) }
+        }
+    }
+
+    fun setTargetLanguage(langCode: String) {
+        viewModelScope.launch {
+            prefs.setKiTargetLanguage(langCode)
+            _state.update { it.copy(aiTranslation = null) }
+        }
+    }
+
+    fun downloadModels(allowMobileData: Boolean) {
+        viewModelScope.launch {
+            modelDownloadManager.downloadModels(targetLanguage.value, allowMobileData)
+            checkModelStatus()
+        }
+    }
+
+    fun deleteLanguageModel(langCode: String) {
+        viewModelScope.launch {
+            modelDownloadManager.deleteModels(langCode)
+            checkModelStatus()
+            refreshDownloadedLanguages()
+        }
+    }
+
+    fun requestAiTranslation() {
+        val currentWord = _state.value.drillCurrent ?: return
+        viewModelScope.launch {
+            if (!_state.value.isModelDownloaded) {
+                checkModelStatus()
+                if (!_state.value.isModelDownloaded) return@launch
+            }
+
+            val lang = targetLanguage.value
+
+            // 1. Prepare word for translation (We'll use lemma for drill cards)
+            val translationInput = currentWord.lemma
+
+            // 2. Translate Word (Lemma) with Context
+            val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
+                "Wort: $translationInput (Kontext: ${currentWord.exampleDe})"
+            } else {
+                translationInput
+            }
+
+            val result = translationManager.verifyWithRoundTrip(
+                germanText = contextPrompt,
+                targetLang = lang,
+                originalLemma = currentWord.lemma
+            )
+            
+            _state.update { it.copy(aiTranslation = result) }
+        }
+    }
+
     // ─── private ──────────────────────────────────────────────────────────────
 
     private var observeJob: kotlinx.coroutines.Job? = null
@@ -397,7 +500,9 @@ class WortschatzViewModel @Inject constructor(
                         drillCorrect = finalCorrect,
                         drillWrong = finalWrong,
                         drillDone = finalIndex >= queue.size && queue.isNotEmpty(),
-                        drillFlipped = false
+                        drillFlipped = false,
+                        aiTranslation = null,
+                        selectionKey = s.selectionKey + 1
                     )
                 }
             }
@@ -415,6 +520,8 @@ class WortschatzViewModel @Inject constructor(
                     drillIndex = startIndex,
                     drillFlipped = false,
                     drillDone = startIndex >= shuffled.size && shuffled.isNotEmpty(),
+                    aiTranslation = null,
+                    selectionKey = it.selectionKey + 1
                 )
             }
         }
@@ -427,6 +534,8 @@ class WortschatzViewModel @Inject constructor(
                 drillIndex   = next,
                 drillFlipped = false,
                 drillDone    = next >= it.drillQueue.size,
+                aiTranslation = null,
+                selectionKey = it.selectionKey + 1
             )
         }
         viewModelScope.launch { prefs.setDrillIndex(next) }

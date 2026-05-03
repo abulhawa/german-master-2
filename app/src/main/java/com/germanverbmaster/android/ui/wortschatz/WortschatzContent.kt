@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -27,12 +26,14 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -40,8 +41,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -57,6 +59,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -64,7 +67,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
@@ -76,17 +78,26 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.util.TranslationManager
+import com.germanverbmaster.android.ui.components.AiTranslationBox
+import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
+import com.germanverbmaster.android.ui.components.LanguagePickerDialog
 import com.germanverbmaster.android.ui.components.ShimmerItem
+import com.germanverbmaster.android.ui.components.languageNameMap
+import com.google.mlkit.nl.translate.TranslateLanguage
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
-@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WortschatzScreenContent(
     state: WortschatzUiState,
+    targetLanguage: String,
+    isDownloading: Boolean,
+    downloadError: String?,
     onTriggerSync: () -> Unit,
     onSelectTab: (WortschatzTab) -> Unit,
     onUpdateSearchQuery: (String) -> Unit,
@@ -101,8 +112,14 @@ fun WortschatzScreenContent(
     onRestartDrill: () -> Unit,
     onExitDrill: () -> Unit,
     onSpeak: (String) -> Unit,
+    onRefreshAi: () -> Unit,
+    onSetTargetLanguage: (String) -> Unit,
+    onDownloadModels: (Boolean) -> Unit,
+    onDeleteLanguageModel: (String) -> Unit,
 ) {
     val showFilterSheet = remember { mutableStateOf(false) }
+    var showDownloadDialog by remember { mutableStateOf(false) }
+    var showLanguagePicker by remember { mutableStateOf(false) }
 
     if (showFilterSheet.value) {
         FilterBottomSheet(
@@ -113,6 +130,39 @@ fun WortschatzScreenContent(
             posOptions = state.posOptions,
             wordCount = if (state.isLoading) null else state.listCards.size,
             onDismiss = { showFilterSheet.value = false }
+        )
+    }
+
+    if (showDownloadDialog) {
+        DownloadPermissionDialog(
+            targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
+            onConfirm = { allowMobile ->
+                onDownloadModels(allowMobile)
+                showDownloadDialog = false
+            },
+            onDismiss = { showDownloadDialog = false }
+        )
+    }
+
+    if (showLanguagePicker) {
+        val downloadedCodes = state.downloadedLanguageCodes
+        val allLanguages = remember(downloadedCodes) {
+            TranslateLanguage.getAllLanguages().map { 
+                it to (languageNameMap[it] ?: it)
+            }.sortedWith(compareByDescending<Pair<String, String>> { downloadedCodes.contains(it.first) }.thenBy { it.second })
+        }
+        LanguagePickerDialog(
+            languages = allLanguages,
+            currentLanguageCode = targetLanguage,
+            downloadedCodes = downloadedCodes,
+            onLanguageSelected = { code ->
+                onSetTargetLanguage(code)
+                showLanguagePicker = false
+            },
+            onDeleteLanguage = { code ->
+                onDeleteLanguageModel(code)
+            },
+            onDismiss = { showLanguagePicker = false }
         )
     }
 
@@ -224,6 +274,16 @@ fun WortschatzScreenContent(
                 
                 Spacer(Modifier.width(4.dp))
 
+                IconButton(onClick = { showLanguagePicker = true }, modifier = Modifier.size(40.dp)) {
+                    Icon(
+                        imageVector = Icons.Default.Translate,
+                        contentDescription = "Sprache wählen",
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+
+                Spacer(Modifier.width(4.dp))
+
                 BadgedBox(
                     badge = {
                         if (activeFilters > 0) {
@@ -252,7 +312,7 @@ fun WortschatzScreenContent(
             Spacer(Modifier.height(8.dp))
 
             when {
-                state.isLoading -> {
+                state.isLoading && state.listCards.isEmpty() -> {
                     if (state.tab == WortschatzTab.DRILL) {
                         DrillSkeleton()
                     } else {
@@ -273,12 +333,17 @@ fun WortschatzScreenContent(
                         }
                         DrillContent(
                             state = state,
+                            targetLanguage = targetLanguage,
+                            isDownloading = isDownloading,
+                            downloadError = downloadError,
                             onNavigateToHistory = onNavigateToHistory,
                             onSpeak = onSpeak,
                             onFlip = onFlip,
                             onMarkCorrect = onMarkCorrect,
                             onMarkWrong = onMarkWrong,
-                            onRestartDrill = onRestartDrill
+                            onRestartDrill = onRestartDrill,
+                            onRefreshAi = onRefreshAi,
+                            onRequestDownload = { showDownloadDialog = true }
                         )
                     }
                 }
@@ -314,158 +379,76 @@ private fun WordListContent(
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = 24.dp),
+        contentPadding = PaddingValues(vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        item {
-            Text(
-                text = "${cards.size} Wörter",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
-            )
-        }
-
-        sortedGroups.forEach { (pos, groupCards) ->
+        sortedGroups.forEach { (pos, group) ->
             item(key = "header_$pos") {
                 Text(
                     text = POS_LABELS[pos] ?: pos,
                     style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
+                    modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
                 )
             }
-
-            itemsIndexed(
-                items = groupCards,
-                key = { _, card -> card.id }
-            ) { index, card ->
-                val isFirst = index == 0
-                val isLast = index == groupCards.lastIndex
-
-                val shape = when {
-                    isFirst && isLast -> RoundedCornerShape(12.dp)
-                    isFirst -> RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)
-                    isLast -> RoundedCornerShape(bottomStart = 12.dp, bottomEnd = 12.dp)
-                    else -> RectangleShape
-                }
-
-                Surface(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = shape,
-                    tonalElevation = 2.dp,
-                    shadowElevation = if (isFirst || isLast) 1.dp else 0.dp
-                ) {
-                    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                        WordRow(
-                            card = card,
-                            onSpeak = onSpeak,
-                            onClick = { onWordClick(card.id) }
-                        )
-                        if (!isLast) {
-                            HorizontalDivider(
-                                thickness = 0.5.dp,
-                                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
-                            )
-                        }
-                    }
-                }
+            itemsIndexed(group, key = { _, word -> word.id }) { _, word ->
+                WordRow(word = word, onSpeak = { onSpeak(word.lemma) }, onClick = { onWordClick(word.id) })
             }
         }
     }
 }
 
 @Composable
-private fun WordRow(
-    card: WordEntity,
-    onSpeak: (String) -> Unit,
-    onClick: () -> Unit
-) {
-    val (displayText, pluralText, speakText) = remember(card) {
-        if (isNoun(card.pos)) {
-            val article = genderArticle(card.gender)
-            val singularWithArticle = if (article.isNotBlank()) "$article ${card.lemma}" else card.lemma
-            Triple(
-                singularWithArticle,
-                card.plural?.trim()?.takeIf { it.isNotEmpty() },
-                singularWithArticle,
-            )
-        } else {
-            Triple(card.lemma, null, card.lemma)
-        }
-    }
-
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onClick() }
-            .padding(vertical = 10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
+private fun WordRow(word: WordEntity, onSpeak: () -> Unit, onClick: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth().clickable { onClick() },
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(0.5.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
     ) {
-        Column(modifier = Modifier.weight(1f)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = displayText,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                IconButton(onClick = { onSpeak(speakText) }, modifier = Modifier.padding(start = 4.dp)) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.VolumeUp,
-                        contentDescription = "Sprechen",
-                        modifier = Modifier.padding(4.dp),
-                        tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f)
-                    )
-                }
-            }
-            pluralText?.let {
-                Text(
-                    text = it,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                    modifier = Modifier.padding(bottom = 2.dp),
-                )
-            }
-            card.exampleDe?.let {
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodySmall,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f),
-                        modifier = Modifier.weight(1f)
+                        text = word.lemma,
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.SemiBold
                     )
-                    IconButton(onClick = { onSpeak(it) }, modifier = Modifier.padding(start = 4.dp)) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.VolumeUp,
-                            contentDescription = "Sprechen",
-                            modifier = Modifier.padding(4.dp),
-                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+                    word.gender?.let {
+                        Spacer(Modifier.width(4.dp))
+                        Text(
+                            text = "($it)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
                         )
                     }
                 }
+                word.english?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
-            card.exampleEn?.let {
-                Text(
-                    text = it,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
+            
+            IconButton(onClick = onSpeak) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.VolumeUp,
+                    contentDescription = "Sprechen",
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f)
                 )
             }
         }
-        Spacer(Modifier.padding(horizontal = 8.dp))
-        Text(
-            text = card.english ?: "",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.primary,
-            textAlign = TextAlign.End,
-            modifier = Modifier.weight(0.9f),
-        )
     }
 }
 
-@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+// ─── Filter Bottom Sheet ──────────────────────────────────────────────────────
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterBottomSheet(
     selectedLevels: Set<String>,
@@ -473,26 +456,13 @@ fun FilterBottomSheet(
     selectedPosSet: Set<String>,
     onPosToggle: (String) -> Unit,
     posOptions: List<String>,
-    wordCount: Int? = null,
+    wordCount: Int?,
     onDismiss: () -> Unit,
 ) {
-    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-
     ModalBottomSheet(
         onDismissRequest = onDismiss,
-        sheetState = sheetState,
-        dragHandle = {
-            Column(
-                modifier = Modifier.padding(vertical = 12.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Surface(
-                    modifier = Modifier.size(width = 32.dp, height = 4.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f),
-                    shape = RoundedCornerShape(2.dp)
-                ) {}
-            }
-        },
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        containerColor = MaterialTheme.colorScheme.surface,
     ) {
         FilterSection(
             selectedLevels = selectedLevels,
@@ -501,11 +471,12 @@ fun FilterBottomSheet(
             onPosToggle = onPosToggle,
             posOptions = posOptions,
             wordCount = wordCount,
-            onApply = onDismiss
+            onDismiss = onDismiss
         )
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterSection(
     selectedLevels: Set<String>,
@@ -513,110 +484,86 @@ fun FilterSection(
     selectedPosSet: Set<String>,
     onPosToggle: (String) -> Unit,
     posOptions: List<String>,
-    wordCount: Int? = null,
-    onApply: () -> Unit = {},
+    wordCount: Int?,
+    onDismiss: () -> Unit,
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp)
-            .padding(bottom = 32.dp)
+            .padding(16.dp)
+            .padding(bottom = 24.dp)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "Wortschatz-Filter",
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold
-            )
-            wordCount?.let {
-                Surface(
-                    color = MaterialTheme.colorScheme.surfaceVariant,
-                    shape = RoundedCornerShape(8.dp)
-                ) {
-                    Text(
-                        text = "$it Wörter",
-                        style = MaterialTheme.typography.labelMedium,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+        Text("Niveau", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(8.dp))
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            LEVEL_FILTERS.take(3).forEach { level ->
+                FilterChip(
+                    selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
+                    onClick = { onLevelToggle(level) },
+                    label = { Text(level) },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            LEVEL_FILTERS.drop(3).forEach { level ->
+                FilterChip(
+                    selected = selectedLevels.contains(level),
+                    onClick = { onLevelToggle(level) },
+                    label = { Text(level) },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
+        Text("Wortarten", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(8.dp))
+        
+        // Wrap POS filters in a FlowRow-like layout using nested Rows or actual FlowRow if available
+        val chunks = posOptions.chunked(3)
+        chunks.forEach { chunk ->
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                chunk.forEach { pos ->
+                    FilterChip(
+                        selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
+                        onClick = { onPosToggle(pos) },
+                        label = { Text(POS_LABELS[pos] ?: pos) },
+                        modifier = Modifier.weight(1f)
                     )
+                }
+                // Fill empty slots in last row
+                if (chunk.size < 3) {
+                    repeat(3 - chunk.size) { Spacer(Modifier.weight(1f)) }
                 }
             }
         }
 
-        Spacer(Modifier.height(24.dp))
-
-        Text(
-            "Niveau",
-            style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.SemiBold
-        )
-        Spacer(Modifier.height(8.dp))
-        @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-        FlowRow(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            LEVEL_FILTERS.forEach { level ->
-                FilterChip(
-                    selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
-                    onClick = { onLevelToggle(level) },
-                    label = { Text(level, style = MaterialTheme.typography.labelSmall) },
-                )
-            }
-        }
-
-        Spacer(Modifier.height(20.dp))
-
-        Text(
-            "Wortart",
-            style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.SemiBold
-        )
-        Spacer(Modifier.height(8.dp))
-        @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-        FlowRow(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            posOptions.forEach { pos ->
-                FilterChip(
-                    selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
-                    onClick = { onPosToggle(pos) },
-                    label = { Text(POS_LABELS[pos] ?: pos, style = MaterialTheme.typography.labelSmall) },
-                )
-            }
-        }
-
-        Spacer(Modifier.height(24.dp))
-
+        Spacer(Modifier.height(32.dp))
         Button(
-            onClick = onApply,
+            onClick = onDismiss,
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text("Anwenden")
+            Text(if (wordCount != null) "$wordCount Wörter anzeigen" else "Anzeigen")
         }
     }
 }
 
-private fun isNoun(pos: String): Boolean {
-    val normalized = pos.trim().uppercase()
-    return normalized == "N" || normalized == "NOMEN"
+fun isNoun(pos: String): Boolean {
+    val p = pos.trim().uppercase()
+    return p == "N" || p == "NOMEN"
 }
 
-private fun genderArticle(gender: String?): String {
-    val normalized = " ${gender?.trim()?.lowercase() ?: return ""} "
-    val hasDer = Regex("""\bder\b""").containsMatchIn(normalized) ||
+fun genderArticle(gender: String?): String {
+    if (gender == null) return ""
+    val normalized = gender.trim().lowercase()
+    
+    // Check for exact matches or contains
+    val hasDer = Regex("""\bder\b""").containsMatchIn(normalized) || 
         Regex("""\bm\b""").containsMatchIn(normalized) ||
         Regex("""\br\b""").containsMatchIn(normalized)
-    val hasDie = Regex("""\bdie\b""").containsMatchIn(normalized) ||
+    val hasDie = Regex("""\bdie\b""").containsMatchIn(normalized) || 
         Regex("""\bf\b""").containsMatchIn(normalized) ||
         Regex("""\be\b""").containsMatchIn(normalized)
     val hasDas = Regex("""\bdas\b""").containsMatchIn(normalized) ||
@@ -633,12 +580,17 @@ private fun genderArticle(gender: String?): String {
 @Composable
 private fun DrillContent(
     state: WortschatzUiState,
+    targetLanguage: String,
+    isDownloading: Boolean,
+    downloadError: String?,
     onNavigateToHistory: (String) -> Unit,
     onSpeak: (String) -> Unit,
     onFlip: () -> Unit,
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
     onRestartDrill: () -> Unit,
+    onRefreshAi: () -> Unit,
+    onRequestDownload: () -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
@@ -732,10 +684,18 @@ private fun DrillContent(
                             displayFront = displayFront,
                             speakFront = speakFront,
                             isFlipped = state.drillFlipped,
+                            aiTranslation = state.aiTranslation,
+                            isModelDownloaded = state.isModelDownloaded,
+                            isDownloading = isDownloading,
+                            downloadError = downloadError,
+                            targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
+                            selectionKey = state.selectionKey,
                             onFlip = onFlip,
                             onSpeak = onSpeak,
                             onMarkCorrect = onMarkCorrect,
                             onMarkWrong = onMarkWrong,
+                            onRefreshAi = onRefreshAi,
+                            onRequestDownload = onRequestDownload,
                             modifier = Modifier.fillMaxSize(),
                         )
                     }
@@ -772,17 +732,20 @@ private fun DrillContent(
 
                                 Button(
                                     onClick = onMarkCorrect,
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                                    ),
                                     modifier = Modifier.weight(1f).height(48.dp),
                                 ) { Text("✓ Richtig") }
+                            }
+                        } else {
+                            Button(
+                                onClick = onFlip,
+                                modifier = Modifier.fillMaxWidth().height(56.dp),
+                                shape = RoundedCornerShape(16.dp)
+                            ) {
+                                Text("Antwort zeigen", style = MaterialTheme.typography.titleMedium)
                             }
                         }
                     }
                 }
-                Spacer(Modifier.height(16.dp))
             }
         }
     }
@@ -794,10 +757,18 @@ private fun DrillFlipCard(
     displayFront: String,
     speakFront: String,
     isFlipped: Boolean,
+    aiTranslation: TranslationManager.TranslationResult?,
+    isModelDownloaded: Boolean,
+    isDownloading: Boolean,
+    downloadError: String?,
+    targetLanguageName: String,
+    selectionKey: Int,
     onFlip: () -> Unit,
     onSpeak: (String) -> Unit,
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
+    onRefreshAi: () -> Unit,
+    onRequestDownload: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val scope = rememberCoroutineScope()
@@ -931,46 +902,82 @@ private fun DrillFlipCard(
                         .fillMaxWidth()
                         .graphicsLayer { this.rotationY = rotationY - 180f },
                 ) {
-                    Text(
-                        text  = card.english ?: "",
-                        style = MaterialTheme.typography.headlineMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        color      = MaterialTheme.colorScheme.primary,
-                        textAlign  = TextAlign.Center,
-                        modifier   = Modifier.fillMaxWidth()
-                    )
-                    card.exampleDe?.let { ex ->
-                        Spacer(Modifier.height(12.dp))
-                        Surface(
-                            shape    = MaterialTheme.shapes.small,
-                            color    = MaterialTheme.colorScheme.surfaceVariant,
-                            modifier = Modifier.fillMaxWidth(),
-                        ) {
-                            Column(modifier = Modifier.padding(12.dp)) {
-                                Row(verticalAlignment = Alignment.Top) {
-                                    Text(
-                                        text     = ex,
-                                        style    = MaterialTheme.typography.titleMedium,
-                                        fontStyle = FontStyle.Italic,
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                    IconButton(
-                                        onClick = { onSpeak(ex) },
-                                        modifier = Modifier.offset(y = (-4).dp)
-                                    ) {
-                                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState())
+                    ) {
+                        key(selectionKey) {
+                            SelectionContainer(modifier = Modifier.fillMaxWidth()) {
+                                Text(
+                                    text = card.english ?: "",
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    textAlign = TextAlign.Center,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            }
+                        }
+                        
+                        card.exampleDe?.let { ex ->
+                            Spacer(Modifier.height(12.dp))
+                            Surface(
+                                shape = MaterialTheme.shapes.small,
+                                color = MaterialTheme.colorScheme.surfaceVariant,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                Column(modifier = Modifier.padding(12.dp)) {
+                                    Row(verticalAlignment = Alignment.Top) {
+                                        key(selectionKey) {
+                                            SelectionContainer(modifier = Modifier.weight(1f)) {
+                                                Text(
+                                                    text = ex,
+                                                    style = MaterialTheme.typography.titleMedium,
+                                                    fontStyle = FontStyle.Italic,
+                                                )
+                                            }
+                                        }
+                                        IconButton(
+                                            onClick = { onSpeak(ex) },
+                                            modifier = Modifier.offset(y = (-4).dp)
+                                        ) {
+                                            Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
+                                        }
                                     }
-                                }
-                                card.exampleEn?.let { en ->
-                                    Spacer(Modifier.height(4.dp))
-                                    Text(
-                                        text  = en,
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
-                                    )
+                                    card.exampleEn?.let { en ->
+                                        Spacer(Modifier.height(4.dp))
+                                        key(selectionKey) {
+                                            SelectionContainer {
+                                                Text(
+                                                    text = en,
+                                                    style = MaterialTheme.typography.bodyMedium,
+                                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                                                )
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
+
+                        Spacer(Modifier.height(12.dp))
+
+                        AiTranslationBox(
+                            wordResult = aiTranslation,
+                            isModelDownloaded = isModelDownloaded,
+                            isDownloading = isDownloading,
+                            downloadError = downloadError,
+                            targetLanguageName = targetLanguageName,
+                            selectionKey = selectionKey,
+                            onRefresh = {
+                                if (isModelDownloaded) {
+                                    onRefreshAi()
+                                } else {
+                                    onRequestDownload()
+                                }
+                            }
+                        )
                     }
                 }
             }
@@ -1008,149 +1015,101 @@ private fun DrillFlipCard(
 @Composable
 private fun DrillCardFace(
     modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit,
+    content: @Composable (ColumnScope.() -> Unit)
 ) {
-    val scrollState = rememberScrollState()
     Card(
-        modifier  = modifier,
+        modifier = modifier
+            .padding(16.dp)
+            .heightIn(min = 360.dp),
+        shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(20.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f)),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f))
     ) {
         Column(
-            modifier              = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 340.dp)
-                .verticalScroll(scrollState)
-                .padding(horizontal = 20.dp, vertical = 32.dp),
-            horizontalAlignment   = Alignment.CenterHorizontally,
-            verticalArrangement   = Arrangement.Center,
-            content               = content,
-        )
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            content()
+        }
     }
 }
 
 @Composable
-private fun DrillStatChip(
-    label: String,
-    color: androidx.compose.ui.graphics.Color,
-    modifier: Modifier = Modifier,
-) {
-    Surface(shape = MaterialTheme.shapes.small, color = color, modifier = modifier) {
+private fun DrillStatChip(label: String, color: androidx.compose.ui.graphics.Color, modifier: Modifier = Modifier) {
+    Surface(
+        shape = RoundedCornerShape(12.dp),
+        color = color,
+        modifier = modifier
+    ) {
         Text(
-            label,
-            style     = MaterialTheme.typography.labelLarge,
+            text = label,
+            modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp),
             textAlign = TextAlign.Center,
-            modifier  = Modifier.padding(vertical = 4.dp),
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold
         )
     }
 }
 
 @Composable
-private fun WortschatzSkeleton() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        Spacer(Modifier.height(8.dp))
+fun WortschatzSkeleton() {
+    Column(modifier = Modifier.fillMaxSize().padding(top = 8.dp)) {
         repeat(6) {
-            Surface(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp),
-                tonalElevation = 2.dp
-            ) {
-                Row(
-                    modifier = Modifier.padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        ShimmerItem(height = 20.dp, widthFraction = 0.6f)
-                        Spacer(Modifier.height(8.dp))
-                        ShimmerItem(height = 14.dp, widthFraction = 0.4f)
-                    }
-                    ShimmerItem(height = 16.dp, widthFraction = 0.2f)
-                }
+            ShimmerItem(height = 72.dp, modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+        }
+    }
+}
+
+@Composable
+fun DrillSkeleton() {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Card(
+            modifier = Modifier.padding(16.dp).fillMaxWidth().height(360.dp),
+            shape = RoundedCornerShape(24.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
+        ) {
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
             }
         }
     }
 }
 
 @Composable
-private fun DrillSkeleton() {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            repeat(2) {
-                ShimmerItem(height = 32.dp, modifier = Modifier.weight(1f))
-            }
-        }
-
-        LinearProgressIndicator(
-            progress = { 0f },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
-        )
-
-        Spacer(Modifier.height(4.dp))
-
-        Box(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            contentAlignment = Alignment.Center
-        ) {
-            Card(
-                modifier = Modifier.fillMaxWidth().heightIn(min = 340.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-                shape = RoundedCornerShape(20.dp),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f)),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface
-                )
-            ) {
-                Column(
-                    modifier = Modifier.fillMaxWidth().padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                            ShimmerItem(height = 24.dp, widthFraction = 0.2f)
-                            ShimmerItem(height = 24.dp, widthFraction = 0.2f)
-                        }
-                        ShimmerItem(height = 24.dp, widthFraction = 0.1f)
-                    }
-                    Spacer(Modifier.height(32.dp))
-                    ShimmerItem(height = 40.dp, widthFraction = 0.7f)
-                    Spacer(Modifier.height(16.dp))
-                    ShimmerItem(height = 14.dp, widthFraction = 0.4f)
-                }
-            }
-        }
-        Spacer(Modifier.height(16.dp))
-    }
-}
-
-@Composable
-fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
-    Column(
-        modifier            = Modifier.fillMaxWidth().padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+private fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
+    Card(
+        modifier = Modifier.padding(32.dp).fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
-        Text("Runde abgeschlossen! 🎉", style = MaterialTheme.typography.headlineSmall)
-        Spacer(Modifier.height(8.dp))
-        Text(
-            "Richtig: $correct  |  Falsch: $wrong",
-            style = MaterialTheme.typography.bodyMedium,
-        )
-        Spacer(Modifier.height(20.dp))
-        Button(onClick = onRestart, modifier = Modifier.height(48.dp)) {
-            Text("Neu starten")
+        Column(
+            modifier = Modifier.padding(32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text("Drill Beendet!", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+            Spacer(Modifier.height(24.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("Richtig", style = MaterialTheme.typography.labelMedium)
+                    Text("$correct", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.primary)
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("Falsch", style = MaterialTheme.typography.labelMedium)
+                    Text("$wrong", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.error)
+                }
+            }
+            Spacer(Modifier.height(32.dp))
+            Button(
+                onClick = onRestart,
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Text("Nochmal Starten")
+            }
         }
     }
 }

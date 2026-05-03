@@ -8,10 +8,13 @@ import com.germanverbmaster.android.data.local.dao.DrillStats
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
+import com.germanverbmaster.android.data.util.ModelDownloadManager
+import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import com.google.mlkit.nl.translate.TranslateLanguage
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -50,6 +53,9 @@ class WortschatzViewModelTest {
         WordEntity(id = 3, lemma = "groß", pos = "Adj", level = "A1", english = "big")
     )
 
+    private val translationManager: TranslationManager = mockk()
+    private val modelDownloadManager: ModelDownloadManager = mockk()
+
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
@@ -67,6 +73,7 @@ class WortschatzViewModelTest {
         coEvery { prefs.setDrillIndex(any()) } returns mockk()
         coEvery { prefs.setDrillCorrect(any()) } returns mockk()
         coEvery { prefs.setDrillWrong(any()) } returns mockk()
+        every { prefs.kiTargetLanguage } returns flowOf(TranslateLanguage.ENGLISH)
 
         every { repo.observeAll() } returns flowOf(mockWords)
         every { repo.observeByLevels(any()) } returns flowOf(mockWords)
@@ -80,6 +87,10 @@ class WortschatzViewModelTest {
         coEvery { repo.upsertBundledB2BerufWordsIfAvailable() } returns 0
         coEvery { syncDataUseCase() } returns Unit
         coEvery { syncHistoryUseCase() } returns Unit
+
+        coEvery { modelDownloadManager.isModelDownloaded(any()) } returns true
+        every { modelDownloadManager.isDownloading } returns MutableStateFlow(false)
+        every { modelDownloadManager.error } returns MutableStateFlow(null)
     }
 
     @After
@@ -90,7 +101,10 @@ class WortschatzViewModelTest {
 
     @Test
     fun `selectTab to DRILL does not reset queue if already built`() = runTest {
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts, context)
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
         
         viewModel.state.test {
             // Initial load
@@ -127,7 +141,10 @@ class WortschatzViewModelTest {
         val masteredFlow = MutableStateFlow(emptySet<String>())
         every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns masteredFlow
         
-        val viewModel = WortschatzViewModel(repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, prefs, tts, context)
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
         
         viewModel.state.test {
             var state = awaitItem()

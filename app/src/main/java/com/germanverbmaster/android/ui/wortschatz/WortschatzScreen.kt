@@ -13,9 +13,15 @@ fun WortschatzScreen(
     onShowGrammar: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
+    val isDownloading by viewModel.isDownloading.collectAsStateWithLifecycle()
+    val downloadError by viewModel.downloadError.collectAsStateWithLifecycle()
 
     WortschatzScreenContent(
         state = state,
+        targetLanguage = targetLanguage,
+        isDownloading = isDownloading,
+        downloadError = downloadError,
         onTriggerSync = { viewModel.triggerSync(force = true) },
         onSelectTab = viewModel::selectTab,
         onUpdateSearchQuery = viewModel::updateSearchQuery,
@@ -29,6 +35,10 @@ fun WortschatzScreen(
         onMarkWrong = viewModel::markWrong,
         onRestartDrill = viewModel::restartDrill,
         onExitDrill = viewModel::onExitDrill,
-        onSpeak = { viewModel.speak(it) }
+        onSpeak = { viewModel.speak(it) },
+        onRefreshAi = viewModel::requestAiTranslation,
+        onSetTargetLanguage = viewModel::setTargetLanguage,
+        onDownloadModels = viewModel::downloadModels,
+        onDeleteLanguageModel = viewModel::deleteLanguageModel,
     )
 }

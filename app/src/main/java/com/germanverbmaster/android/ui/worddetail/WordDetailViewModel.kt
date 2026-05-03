@@ -81,7 +81,12 @@ class WordDetailViewModel @Inject constructor(
     fun refreshDownloadedLanguages() {
         viewModelScope.launch {
             val allCodes = TranslateLanguage.getAllLanguages()
-            val downloaded = allCodes.filter { modelDownloadManager.isModelDownloaded(it) }.toSet()
+            val downloaded = mutableSetOf<String>()
+            for (code in allCodes) {
+                if (modelDownloadManager.isModelDownloaded(code)) {
+                    downloaded.add(code)
+                }
+            }
             _downloadedLanguageCodes.value = downloaded
         }
     }
