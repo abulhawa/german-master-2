@@ -28,7 +28,7 @@ class WordRepositoryTest {
 
     @Test
     fun `needsSync is true when only bundled level words exist`() = runBlocking {
-        coEvery { dao.countByLevelExcluding("B2 Beruf") } returns 0
+        coEvery { dao.count() } returns 0
 
         val result = repository.needsSync()
 
@@ -37,7 +37,7 @@ class WordRepositoryTest {
 
     @Test
     fun `needsSync is false when enough non bundled words exist`() = runBlocking {
-        coEvery { dao.countByLevelExcluding("B2 Beruf") } returns 250
+        coEvery { dao.count() } returns 250
 
         val result = repository.needsSync()
 
@@ -47,7 +47,7 @@ class WordRepositoryTest {
     @Test
     fun `sync fetches all words when non bundled coverage is below threshold even if since exists`() = runBlocking {
         coEvery { prefs.getLexemeLastSync() } returns "2026-04-21T00:00:00Z"
-        coEvery { dao.countByLevelExcluding("B2 Beruf") } returns 0
+        coEvery { dao.count() } returns 0
         coEvery { api.fetchAll() } returns emptyList()
 
         repository.sync()
