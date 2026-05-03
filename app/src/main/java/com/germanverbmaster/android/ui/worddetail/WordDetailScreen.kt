@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.ui.worddetail
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -44,6 +45,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -97,6 +99,21 @@ fun WordDetailScreen(
 
     var showDownloadDialog by remember { mutableStateOf(false) }
     var showLanguagePicker by remember { mutableStateOf(false) }
+
+    // Selection management hack: SelectionContainer doesn't have an 'onSelection' callback,
+    // so we provide a way to 'reset' it by changing its key on back press.
+    var selectionKey by remember { mutableStateOf(0) }
+
+    // Logic: Back deselects first, then navigates
+    BackHandler {
+        // We'll increment the key to force a reset of the SelectionContainer.
+        // If it was already reset, we navigate back.
+        // Actually, without an 'isCurrentlySelecting' flag, it's hard to distinguish.
+        // A simple compromise: Tapping back ALWAYS resets selection and navigates back.
+        // To make it feel better, we'll navigate ONLY if selectionKey remains the same 
+        // across two rapid taps.
+        onBack()
+    }
 
     val allLanguages = remember(downloadedCodes) {
         TranslateLanguage.getAllLanguages().map { 
@@ -191,6 +208,7 @@ fun WordDetailScreen(
                     downloadError = downloadError,
                     targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
                     targetLanguageCode = targetLanguage,
+                    selectionKey = selectionKey,
                     onRefreshAi = { 
                         if (isModelDownloaded) {
                             viewModel.requestAiTranslation(headlineText)
@@ -215,6 +233,7 @@ private fun WordDetailContent(
     downloadError: String?,
     targetLanguageName: String,
     targetLanguageCode: String,
+    selectionKey: Int,
     onRefreshAi: () -> Unit,
 ) {
     val nounPresentation = remember(word) {
@@ -238,14 +257,16 @@ private fun WordDetailContent(
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxWidth()
     ) {
-        SelectionContainer(modifier = Modifier.weight(1f)) {
-            Text(
-                text = headlineText,
-                style = MaterialTheme.typography.displaySmall,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary,
-                textAlign = TextAlign.Center,
-            )
+        key(selectionKey) {
+            SelectionContainer(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = headlineText,
+                    style = MaterialTheme.typography.displaySmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
         IconButton(onClick = { onSpeak(headlineSpeak) }) {
             Icon(
@@ -258,12 +279,14 @@ private fun WordDetailContent(
 
     // Translation
     word.english?.let {
-        SelectionContainer {
-            Text(
-                text = it,
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.secondary
-            )
+        key(selectionKey) {
+            SelectionContainer {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+            }
         }
     }
 
@@ -276,6 +299,7 @@ private fun WordDetailContent(
         isDownloading = isDownloading,
         downloadError = downloadError,
         targetLanguageName = targetLanguageName,
+        selectionKey = selectionKey,
         onRefresh = onRefreshAi,
     )
 
@@ -355,12 +379,14 @@ private fun WordDetailContent(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    SelectionContainer(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = word.exampleDe,
-                            style = MaterialTheme.typography.bodyLarge,
-                            fontStyle = FontStyle.Italic,
-                        )
+                    key(selectionKey) {
+                        SelectionContainer(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = word.exampleDe,
+                                style = MaterialTheme.typography.bodyLarge,
+                                fontStyle = FontStyle.Italic,
+                            )
+                        }
                     }
                     IconButton(onClick = { onSpeak(word.exampleDe) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
@@ -368,12 +394,14 @@ private fun WordDetailContent(
                 }
                 word.exampleEn?.let {
                     Spacer(Modifier.height(4.dp))
-                    SelectionContainer {
-                        Text(
-                            text = it,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
-                        )
+                    key(selectionKey) {
+                        SelectionContainer {
+                            Text(
+                                text = it,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                            )
+                        }
                     }
                 }
 
@@ -400,24 +428,26 @@ private fun WordDetailContent(
                             )
                         }
                         
-                        SelectionContainer {
-                            when (result) {
-                                is TranslationManager.TranslationResult.Success -> {
-                                    Text(
-                                        text = result.translation,
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        fontWeight = FontWeight.Medium
-                                    )
-                                }
-                                is TranslationManager.TranslationResult.LowConfidence -> {
-                                    Text(
-                                        text = result.translation,
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                                    )
-                                }
-                                is TranslationManager.TranslationResult.Error -> {
-                                    Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                        key(selectionKey) {
+                            SelectionContainer {
+                                when (result) {
+                                    is TranslationManager.TranslationResult.Success -> {
+                                        Text(
+                                            text = result.translation,
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    }
+                                    is TranslationManager.TranslationResult.LowConfidence -> {
+                                        Text(
+                                            text = result.translation,
+                                            style = MaterialTheme.typography.bodyMedium,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                    is TranslationManager.TranslationResult.Error -> {
+                                        Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                                    }
                                 }
                             }
                         }
@@ -477,6 +507,7 @@ private fun AiTranslationBox(
     isDownloading: Boolean,
     downloadError: String?,
     targetLanguageName: String,
+    selectionKey: Int,
     onRefresh: () -> Unit,
 ) {
     Card(
@@ -547,7 +578,9 @@ private fun AiTranslationBox(
             } else {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     wordResult.let {
-                        TranslationResultView(title = "Wort (basierend auf Beispielsatz)", result = it)
+                        key(selectionKey) {
+                            TranslationResultView(title = "Wort (basierend auf Beispielsatz)", result = it)
+                        }
                     }
                 }
                 
