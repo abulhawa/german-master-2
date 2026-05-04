@@ -53,7 +53,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.platform.TextToolbar
@@ -176,7 +176,8 @@ fun TranslatingSelectionContainer(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    val clipboardManager = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
+    val scope = rememberCoroutineScope()
     var showMenu by remember { mutableStateOf(false) }
     var menuRect by remember { mutableStateOf(Rect.Zero) }
     
@@ -264,9 +265,11 @@ fun TranslatingSelectionContainer(
                                 onClick = {
                                     // Hacky but common: trigger copy, then read from clipboard
                                     onCopy?.invoke()
-                                    val text = clipboardManager.getText()?.text
-                                    if (!text.isNullOrBlank()) {
-                                        onTranslate(text)
+                                    scope.launch {
+                                        val text = clipboard.getClipEntry()?.clipData?.getItemAt(0)?.text?.toString()
+                                        if (!text.isNullOrBlank()) {
+                                            onTranslate(text)
+                                        }
                                     }
                                     showMenu = false
                                 },
