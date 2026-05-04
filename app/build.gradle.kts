@@ -25,8 +25,8 @@ android {
         applicationId = "com.germanverbmaster.android"
         minSdk = 26
         targetSdk = 37
-        versionCode = 21
-        versionName = "0.2.00"
+        versionCode = 22
+        versionName = "0.2.01"
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
