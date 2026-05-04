@@ -45,6 +45,12 @@ class WordDetailViewModel @Inject constructor(
     private val _aiExampleTranslation = MutableStateFlow<TranslationManager.TranslationResult?>(null)
     val aiExampleTranslation = _aiExampleTranslation.asStateFlow()
 
+    private val _selectionTranslation = MutableStateFlow<TranslationManager.TranslationResult?>(null)
+    val selectionTranslation = _selectionTranslation.asStateFlow()
+
+    private val _selectionKey = MutableStateFlow(0)
+    val selectionKey = _selectionKey.asStateFlow()
+
     private val _isModelDownloaded = MutableStateFlow(false)
     val isModelDownloaded = _isModelDownloaded.asStateFlow()
 
@@ -112,6 +118,30 @@ class WordDetailViewModel @Inject constructor(
             checkModelStatus()
             refreshDownloadedLanguages()
         }
+    }
+
+    fun translateSelectedText(text: String) {
+        viewModelScope.launch {
+            if (!_isModelDownloaded.value) {
+                checkModelStatus()
+                if (!_isModelDownloaded.value) return@launch
+            }
+
+            val lang = targetLanguage.value
+            val result = translationManager.verifyWithRoundTrip(
+                germanText = text,
+                targetLang = lang
+            )
+            _selectionTranslation.value = result
+        }
+    }
+
+    fun clearSelectionTranslation() {
+        _selectionTranslation.value = null
+    }
+
+    fun clearSelection() {
+        _selectionKey.value += 1
     }
 
     fun speak(text: String) {

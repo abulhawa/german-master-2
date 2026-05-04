@@ -1,8 +1,11 @@
 package com.germanverbmaster.android.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -11,14 +14,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.CloudDownload
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -34,6 +40,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -41,11 +48,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalTextToolbar
+import androidx.compose.ui.platform.TextToolbar
+import androidx.compose.ui.platform.TextToolbarStatus
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupProperties
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.google.mlkit.nl.translate.TranslateLanguage
 
@@ -66,6 +82,169 @@ val languageNameMap = mapOf(
     "te" to "Telugu", "th" to "Thailändisch", "tr" to "Türkisch", "uk" to "Ukrainisch",
     "ur" to "Urdu", "vi" to "Vietnamesisch", "cy" to "Walisisch"
 )
+
+@Composable
+fun TranslatingSelectionContainer(
+    onTranslate: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    val clipboardManager = LocalClipboardManager.current
+    var showMenu by remember { mutableStateOf(false) }
+    var menuRect by remember { mutableStateOf(Rect.Zero) }
+    
+    // Callbacks provided by SelectionContainer
+    var onCopy by remember { mutableStateOf<(() -> Unit)?>(null) }
+
+    val density = LocalDensity.current
+
+    val customTextToolbar = remember {
+        object : TextToolbar {
+            override val status: TextToolbarStatus
+                get() = if (showMenu) TextToolbarStatus.Shown else TextToolbarStatus.Hidden
+
+            override fun hide() {
+                showMenu = false
+            }
+
+            override fun showMenu(
+                rect: Rect,
+                onCopyRequested: (() -> Unit)?,
+                onPasteRequested: (() -> Unit)?,
+                onCutRequested: (() -> Unit)?,
+                onSelectAllRequested: (() -> Unit)?
+            ) {
+                menuRect = rect
+                onCopy = onCopyRequested
+                showMenu = true
+            }
+        }
+    }
+
+    CompositionLocalProvider(LocalTextToolbar provides customTextToolbar) {
+        Box(modifier = modifier) {
+            SelectionContainer {
+                content()
+            }
+
+            if (showMenu) {
+                val offset = with(density) {
+                    IntOffset(
+                        x = menuRect.center.x.toInt(),
+                        y = (menuRect.top - 60.dp.toPx()).toInt() // Position above the selection
+                    )
+                }
+
+                Popup(
+                    offset = offset,
+                    onDismissRequest = { showMenu = false },
+                    properties = PopupProperties(focusable = true)
+                ) {
+                    Surface(
+                        modifier = Modifier.wrapContentSize(),
+                        shape = MaterialTheme.shapes.medium,
+                        color = MaterialTheme.colorScheme.surface,
+                        tonalElevation = 8.dp,
+                        shadowElevation = 4.dp
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            TextButton(
+                                onClick = {
+                                    onCopy?.invoke()
+                                    showMenu = false
+                                },
+                                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(Icons.Default.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
+                                    Spacer(Modifier.width(8.dp))
+                                    Text("Kopieren")
+                                }
+                            }
+
+                            Box(
+                                modifier = Modifier
+                                    .width(1.dp)
+                                    .height(24.dp)
+                                    .background(MaterialTheme.colorScheme.outlineVariant)
+                            )
+
+                            TextButton(
+                                onClick = {
+                                    // Hacky but common: trigger copy, then read from clipboard
+                                    onCopy?.invoke()
+                                    val text = clipboardManager.getText()?.text
+                                    if (!text.isNullOrBlank()) {
+                                        onTranslate(text)
+                                    }
+                                    showMenu = false
+                                },
+                                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(Icons.Default.Translate, contentDescription = null, modifier = Modifier.size(18.dp))
+                                    Spacer(Modifier.width(8.dp))
+                                    Text("Übersetzen")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SelectionTranslationDialog(
+    result: TranslationManager.TranslationResult?,
+    onDismiss: () -> Unit
+) {
+    if (result == null) return
+
+    Dialog(onDismissRequest = onDismiss) {
+        Surface(
+            shape = MaterialTheme.shapes.large,
+            color = MaterialTheme.colorScheme.surface,
+            tonalElevation = 8.dp,
+            modifier = Modifier.fillMaxWidth(0.9f)
+        ) {
+            Column(modifier = Modifier.padding(24.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Default.AutoAwesome,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        "Übersetzung",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(Modifier.height(16.dp))
+
+                TranslationResultView(result = result)
+
+                Spacer(Modifier.height(24.dp))
+
+                TextButton(
+                    onClick = onDismiss,
+                    modifier = Modifier.align(Alignment.End)
+                ) {
+                    Text("Schließen")
+                }
+            }
+        }
+    }
+}
 
 @Composable
 fun AiTranslationBox(
@@ -147,7 +326,7 @@ fun AiTranslationBox(
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     wordResult.let {
                         key(selectionKey) {
-                            TranslationResultView(title = "Wort (basierend auf Beispielsatz)", result = it)
+                            TranslationResultView(result = it)
                         }
                     }
                 }
@@ -165,10 +344,8 @@ fun AiTranslationBox(
 }
 
 @Composable
-fun TranslationResultView(title: String, result: TranslationManager.TranslationResult) {
+fun TranslationResultView(result: TranslationManager.TranslationResult) {
     Column {
-        Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
-
         SelectionContainer {
             when (result) {
                 is TranslationManager.TranslationResult.Success -> {
@@ -188,20 +365,6 @@ fun TranslationResultView(title: String, result: TranslationManager.TranslationR
                 is TranslationManager.TranslationResult.Error -> {
                     Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
                 }
-            }
-        }
-
-        if (result is TranslationManager.TranslationResult.LowConfidence) {
-            Surface(
-                shape = MaterialTheme.shapes.extraSmall,
-                color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
-                    style = MaterialTheme.typography.labelSmall,
-                    modifier = Modifier.padding(4.dp)
-                )
             }
         }
     }

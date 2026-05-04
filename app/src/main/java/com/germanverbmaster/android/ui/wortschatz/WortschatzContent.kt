@@ -4,8 +4,10 @@ import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +28,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
@@ -83,7 +84,9 @@ import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
 import com.germanverbmaster.android.ui.components.LanguagePickerDialog
+import com.germanverbmaster.android.ui.components.SelectionTranslationDialog
 import com.germanverbmaster.android.ui.components.ShimmerItem
+import com.germanverbmaster.android.ui.components.TranslatingSelectionContainer
 import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
 import kotlinx.coroutines.launch
@@ -113,9 +116,13 @@ fun WortschatzScreenContent(
     onExitDrill: () -> Unit,
     onSpeak: (String) -> Unit,
     onRefreshAi: () -> Unit,
+    onTranslateSelection: (String) -> Unit,
+    selectionTranslation: TranslationManager.TranslationResult?,
+    onClearSelectionTranslation: () -> Unit,
     onSetTargetLanguage: (String) -> Unit,
     onDownloadModels: (Boolean) -> Unit,
     onDeleteLanguageModel: (String) -> Unit,
+    onClearSelection: () -> Unit,
 ) {
     val showFilterSheet = remember { mutableStateOf(false) }
     var showDownloadDialog by remember { mutableStateOf(false) }
@@ -166,185 +173,200 @@ fun WortschatzScreenContent(
         )
     }
 
-    PullToRefreshBox(
-        isRefreshing = state.isLoading,
-        onRefresh = onTriggerSync,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 12.dp),
-        ) {
-            ExamCountdownBanner(
-                examDate = LocalDate.of(2026, 4, 30),
-                modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
-            )
+    SelectionTranslationDialog(
+        result = selectionTranslation,
+        onDismiss = onClearSelectionTranslation
+    )
 
-            // Tab row: Wortliste | Schnell-Drill
-            PrimaryTabRow(
-                selectedTabIndex = WortschatzTab.entries.indexOf(state.tab),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                WortschatzTab.entries.forEach { tab ->
-                    Tab(
-                        selected = state.tab == tab,
-                        onClick = { onSelectTab(tab) },
-                        text = { Text(tab.label, style = MaterialTheme.typography.labelMedium) },
-                    )
-                }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = { onClearSelection() })
             }
-
-            Spacer(Modifier.height(8.dp))
-
-            // Search Bar + Filter Trigger
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
+    ) {
+        PullToRefreshBox(
+            isRefreshing = state.isLoading,
+            onRefresh = onTriggerSync,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 12.dp),
             ) {
-                Surface(
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(40.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    color = MaterialTheme.colorScheme.surface,
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f))
+                ExamCountdownBanner(
+                    examDate = LocalDate.of(2026, 4, 30),
+                    modifier = Modifier.padding(top = 12.dp)
+                )
+
+                Spacer(Modifier.height(12.dp))
+
+                // Mode Selector
+                PrimaryTabRow(
+                    selectedTabIndex = state.tab.ordinal,
+                    containerColor = androidx.compose.ui.graphics.Color.Transparent,
+                    divider = {},
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(horizontal = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = null,
-                            modifier = Modifier.size(18.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    WortschatzTab.entries.forEach { tab ->
+                        Tab(
+                            selected = state.tab == tab,
+                            onClick = { onSelectTab(tab) },
+                            text = { Text(tab.label, style = MaterialTheme.typography.titleSmall) }
                         )
-                        Spacer(Modifier.width(8.dp))
-                        Box(
-                            modifier = Modifier.weight(1f),
-                            contentAlignment = Alignment.CenterStart
+                    }
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                // Search and Filter Bar
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp),
+                        shape = RoundedCornerShape(24.dp),
+                        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.1f))
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(horizontal = 16.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            if (state.searchQuery.isEmpty()) {
-                                Text(
-                                    text = "Suchen…",
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                                modifier = Modifier.size(20.dp)
+                            )
+                            Spacer(Modifier.width(12.dp))
+                            Box(modifier = Modifier.weight(1f)) {
+                                if (state.searchQuery.isEmpty()) {
+                                    Text(
+                                        "Wort suchen...",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                                    )
+                                }
+                                BasicTextField(
+                                    value = state.searchQuery,
+                                    onValueChange = onUpdateSearchQuery,
+                                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                                        color = MaterialTheme.colorScheme.onSurface
+                                    ),
+                                    cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+                                    modifier = Modifier.fillMaxWidth(),
+                                    singleLine = true
                                 )
                             }
-                            BasicTextField(
-                                value = state.searchQuery,
-                                onValueChange = onUpdateSearchQuery,
-                                singleLine = true,
-                                textStyle = MaterialTheme.typography.bodyMedium.copy(
-                                    color = MaterialTheme.colorScheme.onSurface
-                                ),
-                                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
-                                modifier = Modifier.fillMaxWidth()
+                            if (state.searchQuery.isNotEmpty()) {
+                                IconButton(
+                                    onClick = { onUpdateSearchQuery("") },
+                                    modifier = Modifier.size(24.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Clear,
+                                        contentDescription = "Löschen",
+                                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    Spacer(Modifier.width(12.dp))
+
+                    val activeFilters = state.selectedLevels.size + state.selectedPosSet.size
+                    BadgedBox(
+                        badge = {
+                            if (activeFilters > 0) {
+                                Badge(
+                                    containerColor = MaterialTheme.colorScheme.primary,
+                                    contentColor = MaterialTheme.colorScheme.onPrimary
+                                ) {
+                                    Text(activeFilters.toString())
+                                }
+                            }
+                        }
+                    ) {
+                        IconButton(
+                            onClick = { showFilterSheet.value = true },
+                            modifier = Modifier
+                                .size(48.dp)
+                                .background(
+                                    if (activeFilters > 0) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant.copy(
+                                        alpha = 0.5f
+                                    ),
+                                    RoundedCornerShape(24.dp)
+                                )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Tune,
+                                contentDescription = "Filter",
+                                tint = if (activeFilters > 0) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
-                        if (state.searchQuery.isNotEmpty()) {
-                            IconButton(
-                                onClick = { onUpdateSearchQuery("") },
-                                modifier = Modifier.size(28.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.Clear,
-                                    contentDescription = "Löschen",
-                                    modifier = Modifier.size(18.dp)
-                                )
-                            }
-                        }
                     }
-                }
 
-                Spacer(Modifier.width(8.dp))
+                    Spacer(Modifier.width(8.dp))
 
-                val activeFilters = state.selectedLevels.size + state.selectedPosSet.size
-                IconButton(onClick = onShowGrammar, modifier = Modifier.size(40.dp)) {
-                    Text(
-                        text = "G",
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-                
-                Spacer(Modifier.width(4.dp))
-
-                IconButton(onClick = { showLanguagePicker = true }, modifier = Modifier.size(40.dp)) {
-                    Icon(
-                        imageVector = Icons.Default.Translate,
-                        contentDescription = "Sprache wählen",
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                }
-
-                Spacer(Modifier.width(4.dp))
-
-                BadgedBox(
-                    badge = {
-                        if (activeFilters > 0) {
-                            Badge(
-                                containerColor = MaterialTheme.colorScheme.primary,
-                                contentColor = MaterialTheme.colorScheme.onPrimary
-                            ) {
-                                Text(activeFilters.toString())
-                            }
-                        }
-                    }
-                ) {
                     IconButton(
-                        onClick = { showFilterSheet.value = true },
+                        onClick = { showLanguagePicker = true },
                         modifier = Modifier.size(40.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Tune,
-                            contentDescription = "Filter",
-                            tint = if (activeFilters > 0) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                            imageVector = Icons.Default.Translate,
+                            contentDescription = "Sprache wählen",
+                            tint = MaterialTheme.colorScheme.primary
                         )
                     }
                 }
-            }
 
-            Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(16.dp))
 
-            when {
-                state.isLoading && state.listCards.isEmpty() -> {
-                    if (state.tab == WortschatzTab.DRILL) {
-                        DrillSkeleton()
-                    } else {
-                        WortschatzSkeleton()
-                    }
-                }
-
-                else -> when (state.tab) {
-                    WortschatzTab.LIST -> WordListContent(
-                        state.listCards,
-                        onSpeak = onSpeak,
-                        onWordClick = onNavigateToWordDetail
-                    )
-
-                    WortschatzTab.DRILL -> {
-                        DisposableEffect(Unit) {
-                            onDispose { onExitDrill() }
+                when {
+                    state.isLoading && state.listCards.isEmpty() -> {
+                        if (state.tab == WortschatzTab.DRILL) {
+                            DrillSkeleton()
+                        } else {
+                            WortschatzSkeleton()
                         }
-                        DrillContent(
-                            state = state,
-                            targetLanguage = targetLanguage,
-                            isDownloading = isDownloading,
-                            downloadError = downloadError,
-                            onNavigateToHistory = onNavigateToHistory,
+                    }
+
+                    else -> when (state.tab) {
+                        WortschatzTab.LIST -> WordListContent(
+                            state.listCards,
                             onSpeak = onSpeak,
-                            onFlip = onFlip,
-                            onMarkCorrect = onMarkCorrect,
-                            onMarkWrong = onMarkWrong,
-                            onRestartDrill = onRestartDrill,
-                            onRefreshAi = onRefreshAi,
-                            onRequestDownload = { showDownloadDialog = true }
+                            onWordClick = onNavigateToWordDetail
                         )
+
+                        WortschatzTab.DRILL -> {
+                            DisposableEffect(Unit) {
+                                onDispose { onExitDrill() }
+                            }
+                            DrillContent(
+                                state = state,
+                                targetLanguage = targetLanguage,
+                                isDownloading = isDownloading,
+                                downloadError = downloadError,
+                                onNavigateToHistory = onNavigateToHistory,
+                                onSpeak = onSpeak,
+                                onFlip = onFlip,
+                                onMarkCorrect = onMarkCorrect,
+                                onMarkWrong = onMarkWrong,
+                                onRestartDrill = onRestartDrill,
+                                onRefreshAi = onRefreshAi,
+                                onTranslateSelection = onTranslateSelection,
+                                onRequestDownload = { showDownloadDialog = true }
+                            )
+                        }
                     }
                 }
             }
@@ -367,7 +389,6 @@ private fun WordListContent(
         return
     }
 
-    // Group by POS for readability - optimized with remember to avoid re-calculating on every recompose
     val sortedGroups = remember(cards) {
         val grouped = cards.groupBy { it.pos }
         val posOrder = listOf("V", "N", "Adj", "Adv", "Prep", "Conj", "Pron", "Art", "Num", "Int")
@@ -379,74 +400,88 @@ private fun WordListContent(
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(bottom = 32.dp)
     ) {
-        sortedGroups.forEach { (pos, group) ->
+        sortedGroups.forEach { (pos, words) ->
             item(key = "header_$pos") {
                 Text(
                     text = POS_LABELS[pos] ?: pos,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)
+                    modifier = Modifier.padding(bottom = 8.dp, top = 8.dp)
                 )
             }
-            itemsIndexed(group, key = { _, word -> word.id }) { _, word ->
-                WordRow(word = word, onSpeak = { onSpeak(word.lemma) }, onClick = { onWordClick(word.id) })
+
+            itemsIndexed(words, key = { _, word -> word.id }) { _, word ->
+                WordRow(
+                    word = word,
+                    onSpeak = { onSpeak(word.lemma) },
+                    onClick = { onWordClick(word.id) }
+                )
             }
         }
     }
 }
 
 @Composable
-private fun WordRow(word: WordEntity, onSpeak: () -> Unit, onClick: () -> Unit) {
+private fun WordRow(
+    word: WordEntity,
+    onSpeak: () -> Unit,
+    onClick: () -> Unit
+) {
     Card(
-        modifier = Modifier.fillMaxWidth().clickable { onClick() },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() },
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = BorderStroke(0.5.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.2f))
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.05f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = word.lemma,
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    word.gender?.let {
-                        Spacer(Modifier.width(4.dp))
+                    val article = if (isNoun(word.pos)) genderArticle(word.gender) else ""
+                    if (article.isNotBlank()) {
                         Text(
-                            text = "($it)",
-                            style = MaterialTheme.typography.labelSmall,
+                            text = article,
+                            style = MaterialTheme.typography.titleMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
                         )
+                        Spacer(Modifier.width(4.dp))
                     }
+                    Text(
+                        text = word.lemma,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
                 }
                 word.english?.let {
                     Text(
                         text = it,
-                        style = MaterialTheme.typography.bodySmall,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
-            
+
             IconButton(onClick = onSpeak) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.VolumeUp,
                     contentDescription = "Sprechen",
-                    modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f)
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         }
     }
 }
-
-// ─── Filter Bottom Sheet ──────────────────────────────────────────────────────
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -457,11 +492,13 @@ fun FilterBottomSheet(
     onPosToggle: (String) -> Unit,
     posOptions: List<String>,
     wordCount: Int?,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit
 ) {
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+
     ModalBottomSheet(
         onDismissRequest = onDismiss,
-        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        sheetState = sheetState,
         containerColor = MaterialTheme.colorScheme.surface,
     ) {
         FilterSection(
@@ -476,7 +513,6 @@ fun FilterBottomSheet(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterSection(
     selectedLevels: Set<String>,
@@ -485,20 +521,41 @@ fun FilterSection(
     onPosToggle: (String) -> Unit,
     posOptions: List<String>,
     wordCount: Int?,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit
 ) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-            .padding(bottom = 24.dp)
+            .padding(horizontal = 24.dp)
+            .padding(bottom = 48.dp)
     ) {
-        Text("Niveau", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-        Spacer(Modifier.height(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                "Filter",
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold
+            )
+            wordCount?.let {
+                Text(
+                    "$it Wörter gefunden",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
+
+        Text("Lernstufen", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(12.dp))
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            LEVEL_FILTERS.take(3).forEach { level ->
+            val row1 = LEVEL_FILTERS.take(3)
+            row1.forEach { level ->
                 FilterChip(
-                    selected = if (level == "Alle") selectedLevels.isEmpty() else selectedLevels.contains(level),
+                    selected = (level == "Alle" && selectedLevels.isEmpty()) || selectedLevels.contains(level),
                     onClick = { onLevelToggle(level) },
                     label = { Text(level) },
                     modifier = Modifier.weight(1f)
@@ -506,7 +563,8 @@ fun FilterSection(
             }
         }
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            LEVEL_FILTERS.drop(3).forEach { level ->
+            val row2 = LEVEL_FILTERS.drop(3)
+            row2.forEach { level ->
                 FilterChip(
                     selected = selectedLevels.contains(level),
                     onClick = { onLevelToggle(level) },
@@ -517,64 +575,51 @@ fun FilterSection(
         }
 
         Spacer(Modifier.height(24.dp))
-        Text("Wortarten", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-        Spacer(Modifier.height(8.dp))
-        
-        // Wrap POS filters in a FlowRow-like layout using nested Rows or actual FlowRow if available
-        val chunks = posOptions.chunked(3)
-        chunks.forEach { chunk ->
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                chunk.forEach { pos ->
-                    FilterChip(
-                        selected = if (pos == "Alle") selectedPosSet.isEmpty() else selectedPosSet.contains(pos),
-                        onClick = { onPosToggle(pos) },
-                        label = { Text(POS_LABELS[pos] ?: pos) },
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-                // Fill empty slots in last row
-                if (chunk.size < 3) {
-                    repeat(3 - chunk.size) { Spacer(Modifier.weight(1f)) }
+
+        Text("Wortarten", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(12.dp))
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            posOptions.chunked(3).forEach { rowOptions ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
+                    rowOptions.forEach { pos ->
+                        FilterChip(
+                            selected = (pos == "Alle" && selectedPosSet.isEmpty()) || selectedPosSet.contains(pos),
+                            onClick = { onPosToggle(pos) },
+                            label = { Text(POS_LABELS[pos] ?: pos) },
+                            modifier = Modifier.weight(1f)
+                        )
+                    }
+                    if (rowOptions.size < 3) {
+                        repeat(3 - rowOptions.size) { Spacer(Modifier.weight(1f)) }
+                    }
                 }
             }
         }
 
         Spacer(Modifier.height(32.dp))
+
         Button(
             onClick = onDismiss,
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text(if (wordCount != null) "$wordCount Wörter anzeigen" else "Anzeigen")
+            Text("Anwenden")
         }
     }
 }
 
-fun isNoun(pos: String): Boolean {
-    val p = pos.trim().uppercase()
+private fun isNoun(pos: String): Boolean {
+    val p = canonicalPos(pos).uppercase()
     return p == "N" || p == "NOMEN"
 }
 
-fun genderArticle(gender: String?): String {
-    if (gender == null) return ""
-    val normalized = gender.trim().lowercase()
-    
-    // Check for exact matches or contains
-    val hasDer = Regex("""\bder\b""").containsMatchIn(normalized) || 
-        Regex("""\bm\b""").containsMatchIn(normalized) ||
-        Regex("""\br\b""").containsMatchIn(normalized)
-    val hasDie = Regex("""\bdie\b""").containsMatchIn(normalized) || 
-        Regex("""\bf\b""").containsMatchIn(normalized) ||
-        Regex("""\be\b""").containsMatchIn(normalized)
-    val hasDas = Regex("""\bdas\b""").containsMatchIn(normalized) ||
-        Regex("""\bn\b""").containsMatchIn(normalized) ||
-        Regex("""\bs\b""").containsMatchIn(normalized)
-
-    return buildList {
-        if (hasDer) add("der")
-        if (hasDie) add("die")
-        if (hasDas) add("das")
-    }.joinToString("/")
+private fun genderArticle(gender: String?): String {
+    return when (gender?.lowercase()?.trim()) {
+        "m", "maskulin" -> "der"
+        "f", "feminin" -> "die"
+        "n", "neutrum" -> "das"
+        else -> ""
+    }
 }
 
 @Composable
@@ -590,28 +635,37 @@ private fun DrillContent(
     onMarkWrong: () -> Unit,
     onRestartDrill: () -> Unit,
     onRefreshAi: () -> Unit,
+    onTranslateSelection: (String) -> Unit,
     onRequestDownload: () -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 2.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             DrillStatChip(
                 label = "✓ ${state.historicalCorrect}",
                 color = MaterialTheme.colorScheme.primaryContainer,
-                modifier = Modifier.weight(1f).clickable { onNavigateToHistory("correct") }
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onNavigateToHistory("correct") }
             )
             DrillStatChip(
                 label = "✗ ${state.historicalWrong}",
                 color = MaterialTheme.colorScheme.errorContainer,
-                modifier = Modifier.weight(1f).clickable { onNavigateToHistory("incorrect") }
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onNavigateToHistory("incorrect") }
             )
         }
 
         LinearProgressIndicator(
             progress = { state.masteryProgress },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 2.dp),
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -633,7 +687,9 @@ private fun DrillContent(
 
         if (state.drillDone) {
             Box(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
                 DrillDoneCard(
@@ -644,7 +700,9 @@ private fun DrillContent(
             }
         } else if (state.drillQueue.isEmpty() && !state.isLoading) {
             Box(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
@@ -695,6 +753,7 @@ private fun DrillContent(
                             onMarkCorrect = onMarkCorrect,
                             onMarkWrong = onMarkWrong,
                             onRefreshAi = onRefreshAi,
+                            onTranslateSelection = onTranslateSelection,
                             onRequestDownload = onRequestDownload,
                             modifier = Modifier.fillMaxSize(),
                         )
@@ -727,18 +786,24 @@ private fun DrillContent(
                                         containerColor = MaterialTheme.colorScheme.errorContainer,
                                         contentColor = MaterialTheme.colorScheme.onErrorContainer,
                                     ),
-                                    modifier = Modifier.weight(1f).height(48.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(48.dp),
                                 ) { Text("✗ Falsch") }
 
                                 Button(
                                     onClick = onMarkCorrect,
-                                    modifier = Modifier.weight(1f).height(48.dp),
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .height(48.dp),
                                 ) { Text("✓ Richtig") }
                             }
                         } else {
                             Button(
                                 onClick = onFlip,
-                                modifier = Modifier.fillMaxWidth().height(56.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(56.dp),
                                 shape = RoundedCornerShape(16.dp)
                             ) {
                                 Text("Antwort zeigen", style = MaterialTheme.typography.titleMedium)
@@ -768,6 +833,7 @@ private fun DrillFlipCard(
     onMarkCorrect: () -> Unit,
     onMarkWrong: () -> Unit,
     onRefreshAi: () -> Unit,
+    onTranslateSelection: (String) -> Unit,
     onRequestDownload: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -775,9 +841,9 @@ private fun DrillFlipCard(
     var dragX by remember(card) { mutableFloatStateOf(0f) }
 
     val rotationY by animateFloatAsState(
-        targetValue    = if (isFlipped) 180f else 0f,
-        animationSpec  = tween(durationMillis = 400),
-        label          = "drill_flip",
+        targetValue = if (isFlipped) 180f else 0f,
+        animationSpec = tween(durationMillis = 400),
+        label = "drill_flip",
     )
 
     Box(
@@ -785,7 +851,7 @@ private fun DrillFlipCard(
             .pointerInput(card, isFlipped) {
                 if (!isFlipped) return@pointerInput
                 val velocityTracker = VelocityTracker()
-                
+
                 detectHorizontalDragGestures(
                     onDragStart = { velocityTracker.resetTracking() },
                     onDragEnd = {
@@ -882,10 +948,10 @@ private fun DrillFlipCard(
                     }
                     Spacer(Modifier.height(16.dp))
                     Text(
-                        text  = displayFront,
+                        text = displayFront,
                         style = MaterialTheme.typography.headlineLarge,
-                        fontWeight   = FontWeight.SemiBold,
-                        textAlign    = TextAlign.Center,
+                        fontWeight = FontWeight.SemiBold,
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(16.dp))
                     Text(
@@ -908,7 +974,10 @@ private fun DrillFlipCard(
                             .verticalScroll(rememberScrollState())
                     ) {
                         key(selectionKey) {
-                            SelectionContainer(modifier = Modifier.fillMaxWidth()) {
+                            TranslatingSelectionContainer(
+                                onTranslate = onTranslateSelection,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
                                 Text(
                                     text = card.english ?: "",
                                     style = MaterialTheme.typography.headlineMedium,
@@ -919,7 +988,7 @@ private fun DrillFlipCard(
                                 )
                             }
                         }
-                        
+
                         card.exampleDe?.let { ex ->
                             Spacer(Modifier.height(12.dp))
                             Surface(
@@ -930,7 +999,10 @@ private fun DrillFlipCard(
                                 Column(modifier = Modifier.padding(12.dp)) {
                                     Row(verticalAlignment = Alignment.Top) {
                                         key(selectionKey) {
-                                            SelectionContainer(modifier = Modifier.weight(1f)) {
+                                            TranslatingSelectionContainer(
+                                                onTranslate = onTranslateSelection,
+                                                modifier = Modifier.weight(1f)
+                                            ) {
                                                 Text(
                                                     text = ex,
                                                     style = MaterialTheme.typography.titleMedium,
@@ -948,7 +1020,7 @@ private fun DrillFlipCard(
                                     card.exampleEn?.let { en ->
                                         Spacer(Modifier.height(4.dp))
                                         key(selectionKey) {
-                                            SelectionContainer {
+                                            TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
                                                 Text(
                                                     text = en,
                                                     style = MaterialTheme.typography.bodyMedium,
@@ -986,15 +1058,22 @@ private fun DrillFlipCard(
         if (rotationY > 90f && abs(dragX) > 40) {
             val alpha = ((abs(dragX) - 40) / 160f).coerceIn(0f, 1f)
             val isCorrect = dragX > 0
-            
+
             Box(
                 modifier = Modifier.matchParentSize(),
                 contentAlignment = Alignment.Center
             ) {
                 Surface(
                     shape = RoundedCornerShape(24.dp),
-                    color = (if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer).copy(alpha = alpha * 0.85f),
-                    border = BorderStroke(4.dp, (if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error).copy(alpha = alpha)),
+                    color = (if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer).copy(
+                        alpha = alpha * 0.85f
+                    ),
+                    border = BorderStroke(
+                        4.dp,
+                        (if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error).copy(
+                            alpha = alpha
+                        )
+                    ),
                     modifier = Modifier.graphicsLayer {
                         scaleX = 0.5f + (alpha * 0.7f) // Starts at 0.5 and grows to 1.2
                         scaleY = 0.5f + (alpha * 0.7f)
@@ -1003,7 +1082,9 @@ private fun DrillFlipCard(
                     Icon(
                         imageVector = if (isCorrect) Icons.Default.Check else Icons.Default.Clear,
                         contentDescription = null,
-                        modifier = Modifier.size(80.dp).padding(16.dp),
+                        modifier = Modifier
+                            .size(80.dp)
+                            .padding(16.dp),
                         tint = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer
                     )
                 }
@@ -1057,9 +1138,18 @@ private fun DrillStatChip(label: String, color: androidx.compose.ui.graphics.Col
 
 @Composable
 fun WortschatzSkeleton() {
-    Column(modifier = Modifier.fillMaxSize().padding(top = 8.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 8.dp)
+    ) {
         repeat(6) {
-            ShimmerItem(height = 72.dp, modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+            ShimmerItem(
+                height = 72.dp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp)
+            )
         }
     }
 }
@@ -1068,7 +1158,10 @@ fun WortschatzSkeleton() {
 fun DrillSkeleton() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Card(
-            modifier = Modifier.padding(16.dp).fillMaxWidth().height(360.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+                .height(360.dp),
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
         ) {
@@ -1082,7 +1175,9 @@ fun DrillSkeleton() {
 @Composable
 private fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
     Card(
-        modifier = Modifier.padding(32.dp).fillMaxWidth(),
+        modifier = Modifier
+            .padding(32.dp)
+            .fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
@@ -1090,16 +1185,28 @@ private fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
             modifier = Modifier.padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Drill Beendet!", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+            Text(
+                "Drill Beendet!",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold
+            )
             Spacer(Modifier.height(24.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("Richtig", style = MaterialTheme.typography.labelMedium)
-                    Text("$correct", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.primary)
+                    Text(
+                        "$correct",
+                        style = MaterialTheme.typography.displaySmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
                 }
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("Falsch", style = MaterialTheme.typography.labelMedium)
-                    Text("$wrong", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.error)
+                    Text(
+                        "$wrong",
+                        style = MaterialTheme.typography.displaySmall,
+                        color = MaterialTheme.colorScheme.error
+                    )
                 }
             }
             Spacer(Modifier.height(32.dp))

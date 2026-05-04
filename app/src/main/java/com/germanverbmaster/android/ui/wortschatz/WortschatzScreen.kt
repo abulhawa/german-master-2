@@ -37,8 +37,12 @@ fun WortschatzScreen(
         onExitDrill = viewModel::onExitDrill,
         onSpeak = { viewModel.speak(it) },
         onRefreshAi = viewModel::requestAiTranslation,
+        onTranslateSelection = viewModel::translateSelectedText,
+        selectionTranslation = state.selectionTranslation,
+        onClearSelectionTranslation = viewModel::clearSelectionTranslation,
         onSetTargetLanguage = viewModel::setTargetLanguage,
         onDownloadModels = viewModel::downloadModels,
         onDeleteLanguageModel = viewModel::deleteLanguageModel,
+        onClearSelection = viewModel::clearSelection,
     )
 }

@@ -1,7 +1,9 @@
 package com.germanverbmaster.android.ui.worddetail
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -13,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -39,6 +40,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -51,6 +53,8 @@ import com.germanverbmaster.android.ui.common.NounFormFormatter
 import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.LanguagePickerDialog
+import com.germanverbmaster.android.ui.components.SelectionTranslationDialog
+import com.germanverbmaster.android.ui.components.TranslatingSelectionContainer
 import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
 
@@ -69,13 +73,11 @@ fun WordDetailScreen(
     val downloadError by viewModel.downloadError.collectAsStateWithLifecycle()
     val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
     val downloadedCodes by viewModel.downloadedLanguageCodes.collectAsStateWithLifecycle()
+    val selectionTranslation by viewModel.selectionTranslation.collectAsStateWithLifecycle()
+    val selectionKey by viewModel.selectionKey.collectAsStateWithLifecycle()
 
     var showDownloadDialog by remember { mutableStateOf(false) }
     var showLanguagePicker by remember { mutableStateOf(false) }
-
-    // Selection management hack: SelectionContainer doesn't have an 'onSelection' callback,
-    // so we provide a way to 'reset' it by changing its key on back press.
-    var selectionKey by remember { mutableStateOf(0) }
 
     // Logic: Back deselects first, then navigates
     BackHandler {
@@ -115,6 +117,11 @@ fun WordDetailScreen(
         )
     }
 
+    SelectionTranslationDialog(
+        result = selectionTranslation,
+        onDismiss = viewModel::clearSelectionTranslation
+    )
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -140,50 +147,59 @@ fun WordDetailScreen(
             )
         }
     ) { innerPadding ->
-        Column(
+        Box(
             modifier = Modifier
-                .padding(innerPadding)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            val currentWord = word
-            if (currentWord == null) {
-                CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
-            } else {
-                val nounPresentation = remember(currentWord) {
-                    if (NounFormFormatter.isNoun(currentWord.pos)) {
-                        NounFormFormatter.present(
-                            lemma = currentWord.lemma,
-                            gender = currentWord.gender,
-                            plural = currentWord.plural,
-                        )
-                    } else {
-                        null
-                    }
+                .pointerInput(Unit) {
+                    detectTapGestures(onTap = { viewModel.clearSelection() })
                 }
-                val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
-
-                WordDetailContent(
-                    word = currentWord,
-                    onSpeak = { viewModel.speak(it) },
-                    aiTranslation = aiTranslation,
-                    aiExampleTranslation = aiExampleTranslation,
-                    isModelDownloaded = isModelDownloaded,
-                    isDownloading = isDownloading,
-                    downloadError = downloadError,
-                    targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
-                    targetLanguageCode = targetLanguage,
-                    selectionKey = selectionKey,
-                    onRefreshAi = { 
-                        if (isModelDownloaded) {
-                            viewModel.requestAiTranslation(headlineText)
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                val currentWord = word
+                if (currentWord == null) {
+                    CircularProgressIndicator(modifier = Modifier.padding(top = 32.dp))
+                } else {
+                    val nounPresentation = remember(currentWord) {
+                        if (NounFormFormatter.isNoun(currentWord.pos)) {
+                            NounFormFormatter.present(
+                                lemma = currentWord.lemma,
+                                gender = currentWord.gender,
+                                plural = currentWord.plural,
+                            )
                         } else {
-                            showDownloadDialog = true
+                            null
                         }
                     }
-                )
+                    val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
+
+                    WordDetailContent(
+                        word = currentWord,
+                        onSpeak = { viewModel.speak(it) },
+                        aiTranslation = aiTranslation,
+                        aiExampleTranslation = aiExampleTranslation,
+                        isModelDownloaded = isModelDownloaded,
+                        isDownloading = isDownloading,
+                        downloadError = downloadError,
+                        targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
+                        targetLanguageCode = targetLanguage,
+                        selectionKey = selectionKey,
+                        onRefreshAi = { 
+                            if (isModelDownloaded) {
+                                viewModel.requestAiTranslation(headlineText)
+                            } else {
+                                showDownloadDialog = true
+                            }
+                        },
+                        onTranslateSelection = viewModel::translateSelectedText
+                    )
+                }
             }
         }
     }
@@ -202,6 +218,7 @@ private fun WordDetailContent(
     targetLanguageCode: String,
     selectionKey: Int,
     onRefreshAi: () -> Unit,
+    onTranslateSelection: (String) -> Unit,
 ) {
     val nounPresentation = remember(word) {
         if (NounFormFormatter.isNoun(word.pos)) {
@@ -225,7 +242,10 @@ private fun WordDetailContent(
         modifier = Modifier.fillMaxWidth()
     ) {
         key(selectionKey) {
-            SelectionContainer(modifier = Modifier.weight(1f)) {
+            TranslatingSelectionContainer(
+                onTranslate = onTranslateSelection,
+                modifier = Modifier.weight(1f)
+            ) {
                 Text(
                     text = headlineText,
                     style = MaterialTheme.typography.displaySmall,
@@ -247,7 +267,7 @@ private fun WordDetailContent(
     // Translation
     word.english?.let {
         key(selectionKey) {
-            SelectionContainer {
+            TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
                 Text(
                     text = it,
                     style = MaterialTheme.typography.titleLarge,
@@ -347,7 +367,10 @@ private fun WordDetailContent(
             Column(modifier = Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     key(selectionKey) {
-                        SelectionContainer(modifier = Modifier.weight(1f)) {
+                        TranslatingSelectionContainer(
+                            onTranslate = onTranslateSelection,
+                            modifier = Modifier.weight(1f)
+                        ) {
                             Text(
                                 text = word.exampleDe,
                                 style = MaterialTheme.typography.bodyLarge,
@@ -362,7 +385,7 @@ private fun WordDetailContent(
                 word.exampleEn?.let {
                     Spacer(Modifier.height(4.dp))
                     key(selectionKey) {
-                        SelectionContainer {
+                        TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
                             Text(
                                 text = it,
                                 style = MaterialTheme.typography.bodyMedium,
@@ -396,7 +419,7 @@ private fun WordDetailContent(
                         }
                         
                         key(selectionKey) {
-                            SelectionContainer {
+                            TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
                                 when (result) {
                                     is TranslationManager.TranslationResult.Success -> {
                                         Text(
@@ -419,20 +442,6 @@ private fun WordDetailContent(
                             }
                         }
 
-                        if (result is TranslationManager.TranslationResult.LowConfidence) {
-                            Surface(
-                                shape = MaterialTheme.shapes.extraSmall,
-                                color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f),
-                                modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
-                            ) {
-                                Text(
-                                    "Die KI ist sich bei dieser Übersetzung nicht zu 100% sicher. Bitte prüfen.",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    modifier = Modifier.padding(4.dp)
-                                )
-                            }
-                        }
-                        
                         Text(
                             "powered by Google",
                             style = MaterialTheme.typography.labelSmall,
@@ -449,11 +458,11 @@ private fun WordDetailContent(
 @Composable
 private fun InfoBadge(label: String, value: String, color: androidx.compose.ui.graphics.Color) {
     Surface(
-        shape = MaterialTheme.shapes.small,
-        color = color
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+        color = color,
     ) {
         Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(label, style = MaterialTheme.typography.labelSmall)
+            Text(label, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f))
             Text(value, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
         }
     }
@@ -462,7 +471,7 @@ private fun InfoBadge(label: String, value: String, color: androidx.compose.ui.g
 @Composable
 private fun DetailSection(title: String, content: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(title, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-        Text(content, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
+        Text(title, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+        Text(content, style = MaterialTheme.typography.bodyLarge)
     }
 }

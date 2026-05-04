@@ -106,6 +106,7 @@ data class WortschatzUiState(
 
     // Translation & Selection
     val aiTranslation: TranslationManager.TranslationResult? = null,
+    val selectionTranslation: TranslationManager.TranslationResult? = null,
     val selectionKey: Int = 0,
     val isModelDownloaded: Boolean = false,
     val downloadedLanguageCodes: Set<String> = emptySet(),
@@ -352,6 +353,30 @@ class WortschatzViewModel @Inject constructor(
             checkModelStatus()
             refreshDownloadedLanguages()
         }
+    }
+
+    fun translateSelectedText(text: String) {
+        viewModelScope.launch {
+            if (!_state.value.isModelDownloaded) {
+                checkModelStatus()
+                if (!_state.value.isModelDownloaded) return@launch
+            }
+
+            val lang = targetLanguage.value
+            val result = translationManager.verifyWithRoundTrip(
+                germanText = text,
+                targetLang = lang
+            )
+            _state.update { it.copy(selectionTranslation = result) }
+        }
+    }
+
+    fun clearSelectionTranslation() {
+        _state.update { it.copy(selectionTranslation = null) }
+    }
+
+    fun clearSelection() {
+        _state.update { it.copy(selectionKey = it.selectionKey + 1) }
     }
 
     fun requestAiTranslation() {
