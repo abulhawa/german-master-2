@@ -50,6 +50,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.ui.common.NounFormFormatter
+import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.ContextualTranslationResult
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
@@ -74,6 +75,7 @@ fun WordDetailScreen(
     val isDownloading by viewModel.isDownloading.collectAsStateWithLifecycle()
     val downloadError by viewModel.downloadError.collectAsStateWithLifecycle()
     val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
+    val isAiAutoTranslateEnabled by viewModel.isAiAutoTranslateEnabled.collectAsStateWithLifecycle()
     val downloadedCodes by viewModel.downloadedLanguageCodes.collectAsStateWithLifecycle()
     val selectionTranslation by viewModel.selectionTranslation.collectAsStateWithLifecycle()
     val contextualSelectionTranslation by viewModel.contextualSelectionTranslation.collectAsStateWithLifecycle()
@@ -109,6 +111,7 @@ fun WordDetailScreen(
             languages = allLanguages,
             currentLanguageCode = targetLanguage,
             downloadedCodes = downloadedCodes,
+            isAutoTranslateEnabled = isAiAutoTranslateEnabled,
             onLanguageSelected = { code ->
                 viewModel.setTargetLanguage(code)
                 showLanguagePicker = false
@@ -116,6 +119,7 @@ fun WordDetailScreen(
             onDeleteLanguage = { code ->
                 viewModel.deleteLanguageModel(code)
             },
+            onToggleAutoTranslate = viewModel::setAiAutoTranslateEnabled,
             onDismiss = { showLanguagePicker = false }
         )
     }
@@ -173,7 +177,7 @@ fun WordDetailScreen(
                     val nounPresentation = remember(currentWord) {
                         if (NounFormFormatter.isNoun(currentWord.pos)) {
                             NounFormFormatter.present(
-                                lemma = currentWord.lemma,
+                                lemma = WordCleaner.clean(currentWord.lemma),
                                 gender = currentWord.gender,
                                 plural = currentWord.plural,
                             )
@@ -181,7 +185,13 @@ fun WordDetailScreen(
                             null
                         }
                     }
-                    val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
+                    val headlineText = nounPresentation?.singularDisplay ?: WordCleaner.clean(currentWord.lemma)
+
+                    androidx.compose.runtime.LaunchedEffect(currentWord, isModelDownloaded, isAiAutoTranslateEnabled) {
+                        if (isModelDownloaded && isAiAutoTranslateEnabled && aiTranslation == null) {
+                            viewModel.requestAiTranslation(headlineText)
+                        }
+                    }
 
                     WordDetailContent(
                         word = currentWord,
@@ -231,7 +241,7 @@ private fun WordDetailContent(
     val nounPresentation = remember(word) {
         if (NounFormFormatter.isNoun(word.pos)) {
             NounFormFormatter.present(
-                lemma = word.lemma,
+                lemma = WordCleaner.clean(word.lemma),
                 gender = word.gender,
                 plural = word.plural,
             )
@@ -239,8 +249,8 @@ private fun WordDetailContent(
             null
         }
     }
-    val headlineText = nounPresentation?.singularDisplay ?: word.lemma
-    val headlineSpeak = nounPresentation?.speakText ?: word.lemma
+    val headlineText = nounPresentation?.singularDisplay ?: WordCleaner.clean(word.lemma)
+    val headlineSpeak = nounPresentation?.speakText ?: WordCleaner.clean(word.lemma)
     val genderDisplay = nounPresentation?.genderDisplay ?: word.gender
 
     // Lemma and Audio
@@ -281,7 +291,7 @@ private fun WordDetailContent(
     }
 
     // Translation
-    word.english?.let {
+    word.english?.let { english ->
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -289,7 +299,7 @@ private fun WordDetailContent(
             key(selectionKey) {
                 TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
                     Text(
-                        text = it,
+                        text = WordCleaner.clean(english),
                         style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.secondary,
                         textAlign = TextAlign.Center

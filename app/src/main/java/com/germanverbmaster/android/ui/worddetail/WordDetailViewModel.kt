@@ -10,7 +10,9 @@ import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.ModelDownloadManager
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.ContextualTranslationResult
+import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -67,6 +69,12 @@ class WordDetailViewModel @Inject constructor(
         initialValue = TranslateLanguage.ENGLISH
     )
 
+    val isAiAutoTranslateEnabled = prefs.isAiAutoTranslateEnabled.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = false
+    )
+
     val isDownloading = modelDownloadManager.isDownloading
     val downloadError = modelDownloadManager.error
 
@@ -76,7 +84,18 @@ class WordDetailViewModel @Inject constructor(
         viewModelScope.launch {
             targetLanguage.collect { checkModelStatus() }
         }
+        observeCurrentWordForAutoTranslate()
         refreshDownloadedLanguages()
+    }
+
+    private fun observeCurrentWordForAutoTranslate() {
+        viewModelScope.launch {
+            word.collect { w ->
+                if (w != null && _aiTranslation.value == null && isAiAutoTranslateEnabled.value && _isModelDownloaded.value) {
+                    requestAiTranslation(w.lemma)
+                }
+            }
+        }
     }
 
     private fun checkModelStatus() {
@@ -106,6 +125,12 @@ class WordDetailViewModel @Inject constructor(
             prefs.setKiTargetLanguage(langCode)
             _aiTranslation.value = null
             _aiExampleTranslation.value = null
+        }
+    }
+
+    fun setAiAutoTranslateEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            prefs.setAiAutoTranslateEnabled(enabled)
         }
     }
 
@@ -168,25 +193,19 @@ class WordDetailViewModel @Inject constructor(
             }
 
             val lang = targetLanguage.value
+            val langName = languageNameMap[lang] ?: lang
 
-            // 1. Prepare word for translation (Use the exact text shown in UI headline)
-            val translationInput = displayText
+            // 1. Prepare word for translation
+            val translationInput = WordCleaner.clean(displayText)
 
-            // 2. Translate Word (Lemma) with Context using symbol-based prompt
-            val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
-                "[[ $translationInput ]] || { ${currentWord.exampleDe} }"
-            } else {
-                translationInput
-            }
-
-            _aiTranslation.value = translationManager.verifyWithRoundTrip(
-                germanText = contextPrompt,
-                targetLang = lang,
-                originalLemma = currentWord.lemma
+            // 2. Direct Translation - No context, no tricks
+            _aiTranslation.value = translationManager.translateDirect(
+                germanText = translationInput,
+                targetLang = lang
             )
 
             currentWord.exampleDe?.let { example ->
-                _aiExampleTranslation.value = translationManager.verifyWithRoundTrip(
+                _aiExampleTranslation.value = translationManager.translateDirect(
                     germanText = example,
                     targetLang = lang
                 )

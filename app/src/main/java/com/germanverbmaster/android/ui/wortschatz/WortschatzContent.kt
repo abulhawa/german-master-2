@@ -82,6 +82,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
+import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
@@ -124,6 +125,7 @@ fun WortschatzScreenContent(
     onSetTargetLanguage: (String) -> Unit,
     onDownloadModels: (Boolean) -> Unit,
     onDeleteLanguageModel: (String) -> Unit,
+    onToggleAutoTranslate: (Boolean) -> Unit,
     onClearSelection: () -> Unit,
 ) {
     val showFilterSheet = remember { mutableStateOf(false) }
@@ -164,6 +166,7 @@ fun WortschatzScreenContent(
             languages = allLanguages,
             currentLanguageCode = targetLanguage,
             downloadedCodes = downloadedCodes,
+            isAutoTranslateEnabled = state.isAiAutoTranslateEnabled,
             onLanguageSelected = { code ->
                 onSetTargetLanguage(code)
                 showLanguagePicker = false
@@ -171,6 +174,7 @@ fun WortschatzScreenContent(
             onDeleteLanguage = { code ->
                 onDeleteLanguageModel(code)
             },
+            onToggleAutoTranslate = onToggleAutoTranslate,
             onDismiss = { showLanguagePicker = false }
         )
     }
@@ -716,20 +720,15 @@ private fun DrillContent(
             }
         } else {
             state.drillCurrent?.let { card ->
-                val (displayFront, speakFront) = remember(card) {
+                val (displayFront, speakFront, pluralDisplay) = remember(card) {
+                    val cleanedLemma = WordCleaner.clean(card.lemma)
                     if (isNoun(card.pos)) {
                         val article = genderArticle(card.gender)
-                        val singularWithArticle = if (article.isNotBlank()) "$article ${card.lemma}" else card.lemma
-                        val display = buildString {
-                            append(singularWithArticle)
-                            card.plural?.trim()?.takeIf { it.isNotEmpty() }?.let {
-                                append("\n")
-                                append(it)
-                            }
-                        }
-                        display to singularWithArticle
+                        val singularWithArticle = if (article.isNotBlank()) "$article $cleanedLemma" else cleanedLemma
+                        val plural = card.plural?.trim()?.takeIf { it.isNotEmpty() }
+                        Triple(singularWithArticle, singularWithArticle, plural)
                     } else {
-                        card.lemma to card.lemma
+                        Triple(cleanedLemma, cleanedLemma, null)
                     }
                 }
 
@@ -743,6 +742,7 @@ private fun DrillContent(
                             card = card,
                             displayFront = displayFront,
                             speakFront = speakFront,
+                            pluralDisplay = pluralDisplay,
                             isFlipped = state.drillFlipped,
                             aiTranslation = state.aiTranslation,
                             aiExampleTranslation = state.aiExampleTranslation,
@@ -824,6 +824,7 @@ private fun DrillFlipCard(
     card: WordEntity,
     displayFront: String,
     speakFront: String,
+    pluralDisplay: String?,
     isFlipped: Boolean,
     aiTranslation: TranslationManager.TranslationResult?,
     aiExampleTranslation: TranslationManager.TranslationResult?,
@@ -957,6 +958,15 @@ private fun DrillFlipCard(
                         fontWeight = FontWeight.SemiBold,
                         textAlign = TextAlign.Center,
                     )
+                    pluralDisplay?.let {
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.titleLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                            textAlign = TextAlign.Center,
+                        )
+                    }
                     Spacer(Modifier.height(16.dp))
                     Text(
                         "Tippen zum Aufdecken",
@@ -983,7 +993,7 @@ private fun DrillFlipCard(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Text(
-                                    text = card.english ?: "",
+                                    text = WordCleaner.clean(card.english) ?: "",
                                     style = MaterialTheme.typography.headlineMedium,
                                     fontWeight = FontWeight.SemiBold,
                                     color = MaterialTheme.colorScheme.primary,

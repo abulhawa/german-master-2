@@ -130,22 +130,12 @@ fun TappableSentenceText(
                             )
                             onResult(currentResult)
                             
-                            // 1. Translate Word (With sentence context for better accuracy)
-                            val symbolPrompt = "[[ $word ]] || { $sentence }"
-                            val contextualRes = translationManager.verifyWithRoundTrip(
-                                germanText = symbolPrompt, 
-                                targetLang = targetLang, 
-                                originalLemma = word
-                            )
-                            currentResult = currentResult.copy(wordTranslation = contextualRes)
-                            onResult(currentResult)
-
-                            // 2. Translate Word (General - Without context)
-                            val generalRes = translationManager.verifyWithRoundTrip(
-                                germanText = word,
+                            // 1. Direct Translation
+                            val contextualRes = translationManager.translateDirect(
+                                germanText = word, 
                                 targetLang = targetLang
                             )
-                            currentResult = currentResult.copy(generalTranslation = generalRes)
+                            currentResult = currentResult.copy(wordTranslation = contextualRes)
                             onResult(currentResult)
                         }
                     }
@@ -617,8 +607,10 @@ fun LanguagePickerDialog(
     languages: List<Pair<String, String>>,
     currentLanguageCode: String,
     downloadedCodes: Set<String>,
+    isAutoTranslateEnabled: Boolean,
     onLanguageSelected: (String) -> Unit,
     onDeleteLanguage: (String) -> Unit,
+    onToggleAutoTranslate: (Boolean) -> Unit,
     onDismiss: () -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
@@ -656,6 +648,34 @@ fun LanguagePickerDialog(
                 )
 
                 Spacer(Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onToggleAutoTranslate(!isAutoTranslateEnabled) }
+                        .padding(vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Checkbox(
+                        checked = isAutoTranslateEnabled,
+                        onCheckedChange = onToggleAutoTranslate
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            "Automatische Übersetzung",
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Text(
+                            "KI sofort starten (erfordert Download)",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
 
                 LazyColumn(modifier = Modifier.weight(1f)) {
                     items(filteredLanguages) { (code, name) ->

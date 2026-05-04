@@ -43,6 +43,7 @@ fun WortschatzScreen(
         onSetTargetLanguage = viewModel::setTargetLanguage,
         onDownloadModels = viewModel::downloadModels,
         onDeleteLanguageModel = viewModel::deleteLanguageModel,
+        onToggleAutoTranslate = viewModel::setAiAutoTranslateEnabled,
         onClearSelection = viewModel::clearSelection,
     )
 }

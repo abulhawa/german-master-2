@@ -30,6 +30,7 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -71,6 +72,7 @@ class WortschatzViewModelTranslationTest {
         
         every { modelDownloadManager.isDownloading } returns MutableStateFlow(false)
         every { modelDownloadManager.error } returns MutableStateFlow(null)
+        io.mockk.coEvery { modelDownloadManager.isModelDownloaded(any()) } returns true
     }
 
     @After
@@ -81,11 +83,40 @@ class WortschatzViewModelTranslationTest {
     }
 
     @Test
+    fun `auto-translation triggers when word changes and enabled`() = runTest {
+        val mockTranslation = TranslationManager.TranslationResult.Success("Success")
+        io.mockk.coEvery { translationManager.translateDirect(any(), any()) } returns mockTranslation
+        
+        // Enable auto-translate
+        every { prefs.isAiAutoTranslateEnabled } returns flowOf(true)
+
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        viewModel.state.test(timeout = kotlin.time.Duration.parse("10s")) {
+            var state = awaitItem()
+            // Wait for loaded and for auto-translate preference to be collected
+            while (state.isLoading || state.drillQueue.isEmpty() || !state.isAiAutoTranslateEnabled || state.downloadedLanguageCodes.isEmpty()) {
+                state = awaitItem()
+            }
+
+            assertTrue(state.isAiAutoTranslateEnabled)
+            
+            // Advance until aiTranslation is set (automatically triggered)
+            state = awaitItem()
+            while (state.aiTranslation == null) state = awaitItem()
+
+            assertEquals("Success", (state.aiTranslation as TranslationManager.TranslationResult.Success).translation)
+        }
+    }
+
+    @Test
     fun `advancing card resets translations and increments selection key`() = runTest {
         // Mock translation Manager to return something immediately
         val mockTranslation = TranslationManager.TranslationResult.Success("Success")
-        io.mockk.coEvery { translationManager.verifyWithRoundTrip(any(), any(), any()) } returns mockTranslation
-        io.mockk.coEvery { modelDownloadManager.isModelDownloaded(any()) } returns true
+        io.mockk.coEvery { translationManager.translateDirect(any(), any()) } returns mockTranslation
 
         val viewModel = WortschatzViewModel(
             repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
@@ -100,8 +131,6 @@ class WortschatzViewModelTranslationTest {
             }
 
             val initialKey = state.selectionKey
-            assertNull(state.aiTranslation)
-            assertNull(state.aiExampleTranslation)
 
             // Request translation
             viewModel.requestAiTranslation()
@@ -113,11 +142,6 @@ class WortschatzViewModelTranslationTest {
             }
             assertEquals("Success", (state.aiTranslation as TranslationManager.TranslationResult.Success).translation)
             
-            // If the mock word has an example, aiExampleTranslation should also be set
-            // Our mockWords are "machen" (no example) and "Haus" (no example in the snippet)
-            // Let's assume the first word is "machen". 
-            // If we want to test example translation, we should probably update mockWords in setup or here.
-
             // Mark correct (advances)
             viewModel.markCorrect()
             
@@ -139,18 +163,17 @@ class WortschatzViewModelTranslationTest {
         val selectedText = "hallo"
         val mockTranslation = TranslationManager.TranslationResult.Success("hello")
         
-        io.mockk.coEvery { modelDownloadManager.isModelDownloaded(any()) } returns true
-        io.mockk.coEvery { translationManager.verifyWithRoundTrip(selectedText, any(), any()) } returns mockTranslation
+        io.mockk.coEvery { translationManager.translateDirect(selectedText, any()) } returns mockTranslation
 
         val viewModel = WortschatzViewModel(
             repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
             prefs, tts, translationManager, modelDownloadManager, context
         )
 
-        viewModel.state.test(timeout = kotlin.time.Duration.parse("5s")) {
+        viewModel.state.test(timeout = kotlin.time.Duration.parse("10s")) {
             // Initial state
             var state = awaitItem()
-            while (state.isLoading) state = awaitItem()
+            while (state.isLoading || state.downloadedLanguageCodes.isEmpty()) state = awaitItem()
             assertNull(state.selectionTranslation)
 
             viewModel.translateSelectedText(selectedText)

@@ -184,7 +184,6 @@ fun AuthScreen(
                     Text("History")
                 }
             }
-
         }
 
         AccountFooter(

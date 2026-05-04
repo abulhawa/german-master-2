@@ -29,6 +29,7 @@ private val DRILL_WRONG = stringPreferencesKey("drill_wrong")
 private val DRILL_SEED = stringPreferencesKey("drill_seed")
 private val THEME_MODE = stringPreferencesKey("theme_mode")
 private val KI_TARGET_LANGUAGE = stringPreferencesKey("ki_target_language")
+private val KI_AUTO_TRANSLATE = stringPreferencesKey("ki_auto_translate")
 
 @Singleton
 class AppPreferences @Inject constructor(
@@ -135,5 +136,13 @@ class AppPreferences @Inject constructor(
 
     suspend fun setKiTargetLanguage(langCode: String) {
         context.dataStore.edit { it[KI_TARGET_LANGUAGE] = langCode }
+    }
+
+    val isAiAutoTranslateEnabled: Flow<Boolean> = context.dataStore.data.map { prefs ->
+        prefs[KI_AUTO_TRANSLATE]?.toBoolean() ?: false
+    }
+
+    suspend fun setAiAutoTranslateEnabled(enabled: Boolean) {
+        context.dataStore.edit { it[KI_AUTO_TRANSLATE] = enabled.toString() }
     }
 }

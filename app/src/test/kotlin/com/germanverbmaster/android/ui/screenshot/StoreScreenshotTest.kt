@@ -190,7 +190,7 @@ class StoreScreenshotTest {
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
                     onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
-                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onClearSelection = {}
+                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onToggleAutoTranslate = {}, onClearSelection = {}
                 )
             }
         }
@@ -208,7 +208,7 @@ class StoreScreenshotTest {
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
                     onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
-                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onClearSelection = {}
+                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onToggleAutoTranslate = {}, onClearSelection = {}
                 )
             }
         }
@@ -275,7 +275,7 @@ class StoreScreenshotTest {
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
                     onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
-                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onClearSelection = {}
+                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onToggleAutoTranslate = {}, onClearSelection = {}
                 )
             }
         }
@@ -293,7 +293,7 @@ class StoreScreenshotTest {
                     onTriggerSync = {}, onSelectTab = {}, onUpdateSearchQuery = {}, onToggleLevel = {}, onTogglePos = {},
                     onNavigateToHistory = {}, onNavigateToWordDetail = {}, onShowGrammar = {}, onFlip = {}, onMarkCorrect = {}, onMarkWrong = {},
                     onRestartDrill = {}, onExitDrill = {}, onSpeak = {},
-                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onClearSelection = {}
+                    onRefreshAi = {}, onTranslateSelection = {}, selectionTranslation = null, onClearSelectionTranslation = {}, onSetTargetLanguage = {}, onDownloadModels = {}, onDeleteLanguageModel = {}, onToggleAutoTranslate = {}, onClearSelection = {}
                 )
             }
         }

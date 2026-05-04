@@ -91,6 +91,9 @@ class WortschatzViewModelTest {
         coEvery { modelDownloadManager.isModelDownloaded(any()) } returns true
         every { modelDownloadManager.isDownloading } returns MutableStateFlow(false)
         every { modelDownloadManager.error } returns MutableStateFlow(null)
+        every { prefs.isAiAutoTranslateEnabled } returns flowOf(false)
+        
+        coEvery { translationManager.translateDirect(any(), any()) } returns TranslationManager.TranslationResult.Success("Success")
     }
 
     @After

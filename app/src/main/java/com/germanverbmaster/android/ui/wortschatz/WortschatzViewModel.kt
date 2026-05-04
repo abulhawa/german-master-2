@@ -20,6 +20,8 @@ import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import com.germanverbmaster.android.ui.common.WordCleaner
+import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -110,6 +112,7 @@ data class WortschatzUiState(
     val selectionTranslation: TranslationManager.TranslationResult? = null,
     val selectionKey: Int = 0,
     val isModelDownloaded: Boolean = false,
+    val isAiAutoTranslateEnabled: Boolean = false,
     val downloadedLanguageCodes: Set<String> = emptySet(),
 ) {
     val drillCurrent: WordEntity? get() = drillQueue.getOrNull(drillIndex)
@@ -157,11 +160,32 @@ class WortschatzViewModel @Inject constructor(
         observePosFilters()
         observeMastery()
         observeHistoricalStats()
+        observeAutoTranslate()
+        observeCurrentWordForAutoTranslate()
 
         viewModelScope.launch {
             targetLanguage.collect { checkModelStatus() }
         }
         refreshDownloadedLanguages()
+    }
+
+    private fun observeCurrentWordForAutoTranslate() {
+        viewModelScope.launch {
+            _state.collect { s ->
+                val currentWord = s.drillCurrent
+                if (currentWord != null && s.aiTranslation == null && s.isAiAutoTranslateEnabled && s.isModelDownloaded) {
+                    requestAiTranslation()
+                }
+            }
+        }
+    }
+
+    private fun observeAutoTranslate() {
+        viewModelScope.launch {
+            prefs.isAiAutoTranslateEnabled.collect { enabled ->
+                _state.update { it.copy(isAiAutoTranslateEnabled = enabled) }
+            }
+        }
     }
 
     fun speak(text: String) {
@@ -248,7 +272,11 @@ class WortschatzViewModel @Inject constructor(
         observeWords(forceReset = shouldReset)
     }
 
-    fun flip()        = _state.update { it.copy(drillFlipped = !it.drillFlipped) }
+    fun flip() {
+        _state.update { s ->
+            s.copy(drillFlipped = !s.drillFlipped)
+        }
+    }
 
     fun markCorrect() {
         val word = _state.value.drillCurrent ?: return
@@ -341,6 +369,12 @@ class WortschatzViewModel @Inject constructor(
         }
     }
 
+    fun setAiAutoTranslateEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            prefs.setAiAutoTranslateEnabled(enabled)
+        }
+    }
+
     fun downloadModels(allowMobileData: Boolean) {
         viewModelScope.launch {
             modelDownloadManager.downloadModels(targetLanguage.value, allowMobileData)
@@ -389,27 +423,21 @@ class WortschatzViewModel @Inject constructor(
             }
 
             val lang = targetLanguage.value
+            val langName = languageNameMap[lang] ?: lang
 
-            // 1. Prepare word for translation (We'll use lemma for drill cards)
-            val translationInput = currentWord.lemma
+            // 1. Prepare word for translation
+            val translationInput = WordCleaner.clean(currentWord.lemma)
 
-            // 2. Translate Word (Lemma) with Context using symbol-based prompt
-            val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
-                "[[ $translationInput ]] || { ${currentWord.exampleDe} }"
-            } else {
-                translationInput
-            }
-
-            val result = translationManager.verifyWithRoundTrip(
-                germanText = contextPrompt,
-                targetLang = lang,
-                originalLemma = currentWord.lemma
+            // 2. Direct Translation - No context, no tricks
+            val result = translationManager.translateDirect(
+                germanText = translationInput,
+                targetLang = lang
             )
             
             _state.update { it.copy(aiTranslation = result) }
 
             currentWord.exampleDe?.let { example ->
-                val exampleRes = translationManager.verifyWithRoundTrip(
+                val exampleRes = translationManager.translateDirect(
                     germanText = example,
                     targetLang = lang
                 )
