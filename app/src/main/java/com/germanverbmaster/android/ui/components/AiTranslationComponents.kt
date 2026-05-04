@@ -2,12 +2,14 @@ package com.germanverbmaster.android.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -45,15 +47,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.platform.TextToolbar
 import androidx.compose.ui.platform.TextToolbarStatus
+import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -64,6 +70,7 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.google.mlkit.nl.translate.TranslateLanguage
+import kotlinx.coroutines.launch
 
 val languageNameMap = mapOf(
     "af" to "Afrikaans", "sq" to "Albanisch", "ar" to "Arabisch", "be" to "Belarussisch",
@@ -82,6 +89,96 @@ val languageNameMap = mapOf(
     "te" to "Telugu", "th" to "Thailändisch", "tr" to "Türkisch", "uk" to "Ukrainisch",
     "ur" to "Urdu", "vi" to "Vietnamesisch", "cy" to "Walisisch"
 )
+
+/**
+ * Result container for contextual word translation.
+ */
+data class ContextualTranslationResult(
+    val word: String,
+    val wordTranslation: TranslationManager.TranslationResult? = null,
+    val generalTranslation: TranslationManager.TranslationResult? = null,
+    val contextSentence: String
+)
+
+@Composable
+fun TappableSentenceText(
+    text: String,
+    translationManager: TranslationManager,
+    targetLang: String,
+    modifier: Modifier = Modifier,
+    style: TextStyle = MaterialTheme.typography.bodyLarge,
+    onResult: (ContextualTranslationResult) -> Unit
+) {
+    val scope = rememberCoroutineScope()
+    var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
+
+    Text(
+        text = text,
+        style = style,
+        modifier = modifier.pointerInput(text) {
+            detectTapGestures { offset ->
+                layoutResult?.let { layout ->
+                    val offsetIndex = layout.getOffsetForPosition(offset)
+                    val (word, sentence) = extractWordAndSentence(text, offsetIndex)
+                    
+                    if (word.isNotBlank()) {
+                        scope.launch {
+                            // Initial state
+                            var currentResult = ContextualTranslationResult(
+                                word = word, 
+                                contextSentence = sentence
+                            )
+                            onResult(currentResult)
+                            
+                            // 1. Translate Word (With sentence context for better accuracy)
+                            val symbolPrompt = "[[ $word ]] || { $sentence }"
+                            val contextualRes = translationManager.verifyWithRoundTrip(
+                                germanText = symbolPrompt, 
+                                targetLang = targetLang, 
+                                originalLemma = word
+                            )
+                            currentResult = currentResult.copy(wordTranslation = contextualRes)
+                            onResult(currentResult)
+
+                            // 2. Translate Word (General - Without context)
+                            val generalRes = translationManager.verifyWithRoundTrip(
+                                germanText = word,
+                                targetLang = targetLang
+                            )
+                            currentResult = currentResult.copy(generalTranslation = generalRes)
+                            onResult(currentResult)
+                        }
+                    }
+                }
+            }
+        },
+        onTextLayout = { layoutResult = it }
+    )
+}
+
+private fun extractWordAndSentence(text: String, index: Int): Pair<String, String> {
+    if (index < 0 || index >= text.length) return "" to ""
+
+    // Extract Word
+    var wordStart = index
+    while (wordStart > 0 && text[wordStart - 1].isLetterOrDigit()) wordStart--
+    var wordEnd = index
+    while (wordEnd < text.length && text[wordEnd].isLetterOrDigit()) wordEnd++
+    val word = text.substring(wordStart, wordEnd).trim()
+
+    // Extract Sentence
+    val sentenceDelimiters = listOf('.', '!', '?', '\n')
+    var sentenceStart = index
+    while (sentenceStart > 0 && !sentenceDelimiters.contains(text[sentenceStart - 1])) sentenceStart--
+    var sentenceEnd = index
+    while (sentenceEnd < text.length && !sentenceDelimiters.contains(text[sentenceEnd])) sentenceEnd++
+    
+    // Include the delimiter if it's not a newline
+    val actualEnd = if (sentenceEnd < text.length && text[sentenceEnd] != '\n') sentenceEnd + 1 else sentenceEnd
+    val sentence = text.substring(sentenceStart, actualEnd).trim()
+
+    return word to sentence
+}
 
 @Composable
 fun TranslatingSelectionContainer(
@@ -201,19 +298,24 @@ fun TranslatingSelectionContainer(
 
 @Composable
 fun SelectionTranslationDialog(
-    result: TranslationManager.TranslationResult?,
+    result: TranslationManager.TranslationResult? = null,
+    contextualResult: ContextualTranslationResult? = null,
     onDismiss: () -> Unit
 ) {
-    if (result == null) return
+    if (result == null && contextualResult == null) return
 
     Dialog(onDismissRequest = onDismiss) {
         Surface(
             shape = MaterialTheme.shapes.large,
             color = MaterialTheme.colorScheme.surface,
             tonalElevation = 8.dp,
-            modifier = Modifier.fillMaxWidth(0.9f)
+            modifier = Modifier.width(340.dp) // Fixed width to prevent horizontal stuttering
         ) {
-            Column(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .defaultMinSize(minHeight = 150.dp)
+            ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
                         Icons.Default.AutoAwesome,
@@ -223,7 +325,7 @@ fun SelectionTranslationDialog(
                     )
                     Spacer(Modifier.width(12.dp))
                     Text(
-                        "Übersetzung",
+                        "KI-Übersetzung",
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
@@ -231,7 +333,11 @@ fun SelectionTranslationDialog(
 
                 Spacer(Modifier.height(16.dp))
 
-                TranslationResultView(result = result)
+                if (contextualResult != null) {
+                    ContextualTranslationView(contextualResult)
+                } else if (result != null) {
+                    TranslationResultView(result = result)
+                }
 
                 Spacer(Modifier.height(24.dp))
 
@@ -241,6 +347,74 @@ fun SelectionTranslationDialog(
                 ) {
                     Text("Schließen")
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun ContextualTranslationView(result: ContextualTranslationResult) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        // Contextual Section
+        Box(modifier = Modifier.defaultMinSize(minHeight = 48.dp)) {
+            TranslationItemView(
+                label = "Wort (im Kontext): ${result.word}",
+                result = result.wordTranslation
+            )
+        }
+
+        // Show general translation only if it differs from the contextual one
+        val contextualText = (result.wordTranslation as? TranslationManager.TranslationResult.Success)?.translation
+            ?: (result.wordTranslation as? TranslationManager.TranslationResult.LowConfidence)?.translation
+        val generalText = (result.generalTranslation as? TranslationManager.TranslationResult.Success)?.translation
+            ?: (result.generalTranslation as? TranslationManager.TranslationResult.LowConfidence)?.translation
+
+        if (generalText != null && contextualText != null && 
+            !generalText.equals(contextualText, ignoreCase = true)) {
+            
+            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+            
+            Box(modifier = Modifier.defaultMinSize(minHeight = 48.dp)) {
+                TranslationItemView(
+                    label = "Wort (allgemein)",
+                    result = result.generalTranslation
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun TranslationItemView(
+    label: String,
+    result: TranslationManager.TranslationResult?,
+    sourceText: String? = null
+) {
+    Column {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.primary
+        )
+        if (sourceText != null) {
+            Text(
+                text = "\"$sourceText\"",
+                style = MaterialTheme.typography.bodySmall,
+                fontStyle = FontStyle.Italic,
+                modifier = Modifier.padding(vertical = 2.dp)
+            )
+        }
+        Spacer(Modifier.height(4.dp))
+        if (result != null) {
+            TranslationResultView(result)
+        } else {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                CircularProgressIndicator(modifier = Modifier.size(16.dp), strokeWidth = 2.dp)
+                Spacer(Modifier.width(8.dp))
+                Text("Übersetze...", style = MaterialTheme.typography.bodySmall)
             }
         }
     }
@@ -324,9 +498,17 @@ fun AiTranslationBox(
                 )
             } else {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    wordResult.let {
+                    wordResult.let { result ->
                         key(selectionKey) {
-                            TranslationResultView(result = it)
+                            if (result is TranslationManager.TranslationResult.Success && result.translation.isBlank()) {
+                                Text(
+                                    "Keine Übersetzung gefunden.",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    fontStyle = FontStyle.Italic
+                                )
+                            } else {
+                                TranslationResultView(result = result)
+                            }
                         }
                     }
                 }

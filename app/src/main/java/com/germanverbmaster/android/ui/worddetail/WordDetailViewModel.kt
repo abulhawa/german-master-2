@@ -10,6 +10,7 @@ import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.ModelDownloadManager
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.speech.TextToSpeechHelper
+import com.germanverbmaster.android.ui.components.ContextualTranslationResult
 import com.google.mlkit.nl.translate.TranslateLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -47,6 +48,9 @@ class WordDetailViewModel @Inject constructor(
 
     private val _selectionTranslation = MutableStateFlow<TranslationManager.TranslationResult?>(null)
     val selectionTranslation = _selectionTranslation.asStateFlow()
+
+    private val _contextualSelectionTranslation = MutableStateFlow<ContextualTranslationResult?>(null)
+    val contextualSelectionTranslation = _contextualSelectionTranslation.asStateFlow()
 
     private val _selectionKey = MutableStateFlow(0)
     val selectionKey = _selectionKey.asStateFlow()
@@ -136,8 +140,13 @@ class WordDetailViewModel @Inject constructor(
         }
     }
 
+    fun setContextualSelectionTranslation(result: ContextualTranslationResult?) {
+        _contextualSelectionTranslation.value = result
+    }
+
     fun clearSelectionTranslation() {
         _selectionTranslation.value = null
+        _contextualSelectionTranslation.value = null
     }
 
     fun clearSelection() {
@@ -147,6 +156,8 @@ class WordDetailViewModel @Inject constructor(
     fun speak(text: String) {
         tts.speak(text)
     }
+
+    fun getTranslationManager(): TranslationManager = translationManager
 
     fun requestAiTranslation(displayText: String) {
         val currentWord = word.value ?: return
@@ -161,9 +172,9 @@ class WordDetailViewModel @Inject constructor(
             // 1. Prepare word for translation (Use the exact text shown in UI headline)
             val translationInput = displayText
 
-            // 2. Translate Word (Lemma) with Context
+            // 2. Translate Word (Lemma) with Context using symbol-based prompt
             val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
-                "Wort: $translationInput (Kontext: ${currentWord.exampleDe})"
+                "[[ $translationInput ]] || { ${currentWord.exampleDe} }"
             } else {
                 translationInput
             }

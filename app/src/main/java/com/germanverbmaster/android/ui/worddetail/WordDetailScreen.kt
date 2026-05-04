@@ -51,9 +51,11 @@ import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.ui.common.NounFormFormatter
 import com.germanverbmaster.android.ui.components.AiTranslationBox
+import com.germanverbmaster.android.ui.components.ContextualTranslationResult
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.LanguagePickerDialog
 import com.germanverbmaster.android.ui.components.SelectionTranslationDialog
+import com.germanverbmaster.android.ui.components.TappableSentenceText
 import com.germanverbmaster.android.ui.components.TranslatingSelectionContainer
 import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -74,6 +76,7 @@ fun WordDetailScreen(
     val targetLanguage by viewModel.targetLanguage.collectAsStateWithLifecycle()
     val downloadedCodes by viewModel.downloadedLanguageCodes.collectAsStateWithLifecycle()
     val selectionTranslation by viewModel.selectionTranslation.collectAsStateWithLifecycle()
+    val contextualSelectionTranslation by viewModel.contextualSelectionTranslation.collectAsStateWithLifecycle()
     val selectionKey by viewModel.selectionKey.collectAsStateWithLifecycle()
 
     var showDownloadDialog by remember { mutableStateOf(false) }
@@ -119,6 +122,7 @@ fun WordDetailScreen(
 
     SelectionTranslationDialog(
         result = selectionTranslation,
+        contextualResult = contextualSelectionTranslation,
         onDismiss = viewModel::clearSelectionTranslation
     )
 
@@ -182,6 +186,7 @@ fun WordDetailScreen(
                     WordDetailContent(
                         word = currentWord,
                         onSpeak = { viewModel.speak(it) },
+                        translationManager = viewModel.getTranslationManager(),
                         aiTranslation = aiTranslation,
                         aiExampleTranslation = aiExampleTranslation,
                         isModelDownloaded = isModelDownloaded,
@@ -197,7 +202,8 @@ fun WordDetailScreen(
                                 showDownloadDialog = true
                             }
                         },
-                        onTranslateSelection = viewModel::translateSelectedText
+                        onTranslateSelection = viewModel::setContextualSelectionTranslation,
+                        onLegacyTranslate = viewModel::translateSelectedText
                     )
                 }
             }
@@ -209,6 +215,7 @@ fun WordDetailScreen(
 private fun WordDetailContent(
     word: WordEntity,
     onSpeak: (String) -> Unit,
+    translationManager: TranslationManager,
     aiTranslation: TranslationManager.TranslationResult?,
     aiExampleTranslation: TranslationManager.TranslationResult?,
     isModelDownloaded: Boolean,
@@ -218,7 +225,8 @@ private fun WordDetailContent(
     targetLanguageCode: String,
     selectionKey: Int,
     onRefreshAi: () -> Unit,
-    onTranslateSelection: (String) -> Unit,
+    onTranslateSelection: (ContextualTranslationResult) -> Unit,
+    onLegacyTranslate: (String) -> Unit,
 ) {
     val nounPresentation = remember(word) {
         if (NounFormFormatter.isNoun(word.pos)) {
@@ -243,7 +251,7 @@ private fun WordDetailContent(
     ) {
         key(selectionKey) {
             TranslatingSelectionContainer(
-                onTranslate = onTranslateSelection,
+                onTranslate = onLegacyTranslate,
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
@@ -267,7 +275,7 @@ private fun WordDetailContent(
     // Translation
     word.english?.let {
         key(selectionKey) {
-            TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
+            TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
                 Text(
                     text = it,
                     style = MaterialTheme.typography.titleLarge,
@@ -367,16 +375,14 @@ private fun WordDetailContent(
             Column(modifier = Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     key(selectionKey) {
-                        TranslatingSelectionContainer(
-                            onTranslate = onTranslateSelection,
-                            modifier = Modifier.weight(1f)
-                        ) {
-                            Text(
-                                text = word.exampleDe,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontStyle = FontStyle.Italic,
-                            )
-                        }
+                        TappableSentenceText(
+                            text = word.exampleDe,
+                            translationManager = translationManager,
+                            targetLang = targetLanguageCode,
+                            style = MaterialTheme.typography.bodyLarge.copy(fontStyle = FontStyle.Italic),
+                            modifier = Modifier.weight(1f),
+                            onResult = onTranslateSelection
+                        )
                     }
                     IconButton(onClick = { onSpeak(word.exampleDe) }) {
                         Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "Sprechen")
@@ -385,7 +391,7 @@ private fun WordDetailContent(
                 word.exampleEn?.let {
                     Spacer(Modifier.height(4.dp))
                     key(selectionKey) {
-                        TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
+                        TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
                             Text(
                                 text = it,
                                 style = MaterialTheme.typography.bodyMedium,
@@ -419,7 +425,7 @@ private fun WordDetailContent(
                         }
                         
                         key(selectionKey) {
-                            TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
+                            TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
                                 when (result) {
                                     is TranslationManager.TranslationResult.Success -> {
                                         Text(

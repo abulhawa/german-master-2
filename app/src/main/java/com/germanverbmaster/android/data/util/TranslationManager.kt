@@ -88,6 +88,13 @@ class TranslationManager @Inject constructor() {
 
         val comparisonText = originalLemma ?: germanText
 
+        // Check if the translation is identical to the source (common fallback for unknown words in ML Kit)
+        if (cleanedTranslation.equals(comparisonText, ignoreCase = true) && 
+            targetLang != TranslateLanguage.GERMAN && 
+            comparisonText.length > 2) {
+            return TranslationResult.Error("Keine Übersetzung gefunden (Wort unbekannt)")
+        }
+
         // Relaxed comparison: check if the core words exist in the back-translation
         val normalizedBack = backToGerman.lowercase()
         val normalizedOriginal = comparisonText.lowercase()
@@ -105,26 +112,48 @@ class TranslationManager @Inject constructor() {
 
     /**
      * Extracts the core translated word if the KI included the prompt structure in its response.
+     * New format: [[ word ]] || { context }
      */
     private fun cleanTranslationResult(raw: String): String {
         var text = raw.trim()
         
-        // Handle "Word: [Result] (Context: ...)" pattern
-        // The KI might translate the labels too, so we look for colons and parentheses.
-        
-        // 1. Remove anything after a '(' if it likely contains "Context" or similar
-        val parenIndex = text.indexOf('(')
-        if (parenIndex != -1) {
-            text = text.substring(0, parenIndex).trim()
+        // 1. Handle [[ ]] brackets
+        if (text.contains("[[") && text.contains("]]")) {
+            val start = text.indexOf("[[") + 2
+            val end = text.indexOf("]]", start)
+            if (end != -1) {
+                text = text.substring(start, end).trim()
+            }
         }
         
-        // 2. Remove anything before a ':' if it likely contains "Word" or similar
+        // 2. Remove anything after a '||' or '{' if it likely contains context
+        val pipeIndex = text.indexOf("||")
+        if (pipeIndex != -1) {
+            text = text.substring(0, pipeIndex).trim()
+        }
+        
+        val braceIndex = text.indexOf('{')
+        if (braceIndex != -1) {
+            text = text.substring(0, braceIndex).trim()
+        }
+
+        // 3. Keep existing smart parenthesis handling (for reflexive verbs)
+        if (text.startsWith("(") && text.endsWith(")")) {
+             // Leave it
+        } else {
+            val parenIndex = text.indexOf('(')
+            if (parenIndex != -1) {
+                text = text.substring(0, parenIndex).trim()
+            }
+        }
+        
+        // 4. Handle "Word:" or "Wort:" leakage if it still happens
         val colonIndex = text.indexOf(':')
-        if (colonIndex != -1 && colonIndex < text.length / 2) { // Colon should be near the start
+        if (colonIndex != -1 && colonIndex < text.length / 2) {
             text = text.substring(colonIndex + 1).trim()
         }
 
-        // 3. Remove leading/trailing quotes or punctuation often added by KI
+        // 5. Cleanup quotes
         text = text.removeSurrounding("\"").removeSurrounding("'").trim()
         
         return text.ifBlank { raw }
