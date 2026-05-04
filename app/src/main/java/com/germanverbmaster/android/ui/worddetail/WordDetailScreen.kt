@@ -249,6 +249,9 @@ private fun WordDetailContent(
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxWidth()
     ) {
+        // Invisible spacer to balance the IconButton on the right
+        Spacer(Modifier.size(48.dp)) 
+
         key(selectionKey) {
             TranslatingSelectionContainer(
                 onTranslate = onLegacyTranslate,
@@ -260,10 +263,15 @@ private fun WordDetailContent(
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary,
                     textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
         }
-        IconButton(onClick = { onSpeak(headlineSpeak) }) {
+        
+        IconButton(
+            onClick = { onSpeak(headlineSpeak) },
+            modifier = Modifier.size(48.dp)
+        ) {
             Icon(
                 Icons.AutoMirrored.Filled.VolumeUp,
                 contentDescription = "Sprechen",
@@ -274,13 +282,19 @@ private fun WordDetailContent(
 
     // Translation
     word.english?.let {
-        key(selectionKey) {
-            TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
-                Text(
-                    text = it,
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.secondary
-                )
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            key(selectionKey) {
+                TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.secondary,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }

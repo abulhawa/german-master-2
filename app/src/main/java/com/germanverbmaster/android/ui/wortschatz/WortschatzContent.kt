@@ -31,6 +31,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
@@ -45,6 +46,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -743,6 +745,7 @@ private fun DrillContent(
                             speakFront = speakFront,
                             isFlipped = state.drillFlipped,
                             aiTranslation = state.aiTranslation,
+                            aiExampleTranslation = state.aiExampleTranslation,
                             isModelDownloaded = state.isModelDownloaded,
                             isDownloading = isDownloading,
                             downloadError = downloadError,
@@ -823,6 +826,7 @@ private fun DrillFlipCard(
     speakFront: String,
     isFlipped: Boolean,
     aiTranslation: TranslationManager.TranslationResult?,
+    aiExampleTranslation: TranslationManager.TranslationResult?,
     isModelDownloaded: Boolean,
     isDownloading: Boolean,
     downloadError: String?,
@@ -1026,6 +1030,55 @@ private fun DrillFlipCard(
                                                     style = MaterialTheme.typography.bodyMedium,
                                                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
                                                 )
+                                            }
+                                        }
+                                    }
+
+                                    // KI Example Translation
+                                    aiExampleTranslation?.let { result ->
+                                        Spacer(Modifier.height(8.dp))
+                                        HorizontalDivider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+                                        Spacer(Modifier.height(8.dp))
+                                        
+                                        Column {
+                                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                                Icon(
+                                                    Icons.Default.AutoAwesome,
+                                                    contentDescription = null,
+                                                    modifier = Modifier.size(12.dp),
+                                                    tint = MaterialTheme.colorScheme.primary
+                                                )
+                                                Spacer(Modifier.width(4.dp))
+                                                Text(
+                                                    "KI Übersetzung ($targetLanguageName)",
+                                                    style = MaterialTheme.typography.labelSmall,
+                                                    color = MaterialTheme.colorScheme.primary,
+                                                    fontWeight = FontWeight.Bold
+                                                )
+                                            }
+                                            
+                                            key(selectionKey) {
+                                                TranslatingSelectionContainer(onTranslate = onTranslateSelection) {
+                                                    when (result) {
+                                                        is TranslationManager.TranslationResult.Success -> {
+                                                            Text(
+                                                                text = result.translation,
+                                                                style = MaterialTheme.typography.bodyMedium,
+                                                                fontWeight = FontWeight.Medium
+                                                            )
+                                                        }
+                                                        is TranslationManager.TranslationResult.LowConfidence -> {
+                                                            Text(
+                                                                text = result.translation,
+                                                                style = MaterialTheme.typography.bodyMedium,
+                                                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                                            )
+                                                        }
+                                                        is TranslationManager.TranslationResult.Error -> {
+                                                            Text(result.message, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }

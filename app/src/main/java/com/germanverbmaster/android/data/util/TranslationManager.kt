@@ -92,7 +92,11 @@ class TranslationManager @Inject constructor() {
         if (cleanedTranslation.equals(comparisonText, ignoreCase = true) && 
             targetLang != TranslateLanguage.GERMAN && 
             comparisonText.length > 2) {
-            return TranslationResult.Error("Keine Übersetzung gefunden (Wort unbekannt)")
+            
+            // Allow "self-translation" if the back-translation also matches (it's a cognate)
+            if (!backToGerman.equals(comparisonText, ignoreCase = true)) {
+                return TranslationResult.Error("Keine Übersetzung gefunden (Wort unbekannt)")
+            }
         }
 
         // Relaxed comparison: check if the core words exist in the back-translation

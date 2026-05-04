@@ -106,6 +106,7 @@ data class WortschatzUiState(
 
     // Translation & Selection
     val aiTranslation: TranslationManager.TranslationResult? = null,
+    val aiExampleTranslation: TranslationManager.TranslationResult? = null,
     val selectionTranslation: TranslationManager.TranslationResult? = null,
     val selectionKey: Int = 0,
     val isModelDownloaded: Boolean = false,
@@ -288,7 +289,7 @@ class WortschatzViewModel @Inject constructor(
     }
 
     fun restartDrill() {
-        _state.update { it.copy(drillCorrect = 0, drillWrong = 0, drillDone = false) }
+        _state.update { it.copy(drillCorrect = 0, drillWrong = 0, drillDone = false, aiExampleTranslation = null) }
         viewModelScope.launch {
             prefs.setDrillCorrect(0)
             prefs.setDrillWrong(0)
@@ -336,7 +337,7 @@ class WortschatzViewModel @Inject constructor(
     fun setTargetLanguage(langCode: String) {
         viewModelScope.launch {
             prefs.setKiTargetLanguage(langCode)
-            _state.update { it.copy(aiTranslation = null) }
+            _state.update { it.copy(aiTranslation = null, aiExampleTranslation = null) }
         }
     }
 
@@ -392,9 +393,9 @@ class WortschatzViewModel @Inject constructor(
             // 1. Prepare word for translation (We'll use lemma for drill cards)
             val translationInput = currentWord.lemma
 
-            // 2. Translate Word (Lemma) with Context
+            // 2. Translate Word (Lemma) with Context using symbol-based prompt
             val contextPrompt = if (!currentWord.exampleDe.isNullOrBlank()) {
-                "Wort: $translationInput (Kontext: ${currentWord.exampleDe})"
+                "[[ $translationInput ]] || { ${currentWord.exampleDe} }"
             } else {
                 translationInput
             }
@@ -406,6 +407,14 @@ class WortschatzViewModel @Inject constructor(
             )
             
             _state.update { it.copy(aiTranslation = result) }
+
+            currentWord.exampleDe?.let { example ->
+                val exampleRes = translationManager.verifyWithRoundTrip(
+                    germanText = example,
+                    targetLang = lang
+                )
+                _state.update { it.copy(aiExampleTranslation = exampleRes) }
+            }
         }
     }
 
@@ -517,18 +526,19 @@ class WortschatzViewModel @Inject constructor(
                     val finalCorrect = if (isFirstLoad || forceReset) savedCorrect else if (shouldReset) 0 else s.drillCorrect
                     val finalWrong = if (isFirstLoad || forceReset) savedWrong else if (shouldReset) 0 else s.drillWrong
 
-                    s.copy(
-                        isLoading = false,
-                        listCards = filteredWords,
-                        drillQueue = queue,
-                        drillIndex = finalIndex,
-                        drillCorrect = finalCorrect,
-                        drillWrong = finalWrong,
-                        drillDone = finalIndex >= queue.size && queue.isNotEmpty(),
-                        drillFlipped = false,
-                        aiTranslation = null,
-                        selectionKey = s.selectionKey + 1
-                    )
+                        s.copy(
+                            isLoading = false,
+                            listCards = filteredWords,
+                            drillQueue = queue,
+                            drillIndex = finalIndex,
+                            drillCorrect = finalCorrect,
+                            drillWrong = finalWrong,
+                            drillDone = finalIndex >= queue.size && queue.isNotEmpty(),
+                            drillFlipped = false,
+                            aiTranslation = null,
+                            aiExampleTranslation = null,
+                            selectionKey = s.selectionKey + 1
+                        )
                 }
             }
         }
@@ -546,6 +556,7 @@ class WortschatzViewModel @Inject constructor(
                     drillFlipped = false,
                     drillDone = startIndex >= shuffled.size && shuffled.isNotEmpty(),
                     aiTranslation = null,
+                    aiExampleTranslation = null,
                     selectionKey = it.selectionKey + 1
                 )
             }
@@ -560,6 +571,7 @@ class WortschatzViewModel @Inject constructor(
                 drillFlipped = false,
                 drillDone    = next >= it.drillQueue.size,
                 aiTranslation = null,
+                aiExampleTranslation = null,
                 selectionKey = it.selectionKey + 1
             )
         }

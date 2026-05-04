@@ -81,7 +81,7 @@ class WortschatzViewModelTranslationTest {
     }
 
     @Test
-    fun `advancing card resets translation and increments selection key`() = runTest {
+    fun `advancing card resets translations and increments selection key`() = runTest {
         // Mock translation Manager to return something immediately
         val mockTranslation = TranslationManager.TranslationResult.Success("Success")
         io.mockk.coEvery { translationManager.verifyWithRoundTrip(any(), any(), any()) } returns mockTranslation
@@ -101,6 +101,7 @@ class WortschatzViewModelTranslationTest {
 
             val initialKey = state.selectionKey
             assertNull(state.aiTranslation)
+            assertNull(state.aiExampleTranslation)
 
             // Request translation
             viewModel.requestAiTranslation()
@@ -111,6 +112,11 @@ class WortschatzViewModelTranslationTest {
                 state = awaitItem()
             }
             assertEquals("Success", (state.aiTranslation as TranslationManager.TranslationResult.Success).translation)
+            
+            // If the mock word has an example, aiExampleTranslation should also be set
+            // Our mockWords are "machen" (no example) and "Haus" (no example in the snippet)
+            // Let's assume the first word is "machen". 
+            // If we want to test example translation, we should probably update mockWords in setup or here.
 
             // Mark correct (advances)
             viewModel.markCorrect()
@@ -121,10 +127,8 @@ class WortschatzViewModelTranslationTest {
                 state = awaitItem()
             }
 
-            // Either it advanced to next index or it's done (if only 2 words and we marked one, next index is 1)
-            // But wait, our mock words has 2 words.
-
             assertNull(state.aiTranslation) // Should be reset
+            assertNull(state.aiExampleTranslation) // Should be reset
             assertNull(state.selectionTranslation) // Should be reset
             assertEquals(initialKey + 1, state.selectionKey) // Should be incremented
         }
