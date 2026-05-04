@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.data.util
 
+import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -26,6 +27,10 @@ class TranslationManagerTest {
 
     @Before
     fun setup() {
+        mockkStatic(Log::class)
+        every { Log.d(any(), any()) } returns 0
+        every { Log.e(any(), any(), any()) } returns 0
+        
         mockkStatic(Translation::class)
         every { Translation.getClient(any()) } returns deToTarget
         
@@ -35,6 +40,7 @@ class TranslationManagerTest {
     @After
     fun tearDown() {
         unmockkStatic(Translation::class)
+        unmockkStatic(Log::class)
     }
 
     private fun <T> mockTask(result: T): Task<T> = Tasks.forResult(result)
@@ -71,7 +77,7 @@ class TranslationManagerTest {
         val word = "Haus"
         val lang = TranslateLanguage.ENGLISH
         
-        coEvery { deToTarget.translate(word) } throws RuntimeException("Network Error")
+        every { deToTarget.translate(word) } returns Tasks.forException(RuntimeException("Network Error"))
 
         val result = translationManager.translateDirect(word, lang)
 

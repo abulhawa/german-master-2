@@ -163,7 +163,7 @@ class WortschatzViewModelTranslationTest {
         val selectedText = "hallo"
         val mockTranslation = TranslationManager.TranslationResult.Success("hello")
         
-        io.mockk.coEvery { translationManager.translateDirect(selectedText, any()) } returns mockTranslation
+        io.mockk.coEvery { translationManager.verifyWithRoundTrip(selectedText, any()) } returns mockTranslation
 
         val viewModel = WortschatzViewModel(
             repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase, 
