@@ -82,7 +82,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
-import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
 import com.germanverbmaster.android.ui.components.ExamCountdownBanner
@@ -721,14 +720,14 @@ private fun DrillContent(
         } else {
             state.drillCurrent?.let { card ->
                 val (displayFront, speakFront, pluralDisplay) = remember(card) {
-                    val cleanedLemma = WordCleaner.clean(card.lemma)
+                    val lemma = card.lemma
                     if (isNoun(card.pos)) {
                         val article = genderArticle(card.gender)
-                        val singularWithArticle = if (article.isNotBlank()) "$article $cleanedLemma" else cleanedLemma
+                        val singularWithArticle = if (article.isNotBlank()) "$article $lemma" else lemma
                         val plural = card.plural?.trim()?.takeIf { it.isNotEmpty() }
                         Triple(singularWithArticle, singularWithArticle, plural)
                     } else {
-                        Triple(cleanedLemma, cleanedLemma, null)
+                        Triple(lemma, lemma, null)
                     }
                 }
 
@@ -993,7 +992,7 @@ private fun DrillFlipCard(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Text(
-                                    text = WordCleaner.clean(card.english) ?: "",
+                                    text = card.english ?: "",
                                     style = MaterialTheme.typography.headlineMedium,
                                     fontWeight = FontWeight.SemiBold,
                                     color = MaterialTheme.colorScheme.primary,

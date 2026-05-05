@@ -20,7 +20,6 @@ import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
 import com.germanverbmaster.android.domain.usecase.SyncDataUseCase
 import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
-import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -425,8 +424,8 @@ class WortschatzViewModel @Inject constructor(
             val lang = targetLanguage.value
             val langName = languageNameMap[lang] ?: lang
 
-            // 1. Prepare word for translation
-            val translationInput = WordCleaner.clean(currentWord.lemma)
+            // 1. Use lemma directly from database
+            val translationInput = currentWord.lemma
 
             // 2. Direct Translation - No context, no tricks
             val result = translationManager.translateDirect(

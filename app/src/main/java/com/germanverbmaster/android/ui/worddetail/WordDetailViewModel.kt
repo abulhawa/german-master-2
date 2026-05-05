@@ -10,7 +10,6 @@ import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.ModelDownloadManager
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.speech.TextToSpeechHelper
-import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.ContextualTranslationResult
 import com.germanverbmaster.android.ui.components.languageNameMap
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -195,8 +194,8 @@ class WordDetailViewModel @Inject constructor(
             val lang = targetLanguage.value
             val langName = languageNameMap[lang] ?: lang
 
-            // 1. Prepare word for translation
-            val translationInput = WordCleaner.clean(displayText)
+            // 1. Use display text directly
+            val translationInput = displayText
 
             // 2. Direct Translation - No context, no tricks
             _aiTranslation.value = translationManager.translateDirect(

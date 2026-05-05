@@ -50,7 +50,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.germanverbmaster.android.data.local.entity.WordEntity
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.ui.common.NounFormFormatter
-import com.germanverbmaster.android.ui.common.WordCleaner
 import com.germanverbmaster.android.ui.components.AiTranslationBox
 import com.germanverbmaster.android.ui.components.ContextualTranslationResult
 import com.germanverbmaster.android.ui.components.DownloadPermissionDialog
@@ -177,7 +176,7 @@ fun WordDetailScreen(
                     val nounPresentation = remember(currentWord) {
                         if (NounFormFormatter.isNoun(currentWord.pos)) {
                             NounFormFormatter.present(
-                                lemma = WordCleaner.clean(currentWord.lemma),
+                                lemma = currentWord.lemma,
                                 gender = currentWord.gender,
                                 plural = currentWord.plural,
                             )
@@ -185,7 +184,7 @@ fun WordDetailScreen(
                             null
                         }
                     }
-                    val headlineText = nounPresentation?.singularDisplay ?: WordCleaner.clean(currentWord.lemma)
+                    val headlineText = nounPresentation?.singularDisplay ?: currentWord.lemma
 
                     androidx.compose.runtime.LaunchedEffect(currentWord, isModelDownloaded, isAiAutoTranslateEnabled) {
                         if (isModelDownloaded && isAiAutoTranslateEnabled && aiTranslation == null) {
@@ -241,7 +240,7 @@ private fun WordDetailContent(
     val nounPresentation = remember(word) {
         if (NounFormFormatter.isNoun(word.pos)) {
             NounFormFormatter.present(
-                lemma = WordCleaner.clean(word.lemma),
+                lemma = word.lemma,
                 gender = word.gender,
                 plural = word.plural,
             )
@@ -249,8 +248,8 @@ private fun WordDetailContent(
             null
         }
     }
-    val headlineText = nounPresentation?.singularDisplay ?: WordCleaner.clean(word.lemma)
-    val headlineSpeak = nounPresentation?.speakText ?: WordCleaner.clean(word.lemma)
+    val headlineText = nounPresentation?.singularDisplay ?: word.lemma
+    val headlineSpeak = nounPresentation?.speakText ?: word.lemma
     val genderDisplay = nounPresentation?.genderDisplay ?: word.gender
 
     // Lemma and Audio
@@ -299,7 +298,7 @@ private fun WordDetailContent(
             key(selectionKey) {
                 TranslatingSelectionContainer(onTranslate = onLegacyTranslate) {
                     Text(
-                        text = WordCleaner.clean(english),
+                        text = english,
                         style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.secondary,
                         textAlign = TextAlign.Center
