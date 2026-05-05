@@ -38,11 +38,13 @@ class PracticeRepository @Inject constructor(
 
     fun observeStats(
         levels: List<String>,
-        posTypes: List<String>
+        posTypes: List<String>,
+        collection: String? = null,
     ): Flow<DrillStats> = dao.observeStats(
         levels = levels,
         allLevels = levels.isEmpty(),
         posTypes = posTypes,
-        allPos = posTypes.isEmpty()
+        allPos = posTypes.isEmpty(),
+        collection = collection,
     ).map { it ?: DrillStats(0, 0) }
 }

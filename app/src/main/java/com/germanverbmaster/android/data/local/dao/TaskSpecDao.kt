@@ -18,6 +18,7 @@ interface TaskSpecDao {
         INNER JOIN lexemes l ON ts.lexemeId = l.id
         WHERE (:pos IS NULL OR ts.pos = :pos)
           AND (:cefrLevel IS NULL OR ts.cefrLevel = :cefrLevel)
+          AND (:collection IS NULL OR ts.collectionsJson LIKE '%"' || :collection || '"%')
           AND l.isApproved = 1
           AND l.isComplete = 1
         ORDER BY RANDOM()
@@ -26,6 +27,7 @@ interface TaskSpecDao {
     suspend fun fetchBatch(
         pos: String? = null,
         cefrLevel: String? = null,
+        collection: String? = null,
         limit: Int = 20,
     ): List<TaskSpecEntity>
 

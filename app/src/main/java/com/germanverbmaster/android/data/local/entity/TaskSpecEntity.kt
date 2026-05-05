@@ -26,6 +26,7 @@ data class TaskSpecEntity(
     val solutionJson: String,  // serialized JSON
     val hintsJson: String? = null,
     val metadataJson: String? = null,
+    val collectionsJson: String = "[]",
     val cefrLevel: String? = null,  // extracted from lexeme metadata for fast filtering
     val revision: Int = 1,
     val updatedAt: String = "",

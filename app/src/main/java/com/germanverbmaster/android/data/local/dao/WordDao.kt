@@ -17,20 +17,44 @@ interface WordDao {
     suspend fun upsertAll(words: List<WordEntity>)
 
     /** All words that have a translation — used for Wortschatz drill */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL ORDER BY lemma ASC")
-    fun observeAll(): Flow<List<WordEntity>>
+    @Query("""
+        SELECT * FROM words
+        WHERE english IS NOT NULL
+        AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
+        ORDER BY lemma ASC
+    """)
+    fun observeAll(collection: String? = null): Flow<List<WordEntity>>
 
     /** Filtered by CEFR levels */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level IN (:levels) ORDER BY lemma ASC")
-    fun observeByLevels(levels: List<String>): Flow<List<WordEntity>>
+    @Query("""
+        SELECT * FROM words 
+        WHERE english IS NOT NULL 
+        AND level IN (:levels) 
+        AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
+        ORDER BY lemma ASC
+    """)
+    fun observeByLevels(levels: List<String>, collection: String? = null): Flow<List<WordEntity>>
 
     /** Filtered by POS types */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND pos IN (:posTypes) ORDER BY lemma ASC")
-    fun observeByPosTypes(posTypes: List<String>): Flow<List<WordEntity>>
+    @Query("""
+        SELECT * FROM words 
+        WHERE english IS NOT NULL 
+        AND pos IN (:posTypes) 
+        AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
+        ORDER BY lemma ASC
+    """)
+    fun observeByPosTypes(posTypes: List<String>, collection: String? = null): Flow<List<WordEntity>>
 
     /** Filtered by levels + POS types */
-    @Query("SELECT * FROM words WHERE english IS NOT NULL AND level IN (:levels) AND pos IN (:posTypes) ORDER BY lemma ASC")
-    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>): Flow<List<WordEntity>>
+    @Query("""
+        SELECT * FROM words 
+        WHERE english IS NOT NULL 
+        AND level IN (:levels) 
+        AND pos IN (:posTypes) 
+        AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
+        ORDER BY lemma ASC
+    """)
+    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>, collection: String? = null): Flow<List<WordEntity>>
 
     @Query("SELECT DISTINCT pos FROM words WHERE english IS NOT NULL ORDER BY pos ASC")
     fun observeDistinctPos(): Flow<List<String>>

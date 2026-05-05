@@ -25,6 +25,7 @@ data class PracticeHistoryEntity(
     val correctAnswer: String = "",
     val responseMs: Int,
     val cefrLevel: String? = null,
+    val collectionsJson: String? = null,
     val hintsUsed: Boolean = false,
     val submittedAt: String,
     val synced: Boolean = false,

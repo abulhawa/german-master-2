@@ -131,7 +131,8 @@ class B2PracticeViewModel @Inject constructor(
                     renderer = "b2_card",
                     result = result,
                     responseMs = 0,
-                    cefrLevel = "B2"
+                    cefrLevel = "B2",
+                    collections = listOf("b2_beruf")
                 ),
                 lemma = card.front,
                 submitted = if (result == "correct") card.back else "",

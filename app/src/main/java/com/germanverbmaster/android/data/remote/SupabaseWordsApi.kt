@@ -5,9 +5,11 @@ import com.germanverbmaster.android.data.local.entity.WordEntity
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.filter.FilterOperator
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
 @Serializable
@@ -27,18 +29,40 @@ data class RemoteWord(
     @SerialName("partizip_ii") val partizipIi: String? = null,
     val comparative: String? = null,
     val superlative: String? = null,
+    val collections: List<String> = emptyList(),
     @SerialName("updated_at") val updatedAt: String = "",
 )
 
 class SupabaseWordsApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
+    private companion object {
+        const val TAG = "SupabaseWordsApi"
+        const val DATASET_VERSION_HEADER = "X-Wortschatz-Dataset-Version"
+    }
+
+    suspend fun fetchDatasetVersionHeader(): String? {
+        return try {
+            val response = client.postgrest["words"].select(columns = Columns.list("id")) {
+                head = true
+                filter { filterNot("english", FilterOperator.IS, null) }
+                limit(1)
+            }
+            response.headers[DATASET_VERSION_HEADER]
+                ?.trim()
+                ?.takeIf { it.isNotEmpty() }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to fetch dataset version header", e)
+            null
+        }
+    }
+
     /** Paginated full fetch of the words table */
     suspend fun fetchAll(): List<RemoteWord> {
         val pageSize = 1000
         val all = mutableListOf<RemoteWord>()
         var from = 0
-        Log.d("SupabaseWordsApi", "Fetching all words... URL: ${client.supabaseUrl}")
+        Log.d(TAG, "Fetching all words... URL: ${client.supabaseUrl}")
         try {
             while (true) {
                 val page = client.postgrest["words"]
@@ -49,16 +73,16 @@ class SupabaseWordsApi @Inject constructor(
                     }
                     .decodeList<RemoteWord>()
                 all.addAll(page)
-                Log.d("SupabaseWordsApi", "Page from=$from got ${page.size}, total=${all.size}")
+                Log.d(TAG, "Page from=$from got ${page.size}, total=${all.size}")
                 if (page.size < pageSize) break
                 from += pageSize
             }
         } catch (e: PostgrestRestException) {
-            Log.e("SupabaseWordsApi", "Postgrest Error: ${e.error} (Status: ${e.statusCode})", e)
-            Log.e("SupabaseWordsApi", "Postgrest Hint: ${e.hint}")
+            Log.e(TAG, "Postgrest Error: ${e.error} (Status: ${e.statusCode})", e)
+            Log.e(TAG, "Postgrest Hint: ${e.hint}")
             throw e
         } catch (e: Exception) {
-            Log.e("SupabaseWordsApi", "General Error fetching words", e)
+            Log.e(TAG, "General Error fetching words", e)
             throw e
         }
         return all
@@ -103,6 +127,7 @@ class SupabaseWordsApi @Inject constructor(
         partizip2 = partizipIi?.trim(),
         comparative = comparative?.trim(),
         superlative = superlative?.trim(),
+        collectionsJson = Json.encodeToString(collections),
         updatedAt = updatedAt.trim(),
     )
 }

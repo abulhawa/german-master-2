@@ -43,6 +43,58 @@ object DatabaseModule {
         }
     }
 
+    private fun SupportSQLiteDatabase.hasColumn(tableName: String, columnName: String): Boolean {
+        query("PRAGMA table_info(`$tableName`)").use { cursor ->
+            val nameIndex = cursor.getColumnIndex("name")
+            if (nameIndex < 0) return false
+            while (cursor.moveToNext()) {
+                if (cursor.getString(nameIndex) == columnName) return true
+            }
+        }
+        return false
+    }
+
+    private fun SupportSQLiteDatabase.addColumnIfMissing(
+        tableName: String,
+        columnName: String,
+        sql: String,
+    ) {
+        if (!hasColumn(tableName, columnName)) {
+            execSQL(sql)
+        }
+    }
+
+    internal val MIGRATION_15_17 = object : Migration(15, 17) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.addColumnIfMissing(
+                tableName = "lexemes",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE lexemes ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "task_specs",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE task_specs ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "words",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE words ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "practice_history",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE practice_history ADD COLUMN collectionsJson TEXT",
+            )
+
+            // Consolidated release migration: clear sync-backed tables for a clean rehydration.
+            db.execSQL("DELETE FROM words")
+            db.execSQL("DELETE FROM lexemes")
+            db.execSQL("DELETE FROM task_specs")
+            db.execSQL("DELETE FROM practice_history")
+        }
+    }
+
     @Provides
     @Singleton
     fun provideDatabase(
@@ -54,7 +106,7 @@ object DatabaseModule {
                 AppDatabase::class.java,
                 "german_verb_master.db"
             )
-            .addMigrations(MIGRATION_11_14, MIGRATION_14_15)
+            .addMigrations(MIGRATION_11_14, MIGRATION_14_15, MIGRATION_15_17)
             .fallbackToDestructiveMigration(true)
             .build()
             

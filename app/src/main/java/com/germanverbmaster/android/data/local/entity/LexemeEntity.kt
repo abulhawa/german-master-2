@@ -18,6 +18,7 @@ data class LexemeEntity(
     val cefrLevel: String? = null,
     val frequencyRank: Int? = null,
     val sourceIdsJson: String = "[]",
+    val collectionsJson: String = "[]",
     val updatedAt: String = "",
     val isApproved: Boolean = false,
     val isComplete: Boolean = false

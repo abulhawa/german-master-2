@@ -5,6 +5,7 @@ import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.util.DateTimeUtils
 import com.germanverbmaster.android.domain.model.PracticeResult
+import kotlinx.serialization.json.Json
 import java.time.Instant
 import javax.inject.Inject
 
@@ -25,6 +26,7 @@ class SubmitAnswerUseCase @Inject constructor(
             correctAnswer = correct,
             responseMs  = result.responseMs,
             cefrLevel   = result.cefrLevel,
+            collectionsJson = Json.encodeToString(result.collections),
             hintsUsed   = result.hintsUsed,
             submittedAt = DateTimeUtils.normalizeIso8601(Instant.now().toString()),
             synced      = false,

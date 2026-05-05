@@ -16,10 +16,13 @@ import com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase
 import com.germanverbmaster.android.speech.TextToSpeechHelper
 import com.google.mlkit.nl.translate.TranslateLanguage
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import io.mockk.slot
 import io.mockk.unmockkStatic
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +34,7 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -73,18 +77,21 @@ class WortschatzViewModelTest {
         coEvery { prefs.setDrillIndex(any()) } returns mockk()
         coEvery { prefs.setDrillCorrect(any()) } returns mockk()
         coEvery { prefs.setDrillWrong(any()) } returns mockk()
+        coEvery { prefs.getWortschatzDatasetVersion() } returns null
+        coEvery { prefs.setWortschatzDatasetVersion(any()) } returns mockk()
         every { prefs.kiTargetLanguage } returns flowOf(TranslateLanguage.ENGLISH)
 
-        every { repo.observeAll() } returns flowOf(mockWords)
-        every { repo.observeByLevels(any()) } returns flowOf(mockWords)
-        every { repo.observeByPosTypes(any()) } returns flowOf(mockWords)
-        every { repo.observeByLevelsAndPos(any(), any()) } returns flowOf(mockWords)
+        every { repo.observeAll(any()) } returns flowOf(mockWords)
+        every { repo.observeByLevels(any(), any()) } returns flowOf(mockWords)
+        every { repo.observeByPosTypes(any(), any()) } returns flowOf(mockWords)
+        every { repo.observeByLevelsAndPos(any(), any(), any()) } returns flowOf(mockWords)
         every { repo.observeDistinctPos() } returns flowOf(listOf("V", "N", "Adj"))
         every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns flowOf(emptySet())
-        every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>()) } returns flowOf(DrillStats(0, 0))
+        every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>(), any()) } returns flowOf(DrillStats(0, 0))
         
-        coEvery { repo.needsSync() } returns false
-        coEvery { repo.upsertBundledB2BerufWordsIfAvailable() } returns 0
+        coEvery { repo.fetchDatasetVersion() } returns null
+        coEvery { repo.sync(any()) } returns Unit
+        coEvery { submitAnswerUseCase(any(), any(), any(), any()) } returns Unit
         coEvery { syncDataUseCase() } returns Unit
         coEvery { syncHistoryUseCase() } returns Unit
 
@@ -167,5 +174,72 @@ class WortschatzViewModelTest {
             assertEquals(2, state.masteredCount)
             assertEquals(2f/3f, state.masteryProgress, 0.01f)
         }
+    }
+
+    @Test
+    fun `default B2 Beruf selection filters words by b2 beruf collection`() = runTest {
+        WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        verify(atLeast = 1) { repo.observeAll("b2_beruf") }
+        verify(atLeast = 1) { practiceRepo.observeStats(any<List<String>>(), any<List<String>>(), "b2_beruf") }
+    }
+
+    @Test
+    fun `markCorrect records b2 beruf collection metadata when b2 beruf filter is active`() = runTest {
+        val resultSlot = slot<com.germanverbmaster.android.domain.model.PracticeResult>()
+        coEvery { submitAnswerUseCase(capture(resultSlot), any(), any(), any()) } returns Unit
+
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        testDispatcher.scheduler.advanceUntilIdle()
+        assertTrue(viewModel.state.value.drillCurrent != null)
+
+        viewModel.markCorrect()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertEquals(listOf("b2_beruf"), resultSlot.captured.collections)
+    }
+
+    @Test
+    fun `triggerSync skips network sync within 24h when dataset version unchanged`() = runTest {
+        val now = System.currentTimeMillis()
+        coEvery { prefs.getWortschatzLastSync() } returns now
+        coEvery { prefs.getWortschatzDatasetVersion() } returns "dataset-v1"
+        coEvery { repo.fetchDatasetVersion() } returns "dataset-v1"
+
+        WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.sync(any()) }
+    }
+
+    @Test
+    fun `triggerSync forces full word sync when dataset version changes`() = runTest {
+        val now = System.currentTimeMillis()
+        coEvery { prefs.getWortschatzLastSync() } returns now
+        coEvery { prefs.getWortschatzDatasetVersion() } returns "dataset-v1"
+        coEvery { repo.fetchDatasetVersion() } returns "dataset-v2"
+
+        WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(atLeast = 1) { repo.sync(forceFullRefresh = true) }
+        coVerify(atLeast = 1) { prefs.setWortschatzDatasetVersion("dataset-v2") }
     }
 }

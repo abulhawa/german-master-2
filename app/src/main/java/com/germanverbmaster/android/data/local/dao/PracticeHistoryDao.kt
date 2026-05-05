@@ -103,6 +103,7 @@ interface PracticeHistoryDao {
         FROM practice_history
         WHERE (:allLevels = 1 OR cefrLevel IN (:levels))
           AND (:allPos = 1 OR pos IN (:posTypes))
+          AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
           AND taskType = 'vocabulary_drill'
         """
     )
@@ -110,7 +111,8 @@ interface PracticeHistoryDao {
         levels: List<String>,
         allLevels: Boolean,
         posTypes: List<String>,
-        allPos: Boolean
+        allPos: Boolean,
+        collection: String?,
     ): Flow<DrillStats?>
 }
 

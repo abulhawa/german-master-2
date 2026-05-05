@@ -60,6 +60,7 @@ class HistorySyncMapperTest {
             correctAnswer = "mache",
             responseMs = 320,
             cefrLevel = "A1",
+            collectionsJson = "[\"b2_beruf\"]",
             hintsUsed = true,
             submittedAt = "2026-04-23T10:15:30Z",
             remoteId = "42",
@@ -79,6 +80,7 @@ class HistorySyncMapperTest {
         assertEquals("mache", remote.submittedAnswer)
         assertEquals("mache", remote.correctAnswer)
         assertEquals("A1", remote.cefrLevel)
+        assertEquals(listOf("b2_beruf"), remote.collections)
         assertEquals("device-123", remote.deviceId)
     }
 
@@ -188,6 +190,7 @@ class HistorySyncMapperTest {
             correctAnswer = "machen",
             responseMs = 180,
             cefrLevel = "A1",
+            collections = listOf("b2_beruf"),
             hintsUsed = false,
             submittedAt = "2026-04-23T11:00:00Z",
         )
@@ -207,6 +210,7 @@ class HistorySyncMapperTest {
         assertEquals("word_12", entity.lexemeId)
         assertEquals("machen", entity.lemma)
         assertEquals("A1", entity.cefrLevel)
+        assertEquals("[\"b2_beruf\"]", entity.collectionsJson)
         assertEquals("word_card", entity.renderer)
     }
 

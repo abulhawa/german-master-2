@@ -7,6 +7,7 @@ import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.jsonPrimitive
@@ -24,6 +25,7 @@ data class RemoteLexeme(
     @SerialName("is_complete") val isComplete: Boolean? = null,
     @SerialName("frequency_rank") val frequencyRank: Int? = null,
     @SerialName("source_ids") val sourceIds: List<String> = emptyList(),
+    val collections: List<String> = emptyList(),
     @SerialName("updated_at") val updatedAt: String = "",
 )
 
@@ -116,7 +118,8 @@ class SupabaseLexemeApi @Inject constructor(
             metadataJson = metadataMap.toString(),
             cefrLevel = cefrLevel,
             frequencyRank = frequencyRank,
-            sourceIdsJson = sourceIds.toString(),
+            sourceIdsJson = Json.encodeToString(sourceIds),
+            collectionsJson = Json.encodeToString(collections),
             updatedAt = updatedAt.trim(),
             isApproved = approved,
             isComplete = complete,

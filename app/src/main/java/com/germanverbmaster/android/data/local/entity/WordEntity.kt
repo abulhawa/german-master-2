@@ -27,5 +27,6 @@ data class WordEntity(
     val praesensEr: String? = null,    // for verbs
     val comparative: String? = null,   // for adjectives
     val superlative: String? = null,   // for adjectives
+    val collectionsJson: String = "[]",
     val updatedAt: String = "",
 )

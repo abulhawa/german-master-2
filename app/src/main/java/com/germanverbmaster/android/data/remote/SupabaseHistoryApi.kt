@@ -31,6 +31,7 @@ data class RemoteHistory(
     @SerialName("correct_answer") val correctAnswer: String? = null,
     @SerialName("response_ms") val responseMs: Int,
     @SerialName("cefr_level") val cefrLevel: String? = null,
+    val collections: List<String>? = null,
     @SerialName("hints_used") val hintsUsed: Boolean,
     @SerialName("submitted_at") val submittedAt: String,
 )
@@ -50,6 +51,7 @@ internal val PRACTICE_HISTORY_SELECT_COLUMNS = Columns.list(
     "correct_answer",
     "response_ms",
     "cefr_level",
+    "collections",
     "hints_used",
     "submitted_at",
 )

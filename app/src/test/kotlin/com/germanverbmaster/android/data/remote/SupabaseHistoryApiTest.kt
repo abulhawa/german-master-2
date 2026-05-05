@@ -23,6 +23,7 @@ class SupabaseHistoryApiTest {
             correctAnswer = "machen",
             responseMs = 320,
             cefrLevel = "A1",
+            collections = listOf("b2_beruf"),
             hintsUsed = true,
             submittedAt = "2026-04-23T10:15:30Z",
         )
@@ -45,6 +46,7 @@ class SupabaseHistoryApiTest {
                 "correct_answer",
                 "response_ms",
                 "cefr_level",
+                "collections",
                 "hints_used",
                 "submitted_at",
             ),
@@ -55,7 +57,7 @@ class SupabaseHistoryApiTest {
     @Test
     fun `remote history select columns match the practice_history schema`() {
         assertEquals(
-            "id,user_id,task_id,lexeme_id,lemma,pos,task_type,renderer,device_id,result,submitted_answer,correct_answer,response_ms,cefr_level,hints_used,submitted_at",
+            "id,user_id,task_id,lexeme_id,lemma,pos,task_type,renderer,device_id,result,submitted_answer,correct_answer,response_ms,cefr_level,collections,hints_used,submitted_at",
             PRACTICE_HISTORY_SELECT_COLUMNS.value,
         )
     }

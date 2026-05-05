@@ -204,20 +204,27 @@ class WortschatzViewModel @Inject constructor(
             val lastSync = prefs.getWortschatzLastSync()
             val now = System.currentTimeMillis()
             val twentyFourHours = 24 * 60 * 60 * 1000L
+            val localDatasetVersion = prefs.getWortschatzDatasetVersion()
+            val remoteDatasetVersion = repo.fetchDatasetVersion()
+            val datasetVersionChanged = remoteDatasetVersion != null &&
+                remoteDatasetVersion != localDatasetVersion
 
-            if (!force && (now - lastSync) < twentyFourHours) {
+            if (!force && !datasetVersionChanged && (now - lastSync) < twentyFourHours) {
                 Log.d("WortschatzViewModel", "Skipping sync, last sync was less than 24h ago")
                 return@launch
             }
 
             _state.update { it.copy(isLoading = true, syncError = null) }
             try {
-                val shouldRunRemoteWordSync = repo.needsSync()
-                repo.upsertBundledB2BerufWordsIfAvailable()
-                if (shouldRunRemoteWordSync) repo.sync()
+                repo.sync(forceFullRefresh = force || datasetVersionChanged)
                 syncDataUseCase()
                 syncHistoryUseCase()
                 prefs.setWortschatzLastSync(now)
+
+                if (remoteDatasetVersion != null && remoteDatasetVersion != localDatasetVersion) {
+                    prefs.setWortschatzDatasetVersion(remoteDatasetVersion)
+                }
+
                 Log.d("WortschatzViewModel", "Sync completed successfully")
             } catch (e: Exception) {
                 Log.e("WortschatzViewModel", "Sync failed", e)
@@ -240,8 +247,11 @@ class WortschatzViewModel @Inject constructor(
         _state.update { s ->
             val next = if (level == "Alle") {
                 emptySet()
+            } else if (level == "B2 Beruf") {
+                if (s.selectedLevels.contains(level)) s.selectedLevels - level else setOf(level)
             } else {
-                if (s.selectedLevels.contains(level)) s.selectedLevels - level else s.selectedLevels + level
+                val withoutB2Beruf = s.selectedLevels - "B2 Beruf"
+                if (withoutB2Beruf.contains(level)) withoutB2Beruf - level else withoutB2Beruf + level
             }
             s.copy(selectedLevels = next)
         }
@@ -296,6 +306,11 @@ class WortschatzViewModel @Inject constructor(
     }
 
     private fun recordResult(word: WordEntity, result: String) {
+        val selectedCollections = if (_state.value.selectedLevels.contains("B2 Beruf")) {
+            listOf("b2_beruf")
+        } else {
+            emptyList()
+        }
         viewModelScope.launch {
             submitAnswerUseCase(
                 result = PracticeResult(
@@ -306,7 +321,8 @@ class WortschatzViewModel @Inject constructor(
                     renderer = "word_card",
                     result = result,
                     responseMs = 0, // Timing not yet tracked in this UI
-                    cefrLevel = word.level
+                    cefrLevel = word.level,
+                    collections = selectedCollections,
                 ),
                 lemma = word.lemma,
                 submitted = if (result == "correct") word.lemma else "",
@@ -452,13 +468,21 @@ class WortschatzViewModel @Inject constructor(
 
     private fun observeHistoricalStats() {
         statsJob?.cancel()
-        val levels = _state.value.selectedLevels.toList()
+        val selectedLevels = _state.value.selectedLevels
+        val isB2BerufSelected = selectedLevels.contains("B2 Beruf")
+        val collection = if (isB2BerufSelected) "b2_beruf" else null
+        val levels = if (isB2BerufSelected) {
+            (selectedLevels - "B2 Beruf" + "B2").toList()
+        } else {
+            selectedLevels.toList()
+        }
+
         val posList = _state.value.selectedPosSet.flatMap { selected ->
             rawPosValues.filter { canonicalPos(it) == selected }
         }
 
         statsJob = viewModelScope.launch {
-            practiceRepo.observeStats(levels, posList).collect { stats ->
+            practiceRepo.observeStats(levels, posList, collection).collect { stats ->
                 _state.update {
                     it.copy(
                         historicalCorrect = stats.correct,
@@ -483,7 +507,11 @@ class WortschatzViewModel @Inject constructor(
     private fun observeWords(forceReset: Boolean = false) {
         observeJob?.cancel()
         _state.update { it.copy(isLoading = true) }
-        val levels = _state.value.selectedLevels.toList()
+        val selectedLevels = _state.value.selectedLevels
+        
+        val isB2BerufSelected = selectedLevels.contains("B2 Beruf")
+        val levels = (selectedLevels - "B2 Beruf").toList()
+        val collection = if (isB2BerufSelected) "b2_beruf" else null
         
         // Expand canonical POS keys back to all matching raw values from DB
         val posList = _state.value.selectedPosSet.flatMap { selected ->
@@ -491,10 +519,10 @@ class WortschatzViewModel @Inject constructor(
         }
 
         val flow = when {
-            levels.isEmpty() && posList.isEmpty() -> repo.observeAll()
-            levels.isEmpty()                      -> repo.observeByPosTypes(posList)
-            posList.isEmpty()                     -> repo.observeByLevels(levels)
-            else                                  -> repo.observeByLevelsAndPos(levels, posList)
+            levels.isEmpty() && posList.isEmpty() -> repo.observeAll(collection)
+            levels.isEmpty()                      -> repo.observeByPosTypes(posList, collection)
+            posList.isEmpty()                     -> repo.observeByLevels(levels, collection)
+            else                                  -> repo.observeByLevelsAndPos(levels, posList, collection)
         }
 
         observeJob = viewModelScope.launch {

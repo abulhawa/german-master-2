@@ -9,6 +9,7 @@ import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.DateTimeUtils
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,6 +24,7 @@ class HistorySyncMapper @Inject constructor(
         const val TAG = "HistorySyncMapper"
         const val LOCAL_WORD_PREFIX = "word_"
         const val IDENTITY_PREFIX = "identity:"
+        val COLLECTIONS_JSON = Json { ignoreUnknownKeys = true }
     }
 
     suspend fun toRemote(entity: PracticeHistoryEntity, userId: String): RemoteHistory? {
@@ -62,6 +64,7 @@ class HistorySyncMapper @Inject constructor(
             correctAnswer = entity.correctAnswer,
             responseMs = entity.responseMs,
             cefrLevel = entity.cefrLevel,
+            collections = parseCollections(entity.collectionsJson),
             hintsUsed = entity.hintsUsed,
             submittedAt = DateTimeUtils.normalizeIso8601(entity.submittedAt),
         )
@@ -116,6 +119,7 @@ class HistorySyncMapper @Inject constructor(
                 correctAnswer = remote.correctAnswer.orEmpty(),
                 responseMs = remote.responseMs,
                 cefrLevel = cefrLevel,
+                collectionsJson = serializeCollections(remote.collections),
                 hintsUsed = remote.hintsUsed,
                 submittedAt = DateTimeUtils.normalizeIso8601(remote.submittedAt),
                 synced = true,
@@ -141,6 +145,7 @@ class HistorySyncMapper @Inject constructor(
             correctAnswer = remote.correctAnswer.orEmpty(),
             responseMs = remote.responseMs,
             cefrLevel = cefrLevel,
+            collectionsJson = serializeCollections(remote.collections),
             hintsUsed = remote.hintsUsed,
             submittedAt = DateTimeUtils.normalizeIso8601(remote.submittedAt),
             synced = true,
@@ -195,6 +200,17 @@ class HistorySyncMapper @Inject constructor(
 
     private fun isWordCard(taskType: String, renderer: String): Boolean {
         return taskType == "vocabulary_drill" || renderer == "word_card"
+    }
+
+    private fun parseCollections(collectionsJson: String?): List<String>? {
+        if (collectionsJson.isNullOrBlank()) return null
+        return runCatching { COLLECTIONS_JSON.decodeFromString<List<String>>(collectionsJson) }
+            .getOrNull()
+    }
+
+    private fun serializeCollections(collections: List<String>?): String? {
+        if (collections == null) return null
+        return COLLECTIONS_JSON.encodeToString(collections)
     }
 }
 

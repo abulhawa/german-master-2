@@ -1,6 +1,5 @@
 package com.germanverbmaster.android.data.repository
 
-import android.content.Context
 import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.dao.WordDao
 import com.germanverbmaster.android.data.local.entity.WordEntity
@@ -14,23 +13,21 @@ class WordRepository @Inject constructor(
     private val dao: WordDao,
     private val api: SupabaseWordsApi,
     private val prefs: AppPreferences,
-    private val context: Context,
 ) {
     private companion object {
-        const val BUNDLED_WORDLIST_ASSET = "b2_wortliste.csv"
-        const val BUNDLED_WORDLIST_VERSION = "bundled_b2_beruf_2026_04_21"
-        const val BUNDLED_BERUF_LEVEL = "B2 Beruf"
         const val MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB = 100
     }
 
-    fun observeAll(): Flow<List<WordEntity>> = dao.observeAll()
+    fun observeAll(collection: String? = null): Flow<List<WordEntity>> = dao.observeAll(collection)
 
-    fun observeByLevels(levels: List<String>): Flow<List<WordEntity>> = dao.observeByLevels(levels)
+    fun observeByLevels(levels: List<String>, collection: String? = null): Flow<List<WordEntity>> = 
+        dao.observeByLevels(levels, collection)
 
-    fun observeByPosTypes(posTypes: List<String>): Flow<List<WordEntity>> = dao.observeByPosTypes(posTypes)
+    fun observeByPosTypes(posTypes: List<String>, collection: String? = null): Flow<List<WordEntity>> = 
+        dao.observeByPosTypes(posTypes, collection)
 
-    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>): Flow<List<WordEntity>> =
-        dao.observeByLevelsAndPos(levels, posTypes)
+    fun observeByLevelsAndPos(levels: List<String>, posTypes: List<String>, collection: String? = null): Flow<List<WordEntity>> =
+        dao.observeByLevelsAndPos(levels, posTypes, collection)
 
     fun observeById(id: Int): Flow<WordEntity?> = dao.observeById(id)
 
@@ -45,26 +42,16 @@ class WordRepository @Inject constructor(
     suspend fun needsSync(): Boolean =
         dao.count() < MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB
 
-    suspend fun upsertBundledB2BerufWordsIfAvailable(): Int {
-        val csvText = runCatching {
-            context.assets.open(BUNDLED_WORDLIST_ASSET).bufferedReader(Charsets.UTF_8).use { it.readText() }
-        }.getOrNull() ?: return 0
+    suspend fun fetchDatasetVersion(): String? =
+        api.fetchDatasetVersionHeader()
 
-        val entities = BundledWordsCsvParser.parse(
-            csvText = csvText,
-            level = BUNDLED_BERUF_LEVEL,
-            versionTag = BUNDLED_WORDLIST_VERSION,
-        )
-        if (entities.isEmpty()) return 0
-
-        dao.upsertAll(entities)
-        return entities.size
-    }
-
-    suspend fun sync() {
+    suspend fun sync(forceFullRefresh: Boolean = false) {
         val since = prefs.getLexemeLastSync()
-        val remote = if ((since == null) || needsSync()) api.fetchAll()
-        else api.fetchUpdatedSince(since)
+        val remote = if (forceFullRefresh || (since == null) || needsSync()) {
+            api.fetchAll()
+        } else {
+            api.fetchUpdatedSince(since)
+        }
         if (remote.isNotEmpty()) {
             val entities = remote.map { with(api) { it.toEntity() } }
             dao.upsertAll(entities)

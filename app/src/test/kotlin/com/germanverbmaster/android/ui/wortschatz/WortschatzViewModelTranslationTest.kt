@@ -64,11 +64,11 @@ class WortschatzViewModelTranslationTest {
         every { TranslateLanguage.getAllLanguages() } returns listOf(TranslateLanguage.ENGLISH, TranslateLanguage.GERMAN)
         
         every { prefs.kiTargetLanguage } returns flowOf(TranslateLanguage.ENGLISH)
-        every { repo.observeAll() } returns flowOf(mockWords)
-        every { repo.observeByLevels(any()) } returns flowOf(mockWords)
+        every { repo.observeAll(any()) } returns flowOf(mockWords)
+        every { repo.observeByLevels(any(), any()) } returns flowOf(mockWords)
         every { repo.observeDistinctPos() } returns flowOf(listOf("V", "N"))
         every { practiceRepo.observeCorrectTaskIds("vocabulary_drill") } returns flowOf(emptySet())
-        every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>()) } returns flowOf(DrillStats(0, 0))
+        every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>(), any()) } returns flowOf(DrillStats(0, 0))
         
         every { modelDownloadManager.isDownloading } returns MutableStateFlow(false)
         every { modelDownloadManager.error } returns MutableStateFlow(null)

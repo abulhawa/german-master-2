@@ -25,10 +25,10 @@ class GetNextTaskUseCase @Inject constructor(
         batchSize: Int = 20,
     ): List<TaskCard> {
         val entities = when (mode) {
-            PracticeMode.VERBS      -> taskRepository.fetchBatch("V", cefrLevel, batchSize)
-            PracticeMode.NOUNS      -> taskRepository.fetchBatch("N", cefrLevel, batchSize)
-            PracticeMode.ADJECTIVES -> taskRepository.fetchBatch("Adj", cefrLevel, batchSize)
-            PracticeMode.ALL        -> taskRepository.fetchBatch(null, cefrLevel, batchSize)
+            PracticeMode.VERBS      -> taskRepository.fetchBatch("V", cefrLevel, null, batchSize)
+            PracticeMode.NOUNS      -> taskRepository.fetchBatch("N", cefrLevel, null, batchSize)
+            PracticeMode.ADJECTIVES -> taskRepository.fetchBatch("Adj", cefrLevel, null, batchSize)
+            PracticeMode.ALL        -> taskRepository.fetchBatch(null, cefrLevel, null, batchSize)
         }
         Log.d("GetNextTaskUseCase", "fetchBatch returned ${entities.size} entities (mode=$mode, cefrLevel=$cefrLevel)")
         val cards = entities.mapNotNull { entity ->

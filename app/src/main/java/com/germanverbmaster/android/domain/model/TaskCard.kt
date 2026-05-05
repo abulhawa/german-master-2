@@ -24,6 +24,7 @@ data class PracticeResult(
     val result: String,         // "correct" | "incorrect"
     val responseMs: Int,
     val cefrLevel: String?,
+    val collections: List<String> = emptyList(),
     val hintsUsed: Boolean = false,
 )
 

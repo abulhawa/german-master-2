@@ -6,6 +6,7 @@ import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import javax.inject.Inject
@@ -21,6 +22,7 @@ data class RemoteTaskSpec(
     val solution: JsonObject,
     val hints: JsonArray? = null,
     val metadata: JsonObject? = null,
+    val collections: List<String> = emptyList(),
     val revision: Int = 1,
     @SerialName("updated_at") val updatedAt: String = "",
 )
@@ -83,6 +85,7 @@ class SupabaseTaskApi @Inject constructor(
         solutionJson = solution.toString(),
         hintsJson = hints?.toString(),
         metadataJson = metadata?.toString(),
+        collectionsJson = Json.encodeToString(collections),
         cefrLevel = cefrLevel ?: metadata?.get("level")?.toString()?.trim('"'),
         revision = revision,
         updatedAt = updatedAt.trim(),
