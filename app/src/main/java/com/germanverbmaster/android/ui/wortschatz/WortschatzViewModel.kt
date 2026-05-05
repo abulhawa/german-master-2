@@ -208,15 +208,16 @@ class WortschatzViewModel @Inject constructor(
             val remoteDatasetVersion = repo.fetchDatasetVersion()
             val datasetVersionChanged = remoteDatasetVersion != null &&
                 remoteDatasetVersion != localDatasetVersion
+            val localWordsNeedSync = repo.needsSync()
 
-            if (!force && !datasetVersionChanged && (now - lastSync) < twentyFourHours) {
+            if (!force && !datasetVersionChanged && !localWordsNeedSync && (now - lastSync) < twentyFourHours) {
                 Log.d("WortschatzViewModel", "Skipping sync, last sync was less than 24h ago")
                 return@launch
             }
 
             _state.update { it.copy(isLoading = true, syncError = null) }
             try {
-                repo.sync(forceFullRefresh = force || datasetVersionChanged)
+                repo.sync(forceFullRefresh = force || datasetVersionChanged || localWordsNeedSync)
                 syncDataUseCase()
                 syncHistoryUseCase()
                 prefs.setWortschatzLastSync(now)

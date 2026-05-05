@@ -90,6 +90,7 @@ class WortschatzViewModelTest {
         every { practiceRepo.observeStats(any<List<String>>(), any<List<String>>(), any()) } returns flowOf(DrillStats(0, 0))
         
         coEvery { repo.fetchDatasetVersion() } returns null
+        coEvery { repo.needsSync() } returns false
         coEvery { repo.sync(any()) } returns Unit
         coEvery { submitAnswerUseCase(any(), any(), any(), any()) } returns Unit
         coEvery { syncDataUseCase() } returns Unit
@@ -223,6 +224,24 @@ class WortschatzViewModelTest {
         testDispatcher.scheduler.advanceUntilIdle()
 
         coVerify(exactly = 0) { repo.sync(any()) }
+    }
+
+    @Test
+    fun `triggerSync does not skip recent sync when local words need sync`() = runTest {
+        val now = System.currentTimeMillis()
+        coEvery { prefs.getWortschatzLastSync() } returns now
+        coEvery { prefs.getWortschatzDatasetVersion() } returns "dataset-v1"
+        coEvery { repo.fetchDatasetVersion() } returns "dataset-v1"
+        coEvery { repo.needsSync() } returns true
+
+        WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        coVerify(atLeast = 1) { repo.sync(forceFullRefresh = true) }
     }
 
     @Test
