@@ -46,10 +46,12 @@ class WordRepositoryTest {
     fun `sync fetches all words when non bundled coverage is below threshold even if since exists`() = runBlocking {
         coEvery { prefs.getLexemeLastSync() } returns "2026-04-21T00:00:00Z"
         coEvery { dao.count() } returns 0
+        coEvery { api.fetchBootstrapB2Beruf(any()) } returns emptyList()
         coEvery { api.fetchAll() } returns emptyList()
 
         repository.sync()
 
+        coVerify(exactly = 1) { api.fetchBootstrapB2Beruf(any()) }
         coVerify(exactly = 1) { api.fetchAll() }
         coVerify(exactly = 0) { api.fetchUpdatedSince(any()) }
     }
@@ -62,7 +64,21 @@ class WordRepositoryTest {
 
         repository.sync(forceFullRefresh = true)
 
+        coVerify(exactly = 0) { api.fetchBootstrapB2Beruf(any()) }
         coVerify(exactly = 1) { api.fetchAll() }
         coVerify(exactly = 0) { api.fetchUpdatedSince(any()) }
+    }
+
+    @Test
+    fun `sync uses incremental fetch when local coverage is healthy`() = runBlocking {
+        coEvery { prefs.getLexemeLastSync() } returns "2026-04-21T00:00:00Z"
+        coEvery { dao.count() } returns 250
+        coEvery { api.fetchUpdatedSince(any()) } returns emptyList()
+
+        repository.sync(forceFullRefresh = false)
+
+        coVerify(exactly = 0) { api.fetchBootstrapB2Beruf(any()) }
+        coVerify(exactly = 0) { api.fetchAll() }
+        coVerify(exactly = 1) { api.fetchUpdatedSince("2026-04-21T00:00:00Z") }
     }
 }

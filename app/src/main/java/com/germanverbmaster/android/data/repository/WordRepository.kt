@@ -47,11 +47,28 @@ class WordRepository @Inject constructor(
 
     suspend fun sync(forceFullRefresh: Boolean = false) {
         val since = prefs.getLexemeLastSync()
-        val remote = if (forceFullRefresh || (since == null) || needsSync()) {
-            api.fetchAll()
-        } else {
-            api.fetchUpdatedSince(since)
+        val localCount = dao.count()
+        val requiresFullRefresh =
+            forceFullRefresh || (since == null) || (localCount < MIN_NON_BUNDLED_WORDS_FOR_HEALTHY_DB)
+
+        if (requiresFullRefresh) {
+            if (localCount == 0) {
+                val bootstrap = api.fetchBootstrapB2Beruf()
+                if (bootstrap.isNotEmpty()) {
+                    val bootstrapEntities = bootstrap.map { with(api) { it.toEntity() } }
+                    dao.upsertAll(bootstrapEntities)
+                }
+            }
+
+            val remote = api.fetchAll()
+            if (remote.isNotEmpty()) {
+                val entities = remote.map { with(api) { it.toEntity() } }
+                dao.upsertAll(entities)
+            }
+            return
         }
+
+        val remote = api.fetchUpdatedSince(checkNotNull(since))
         if (remote.isNotEmpty()) {
             val entities = remote.map { with(api) { it.toEntity() } }
             dao.upsertAll(entities)

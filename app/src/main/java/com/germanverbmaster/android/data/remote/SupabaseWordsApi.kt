@@ -39,6 +39,7 @@ class SupabaseWordsApi @Inject constructor(
     private companion object {
         const val TAG = "SupabaseWordsApi"
         const val DATASET_VERSION_HEADER = "X-Wortschatz-Dataset-Version"
+        const val DEFAULT_BOOTSTRAP_LIMIT = 200L
     }
 
     suspend fun fetchDatasetVersionHeader(): String? {
@@ -54,6 +55,25 @@ class SupabaseWordsApi @Inject constructor(
         } catch (e: Exception) {
             Log.w(TAG, "Failed to fetch dataset version header", e)
             null
+        }
+    }
+
+    /** Fast-path fetch for first launch so B2 Beruf drill can render early. */
+    suspend fun fetchBootstrapB2Beruf(limit: Long = DEFAULT_BOOTSTRAP_LIMIT): List<RemoteWord> {
+        return try {
+            client.postgrest["words"]
+                .select {
+                    filter {
+                        filterNot("english", FilterOperator.IS, null)
+                        contains("collections", listOf("b2_beruf"))
+                    }
+                    range(0, (limit - 1).coerceAtLeast(0))
+                    order("id", io.github.jan.supabase.postgrest.query.Order.ASCENDING)
+                }
+                .decodeList<RemoteWord>()
+        } catch (e: Exception) {
+            Log.w(TAG, "Bootstrap fetch for b2_beruf failed; continuing with full sync", e)
+            emptyList()
         }
     }
 
