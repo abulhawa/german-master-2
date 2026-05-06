@@ -128,8 +128,8 @@ fun WortschatzScreenContent(
     onClearSelection: () -> Unit,
 ) {
     val showFilterSheet = remember { mutableStateOf(false) }
-    var showDownloadDialog by remember { mutableStateOf(false) }
-    var showLanguagePicker by remember { mutableStateOf(false) }
+    val showDownloadDialog = remember { mutableStateOf(false) }
+    val showLanguagePicker = remember { mutableStateOf(false) }
 
     if (showFilterSheet.value) {
         FilterBottomSheet(
@@ -143,18 +143,18 @@ fun WortschatzScreenContent(
         )
     }
 
-    if (showDownloadDialog) {
+    if (showDownloadDialog.value) {
         DownloadPermissionDialog(
             targetLanguageName = languageNameMap[targetLanguage] ?: targetLanguage,
             onConfirm = { allowMobile ->
                 onDownloadModels(allowMobile)
-                showDownloadDialog = false
+                showDownloadDialog.value = false
             },
-            onDismiss = { showDownloadDialog = false }
+            onDismiss = { showDownloadDialog.value = false }
         )
     }
 
-    if (showLanguagePicker) {
+    if (showLanguagePicker.value) {
         val downloadedCodes = state.downloadedLanguageCodes
         val allLanguages = remember(downloadedCodes) {
             TranslateLanguage.getAllLanguages().map { 
@@ -168,13 +168,13 @@ fun WortschatzScreenContent(
             isAutoTranslateEnabled = state.isAiAutoTranslateEnabled,
             onLanguageSelected = { code ->
                 onSetTargetLanguage(code)
-                showLanguagePicker = false
+                showLanguagePicker.value = false
             },
             onDeleteLanguage = { code ->
                 onDeleteLanguageModel(code)
             },
             onToggleAutoTranslate = onToggleAutoTranslate,
-            onDismiss = { showLanguagePicker = false }
+            onDismiss = { showLanguagePicker.value = false }
         )
     }
 
@@ -323,7 +323,21 @@ fun WortschatzScreenContent(
                     Spacer(Modifier.width(8.dp))
 
                     IconButton(
-                        onClick = { showLanguagePicker = true },
+                        onClick = onShowGrammar,
+                        modifier = Modifier.size(40.dp)
+                    ) {
+                        Text(
+                            text = "G",
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+
+                    Spacer(Modifier.width(4.dp))
+
+                    IconButton(
+                        onClick = { showLanguagePicker.value = true },
                         modifier = Modifier.size(40.dp)
                     ) {
                         Icon(
@@ -369,7 +383,7 @@ fun WortschatzScreenContent(
                                 onRestartDrill = onRestartDrill,
                                 onRefreshAi = onRefreshAi,
                                 onTranslateSelection = onTranslateSelection,
-                                onRequestDownload = { showDownloadDialog = true }
+                                onRequestDownload = { showDownloadDialog.value = true }
                             )
                         }
                     }
@@ -1279,7 +1293,7 @@ private fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("Richtig", style = MaterialTheme.typography.labelMedium)
                     Text(
-                        "$correct",
+                        correct.toString(),
                         style = MaterialTheme.typography.displaySmall,
                         color = MaterialTheme.colorScheme.primary
                     )
@@ -1287,7 +1301,7 @@ private fun DrillDoneCard(correct: Int, wrong: Int, onRestart: () -> Unit) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text("Falsch", style = MaterialTheme.typography.labelMedium)
                     Text(
-                        "$wrong",
+                        wrong.toString(),
                         style = MaterialTheme.typography.displaySmall,
                         color = MaterialTheme.colorScheme.error
                     )

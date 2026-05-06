@@ -594,6 +594,7 @@ object B2ContentData {
                 listOf("während", "during"),
                 listOf("außerhalb / innerhalb", "outside / inside"),
                 listOf("aufgrund", "due to"),
+                listOf("bezüglich / betreffend", "regarding"),
             ),
             examples = listOf(
                 "trotz: Trotz des Fehlers gab es keinen Tadel.",
@@ -601,14 +602,15 @@ object B2ContentData {
                 "während: Während der Arbeitszeit ist es verboten.",
                 "außerhalb: Außerhalb der Geschäftszeiten erreichen Sie uns per E-Mail.",
                 "innerhalb: Innerhalb einer Woche erhalten Sie eine Antwort.",
-                "aufgrund: Aufgrund der hohen Kosten wurde es gestrichen."
+                "aufgrund: Aufgrund der hohen Kosten wurde es gestrichen.",
+                "bezüglich: Bezüglich Ihres Schreibens haben wir noch Fragen."
             ),
             rule = "Diese Präpositionen verlangen in Standardsprache den Genitiv; in Alltagssprache kommt besonders bei wegen auch Dativ vor.",
             mistakes = listOf(
                 "In formellen Texten besser Genitiv: wegen eines Fehlers, nicht wegen einem Fehler.",
                 "Bei Plural ohne Artikel muss die Endung sichtbar sein: trotz guter Ergebnisse."
             ),
-            coverageItems = listOf("trotz", "wegen", "während", "außerhalb", "innerhalb", "aufgrund")
+            coverageItems = listOf("trotz", "wegen", "während", "außerhalb", "innerhalb", "aufgrund", "bezüglich")
         ),
         GrammarTable(
             title = "Infinitiv mit zu / ohne zu",
