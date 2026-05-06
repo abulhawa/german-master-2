@@ -2,6 +2,7 @@ package com.germanverbmaster.android.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.domain.model.PracticeMode
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.model.SessionStats
@@ -37,6 +38,7 @@ class HomeViewModel @Inject constructor(
     private val syncData: SyncDataUseCase,
     private val syncHistory: com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase,
     private val tts: TextToSpeechHelper,
+    private val prefs: AppPreferences
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeUiState())
@@ -53,6 +55,13 @@ class HomeViewModel @Inject constructor(
     private fun syncAndLoad() = viewModelScope.launch {
         _state.update { it.copy(isLoading = true, error = null) }
         
+        val savedMode = prefs.getHomePracticeMode()?.let {
+            try { PracticeMode.valueOf(it) } catch (e: Exception) { null }
+        } ?: PracticeMode.ALL
+        val savedLevel = prefs.getHomeCefrLevel()
+
+        _state.update { it.copy(mode = savedMode, cefrLevel = savedLevel) }
+
         // 1. Load local data immediately so the app is usable offline/instantly
         loadNextBatch()
         _state.update { it.copy(isLoading = false) }
@@ -86,12 +95,18 @@ class HomeViewModel @Inject constructor(
 
     fun setMode(mode: PracticeMode) {
         _state.update { it.copy(mode = mode) }
-        viewModelScope.launch { loadNextBatch() }
+        viewModelScope.launch { 
+            prefs.setHomePracticeMode(mode.name)
+            loadNextBatch() 
+        }
     }
 
     fun setCefrLevel(level: String?) {
         _state.update { it.copy(cefrLevel = level) }
-        viewModelScope.launch { loadNextBatch() }
+        viewModelScope.launch { 
+            prefs.setHomeCefrLevel(level)
+            loadNextBatch() 
+        }
     }
 
 

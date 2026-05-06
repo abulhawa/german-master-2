@@ -31,6 +31,7 @@ class AnswerHistoryViewModelTest {
     private val wordRepository: WordRepository = mockk()
     private val lexemeRepository: LexemeRepository = mockk()
     private val syncHistoryUseCase: SyncHistoryUseCase = mockk()
+    private val prefs: com.germanverbmaster.android.data.local.AppPreferences = mockk()
     private val testDispatcher = StandardTestDispatcher()
 
     private val mockAttempts = listOf(
@@ -72,6 +73,13 @@ class AnswerHistoryViewModelTest {
         coEvery { lexemeRepository.getByIds(any()) } returns emptyList()
         coEvery { lexemeRepository.getById(any()) } returns null
         coEvery { syncHistoryUseCase() } returns Unit
+        
+        coEvery { prefs.getHistoryPos() } returns emptySet()
+        coEvery { prefs.getHistoryLevels() } returns emptySet()
+        coEvery { prefs.getHistoryLatest() } returns false
+        coEvery { prefs.setHistoryPos(any()) } returns mockk()
+        coEvery { prefs.setHistoryLevels(any()) } returns mockk()
+        coEvery { prefs.setHistoryLatest(any()) } returns mockk()
     }
 
     @After
@@ -86,6 +94,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             SavedStateHandle(),
         )
 
@@ -109,6 +118,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             SavedStateHandle(),
         )
 
@@ -134,6 +144,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             SavedStateHandle(),
         )
 
@@ -160,6 +171,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             savedStateHandle,
         )
 
@@ -202,6 +214,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             SavedStateHandle(),
         )
 
@@ -239,6 +252,7 @@ class AnswerHistoryViewModelTest {
             wordRepository,
             lexemeRepository,
             syncHistoryUseCase,
+            prefs,
             SavedStateHandle(),
         )
 

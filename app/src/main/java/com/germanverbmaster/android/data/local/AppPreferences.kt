@@ -32,6 +32,15 @@ private val THEME_MODE = stringPreferencesKey("theme_mode")
 private val KI_TARGET_LANGUAGE = stringPreferencesKey("ki_target_language")
 private val KI_AUTO_TRANSLATE = stringPreferencesKey("ki_auto_translate")
 
+private val WORTSCHATZ_LEVELS = stringPreferencesKey("wortschatz_levels")
+private val WORTSCHATZ_POS = stringPreferencesKey("wortschatz_pos")
+private val HISTORY_LEVELS = stringPreferencesKey("history_levels")
+private val HISTORY_POS = stringPreferencesKey("history_pos")
+private val HISTORY_LATEST = stringPreferencesKey("history_latest")
+
+private val HOME_CEFR_LEVEL = stringPreferencesKey("home_cefr_level")
+private val HOME_PRACTICE_MODE = stringPreferencesKey("home_practice_mode")
+
 @Singleton
 class AppPreferences @Inject constructor(
     @param:ApplicationContext private val context: Context,
@@ -152,4 +161,49 @@ class AppPreferences @Inject constructor(
     suspend fun setAiAutoTranslateEnabled(enabled: Boolean) {
         context.dataStore.edit { it[KI_AUTO_TRANSLATE] = enabled.toString() }
     }
+
+    // Filters Persistence
+    suspend fun getWortschatzLevels(): Set<String> =
+        context.dataStore.data.first()[WORTSCHATZ_LEVELS]?.split(",")?.filter { it.isNotEmpty() }?.toSet() ?: setOf("B2 Beruf")
+
+    suspend fun setWortschatzLevels(levels: Set<String>) =
+        context.dataStore.edit { it[WORTSCHATZ_LEVELS] = levels.joinToString(",") }
+
+    suspend fun getWortschatzPos(): Set<String> =
+        context.dataStore.data.first()[WORTSCHATZ_POS]?.split(",")?.filter { it.isNotEmpty() }?.toSet() ?: emptySet()
+
+    suspend fun setWortschatzPos(pos: Set<String>) =
+        context.dataStore.edit { it[WORTSCHATZ_POS] = pos.joinToString(",") }
+
+    suspend fun getHistoryLevels(): Set<String> =
+        context.dataStore.data.first()[HISTORY_LEVELS]?.split(",")?.filter { it.isNotEmpty() }?.toSet() ?: emptySet()
+
+    suspend fun setHistoryLevels(levels: Set<String>) =
+        context.dataStore.edit { it[HISTORY_LEVELS] = levels.joinToString(",") }
+
+    suspend fun getHistoryPos(): Set<String> =
+        context.dataStore.data.first()[HISTORY_POS]?.split(",")?.filter { it.isNotEmpty() }?.toSet() ?: emptySet()
+
+    suspend fun setHistoryPos(pos: Set<String>) =
+        context.dataStore.edit { it[HISTORY_POS] = pos.joinToString(",") }
+
+    suspend fun getHistoryLatest(): Boolean =
+        context.dataStore.data.first()[HISTORY_LATEST]?.toBoolean() ?: false
+
+    suspend fun setHistoryLatest(latest: Boolean) =
+        context.dataStore.edit { it[HISTORY_LATEST] = latest.toString() }
+
+    suspend fun getHomeCefrLevel(): String? =
+        context.dataStore.data.first()[HOME_CEFR_LEVEL]
+
+    suspend fun setHomeCefrLevel(level: String?) =
+        context.dataStore.edit { 
+            if (level == null) it.remove(HOME_CEFR_LEVEL) else it[HOME_CEFR_LEVEL] = level 
+        }
+
+    suspend fun getHomePracticeMode(): String? =
+        context.dataStore.data.first()[HOME_PRACTICE_MODE]
+
+    suspend fun setHomePracticeMode(mode: String) =
+        context.dataStore.edit { it[HOME_PRACTICE_MODE] = mode }
 }

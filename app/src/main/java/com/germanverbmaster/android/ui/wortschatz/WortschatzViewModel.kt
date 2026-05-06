@@ -141,11 +141,9 @@ class WortschatzViewModel @Inject constructor(
     val downloadError = modelDownloadManager.error
 
     init {
+        // Initial setup for non-filter-dependent observations
         triggerSync(force = false)
-        observeWords()
-        observePosFilters()
         observeMastery()
-        observeHistoricalStats()
         observeAutoTranslate()
         observeCurrentWordForAutoTranslate()
 
@@ -153,6 +151,25 @@ class WortschatzViewModel @Inject constructor(
             targetLanguage.collect { checkModelStatus() }
         }
         refreshDownloadedLanguages()
+
+        // Reactive filter setup
+        viewModelScope.launch {
+            // 1. Load saved filter state
+            val savedLevels = prefs.getWortschatzLevels()
+            val savedPos = prefs.getWortschatzPos()
+            _state.update { it.copy(selectedLevels = savedLevels, selectedPosSet = savedPos) }
+
+            // 2. Observe POS types from DB to handle canonical mapping
+            repo.observeDistinctPos().collect { posList ->
+                rawPosValues = posList
+                val filters = listOf("Alle") + posList.map { canonicalPos(it) }.distinct()
+                _state.update { it.copy(posOptions = filters) }
+
+                // Re-start observations that depend on rawPosValues mapping
+                observeWords()
+                observeHistoricalStats()
+            }
+        }
     }
 
     private fun observeCurrentWordForAutoTranslate() {
@@ -241,6 +258,7 @@ class WortschatzViewModel @Inject constructor(
                 val withoutB2Beruf = s.selectedLevels - "B2 Beruf"
                 if (withoutB2Beruf.contains(level)) withoutB2Beruf - level else withoutB2Beruf + level
             }
+            viewModelScope.launch { prefs.setWortschatzLevels(next) }
             s.copy(selectedLevels = next)
         }
         observeWords(forceReset = true)
@@ -254,6 +272,7 @@ class WortschatzViewModel @Inject constructor(
             } else {
                 if (s.selectedPosSet.contains(pos)) s.selectedPosSet - pos else s.selectedPosSet + pos
             }
+            viewModelScope.launch { prefs.setWortschatzPos(next) }
             s.copy(selectedPosSet = next)
         }
         observeWords(forceReset = true)
@@ -474,16 +493,6 @@ class WortschatzViewModel @Inject constructor(
         }
     }
 
-    private fun observePosFilters() {
-        viewModelScope.launch {
-            repo.observeDistinctPos().collect { posList ->
-                rawPosValues = posList
-                val filters = listOf("Alle") + posList.map { canonicalPos(it) }.distinct()
-                _state.update { it.copy(posOptions = filters) }
-                observeHistoricalStats()
-            }
-        }
-    }
 
     private fun observeWords(forceReset: Boolean = false) {
         observeJob?.cancel()
@@ -495,15 +504,16 @@ class WortschatzViewModel @Inject constructor(
         val collection = if (isB2BerufSelected) "b2_beruf" else null
         
         // Expand canonical POS keys back to all matching raw values from DB
+        val isPosFilterActive = _state.value.selectedPosSet.isNotEmpty()
         val posList = _state.value.selectedPosSet.flatMap { selected ->
             rawPosValues.filter { canonicalPos(it) == selected }
         }
 
         val flow = when {
-            levels.isEmpty() && posList.isEmpty() -> repo.observeAll(collection)
-            levels.isEmpty()                      -> repo.observeByPosTypes(posList, collection)
-            posList.isEmpty()                     -> repo.observeByLevels(levels, collection)
-            else                                  -> repo.observeByLevelsAndPos(levels, posList, collection)
+            levels.isEmpty() && !isPosFilterActive -> repo.observeAll(collection)
+            levels.isEmpty()                       -> repo.observeByPosTypes(posList, collection)
+            !isPosFilterActive                     -> repo.observeByLevels(levels, collection)
+            else                                   -> repo.observeByLevelsAndPos(levels, posList, collection)
         }
 
         observeJob = viewModelScope.launch {

@@ -3,6 +3,7 @@ package com.germanverbmaster.android.ui.history
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.germanverbmaster.android.data.local.AppPreferences
 import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
@@ -39,6 +40,7 @@ class AnswerHistoryViewModel @Inject constructor(
     private val wordRepository: WordRepository,
     private val lexemeRepository: LexemeRepository,
     private val syncHistoryUseCase: com.germanverbmaster.android.domain.usecase.SyncHistoryUseCase,
+    private val prefs: AppPreferences,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -51,6 +53,10 @@ class AnswerHistoryViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            _filterPosSet.value = prefs.getHistoryPos()
+            _filterLevelSet.value = prefs.getHistoryLevels()
+            _showLatestOnly.value = prefs.getHistoryLatest()
+
             try {
                 syncHistoryUseCase()
             } catch (e: Exception) {
@@ -132,7 +138,11 @@ class AnswerHistoryViewModel @Inject constructor(
     .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), HistoryUiState())
 
     fun toggleLatestOnly() {
-        _showLatestOnly.update { !it }
+        _showLatestOnly.update { current ->
+            val next = !current
+            viewModelScope.launch { prefs.setHistoryLatest(next) }
+            next
+        }
     }
 
     fun setFilterResult(result: String?) {
@@ -141,21 +151,25 @@ class AnswerHistoryViewModel @Inject constructor(
 
     fun togglePos(pos: String) {
         _filterPosSet.update { current ->
-            if (pos == "Alle") {
+            val next = if (pos == "Alle") {
                 emptySet()
             } else {
                 if (current.contains(pos)) current - pos else current + pos
             }
+            viewModelScope.launch { prefs.setHistoryPos(next) }
+            next
         }
     }
 
     fun toggleLevel(level: String) {
         _filterLevelSet.update { current ->
-            if (level == "Alle") {
+            val next = if (level == "Alle") {
                 emptySet()
             } else {
                 if (current.contains(level)) current - level else current + level
             }
+            viewModelScope.launch { prefs.setHistoryLevels(next) }
+            next
         }
     }
 
