@@ -16,16 +16,18 @@ interface TaskSpecDao {
     @Query("""
         SELECT ts.* FROM task_specs ts
         INNER JOIN lexemes l ON ts.lexemeId = l.id
-        WHERE (:pos IS NULL OR ts.pos = :pos)
+        WHERE (:allPos = 1 OR UPPER(TRIM(ts.pos)) IN (:posVariants) OR UPPER(TRIM(l.pos)) IN (:posVariants))
           AND (:cefrLevel IS NULL OR ts.cefrLevel = :cefrLevel)
           AND (:collection IS NULL OR ts.collectionsJson LIKE '%"' || :collection || '"%')
+          AND ts.taskType IN ('conjugate_form', 'noun_case_declension', 'adj_ending')
           AND l.isApproved = 1
           AND l.isComplete = 1
         ORDER BY RANDOM()
         LIMIT :limit
     """)
     suspend fun fetchBatch(
-        pos: String? = null,
+        posVariants: List<String>,
+        allPos: Boolean,
         cefrLevel: String? = null,
         collection: String? = null,
         limit: Int = 20,
@@ -41,9 +43,9 @@ interface TaskSpecDao {
         ORDER BY
           CASE
             WHEN taskType = 'vocabulary_drill' THEN 0
-            WHEN :pos = 'V' AND taskType = 'conjugate_form' THEN 0
-            WHEN :pos = 'N' AND taskType = 'noun_case_declension' THEN 0
-            WHEN :pos = 'Adj' AND taskType = 'adj_ending' THEN 0
+            WHEN UPPER(TRIM(:pos)) IN ('V', 'VERB') AND taskType = 'conjugate_form' THEN 0
+            WHEN UPPER(TRIM(:pos)) IN ('N', 'NOMEN') AND taskType = 'noun_case_declension' THEN 0
+            WHEN UPPER(TRIM(:pos)) IN ('ADJ', 'ADJEKTIV') AND taskType = 'adj_ending' THEN 0
             ELSE 1
           END,
           CASE taskType

@@ -4,6 +4,7 @@ import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
 import com.germanverbmaster.android.data.repository.AuthRepository
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.util.DateTimeUtils
+import com.germanverbmaster.android.data.util.PosNormalizer
 import com.germanverbmaster.android.domain.model.PracticeResult
 import kotlinx.serialization.json.Json
 import java.time.Instant
@@ -18,7 +19,7 @@ class SubmitAnswerUseCase @Inject constructor(
             taskId      = result.taskId,
             lexemeId    = result.lexemeId,
             lemma       = lemma,
-            pos         = result.pos,
+            pos         = PosNormalizer.normalize(result.pos),
             taskType    = result.taskType,
             renderer    = result.renderer,
             result      = result.result,

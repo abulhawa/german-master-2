@@ -121,65 +121,6 @@ object B2ContentData {
         B2Card("nv40", B2Category.NOMEN_VERB, "Erfahrungen sammeln", "to gain experience", null, "Ich habe viel Erfahrung in diesem Bereich gesammelt."),
     )
 
-    // ─── Wortschatz B2 Beruf (50) ────────────────────────────────────────────
-
-    val wortschatz: List<B2Card> = listOf(
-        // Telefonieren
-        B2Card("ws01", B2Category.WORTSCHATZ, "sich melden", "to answer / pick up", null, "Niemand hat sich gemeldet.", "Telefonieren"),
-        B2Card("ws02", B2Category.WORTSCHATZ, "verbinden", "to transfer / connect", null, "Ich verbinde Sie mit der Buchhaltung.", "Telefonieren"),
-        B2Card("ws03", B2Category.WORTSCHATZ, "zurückrufen", "to call back", null, "Kann ich Sie zurückrufen?", "Telefonieren"),
-        B2Card("ws04", B2Category.WORTSCHATZ, "ausrichten", "to pass on a message", null, "Kann ich etwas ausrichten?", "Telefonieren"),
-        B2Card("ws05", B2Category.WORTSCHATZ, "hinterlassen", "to leave (a message)", null, "Möchten Sie eine Nachricht hinterlassen?", "Telefonieren"),
-        B2Card("ws06", B2Category.WORTSCHATZ, "die Durchwahl", "direct line / extension", null, "Meine Durchwahl ist 204.", "Telefonieren"),
-        B2Card("ws07", B2Category.WORTSCHATZ, "der Anrufbeantworter", "answering machine", null, "Sprechen Sie nach dem Signalton.", "Telefonieren"),
-        B2Card("ws08", B2Category.WORTSCHATZ, "in der Leitung halten", "to put on hold", null, "Bleiben Sie bitte in der Leitung.", "Telefonieren"),
-        B2Card("ws09", B2Category.WORTSCHATZ, "buchstabieren", "to spell out", null, "Könnten Sie das buchstabieren?", "Telefonieren"),
-        B2Card("ws10", B2Category.WORTSCHATZ, "der Gesprächspartner", "conversation partner", null, "Mein Gesprächspartner war sehr freundlich.", "Telefonieren"),
-        // Bewerbung
-        B2Card("ws11", B2Category.WORTSCHATZ, "die Bewerbungsunterlagen", "application documents", null, "Bitte senden Sie Ihre Bewerbungsunterlagen.", "Bewerbung"),
-        B2Card("ws12", B2Category.WORTSCHATZ, "der Lebenslauf", "CV / resume", null, "Mein Lebenslauf liegt bei.", "Bewerbung"),
-        B2Card("ws13", B2Category.WORTSCHATZ, "das Vorstellungsgespräch", "job interview", null, "Das Vorstellungsgespräch war erfolgreich.", "Bewerbung"),
-        B2Card("ws14", B2Category.WORTSCHATZ, "die Stelle", "position / job", null, "Ich bewerbe mich um die ausgeschriebene Stelle.", "Bewerbung"),
-        B2Card("ws15", B2Category.WORTSCHATZ, "die Anforderungen", "requirements", null, "Ich erfülle alle Anforderungen.", "Bewerbung"),
-        B2Card("ws16", B2Category.WORTSCHATZ, "die Qualifikation", "qualification", null, "Meine Qualifikationen passen gut zur Stelle.", "Bewerbung"),
-        B2Card("ws17", B2Category.WORTSCHATZ, "die Berufserfahrung", "professional experience", null, "Ich habe fünf Jahre Berufserfahrung.", "Bewerbung"),
-        B2Card("ws18", B2Category.WORTSCHATZ, "die Probezeit", "probationary period", null, "Die Probezeit beträgt drei Monate.", "Bewerbung"),
-        B2Card("ws19", B2Category.WORTSCHATZ, "das Zeugnis", "reference / certificate", null, "Ich lege mein letztes Arbeitszeugnis bei.", "Bewerbung"),
-        B2Card("ws20", B2Category.WORTSCHATZ, "die Gehaltsvorstellung", "salary expectation", null, "Meine Gehaltsvorstellung liegt bei 4.500 Euro.", "Bewerbung"),
-        // Arbeitsalltag
-        B2Card("ws21", B2Category.WORTSCHATZ, "die Abteilung", "department", null, "Ich arbeite in der IT-Abteilung.", "Arbeitsalltag"),
-        B2Card("ws22", B2Category.WORTSCHATZ, "die Besprechung", "meeting", null, "Wir haben um 10 Uhr eine Besprechung.", "Arbeitsalltag"),
-        B2Card("ws23", B2Category.WORTSCHATZ, "die Zuständigkeit", "responsibility / remit", null, "Das fällt in meine Zuständigkeit.", "Arbeitsalltag"),
-        B2Card("ws24", B2Category.WORTSCHATZ, "der Vorgesetzte", "superior / manager", null, "Mein Vorgesetzter ist sehr fair.", "Arbeitsalltag"),
-        B2Card("ws25", B2Category.WORTSCHATZ, "die Überstunden", "overtime", null, "Ich mache oft Überstunden.", "Arbeitsalltag"),
-        B2Card("ws26", B2Category.WORTSCHATZ, "die Frist", "deadline", null, "Die Frist läuft morgen ab.", "Arbeitsalltag"),
-        B2Card("ws27", B2Category.WORTSCHATZ, "der Auftrag", "order / assignment", null, "Wir haben einen neuen Auftrag bekommen.", "Arbeitsalltag"),
-        B2Card("ws28", B2Category.WORTSCHATZ, "die Lieferung", "delivery", null, "Die Lieferung kommt nächste Woche.", "Arbeitsalltag"),
-        B2Card("ws29", B2Category.WORTSCHATZ, "die Rechnung", "invoice / bill", null, "Die Rechnung wurde noch nicht bezahlt.", "Arbeitsalltag"),
-        B2Card("ws30", B2Category.WORTSCHATZ, "das Protokoll", "minutes / record", null, "Ich schreibe das Protokoll der Sitzung.", "Arbeitsalltag"),
-        B2Card("ws31", B2Category.WORTSCHATZ, "die Sitzung", "meeting / session", null, "Die Sitzung beginnt pünktlich.", "Arbeitsalltag"),
-        B2Card("ws32", B2Category.WORTSCHATZ, "der Bericht", "report", null, "Ich schreibe einen Bericht über das Projekt.", "Arbeitsalltag"),
-        B2Card("ws33", B2Category.WORTSCHATZ, "die Vereinbarung", "agreement / arrangement", null, "Wir haben eine Vereinbarung getroffen.", "Arbeitsalltag"),
-        B2Card("ws34", B2Category.WORTSCHATZ, "die Zusammenarbeit", "cooperation", null, "Die Zusammenarbeit läuft sehr gut.", "Arbeitsalltag"),
-        B2Card("ws35", B2Category.WORTSCHATZ, "weiterleiten", "to forward", null, "Ich leite Ihre E-Mail weiter.", "Arbeitsalltag"),
-        B2Card("ws36", B2Category.WORTSCHATZ, "bearbeiten", "to process / handle", null, "Wir bearbeiten Ihre Anfrage sofort.", "Arbeitsalltag"),
-        B2Card("ws37", B2Category.WORTSCHATZ, "klären", "to clarify", null, "Wir müssen das noch klären.", "Arbeitsalltag"),
-        B2Card("ws38", B2Category.WORTSCHATZ, "erledigen", "to get done / take care of", null, "Ich erledige das bis Freitag.", "Arbeitsalltag"),
-        B2Card("ws39", B2Category.WORTSCHATZ, "genehmigen", "to approve", null, "Der Antrag wurde genehmigt.", "Arbeitsalltag"),
-        B2Card("ws40", B2Category.WORTSCHATZ, "der Ansprechpartner", "contact person", null, "Wer ist Ihr Ansprechpartner?", "Arbeitsalltag"),
-        // Formell
-        B2Card("ws41", B2Category.WORTSCHATZ, "bezüglich / betreffend", "regarding / re:", null, "Bezüglich Ihres Schreibens vom 01.04.", "Formell"),
-        B2Card("ws42", B2Category.WORTSCHATZ, "hiermit", "hereby", null, "Hiermit bestätige ich den Erhalt.", "Formell"),
-        B2Card("ws43", B2Category.WORTSCHATZ, "anbei / beigefügt", "enclosed / attached", null, "Anbei sende ich Ihnen die Unterlagen.", "Formell"),
-        B2Card("ws44", B2Category.WORTSCHATZ, "unverzüglich", "immediately / without delay", null, "Bitte antworten Sie unverzüglich.", "Formell"),
-        B2Card("ws45", B2Category.WORTSCHATZ, "fristgerecht", "on time / within the deadline", null, "Die Lieferung erfolgte fristgerecht.", "Formell"),
-        B2Card("ws46", B2Category.WORTSCHATZ, "rückwirkend", "retroactively", null, "Die Änderung gilt rückwirkend ab Januar.", "Formell"),
-        B2Card("ws47", B2Category.WORTSCHATZ, "verbindlich", "binding / obligatory", null, "Dies ist eine verbindliche Zusage.", "Formell"),
-        B2Card("ws48", B2Category.WORTSCHATZ, "zur Kenntnisnahme", "for your information (FYI)", null, "Zur Kenntnisnahme leite ich weiter.", "Formell"),
-        B2Card("ws49", B2Category.WORTSCHATZ, "in Erwartung Ihrer Antwort", "awaiting your reply", null, "In Erwartung Ihrer Antwort verbleibe ich...", "Formell"),
-        B2Card("ws50", B2Category.WORTSCHATZ, "mit freundlichen Grüßen", "kind regards", null, "Mit freundlichen Grüßen, [Name]", "Formell"),
-    )
-
     // ─── Redemittel (28) ─────────────────────────────────────────────────────
 
     val redemittel: List<B2Card> = listOf(
@@ -831,13 +772,12 @@ object B2ContentData {
 
     // ─── Convenience: all flashcard-able cards combined ──────────────────────
 
-    val allCards: List<B2Card> = verbenPraep + nomenVerb + wortschatz + redemittel
+    val allCards: List<B2Card> = verbenPraep + nomenVerb + redemittel
 
     fun cardsForCategory(category: B2Category): List<B2Card> = when (category) {
         B2Category.ALL           -> allCards
         B2Category.VERBEN_PRAEP  -> verbenPraep
         B2Category.NOMEN_VERB    -> nomenVerb
-        B2Category.WORTSCHATZ    -> wortschatz
         B2Category.REDEMITTEL    -> redemittel
     }
 }

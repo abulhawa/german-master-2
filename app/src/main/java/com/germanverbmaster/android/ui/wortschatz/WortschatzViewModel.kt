@@ -14,6 +14,7 @@ import com.germanverbmaster.android.data.remote.worker.SyncWorker
 import com.germanverbmaster.android.data.repository.PracticeRepository
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.ModelDownloadManager
+import com.germanverbmaster.android.data.util.PosNormalizer
 import com.germanverbmaster.android.data.util.TranslationManager
 import com.germanverbmaster.android.domain.model.PracticeResult
 import com.germanverbmaster.android.domain.usecase.SubmitAnswerUseCase
@@ -37,37 +38,23 @@ import kotlin.random.Random
 
 // ─── Filter options ───────────────────────────────────────────────────────────
 
-val LEVEL_FILTERS = listOf("B2 Beruf", "Alle", "A1", "A2", "B1", "B2")
+val LEVEL_FILTERS = listOf("Alle", "A1", "A2", "B1", "B2", "B2 Beruf")
 val POS_LABELS    = mapOf(
     "Alle" to "Alle",
-    "V"    to "Verben",
+    "V"    to "Verb",
     "N"    to "Nomen",
-    "Adj"  to "Adjektive",
-    "Adv"  to "Adverbien",
-    "Prep" to "Präpositionen",
-    "Conj" to "Konjunktionen",
+    "Adj"  to "Adjektiv",
+    "Adv"  to "Adverb",
+    "Präp" to "Präposition",
+    "Konj" to "Konjunktion",
     "Pron" to "Pronomen",
-    "Int"  to "Interjektionen",
+    "Int"  to "Interjektion",
     "Art"  to "Artikel",
-    "Num"  to "Numerale"
+    "Num"  to "Numerale",
+    "Part" to "Partikel"
 )
 
-fun canonicalPos(raw: String): String {
-    val upper = raw.trim().uppercase()
-    return when (upper) {
-        "V", "VERB" -> "V"
-        "N", "NOMEN" -> "N"
-        "ADJ", "ADJEKTIV" -> "Adj"
-        "ADV", "ADVERB" -> "Adv"
-        "PREP", "PRÄP", "PRÄPOSITION", "PRÄPOSITIONEN" -> "Prep"
-        "CONJ", "KONJ", "KONJUNKTION" -> "Conj"
-        "PRON", "PRONOMEN" -> "Pron"
-        "INT", "INTERJEKTION" -> "Int"
-        "ART", "ARTIKEL" -> "Art"
-        "NUM", "NUMERALE" -> "Num"
-        else -> raw
-    }
-}
+fun canonicalPos(raw: String): String = PosNormalizer.normalize(raw)
 
 // ─── Screen modes ─────────────────────────────────────────────────────────────
 
@@ -256,9 +243,7 @@ class WortschatzViewModel @Inject constructor(
             }
             s.copy(selectedLevels = next)
         }
-        // Force reset drill if we are currently in DRILL tab, otherwise just update list
-        val shouldReset = _state.value.tab == WortschatzTab.DRILL
-        observeWords(forceReset = shouldReset)
+        observeWords(forceReset = true)
         observeHistoricalStats()
     }
 
@@ -271,8 +256,7 @@ class WortschatzViewModel @Inject constructor(
             }
             s.copy(selectedPosSet = next)
         }
-        val shouldReset = _state.value.tab == WortschatzTab.DRILL
-        observeWords(forceReset = shouldReset)
+        observeWords(forceReset = true)
         observeHistoricalStats()
     }
 
@@ -472,11 +456,7 @@ class WortschatzViewModel @Inject constructor(
         val selectedLevels = _state.value.selectedLevels
         val isB2BerufSelected = selectedLevels.contains("B2 Beruf")
         val collection = if (isB2BerufSelected) "b2_beruf" else null
-        val levels = if (isB2BerufSelected) {
-            (selectedLevels - "B2 Beruf" + "B2").toList()
-        } else {
-            selectedLevels.toList()
-        }
+        val levels = (selectedLevels - "B2 Beruf").toList()
 
         val posList = _state.value.selectedPosSet.flatMap { selected ->
             rawPosValues.filter { canonicalPos(it) == selected }

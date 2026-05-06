@@ -14,12 +14,12 @@ object PartOfSpeechMapper {
             "adv", "adverb" -> "adverb"
             "pron", "pronoun" -> "pronoun"
             "det", "determiner", "art" -> "determiner"
-            "prep", "preposition", "präp" -> "preposition"
+            "prep", "preposition", "präp", "praep" -> "preposition"
             "konj", "conjunction", "conj" -> "conjunction"
             "num", "numeral" -> "numeral"
             "part", "particle" -> "particle"
             "int", "interj", "interjection" -> "interjection"
-            else -> pos.lowercase() // Fallback to lowercase if already close or unknown
+            else -> pos.lowercase()
         }
     }
 }

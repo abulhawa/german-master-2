@@ -9,6 +9,7 @@ import com.germanverbmaster.android.data.repository.LexemeRepository
 import com.germanverbmaster.android.data.repository.TaskRepository
 import com.germanverbmaster.android.data.repository.WordRepository
 import com.germanverbmaster.android.data.util.DateTimeUtils
+import com.germanverbmaster.android.data.util.PosNormalizer
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -103,6 +104,7 @@ class HistorySyncMapper @Inject constructor(
         val lexeme = lexemeRepository.getById(remote.lexemeId)
         val lemma = remote.lemma ?: lexeme?.lemma ?: ""
         val cefrLevel = remote.cefrLevel ?: lexeme?.cefrLevel
+        val localPos = PosNormalizer.normalize(remote.pos)
 
         if (!isWordCard(remote.taskType, remote.renderer)) {
             return PracticeHistoryEntity(
@@ -111,7 +113,7 @@ class HistorySyncMapper @Inject constructor(
                 taskId = remote.taskId,
                 lexemeId = remote.lexemeId,
                 lemma = lemma,
-                pos = remote.pos,
+                pos = localPos,
                 taskType = remote.taskType,
                 renderer = remote.renderer,
                 result = remote.result,
@@ -128,7 +130,7 @@ class HistorySyncMapper @Inject constructor(
 
         val localWordId = lemma
             .takeIf { it.isNotBlank() }
-            ?.let { resolvedLemma -> wordRepository.findIdByLemmaAndPos(resolvedLemma, remote.pos) }
+            ?.let { resolvedLemma -> wordRepository.findIdByLemmaAndPos(resolvedLemma, localPos) }
             ?.let { "$LOCAL_WORD_PREFIX$it" }
 
         return PracticeHistoryEntity(
@@ -137,7 +139,7 @@ class HistorySyncMapper @Inject constructor(
             taskId = localWordId ?: remote.taskId,
             lexemeId = localWordId ?: remote.lexemeId,
             lemma = lemma,
-            pos = remote.pos,
+            pos = localPos,
             taskType = remote.taskType,
             renderer = remote.renderer,
             result = remote.result,

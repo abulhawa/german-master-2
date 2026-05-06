@@ -2,6 +2,7 @@ package com.germanverbmaster.android.data.remote
 
 import android.util.Log
 import com.germanverbmaster.android.data.local.entity.TaskSpecEntity
+import com.germanverbmaster.android.data.util.PosNormalizer
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.serialization.SerialName
@@ -78,7 +79,7 @@ class SupabaseTaskApi @Inject constructor(
     fun RemoteTaskSpec.toEntity(cefrLevel: String?): TaskSpecEntity = TaskSpecEntity(
         id = id.trim(),
         lexemeId = lexemeId.trim(),
-        pos = pos.trim(),
+        pos = PosNormalizer.normalize(pos),
         taskType = taskType.trim(),
         renderer = renderer.trim(),
         promptJson = prompt.toString(),

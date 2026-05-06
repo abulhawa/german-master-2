@@ -15,7 +15,6 @@ enum class B2Category(val label: String) {
     ALL("Alle"),
     VERBEN_PRAEP("Verben + Präp"),
     NOMEN_VERB("Nomen-Verb"),
-    WORTSCHATZ("Wortschatz"),
     REDEMITTEL("Redemittel"),
 }
 

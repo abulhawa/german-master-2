@@ -24,13 +24,20 @@ class GetNextTaskUseCase @Inject constructor(
         cefrLevel: String? = null,
         batchSize: Int = 20,
     ): List<TaskCard> {
-        val entities = when (mode) {
-            PracticeMode.VERBS      -> taskRepository.fetchBatch("V", cefrLevel, null, batchSize)
-            PracticeMode.NOUNS      -> taskRepository.fetchBatch("N", cefrLevel, null, batchSize)
-            PracticeMode.ADJECTIVES -> taskRepository.fetchBatch("Adj", cefrLevel, null, batchSize)
-            PracticeMode.ALL        -> taskRepository.fetchBatch(null, cefrLevel, null, batchSize)
+        val posVariants = when (mode) {
+            PracticeMode.VERBS      -> listOf("V", "VERB")
+            PracticeMode.NOUNS      -> listOf("N", "NOUN", "NOMEN")
+            PracticeMode.ADJECTIVES -> listOf("ADJ", "ADJEKTIV", "ADJECTIVE")
+            PracticeMode.ALL        -> emptyList()
         }
+
+        val entities = taskRepository.fetchBatch(posVariants, cefrLevel, null, batchSize)
         Log.d("GetNextTaskUseCase", "fetchBatch returned ${entities.size} entities (mode=$mode, cefrLevel=$cefrLevel)")
+        
+        if (mode == PracticeMode.ALL && entities.isNotEmpty()) {
+            val sample = entities.take(3).joinToString { "[id=${it.id}, pos=${it.pos}, type=${it.taskType}]" }
+            Log.d("GetNextTaskUseCase", "Sample entities: $sample")
+        }
         val cards = entities.mapNotNull { entity ->
             val card = entity.toTaskCard()
             if (card == null) {
@@ -52,7 +59,14 @@ class GetNextTaskUseCase @Inject constructor(
     private fun TaskSpecEntity.toTaskCard(): TaskCard? = runCatching {
         val promptMap = parseJsonToMap(promptJson)
         val solutionMap = parseJsonToMap(solutionJson)
-        val lemma = promptMap["lemma"] ?: promptMap["word"] ?: return@runCatching null
+        
+        // Try various common lemma keys (case-insensitive)
+        val lemma = promptMap["lemma"] 
+            ?: promptMap["word"] 
+            ?: promptMap["Lemma"]
+            ?: promptMap["Word"]
+            ?: return@runCatching null
+
         TaskCard(
             taskId    = id,
             lexemeId  = lexemeId,

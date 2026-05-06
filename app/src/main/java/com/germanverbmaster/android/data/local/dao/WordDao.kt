@@ -39,7 +39,7 @@ interface WordDao {
     @Query("""
         SELECT * FROM words 
         WHERE english IS NOT NULL 
-        AND pos IN (:posTypes) 
+        AND UPPER(TRIM(pos)) IN (:posTypes) 
         AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
         ORDER BY lemma ASC
     """)
@@ -50,7 +50,7 @@ interface WordDao {
         SELECT * FROM words 
         WHERE english IS NOT NULL 
         AND level IN (:levels) 
-        AND pos IN (:posTypes) 
+        AND UPPER(TRIM(pos)) IN (:posTypes)
         AND (:collection IS NULL OR collectionsJson LIKE '%"' || :collection || '"%')
         ORDER BY lemma ASC
     """)

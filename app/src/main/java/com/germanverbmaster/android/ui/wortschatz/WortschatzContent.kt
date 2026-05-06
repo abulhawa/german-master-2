@@ -395,8 +395,8 @@ private fun WordListContent(
     }
 
     val sortedGroups = remember(cards) {
-        val grouped = cards.groupBy { it.pos }
-        val posOrder = listOf("V", "N", "Adj", "Adv", "Prep", "Conj", "Pron", "Art", "Num", "Int")
+        val grouped = cards.groupBy { canonicalPos(it.pos) }
+        val posOrder = listOf("V", "N", "Adj", "Adv", "Präp", "Konj", "Pron", "Art", "Num", "Part", "Int")
         grouped.entries.sortedBy {
             val idx = posOrder.indexOf(it.key)
             if (idx == -1) 99 else idx
@@ -562,7 +562,14 @@ fun FilterSection(
                 FilterChip(
                     selected = (level == "Alle" && selectedLevels.isEmpty()) || selectedLevels.contains(level),
                     onClick = { onLevelToggle(level) },
-                    label = { Text(level) },
+                    label = { 
+                        Text(
+                            text = level,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.labelSmall
+                        ) 
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -573,7 +580,14 @@ fun FilterSection(
                 FilterChip(
                     selected = selectedLevels.contains(level),
                     onClick = { onLevelToggle(level) },
-                    label = { Text(level) },
+                    label = {
+                        Text(
+                            text = level,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.labelSmall
+                        )
+                    },
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -590,7 +604,15 @@ fun FilterSection(
                         FilterChip(
                             selected = (pos == "Alle" && selectedPosSet.isEmpty()) || selectedPosSet.contains(pos),
                             onClick = { onPosToggle(pos) },
-                            label = { Text(POS_LABELS[pos] ?: pos) },
+                            label = {
+                                Text(
+                                    text = POS_LABELS[pos] ?: pos,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    maxLines = 1
+                                )
+                            },
                             modifier = Modifier.weight(1f)
                         )
                     }

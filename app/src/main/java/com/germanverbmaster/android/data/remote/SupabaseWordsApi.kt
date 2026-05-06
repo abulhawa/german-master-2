@@ -2,6 +2,7 @@ package com.germanverbmaster.android.data.remote
 
 import android.util.Log
 import com.germanverbmaster.android.data.local.entity.WordEntity
+import com.germanverbmaster.android.data.util.PosNormalizer
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
@@ -134,7 +135,7 @@ class SupabaseWordsApi @Inject constructor(
     fun RemoteWord.toEntity() = WordEntity(
         id = id,
         lemma = lemma.trim(),
-        pos = pos.trim(),
+        pos = PosNormalizer.normalize(pos),
         level = level?.trim(),
         english = english?.trim(),
         exampleDe = exampleDe?.trim(),

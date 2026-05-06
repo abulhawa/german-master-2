@@ -2,6 +2,7 @@ package com.germanverbmaster.android.data.remote
 
 import android.util.Log
 import com.germanverbmaster.android.data.local.entity.LexemeEntity
+import com.germanverbmaster.android.data.util.PosNormalizer
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.exception.PostgrestRestException
 import io.github.jan.supabase.postgrest.postgrest
@@ -99,7 +100,7 @@ class SupabaseLexemeApi @Inject constructor(
             ?: getBool("is_approved") 
             ?: true // Default to true so data is visible by default
         
-        val posTrimmed = pos.trim()
+        val posNormalized = PosNormalizer.normalize(pos)
         // Default to true if not specified to avoid hiding data
         val complete = isComplete ?: true
 
@@ -113,7 +114,7 @@ class SupabaseLexemeApi @Inject constructor(
             id = id.trim(),
             lemma = lemma.trim(),
             language = language.trim(),
-            pos = posTrimmed,
+            pos = posNormalized,
             gender = gender?.trim(),
             metadataJson = metadataMap.toString(),
             cefrLevel = cefrLevel,

@@ -125,6 +125,7 @@ class B2PracticeViewModel @Inject constructor(
                     pos = when(card.category) {
                         B2Category.VERBEN_PRAEP -> "V"
                         B2Category.NOMEN_VERB -> "N"
+                        B2Category.REDEMITTEL -> "Phr"
                         else -> "Misc"
                     },
                     taskType = "b2_practice_${card.category.name.lowercase()}",
