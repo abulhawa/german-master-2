@@ -79,6 +79,10 @@ class WortschatzViewModelTest {
         coEvery { prefs.setDrillWrong(any()) } returns mockk()
         coEvery { prefs.getWortschatzDatasetVersion() } returns null
         coEvery { prefs.setWortschatzDatasetVersion(any()) } returns mockk()
+        coEvery { prefs.getWortschatzLevels() } returns setOf("B2 Beruf")
+        coEvery { prefs.getWortschatzPos() } returns emptySet()
+        coEvery { prefs.setWortschatzLevels(any()) } returns mockk()
+        coEvery { prefs.setWortschatzPos(any()) } returns mockk()
         every { prefs.kiTargetLanguage } returns flowOf(TranslateLanguage.ENGLISH)
 
         every { repo.observeAll(any()) } returns flowOf(mockWords)
@@ -260,5 +264,48 @@ class WortschatzViewModelTest {
 
         coVerify(atLeast = 1) { repo.sync(forceFullRefresh = true) }
         coVerify(atLeast = 1) { prefs.setWortschatzDatasetVersion("dataset-v2") }
+    }
+
+    @Test
+    fun `toggleLevel B2 Beruf clears other levels`() = runTest {
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        viewModel.toggleLevel("A1")
+        viewModel.toggleLevel("A2")
+        
+        viewModel.toggleLevel("B2 Beruf")
+        assertEquals(setOf("B2 Beruf"), viewModel.state.value.selectedLevels)
+    }
+
+    @Test
+    fun `toggleLevel A1 removes B2 Beruf`() = runTest {
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        // Initial is B2 Beruf (mocked in setup)
+        assertTrue(viewModel.state.value.selectedLevels.contains("B2 Beruf"))
+
+        viewModel.toggleLevel("A1")
+        assertEquals(setOf("A1"), viewModel.state.value.selectedLevels)
+    }
+
+    @Test
+    fun `togglePos Alle clears pos filters`() = runTest {
+        val viewModel = WortschatzViewModel(
+            repo, practiceRepo, submitAnswerUseCase, syncDataUseCase, syncHistoryUseCase,
+            prefs, tts, translationManager, modelDownloadManager, context
+        )
+
+        viewModel.togglePos("V")
+        viewModel.togglePos("N")
+        assertNotEquals(0, viewModel.state.value.selectedPosSet.size)
+
+        viewModel.togglePos("Alle")
+        assertEquals(0, viewModel.state.value.selectedPosSet.size)
     }
 }

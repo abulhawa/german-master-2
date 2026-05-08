@@ -80,7 +80,7 @@ class SupabaseWordsApi @Inject constructor(
 
     /** Paginated full fetch of the words table */
     suspend fun fetchAll(): List<RemoteWord> {
-        val pageSize = 1000
+        val pageSize = 500
         val all = mutableListOf<RemoteWord>()
         var from = 0
         Log.d(TAG, "Fetching all words... URL: ${client.supabaseUrl}")
@@ -111,7 +111,7 @@ class SupabaseWordsApi @Inject constructor(
 
     /** Incremental sync — only rows updated after since */
     suspend fun fetchUpdatedSince(since: String): List<RemoteWord> {
-        val pageSize = 1000
+        val pageSize = 500
         val all = mutableListOf<RemoteWord>()
         var from = 0
         while (true) {

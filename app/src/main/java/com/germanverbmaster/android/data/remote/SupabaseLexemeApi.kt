@@ -33,9 +33,9 @@ data class RemoteLexeme(
 class SupabaseLexemeApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
-    /** Full fetch on first launch — paginates through all rows in batches of 1000 */
+    /** Full fetch on first launch — paginates through all rows in batches of 500 */
     suspend fun fetchAll(): List<RemoteLexeme> {
-        val pageSize = 1000
+        val pageSize = 500
         val all = mutableListOf<RemoteLexeme>()
         var from = 0
         Log.d("SupabaseLexemeApi", "Fetching all lexemes... URL: ${client.supabaseUrl}")
@@ -65,7 +65,7 @@ class SupabaseLexemeApi @Inject constructor(
 
     /** Incremental sync — only rows updated after lastSyncedAt */
     suspend fun fetchUpdatedSince(since: String): List<RemoteLexeme> {
-        val pageSize = 1000
+        val pageSize = 500
         val all = mutableListOf<RemoteLexeme>()
         var from = 0
         while (true) {

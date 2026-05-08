@@ -42,8 +42,24 @@ object SupabaseModule {
                     }
 
                     override suspend fun loadSession(): UserSession {
-                        val sessionStr = sharedPrefs.getString(key, null) ?: error("No session found")
-                        return json.decodeFromString(sessionStr)
+                        val sessionStr = sharedPrefs.getString(key, null) ?: return UserSession(
+                            accessToken = "",
+                            refreshToken = "",
+                            expiresIn = 0,
+                            tokenType = "",
+                            user = null
+                        )
+                        return try {
+                            json.decodeFromString(sessionStr)
+                        } catch (_: Exception) {
+                            UserSession(
+                                accessToken = "",
+                                refreshToken = "",
+                                expiresIn = 0,
+                                tokenType = "",
+                                user = null
+                            )
+                        }
                     }
 
                     override suspend fun loadSessionOrNull(): UserSession? {

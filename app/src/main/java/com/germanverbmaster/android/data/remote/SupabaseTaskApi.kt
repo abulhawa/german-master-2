@@ -32,7 +32,7 @@ class SupabaseTaskApi @Inject constructor(
     private val client: SupabaseClient,
 ) {
     suspend fun fetchAll(): List<RemoteTaskSpec> {
-        val pageSize = 1000
+        val pageSize = 200
         val all = mutableListOf<RemoteTaskSpec>()
         var from = 0
         Log.d("SupabaseTaskApi", "Fetching all task_specs...")
@@ -57,7 +57,7 @@ class SupabaseTaskApi @Inject constructor(
     }
 
     suspend fun fetchUpdatedSince(since: String): List<RemoteTaskSpec> {
-        val pageSize = 1000
+        val pageSize = 200
         val all = mutableListOf<RemoteTaskSpec>()
         var from = 0
         while (true) {
