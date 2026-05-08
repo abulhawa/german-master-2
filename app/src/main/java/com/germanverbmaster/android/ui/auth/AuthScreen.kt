@@ -273,5 +273,5 @@ fun AccountBrandHeader(modifier: Modifier = Modifier) {
     }
 }
 
-private const val PRIVACY_POLICY_URL = "https://gvm.qortxai.com/privacy"
-private const val DELETE_ACCOUNT_URL = "https://gvm.qortxai.com/delete-account"
+private const val PRIVACY_POLICY_URL = "https://germanmaster.qortxai.com/privacy"
+private const val DELETE_ACCOUNT_URL = "https://germanmaster.qortxai.com/delete-account"
