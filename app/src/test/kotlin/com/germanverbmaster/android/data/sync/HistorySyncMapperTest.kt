@@ -76,7 +76,7 @@ class HistorySyncMapperTest {
         assertEquals("task-1", remote.taskId)
         assertEquals("lex-1", remote.lexemeId)
         assertEquals("machen", remote.lemma)
-        assertEquals("verb", remote.pos)
+        assertEquals("V", remote.pos)
         assertEquals("mache", remote.submittedAnswer)
         assertEquals("mache", remote.correctAnswer)
         assertEquals("A1", remote.cefrLevel)
@@ -115,7 +115,7 @@ class HistorySyncMapperTest {
         assertEquals("vocabulary_drill:lex-42", remote.taskId)
         assertEquals("lex-42", remote.lexemeId)
         assertEquals("machen", remote.lemma)
-        assertEquals("verb", remote.pos)
+        assertEquals("V", remote.pos)
         assertEquals("machen", remote.submittedAnswer)
         assertEquals("machen", remote.correctAnswer)
         assertEquals("A1", remote.cefrLevel)
@@ -145,8 +145,8 @@ class HistorySyncMapperTest {
         val remote = mapper.toRemote(entity, "user-1")
 
         requireNotNull(remote)
-        assertEquals("identity:verb:machen", remote.taskId)
-        assertEquals("identity:verb:machen", remote.lexemeId)
+        assertEquals("identity:V:machen", remote.taskId)
+        assertEquals("identity:V:machen", remote.lexemeId)
         assertEquals("vocabulary_drill", remote.taskType)
         assertEquals("word_card", remote.renderer)
     }
