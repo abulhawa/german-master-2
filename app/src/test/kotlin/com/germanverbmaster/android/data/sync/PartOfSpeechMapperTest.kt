@@ -12,7 +12,7 @@ class PartOfSpeechMapperTest {
         assertEquals("Adj", PartOfSpeechMapper.toCanonical("adjective"))
         assertEquals("Adv", PartOfSpeechMapper.toCanonical("adverb"))
         assertEquals("Pron", PartOfSpeechMapper.toCanonical("determiner"))
-        assertEquals("Präp", PartOfSpeechMapper.toCanonical("preposition"))
+        assertEquals("Pr\u00e4p", PartOfSpeechMapper.toCanonical("preposition"))
         assertEquals("Konj", PartOfSpeechMapper.toCanonical("conjunction"))
         assertEquals("Adj", PartOfSpeechMapper.toCanonical("numeral"))
         assertEquals("Part", PartOfSpeechMapper.toCanonical("interjection"))
@@ -23,6 +23,6 @@ class PartOfSpeechMapperTest {
         assertEquals("V", PartOfSpeechMapper.toCanonical("V"))
         assertEquals("N", PartOfSpeechMapper.toCanonical("N"))
         assertEquals("Adj", PartOfSpeechMapper.toCanonical("Adj"))
-        assertEquals("Präp", PartOfSpeechMapper.toCanonical("Präp"))
+        assertEquals("Pr\u00e4p", PartOfSpeechMapper.toCanonical("Pr\u00e4p"))
     }
 }
