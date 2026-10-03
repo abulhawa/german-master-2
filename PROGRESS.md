@@ -44,13 +44,20 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain; device/emulator behavior and release assembly were not verified. Live database/content export and restore, deployed web/API identity, published Android version and signing continuity remain unverified. Source/history recovery does not satisfy those gates.
 
-Hosted CI inspected at the start: repository safety passed at `0c94390`; Android run `37116424351` failed with the same lint crash before this repair. No web workflow runs were listed. Post-repair hosted outcomes are pending until inspected; do not infer them from local success.
+Hosted verification after the repair:
+
+- [Web run 37118868488](https://github.com/abulhawa/german-master-2/actions/runs/37118868488) passed at `b7d3f6a`: dependency install, type check, 76 files / 280 tests and build. The subsequent application change only affects Android SDK workflow setup.
+- [Android run 37118948356](https://github.com/abulhawa/german-master-2/actions/runs/37118948356) passed at `c584e0f`: SDK setup/install, unit tests, debug assembly and blocking lint; overall job conclusion was success.
+- [Repository safety run 37118948332](https://github.com/abulhawa/german-master-2/actions/runs/37118948332) passed at `c584e0f`.
+- Initial post-repair Android run `37118851725` exposed the removed SDK `tools` package in `setup-android@v3`; it was superseded/cancelled after upgrading the setup action and explicitly requesting `platform-tools`. Earlier run `37116424351` records the historical lint crash. These failed/superseded runs are not passing evidence.
+
+Implementation commits `b7d3f6a` (lint/toolchain repair) and `c584e0f` (hosted SDK setup) are pushed to `main`; the final evidence/checkpoint update is committed and pushed at handoff. No product milestone beyond this baseline repair is claimed.
 
 ## Milestone status
 
 | Milestone | Status | Remaining gate |
 |---|---|---|
-| M0 Preserve and baseline | In progress | Verify repaired hosted CI; establish deployment/store identity and content/database preservation evidence where access permits |
+| M0 Preserve and baseline | In progress | Establish deployment/store identity and content/database preservation evidence where access permits |
 | M1 Contracts design and content | Not started | Working exercise/API contracts, cross-language fixtures, target model, tokens and initial reviewed content |
 | M2 Authoritative engine | Not started | Grading, evidence reduction, scheduling, selection and idempotent attempts |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
@@ -62,7 +69,7 @@ The monorepo bootstrap is complete, but M0 as a whole is not. Existing backend, 
 
 ## Exact next implementation slice
 
-1. Check working tree, recent commits and post-repair hosted Android/safety results. Preserve newer or unrelated work. Inspect or dispatch the web checks, whose hosted outcome remains unestablished.
+1. Check working tree, recent commits and any newer hosted results. Preserve newer or unrelated work. The repaired Android, web and safety verification evidence is recorded above; do not repeat the resolved lint investigation.
 2. Complete accessible M0 deployment/store/content/database inventory and preservation evidence; record specific access blockers. Source/history restore is already verified. Never run an old database-reset script to establish a baseline.
 3. Start M1 with the first working versioned exercise/API contracts and shared grading fixtures, including TypeScript/Kotlin conformance. Use the blueprint exercise and API requirements; introduce actual packages with implementations, not empty folders. Current/replacement dependencies and design changes are authorized for this hard reset.
 

@@ -28,4 +28,6 @@ Final combined run: **BUILD SUCCESSFUL**, 65 actionable tasks (19 executed, 46 u
 
 One intermediate combined run failed in incremental `packageDebug` without a detailed cause. A standalone assembly rerun passed, and the final combined run also passed. No application packaging workaround was introduced; recurrence requires diagnosis with a stack trace.
 
-Logs and lint/test reports remain ignored local build artifacts. Hosted CI is separate evidence, recorded in `PROGRESS.md`. The original bootstrap report remains an accurate historical record of its earlier failed lint run.
+The first hosted run after the repair exposed an independent SDK setup failure: `setup-android@v3` requested the removed `tools` package. Its logs confirmed `Failed to find package 'tools'` and sdkmanager exit code 1; the run was then superseded/cancelled by the workflow repair. Updated to `setup-android@v4` with explicit `platform-tools`, following the [action documentation](https://github.com/android-actions/setup-android). The replacement hosted run passed SDK setup and installed the declared SDK requirements. Final hosted outcomes are recorded in `PROGRESS.md`.
+
+Logs and lint/test reports remain ignored local build artifacts. The original bootstrap report remains an accurate historical record of its earlier failed lint run.
