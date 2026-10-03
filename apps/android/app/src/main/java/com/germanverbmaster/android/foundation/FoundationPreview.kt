@@ -1,0 +1,113 @@
+package com.germanverbmaster.android.foundation
+
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.heading
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.germanverbmaster.android.R
+import com.germanverbmaster.android.foundation.contract.*
+
+@Composable
+fun FoundationTheme(content: @Composable () -> Unit) {
+    val c = if (isSystemInDarkTheme()) FoundationTokens.dark else FoundationTokens.light
+    MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme(
+        primary=c.primary, onPrimary=c.onPrimary, background=c.background,
+        surface=c.surface, onSurface=c.text, onBackground=c.text,
+        onSurfaceVariant=c.secondary, outline=c.controlBorder, error=c.error
+    ) else lightColorScheme(
+        primary=c.primary, onPrimary=c.onPrimary, background=c.background,
+        surface=c.surface, onSurface=c.text, onBackground=c.text,
+        onSurfaceVariant=c.secondary, outline=c.controlBorder, error=c.error
+    ), content=content)
+}
+
+@Composable
+fun PracticeCard(content: @Composable ColumnScope.() -> Unit) {
+    Surface(shape=MaterialTheme.shapes.large, color=MaterialTheme.colorScheme.surface) {
+        Column(Modifier.padding(FoundationTokens.spacing[4].dp), verticalArrangement=Arrangement.spacedBy(FoundationTokens.spacing[3].dp), content=content)
+    }
+}
+
+@Composable
+fun AnswerField(label: String, value: String, onChange: (String) -> Unit) {
+    OutlinedTextField(value=value, onValueChange=onChange, label={Text(label)}, modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp))
+}
+
+@Composable
+fun ExerciseInput(exercise: Exercise, onAnswer: (Answer?) -> Unit) {
+    var text by remember { mutableStateOf("") }
+    var values by remember { mutableStateOf(mapOf<String,String>()) }
+    var order by remember { mutableStateOf(listOf<String>()) }
+    when(exercise) {
+        is ExerciseShortAnswer -> AnswerField(stringResource(R.string.foundation_answer), text) { text=it; onAnswer(if(it.isBlank()) null else AnswerShortAnswer(it)) }
+        is ExerciseChoice -> {
+            Text(stringResource(R.string.foundation_answer))
+            exercise.options.forEach { option ->
+                OutlinedButton(onClick={text=option.id;onAnswer(AnswerChoice(option.id))}, modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) {
+                    RadioButton(selected=text==option.id,onClick=null)
+                    Text(option.text)
+                }
+            }
+        }
+        is ExerciseCloze, is ExerciseMultiSlot -> {
+            val slots = when(exercise) { is ExerciseCloze -> exercise.slots; is ExerciseMultiSlot -> exercise.slots; else -> error("Unreachable") }
+            slots.forEach { slot -> AnswerField(slot.label,values[slot.id].orEmpty()) { v ->
+                values=values+(slot.id to v)
+                val answer = slots.map { SlotValue(it.id,values[it.id].orEmpty()) }
+                onAnswer(if(answer.any { it.text.isBlank() }) null else if(exercise is ExerciseCloze) AnswerCloze(answer) else AnswerMultiSlot(answer))
+            } }
+        }
+        is ExerciseWordOrder -> {
+            Text(stringResource(R.string.foundation_answer))
+            Text(order.mapIndexed { i,id -> "${i+1}. ${exercise.tokens.first { it.id==id }.text}" }.joinToString("  "))
+            exercise.tokens.filter { it.id !in order }.forEach { token ->
+                OutlinedButton(onClick={order=order+token.id;onAnswer(if(order.size==exercise.tokens.size) AnswerWordOrder(order) else null)},modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) { Text(token.text) }
+            }
+            OutlinedButton(onClick={order=emptyList();onAnswer(null)},enabled=order.isNotEmpty()) { Text(stringResource(R.string.foundation_reset)) }
+        }
+    }
+}
+
+@Composable
+fun FoundationPreview(session: Session) {
+    var index by remember { mutableIntStateOf(0) }
+    var german by remember { mutableStateOf(false) }
+    var answer by remember { mutableStateOf<Answer?>(null) }
+    var inspected by remember { mutableStateOf(false) }
+    val exercise=session.questions[index].exercise
+    Surface(color=MaterialTheme.colorScheme.background,modifier=Modifier.fillMaxSize()) {
+        Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(FoundationTokens.spacing[3].dp).widthIn(max=FoundationTokens.practiceMax.dp),verticalArrangement=Arrangement.spacedBy(FoundationTokens.spacing[3].dp)) {
+            Text(stringResource(R.string.foundation_title),style=MaterialTheme.typography.titleLarge)
+            Text(stringResource(R.string.foundation_notice),color=MaterialTheme.colorScheme.onSurfaceVariant)
+            Row(Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp).toggleable(value=german,role=Role.Switch,onValueChange={german=it})) { Switch(checked=german,onCheckedChange=null); Text(stringResource(R.string.foundation_german)) }
+            PracticeCard {
+                Text(stringResource(R.string.foundation_position,index+1,session.questions.size))
+                Text(exercise.prompt,style=MaterialTheme.typography.headlineSmall,modifier=Modifier.semantics { heading() })
+                Text(if(german) exercise.instruction.de else exercise.instruction.en)
+                key(exercise.id) {
+                    ExerciseInput(exercise) { answer=it;inspected=false }
+                    var hint by remember { mutableStateOf(false) }
+                    TextButton(onClick={hint=!hint}) { Text(stringResource(R.string.foundation_hint)) }
+                    if(hint) Text(if(german) exercise.hint.de else exercise.hint.en)
+                }
+                Button(onClick={inspected=true},enabled=answer!=null,modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) { Text(stringResource(R.string.foundation_inspect)) }
+                if(inspected) {
+                    Text(stringResource(R.string.foundation_ready),modifier=Modifier.semantics { liveRegion=LiveRegionMode.Polite })
+                    answer?.let { Text(ContractReader.json.encodeToString<Answer>(it)) }
+                }
+                OutlinedButton(onClick={index=(index+1)%session.questions.size;answer=null;inspected=false},modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) { Text(stringResource(R.string.foundation_next)) }
+            }
+        }
+    }
+}

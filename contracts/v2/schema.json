@@ -1,0 +1,833 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://german-master.invalid/contracts/v2/schema.json",
+  "$defs": {
+    "Option": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ]
+    },
+    "Slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ]
+    },
+    "SlotValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "slotId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "slotId",
+        "text"
+      ]
+    },
+    "LocalizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "de": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "en",
+        "de"
+      ]
+    },
+    "ExerciseShortAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "short_answer"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "type": "integer",
+          "maximum": 2147483647
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "hint": {
+          "$ref": "#/$defs/LocalizedText"
+        }
+      },
+      "required": [
+        "type",
+        "schemaVersion",
+        "id",
+        "revision",
+        "targetId",
+        "prompt",
+        "instruction",
+        "hint"
+      ]
+    },
+    "ExerciseChoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "choice"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "type": "integer",
+          "maximum": 2147483647
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "hint": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Option"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "type",
+        "schemaVersion",
+        "id",
+        "revision",
+        "targetId",
+        "prompt",
+        "instruction",
+        "hint",
+        "options"
+      ]
+    },
+    "ExerciseCloze": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "cloze"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "type": "integer",
+          "maximum": 2147483647
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "hint": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Slot"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "type",
+        "schemaVersion",
+        "id",
+        "revision",
+        "targetId",
+        "prompt",
+        "instruction",
+        "hint",
+        "slots"
+      ]
+    },
+    "ExerciseWordOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "word_order"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "type": "integer",
+          "maximum": 2147483647
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "hint": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Option"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "type",
+        "schemaVersion",
+        "id",
+        "revision",
+        "targetId",
+        "prompt",
+        "instruction",
+        "hint",
+        "tokens"
+      ]
+    },
+    "ExerciseMultiSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "multi_slot"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "type": "integer",
+          "maximum": 2147483647
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "hint": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Slot"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "type",
+        "schemaVersion",
+        "id",
+        "revision",
+        "targetId",
+        "prompt",
+        "instruction",
+        "hint",
+        "slots"
+      ]
+    },
+    "AnswerShortAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "short_answer"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "text"
+      ]
+    },
+    "AnswerChoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "choice"
+        },
+        "optionId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "type",
+        "optionId"
+      ]
+    },
+    "AnswerCloze": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "cloze"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SlotValue"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "type",
+        "values"
+      ]
+    },
+    "AnswerWordOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "word_order"
+        },
+        "tokenIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "tokenIds"
+      ]
+    },
+    "AnswerMultiSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "multi_slot"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SlotValue"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "type",
+        "values"
+      ]
+    },
+    "Exercise": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ExerciseShortAnswer"
+        },
+        {
+          "$ref": "#/$defs/ExerciseChoice"
+        },
+        {
+          "$ref": "#/$defs/ExerciseCloze"
+        },
+        {
+          "$ref": "#/$defs/ExerciseWordOrder"
+        },
+        {
+          "$ref": "#/$defs/ExerciseMultiSlot"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type"
+      }
+    },
+    "Answer": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AnswerShortAnswer"
+        },
+        {
+          "$ref": "#/$defs/AnswerChoice"
+        },
+        {
+          "$ref": "#/$defs/AnswerCloze"
+        },
+        {
+          "$ref": "#/$defs/AnswerWordOrder"
+        },
+        {
+          "$ref": "#/$defs/AnswerMultiSlot"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "type"
+      }
+    },
+    "Question": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exercise": {
+          "$ref": "#/$defs/Exercise"
+        }
+      },
+      "required": [
+        "id",
+        "exercise"
+      ]
+    },
+    "Session": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentReleaseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Question"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "id",
+        "contentReleaseId",
+        "questions"
+      ]
+    },
+    "Attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sessionQuestionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "deviceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "answer": {
+          "$ref": "#/$defs/Answer"
+        },
+        "assistance": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hint",
+              "reveal"
+            ]
+          }
+        },
+        "answeredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clientSequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "attemptId",
+        "sessionQuestionId",
+        "exerciseRevision",
+        "deviceId",
+        "answer",
+        "assistance",
+        "answeredAt",
+        "clientSequence"
+      ]
+    },
+    "AttemptBatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Attempt"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "attempts"
+      ]
+    },
+    "ApiError": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "requestId",
+        "retryable"
+      ]
+    },
+    "SessionRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "questionCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "short_answer@1",
+              "choice@1",
+              "cloze@1",
+              "word_order@1",
+              "multi_slot@1"
+            ]
+          }
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "questionCount",
+        "capabilities"
+      ]
+    },
+    "Evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "skipped"
+          ]
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation": {
+          "$ref": "#/$defs/LocalizedText"
+        },
+        "acceptedAnswer": {
+          "$ref": "#/$defs/Answer"
+        }
+      },
+      "required": [
+        "outcome",
+        "policyVersion",
+        "explanation",
+        "acceptedAnswer"
+      ]
+    },
+    "AttemptAcknowledgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "accepted"
+        },
+        "evaluation": {
+          "$ref": "#/$defs/Evaluation"
+        },
+        "serverSequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "attemptId",
+        "status",
+        "evaluation",
+        "serverSequence"
+      ]
+    },
+    "AttemptRejection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "rejected"
+        },
+        "error": {
+          "$ref": "#/$defs/ApiError"
+        }
+      },
+      "required": [
+        "attemptId",
+        "status",
+        "error"
+      ]
+    },
+    "AttemptDuplicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "duplicate"
+        },
+        "evaluation": {
+          "$ref": "#/$defs/Evaluation"
+        },
+        "serverSequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "attemptId",
+        "status",
+        "evaluation",
+        "serverSequence"
+      ]
+    },
+    "Acknowledgment": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AttemptAcknowledgment"
+        },
+        {
+          "$ref": "#/$defs/AttemptDuplicate"
+        },
+        {
+          "$ref": "#/$defs/AttemptRejection"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "status"
+      }
+    },
+    "AttemptBatchResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "acknowledgments": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/Acknowledgment"
+          }
+        }
+      },
+      "required": [
+        "apiVersion",
+        "acknowledgments"
+      ]
+    }
+  },
+  "$ref": "#/$defs/Session"
+}

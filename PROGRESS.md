@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This continuation started at `0c94390` with a clean checkout and matching remote. Current slice repairs Android lint and updates the toolchain; see the evidence below and Git history for its commit.
+- This foundation continuation started at `9b78812` with a clean checkout and matching remote. The Android repair/mockup slice is complete; this slice implements the first shared exercise foundation.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -40,10 +40,15 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Both legacy Git bundles restored into disposable bare repositories, passed full integrity checks and matched baseline tag trees. [Recovery evidence](docs/operations/legacy-recovery.md).
 - Owner clarified that the hard reset allows current/replacement dependencies and design changes within the renovation scope. Recorded in `AGENTS.md`; preservation, identity and release boundaries remain.
 - At the owner's request, saved four visual concept boards covering six web/Android screens under [docs/design/mockups](docs/design/mockups/README.md), with exact prompts and review notes. Includes desktop Home/feedback, native Home/Progress/Topics, and offline dark feedback. Visually inspected concepts with illustrative data; no UI implementation, content approval or accessibility acceptance is claimed. Four built-in generation calls and one edit; zero Groq calls.
+- First M1 foundation implemented: `contracts` is an npm workspace with generated TypeScript/Zod and Kotlin transport models from versioned JSON Schema, draft OpenAPI session/attempt boundaries, and shared conformance/answer/acknowledgment examples. Both clients render the same five exercise forms from one solution-free session fixture.
+- Shared semantic design tokens generate scoped CSS and native Kotlin bindings with contrast checks. Reusable input/card/action components power isolated web `/foundation` development preview and native debug-only `FoundationPreviewActivity`. No client grading or mastery policy was added.
+- Five original target-centered examples have an agent editorial review, with provenance, accepted forms and ambiguity constraints in `content/foundation`. They are unpublished drafts; independent German-language review and the broader 30-target M1 gate remain open.
+- Accessible M0 preservation advanced: identified legacy production deployment and preserved its exact source/history in a verified local bundle; exported seven public database tables in a read-only transaction and verified exact row hashes through an isolated JSON archive recovery. Full PostgreSQL/auth/storage restore and off-machine recovery remain open. [Inventory and blockers](docs/operations/m0-inventory.md).
+- Foundation verification: root install/check/build passed; web 77 files / 297 tests passed with two workers; Android offline 25 suites / 95 tests passed, debug assembly passed, lint zero errors / 16 warnings. Shared native rendering is verified under Robolectric, not on a device. Browser verification covered 320px light/dark reflow, 48px controls, keyboard selection, focus after continuation, English/German and a 200% CSS-zoom simulation. [Detailed evidence](docs/operations/foundation-verification.md).
 
 ## Remaining limitations
 
-The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain; device/emulator behavior and release assembly were not verified. Live database/content export and restore, deployed web/API identity, published Android version and signing continuity remain unverified. Source/history recovery does not satisfy those gates.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. The authoritative backend and complete 2.0 learner journey remain unimplemented.
 
 Hosted verification after the repair:
 
@@ -58,23 +63,24 @@ Implementation commits `b7d3f6a` (lint/toolchain repair) and `c584e0f` (hosted S
 
 | Milestone | Status | Remaining gate |
 |---|---|---|
-| M0 Preserve and baseline | In progress | Establish deployment/store identity and content/database preservation evidence where access permits |
-| M1 Contracts design and content | Not started | Working exercise/API contracts, cross-language fixtures, target model, tokens and initial reviewed content |
+| M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
+| M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
 | M2 Authoritative engine | Not started | Grading, evidence reduction, scheduling, selection and idempotent attempts |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
 | M6 Pilot and readiness | Not started | Reviewed content, usability and delayed-retention follow-up |
 
-The monorepo bootstrap is complete, but M0 as a whole is not. Existing backend, schema, content tooling and shared TypeScript code remain inside `apps/web` intentionally. Do not claim the proposed engine/API/shared packages exist.
+The monorepo bootstrap and first cross-client foundation demonstration are implemented. M0 and M1 remain open. Legacy backend/schema/tooling remain inside `apps/web`; `contracts` now exists, but the proposed learning-engine package, separate API service and reset database have not yet been implemented.
 
 ## Exact next implementation slice
 
-1. Check working tree, recent commits and any newer hosted results. Preserve newer or unrelated work. The repaired Android, web and safety verification evidence is recorded above; do not repeat the resolved lint investigation.
-2. Complete accessible M0 deployment/store/content/database inventory and preservation evidence; record specific access blockers. Source/history restore is already verified. Never run an old database-reset script to establish a baseline.
-3. Start M1 with the first working versioned exercise/API contracts and shared grading fixtures, including TypeScript/Kotlin conformance. Use the blueprint exercise and API requirements; introduce actual packages with implementations, not empty folders. Current/replacement dependencies and design changes are authorized for this hard reset.
+1. Inspect checkout/recent commits and hosted foundation results. Preserve newer work; do not restart the completed Android repair, mockups or contract-preview implementation.
+2. Implement authoritative grading of this pinned five-question sample session in a pure `packages/learning-engine` and isolated `services/api` boundary, using shared reviewed-draft fixtures and versioned normalization. Cover answer linkage, alternatives, assistance, ownership and attempt replay/conflict behavior with local fixtures. Clients submit answers and display server evaluations; they must not confirm mastery independently.
+3. Add the target-centered reset database model locally, then exercise one complete backend-graded session before broadening the learner journey. No production reset/cutover is authorized. Independent German-language content review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The Android lint/toolchain slice is complete locally; M0 as a whole remains open and M1 product implementation has not begun. The broader backlog and milestone exit gates are in blueprint Sections 23–26.
+The next demonstration is one complete session graded by the authoritative backend, then the complete learner journey. The first M1 foundation slice is implemented and locally verified; full milestone exit gates remain in blueprint Sections 23–26. This checkpoint will be committed/pushed with the foundation slice; hosted outcomes at its new commit must be checked separately.
 
 ## Local toolchain and checks
 

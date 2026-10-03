@@ -1,0 +1,49 @@
+{
+  "apiVersion": "v2",
+  "acknowledgments": [
+    {
+      "attemptId": "00000000-0000-4000-8000-000000000400",
+      "status": "accepted",
+      "evaluation": {
+        "outcome": "correct",
+        "policyVersion": "de-nfc-trim-v1",
+        "explanation": {
+          "en": "The plural is Berufe.",
+          "de": "Der Plural lautet Berufe."
+        },
+        "acceptedAnswer": {
+          "type": "short_answer",
+          "text": "Berufe"
+        }
+      },
+      "serverSequence": 1
+    },
+    {
+      "attemptId": "00000000-0000-4000-8000-000000000400",
+      "status": "duplicate",
+      "evaluation": {
+        "outcome": "correct",
+        "policyVersion": "de-nfc-trim-v1",
+        "explanation": {
+          "en": "The plural is Berufe.",
+          "de": "Der Plural lautet Berufe."
+        },
+        "acceptedAnswer": {
+          "type": "short_answer",
+          "text": "Berufe"
+        }
+      },
+      "serverSequence": 1
+    },
+    {
+      "attemptId": "00000000-0000-4000-8000-000000000401",
+      "status": "rejected",
+      "error": {
+        "code": "revision_conflict",
+        "message": "Exercise revision does not match the pinned question.",
+        "requestId": "00000000-0000-4000-8000-000000000401",
+        "retryable": false
+      }
+    }
+  ]
+}

@@ -1,10 +1,13 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
 import "./index.css";
 import { registerSW } from "virtual:pwa-register";
 
-registerSW({ immediate: true });
+const FoundationPreview = lazy(() => import("./foundation/preview"));
+const App = lazy(() => import("./App"));
+
+const foundation = import.meta.env.DEV && window.location.pathname === "/foundation";
+if (!foundation) registerSW({ immediate: true });
 
 const rootElement = document.getElementById("root");
 
@@ -14,6 +17,8 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={null}>
+      {foundation ? <FoundationPreview /> : <App />}
+    </Suspense>
   </StrictMode>,
 );

@@ -1,0 +1,172 @@
+{
+  "status": "agent-reviewed-draft",
+  "releaseId": "00000000-0000-4000-8000-000000000002",
+  "publicationApproved": false,
+  "provenance": "Original examples authored for this renovation; no imported dataset.",
+  "review": {
+    "date": "2026-10-03",
+    "method": "Agent editorial review of grammar, ambiguity, distractors and accepted forms; independent German-language review pending.",
+    "checks": [
+      "Singular context disambiguates colleague article.",
+      "Destination constrains preposition; accept ins and in das.",
+      "Word-order task fixes heute position in its explicit instruction.",
+      "Noun capitalization remains significant.",
+      "No AI API calls."
+    ]
+  },
+  "targets": [
+    {
+      "id": "00000000-0000-4000-8000-000000000200",
+      "skillId": "00000000-0000-4000-8000-000000000500",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "kind": "lexical",
+      "level": "B1",
+      "objective": "Type the plural.",
+      "exerciseId": "00000000-0000-4000-8000-000000000100",
+      "revision": 1,
+      "acceptedAnswer": {
+        "type": "short_answer",
+        "text": "Berufe"
+      },
+      "explanation": "The plural is „Berufe“; nouns retain capitalization.",
+      "policy": "de-nfc-trim-v1"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000201",
+      "skillId": "00000000-0000-4000-8000-000000000501",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "kind": "grammar",
+      "level": "B1",
+      "objective": "Choose the singular dative article.",
+      "exerciseId": "00000000-0000-4000-8000-000000000101",
+      "revision": 1,
+      "acceptedAnswer": {
+        "type": "choice",
+        "optionId": "dem"
+      },
+      "explanation": "„Mit“ takes the dative. For one colleague, use „dem neuen Kollegen“.",
+      "policy": "de-nfc-trim-v1"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000202",
+      "skillId": "00000000-0000-4000-8000-000000000502",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "kind": "grammar",
+      "level": "B1",
+      "objective": "Complete the preposition.",
+      "exerciseId": "00000000-0000-4000-8000-000000000102",
+      "revision": 1,
+      "acceptedAnswer": {
+        "type": "cloze",
+        "values": [
+          {
+            "slotId": "preposition",
+            "text": "ins"
+          }
+        ]
+      },
+      "explanation": "A destination with „das Büro“ uses „in das“, usually „ins“.",
+      "policy": "de-nfc-trim-v1"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000203",
+      "skillId": "00000000-0000-4000-8000-000000000503",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "kind": "grammar",
+      "level": "B1",
+      "objective": "Place the conjugated verb last after weil with heute immediately after ich.",
+      "exerciseId": "00000000-0000-4000-8000-000000000103",
+      "revision": 1,
+      "acceptedAnswer": {
+        "type": "word_order",
+        "tokenIds": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "0",
+          "5"
+        ]
+      },
+      "explanation": "After „weil“, the conjugated verb goes to the end.",
+      "policy": "de-nfc-trim-v1"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000204",
+      "skillId": "00000000-0000-4000-8000-000000000504",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "kind": "grammar",
+      "level": "B1",
+      "objective": "Complete both forms of „arbeiten“.",
+      "exerciseId": "00000000-0000-4000-8000-000000000104",
+      "revision": 1,
+      "acceptedAnswer": {
+        "type": "multi_slot",
+        "values": [
+          {
+            "slotId": "du",
+            "text": "arbeitest"
+          },
+          {
+            "slotId": "ihr",
+            "text": "arbeitet"
+          }
+        ]
+      },
+      "explanation": "„Arbeiten“ adds an e before -st and -t: arbeitest, arbeitet.",
+      "policy": "de-nfc-trim-v1"
+    }
+  ],
+  "alternatives": {
+    "preposition": [
+      "ins",
+      "in das"
+    ]
+  },
+  "topics": [
+    {
+      "id": "00000000-0000-4000-8000-000000000600",
+      "title": {
+        "en": "German in everyday work",
+        "de": "Deutsch im Arbeitsalltag"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "id": "00000000-0000-4000-8000-000000000500",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "title": "Noun plurals",
+      "parentId": null,
+      "prerequisiteIds": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000501",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "title": "Dative after mit",
+      "parentId": null,
+      "prerequisiteIds": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000502",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "title": "Destinations with in",
+      "parentId": null,
+      "prerequisiteIds": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000503",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "title": "Subordinate word order",
+      "parentId": null,
+      "prerequisiteIds": []
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000504",
+      "topicId": "00000000-0000-4000-8000-000000000600",
+      "title": "Present tense endings",
+      "parentId": null,
+      "prerequisiteIds": []
+    }
+  ]
+}

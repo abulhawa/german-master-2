@@ -99,6 +99,8 @@ export default defineConfig({
      */
     fs: {
       allow: [
+        path.resolve(__dirname, "../../contracts"),
+        path.resolve(__dirname, "../../design"),
         path.resolve(__dirname, "client"),
         path.resolve(__dirname, "attached_assets"),
         path.resolve(__dirname, "data"),
@@ -106,6 +108,8 @@ export default defineConfig({
     },
   },
   test: {
+    // Bound local/CI contention while Android can be verified independently.
+    maxWorkers: 2,
     globals: true,
     environment: "jsdom",
     setupFiles: path.resolve(__dirname, "vitest.setup.ts"),

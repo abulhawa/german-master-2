@@ -2,10 +2,10 @@ name: Web checks
 
 on:
   pull_request:
-    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**']
+    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**']
   push:
     branches: [main]
-    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**']
+    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**']
   workflow_dispatch:
 
 permissions:

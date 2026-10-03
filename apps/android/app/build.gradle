@@ -195,3 +195,12 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
 }
+
+// The preview packages only the solution-free session. Test fixtures stay in test resources.
+def foundationAssets = tasks.register("prepareFoundationAssets", Sync) {
+    from(rootProject.file("../../contracts/v2/examples")) { include("session.json") }
+    into(layout.buildDirectory.dir("generated/foundationAssets"))
+}
+android.sourceSets.main.assets.srcDir(layout.buildDirectory.dir("generated/foundationAssets").get().asFile)
+android.sourceSets.test.resources.srcDir(rootProject.file("../../contracts/v2/examples"))
+tasks.named("preBuild").configure { dependsOn(foundationAssets) }
