@@ -6,7 +6,7 @@ One product repository for the React web application, native Kotlin Android appl
 
 This is the history-preserving monorepo foundation. Both existing codebases have been imported without changing their application behavior. The existing API, database model, content tools and TypeScript shared utilities remain inside `apps/web` during the transition. The new mastery engine and v2 API described in the blueprint are not implemented yet.
 
-The original repositories remain intact. This repository is private because the Android source repository is private. No production environment, deployment, database, store listing or signing configuration has been changed.
+The original repositories remain intact. This repository is public at the project owner's explicit request, including the imported Android source and history. The original Android repository retains its private visibility. No production environment, deployment, database, store listing or signing configuration has been changed.
 
 ## Layout
 
