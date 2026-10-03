@@ -90,6 +90,7 @@ export default defineConfig({
     },
   },
   server: {
+    proxy: { "/v2": { target: "http://127.0.0.1:5001" } },
     /**
      * The Express dev server (see server/vite.ts) mounts Vite in middleware mode and
      * serves both API routes and client assets from http://localhost:5000. Because

@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This foundation continuation started at `9b78812` with a clean checkout and matching remote. The Android repair/mockup slice is complete; this slice implements the first shared exercise foundation.
+- This backend continuation started at `05e912f` with a clean checkout and matching remote. Android repair, mockups and the shared exercise foundation are complete; this slice implements the first authoritative backend-graded session.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -48,7 +48,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 ## Remaining limitations
 
-The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. The authoritative backend and complete 2.0 learner journey remain unimplemented.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading is implemented locally; production identity/network database, evidence reduction, scheduling, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
 
 Hosted verification after the repair:
 
@@ -73,22 +73,31 @@ The hosted-results checkpoint update is documentation-only and accompanies this 
 |---|---|---|
 | M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
 | M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
-| M2 Authoritative engine | Not started | Grading, evidence reduction, scheduling, selection and idempotent attempts |
+| M2 Authoritative engine | In progress | Sample grading and idempotent attempts implemented locally; evidence reduction, scheduling, adaptive selection and production adapters remain |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
 | M6 Pilot and readiness | Not started | Reviewed content, usability and delayed-retention follow-up |
 
-The monorepo bootstrap and first cross-client foundation demonstration are implemented. M0 and M1 remain open. Legacy backend/schema/tooling remain inside `apps/web`; `contracts` now exists, but the proposed learning-engine package, separate API service and reset database have not yet been implemented.
+The monorepo bootstrap, shared foundation and backend session demonstration are implemented. M0/M1 remain open and M2 is in progress. Legacy backend/schema/tooling remain inside `apps/web`; `contracts`, pure `packages/learning-engine`, isolated `services/api` and the first used target-centered schema under `db` now exist. The local PGlite PostgreSQL adapter and fixture authentication do not establish a production backend.
+
+## Authoritative backend session slice
+
+- Pure deterministic grading for all five forms, explicit alternatives, versioned NFC/outer-space normalization, answer linkage and assistance recording; no client mastery policy.
+- Local API creates owned solution-free sessions, enforces capabilities and pins immutable revisions. Session/attempt replay returns original data, changed submissions conflict, foreign questions disclose no evaluation, and first submission is transactionally enforced. Completion requires an accepted attempt for every question.
+- Root PostgreSQL schema links topics/skills/targets/revisions/releases to owned sessions/questions/attempts/evaluations, with composite ownership constraints and append-only guards. PGlite 0.5.8 supports offline PostgreSQL tests, including rollback/concurrent submission/restart recovery. No production migration ran.
+- Web `/foundation?backend=1` and Android debug activity with `--ez backend true` submit and display server feedback. Static previews remain available. Pending payloads are frozen for same-ID retries within the preview; process-death durability remains unimplemented.
+- Local verification passed: root install/check/build; web 78 files / 301 tests, backend 2 files / 19 tests; Android 26 suites / 97 tests, debug assembly, lint zero errors / 16 warnings. Full backend session completed over HTTP in tests, through the built launcher and in the browser. Native parity uses mocked server evaluations in Robolectric, not a device. [Evidence and limitations](docs/operations/backend-session-verification.md), [local setup](services/api/README.md), [decision](docs/adr/003_local_authoritative_session.md).
+- Hosted checks for this slice are pending the implementation push. Earlier foundation checks were reverified at `578959d`; they do not validate this new slice. No AI inference, production cutover, content publication or store release occurred.
 
 ## Exact next implementation slice
 
-1. Inspect checkout/recent commits and hosted foundation results. Preserve newer work; do not restart the completed Android repair, mockups or contract-preview implementation.
-2. Implement authoritative grading of this pinned five-question sample session in a pure `packages/learning-engine` and isolated `services/api` boundary, using shared reviewed-draft fixtures and versioned normalization. Cover answer linkage, alternatives, assistance, ownership and attempt replay/conflict behavior with local fixtures. Clients submit answers and display server evaluations; they must not confirm mastery independently.
-3. Add the target-centered reset database model locally, then exercise one complete backend-graded session before broadening the learner journey. No production reset/cutover is authorized. Independent German-language content review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+1. Inspect checkout/recent commits and hosted backend-session results. Preserve newer work; do not restart completed grading, previews, Android repair or mockups.
+2. Implement the pure versioned evidence reducer and review scheduling policy from blueprint Section 12, with injected clock/learner timezone and local fixtures. Cover same-day repetition, assisted/skipped exposure, independent failures, spaced gates, variant/context requirements, lapse history and deterministic replay. The current one-variant draft catalog must never satisfy the transfer/mastery gate by itself.
+3. Extend the isolated target-centered database/API to commit accepted evidence, derived target state/schedule and sync change atomically, with replay/rebuild tests. Add explicit skip/exposure contracts when used. Then drive a small server-selected session from differing learner histories before expanding learner navigation. Production auth/network PostgreSQL adapters and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is one complete session graded by the authoritative backend, then the complete learner journey. The first M1 foundation slice is implemented and verified locally and in hosted CI at `578959d`; full milestone exit gates remain in blueprint Sections 23–26. Implementation and checkpoint are committed/pushed at handoff; ignored private recovery artifacts remain local.
+The next demonstration is deterministic server-owned state/scheduling and session selection for differing learner histories, followed by the complete learner journey. The first backend session is implemented and locally verified; full milestone exit gates remain in blueprint Sections 23–26. The implementation/checkpoint are prepared for commit/push; hosted outcomes will be reconciled before handoff. Ignored private recovery artifacts remain local.
 
 ## Local toolchain and checks
 

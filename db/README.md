@@ -1,0 +1,9 @@
+# Isolated target-centered reset database
+
+`migrations/001_target_foundation.sql` introduces the first used subset of the blueprint in private schema `gm`: topic → skill → target → immutable exercise revision → pinned draft release → owned session/question → attempt/evaluation. Ownership is enforced by composite foreign keys as well as API checks. Unique `(user_id, question_id)` enforces first submission. Versioned rubrics and received sequences preserve evidence; triggers reject mutations of pinned revisions, release members, questions, attempts and evaluations.
+
+The API's local repository runs this migration and seeds only the five unpublished foundation drafts inside one transaction. PGlite 0.5.8 executes PostgreSQL in WASM; tests use a fresh isolated database and a temporary filesystem database for close/reopen replay. This is real PostgreSQL constraint/trigger behavior, not a SQL mock. It does not establish parity with a hosted multi-connection PostgreSQL deployment.
+
+No migration runner targets network databases. Do not apply this to the inherited production environment. The local demonstration connection owns its private schema; production needs a separate migration role, least-privilege API grants, verified identity and a network PostgreSQL adapter. No client database access is provided. Identity provider integration, full lexical/provenance resources, prerequisites/cycle validation, state/schedule/sync projections and privacy deletion remain future slices. The append-only guard needs an explicit audited privileged deletion process before account deletion ships.
+
+This migration is a local draft. Preserve its history once adopted by a persistent reset environment; subsequent changes then require a new numbered migration. Draft content is never presented as independently approved or published.

@@ -44,3 +44,14 @@ export const copy = {
   },
 };
 export type Locale = keyof typeof copy;
+
+export const backendCopy = {
+  en: { ...copy.en, subtitle: "Backend session preview", notice: "Draft content under review. The local server confirms answers; this demo resets on restart and does not calculate mastery.",
+    loading: "Preparing your session", retry: "Retry", submit: "Check answer", sending: "Checking…", connectionError: "Could not reach the server. Retry keeps the same submission.",
+    rejected: "The server could not accept this answer. Start a new preview session.", correct: "Correct", incorrect: "Needs correction", assisted: "Assisted",
+    yourAnswer: "Your answer", acceptedAnswer: "Accepted answer", next: "Continue", complete: "Session complete", summary: "All five answers were confirmed by the local server." },
+  de: { ...copy.de, subtitle: "Vorschau der Serverbewertung", notice: "Entwurfsinhalt in Prüfung. Der lokale Server bestätigt Antworten; diese Demo wird beim Neustart zurückgesetzt und berechnet keinen Lernstand.",
+    loading: "Ihre Übung wird vorbereitet", retry: "Erneut versuchen", submit: "Antwort prüfen", sending: "Wird geprüft…", connectionError: "Server nicht erreichbar. Beim erneuten Versuch bleibt die Abgabe gleich.",
+    rejected: "Der Server konnte diese Antwort nicht annehmen. Starten Sie eine neue Vorschau.", correct: "Richtig", incorrect: "Korrektur nötig", assisted: "Mit Hilfe",
+    yourAnswer: "Ihre Antwort", acceptedAnswer: "Akzeptierte Antwort", next: "Weiter", complete: "Übung abgeschlossen", summary: "Alle fünf Antworten wurden vom lokalen Server bestätigt." },
+};

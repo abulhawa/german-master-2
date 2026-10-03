@@ -71,6 +71,15 @@
 .gm-card h1 {
   margin: 0;
 }
+.gm-answer-group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: grid;
+  gap: var(--gm-space-16);
+}
+.gm-answer-group:disabled summary { pointer-events: none; }
 .gm-field {
   display: grid;
   gap: var(--gm-space-8);

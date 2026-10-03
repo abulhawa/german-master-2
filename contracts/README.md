@@ -1,6 +1,6 @@
 # Shared foundation contracts
 
-`v2/schema.json` is the transport source of truth (JSON Schema 2020-12). `v2/openapi.json` describes the first session/attempt API boundary; it is a draft contract, not an implemented service. `/v2` versions the API; `schemaVersion: 1` versions each of the five exercise payload forms. Exercise IDs and positive revisions identify immutable content; questions pin them within a content release.
+`v2/schema.json` is the transport source of truth (JSON Schema 2020-12). `v2/openapi.json` describes the draft session/attempt API boundary, implemented by the isolated local foundation service under `services/api`. `/v2` versions the API; `schemaVersion: 1` versions each of the five exercise payload forms. Exercise IDs and positive revisions identify immutable content; questions pin them within a content release.
 
 Run `npm run generate:foundation` from the repository root after schema/token edits. The checked-in generator v1 produces Zod transport types and Kotlin serialization models. `npm run check:generated` detects drift; both CI jobs run it. The generator fails on unsupported schema keywords instead of silently ignoring them. Generated files are not hand-edited.
 
@@ -8,9 +8,9 @@ Objects are closed and all fields required. Integers use the same signed 32-bit 
 
 `examples/session.json` contains five solution-free exercise revisions. The browser imports it through the contracts workspace; Gradle copies only this file into assets. Test resources contain the same acceptance/rejection corpus, typed attempts and accepted/duplicate/rejected acknowledgment examples. Editorial solutions live separately in `content/foundation`; they are not copied into Android assets or online sessions.
 
-`Attempt` contains no learner ID or grade. The future service derives ownership from verified authentication, validates question/revision/answer linkage and assistance, and rejects a reused attempt ID with changed payload. Each accepted batch item commits independently; duplicate acknowledgments retain their original evaluation. Client clocks and sequences are evidence, not server ordering authority. The current server sequence is bounded to the draft integer range; move to decimal-string cursors before scaling beyond it.
+`Attempt` contains no learner ID or grade. The service derives ownership from its injected authenticator, validates question/revision/answer linkage and assistance, and rejects a reused attempt ID with changed payload. The local launcher uses only public fixture authentication; verified production identity remains open. Each accepted batch item commits independently; duplicate acknowledgments retain their original evaluation. `Evaluation.assisted` explicitly reports whether hint/reveal events accompanied the submission. Client clocks and sequences are evidence, not server ordering authority. The current server sequence is bounded to the draft integer range; move to decimal-string cursors before scaling beyond it.
 
-This first contract covers online attempts. Offline-pack IDs, local policy metadata, skip/exposure commands, session completion, guest claiming, cursor sync and the remaining blueprint endpoints must be added and tested before those flows are enabled. Clients currently prepare answers only: no grading, mastery, scheduling, persistence or API calls are implemented by the previews.
+This first contract covers online attempts. Offline-pack IDs, local policy metadata, skip/exposure commands, explicit partial session completion, guest claiming, cursor sync and the remaining blueprint endpoints must be added and tested before those flows are enabled. Backend preview modes submit answers and display confirmed evaluations without local grading or mastery. Static inspection modes remain available. See `services/api/README.md` for setup and limitations.
 
 ## Demonstration
 

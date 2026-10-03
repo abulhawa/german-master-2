@@ -155,6 +155,7 @@ export const EvaluationSchema = z.strictObject({
   policyVersion: z.string().min(1),
   explanation: LocalizedTextSchema,
   acceptedAnswer: AnswerSchema,
+  assisted: z.boolean(),
 });
 export type Evaluation = z.infer<typeof EvaluationSchema>;
 export const AttemptAcknowledgmentSchema = z.strictObject({

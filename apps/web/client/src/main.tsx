@@ -4,6 +4,7 @@ import "./index.css";
 import { registerSW } from "virtual:pwa-register";
 
 const FoundationPreview = lazy(() => import("./foundation/preview"));
+const BackendPreview = lazy(() => import("./foundation/backend-preview"));
 const App = lazy(() => import("./App"));
 
 const foundation = import.meta.env.DEV && window.location.pathname === "/foundation";
@@ -18,7 +19,7 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <StrictMode>
     <Suspense fallback={null}>
-      {foundation ? <FoundationPreview /> : <App />}
+      {foundation ? (window.location.search === "?backend=1" ? <BackendPreview /> : <FoundationPreview />) : <App />}
     </Suspense>
   </StrictMode>,
 );

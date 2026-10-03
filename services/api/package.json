@@ -1,0 +1,8 @@
+{
+  "name": "@german-master/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "tsx src/local.ts", "build": "esbuild src/local.ts --bundle --platform=node --external:@electric-sql/pglite --external:zod --format=esm --outfile=dist/local.js" },
+  "dependencies": { "@german-master/contracts": "*", "@german-master/learning-engine": "*", "@electric-sql/pglite": "0.5.8" }
+}

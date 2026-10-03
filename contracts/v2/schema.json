@@ -703,13 +703,17 @@
         },
         "acceptedAnswer": {
           "$ref": "#/$defs/Answer"
+        },
+        "assisted": {
+          "type": "boolean"
         }
       },
       "required": [
         "outcome",
         "policyVersion",
         "explanation",
-        "acceptedAnswer"
+        "acceptedAnswer",
+        "assisted"
       ]
     },
     "AttemptAcknowledgment": {
