@@ -25,6 +25,8 @@ Future API, learning-engine, contract and token packages are created when their 
 
 ## Product documentation
 
+To resume in a new Codex chat, open this repository and say **"Continue the German Master renovation."** Codex should read [PROGRESS.md](PROGRESS.md) and the [continuation guide](docs/operations/continuation.md), verify the current checkout, and implement the next unfinished slice. The checkpoint is updated at each handoff.
+
 - [Complete blueprint](docs/product/blueprint.md)
 - [Executive summary](docs/product/executive-summary.md)
 - [Polished reading edition](docs/product/German-Master-2-Blueprint.html)
