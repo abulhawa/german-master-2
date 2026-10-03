@@ -11,9 +11,10 @@ plugins {
     alias(libs.plugins.play.publisher)
 }
 
-val localProps = Properties().apply {
-    val f = rootProject.file("local.properties")
-    if (f.exists()) load(f.inputStream())
+def localProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
 }
 
 android {
@@ -42,8 +43,8 @@ android {
 
     signingConfigs {
         create("release") {
-            val storeFilePath = localProps.getProperty("signing.storeFile")
-            storeFile = if (storeFilePath != null) file(storeFilePath) else file("placeholder.jks")
+            def storeFilePath = localProps.getProperty("signing.storeFile")
+            storeFile = storeFilePath != null ? file(storeFilePath) : file("placeholder.jks")
             storePassword = localProps.getProperty("signing.storePassword")
             keyAlias = localProps.getProperty("signing.keyAlias")
             keyPassword = localProps.getProperty("signing.keyPassword")
@@ -53,8 +54,8 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("release")
-            isMinifyEnabled = true
-            isShrinkResources = true
+            minifyEnabled = true
+            shrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk {
                 debugSymbolLevel = "FULL"
@@ -74,7 +75,7 @@ android {
 
     testOptions {
         unitTests {
-            isIncludeAndroidResources = true
+            includeAndroidResources = true
         }
     }
 
@@ -86,8 +87,8 @@ android {
     }
 
     lint {
-        checkReleaseBuilds = false
-        abortOnError = false
+        checkReleaseBuilds = true
+        abortOnError = true
     }
 }
 
@@ -101,11 +102,13 @@ room {
     schemaDirectory("$projectDir/schemas")
 }
 
-apply(from = "../gradle/tasks/screenshots.gradle.kts")
+apply from: "../gradle/tasks/screenshots.gradle"
 
-tasks.withType<Test>().configureEach {
-    System.getProperty("roborazzi.test.record")?.let { systemProperty("roborazzi.test.record", it) }
-    System.getProperty("roborazzi.test.verify")?.let { systemProperty("roborazzi.test.verify", it) }
+tasks.withType(Test).configureEach {
+    for (def propertyName : ["roborazzi.test.record", "roborazzi.test.verify"]) {
+        def propertyValue = System.getProperty(propertyName)
+        if (propertyValue != null) systemProperty(propertyName, propertyValue)
+    }
 }
 
 dependencies {

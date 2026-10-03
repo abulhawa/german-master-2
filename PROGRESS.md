@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- Latest implementation baseline before this handoff: `9c1b0ab`, public visibility documentation. Later continuation-file commits do not change application behavior.
+- This continuation started at `0c94390` with a clean checkout and matching remote. Current slice repairs Android lint and updates the toolchain; see the evidence below and Git history for its commit.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -35,16 +35,22 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local Android debug assembly passed. All 22 Android unit suites and 90 tests passed with no failures, errors or skips.
 - Gitleaks 8.30.1 full history scan passed with zero findings. No Groq inference calls were made.
 - Durable continuation instructions and checkpoint added so subsequent chats can resume from repository files.
+- Android lint crash repaired by converting all four Gradle scripts to Groovy; AGP 9.4.1 and Gradle 9.8.0 pinned. No checks were suppressed. The Analytics locale lint error was fixed, and blocking errors/release lint are enabled.
+- Final offline Android verification passed: 22 suites / 90 tests, zero failures/errors/skips; debug assembly passed; lint reported zero errors and 16 warnings. [Detailed repair evidence](docs/operations/android-lint-repair.md) includes intermediate failures and runtime limits.
+- Both legacy Git bundles restored into disposable bare repositories, passed full integrity checks and matched baseline tag trees. [Recovery evidence](docs/operations/legacy-recovery.md).
+- Owner clarified that the hard reset allows current/replacement dependencies and design changes within the renovation scope. Recorded in `AGENTS.md`; preservation, identity and release boundaries remain.
 
-## Known blocker
+## Remaining limitations
 
-Android `lintAnalyzeDebug` crashes inside Kotlin script/UAST analysis: `findFirCompiledSymbol only works on compiled declarations, but the given declaration is not compiled`. Application source was not changed and lint was not disabled. Full details are in `docs/operations/bootstrap-verification.md`. Treat it as an unresolved toolchain diagnostic, not a passing check or a proved application defect.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain; device/emulator behavior and release assembly were not verified. Live database/content export and restore, deployed web/API identity, published Android version and signing continuity remain unverified. Source/history recovery does not satisfy those gates.
+
+Hosted CI inspected at the start: repository safety passed at `0c94390`; Android run `37116424351` failed with the same lint crash before this repair. No web workflow runs were listed. Post-repair hosted outcomes are pending until inspected; do not infer them from local success.
 
 ## Milestone status
 
 | Milestone | Status | Remaining gate |
 |---|---|---|
-| M0 Preserve and baseline | In progress | Triage lint; inspect actual hosted CI; establish deployment/store identity and content/database preservation evidence where access permits |
+| M0 Preserve and baseline | In progress | Verify repaired hosted CI; establish deployment/store identity and content/database preservation evidence where access permits |
 | M1 Contracts design and content | Not started | Working exercise/API contracts, cross-language fixtures, target model, tokens and initial reviewed content |
 | M2 Authoritative engine | Not started | Grading, evidence reduction, scheduling, selection and idempotent attempts |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
@@ -56,19 +62,17 @@ The monorepo bootstrap is complete, but M0 as a whole is not. Existing backend, 
 
 ## Exact next implementation slice
 
-1. Check working tree, recent commits and hosted workflow results. Preserve any newer or unrelated work.
-2. Diagnose and repair Android lint with the smallest supported toolchain/configuration correction. Consult current official Android/Kotlin documentation; reproduce against the preserved source if needed. Keep lint enabled and do not upgrade the whole app indiscriminately.
-3. Verify affected Android tests/lint/debug assembly and record reproducible results. If an external toolchain blocker remains after meaningful diagnosis, document it and continue independent M0 work rather than stalling the entire renovation.
-4. Complete accessible M0 inventory/preservation evidence and identify genuine access blockers. Never run an old database-reset script to establish a baseline.
-5. Start M1 with the first working typed exercise/API contracts and shared grading fixtures. Introduce actual packages with their implementations; do not add empty folders to simulate progress.
+1. Check working tree, recent commits and post-repair hosted Android/safety results. Preserve newer or unrelated work. Inspect or dispatch the web checks, whose hosted outcome remains unestablished.
+2. Complete accessible M0 deployment/store/content/database inventory and preservation evidence; record specific access blockers. Source/history restore is already verified. Never run an old database-reset script to establish a baseline.
+3. Start M1 with the first working versioned exercise/API contracts and shared grading fixtures, including TypeScript/Kotlin conformance. Use the blueprint exercise and API requirements; introduce actual packages with implementations, not empty folders. Current/replacement dependencies and design changes are authorized for this hard reset.
 
-This slice should produce code/configuration and verified evidence, not another roadmap document. If step 2 is already fixed in newer commits, skip to the next unfinished step. The broader backlog and milestone exit gates are in blueprint Sections 23–26.
+The Android lint/toolchain slice is complete locally; M0 as a whole remains open and M1 product implementation has not begun. The broader backlog and milestone exit gates are in blueprint Sections 23–26.
 
 ## Local toolchain and checks
 
 - Web verified with Node 22.23.3 and npm 10.9.9. Portable local installation currently under ignored `.local/tools/node-v22.23.3-win-x64`; availability is machine-specific.
 - Run root `npm ci`, `npm run check`, `npm test`, and relevant `npm run build`. Use mocks/fixtures, no production credentials. Leave `DATABASE_URL` unset for the inherited test fixture default; an empty string prevents some suites from loading.
-- Android verified with Gradle 9.4.1, Java 21, compile/target SDK 37, and the checked-in version catalog. This machine has Java under `C:/Users/ali_a/.gradle/jdks/eclipse_adoptium-21-amd64-windows.2` and SDK under `C:/Users/ali_a/AppData/Local/Android/Sdk`.
+- Android now verified with Gradle 9.8.0, AGP 9.4.1, Java 21, compile/target SDK 37, and the checked-in version catalog. This machine has Java under `C:/Users/ali_a/.gradle/jdks/eclipse_adoptium-21-amd64-windows.2` and SDK under `C:/Users/ali_a/AppData/Local/Android/Sdk`.
 - Android SDK package naming currently uses `platforms;android-37.0`; CI also installs build tools 37.0.0 and the declared NDK. Discover actual available requirements when resolving the lint issue.
 - From `apps/android`, use the wrapper for relevant tests, `lintDebug` and `assembleDebug`. Reports/build outputs are local and ignored.
 

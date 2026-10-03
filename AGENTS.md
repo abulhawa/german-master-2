@@ -9,6 +9,7 @@
 - For Android changes, run relevant unit tests, lint and debug assembly where the toolchain is available. Report unavailable checks precisely. Use emulators/devices for behavior that needs them; do not describe source inspection as runtime verification.
 - New shared APIs use versioned contracts. Confirmed grading, mastery and scheduling belong to the future backend service. Do not add independent client mastery policies.
 - UI/UX changes must satisfy the 2.0 blueprint and accessibility requirements. Existing web guidance applies to legacy code until explicitly superseded; record intentional differences in review descriptions.
+- Owner clarification (3 October 2026): this is a hard reset. Agents may use current dependencies, replace dependencies, and change the design within the renovation scope. Treat the blueprint as the product baseline, not a requirement to preserve legacy libraries or visual design; document material departures and verify affected behavior. Application identity, signing continuity, preservation and release authorization boundaries still apply.
 - Preserve application identity, signing continuity, provenance and immutable exercise revision semantics.
 - Do not use live AI services in normal checks. Groq quota and credential rules from the user's global guidance remain applicable.
 - Include a proposed commit message when reporting code changes. Distinguish completed bootstrap work from the unimplemented product reset.

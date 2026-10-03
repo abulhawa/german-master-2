@@ -17,7 +17,7 @@ Keep any local web environment file in `apps/web/.env`, ignored by Git. Do not c
 
 ## Android
 
-Open `apps/android` directly in Android Studio. Use the checked-in Gradle wrapper 9.4.1, the version catalog's AGP/Kotlin versions, and the daemon's Java 21 requirement. Source compile compatibility remains Java 17 as declared by the imported app.
+Open `apps/android` directly in Android Studio. Use the checked-in Gradle wrapper 9.8.0, AGP 9.4.1, the version catalog's Kotlin versions, and the daemon's Java 21 requirement. Source compile compatibility remains Java 17 as declared by the imported app. Build/settings scripts use Groovy to avoid the reproduced Kotlin script/UAST lint crash; see [repair evidence](android-lint-repair.md).
 
 The app currently requests compile/target SDK 37 and NDK 29.0.14206865. Install matching SDK tools rather than silently lowering the target. Configure only local `sdk.dir` if your environment does not provide an SDK location. `local.properties.example` describes optional auth and signing settings; keep real values outside Git. Debug checks do not need release signing or Play publishing credentials.
 
@@ -26,7 +26,7 @@ Set-Location apps/android
 .\gradlew.bat testDebugUnitTest lintDebug assembleDebug
 ```
 
-The imported Gradle configuration disables blocking release lint. CI separately invokes debug lint, but hardening lint to a blocking release policy is still backlog work. Release signing, store track verification and production environment creation require the later release runbook.
+Lint errors are blocking and release lint checks are enabled. CI separately invokes debug lint. Remaining warnings need triage; release signing, store track verification and production environment creation require the later release runbook.
 
 ## Git and history
 
