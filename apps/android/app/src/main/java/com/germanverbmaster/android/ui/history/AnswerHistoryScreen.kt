@@ -1,0 +1,377 @@
+package com.germanverbmaster.android.ui.history
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.ui.wortschatz.FilterBottomSheet
+import kotlinx.coroutines.launch
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+
+@Composable
+fun AnswerHistoryScreen(
+    viewModel: AnswerHistoryViewModel = hiltViewModel(),
+    onBack: () -> Unit = {},
+    onNavigateToWordDetail: (Int) -> Unit = {}
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val showFilterSheet = remember { mutableStateOf(false) }
+    val listState = rememberLazyListState()
+    val scope = rememberCoroutineScope()
+
+    val showScrollToTop by remember {
+        derivedStateOf { listState.firstVisibleItemIndex > 2 }
+    }
+    
+    val showScrollToBottom by remember {
+        derivedStateOf {
+            val lastVisible = listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0
+            val total = listState.layoutInfo.totalItemsCount
+            total > 5 && lastVisible < total - 1
+        }
+    }
+
+    if (showFilterSheet.value) {
+        FilterBottomSheet(
+            selectedLevels = state.filterLevelSet,
+            onLevelToggle = viewModel::toggleLevel,
+            selectedPosSet = state.filterPosSet,
+            onPosToggle = viewModel::togglePos,
+            posOptions = state.posOptions,
+            wordCount = if (state.isLoading) null else state.attempts.size,
+            onDismiss = { showFilterSheet.value = false }
+        )
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier.padding(start = 8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+
+                Text(
+                    "Verlauf",
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(16.dp)
+                )
+
+                BadgedBox(
+                    badge = {
+                        val filterCount = state.filterLevelSet.size + state.filterPosSet.size
+                        if (filterCount > 0) {
+                            Badge(
+                                containerColor = MaterialTheme.colorScheme.primary,
+                                contentColor = MaterialTheme.colorScheme.onPrimary
+                            ) {
+                                Text(filterCount.toString())
+                            }
+                        }
+                    },
+                    modifier = Modifier.padding(end = 4.dp)
+                ) {
+                    IconButton(
+                        onClick = { showFilterSheet.value = true },
+                        modifier = Modifier.size(40.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Tune,
+                            contentDescription = "Filter",
+                            tint = if (state.filterPosSet.isNotEmpty() || state.filterLevelSet.isNotEmpty()) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .padding(end = 12.dp)
+                        .clickable { viewModel.toggleLatestOnly() }
+                ) {
+                    Text(
+                        text = if (state.showLatestOnly) "Status" else "Log",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = if (state.showLatestOnly) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    IconButton(
+                        onClick = viewModel::toggleLatestOnly,
+                        modifier = Modifier.size(40.dp)
+                    ) {
+                        Icon(
+                            imageVector = if (state.showLatestOnly) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                            contentDescription = "Toggle View Mode",
+                            tint = if (state.showLatestOnly) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+
+            // Filters
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                FilterChip(
+                    selected = state.filterResult == null,
+                    onClick = { viewModel.setFilterResult(null) },
+                    label = { Text("Alle (${state.correctCount + state.incorrectCount})") }
+                )
+                FilterChip(
+                    selected = state.filterResult == "correct",
+                    onClick = { viewModel.setFilterResult("correct") },
+                    label = { Text("Richtig (${state.correctCount})") }
+                )
+                FilterChip(
+                    selected = state.filterResult == "incorrect",
+                    onClick = { viewModel.setFilterResult("incorrect") },
+                    label = { Text("Falsch (${state.incorrectCount})") }
+                )
+            }
+
+            if (state.isLoading) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            } else if (state.attempts.isEmpty()) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text("Keine Einträge gefunden", style = MaterialTheme.typography.bodyLarge)
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    state = listState,
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(
+                        items = state.attempts,
+                        key = { it.localId } // Optimization: Stable keys for list items
+                    ) { attempt ->
+                        HistoryItem(
+                            attempt = attempt,
+                            attemptCount = state.attemptCounts[attempt.lexemeId] ?: 1,
+                            showCount = state.showLatestOnly,
+                            onClick = {
+                                scope.launch {
+                                    viewModel.getWordIdForHistory(attempt)?.let { wordId ->
+                                        onNavigateToWordDetail(wordId)
+                                    }
+                                }
+                            }
+                        )
+                    }
+                }
+            }
+        }
+
+        // Quick Scroll Buttons
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            AnimatedVisibility(
+                visible = showScrollToTop,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
+                FloatingActionButton(
+                    onClick = { scope.launch { listState.animateScrollToItem(0) } },
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.size(44.dp)
+                ) {
+                    Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Scroll to top")
+                }
+            }
+
+            AnimatedVisibility(
+                visible = showScrollToBottom,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
+                FloatingActionButton(
+                    onClick = { 
+                        scope.launch { 
+                            val total = listState.layoutInfo.totalItemsCount
+                            if (total > 0) listState.animateScrollToItem(total - 1) 
+                        } 
+                    },
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                    modifier = Modifier.size(44.dp)
+                ) {
+                    Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Scroll to bottom")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun HistoryItem(
+    attempt: PracticeHistoryEntity,
+    attemptCount: Int = 1,
+    showCount: Boolean = false,
+    onClick: () -> Unit = {}
+) {
+    val isCorrect = attempt.result == "correct"
+    val displayLemma = attempt.lemma.ifBlank { "Unbekannt" }
+
+    val dateStr = remember(attempt.submittedAt) {
+        try {
+            // Handle various ISO formats robustly
+            val accessor = DateTimeFormatter.ISO_DATE_TIME.parse(attempt.submittedAt)
+            val instant = Instant.from(accessor)
+            DateTimeFormatter.ofPattern("dd.MM. HH:mm")
+                .withZone(ZoneId.systemDefault())
+                .format(instant)
+        } catch (_: Exception) {
+            attempt.submittedAt
+        }
+    }
+
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        displayLemma,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    if (showCount && attemptCount > 1) {
+                        Surface(
+                            color = MaterialTheme.colorScheme.secondaryContainer,
+                            shape = MaterialTheme.shapes.extraSmall,
+                            modifier = Modifier.padding(start = 8.dp)
+                        ) {
+                            Text(
+                                text = "$attemptCount Versuche",
+                                style = MaterialTheme.typography.labelSmall,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+                }
+                Text(
+                    attempt.taskType.replace("_", " "),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                )
+
+                Spacer(Modifier.height(4.dp))
+                
+                val isDrill = attempt.taskType == "vocabulary_drill" || attempt.renderer == "word_card"
+                
+                if (!isDrill) {
+                    if (attempt.submittedAnswer.isNotBlank()) {
+                        Row {
+                            Text("Deine Antwort: ", style = MaterialTheme.typography.bodySmall)
+                            Text(
+                                attempt.submittedAnswer,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                            )
+                        }
+                    }
+                    if (!isCorrect && attempt.correctAnswer.isNotBlank()) {
+                        Row {
+                            Text("Richtig: ", style = MaterialTheme.typography.bodySmall)
+                            Text(
+                                attempt.correctAnswer,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+                }
+            }
+            Column(horizontalAlignment = Alignment.End) {
+                Text(
+                    if (isCorrect) "✓" else "✗",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                )
+                Text(
+                    dateStr,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+                )
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+package com.germanverbmaster.android.domain.usecase
+
+import android.util.Log
+import com.germanverbmaster.android.BuildConfig
+import com.germanverbmaster.android.data.local.AppPreferences
+import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
+import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.data.remote.RemoteHistory
+import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
+import com.germanverbmaster.android.data.repository.AuthRepository
+import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
+import com.germanverbmaster.android.data.sync.HistorySyncMapper
+import kotlinx.coroutines.flow.first
+import javax.inject.Inject
+
+class SyncHistoryUseCase @Inject constructor(
+    private val historyDao: PracticeHistoryDao,
+    private val historyApi: SupabaseHistoryApi,
+    private val historySyncMapper: HistorySyncMapper,
+    private val authRepository: AuthRepository,
+    private val prefs: AppPreferences,
+) {
+    private companion object {
+        const val UPLOAD_BATCH_SIZE = 50
+    }
+
+    suspend operator fun invoke() {
+        val userId = authRepository.currentUserId
+        if (userId == null) {
+            Log.d("SyncHistoryUseCase", "No user logged in, skipping history sync")
+            return
+        }
+
+        Log.d("SyncHistoryUseCase", "Starting history sync for user $userId")
+
+        // 1. Upload unsynced local records
+        try {
+            val unsynced = historyDao.unsyncedForUser(userId)
+            val uploadBatch = mutableListOf<UploadCandidate>()
+            val blockedRows = mutableListOf<PracticeHistoryEntity>()
+
+            for (entry in unsynced) {
+                val remote = historySyncMapper.toRemote(entry, userId)
+                if (remote != null) {
+                    uploadBatch += UploadCandidate(localId = entry.localId, remote = remote)
+                } else {
+                    blockedRows += entry
+                }
+            }
+
+            val blockedCount = blockedRows.size
+            if (blockedCount > 0) {
+                Log.d(
+                    "SyncHistoryUseCase",
+                    "Skipping $blockedCount unsynced history rows because they could not be mapped to remote task and lexeme identities",
+                )
+                if (BuildConfig.DEBUG) {
+                    blockedRows.take(3).forEach { row ->
+                        Log.d(
+                            "SyncHistoryUseCase",
+                            "Blocked history row localId=${row.localId} taskId=${row.taskId} lexemeId=${row.lexemeId} taskType=${row.taskType} renderer=${row.renderer} lemma=${row.lemma}",
+                        )
+                    }
+                }
+            }
+
+            if (uploadBatch.isNotEmpty()) {
+                Log.d("SyncHistoryUseCase", "Uploading ${uploadBatch.size} unsynced records")
+                uploadBatch.chunked(UPLOAD_BATCH_SIZE).forEach { chunk ->
+                    historyApi.upsert(chunk.map { it.remote })
+                    historyDao.markSynced(chunk.map { it.localId }, userId)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("SyncHistoryUseCase", "Failed to upload unsynced history", e)
+        }
+
+        // 2. Download remote records since last sync
+        try {
+            val lastSync = prefs.getHistoryLastSync() ?: "1970-01-01T00:00:00Z"
+            val remoteNew = historyApi.fetchUpdatedSince(lastSync, userId)
+            if (remoteNew.isNotEmpty()) {
+                Log.d("SyncHistoryUseCase", "Downloaded ${remoteNew.size} new records")
+                
+                // Robust De-duplication: Compare downloaded records against local records.
+                // We fetch recent records for comparison instead of ALL to avoid massive sequential fingerprinting.
+                val existingLocal = historyDao.observeRecent(500).first()
+                val existingFingerprints = mutableSetOf<HistorySyncFingerprint>()
+                for (entry in existingLocal) {
+                    existingFingerprints.add(historySyncMapper.toFingerprint(entry, userId))
+                }
+                
+                val dedupedRemote = remoteNew.filterNot { remote ->
+                    historySyncMapper.toFingerprint(remote) in existingFingerprints
+                }
+                
+                if (dedupedRemote.size != remoteNew.size) {
+                    Log.d(
+                        "SyncHistoryUseCase",
+                        "Skipping ${remoteNew.size - dedupedRemote.size} records that match existing local history",
+                    )
+                }
+
+                if (dedupedRemote.isNotEmpty()) {
+                    val entities = mutableListOf<PracticeHistoryEntity>()
+                    for (remote in dedupedRemote) {
+                        entities += historySyncMapper.toLocalEntity(remote)
+                    }
+                    historyDao.upsertAll(entities)
+                }
+
+                // Update the last sync time if we downloaded new records.
+                // We moved this outside the dedupedRemote.isNotEmpty() block because
+                // even if all remote records were duplicates (dedupedRemote empty),
+                // we still want to update the cursor so we don't fetch them again next time.
+                val latest = remoteNew.maxOf { it.submittedAt }
+                prefs.setHistoryLastSync(latest)
+            }
+        } catch (e: Exception) {
+            Log.e("SyncHistoryUseCase", "Failed to download remote history", e)
+        }
+
+        Log.d("SyncHistoryUseCase", "History sync completed")
+    }
+}
+
+private data class UploadCandidate(
+    val localId: Int,
+    val remote: RemoteHistory,
+)

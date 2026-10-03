@@ -1,0 +1,473 @@
+package com.germanverbmaster.android.domain.usecase
+
+import com.germanverbmaster.android.data.local.AppPreferences
+import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
+import com.germanverbmaster.android.data.local.entity.PracticeHistoryEntity
+import com.germanverbmaster.android.data.remote.RemoteHistory
+import com.germanverbmaster.android.data.remote.SupabaseHistoryApi
+import com.germanverbmaster.android.data.repository.AuthRepository
+import com.germanverbmaster.android.data.sync.HistorySyncFingerprint
+import com.germanverbmaster.android.data.sync.HistorySyncMapper
+import io.mockk.Runs
+import io.mockk.coEvery
+import io.mockk.coJustRun
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.runTest
+import org.junit.Before
+import org.junit.Test
+
+class SyncHistoryUseCaseTest {
+
+    private val historyDao: PracticeHistoryDao = mockk()
+    private val historyApi: SupabaseHistoryApi = mockk()
+    private val historySyncMapper: HistorySyncMapper = mockk()
+    private val authRepository: AuthRepository = mockk()
+    private val prefs: AppPreferences = mockk()
+
+    private lateinit var syncHistoryUseCase: SyncHistoryUseCase
+
+    @Before
+    fun setup() {
+        syncHistoryUseCase = SyncHistoryUseCase(
+            historyDao,
+            historyApi,
+            historySyncMapper,
+            authRepository,
+            prefs
+        )
+
+        // Mock Android Log
+        mockkStatic(android.util.Log::class)
+        every { android.util.Log.d(any(), any()) } returns 0
+        every { android.util.Log.e(any(), any()) } returns 0
+        every { android.util.Log.e(any(), any(), any()) } returns 0
+    }
+
+    @Test
+    fun `when not logged in, should skip sync`() = runTest {
+        every { authRepository.currentUserId } returns null
+
+        syncHistoryUseCase()
+
+        coVerify(exactly = 0) { historyDao.unsyncedForUser(any()) }
+        coVerify(exactly = 0) { historyApi.fetchUpdatedSince(any(), any()) }
+    }
+
+    @Test
+    fun `should upload unsynced records and download new ones`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val unsyncedEntity = PracticeHistoryEntity(
+            localId = 1,
+            taskId = "t1",
+            lexemeId = "l1",
+            lemma = "lemma1",
+            pos = "V",
+            taskType = "drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = false,
+            userId = userId
+        )
+        val remoteHistory = RemoteHistory(
+            remoteId = 2,
+            userId = userId,
+            taskId = "t2",
+            lexemeId = "l2",
+            lemma = "lemma2",
+            pos = "N",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = 200,
+            submittedAt = "2023-10-01T12:00:00Z",
+            hintsUsed = false
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns listOf(unsyncedEntity)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(unsyncedEntity))
+
+        val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(unsyncedEntity, userId) } returns fingerprint
+        
+        val remoteFingerprint = HistorySyncFingerprint(userId, "t2", "l2", "drill", "correct", "2023-10-01T12:00:00Z")
+        every { historySyncMapper.toFingerprint(remoteHistory) } returns remoteFingerprint
+
+        val remoteFromLocal = RemoteHistory(
+            remoteId = null,
+            userId = userId,
+            taskId = "t1",
+            lexemeId = "l1",
+            lemma = "lemma1",
+            pos = "V",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = 100,
+            hintsUsed = false,
+            submittedAt = "2023-10-01T11:00:00Z",
+        )
+        coEvery { historySyncMapper.toRemote(unsyncedEntity, userId) } returns remoteFromLocal
+        coEvery { historyApi.upsert(listOf(remoteFromLocal)) } just Runs
+        coEvery { historyDao.markSynced(listOf(1), userId) } just Runs
+
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(remoteHistory)
+
+        val entityFromRemote = mockk<PracticeHistoryEntity>()
+        coEvery { historySyncMapper.toLocalEntity(remoteHistory) } returns entityFromRemote
+        coEvery { historyDao.upsertAll(listOf(entityFromRemote)) } just Runs
+        coJustRun { prefs.setHistoryLastSync("2023-10-01T12:00:00Z") }
+
+        syncHistoryUseCase()
+
+        coVerify { historyApi.upsert(any()) }
+        coVerify { historyDao.markSynced(any(), userId) }
+        coVerify { historyDao.upsertAll(any()) }
+        coVerify { prefs.setHistoryLastSync("2023-10-01T12:00:00Z") }
+    }
+
+    @Test
+    fun `should upload anonymous records and associate them with user`() = runTest {
+        val userId = "user123"
+        val anonymousRecord = PracticeHistoryEntity(
+            localId = 5,
+            taskId = "t5",
+            lexemeId = "l5",
+            lemma = "lemma5",
+            pos = "V",
+            taskType = "drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = false,
+            userId = null
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns listOf(anonymousRecord)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(anonymousRecord))
+
+        val fingerprint = HistorySyncFingerprint(userId, "t5", "l5", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(anonymousRecord, userId) } returns fingerprint
+
+        val remoteFromLocal = RemoteHistory(
+            remoteId = null,
+            userId = userId,
+            taskId = "t5",
+            lexemeId = "l5",
+            lemma = "lemma5",
+            pos = "V",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = 100,
+            hintsUsed = false,
+            submittedAt = "2023-10-01T11:00:00Z",
+        )
+        coEvery { historySyncMapper.toRemote(anonymousRecord, userId) } returns remoteFromLocal
+        coEvery { historyApi.upsert(listOf(remoteFromLocal)) } just Runs
+        coEvery { historyDao.markSynced(listOf(5), userId) } just Runs
+
+        coEvery { prefs.getHistoryLastSync() } returns null
+        coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
+
+        syncHistoryUseCase()
+
+        coVerify { historyApi.upsert(listOf(remoteFromLocal)) }
+        coVerify { historyDao.markSynced(listOf(5), userId) }
+    }
+
+    @Test
+    fun `should upload all eligible unsynced records in bounded chunks`() = runTest {
+        val userId = "user123"
+        val unsynced = (1..75).map { index ->
+            PracticeHistoryEntity(
+                localId = index,
+                taskId = "t$index",
+                lexemeId = "l$index",
+                lemma = "lemma$index",
+                pos = "V",
+                taskType = "conjugate_form",
+                renderer = "conjugate_form",
+                result = "correct",
+                responseMs = 100,
+                submittedAt = "2023-10-01T11:00:00.${index.toString().padStart(3, '0')}Z",
+                synced = false,
+                userId = null,
+            )
+        }
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns unsynced
+        coEvery { historySyncMapper.toRemote(any(), userId) } coAnswers {
+            val entity = arg<PracticeHistoryEntity>(0)
+            RemoteHistory(
+                remoteId = null,
+                userId = userId,
+                taskId = entity.taskId,
+                lexemeId = entity.lexemeId,
+                lemma = entity.lemma,
+                pos = entity.pos,
+                taskType = entity.taskType,
+                renderer = entity.renderer,
+                deviceId = "device-1",
+                result = entity.result,
+                submittedAnswer = entity.submittedAnswer,
+                correctAnswer = entity.correctAnswer,
+                responseMs = entity.responseMs,
+                hintsUsed = entity.hintsUsed,
+                submittedAt = entity.submittedAt,
+            )
+        }
+        coEvery { historyApi.upsert(any()) } just Runs
+        coEvery { historyDao.markSynced(any(), userId) } just Runs
+        coEvery { prefs.getHistoryLastSync() } returns null
+        coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
+
+        syncHistoryUseCase()
+
+        coVerify(exactly = 1) { historyApi.upsert(match { it.size == 50 }) }
+        coVerify(exactly = 1) { historyApi.upsert(match { it.size == 25 }) }
+        coVerify(exactly = 1) { historyDao.markSynced(match { it.size == 50 }, userId) }
+        coVerify(exactly = 1) { historyDao.markSynced(match { it.size == 25 }, userId) }
+    }
+
+    @Test
+    fun `should skip downloaded rows that match the just-uploaded batch`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val uploadedEntity = PracticeHistoryEntity(
+            localId = 9,
+            taskId = "t9",
+            lexemeId = "l9",
+            lemma = "lemma9",
+            pos = "V",
+            taskType = "drill",
+            result = "correct",
+            responseMs = 150,
+            hintsUsed = true,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = false,
+            userId = null,
+        )
+        val matchingRemote = RemoteHistory(
+            remoteId = 12,
+            userId = userId,
+            taskId = uploadedEntity.taskId,
+            lexemeId = uploadedEntity.lexemeId,
+            lemma = "lemma9",
+            pos = uploadedEntity.pos,
+            taskType = uploadedEntity.taskType,
+            renderer = "default",
+            deviceId = "device-1",
+            result = uploadedEntity.result,
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = uploadedEntity.responseMs,
+            hintsUsed = uploadedEntity.hintsUsed,
+            submittedAt = uploadedEntity.submittedAt,
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns listOf(uploadedEntity)
+        // Simulate local DB containing the record after it was marked as synced
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(uploadedEntity.copy(synced = true)))
+
+        val fingerprint = HistorySyncFingerprint(userId, uploadedEntity.taskId, uploadedEntity.lexemeId, uploadedEntity.taskType, uploadedEntity.result, "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(any(), userId) } returns fingerprint
+        every { historySyncMapper.toFingerprint(matchingRemote) } returns fingerprint
+
+        val remoteFromLocal = mockk<RemoteHistory>()
+        every { remoteFromLocal.userId } returns userId
+        every { remoteFromLocal.taskId } returns uploadedEntity.taskId
+        every { remoteFromLocal.lexemeId } returns uploadedEntity.lexemeId
+        every { remoteFromLocal.lemma } returns "lemma9"
+        every { remoteFromLocal.pos } returns uploadedEntity.pos
+        every { remoteFromLocal.taskType } returns uploadedEntity.taskType
+        every { remoteFromLocal.renderer } returns "default"
+        every { remoteFromLocal.result } returns uploadedEntity.result
+        every { remoteFromLocal.submittedAnswer } returns "a"
+        every { remoteFromLocal.correctAnswer } returns "a"
+        every { remoteFromLocal.responseMs } returns uploadedEntity.responseMs
+        every { remoteFromLocal.hintsUsed } returns uploadedEntity.hintsUsed
+        every { remoteFromLocal.submittedAt } returns uploadedEntity.submittedAt
+        coEvery { historySyncMapper.toRemote(uploadedEntity, userId) } returns remoteFromLocal
+
+        coEvery { historyApi.upsert(listOf(remoteFromLocal)) } just Runs
+        coEvery { historyDao.markSynced(listOf(9), userId) } just Runs
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(matchingRemote)
+        
+        coJustRun { prefs.setHistoryLastSync(any()) }
+
+        syncHistoryUseCase()
+
+        // It should SKIP calling upsertAll because the fingerprint matches
+        coVerify(exactly = 0) { historyDao.upsertAll(any()) }
+        // BUT it should update the sync cursor to avoid re-checking these in the future
+        coVerify(exactly = 1) { prefs.setHistoryLastSync(any()) }
+    }
+
+    @Test
+    fun `should not upload unsupported local-only history rows`() = runTest {
+        val userId = "user123"
+
+        val blockedEntity = PracticeHistoryEntity(
+            localId = 3,
+            taskId = "word_3",
+            lexemeId = "word_3",
+            lemma = "unmapped",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            renderer = "word_card",
+            result = "correct",
+            responseMs = 10,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = false,
+            userId = null,
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns listOf(blockedEntity)
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(blockedEntity))
+        coEvery { historySyncMapper.toRemote(blockedEntity, userId) } returns null
+        coEvery { prefs.getHistoryLastSync() } returns null
+        coEvery { historyApi.fetchUpdatedSince(any(), userId) } returns emptyList()
+
+        syncHistoryUseCase()
+
+        coVerify(exactly = 0) { historyApi.upsert(any()) }
+        coVerify(exactly = 0) { historyDao.markSynced(any(), any()) }
+    }
+
+    @Test
+    fun `should skip downloaded rows with slightly different timestamp formatting`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val existingLocal = PracticeHistoryEntity(
+            localId = 1,
+            taskId = "t1",
+            lexemeId = "l1",
+            pos = "V",
+            taskType = "drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z", // Normalized form
+            synced = true,
+            userId = userId
+        )
+        // Remote has same time but different format (+00:00 instead of Z)
+        val remoteHistory = RemoteHistory(
+            remoteId = 2,
+            userId = userId,
+            taskId = "t1",
+            lexemeId = "l1",
+            lemma = "lemma1",
+            pos = "V",
+            taskType = "drill",
+            renderer = "default",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "a",
+            correctAnswer = "a",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00+00:00",
+            hintsUsed = false
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(existingLocal))
+        
+        val fingerprint = HistorySyncFingerprint(userId, "t1", "l1", "drill", "correct", "2023-10-01T11:00:00Z")
+        coEvery { historySyncMapper.toFingerprint(existingLocal, userId) } returns fingerprint
+        every { historySyncMapper.toFingerprint(remoteHistory) } returns fingerprint
+
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(remoteHistory)
+        coJustRun { prefs.setHistoryLastSync(any()) }
+
+        syncHistoryUseCase()
+
+        // Should NOT call upsertAll because the fingerprint should match after normalization
+        coVerify(exactly = 0) { historyDao.upsertAll(any()) }
+    }
+
+    @Test
+    fun `should skip downloaded rows that match mapped Wortschatz fingerprints`() = runTest {
+        val userId = "user123"
+        val lastSync = "2023-10-01T10:00:00Z"
+        val localWortschatz = PracticeHistoryEntity(
+            localId = 1,
+            taskId = "word_12", // Local ID
+            lexemeId = "word_12", // Local ID
+            pos = "V",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            synced = true,
+            userId = userId
+        )
+        val remoteWortschatz = RemoteHistory(
+            remoteId = 100,
+            userId = userId,
+            taskId = "real_task_id", // Remote ID
+            lexemeId = "real_lex_id", // Remote ID
+            lemma = "machen",
+            pos = "V",
+            taskType = "vocabulary_drill",
+            renderer = "word_card",
+            deviceId = "device-1",
+            result = "correct",
+            submittedAnswer = "",
+            correctAnswer = "",
+            responseMs = 100,
+            submittedAt = "2023-10-01T11:00:00Z",
+            hintsUsed = false
+        )
+
+        val mappedFingerprint = HistorySyncFingerprint(
+            userId = userId,
+            taskId = "real_task_id",
+            lexemeId = "real_lex_id",
+            taskType = "vocabulary_drill",
+            result = "correct",
+            submittedAt = "2023-10-01T11:00:00Z"
+        )
+
+        every { authRepository.currentUserId } returns userId
+        coEvery { historyDao.unsyncedForUser(userId) } returns emptyList()
+        every { historyDao.observeRecent(500) } returns flowOf(listOf(localWortschatz))
+        
+        // Mapper resolves the local word_12 to the real remote IDs
+        coEvery { historySyncMapper.toFingerprint(localWortschatz, userId) } returns mappedFingerprint
+        every { historySyncMapper.toFingerprint(remoteWortschatz) } returns mappedFingerprint
+
+        coEvery { prefs.getHistoryLastSync() } returns lastSync
+        coEvery { historyApi.fetchUpdatedSince(lastSync, userId) } returns listOf(remoteWortschatz)
+        coJustRun { prefs.setHistoryLastSync(any()) }
+
+        syncHistoryUseCase()
+
+        // De-duplication should succeed because fingerprints match after resolution
+        coVerify(exactly = 0) { historyDao.upsertAll(any()) }
+    }
+}

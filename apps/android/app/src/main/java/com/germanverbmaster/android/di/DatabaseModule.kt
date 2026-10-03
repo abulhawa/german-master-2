@@ -1,0 +1,136 @@
+package com.germanverbmaster.android.di
+
+import android.content.Context
+import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.germanverbmaster.android.data.local.AppPreferences
+import com.germanverbmaster.android.data.local.dao.InflectionDao
+import com.germanverbmaster.android.data.local.dao.LexemeDao
+import com.germanverbmaster.android.data.local.dao.PracticeHistoryDao
+import com.germanverbmaster.android.data.local.dao.TaskSpecDao
+import com.germanverbmaster.android.data.local.dao.WordDao
+import com.germanverbmaster.android.data.local.db.AppDatabase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.launch
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object DatabaseModule {
+
+    private val MIGRATION_11_14 = object : Migration(11, 14) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // 1. Wipe local history to force a fresh, normalized sync from the server
+            db.execSQL("DELETE FROM practice_history")
+            
+            // 2. Drop intermediate indices if they exist from local development versions
+            db.execSQL("DROP INDEX IF EXISTS `index_practice_history_userId_taskId_submittedAt` ")
+            
+            // 3. Create the final, robust unique index including lexemeId
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_practice_history_userId_taskId_lexemeId_submittedAt` ON `practice_history` (`userId`, `taskId`, `lexemeId`, `submittedAt`)")
+        }
+    }
+
+    private val MIGRATION_14_15 = object : Migration(14, 15) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // Wipe again to clear the old 'word_xxx' records and replace with 'identity:pos:lemma'
+            db.execSQL("DELETE FROM practice_history")
+        }
+    }
+
+    private fun SupportSQLiteDatabase.hasColumn(tableName: String, columnName: String): Boolean {
+        query("PRAGMA table_info(`$tableName`)").use { cursor ->
+            val nameIndex = cursor.getColumnIndex("name")
+            if (nameIndex < 0) return false
+            while (cursor.moveToNext()) {
+                if (cursor.getString(nameIndex) == columnName) return true
+            }
+        }
+        return false
+    }
+
+    private fun SupportSQLiteDatabase.addColumnIfMissing(
+        tableName: String,
+        columnName: String,
+        sql: String,
+    ) {
+        if (!hasColumn(tableName, columnName)) {
+            execSQL(sql)
+        }
+    }
+
+    internal val MIGRATION_15_17 = object : Migration(15, 17) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.addColumnIfMissing(
+                tableName = "lexemes",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE lexemes ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "task_specs",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE task_specs ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "words",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE words ADD COLUMN collectionsJson TEXT NOT NULL DEFAULT '[]'",
+            )
+            db.addColumnIfMissing(
+                tableName = "practice_history",
+                columnName = "collectionsJson",
+                sql = "ALTER TABLE practice_history ADD COLUMN collectionsJson TEXT",
+            )
+
+            // Consolidated release migration: clear sync-backed tables for a clean rehydration.
+            db.execSQL("DELETE FROM words")
+            db.execSQL("DELETE FROM lexemes")
+            db.execSQL("DELETE FROM task_specs")
+            db.execSQL("DELETE FROM practice_history")
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun provideDatabase(
+        @ApplicationContext context: Context,
+        prefs: AppPreferences,
+    ): AppDatabase {
+        val db = Room.databaseBuilder(
+                context,
+                AppDatabase::class.java,
+                "german_verb_master.db"
+            )
+            .addMigrations(MIGRATION_11_14, MIGRATION_14_15, MIGRATION_15_17)
+            .fallbackToDestructiveMigration(true)
+            .build()
+            
+        // One-time clear of last sync time to force a full re-download of normalized records
+        // after the migration wiped the table.
+        kotlinx.coroutines.MainScope().launch {
+            prefs.clearHistoryLastSync()
+        }
+        
+        return db
+    }
+
+    @Provides
+    fun provideLexemeDao(db: AppDatabase): LexemeDao = db.lexemeDao()
+
+    @Provides
+    fun provideTaskSpecDao(db: AppDatabase): TaskSpecDao = db.taskSpecDao()
+
+    @Provides
+    fun providePracticeHistoryDao(db: AppDatabase): PracticeHistoryDao = db.practiceHistoryDao()
+
+    @Provides
+    fun provideInflectionDao(db: AppDatabase): InflectionDao = db.inflectionDao()
+
+    @Provides
+    fun provideWordDao(db: AppDatabase): WordDao = db.wordDao()
+}
