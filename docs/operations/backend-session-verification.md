@@ -44,4 +44,10 @@ This is a backend-graded draft-content demonstration. Production auth/network Po
 
 Zero Groq/API inference calls; zero cached inference results used. No production database, deployment, store release or content publication was changed.
 
-Hosted results for this slice will be recorded in `PROGRESS.md` after the implementation push; earlier hosted foundation success is not evidence for this commit.
+Implementation `4877d22` was committed and pushed. Hosted verification at that exact commit passed:
+
+- [Web checks 37132271389](https://github.com/abulhawa/german-master-2/actions/runs/37132271389): install, generation/type checks, backend 2 files / 19 tests, web 78 files / 301 tests and root build.
+- [Android checks 37132271319](https://github.com/abulhawa/german-master-2/actions/runs/37132271319): generation guards, unit tests, debug assembly and blocking lint. Both Gradle verification/lint steps and the complete job succeeded.
+- [Repository safety 37132271371](https://github.com/abulhawa/german-master-2/actions/runs/37132271371): full-history secret scan.
+
+Local staged-change and full-history Gitleaks 8.30.1 scans also passed with zero findings (771 commits at implementation head). Final hosted-results/checkpoint changes are documentation-only. The development web/API servers remain available locally; the separate build-smoke server and verification browser were closed.
