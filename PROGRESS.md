@@ -59,6 +59,14 @@ Hosted verification after the repair:
 
 Implementation commits `b7d3f6a` (lint/toolchain repair) and `c584e0f` (hosted SDK setup) are pushed to `main`; the final evidence/checkpoint update is committed and pushed at handoff. No product milestone beyond this baseline repair is claimed.
 
+Foundation implementation `578959d` is committed and pushed to `main`. All three hosted workflows passed at that exact commit:
+
+- [Web checks 37125291293](https://github.com/abulhawa/german-master-2/actions/runs/37125291293): install, type/generation checks, unit/integration tests and build.
+- [Android checks 37125291209](https://github.com/abulhawa/german-master-2/actions/runs/37125291209): generated contract/token guards, unit tests, debug assembly and blocking lint.
+- [Repository safety 37125291112](https://github.com/abulhawa/german-master-2/actions/runs/37125291112): full-history secret scan.
+
+The hosted-results checkpoint update is documentation-only and accompanies this handoff. The product foundation is implemented; M0/M1 exit gates and the authoritative backend remain open.
+
 ## Milestone status
 
 | Milestone | Status | Remaining gate |
@@ -80,7 +88,7 @@ The monorepo bootstrap and first cross-client foundation demonstration are imple
 3. Add the target-centered reset database model locally, then exercise one complete backend-graded session before broadening the learner journey. No production reset/cutover is authorized. Independent German-language content review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is one complete session graded by the authoritative backend, then the complete learner journey. The first M1 foundation slice is implemented and locally verified; full milestone exit gates remain in blueprint Sections 23–26. This checkpoint will be committed/pushed with the foundation slice; hosted outcomes at its new commit must be checked separately.
+The next demonstration is one complete session graded by the authoritative backend, then the complete learner journey. The first M1 foundation slice is implemented and verified locally and in hosted CI at `578959d`; full milestone exit gates remain in blueprint Sections 23–26. Implementation and checkpoint are committed/pushed at handoff; ignored private recovery artifacts remain local.
 
 ## Local toolchain and checks
 

@@ -17,6 +17,7 @@ Verified locally on 3 October 2026. The scope is a cross-client rendering/contra
 - Offline Android `testDebugUnitTest assembleDebug lintDebug`: 25 suites / 95 tests, zero failures/errors/skips; debug assembly passes; lint zero errors / 16 inherited warnings. Gradle 10 deprecations remain. Added German resources exposed six inherited translation gaps, which were filled rather than suppressing lint.
 - Kotlin tests decode shared acceptance/rejection samples, all five answers and accepted/duplicate/rejected acknowledgments, and round-trip the transport data. A Robolectric Compose test navigates through all five shared prompts. A separate Roborazzi simulated render passes; local image is under `apps/android/app/build/outputs/foundation/preview.png`.
 - Web browser: actual page loads, no recorded browser errors/overlay, short answer inspection, keyboard radio selection, input reset, prompt focus after continuation, locale change and light/dark rendering. At 320px there is no horizontal overflow; controls measure 48px or more. A 200% CSS-zoom simulation at 640px also has no horizontal overflow. This is a simulation, not full assistive-technology/browser-zoom acceptance.
+- Gitleaks 8.30.1: staged diff and full history scan pass with zero findings (769 commits scanned after the foundation commit). Private database snapshots/recovery bundles remain ignored, and both original checkouts remain clean.
 
 The initial dark screenshot revealed inherited typography colors overriding the preview; scoped semantic colors corrected that issue and a new dark screenshot was inspected. Local images are ignored `.local/foundation-web-narrow.png` and `.local/foundation-web-dark.png`.
 
@@ -26,4 +27,6 @@ No device/emulator was attached. Robolectric is simulated native rendering, not 
 
 M0 deployment/database/store evidence and remaining blockers are in [m0-inventory.md](m0-inventory.md). No production deployment, reset, content publication, signing change or store upload occurred. Zero Groq or other live inference calls were made.
 
-Both CI jobs now check generated foundation files, and content paths trigger affected checks. Hosted success for a new commit is separate from these local results. Next implement an authoritative backend-graded sample session, preserving immutable revisions and replay-safe attempts, before expanding the learner journey.
+Both CI jobs now check generated foundation files, and content paths trigger affected checks. At implementation commit `578959d`, [web](https://github.com/abulhawa/german-master-2/actions/runs/37125291293), [Android](https://github.com/abulhawa/german-master-2/actions/runs/37125291209) and [repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37125291112) all completed successfully. Web verified install, types/generation, tests and build; Android verified generated artifacts, unit tests, debug assembly and blocking lint. These are CI results, not deployment/device evidence.
+
+Next implement an authoritative backend-graded sample session, preserving immutable revisions and replay-safe attempts, before expanding the learner journey.
