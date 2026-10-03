@@ -1,0 +1,37 @@
+{
+  "name": "german-master-2",
+  "version": "0.0.0",
+  "private": true,
+  "description": "German Master web and native Android monorepo",
+  "type": "module",
+  "engines": {
+    "node": "22.x",
+    "npm": ">=10"
+  },
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "dev:web": "npm run dev:client --workspace=apps/web",
+    "check": "npm run check --workspace=apps/web",
+    "test": "npm test --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "check:web": "npm run check --workspace=apps/web",
+    "test:web": "npm test --workspace=apps/web",
+    "build:web": "npm run build --workspace=apps/web"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils@3.3.2": {
+      "esbuild": "0.28.1"
+    },
+    "@esbuild-kit/esm-loader@2.6.5": {
+      "@esbuild-kit/core-utils": {
+        "esbuild": "0.28.1"
+      }
+    },
+    "serialize-javascript": "^7.0.5",
+    "glob": "9.3.5",
+    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@1.5.0"
+  }
+}
