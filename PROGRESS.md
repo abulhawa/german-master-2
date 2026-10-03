@@ -1,6 +1,6 @@
 # German Master 2.0 renovation checkpoint
 
-Last updated: 3 October 2026. This is the current handoff; update it after every implementation slice. Git history and actual working files take precedence over stale checkpoint claims.
+Last updated: 4 October 2026. This is the current handoff; update it after every implementation slice. Git history and actual working files take precedence over stale checkpoint claims.
 
 ## Resume instruction
 
@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This backend continuation started at `05e912f` with a clean checkout and matching remote. Android repair, mockups and the shared exercise foundation are complete; this slice implements the first authoritative backend-graded session.
+- This evidence-policy continuation started at `798899c` with a clean checkout and matching remote. Android repair, mockups, shared exercise foundation and the first authoritative backend-graded session are complete; this slice implements the pure server-owned evidence reducer and review policy.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -48,7 +48,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 ## Remaining limitations
 
-The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading is implemented locally; production identity/network database, evidence reduction, scheduling, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading and the pure evidence/scheduling policy are implemented locally; transactional projection/API integration, production identity/network database, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
 
 Hosted verification after the repair:
 
@@ -73,7 +73,7 @@ The hosted-results checkpoint update is documentation-only and accompanies this 
 |---|---|---|
 | M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
 | M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
-| M2 Authoritative engine | In progress | Sample grading and idempotent attempts implemented locally; evidence reduction, scheduling, adaptive selection and production adapters remain |
+| M2 Authoritative engine | In progress | Grading/idempotent attempts and pure evidence/scheduling policy implemented locally; transactional projections, adaptive selection and production adapters remain |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
@@ -92,12 +92,20 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 
 ## Exact next implementation slice
 
-1. Inspect checkout/recent commits and hosted backend-session results. Preserve newer work; do not restart completed grading, previews, Android repair or mockups.
-2. Implement the pure versioned evidence reducer and review scheduling policy from blueprint Section 12, with injected clock/learner timezone and local fixtures. Cover same-day repetition, assisted/skipped exposure, independent failures, spaced gates, variant/context requirements, lapse history and deterministic replay. The current one-variant draft catalog must never satisfy the transfer/mastery gate by itself.
-3. Extend the isolated target-centered database/API to commit accepted evidence, derived target state/schedule and sync change atomically, with replay/rebuild tests. Add explicit skip/exposure contracts when used. Then drive a small server-selected session from differing learner histories before expanding learner navigation. Production auth/network PostgreSQL adapters and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+1. Inspect checkout/recent commits and hosted evidence-policy results. Preserve newer work; do not restart completed grading, evidence policy, previews, Android repair or mockups.
+2. Extend the isolated target-centered database/API to persist accepted evidence with pinned editorial variant/context/transfer identities and saved profile timezone. Invoke `retained-evidence-v1` and commit attempt/evaluation, derived target state/schedule and sync change atomically. Prove replay/rebuild, rollback, acknowledgment idempotency and competing updates. Read ADR 004 before mapping events: assistance cannot shorten retention eligibility, reinforcement is not independent assessment, and the current one-variant draft catalog cannot satisfy mastery/transfer gates. Add explicit skip/exposure transport contracts with their ingestion endpoint.
+3. Then drive a small server-selected session from differing learner histories before expanding learner navigation. Production auth/network PostgreSQL adapters and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is deterministic server-owned state/scheduling and session selection for differing learner histories, followed by the complete learner journey. The first backend session is implemented and verified locally and in hosted CI at `4877d22`; full milestone exit gates remain in blueprint Sections 23–26. Implementation and this documentation-only hosted-results checkpoint are committed/pushed at handoff. Ignored private recovery artifacts remain local.
+The next demonstration is transactionally persisted server-owned state/scheduling and session selection for differing learner histories, followed by the complete learner journey. The first backend session is verified locally and in hosted CI at `4877d22`; the pure evidence policy is locally verified as recorded below. Full milestone exit gates remain in blueprint Sections 23–26. Ignored private recovery artifacts remain local.
+
+## Pure evidence and scheduling policy slice
+
+- Implemented `retained-evidence-v1` in `packages/learning-engine/src/evidence.ts`, with injected clock, saved event timezones, immutable accepted evidence and deterministic server receipt-sequence replay. Includes five learner states, spaced/local-date gates, editorial transfer/context diversity, independent failure and recovery, retained mastery transitions/lapse cycles, and the 1/3/7/14/30-day ladder.
+- Assisted practice can request an earlier review while leaving retention eligibility fixed. Skip/exposure and reinforcement cannot advance mastery. Implausible answer timing is excluded from retention successes; late success cannot repair a later failure. Existing single-variant catalog targets remain below Mastered.
+- This is a pure server-engine slice only: the API does not invoke it yet, and no projection/schedule/sync persistence or public skip endpoint is claimed. M2 remains in progress. [Policy decision](docs/adr/004_retained_evidence_policy.md), [verification and reproduction evidence](docs/operations/evidence-policy-verification.md).
+- Local root install/check/build passed; backend 3 files / 37 tests, web 78 files / 301 tests passed. Two install EPERM failures were resolved by stopping stale project preview binary holders. Android/browser/device checks were not rerun because client code/contracts did not change. No live inference, production mutation, content publication or store release occurred.
+- Commit/push and hosted verification status will be recorded after the verified implementation is committed.
 
 ## Local toolchain and checks
 
