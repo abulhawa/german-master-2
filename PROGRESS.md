@@ -39,6 +39,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Final offline Android verification passed: 22 suites / 90 tests, zero failures/errors/skips; debug assembly passed; lint reported zero errors and 16 warnings. [Detailed repair evidence](docs/operations/android-lint-repair.md) includes intermediate failures and runtime limits.
 - Both legacy Git bundles restored into disposable bare repositories, passed full integrity checks and matched baseline tag trees. [Recovery evidence](docs/operations/legacy-recovery.md).
 - Owner clarified that the hard reset allows current/replacement dependencies and design changes within the renovation scope. Recorded in `AGENTS.md`; preservation, identity and release boundaries remain.
+- At the owner's request, saved four visual concept boards covering six web/Android screens under [docs/design/mockups](docs/design/mockups/README.md), with exact prompts and review notes. Includes desktop Home/feedback, native Home/Progress/Topics, and offline dark feedback. Visually inspected concepts with illustrative data; no UI implementation, content approval or accessibility acceptance is claimed. Four built-in generation calls and one edit; zero Groq calls.
 
 ## Remaining limitations
 
