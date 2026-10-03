@@ -33,4 +33,7 @@ jobs:
       - name: Install imported app SDK requirements
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
       - name: Verify debug app
-        run: bash gradlew testDebugUnitTest lintDebug assembleDebug --no-daemon --continue --max-workers=4
+        run: bash gradlew testDebugUnitTest assembleDebug --no-daemon --continue --max-workers=4
+      - name: Lint debug app
+        if: ${{ !cancelled() }}
+        run: bash gradlew lintDebug --no-daemon --max-workers=4
