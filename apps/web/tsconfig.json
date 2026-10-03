@@ -1,0 +1,33 @@
+{
+  "include": ["client/src/**/*", "db/**/*", "server/**/*", "shared/**/*", "scripts/**/*", "api/**/*", "types/**/*"],
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts", "**/*.test.tsx", "**/__tests__/**"],
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
+    "noEmit": true,
+    "module": "ESNext",
+    "target": "ES2022",
+    "strict": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@db": ["./db/index.ts"],
+      "@db/*": ["./db/*"],
+      "@/*": ["./client/src/*"],
+      "@shared": ["./shared/index.ts"],
+      "@shared/*": ["./shared/*"],
+      "@assets": ["./attached_assets"],
+      "@assets/*": ["./attached_assets/*"],
+      "@verbs-data": ["./data/generated"],
+      "@verbs-data/*": ["./data/generated/*"],
+      "next-themes": ["./client/src/types/next-themes.d.ts"]
+    }
+  }
+}

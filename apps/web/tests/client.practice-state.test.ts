@@ -1,0 +1,404 @@
+import { beforeEach, describe, expect, it } from 'vitest';
+import { loadAnswerHistory, saveAnswerHistory, createAnswerHistoryEntry } from '@/lib/answer-history';
+import { getReviewQueue, enqueueReviewTasks, clearReviewQueue, peekReviewVerb, shiftReviewVerb } from '@/lib/review-queue';
+import { loadPracticeProgress, recordTaskResult, createEmptyProgressState } from '@/lib/practice-progress';
+import {
+  loadPracticeSettings,
+  savePracticeSettings,
+  updateCefrLevel,
+  updateB2ExamMode,
+  updatePreferredTaskTypes,
+  updateRendererPreferences,
+  createDefaultSettings,
+} from '@/lib/practice-settings';
+import {
+  enqueueTasks,
+  loadPracticeSession,
+  resetSession,
+  savePracticeSession,
+  completeTask,
+  skipTask,
+  createEmptySessionState,
+  clearSessionQueue,
+} from '@/lib/practice-session';
+import type { PracticeTask, PracticeTaskQueueItem } from '@/lib/tasks';
+
+const legacyVerb = {
+  infinitive: 'gehen',
+  english: 'to go',
+  präteritum: 'ging',
+  partizipII: 'gegangen',
+  auxiliary: 'sein',
+  level: 'A1',
+  präteritumExample: 'ich ging',
+  partizipIIExample: 'ich bin gegangen',
+  source: { name: 'Duden', levelReference: 'A1' },
+  pattern: null,
+  praesensIch: 'gehe',
+  praesensEr: 'geht',
+  perfekt: 'ist gegangen',
+  separable: null,
+} as const;
+
+const practiceTask: PracticeTask = {
+  taskId: 'task-1',
+  lexemeId: 'lex-1',
+  taskType: 'conjugate_form',
+  pos: 'V',
+  renderer: 'conjugate_form',
+  interactionMode: 'typed',
+  prompt: {
+    lemma: 'gehen',
+    pos: 'V',
+    requestedForm: { tense: 'participle' },
+    instructions: 'Partizip II angeben',
+  },
+  expectedSolution: { form: 'gegangen' },
+  queueCap: 30,
+  lexeme: { id: 'lex-1', lemma: 'gehen', metadata: { level: 'A1' } },
+  assignedAt: new Date().toISOString(),
+  source: 'seed',
+};
+
+const practiceTaskTwo: PracticeTask = {
+  taskId: 'task-2',
+  lexemeId: 'lex-2',
+  taskType: 'conjugate_form',
+  pos: 'V',
+  renderer: 'conjugate_form',
+  interactionMode: 'typed',
+  prompt: {
+    lemma: 'kommen',
+    pos: 'V',
+    requestedForm: { tense: 'present', person: '3s' },
+    instructions: 'Präsens er/sie/es angeben',
+  },
+  expectedSolution: { form: 'kommt' },
+  queueCap: 30,
+  lexeme: { id: 'lex-2', lemma: 'kommen', metadata: { level: 'A1' } },
+  assignedAt: new Date().toISOString(),
+  source: 'seed',
+};
+
+const queueItem: PracticeTaskQueueItem = {
+  taskId: 'task-1',
+  lexemeId: 'lex-1',
+  taskType: 'conjugate_form',
+  pos: 'V',
+  renderer: 'conjugate_form',
+  source: 'review',
+  enqueuedAt: new Date().toISOString(),
+  metadata: { lemma: 'gehen', legacyVerbInfinitive: 'gehen' },
+};
+
+describe('practice state migrations', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it('migrates legacy answer history entries', () => {
+    const legacyEntry = {
+      id: '1',
+      verb: legacyVerb,
+      mode: 'präteritum',
+      result: 'correct',
+      attemptedAnswer: 'ging',
+      correctAnswer: 'ging',
+      prompt: 'Präteritum von gehen',
+      timeSpent: 1200,
+      answeredAt: new Date().toISOString(),
+      level: 'A1',
+    };
+    localStorage.setItem('answerHistory', JSON.stringify([legacyEntry]));
+
+    const history = loadAnswerHistory();
+    expect(history).toHaveLength(1);
+    expect(history[0]?.taskId).toBe('legacy:verb:gehen');
+    expect(history[0]?.legacyVerb?.verb.infinitive).toBe('gehen');
+    expect(history[0]?.lexeme?.lemma).toBe('gehen');
+    expect(localStorage.getItem('practice.answerHistory.migrated')).toBe('1');
+    expect(localStorage.getItem('answerHistory')).toBeNull();
+    expect(localStorage.getItem('practice.answerHistory')).not.toBeNull();
+  });
+
+  it('stores and reloads answer history entries', () => {
+    const entry = createAnswerHistoryEntry({
+      task: practiceTask,
+      result: 'correct',
+      submittedResponse: 'gegangen',
+      expectedResponse: 'gegangen',
+      promptSummary: 'Partizip II von gehen',
+      timeSpentMs: 900,
+    });
+
+    saveAnswerHistory([entry]);
+    const history = loadAnswerHistory();
+    expect(history).toHaveLength(1);
+    expect(history[0]?.taskId).toBe('task-1');
+    expect(history[0]?.lexeme?.lemma).toBe('gehen');
+  });
+
+  it('migrates review queue entries from verbs', () => {
+    localStorage.setItem('focus-review-queue', JSON.stringify(['gehen', 'gehen', 'sein']));
+
+    const queue = getReviewQueue();
+    expect(queue).toHaveLength(2);
+    const storedQueueBeforeShift = localStorage.getItem('practice.tasks.queue');
+    expect(storedQueueBeforeShift).not.toBeNull();
+    if (storedQueueBeforeShift) {
+      const parsedBeforeShift = JSON.parse(storedQueueBeforeShift);
+      expect(Array.isArray(parsedBeforeShift)).toBe(true);
+      expect(parsedBeforeShift[0]?.taskId).toBe('legacy:verb:gehen');
+    }
+    expect(peekReviewVerb()).toBe('gehen');
+    expect(shiftReviewVerb()).toBe('gehen');
+    expect(localStorage.getItem('practice.tasks.queue.migrated')).toBe('1');
+    expect(localStorage.getItem('focus-review-queue')).toBeNull();
+    const storedQueue = localStorage.getItem('practice.tasks.queue');
+    expect(storedQueue).not.toBeNull();
+    if (storedQueue) {
+      const parsed = JSON.parse(storedQueue);
+      expect(Array.isArray(parsed)).toBe(true);
+      expect(parsed[0]?.taskId).toBe('legacy:verb:sein');
+    }
+  });
+
+  it('enqueues task-based review items', () => {
+    clearReviewQueue();
+    enqueueReviewTasks([queueItem]);
+
+    const queue = getReviewQueue();
+    expect(queue).toHaveLength(1);
+    expect(queue[0]?.taskId).toBe('task-1');
+  });
+
+  it('migrates legacy progress', () => {
+    const legacyProgress = {
+      correct: 5,
+      total: 6,
+      lastPracticed: new Date().toISOString(),
+      streak: 3,
+      practicedVerbs: { A1: ['gehen'] },
+    };
+    localStorage.setItem('progress', JSON.stringify(legacyProgress));
+
+    const progress = loadPracticeProgress();
+    expect(progress.totals.conjugate_form?.correctAttempts).toBe(5);
+    expect(progress.totals.conjugate_form?.lexemes['legacy:verb:gehen']).toBeTruthy();
+    expect(localStorage.getItem('practice.progress.migrated')).toBe('1');
+    expect(localStorage.getItem('progress')).toBeNull();
+    expect(localStorage.getItem('practice.progress')).not.toBeNull();
+  });
+
+  it('records task results into progress state', () => {
+    const state = createEmptyProgressState();
+    const next = recordTaskResult(state, {
+      taskId: practiceTask.taskId,
+      lexemeId: practiceTask.lexemeId,
+      taskType: practiceTask.taskType,
+      result: 'correct',
+      cefrLevel: 'A1',
+    });
+
+    expect(next.totals.conjugate_form?.correctAttempts).toBe(1);
+    expect(next.totals.conjugate_form?.lexemes[practiceTask.lexemeId]?.correctAttempts).toBe(1);
+  });
+
+  it('migrates legacy settings', () => {
+    const legacySettings = { level: 'B1', showHints: false, showExamples: true };
+    localStorage.setItem('settings', JSON.stringify(legacySettings));
+
+    const settings = loadPracticeSettings();
+    expect(settings.cefrLevelByPos.V).toBe('B1');
+    expect(settings.rendererPreferences.conjugate_form.showHints).toBe(false);
+    expect(settings.b2ExamMode).toBe(false);
+    expect(localStorage.getItem('practice.settings.migrated')).toBe('1');
+    expect(localStorage.getItem('settings')).toBeNull();
+    expect(localStorage.getItem('practice.settings')).not.toBeNull();
+  });
+
+  it('normalizes stored settings that predate b2ExamMode', () => {
+    const defaults = createDefaultSettings();
+    const migratedLikePayload = {
+      ...defaults,
+      b2ExamMode: undefined,
+    } as unknown as Record<string, unknown>;
+
+    delete migratedLikePayload.b2ExamMode;
+    localStorage.setItem('practice.settings.migrated', '1');
+    localStorage.setItem('practice.settings', JSON.stringify(migratedLikePayload));
+
+    const loaded = loadPracticeSettings();
+    expect(loaded.b2ExamMode).toBe(false);
+  });
+
+  it('updates settings helpers', () => {
+    let settings = createDefaultSettings();
+    settings = updateCefrLevel(settings, { pos: 'V', level: 'B2' });
+    settings = updatePreferredTaskTypes(settings, ['conjugate_form']);
+    settings = updateRendererPreferences(settings, {
+      taskType: 'conjugate_form',
+      preferences: { showHints: false },
+    });
+    settings = updateB2ExamMode(settings, true);
+
+    savePracticeSettings(settings);
+    const loaded = loadPracticeSettings();
+    expect(loaded.cefrLevelByPos.V).toBe('B2');
+    expect(loaded.rendererPreferences.conjugate_form.showHints).toBe(false);
+    expect(loaded.b2ExamMode).toBe(true);
+  });
+
+  it('persists practice session state', () => {
+    const initial = loadPracticeSession();
+    expect(initial.queue).toHaveLength(0);
+
+    const queued = enqueueTasks(initial, [practiceTask]);
+    savePracticeSession(queued);
+
+    const reloaded = loadPracticeSession();
+    expect(reloaded.queue).toContain('task-1');
+    expect(reloaded.isReviewSession).toBe(false);
+    expect(reloaded.serverExhausted).toBe(false);
+
+    const reset = resetSession();
+    expect(reset.queue).toHaveLength(0);
+  });
+
+  it('stores per-scope metadata and expires stale sessions', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask]);
+    const savedAt = new Date('2024-01-01T00:00:00.000Z');
+
+    savePracticeSession(queued, {
+      scopeKey: 'verb-A1__noun-A2',
+      userId: 'user-123',
+      now: savedAt,
+    });
+
+    const stored = localStorage.getItem('practice.session.verb-A1_noun-A2');
+    expect(stored).not.toBeNull();
+    if (stored) {
+      const parsed = JSON.parse(stored) as Record<string, unknown>;
+      expect(parsed.version).toBe(1);
+      expect(parsed.scopeKey).toBe('verb-A1_noun-A2');
+      expect(parsed.userId).toBe('user-123');
+      expect(typeof parsed.savedAt).toBe('string');
+    }
+
+    const reloaded = loadPracticeSession({
+      scopeKey: 'verb-A1__noun-A2',
+      userId: 'user-123',
+      now: new Date('2024-01-01T12:00:00.000Z'),
+    });
+    expect(reloaded.queue).toContain('task-1');
+
+    const expired = loadPracticeSession({
+      scopeKey: 'verb-A1__noun-A2',
+      userId: 'user-123',
+      now: new Date('2024-01-03T00:00:00.000Z'),
+    });
+    expect(expired.queue).toHaveLength(0);
+    expect(localStorage.getItem('practice.session.verb-A1_noun-A2')).toBeNull();
+
+    // Re-save to verify user-specific sessions do not leak across accounts.
+    savePracticeSession(queued, {
+      scopeKey: 'verb-A1__noun-A2',
+      userId: 'user-123',
+      now: savedAt,
+    });
+
+    const otherUser = loadPracticeSession({
+      scopeKey: 'verb-A1__noun-A2',
+      userId: 'other-user',
+      now: new Date('2024-01-01T12:00:00.000Z'),
+    });
+    expect(otherUser.queue).toHaveLength(0);
+    expect(localStorage.getItem('practice.session.verb-A1_noun-A2')).toBeNull();
+  });
+
+  it('avoids duplicating tasks when topping up the queue', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask]);
+    const completed = completeTask(queued, practiceTask.taskId, 'correct');
+
+    expect(completed.recent).toContain(practiceTask.taskId);
+    expect(completed.queue).not.toContain(practiceTask.taskId);
+    expect(completed.isReviewSession).toBe(false);
+
+    const toppedUp = enqueueTasks(completed, [practiceTask]);
+    expect(toppedUp.queue).not.toContain(practiceTask.taskId);
+  });
+
+  it('skips enqueuing correctly completed tasks when new tasks are fetched', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask, practiceTaskTwo]);
+    const completedFirst = completeTask(queued, practiceTask.taskId, 'correct');
+
+    expect(completedFirst.queue).not.toContain(practiceTask.taskId);
+    expect(completedFirst.queue).toContain(practiceTaskTwo.taskId);
+
+    const requeued = enqueueTasks(completedFirst, [practiceTask]);
+
+    expect(requeued.queue).not.toContain(practiceTask.taskId);
+    expect(requeued.queue).toContain(practiceTaskTwo.taskId);
+  });
+
+  it('re-enqueues recently completed tasks when replacing the queue', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask]);
+    const completed = completeTask(queued, practiceTask.taskId, 'correct');
+
+    const refreshed = enqueueTasks(completed, [practiceTask], { replace: true });
+    expect(refreshed.queue).toContain(practiceTask.taskId);
+    expect(refreshed.isReviewSession).toBe(false);
+  });
+
+  it('preserves recent task history when clearing the session queue', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask]);
+    const completed = completeTask(queued, practiceTask.taskId, 'incorrect');
+
+    const cleared = clearSessionQueue(completed);
+    expect(cleared.queue).toHaveLength(0);
+    expect(cleared.completed).toHaveLength(0);
+    expect(cleared.recent).toContain(practiceTask.taskId);
+    expect(cleared.isReviewSession).toBe(false);
+    expect(cleared.serverExhausted).toBe(false);
+  });
+
+  it('drops skipped tasks from the current random queue', () => {
+    const base = {
+      ...createEmptySessionState(),
+      queue: [practiceTask.taskId, practiceTaskTwo.taskId],
+      activeTaskId: practiceTask.taskId,
+    };
+
+    const skipped = skipTask(base, practiceTask.taskId);
+    expect(skipped.queue).toEqual([practiceTaskTwo.taskId]);
+    expect(skipped.activeTaskId).toBe(practiceTaskTwo.taskId);
+    expect(skipped.completed).toHaveLength(0);
+    expect(skipped.recent).toContain(practiceTask.taskId);
+
+    const afterRemainingTask = completeTask(skipped, practiceTaskTwo.taskId, 'correct');
+    expect(afterRemainingTask.queue).not.toContain(practiceTask.taskId);
+    expect(afterRemainingTask.completed).toContain(practiceTaskTwo.taskId);
+    expect(afterRemainingTask.completed).not.toContain(practiceTask.taskId);
+    expect(afterRemainingTask.activeTaskId).toBeNull();
+  });
+
+  it('requeues failed tasks until they are answered correctly', () => {
+    const base = createEmptySessionState();
+    const queued = enqueueTasks(base, [practiceTask]);
+
+    const failed = completeTask(queued, practiceTask.taskId, 'incorrect');
+    expect(failed.queue).toEqual([practiceTask.taskId]);
+    expect(failed.activeTaskId).toBe(practiceTask.taskId);
+    expect(failed.completed).not.toContain(practiceTask.taskId);
+    expect(failed.recent).toContain(practiceTask.taskId);
+
+    const corrected = completeTask(failed, practiceTask.taskId, 'correct');
+    expect(corrected.queue).not.toContain(practiceTask.taskId);
+    expect(corrected.completed).toContain(practiceTask.taskId);
+  });
+});

@@ -1,0 +1,38 @@
+import { QueryClient } from "@tanstack/react-query";
+import { createSupabaseAuthHeaders } from "@/lib/supabase";
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: async ({ queryKey }) => {
+        const res = await fetch(queryKey[0] as string, {
+          headers: await createSupabaseAuthHeaders(),
+          credentials: "include",
+        });
+
+        if (!res.ok) {
+          if (res.status >= 500) {
+            throw new Error(`${res.status}: ${res.statusText}`);
+          }
+
+          throw new Error(`${res.status}: ${await res.text()}`);
+        }
+
+        return res.json();
+      },
+      refetchInterval: false,
+      refetchOnWindowFocus: false,
+      staleTime: Infinity,
+      retry: false,
+    },
+    mutations: {
+      retry: false,
+    }
+  },
+});
+
+if (import.meta.env.DEV) {
+  queryClient.getQueryCache().subscribe((event) => {
+    console.log("[react-query cache] event:", event.type, event.query?.queryKey);
+  });
+}

@@ -1,0 +1,20 @@
+# Repository Agent Instructions
+
+Automation that needs repository-specific guidance should search the tree for instruction files
+using a case-insensitive match (for example, `find . -iname 'agents.md'`).
+
+For GitHub authentication details and additional setup guidance, refer to
+[`docs/agents.md`](docs/agents.md).
+
+## UI/UX Change Review
+
+- Any modification that touches UI or UX concerns **must** be validated against the
+  unified product and design-system guidance in [`docs/ui-ux-guidelines.md`](docs/ui-ux-guidelines.md).
+- Document in PR descriptions how the change satisfies the checklist in that guideline file.
+
+## Testing Expectations
+
+- Run `npm test` for unit and integration checks (Vitest).
+- Run npm run check
+
+## Include a commit message at the end

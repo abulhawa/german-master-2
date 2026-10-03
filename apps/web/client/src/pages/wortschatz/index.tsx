@@ -1,0 +1,1065 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import type { PointerEvent } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { Check, CheckCircle2, Filter, RotateCcw, Search, Volume2, X } from 'lucide-react';
+
+import { useAuthSession } from '@/auth/session';
+import { B2Countdown } from '@/components/b2-countdown';
+import { AppShell } from '@/components/layout/app-shell';
+import { MobileNavBar } from '@/components/layout/mobile-nav-bar';
+import { getPrimaryNavigationItems } from '@/components/layout/navigation';
+import { SidebarNavButton } from '@/components/layout/sidebar-nav-button';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Progress } from '@/components/ui/progress';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslations } from '@/locales';
+import {
+  fetchWortschatzHistorySummary,
+  fetchWortschatzWords,
+  WORTSCHATZ_HISTORY_SUMMARY_QUERY_KEY,
+  WORTSCHATZ_QUERY_KEY,
+} from '@/lib/wortschatz';
+import { submitPracticeAttempt } from '@/lib/api';
+import { appendAnswer } from '@/lib/answer-history';
+import { useAnswerHistoryPersistence } from '@/pages/home/hooks/use-answer-history-persistence';
+import {
+  ALL_WORTSCHATZ_COLLECTIONS,
+  ALL_WORTSCHATZ_LEVELS,
+  ALL_WORTSCHATZ_POS,
+  DEFAULT_WORTSCHATZ_COLLECTIONS,
+  DEFAULT_WORTSCHATZ_LEVELS,
+  loadWortschatzState,
+  saveWortschatzState,
+  type WortschatzCollectionFilter,
+  type WortschatzLevelFilter,
+  type WortschatzStorageState,
+} from '@/lib/wortschatz-storage';
+import { cn, speak } from '@/lib/utils';
+import { useFeatureCapabilities } from '@/lib/features';
+import { B2_BERUF_COLLECTION } from '@shared/content-sources';
+import { mapLegacyPartOfSpeechToLexeme } from '@shared/pos-normalizer';
+import type { CEFRLevel, PartOfSpeech, PracticeResult, TaskAnswerHistoryItem, WortschatzWord } from '@shared';
+
+const B2_EXAM_DATE = new Date(2026, 3, 30);
+const TEXT_SELECTION_DRAG_THRESHOLD_PX = 8;
+const WORTSCHATZ_DRILL_RENDERER = 'word_card' as const;
+
+const WORTSCHATZ_IDS = {
+  page: 'wortschatz-page',
+  search: 'wortschatz-search',
+  filters: 'wortschatz-filters',
+  listSection: 'wortschatz-list-section',
+  drillCard: 'wortschatz-drill-card',
+} as const;
+
+function arraysEqual<T>(left: T[], right: T[]): boolean {
+  return left.length === right.length && left.every((item, index) => item === right[index]);
+}
+
+function normalizeSearchQuery(value: string): string {
+  return value.trim().toLowerCase();
+}
+
+function formatTemplate(template: string, values: Record<string, string>): string {
+  return Object.entries(values).reduce(
+    (message, [key, value]) => message.replaceAll(`{${key}}`, value),
+    template,
+  );
+}
+
+function wordMatchesSearch(word: WortschatzWord, searchQuery: string): boolean {
+  if (!searchQuery) {
+    return true;
+  }
+
+  return [word.lemma, word.english, word.exampleDe, word.exampleEn, word.gender, word.plural]
+    .filter((value): value is string => Boolean(value))
+    .join(' ')
+    .toLowerCase()
+    .includes(searchQuery);
+}
+
+function wordMatchesCollections(word: WortschatzWord, selectedCollections: WortschatzCollectionFilter[]): boolean {
+  if (selectedCollections.length === 0) {
+    return true;
+  }
+
+  if (selectedCollections.includes(B2_BERUF_COLLECTION)) {
+    return word.level === 'B2 Beruf' || word.level === 'B2' || word.level === null;
+  }
+
+  return false;
+}
+
+function wordMatchesLevels(word: WortschatzWord, selectedLevels: WortschatzLevelFilter[]): boolean {
+  if (selectedLevels.length === 0) {
+    return true;
+  }
+
+  const wordLevel = word.level === 'B2 Beruf' ? 'B2' : word.level;
+  return selectedLevels.some((level) => wordLevel === level);
+}
+
+function buildFilterSignature(
+  searchQuery: string,
+  selectedCollections: WortschatzCollectionFilter[],
+  selectedLevels: WortschatzLevelFilter[],
+  selectedPos: PartOfSpeech[],
+): string {
+  return [
+    searchQuery,
+    [...selectedCollections].sort().join(','),
+    [...selectedLevels].sort().join(','),
+    [...selectedPos].sort().join(','),
+  ].join('__');
+}
+
+function createDrillSeed(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function hashSeed(seed: string): number {
+  let hash = 2166136261;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash ^= seed.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function createShuffledOrder(words: WortschatzWord[], seed: string): number[] {
+  const shuffled = [...words];
+  let state = hashSeed(seed) || 1;
+
+  const nextRandom = () => {
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    return (state >>> 0) / 4294967296;
+  };
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(nextRandom() * (index + 1));
+    const current = shuffled[index]!;
+    shuffled[index] = shuffled[swapIndex]!;
+    shuffled[swapIndex] = current;
+  }
+
+  return shuffled.map((word) => word.id);
+}
+
+function resetDrillState(
+  state: WortschatzStorageState,
+  words: WortschatzWord[],
+  options: {
+    datasetVersion: string;
+    filterSignature: string;
+    preserveMastery: boolean;
+  },
+): WortschatzStorageState {
+  const drillSeed = words.length > 0 ? createDrillSeed() : null;
+
+  return {
+    ...state,
+    drillSeed,
+    drillOrder: drillSeed ? createShuffledOrder(words, drillSeed) : [],
+    drillIndex: 0,
+    correctCount: 0,
+    wrongCount: 0,
+    masteredWordIds: options.preserveMastery ? state.masteredWordIds : [],
+    datasetVersion: options.datasetVersion,
+    filterSignature: options.filterSignature,
+  };
+}
+
+function formatWordHeading(word: WortschatzWord): string {
+  return word.pos === 'N' && word.gender ? `${word.gender} ${word.lemma}` : word.lemma;
+}
+
+function normaliseWortschatzLevel(level: string | null): CEFRLevel | undefined {
+  if (level === 'B2 Beruf') {
+    return 'B2';
+  }
+  return level === 'A1' || level === 'A2' || level === 'B1' || level === 'B2' || level === 'C1' || level === 'C2'
+    ? level
+    : undefined;
+}
+
+function selfAssessmentFromResult(result: PracticeResult): 'known' | 'forgot' {
+  return result === 'correct' ? 'known' : 'forgot';
+}
+
+function createWortschatzHistoryEntry(options: {
+  word: WortschatzWord;
+  result: PracticeResult;
+  answeredAt: string;
+  timeSpentMs: number;
+  promptSummary: string;
+}): TaskAnswerHistoryItem | null {
+  const pos = mapLegacyPartOfSpeechToLexeme(options.word.pos);
+  if (!pos) {
+    return null;
+  }
+
+  const level = normaliseWortschatzLevel(options.word.level);
+  const wordRef = `word_${options.word.id}`;
+  const collections = [B2_BERUF_COLLECTION];
+  const selfAssessment = selfAssessmentFromResult(options.result);
+
+  return {
+    id: `${wordRef}:${options.answeredAt}`,
+    taskId: wordRef,
+    lexemeId: wordRef,
+    taskType: 'vocabulary_drill',
+    pos,
+    renderer: WORTSCHATZ_DRILL_RENDERER,
+    result: options.result,
+    submittedResponse: { selfAssessment },
+    expectedResponse: { answer: options.word.lemma, english: options.word.english ?? '' },
+    promptSummary: options.promptSummary,
+    answeredAt: options.answeredAt,
+    timeSpentMs: options.timeSpentMs,
+    timeSpent: options.timeSpentMs,
+    cefrLevel: level,
+    attemptedAnswer: selfAssessment,
+    correctAnswer: options.word.english ?? undefined,
+    prompt: options.promptSummary,
+    level,
+    collections,
+    lexeme: {
+      id: wordRef,
+      lemma: options.word.lemma,
+      pos,
+      level,
+      collections,
+      english: options.word.english ?? undefined,
+      example:
+        options.word.exampleDe || options.word.exampleEn
+          ? { de: options.word.exampleDe ?? undefined, en: options.word.exampleEn ?? undefined }
+          : undefined,
+    },
+    verb: undefined,
+    legacyVerb: undefined,
+  } satisfies TaskAnswerHistoryItem;
+}
+
+function groupWordsByPos(words: WortschatzWord[]) {
+  const grouped = new Map<PartOfSpeech, WortschatzWord[]>();
+
+  for (const word of words) {
+    const existing = grouped.get(word.pos) ?? [];
+    existing.push(word);
+    grouped.set(word.pos, existing);
+  }
+
+  return grouped;
+}
+
+function toggleListValue<T>(current: T[], value: T): T[] {
+  return current.includes(value) ? current.filter((item) => item !== value) : [...current, value];
+}
+
+export default function WortschatzPage() {
+  const authSession = useAuthSession();
+  const queryClient = useQueryClient();
+  const translations = useTranslations();
+  const copy = translations.wortschatz;
+  const isMobile = useIsMobile();
+  const features = useFeatureCapabilities();
+  const navigationItems = useMemo(
+    () => getPrimaryNavigationItems(authSession.data?.user.role ?? null, features),
+    [authSession.data?.user.role, features],
+  );
+  const [storageState, setStorageState] = useState(() => loadWortschatzState());
+  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  const { setAnswerHistory } = useAnswerHistoryPersistence();
+  const drillStartedAtRef = useRef(Date.now());
+  const cardPointerStartRef = useRef<{ x: number; y: number } | null>(null);
+  const cardPointerMovedRef = useRef(false);
+
+  const wortschatzQuery = useQuery({
+    queryKey: WORTSCHATZ_QUERY_KEY,
+    queryFn: fetchWortschatzWords,
+  });
+  const historySummaryQuery = useQuery({
+    queryKey: [...WORTSCHATZ_HISTORY_SUMMARY_QUERY_KEY, authSession.data?.user.id ?? null] as const,
+    queryFn: fetchWortschatzHistorySummary,
+    enabled: authSession.status !== 'pending',
+  });
+
+  const words = wortschatzQuery.data?.words ?? [];
+  const datasetVersion = wortschatzQuery.data?.datasetVersion ?? null;
+  const availablePos = ALL_WORTSCHATZ_POS.filter((pos) => words.some((word) => word.pos === pos));
+  const selectedPos = storageState.selectedPos.filter((pos) => availablePos.includes(pos));
+  const effectiveSelectedPos = selectedPos.length > 0 ? selectedPos : availablePos;
+  const selectedCollections = storageState.selectedCollections.filter((collection) =>
+    ALL_WORTSCHATZ_COLLECTIONS.includes(collection),
+  );
+  const selectedLevels = storageState.selectedLevels;
+  const normalizedSearchQuery = normalizeSearchQuery(storageState.searchQuery);
+  const filteredWords = useMemo(
+    () =>
+      words.filter(
+        (word) =>
+          wordMatchesCollections(word, selectedCollections) &&
+          wordMatchesLevels(word, selectedLevels) &&
+          (effectiveSelectedPos.length === 0 || effectiveSelectedPos.includes(word.pos)) &&
+          wordMatchesSearch(word, normalizedSearchQuery),
+      ),
+    [effectiveSelectedPos, normalizedSearchQuery, selectedCollections, selectedLevels, words],
+  );
+  const filterSignature = buildFilterSignature(
+    normalizedSearchQuery,
+    selectedCollections,
+    selectedLevels,
+    effectiveSelectedPos,
+  );
+  const filteredWordCountLabel = formatTemplate(
+    filteredWords.length === 1 ? copy.list.wordCount.singular : copy.list.wordCount.plural,
+    { count: String(filteredWords.length) },
+  );
+  const wordsById = new Map(words.map((word) => [word.id, word] as const));
+  const groupedWords = groupWordsByPos(filteredWords);
+  const wordHistoryById = historySummaryQuery.data?.byWordId ?? {};
+  const correctVisibleCount = filteredWords.reduce(
+    (sum, word) => sum + (wordHistoryById[String(word.id)]?.correct ?? 0),
+    0,
+  );
+  const incorrectVisibleCount = filteredWords.reduce(
+    (sum, word) => sum + (wordHistoryById[String(word.id)]?.incorrect ?? 0),
+    0,
+  );
+  const practicedVisibleCount = filteredWords.filter(
+    (word) => (wordHistoryById[String(word.id)]?.attempts ?? 0) > 0,
+  ).length;
+  const practicedProgress =
+    filteredWords.length > 0 ? Math.round((practicedVisibleCount / filteredWords.length) * 100) : 0;
+  const currentWordId = storageState.drillOrder[storageState.drillIndex] ?? null;
+  const currentWord = currentWordId ? wordsById.get(currentWordId) ?? null : null;
+  const isDrillComplete = filteredWords.length > 0 && storageState.drillIndex >= storageState.drillOrder.length;
+  const activeFilterCount =
+    selectedCollections.length +
+    selectedLevels.length +
+    (selectedPos.length === availablePos.length ? 0 : selectedPos.length);
+
+  useEffect(() => {
+    saveWortschatzState(storageState);
+  }, [storageState]);
+
+  useEffect(() => {
+    if (!datasetVersion) {
+      return;
+    }
+
+    setStorageState((previous) => {
+      let next = previous;
+      const nextSelectedPos = previous.selectedPos.filter((pos) => availablePos.includes(pos));
+      const resolvedSelectedPos = nextSelectedPos.length > 0 ? nextSelectedPos : availablePos;
+
+      if (!arraysEqual(previous.selectedPos, resolvedSelectedPos)) {
+        next = { ...next, selectedPos: resolvedSelectedPos };
+      }
+
+      const validWordIds = new Set(words.map((word) => word.id));
+      const prunedMastery = next.masteredWordIds.filter((id) => validWordIds.has(id));
+      if (!arraysEqual(next.masteredWordIds, prunedMastery)) {
+        next = { ...next, masteredWordIds: prunedMastery };
+      }
+
+      const datasetChanged = next.datasetVersion !== datasetVersion;
+      const filtersChanged = next.filterSignature !== filterSignature;
+
+      if (datasetChanged) {
+        return resetDrillState(next, filteredWords, {
+          datasetVersion,
+          filterSignature,
+          preserveMastery: false,
+        });
+      }
+
+      if (filtersChanged) {
+        return resetDrillState(next, filteredWords, {
+          datasetVersion,
+          filterSignature,
+          preserveMastery: true,
+        });
+      }
+
+      const visibleIds = new Set(filteredWords.map((word) => word.id));
+      const nextDrillOrder = next.drillOrder.filter((id) => visibleIds.has(id));
+      const orderedIds = new Set(nextDrillOrder);
+      const missingVisibleWord = filteredWords.some((word) => !orderedIds.has(word.id));
+
+      if (
+        filteredWords.length > 0 &&
+        (!next.drillSeed || missingVisibleWord || nextDrillOrder.length !== filteredWords.length)
+      ) {
+        return resetDrillState(next, filteredWords, {
+          datasetVersion,
+          filterSignature,
+          preserveMastery: true,
+        });
+      }
+
+      if (!arraysEqual(next.drillOrder, nextDrillOrder)) {
+        next = { ...next, drillOrder: nextDrillOrder };
+      }
+
+      const clampedIndex = Math.min(next.drillIndex, next.drillOrder.length);
+      return clampedIndex === next.drillIndex ? next : { ...next, drillIndex: clampedIndex };
+    });
+  }, [availablePos, datasetVersion, filterSignature, filteredWords, words]);
+
+  useEffect(() => {
+    setIsAnswerVisible(false);
+    drillStartedAtRef.current = Date.now();
+  }, [currentWordId, storageState.activeTab]);
+
+  const sidebar = (
+    <div className="flex h-full flex-col justify-between gap-8">
+      <div className="grid gap-2">
+        {navigationItems.map((item) => (
+          <SidebarNavButton key={item.href} href={item.href} icon={item.icon} label={item.label} exact={item.exact} />
+        ))}
+      </div>
+    </div>
+  );
+
+  const updateLevels = (level: WortschatzLevelFilter | 'all') => {
+    setStorageState((previous) => ({
+      ...previous,
+      selectedLevels:
+        level === 'all'
+          ? []
+            : toggleListValue(previous.selectedLevels, level).filter((item) => ALL_WORTSCHATZ_LEVELS.includes(item)),
+    }));
+  };
+
+  const updateCollections = (collection: WortschatzCollectionFilter | 'all') => {
+    setStorageState((previous) => ({
+      ...previous,
+      selectedCollections:
+        collection === 'all'
+          ? []
+          : toggleListValue(previous.selectedCollections, collection).filter((item) =>
+              ALL_WORTSCHATZ_COLLECTIONS.includes(item),
+            ),
+    }));
+  };
+
+  const updatePos = (pos: PartOfSpeech | 'all') => {
+    setStorageState((previous) => ({
+      ...previous,
+      selectedPos:
+        pos === 'all'
+          ? [...availablePos]
+          : toggleListValue(previous.selectedPos.filter((item) => availablePos.includes(item)), pos),
+    }));
+  };
+
+  const filterPanel = (
+    <div className="space-y-5">
+      <div className="space-y-2">
+        <p className="text-sm font-semibold text-foreground">{copy.filters.collectionTitle}</p>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            type="button"
+            size="sm"
+            variant={selectedCollections.length === 0 ? 'default' : 'outline'}
+            className="rounded-full"
+            onClick={() => updateCollections('all')}
+          >
+            {copy.filters.all}
+          </Button>
+          {ALL_WORTSCHATZ_COLLECTIONS.map((collection) => (
+            <Button
+              key={collection}
+              type="button"
+              size="sm"
+              variant={selectedCollections.includes(collection) ? 'default' : 'outline'}
+              className="rounded-full"
+              onClick={() => updateCollections(collection)}
+            >
+              {copy.collectionLabels[collection]}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-sm font-semibold text-foreground">{copy.filters.levelTitle}</p>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            type="button"
+            size="sm"
+            variant={selectedLevels.length === 0 ? 'default' : 'outline'}
+            className="rounded-full"
+            onClick={() => updateLevels('all')}
+          >
+            {copy.filters.all}
+          </Button>
+          {ALL_WORTSCHATZ_LEVELS.map((level) => (
+            <Button
+              key={level}
+              type="button"
+              size="sm"
+              variant={selectedLevels.includes(level) ? 'default' : 'outline'}
+              className="rounded-full"
+              onClick={() => updateLevels(level)}
+            >
+              {copy.levelLabels[level]}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-sm font-semibold text-foreground">{copy.filters.posTitle}</p>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            type="button"
+            size="sm"
+            variant={selectedPos.length === availablePos.length ? 'default' : 'outline'}
+            className="rounded-full"
+            onClick={() => updatePos('all')}
+          >
+            {copy.filters.all}
+          </Button>
+          {availablePos.map((pos) => (
+            <Button
+              key={pos}
+              type="button"
+              size="sm"
+              variant={effectiveSelectedPos.includes(pos) ? 'default' : 'outline'}
+              className="rounded-full"
+              onClick={() => updatePos(pos)}
+            >
+              {copy.posLabels[pos]}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      <Button
+        type="button"
+        variant="outline"
+        className="w-full rounded-2xl"
+        onClick={() =>
+          setStorageState((previous) => ({
+            ...previous,
+            selectedCollections: [...DEFAULT_WORTSCHATZ_COLLECTIONS],
+            selectedLevels: [...DEFAULT_WORTSCHATZ_LEVELS],
+            selectedPos: [...availablePos],
+          }))
+        }
+      >
+        {copy.filters.reset}
+      </Button>
+    </div>
+  );
+
+  const filterButton = (
+    <Button type="button" variant="outline" className="relative rounded-2xl" aria-label={copy.filters.label} id={WORTSCHATZ_IDS.filters}>
+      <Filter className="h-4 w-4" aria-hidden />
+      <span className="sr-only">{copy.filters.label}</span>
+      {activeFilterCount > 0 ? (
+        <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-semibold text-primary-foreground">
+          {activeFilterCount}
+        </span>
+      ) : null}
+    </Button>
+  );
+
+  const filterControl = isMobile ? (
+    <Sheet>
+      <SheetTrigger asChild>{filterButton}</SheetTrigger>
+      <SheetContent side="bottom" className="rounded-t-[28px]">
+        <SheetHeader>
+          <SheetTitle>{copy.filters.title}</SheetTitle>
+          <SheetDescription>{copy.filters.description}</SheetDescription>
+        </SheetHeader>
+        <div className="mt-6">{filterPanel}</div>
+      </SheetContent>
+    </Sheet>
+  ) : (
+    <Popover>
+      <PopoverTrigger asChild>{filterButton}</PopoverTrigger>
+      <PopoverContent align="end" sideOffset={12} className="w-[360px] rounded-3xl border border-border/60 bg-card p-5 shadow-xl">
+        {filterPanel}
+      </PopoverContent>
+    </Popover>
+  );
+
+  const handleRestartDrill = () => {
+    setStorageState((previous) =>
+      resetDrillState(previous, filteredWords, {
+        datasetVersion: datasetVersion ?? previous.datasetVersion ?? '',
+        filterSignature,
+        preserveMastery: true,
+      }),
+    );
+    setIsAnswerVisible(false);
+  };
+
+  const handleDrillResult = (result: PracticeResult) => {
+    if (!currentWord) {
+      return;
+    }
+
+    const pos = mapLegacyPartOfSpeechToLexeme(currentWord.pos);
+    const answeredAt = new Date().toISOString();
+    const timeSpentMs = Math.max(0, Date.now() - drillStartedAtRef.current);
+    const level = normaliseWortschatzLevel(currentWord.level);
+    const promptSummary = `${currentWord.lemma} - Wortschatz drill`;
+    const selfAssessment = selfAssessmentFromResult(result);
+    const localHistoryEntry = createWortschatzHistoryEntry({
+      word: currentWord,
+      result,
+      answeredAt,
+      timeSpentMs,
+      promptSummary,
+    });
+
+    setStorageState((previous) => {
+      const nextMastery =
+        result === 'correct' && !previous.masteredWordIds.includes(currentWord.id)
+          ? [...previous.masteredWordIds, currentWord.id]
+          : previous.masteredWordIds;
+
+      return {
+        ...previous,
+        correctCount: previous.correctCount + (result === 'correct' ? 1 : 0),
+        wrongCount: previous.wrongCount + (result === 'incorrect' ? 1 : 0),
+        masteredWordIds: nextMastery,
+        drillIndex: Math.min(previous.drillIndex + 1, previous.drillOrder.length),
+      };
+    });
+
+    if (localHistoryEntry) {
+      setAnswerHistory((previous) => appendAnswer(localHistoryEntry, previous));
+    }
+
+    if (!pos) {
+      return;
+    }
+
+    const wordRef = `word_${currentWord.id}`;
+    void submitPracticeAttempt({
+      taskId: wordRef,
+      lexemeId: wordRef,
+      taskType: 'vocabulary_drill',
+      pos,
+      renderer: WORTSCHATZ_DRILL_RENDERER,
+      result,
+      submittedResponse: { selfAssessment },
+      expectedResponse: { answer: currentWord.lemma, english: currentWord.english ?? '' },
+      promptSummary,
+      timeSpentMs,
+      answeredAt,
+      cefrLevel: level,
+    })
+      .then(({ queued }) =>
+        queued
+          ? undefined
+          : queryClient.invalidateQueries({
+              queryKey: WORTSCHATZ_HISTORY_SUMMARY_QUERY_KEY,
+            }),
+      )
+      .catch((error) => {
+        console.warn('Failed to persist Wortschatz drill attempt', error);
+      });
+  };
+
+  const handleCardPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    cardPointerStartRef.current = { x: event.clientX, y: event.clientY };
+    cardPointerMovedRef.current = false;
+  };
+
+  const handleCardPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const pointerStart = cardPointerStartRef.current;
+    if (!pointerStart) {
+      return;
+    }
+
+    const deltaX = Math.abs(event.clientX - pointerStart.x);
+    const deltaY = Math.abs(event.clientY - pointerStart.y);
+    if (deltaX > TEXT_SELECTION_DRAG_THRESHOLD_PX || deltaY > TEXT_SELECTION_DRAG_THRESHOLD_PX) {
+      cardPointerMovedRef.current = true;
+    }
+  };
+
+  const resetCardPointerTracking = () => {
+    cardPointerStartRef.current = null;
+    cardPointerMovedRef.current = false;
+  };
+
+  const handleCardClick = () => {
+    if (isAnswerVisible) {
+      resetCardPointerTracking();
+      return;
+    }
+
+    const selectedText =
+      typeof window !== 'undefined' ? window.getSelection()?.toString().trim() ?? '' : '';
+    const shouldIgnoreClick = cardPointerMovedRef.current || selectedText.length > 0;
+    resetCardPointerTracking();
+
+    if (shouldIgnoreClick) {
+      return;
+    }
+
+    setIsAnswerVisible(true);
+  };
+
+  const renderLoading = () => (
+    <Card className="rounded-3xl border border-border/60 bg-card/80 shadow-soft shadow-primary/5">
+      <CardHeader>
+        <Skeleton className="h-6 w-44" />
+        <Skeleton className="h-4 w-72" />
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <Skeleton className="h-48 w-full rounded-3xl" />
+        <div className="grid gap-3 sm:grid-cols-3">
+          <Skeleton className="h-11 w-full rounded-2xl" />
+          <Skeleton className="h-11 w-full rounded-2xl" />
+          <Skeleton className="h-11 w-full rounded-2xl" />
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderError = () => (
+    <Card className="rounded-3xl border border-destructive/40 bg-card/85 shadow-soft shadow-primary/5">
+      <CardHeader>
+        <CardTitle>{copy.errors.loadTitle}</CardTitle>
+        <CardDescription>{copy.errors.loadDescription}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Button type="button" className="rounded-2xl" onClick={() => void wortschatzQuery.refetch()}>
+          {copy.errors.retry}
+        </Button>
+      </CardContent>
+    </Card>
+  );
+
+  return (
+    <div id={WORTSCHATZ_IDS.page}>
+      <AppShell sidebar={sidebar} mobileNav={<MobileNavBar items={navigationItems} />}>
+        <div className="space-y-5">
+          <section className="space-y-4 rounded-3xl border border-border/60 bg-card/85 p-4 shadow-soft shadow-primary/5 sm:p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h1 className="text-2xl font-semibold text-foreground">Wortschatz</h1>
+                <p className="text-sm text-muted-foreground">{copy.pageDescription}</p>
+              </div>
+              <B2Countdown examDate={B2_EXAM_DATE} isActive />
+            </div>
+
+            <Tabs
+              value={storageState.activeTab}
+              onValueChange={(value) =>
+                setStorageState((previous) => ({ ...previous, activeTab: value === 'list' ? 'list' : 'drill' }))
+              }
+            >
+              <TabsList className="grid h-auto w-full grid-cols-2 rounded-2xl bg-muted/60 p-1">
+                <TabsTrigger className="rounded-xl py-2.5" value="drill">
+                  {copy.tabs.drill}
+                </TabsTrigger>
+                <TabsTrigger className="rounded-xl py-2.5" value="list">
+                  {copy.tabs.list}
+                </TabsTrigger>
+              </TabsList>
+
+              <div className="mt-4 flex gap-2">
+                <div className="relative min-w-0 flex-1">
+                  <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
+                  <Label htmlFor={WORTSCHATZ_IDS.search} className="sr-only">
+                    {copy.search.label}
+                  </Label>
+                  <Input
+                    id={WORTSCHATZ_IDS.search}
+                    value={storageState.searchQuery}
+                    onChange={(event) =>
+                      setStorageState((previous) => ({ ...previous, searchQuery: event.target.value }))
+                    }
+                    className="pl-9"
+                    placeholder={copy.search.placeholder}
+                  />
+                </div>
+                {filterControl}
+              </div>
+
+              <TabsContent value="drill" className="mt-5 space-y-4">
+                {wortschatzQuery.isLoading ? renderLoading() : null}
+                {wortschatzQuery.error ? renderError() : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error && filteredWords.length === 0 ? (
+                  <Card className="rounded-3xl border border-border/60 bg-card/80 shadow-soft shadow-primary/5">
+                    <CardHeader>
+                      <CardTitle>{copy.drill.emptyTitle}</CardTitle>
+                      <CardDescription>{copy.drill.emptyDescription}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ) : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error && isDrillComplete ? (
+                  <Card className="rounded-3xl border border-border/60 bg-card/80 shadow-soft shadow-primary/5">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle2 className="h-6 w-6 text-primary" aria-hidden />
+                        <div>
+                          <CardTitle>{copy.drill.completedTitle}</CardTitle>
+                          <CardDescription>{copy.drill.completedDescription}</CardDescription>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <Button type="button" className="rounded-2xl" onClick={handleRestartDrill}>
+                        <RotateCcw className="h-4 w-4" aria-hidden />
+                        {copy.drill.restart}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ) : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error && currentWord && !isDrillComplete ? (
+                  <section className="space-y-4" id={WORTSCHATZ_IDS.drillCard}>
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <div className="rounded-2xl border border-success-border/60 bg-success-muted/70 px-4 py-3">
+                        <p className="text-xs font-semibold text-success-muted-foreground">{copy.drill.correct}</p>
+                        <p className="text-lg font-semibold text-success-foreground">{correctVisibleCount}</p>
+                      </div>
+                      <div className="rounded-2xl border border-destructive/40 bg-destructive/10 px-4 py-3">
+                        <p className="text-xs font-semibold text-destructive">{copy.drill.incorrect}</p>
+                        <p className="text-lg font-semibold text-destructive">{incorrectVisibleCount}</p>
+                      </div>
+                      <div className="rounded-2xl border border-border/60 bg-background/80 px-4 py-3">
+                        <p className="text-xs font-semibold text-muted-foreground">{copy.metrics.mastered}</p>
+                        <p className="text-lg font-semibold text-foreground">
+                          {practicedVisibleCount}/{filteredWords.length} {copy.metrics.words}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Progress value={practicedProgress} aria-label={copy.metrics.progressLabel} />
+                      <p className="text-xs text-muted-foreground">
+                        {formatTemplate(copy.metrics.progressDetail, {
+                          count: String(practicedVisibleCount),
+                          total: String(filteredWords.length),
+                        })}
+                      </p>
+                    </div>
+
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      className={cn(
+                        'relative min-h-[340px] touch-pan-y overflow-hidden rounded-3xl border border-border/60 bg-card p-5 shadow-soft shadow-primary/5 transition-transform',
+                        isAnswerVisible ? 'cursor-default' : 'cursor-pointer',
+                      )}
+                      onClick={handleCardClick}
+                      onKeyDown={(event) => {
+                        if (event.currentTarget !== event.target) {
+                          return;
+                        }
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          setIsAnswerVisible(true);
+                        }
+                      }}
+                      onPointerDown={handleCardPointerDown}
+                      onPointerMove={handleCardPointerMove}
+                      onPointerCancel={resetCardPointerTracking}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex flex-wrap gap-2">
+                          <Badge variant="secondary" className="rounded-full px-3 py-1">
+                            {copy.datasetBadge}
+                          </Badge>
+                          <Badge variant="outline" className="rounded-full px-3 py-1">
+                            {copy.posLabels[currentWord.pos]}
+                          </Badge>
+                        </div>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="rounded-full"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            speak(formatWordHeading(currentWord));
+                          }}
+                          aria-label={`${copy.drill.pronunciationLabel} ${currentWord.lemma}`}
+                        >
+                          <Volume2 className="h-5 w-5" aria-hidden />
+                        </Button>
+                      </div>
+
+                      <div className="flex min-h-[230px] flex-col items-center justify-center gap-4 text-center">
+                        {!isAnswerVisible ? (
+                          <>
+                            <h2 className="text-4xl font-semibold text-foreground">{formatWordHeading(currentWord)}</h2>
+                            <p className="text-sm text-muted-foreground">{copy.drill.tapToReveal}</p>
+                          </>
+                        ) : (
+                          <>
+                            <p className="text-2xl font-semibold text-foreground">
+                              {currentWord.english ?? copy.list.noTranslation}
+                            </p>
+                            <div className="max-w-2xl space-y-2 text-sm">
+                              {currentWord.exampleDe ? (
+                                <div className="flex items-start justify-center gap-2">
+                                  <p className="font-medium text-foreground">{currentWord.exampleDe}</p>
+                                  <Button
+                                    type="button"
+                                    variant="ghost"
+                                    size="icon"
+                                    className="h-8 w-8 rounded-full"
+                                    onClick={(event) => {
+                                      event.stopPropagation();
+                                      speak(currentWord.exampleDe ?? '');
+                                    }}
+                                    aria-label={copy.list.examplePronunciationLabel}
+                                  >
+                                    <Volume2 className="h-4 w-4" aria-hidden />
+                                  </Button>
+                                </div>
+                              ) : null}
+                              {currentWord.exampleEn ? <p className="text-muted-foreground">{currentWord.exampleEn}</p> : null}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid min-h-[52px] gap-2 sm:grid-cols-3">
+                      {isAnswerVisible ? (
+                        <>
+                          <Button type="button" variant="secondary" className="rounded-2xl" onClick={() => setIsAnswerVisible(false)}>
+                            {copy.drill.backToQuestion}
+                          </Button>
+                          <Button type="button" variant="outline" className="rounded-2xl" onClick={() => handleDrillResult('incorrect')}>
+                            <X className="h-4 w-4" aria-hidden />
+                            {copy.drill.incorrect}
+                          </Button>
+                          <Button type="button" className="rounded-2xl" onClick={() => handleDrillResult('correct')}>
+                            <Check className="h-4 w-4" aria-hidden />
+                            {copy.drill.correct}
+                          </Button>
+                        </>
+                      ) : null}
+                    </div>
+                  </section>
+                ) : null}
+              </TabsContent>
+
+              <TabsContent value="list" className="mt-5 space-y-5">
+                {wortschatzQuery.isLoading ? renderLoading() : null}
+                {wortschatzQuery.error ? renderError() : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error ? (
+                  <div className="flex items-center justify-between gap-3 px-1">
+                    <h2 className="text-base font-semibold text-foreground">{copy.tabs.list}</h2>
+                    <Badge variant="outline" className="rounded-full px-3 py-1">
+                      {filteredWordCountLabel}
+                    </Badge>
+                  </div>
+                ) : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error && filteredWords.length === 0 ? (
+                  <Card className="rounded-3xl border border-border/60 bg-card/80 shadow-soft shadow-primary/5">
+                    <CardHeader>
+                      <CardTitle>{copy.list.emptyTitle}</CardTitle>
+                      <CardDescription>{copy.list.emptyDescription}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ) : null}
+                {!wortschatzQuery.isLoading && !wortschatzQuery.error && filteredWords.length > 0 ? (
+                  <div className="space-y-5" id={WORTSCHATZ_IDS.listSection}>
+                    {availablePos
+                      .filter((pos) => groupedWords.has(pos))
+                      .map((pos) => {
+                        const sectionWords = groupedWords.get(pos) ?? [];
+                        return (
+                          <section key={pos} className="space-y-2">
+                            <div className="px-1">
+                              <h3 className="text-base font-semibold text-foreground">{copy.posLabels[pos]}</h3>
+                            </div>
+                            <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/80">
+                              {sectionWords.map((word) => (
+                                <article
+                                  key={word.id}
+                                  className="grid gap-3 border-b border-border/60 p-4 last:border-b-0 md:grid-cols-[minmax(0,1fr)_minmax(180px,260px)]"
+                                >
+                                  <div className="min-w-0 space-y-2">
+                                    <div className="flex items-start gap-2">
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="icon"
+                                        className="h-9 w-9 shrink-0 rounded-full"
+                                        onClick={() => speak(formatWordHeading(word))}
+                                        aria-label={`${copy.list.pronunciationLabel} ${formatWordHeading(word)}`}
+                                      >
+                                        <Volume2 className="h-4 w-4" aria-hidden />
+                                      </Button>
+                                      <div className="min-w-0">
+                                        <h3 className="text-base font-semibold text-foreground">{formatWordHeading(word)}</h3>
+                                        {word.plural ? (
+                                          <p className="text-xs text-muted-foreground">
+                                            {copy.list.pluralLabel}: <span className="font-medium text-foreground">{word.plural}</span>
+                                          </p>
+                                        ) : null}
+                                      </div>
+                                    </div>
+                                    {word.exampleDe ? (
+                                      <div className="flex items-start gap-2 pl-11 text-sm">
+                                        <div className="min-w-0">
+                                          <p className="font-medium text-foreground">{word.exampleDe}</p>
+                                          {word.exampleEn ? <p className="text-muted-foreground">{word.exampleEn}</p> : null}
+                                        </div>
+                                        <Button
+                                          type="button"
+                                          variant="ghost"
+                                          size="icon"
+                                          className="h-8 w-8 shrink-0 rounded-full"
+                                          onClick={() => speak(word.exampleDe ?? '')}
+                                          aria-label={copy.list.examplePronunciationLabel}
+                                        >
+                                          <Volume2 className="h-4 w-4" aria-hidden />
+                                        </Button>
+                                      </div>
+                                    ) : (
+                                      <p className="pl-11 text-sm text-muted-foreground">{copy.list.noExample}</p>
+                                    )}
+                                  </div>
+                                  <p className="self-start text-sm font-medium text-foreground md:text-right">
+                                    {word.english ?? copy.list.noTranslation}
+                                  </p>
+                                </article>
+                              ))}
+                            </div>
+                          </section>
+                        );
+                      })}
+                  </div>
+                ) : null}
+              </TabsContent>
+            </Tabs>
+          </section>
+        </div>
+      </AppShell>
+    </div>
+  );
+}

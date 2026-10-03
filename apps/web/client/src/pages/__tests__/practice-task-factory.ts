@@ -1,0 +1,164 @@
+import { clientTaskRegistry } from '@/lib/tasks';
+import type { PracticeTask, TaskType } from '@/lib/tasks';
+
+const createTaskCounters = (): Record<TaskType, number> => ({
+  conjugate_form: 0,
+  noun_case_declension: 0,
+  adj_ending: 0,
+  b2_writing_prompt: 0,
+  vocabulary_drill: 0,
+});
+
+let taskTypeCounters = createTaskCounters();
+
+export function resetPracticeTaskFactoryState() {
+  taskTypeCounters = createTaskCounters();
+}
+
+export function buildPracticeTask<T extends TaskType>(
+  taskType: T,
+  index: number,
+): PracticeTask<T> {
+  const entry = clientTaskRegistry[taskType];
+  if (!entry) {
+    throw new Error(`Unsupported task type: ${taskType}`);
+  }
+
+  const sequence = taskTypeCounters[taskType]++;
+  const baseId = `${taskType}-${sequence}-${index}`;
+
+  switch (taskType) {
+    case 'conjugate_form':
+      return {
+        taskId: baseId,
+        lexemeId: `lex-${baseId}`,
+        taskType,
+        pos: 'V',
+        renderer: entry.renderer,
+        interactionMode: entry.interactionMode,
+        prompt: {
+          lemma: `Verb-${sequence}-${index}`,
+          pos: 'V',
+          requestedForm: { tense: 'participle' },
+          instructions: `Gib das Partizip II von „Verb-${sequence}-${index}“ an.`,
+        },
+        expectedSolution: { form: `Verb-${sequence}-${index}-pp` },
+        queueCap: entry.defaultQueueCap,
+        lexeme: {
+          id: `lex-${baseId}`,
+          lemma: `Verb-${sequence}-${index}`,
+          metadata: { level: 'A1' },
+        },
+        assignedAt: new Date().toISOString(),
+        source: 'seed',
+      } satisfies PracticeTask<'conjugate_form'> as PracticeTask<T>;
+    case 'noun_case_declension':
+      return {
+        taskId: baseId,
+        lexemeId: `lex-${baseId}`,
+        taskType,
+        pos: 'N',
+        renderer: entry.renderer,
+        interactionMode: entry.interactionMode,
+        prompt: {
+          lemma: `Nomen-${sequence}-${index}`,
+          pos: 'N',
+          gender: 'die',
+          requestedCase: 'accusative',
+          requestedNumber: 'plural',
+          instructions: `Bilde die Akkusativ Plural-Form von „Nomen-${sequence}-${index}“.`,
+        },
+        expectedSolution: { form: `Nomen-${sequence}-${index}e`, article: 'die' },
+        queueCap: entry.defaultQueueCap,
+        lexeme: {
+          id: `lex-${baseId}`,
+          lemma: `Nomen-${sequence}-${index}`,
+          metadata: { level: 'A1' },
+        },
+        assignedAt: new Date().toISOString(),
+        source: 'seed',
+      } satisfies PracticeTask<'noun_case_declension'> as PracticeTask<T>;
+    case 'adj_ending':
+      return {
+        taskId: baseId,
+        lexemeId: `lex-${baseId}`,
+        taskType,
+        pos: 'Adj',
+        renderer: entry.renderer,
+        interactionMode: entry.interactionMode,
+        prompt: {
+          lemma: `Adjektiv-${sequence}-${index}`,
+          pos: 'Adj',
+          degree: 'comparative',
+          instructions: `Bilde die Komparativform von „Adjektiv-${sequence}-${index}“.`,
+          syntacticFrame: `Adjektiv-${sequence}-${index}e Satzvorlage.`,
+        },
+        expectedSolution: { form: `Adjektiv-${sequence}-${index}er` },
+        queueCap: entry.defaultQueueCap,
+        lexeme: {
+          id: `lex-${baseId}`,
+          lemma: `Adjektiv-${sequence}-${index}`,
+          metadata: { level: 'A2' },
+        },
+        assignedAt: new Date().toISOString(),
+        source: 'seed',
+      } satisfies PracticeTask<'adj_ending'> as PracticeTask<T>;
+    case 'b2_writing_prompt':
+      return {
+        taskId: baseId,
+        lexemeId: `lex-${baseId}`,
+        taskType,
+        pos: 'V',
+        renderer: entry.renderer,
+        interactionMode: entry.interactionMode,
+        prompt: {
+          scenario: `Szenario ${sequence}-${index}`,
+          wordBankItems: ['würde', 'jedoch', 'meiner Meinung nach', 'sollte'],
+          cefrLevel: 'B2',
+          taskInstructions: 'Schreibe eine kurze formelle Antwort.',
+        },
+        expectedSolution: {
+          keyPhrases: ['würde', 'meiner Meinung nach', 'jedoch'],
+          grammarFocus: 'Nutze Konjunktiv II.',
+        },
+        queueCap: entry.defaultQueueCap,
+        lexeme: {
+          id: `lex-${baseId}`,
+          lemma: `Schreiben-${sequence}-${index}`,
+          metadata: { level: 'B2' },
+        },
+        assignedAt: new Date().toISOString(),
+        source: 'seed',
+      } satisfies PracticeTask<'b2_writing_prompt'> as PracticeTask<T>;
+    case 'vocabulary_drill':
+      return {
+        taskId: baseId,
+        lexemeId: `lex-${baseId}`,
+        taskType,
+        pos: 'N',
+        renderer: entry.renderer,
+        interactionMode: entry.interactionMode,
+        prompt: {
+          lemma: `Wort-${sequence}-${index}`,
+          pos: 'N',
+          cefrLevel: 'B2',
+          collections: ['b2_beruf'],
+          instructions: `Review the meaning of "Wort-${sequence}-${index}".`,
+        },
+        expectedSolution: {
+          answer: `Wort-${sequence}-${index}`,
+          english: `word-${sequence}-${index}`,
+        },
+        queueCap: entry.defaultQueueCap,
+        lexeme: {
+          id: `lex-${baseId}`,
+          lemma: `Wort-${sequence}-${index}`,
+          metadata: { level: 'B2', collections: ['b2_beruf'] },
+        },
+        assignedAt: new Date().toISOString(),
+        source: 'seed',
+      } satisfies PracticeTask<'vocabulary_drill'> as PracticeTask<T>;
+    default:
+      throw new Error(`Unsupported task type: ${taskType}`);
+  }
+}

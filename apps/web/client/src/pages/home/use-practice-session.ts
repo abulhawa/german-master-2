@@ -1,0 +1,545 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+import type { PracticeCardResult } from '@/components/practice-card';
+import {
+  clearSessionQueue,
+  completeTask,
+  enqueueTasks,
+  loadPracticeSession,
+  markServerExhausted,
+  savePracticeSession,
+  skipTask,
+  type PracticeSessionState,
+} from '@/lib/practice-session';
+import type { PracticeTask, MultiTaskFetchOptions } from '@/lib/tasks';
+import { clientTaskRegistry, fetchPracticeTasksByType } from '@/lib/tasks';
+import type { CEFRLevel, LexemePos, TaskType } from '@shared';
+
+export const MIN_QUEUE_THRESHOLD = 0;
+const FETCH_LIMIT = 15;
+const MAX_EXCLUDE_TASK_IDS = 100;
+
+type FetchPracticeTasksFn = (
+  options: MultiTaskFetchOptions,
+) => Promise<Record<TaskType, PracticeTask[]>>;
+
+interface FetchTasksForActiveTypesOptions {
+  taskTypes: TaskType[];
+  perTypeLimit: number;
+  resolveLevelForPos: (pos: LexemePos) => CEFRLevel;
+  fetcher?: FetchPracticeTasksFn;
+  excludeTaskIds?: string[];
+  shuffleSeed?: string;
+  levelOverride?: CEFRLevel[];
+  collectionOverride?: string[];
+}
+
+interface FetchTasksForActiveTypesResult {
+  tasksByType: PracticeTask[][];
+  errors: Array<{ taskType: TaskType; error: unknown }>;
+}
+
+export type QueueReloadMode = 'default' | 'shuffle';
+
+export interface QueueReloadOptions {
+  mode?: QueueReloadMode;
+}
+
+function createShuffleSeed(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  const timePart = Date.now().toString(36);
+  const randomPart = Math.random().toString(36).slice(2, 10);
+  return `${timePart}-${randomPart}`;
+}
+
+export async function fetchTasksForActiveTypes({
+  taskTypes,
+  perTypeLimit,
+  resolveLevelForPos,
+  fetcher = fetchPracticeTasksByType,
+  excludeTaskIds,
+  shuffleSeed,
+  levelOverride,
+  collectionOverride,
+}: FetchTasksForActiveTypesOptions): Promise<FetchTasksForActiveTypesResult> {
+  const resolvedShuffleSeed = shuffleSeed ?? createShuffleSeed();
+  const taskLevels = taskTypes.map((taskType) => {
+    const entry = clientTaskRegistry[taskType];
+    const pos = entry?.supportedPos[0];
+    return pos ? resolveLevelForPos(pos) : resolveLevelForPos('V');
+  });
+  const resolvedLevel = levelOverride && levelOverride.length > 0 ? levelOverride : taskLevels;
+
+  try {
+    const groupedTasks = await fetcher({
+      taskTypes,
+      limit: perTypeLimit,
+      level: resolvedLevel,
+      ...(collectionOverride && collectionOverride.length > 0 ? { collection: collectionOverride } : {}),
+      excludeTaskIds,
+      shuffleSeed: resolvedShuffleSeed,
+    });
+
+    return {
+      tasksByType: taskTypes.map((taskType) => groupedTasks[taskType] ?? []),
+      errors: [],
+    };
+  } catch (error) {
+    console.error('[home] Unable to fetch practice tasks', error);
+    return {
+      tasksByType: taskTypes.map(() => []),
+      errors: taskTypes.map((taskType) => ({ taskType, error })),
+    };
+  }
+}
+
+function shuffleArray<T>(source: T[]): T[] {
+  const items = [...source];
+  for (let index = items.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[swapIndex]] = [items[swapIndex], items[index]];
+  }
+  return items;
+}
+
+function mergeTaskLists(lists: PracticeTask[][], limit: number): PracticeTask[] {
+  const queues = lists.map((list) => [...list]);
+  const result: PracticeTask[] = [];
+  const seen = new Set<string>();
+
+  while (result.length < limit && queues.some((queue) => queue.length > 0)) {
+    for (const queue of queues) {
+      if (!queue.length) {
+        continue;
+      }
+
+      const item = queue.shift()!;
+      if (seen.has(item.taskId)) {
+        continue;
+      }
+
+      seen.add(item.taskId);
+      result.push(item);
+
+      if (result.length >= limit) {
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
+function createQueueSignature(queue: string[], taskTypes: TaskType[]): string {
+  return `${taskTypes.join(',')}|${queue.join(',')}`;
+}
+
+export interface UseHomePracticeSessionOptions {
+  activeTaskTypes: TaskType[];
+  sessionScopeKey: string;
+  userId: string | null | undefined;
+  resolveLevelForPos: (pos: LexemePos) => CEFRLevel;
+  levelOverride?: CEFRLevel[];
+  collectionOverride?: string[];
+}
+
+export interface QueueDiagnosticsSnapshot {
+  queueLength: number;
+  threshold: number;
+  lastFailedSignature: string | null;
+  isServerExhausted: boolean;
+}
+
+export interface UseHomePracticeSessionResult {
+  session: PracticeSessionState;
+  activeTask: PracticeTask | undefined;
+  pendingResult: PracticeCardResult | null;
+  isFetchingTasks: boolean;
+  isInitialLoading: boolean;
+  fetchError: string | null;
+  hasBlockingFetchError: boolean;
+  queueDiagnostics: QueueDiagnosticsSnapshot;
+  registerPendingResult: (result: PracticeCardResult | null) => void;
+  continueToNext: () => void;
+  skipActiveTask: () => void;
+  requestQueueReload: (options?: QueueReloadOptions) => void;
+  reloadQueue: (options?: QueueReloadOptions) => Promise<void>;
+  resetFetchError: () => void;
+}
+
+export function useHomePracticeSession({
+  activeTaskTypes,
+  sessionScopeKey,
+  userId,
+  resolveLevelForPos,
+  levelOverride,
+  collectionOverride,
+}: UseHomePracticeSessionOptions): UseHomePracticeSessionResult {
+  const [session, setSession] = useState<PracticeSessionState>(() =>
+    loadPracticeSession({ scopeKey: sessionScopeKey, userId }),
+  );
+  const [tasksById, setTasksById] = useState<Record<string, PracticeTask>>({});
+  const [pendingResult, setPendingResult] = useState<PracticeCardResult | null>(null);
+  const [isFetchingTasks, setIsFetchingTasks] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [hasBlockingFetchError, setHasBlockingFetchError] = useState(false);
+  const reloadRequestNonceRef = useRef(0);
+  const [pendingReloadRequest, setPendingReloadRequest] = useState<
+    { mode: QueueReloadMode; nonce: number } | null
+  >(null);
+  const suppressAutoFetchRef = useRef(false);
+  const enqueueReloadRequest = useCallback((mode: QueueReloadMode = 'default') => {
+    reloadRequestNonceRef.current += 1;
+    suppressAutoFetchRef.current = true;
+    setPendingReloadRequest({ mode, nonce: reloadRequestNonceRef.current });
+  }, []);
+  const requestQueueReload = useCallback(
+    (options?: QueueReloadOptions) => enqueueReloadRequest(options?.mode ?? 'default'),
+    [enqueueReloadRequest],
+  );
+  const pendingFetchRef = useRef(false);
+  const sessionRef = useRef(session);
+  const sessionHydrationRef = useRef({ scopeKey: sessionScopeKey, userId });
+  const previousScopeKeyRef = useRef(sessionScopeKey);
+  const lastFailedQueueSignatureRef = useRef<string | null>(null);
+
+  const activeTask = session.activeTaskId ? tasksById[session.activeTaskId] : undefined;
+  const queueSignature = useMemo(
+    () => createQueueSignature(session.queue, activeTaskTypes),
+    [session.queue, activeTaskTypes],
+  );
+
+  useEffect(() => {
+    if (previousScopeKeyRef.current !== sessionScopeKey) {
+      previousScopeKeyRef.current = sessionScopeKey;
+      requestQueueReload();
+    }
+  }, [requestQueueReload, sessionScopeKey]);
+
+  useEffect(() => {
+    if (userId === undefined) {
+      return;
+    }
+
+    const previous = sessionHydrationRef.current;
+    if (previous.scopeKey === sessionScopeKey && previous.userId === userId) {
+      return;
+    }
+
+    sessionHydrationRef.current = { scopeKey: sessionScopeKey, userId };
+    setSession(loadPracticeSession({ scopeKey: sessionScopeKey, userId }));
+    setTasksById({});
+    requestQueueReload();
+  }, [requestQueueReload, sessionScopeKey, userId]);
+
+  useEffect(() => {
+    if (userId === undefined) {
+      return;
+    }
+
+    savePracticeSession(session, { scopeKey: sessionScopeKey, userId });
+  }, [session, sessionScopeKey, userId]);
+
+  useEffect(() => {
+    if (pendingResult && pendingResult.task.taskId !== session.activeTaskId) {
+      setPendingResult(null);
+    }
+  }, [pendingResult, session.activeTaskId]);
+
+  useEffect(() => {
+    sessionRef.current = session;
+  }, [session]);
+
+  const fetchAndEnqueueTasks = useCallback(
+    async (
+      { replace = false, mode = 'default' }: { replace?: boolean; mode?: QueueReloadMode } = {},
+    ) => {
+      if (pendingFetchRef.current || !activeTaskTypes.length) {
+        return;
+      }
+
+      const currentSession = sessionRef.current;
+      const baseQueue = replace ? [] : currentSession.queue;
+      const shouldResetExclusions = replace && mode === 'shuffle';
+      const exclusionSources = shouldResetExclusions
+        ? []
+        : [...currentSession.queue, ...currentSession.completed, ...currentSession.recent];
+      const excludeTaskIds = Array.from(new Set(exclusionSources)).slice(0, MAX_EXCLUDE_TASK_IDS);
+      const normalizedExcludeTaskIds = excludeTaskIds.length ? excludeTaskIds : undefined;
+      const baseSignature = createQueueSignature(baseQueue, activeTaskTypes);
+
+      pendingFetchRef.current = true;
+      setIsFetchingTasks(true);
+
+      try {
+        const perTypeLimit = Math.max(1, Math.ceil(FETCH_LIMIT / activeTaskTypes.length));
+        let shouldResetCompletedForNewCycle = false;
+        let { tasksByType: fetchedTasks, errors: taskFetchErrors } = await fetchTasksForActiveTypes({
+          taskTypes: activeTaskTypes,
+          perTypeLimit,
+          resolveLevelForPos,
+          levelOverride,
+          collectionOverride,
+          ...(normalizedExcludeTaskIds ? { excludeTaskIds: normalizedExcludeTaskIds } : {}),
+          ...(mode === 'shuffle' ? { shuffleSeed: createShuffleSeed() } : {}),
+        });
+
+        let tasks = shuffleArray(mergeTaskLists(fetchedTasks, FETCH_LIMIT));
+
+        if (
+          !tasks.length &&
+          replace &&
+          mode === 'default' &&
+          normalizedExcludeTaskIds &&
+          !taskFetchErrors.length
+        ) {
+          const retry = await fetchTasksForActiveTypes({
+            taskTypes: activeTaskTypes,
+            perTypeLimit,
+            resolveLevelForPos,
+            levelOverride,
+            collectionOverride,
+            shuffleSeed: createShuffleSeed(),
+          });
+
+          fetchedTasks = retry.tasksByType;
+          taskFetchErrors = retry.errors;
+          tasks = shuffleArray(mergeTaskLists(fetchedTasks, FETCH_LIMIT));
+          shouldResetCompletedForNewCycle = tasks.length > 0;
+        }
+
+        if (!tasks.length) {
+          if (taskFetchErrors.length) {
+            setHasBlockingFetchError(true);
+            setFetchError("We couldn't load additional practice tasks. Please try again in a moment.");
+          } else if (!baseQueue.length) {
+            setHasBlockingFetchError(true);
+            setFetchError(
+              'No practice tasks are available for your current scope right now. Try adjusting your practice scope or check back later.',
+            );
+          }
+          lastFailedQueueSignatureRef.current = baseSignature;
+          return;
+        }
+
+        const seen = new Set(baseQueue);
+        const hasNewTasks = tasks.some((task) => {
+          if (seen.has(task.taskId)) {
+            return false;
+          }
+          seen.add(task.taskId);
+          return true;
+        });
+
+        if (!replace && !hasNewTasks) {
+          setSession((prev) => markServerExhausted(prev));
+          lastFailedQueueSignatureRef.current = baseSignature;
+          return;
+        }
+
+        setTasksById((prev) => {
+          const next = replace ? {} : { ...prev };
+          for (const task of tasks) {
+            next[task.taskId] = task;
+          }
+          return next;
+        });
+
+        let nextSessionState: PracticeSessionState | null = null;
+        setSession((prev) => {
+          const baseState = replace
+            ? clearSessionQueue(prev, { preserveCompleted: mode !== 'shuffle' && !shouldResetCompletedForNewCycle })
+            : prev;
+          const updatedState = enqueueTasks(baseState, tasks, {
+            replace,
+            ignoreCompleted: mode === 'shuffle' || shouldResetCompletedForNewCycle,
+          });
+          nextSessionState = updatedState;
+          return updatedState;
+        });
+
+        const sessionAfterEnqueue = nextSessionState as PracticeSessionState | null;
+        if (replace && sessionAfterEnqueue && sessionAfterEnqueue.queue.length === 0) {
+          lastFailedQueueSignatureRef.current = baseSignature;
+          setHasBlockingFetchError(true);
+          setFetchError(
+            'No practice tasks are available for your current scope right now. Try adjusting your practice scope or check back later.',
+          );
+          return;
+        }
+
+        lastFailedQueueSignatureRef.current = null;
+        if (taskFetchErrors.length) {
+          setHasBlockingFetchError(false);
+          setFetchError('Some practice tasks failed to load. Showing the available tasks while we retry.');
+        } else {
+          setHasBlockingFetchError(false);
+          setFetchError(null);
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Failed to load practice tasks';
+        console.error('[home] Unable to fetch practice tasks', error);
+        lastFailedQueueSignatureRef.current = null;
+        setHasBlockingFetchError(true);
+        setFetchError(message);
+      } finally {
+        pendingFetchRef.current = false;
+        setIsFetchingTasks(false);
+      }
+    },
+    [activeTaskTypes, collectionOverride, levelOverride, resolveLevelForPos],
+  );
+
+  useEffect(() => {
+    if (suppressAutoFetchRef.current) {
+      return;
+    }
+
+    if (hasBlockingFetchError) {
+      return;
+    }
+
+    if (lastFailedQueueSignatureRef.current && lastFailedQueueSignatureRef.current === queueSignature) {
+      return;
+    }
+
+    if (!session.queue.length || !session.activeTaskId) {
+      void fetchAndEnqueueTasks({ replace: true });
+      return;
+    }
+
+    if (!tasksById[session.activeTaskId] && !isFetchingTasks) {
+      void fetchAndEnqueueTasks({ replace: true });
+      return;
+    }
+
+    if (session.serverExhausted && session.queue.length > 0) {
+      return;
+    }
+  }, [
+    fetchAndEnqueueTasks,
+    hasBlockingFetchError,
+    isFetchingTasks,
+    queueSignature,
+    session.activeTaskId,
+    session.queue.length,
+    session.serverExhausted,
+    tasksById,
+  ]);
+
+  useEffect(() => {
+    if (!pendingReloadRequest) {
+      return;
+    }
+    const { mode } = pendingReloadRequest;
+    setPendingReloadRequest(null);
+    setTasksById({});
+    setSession((prev) => clearSessionQueue(prev));
+    lastFailedQueueSignatureRef.current = null;
+    void (async () => {
+      try {
+        await fetchAndEnqueueTasks({ replace: true, mode });
+      } finally {
+        suppressAutoFetchRef.current = false;
+      }
+    })();
+  }, [pendingReloadRequest, fetchAndEnqueueTasks]);
+
+  const continueToNext = useCallback(() => {
+    setPendingResult((current) => {
+      const taskId = current?.task.taskId;
+      if (!taskId) {
+        return current;
+      }
+
+      setSession((prev) => {
+        const updated = completeTask(prev, taskId, current?.result);
+
+        if (updated.activeTaskId === taskId && updated.queue.includes(taskId)) {
+          setTasksById((previous) => {
+            const task = previous[taskId];
+            if (!task) {
+              return previous;
+            }
+            return {
+              ...previous,
+              [taskId]: {
+                ...task,
+                assignedAt: new Date().toISOString(),
+              },
+            };
+          });
+        } else if (!updated.queue.includes(taskId)) {
+          setTasksById((previous) => {
+            if (!(taskId in previous)) {
+              return previous;
+            }
+            const next = { ...previous };
+            delete next[taskId];
+            return next;
+          });
+        }
+
+        return updated;
+      });
+
+      return null;
+    });
+  }, []);
+
+  const skipActiveTask = useCallback(() => {
+    if (!activeTask) {
+      return;
+    }
+
+    setSession((prev) => skipTask(prev, activeTask.taskId));
+  }, [activeTask]);
+
+  const reloadQueue = useCallback(async (options?: QueueReloadOptions) => {
+    lastFailedQueueSignatureRef.current = null;
+    setHasBlockingFetchError(false);
+    setFetchError(null);
+    await fetchAndEnqueueTasks({ replace: true, mode: options?.mode ?? 'default' });
+  }, [fetchAndEnqueueTasks]);
+
+  const resetFetchError = useCallback(() => {
+    lastFailedQueueSignatureRef.current = null;
+    setHasBlockingFetchError(false);
+    setFetchError(null);
+  }, []);
+
+  const queueDiagnostics = useMemo<QueueDiagnosticsSnapshot>(
+    () => ({
+      queueLength: session.queue.length,
+      threshold: MIN_QUEUE_THRESHOLD,
+      lastFailedSignature: lastFailedQueueSignatureRef.current,
+      isServerExhausted: session.serverExhausted,
+    }),
+    [session.queue.length, session.serverExhausted],
+  );
+
+  const registerPendingResult = useCallback((result: PracticeCardResult | null) => {
+    setPendingResult(result);
+  }, []);
+
+  const isInitialLoading = !activeTask && isFetchingTasks;
+
+  return {
+    session,
+    activeTask,
+    pendingResult,
+    isFetchingTasks,
+    isInitialLoading,
+    fetchError,
+    hasBlockingFetchError,
+    queueDiagnostics,
+    registerPendingResult,
+    continueToNext,
+    skipActiveTask,
+    requestQueueReload,
+    reloadQueue,
+    resetFetchError,
+  };
+}

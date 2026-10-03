@@ -1,0 +1,1372 @@
+﻿import type { TaskType } from '@shared';
+import type { PartOfSpeech } from '@shared';
+
+export const SUPPORTED_LOCALES = ['en', 'de'] as const;
+export type Locale = (typeof SUPPORTED_LOCALES)[number];
+export const DEFAULT_LOCALE: Locale = 'en';
+
+export interface LanguageToggleMessages {
+  label: string;
+  english: string;
+  german: string;
+}
+
+export interface UserMenuMessages {
+  ariaLabel: string;
+  signInLabel: string;
+  accountLabel: string;
+  settingsLabel: string;
+  refreshLabel: string;
+  languageLabel: string;
+  theme: {
+    toggleToDark: string;
+    toggleToLight: string;
+  };
+  unknownUserInitial: string;
+}
+
+export interface PracticeCardMessages {
+  offline: { title: string; description: string; announce: string };
+  error: { title: string; generic: string };
+  status: { correct: string; incorrect: string; expectedAnswer: string; revealPrompt: string };
+  header: {
+    appName: string;
+  };
+  translations: {
+    label: string;
+    toggle: string;
+    englishPrefix: string;
+    expectedAnswerPrefix: string;
+    expectedFormPrefix: string;
+    articleLabel: string;
+  };
+  exampleLabel: string;
+  exampleToggle: string;
+  metadata: { sourceLabel: string };
+  actions: {
+    submit: string;
+    pronounceSrLabel: string;
+    revealAnswer: string;
+    hideAnswer: string;
+    nextQuestion: string;
+    retry: string;
+    skip: string;
+  };
+  shortcuts: {
+    heading: string;
+    whileAnswering: string;
+    afterChecking: string;
+    submit: string;
+    pronounce: string;
+    example: string;
+    reveal: string;
+    retry: string;
+    next: string;
+    skip: string;
+  };
+  loadingNext: string;
+  progress: {
+    completedLabel: string;
+  };
+  caseLabels: Record<'nominative' | 'accusative' | 'dative' | 'genitive', string>;
+  numberLabels: Record<'singular' | 'plural', string>;
+  degreeLabels: Record<'positive' | 'comparative' | 'superlative', string>;
+  conjugate: {
+    placeholder: string;
+    ariaLabel: string;
+    instruction: string;
+    subjectSuffix: string;
+    tenseLabels: {
+      participle: string;
+      past: string;
+      present: string;
+      fallback: string;
+    };
+    subjectLabels: {
+      singular: Record<1 | 2 | 3, string>;
+      plural: Record<1 | 2 | 3, string>;
+      fallback?: string;
+    };
+  };
+  noun: {
+    placeholder: string;
+    ariaLabel: string;
+    instruction: string;
+  };
+  adjective: {
+    placeholder: string;
+    ariaLabel: string;
+    syntacticFrameLabel: string;
+    instruction: string;
+  };
+  b2Writing: {
+    placeholder: string;
+    ariaLabel: string;
+    submit: string;
+    loadingAnalysis: string;
+    analysisFailed: string;
+    feedbackLabel: string;
+    scoreLabel: string;
+    strengthsLabel: string;
+    noStrengths: string;
+    improvementsLabel: string;
+    noImprovements: string;
+    correctionLabel: string;
+    keyPhrasesLabel: string;
+    scenarioLabel: string;
+    wordBankLabel: string;
+    responseLabel: string;
+    grammarFocusLabel: string;
+    modelAnswerLabel: string;
+    sentenceRequirement: string;
+    matchSummary: string;
+    showGrammarFocus: string;
+    hideGrammarFocus: string;
+  };
+  vocabulary: {
+    badgeLabel: string;
+    collectionBadge: string;
+    prompt: string;
+    answerLabel: string;
+    revealAnswer: string;
+    correct: string;
+    incorrect: string;
+  };
+  unsupported: {
+    title: string;
+    description: string;
+    retry: string;
+  };
+}
+
+interface PluralizedMessage {
+  singular: string;
+  plural: string;
+}
+
+export interface ProgressDisplayMessages {
+  headline: string;
+  description: {
+    withCefr: string;
+    withoutCefr: string;
+  };
+  taskDescriptor: {
+    mix: PluralizedMessage;
+    single: string;
+  };
+  taskTypeLabels: Partial<Record<TaskType, string>>;
+  cefrLevel: string;
+  streak: {
+    label: PluralizedMessage;
+  };
+  cards: {
+    accuracy: {
+      title: string;
+      basedOn: PluralizedMessage;
+    };
+    lexemes: {
+      title: string;
+      subtitle: string;
+    };
+    lastAttempt: {
+      title: string;
+      subtitle: string;
+      never: string;
+    };
+  };
+  performance: {
+    heading: string;
+  };
+  attemptsSummary: {
+    logged: PluralizedMessage;
+    none: string;
+  };
+  insight: string;
+}
+
+export interface HomeMessages {
+  topBar: {
+    focusLabel: string;
+    levelLabel: string;
+    title: string;
+    signedOutSubtitle: string;
+    signedInSubtitle: string;
+  };
+  reviewBanner: {
+    title: string;
+    description: string;
+  };
+  historyCard: {
+    title: string;
+    summary: string;
+    emptySummary: string;
+    emptyDetail: string;
+    open: string;
+    close: string;
+    resultLabels: {
+      correct: string;
+      incorrect: string;
+    };
+  };
+  queueDiagnostics: {
+    title: string;
+    description: string;
+    status: {
+      blocked: string;
+      fetching: string;
+      replenishing: string;
+      healthy: string;
+    };
+    labels: {
+      queued: string;
+      threshold: string;
+      server: string;
+      signature: string;
+    };
+    serverStates: {
+      yes: string;
+      no: string;
+    };
+  };
+  b2Banner: {
+    title: string;
+    description: string;
+  };
+  b2BerufCollection: {
+    title: string;
+    description: string;
+    cta: string;
+  };
+  b2Countdown: {
+    upcoming: string;
+    today: string;
+  };
+  practiceTabs: {
+    words: string;
+    writing: string;
+  };
+}
+
+export interface SettingsDialogMessages {
+  b2ExamMode: {
+    label: string;
+    description: string;
+    countdown: string;
+  };
+}
+
+export interface WortschatzMessages {
+  kicker: string;
+  pageDescription: string;
+  datasetBadge: string;
+  tabs: {
+    drill: string;
+    list: string;
+  };
+  search: {
+    label: string;
+    placeholder: string;
+  };
+  filters: {
+    label: string;
+    title: string;
+    description: string;
+    all: string;
+    collectionTitle: string;
+    levelTitle: string;
+    posTitle: string;
+    reset: string;
+  };
+  metrics: {
+    mastered: string;
+    accuracy: string;
+    remaining: string;
+    total: string;
+    words: string;
+    progressLabel: string;
+    progressDetail: string;
+  };
+  collectionLabels: Record<'b2_beruf', string>;
+  levelLabels: Record<'A1' | 'A2' | 'B1' | 'B2', string>;
+  posLabels: Record<PartOfSpeech, string>;
+  list: {
+    emptyTitle: string;
+    emptyDescription: string;
+    wordCount: PluralizedMessage;
+    pronunciationLabel: string;
+    examplePronunciationLabel: string;
+    translationLabel: string;
+    exampleLabel: string;
+    pluralLabel: string;
+    noTranslation: string;
+    noExample: string;
+  };
+  drill: {
+    heading: string;
+    description: string;
+    emptyTitle: string;
+    emptyDescription: string;
+    completedTitle: string;
+    completedDescription: string;
+    frontPrompt: string;
+    backPrompt: string;
+    showAnswer: string;
+    hideAnswer: string;
+    tapToReveal: string;
+    backToQuestion: string;
+    correct: string;
+    incorrect: string;
+    restart: string;
+    pronunciationLabel: string;
+    queueProgressLabel: string;
+  };
+  errors: {
+    loadTitle: string;
+    loadDescription: string;
+    retry: string;
+  };
+}
+
+export interface WritingMessages {
+  unavailable: {
+    title: string;
+    description: string;
+    backToPractice: string;
+  };
+}
+
+export interface AuthMessages {
+  sidebar: {
+    signedOutTitle: string;
+    signedOutSubtitle: string;
+    signedInTitle: string;
+    signedInSubtitle: string;
+    signInCta: string;
+    createAccountCta: string;
+    manageAccountCta: string;
+    verifyReminder: string;
+  };
+  dialog: {
+    accountTitle: string;
+    accountDescription: string;
+    signedInHeading: string;
+    unknownUser: string;
+    roleLabel: string;
+    verifyEmailReminder: string;
+    signOutLabel: string;
+    signingOutLabel: string;
+    signInTitle: string;
+    signUpTitle: string;
+    signInDescription: string;
+    signUpDescription: string;
+    signInTab: string;
+    signUpTab: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    passwordLabel: string;
+    passwordPlaceholder: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    submitSignInLabel: string;
+    submitSignUpLabel: string;
+    signingInLabel: string;
+    signingUpLabel: string;
+    googleSignInLabel: string;
+    googleUnavailable: string;
+    microsoftSignInLabel: string;
+    microsoftUnavailable: string;
+    switchToSignUpPrompt: string;
+    switchToSignUpCta: string;
+    switchToSignInPrompt: string;
+    switchToSignInCta: string;
+    resendVerificationPrompt: string;
+    resendVerificationCta: string;
+    resendVerificationPendingLabel: string;
+    resendVerificationSuccess: string;
+    forgotPasswordPrompt: string;
+    forgotPasswordCta: string;
+    forgotPasswordPendingLabel: string;
+    forgotPasswordSuccess: string;
+    verificationNotice: string;
+    successTitle: string;
+    errorTitle: string;
+    loadingStatus: string;
+    validation: {
+      emailRequired: string;
+      passwordRequired: string;
+    };
+  };
+  mobile: {
+    accountLabel: string;
+    signInLabel: string;
+    manageAccountLabel: string;
+  };
+  feedback: {
+    signInSuccess: string;
+    signOutSuccess: string;
+    signUpSuccess: string;
+    unknownError: string;
+  };
+}
+
+export interface AppMessages {
+  languageToggle: LanguageToggleMessages;
+  userMenu: UserMenuMessages;
+  practiceCard: PracticeCardMessages;
+  progressDisplay: ProgressDisplayMessages;
+  home: HomeMessages;
+  wortschatz: WortschatzMessages;
+  writing: WritingMessages;
+  settingsDialog: SettingsDialogMessages;
+  auth: AuthMessages;
+}
+
+const PRACTICE_CARD_PLACEHOLDER = '{taskType}' satisfies `{${string}}`;
+
+const MESSAGES: Record<Locale, AppMessages> = {
+  en: {
+    languageToggle: {
+      label: 'Language',
+      english: 'English',
+      german: 'Deutsch',
+    },
+    userMenu: {
+      ariaLabel: 'Open user menu',
+      signInLabel: 'Open sign in dialog',
+      accountLabel: 'Account',
+      settingsLabel: 'Settings',
+      refreshLabel: 'Get new practice tasks',
+      languageLabel: 'Language',
+      theme: {
+        toggleToDark: 'Switch to dark theme',
+        toggleToLight: 'Switch to light theme',
+      },
+      unknownUserInitial: '?',
+    },
+    home: {
+      topBar: {
+        focusLabel: 'Practice focus',
+        levelLabel: 'Verb level (CEFR)',
+        title: 'Continue your personalised session',
+        signedOutSubtitle: 'Sign in to sync your progress and unlock analytics.',
+        signedInSubtitle: 'Signed in as {name}.',
+      },
+      reviewBanner: {
+        title: 'Review mode',
+        description:
+          "You've completed every available prompt. We'll cycle them for spaced review so you keep reinforcing your memory.",
+      },
+      historyCard: {
+        title: 'Practice recap',
+        summary: 'Logged {count} answers recently.',
+        emptySummary: 'Your recent answers will appear here once you start practicing.',
+        emptyDetail: "We'll summarise your answers once you complete a prompt.",
+        open: 'View recap',
+        close: 'Hide details',
+        resultLabels: {
+          correct: 'Correct',
+          incorrect: 'Incorrect',
+        },
+      },
+      queueDiagnostics: {
+        title: 'Queue diagnostics',
+        description: 'Monitor how many prompts remain available and whether new tasks are being fetched.',
+        status: {
+          blocked: 'Blocked',
+          fetching: 'Fetching tasks',
+          replenishing: 'Replenishing',
+          healthy: 'Healthy',
+        },
+        labels: {
+          queued: 'Queued tasks',
+          threshold: 'Min threshold',
+          server: 'Server exhausted',
+          signature: 'Last fetch signature',
+        },
+        serverStates: {
+          yes: 'Yes',
+          no: 'No',
+        },
+      },
+      b2Banner: {
+        title: 'B2 Exam Mode',
+        description: 'Focusing on B1/B2 level tasks.',
+      },
+      b2BerufCollection: {
+        title: 'B2 Beruf collection',
+        description: 'This is a Beruf vocabulary collection within CEFR B2, loaded with the canonical vocabulary task feed.',
+        cta: 'Practice B2 Beruf',
+      },
+      b2Countdown: {
+        upcoming: '📅 B2 in {days} days',
+        today: '📅 B2 today! Viel Erfolg! 🍀',
+      },
+      practiceTabs: {
+        words: 'Words',
+        writing: 'Writing',
+      },
+    },
+    wortschatz: {
+      kicker: 'Vocabulary practice',
+      pageDescription:
+        'Review the bundled B2 Beruf vocabulary set as a searchable list or run a self-contained Schnell-Drill session.',
+      datasetBadge: 'B2 Beruf',
+      tabs: {
+        drill: 'Schnell-Drill',
+        list: 'Wortliste',
+      },
+      search: {
+        label: 'Search vocabulary',
+        placeholder: 'Search by German, English, or example',
+      },
+      filters: {
+        label: 'Filters',
+        title: 'Vocabulary filters',
+        description: 'Limit the current list and drill queue by collection, CEFR level, or word class.',
+        all: 'All',
+        collectionTitle: 'Collection',
+        levelTitle: 'CEFR level',
+        posTitle: 'Part of speech',
+        reset: 'Reset filters',
+      },
+      metrics: {
+        mastered: 'Practiced',
+        accuracy: 'Accuracy',
+        remaining: 'Remaining',
+        total: 'Attempts',
+        words: 'words',
+        progressLabel: 'Practice history progress',
+        progressDetail: '{count} of {total} filtered words have historical practice attempts.',
+      },
+      collectionLabels: {
+        b2_beruf: 'B2 Beruf',
+      },
+      levelLabels: {
+        A1: 'A1',
+        A2: 'A2',
+        B1: 'B1',
+        B2: 'B2',
+      },
+      posLabels: {
+        V: 'Verbs',
+        N: 'Nouns',
+        Adj: 'Adjectives',
+        Adv: 'Adverbs',
+        Pron: 'Pronouns',
+        Präp: 'Prepositions',
+        Konj: 'Conjunctions',
+        Part: 'Particles',
+      },
+      list: {
+        emptyTitle: 'No vocabulary matches these filters',
+        emptyDescription: 'Adjust the search query or reset the part-of-speech filters to show more words.',
+        wordCount: {
+          singular: '{count} word',
+          plural: '{count} words',
+        },
+        pronunciationLabel: 'Pronounce',
+        examplePronunciationLabel: 'Pronounce example',
+        translationLabel: 'English',
+        exampleLabel: 'Example',
+        pluralLabel: 'Plural',
+        noTranslation: 'No translation available yet.',
+        noExample: 'No example sentence available yet.',
+      },
+      drill: {
+        heading: 'Schnell-Drill',
+        description: 'Flip each card, judge your recall, and keep an eye on mastery for the current filtered set.',
+        emptyTitle: 'No drill cards are available',
+        emptyDescription: 'Adjust the search query or reset the part-of-speech filters to build a new drill queue.',
+        completedTitle: 'Drill complete',
+        completedDescription: 'You reached the end of the current queue. Restart to reshuffle the same filtered set.',
+        frontPrompt: 'Recall the meaning before flipping the card.',
+        backPrompt: 'Check the meaning and example before marking the card.',
+        showAnswer: 'Show answer',
+        hideAnswer: 'Hide answer',
+        tapToReveal: 'Tap to reveal',
+        backToQuestion: 'Back to question',
+        correct: 'Known',
+        incorrect: 'Review again',
+        restart: 'Restart drill',
+        pronunciationLabel: 'Pronounce',
+        queueProgressLabel: 'Drill queue progress',
+      },
+      errors: {
+        loadTitle: 'Unable to load Wortschatz',
+        loadDescription: 'Try again to reload the bundled vocabulary list.',
+        retry: 'Retry',
+      },
+    },
+    writing: {
+      unavailable: {
+        title: 'Writing Lab unavailable',
+        description:
+          'Writing practice is experimental and requires AI feedback to be configured before it appears in the app.',
+        backToPractice: 'Back to practice',
+      },
+    },
+    settingsDialog: {
+      b2ExamMode: {
+        label: 'B2 Exam Preparation',
+        description: 'Focus on B1/B2 vocabulary and grammar patterns for the telc Deutsch B2 Beruf exam.',
+        countdown: '{days} days until 30 April 2026',
+      },
+    },
+    auth: {
+      sidebar: {
+        signedOutTitle: 'Sign in to save your progress',
+        signedOutSubtitle: 'Create an account to sync practice history across devices.',
+        signedInTitle: 'You\'re signed in',
+        signedInSubtitle: 'Your attempts will sync securely in the background.',
+        signInCta: 'Sign in',
+        createAccountCta: 'Create an account',
+        manageAccountCta: 'Manage account',
+        verifyReminder: 'Verify your email to unlock syncing and admin tools.',
+      },
+      dialog: {
+        accountTitle: 'Account',
+        accountDescription: 'Review your current session details and manage sign-out.',
+        signedInHeading: 'Signed in as',
+        unknownUser: 'Unknown user',
+        roleLabel: 'Role: {role}',
+        verifyEmailReminder: 'Check your inbox to verify this email address.',
+        signOutLabel: 'Sign out',
+        signingOutLabel: 'Signing out…',
+        signInTitle: 'Welcome back',
+        signUpTitle: 'Create your account',
+        signInDescription: 'Sign in to sync your study history and unlock analytics.',
+        signUpDescription: 'Create an account to track progress and access personalised insights.',
+        signInTab: 'Sign in',
+        signUpTab: 'Sign up',
+        emailLabel: 'Email',
+        emailPlaceholder: 'you@example.com',
+        passwordLabel: 'Password',
+        passwordPlaceholder: 'Enter your password',
+        nameLabel: 'Name',
+        namePlaceholder: 'Your name',
+        submitSignInLabel: 'Sign in',
+        submitSignUpLabel: 'Create account',
+        signingInLabel: 'Signing in…',
+        signingUpLabel: 'Creating account…',
+        googleSignInLabel: 'Sign in with Google',
+        googleUnavailable: 'Google sign-in is temporarily unavailable. Use email sign-in for now.',
+        microsoftSignInLabel: 'Sign in with Microsoft',
+        microsoftUnavailable: 'Microsoft sign-in is temporarily unavailable. Use email sign-in for now.',
+        switchToSignUpPrompt: 'Need an account?',
+        switchToSignUpCta: 'Create one',
+        switchToSignInPrompt: 'Already have an account?',
+        switchToSignInCta: 'Sign in',
+        resendVerificationPrompt: "Didn't receive the verification email?",
+        resendVerificationCta: 'Resend verification email',
+        resendVerificationPendingLabel: 'Sending…',
+        resendVerificationSuccess: 'Verification email sent. Check your inbox.',
+        forgotPasswordPrompt: 'Forgot your password?',
+        forgotPasswordCta: 'Send reset link',
+        forgotPasswordPendingLabel: 'Sending…',
+        forgotPasswordSuccess: 'If that email exists, a reset link is on its way.',
+        verificationNotice: 'We\'ve sent a verification email. Confirm it to finish setting up your account.',
+        successTitle: 'Almost there',
+        errorTitle: 'Something went wrong',
+        loadingStatus: 'Refreshing account status…',
+        validation: {
+          emailRequired: 'Enter your email address.',
+          passwordRequired: 'Enter your password.',
+        },
+      },
+      mobile: {
+        accountLabel: 'Account',
+        signInLabel: 'Open sign in dialog',
+        manageAccountLabel: 'Open account manager',
+      },
+      feedback: {
+        signInSuccess: 'Signed in successfully',
+        signOutSuccess: 'Signed out',
+        signUpSuccess: 'Verification email sent',
+        unknownError: 'Something went wrong. Please try again.',
+      },
+    },
+    practiceCard: {
+      offline: {
+        title: 'Saved offline',
+        description: "We'll sync this attempt once you're back online.",
+        announce: "Practice attempt stored for offline sync. We'll sync this attempt once you're back online.",
+      },
+      error: {
+        title: 'Error',
+        generic: 'Failed to record practice attempt',
+      },
+      status: {
+        correct: 'Correct',
+        incorrect: 'Try again',
+        expectedAnswer: 'Expected answer:',
+        revealPrompt: 'Reveal the correct answer to review it before continuing.',
+      },
+      header: {
+        appName: 'Wortschatz',
+      },
+      translations: {
+        label: 'Translation',
+        toggle: 'Tap to reveal the translation',
+        englishPrefix: 'English:',
+        expectedAnswerPrefix: 'Expected answer:',
+        expectedFormPrefix: 'Expected form:',
+        articleLabel: 'Article:',
+      },
+      exampleLabel: 'Example',
+      exampleToggle: 'Tap to reveal the hint',
+      metadata: {
+        sourceLabel: 'Source:',
+      },
+      actions: {
+        submit: 'Check',
+        pronounceSrLabel: 'Play pronunciation',
+        revealAnswer: 'Reveal answer',
+        hideAnswer: 'Hide answer',
+        nextQuestion: 'Next question',
+        retry: 'Try again',
+        skip: 'Skip card',
+      },
+      shortcuts: {
+        heading: 'Keyboard tips',
+        whileAnswering: 'While answering',
+        afterChecking: 'After checking',
+        submit: 'Submit answer',
+        pronounce: 'Play pronunciation',
+        example: 'Toggle example hint',
+        reveal: 'Reveal or hide answer',
+        retry: 'Retry question',
+        next: 'Go to next question',
+        skip: 'Skip this card',
+      },
+      loadingNext: 'Loading next task…',
+      progress: {
+        completedLabel: 'Completed {count}',
+      },
+      caseLabels: {
+        nominative: 'Nominativ',
+        accusative: 'Akkusativ',
+        dative: 'Dativ',
+        genitive: 'Genitiv',
+      },
+      numberLabels: {
+        singular: 'Singular',
+        plural: 'Plural',
+      },
+      degreeLabels: {
+        positive: 'Positiv',
+        comparative: 'Komparativ',
+        superlative: 'Superlativ',
+      },
+      conjugate: {
+        placeholder: 'Enter your answer',
+        ariaLabel: 'Enter answer',
+        instruction: 'What is the {tenseLabel} form of "{lemma}"?',
+        subjectSuffix: ' (for {subjectLabel})',
+        tenseLabels: {
+          participle: 'Partizip II',
+          past: 'Präteritum',
+          present: 'Präsens',
+          fallback: 'Form',
+        },
+        subjectLabels: {
+          singular: {
+            1: 'I',
+            2: 'you (singular)',
+            3: 'he/she/it',
+          },
+          plural: {
+            1: 'we',
+            2: 'you (plural)',
+            3: 'they',
+          },
+          fallback: 'the requested subject',
+        },
+      },
+      noun: {
+        placeholder: 'Enter your answer',
+        ariaLabel: 'Enter plural form',
+        instruction: 'Give the {caseLabel} {numberLabel} form of "{lemma}"',
+      },
+      adjective: {
+        placeholder: 'Enter your answer',
+        ariaLabel: 'Enter adjective form',
+        syntacticFrameLabel: 'Frame:',
+        instruction: 'Give the {degreeLabel} form of "{lemma}"',
+      },
+      b2Writing: {
+        placeholder: 'Write your formal response in German...',
+        ariaLabel: 'Write your B2 response',
+        submit: 'Submit response',
+        loadingAnalysis: 'Analyzing your response...',
+        analysisFailed: 'Unable to analyze your response right now.',
+        feedbackLabel: 'Feedback',
+        scoreLabel: 'Score:',
+        strengthsLabel: 'Strengths:',
+        noStrengths: 'No specific strengths detected yet.',
+        improvementsLabel: 'Improvements:',
+        noImprovements: 'No additional improvements suggested.',
+        correctionLabel: 'Correction:',
+        keyPhrasesLabel: 'Key phrases:',
+        scenarioLabel: 'Scenario',
+        wordBankLabel: 'Word bank',
+        responseLabel: 'Your response',
+        grammarFocusLabel: 'Grammar focus',
+        modelAnswerLabel: 'Model answer phrases',
+        sentenceRequirement: 'Write at least 2 sentences before submitting.',
+        matchSummary: '{matched}/{total} key phrases matched',
+        showGrammarFocus: 'Show hint',
+        hideGrammarFocus: 'Hide hint',
+      },
+      vocabulary: {
+        badgeLabel: 'Vocabulary',
+        collectionBadge: 'Beruf collection',
+        prompt: 'Recall the meaning, reveal the answer, then grade your memory.',
+        answerLabel: 'Meaning',
+        revealAnswer: 'Show meaning',
+        correct: 'I knew it',
+        incorrect: 'Review again',
+      },
+      unsupported: {
+        title: 'Renderer missing',
+        description: `No renderer is available for task type ${PRACTICE_CARD_PLACEHOLDER}.`,
+        retry: 'Please try again later.',
+      },
+    },
+    progressDisplay: {
+      headline: 'Progress overview',
+      description: {
+        withCefr: 'Progress for {descriptor} · {cefr}.',
+        withoutCefr: 'Progress for {descriptor}.',
+      },
+      taskDescriptor: {
+        mix: {
+          singular: 'Task mix ({count} type)',
+          plural: 'Task mix ({count} types)',
+        },
+        single: 'Task type {taskType}',
+      },
+      taskTypeLabels: {
+        conjugate_form: 'Conjugation',
+        noun_case_declension: 'Noun declension',
+        adj_ending: 'Adjective endings',
+        vocabulary_drill: 'Wortschatz',
+      },
+      cefrLevel: 'Level {level}',
+      streak: {
+        label: {
+          singular: '{count}-day streak',
+          plural: '{count}-day streak',
+        },
+      },
+      cards: {
+        accuracy: {
+          title: 'Accuracy',
+          basedOn: {
+            singular: 'Based on {count} attempt',
+            plural: 'Based on {count} attempts',
+          },
+        },
+        lexemes: {
+          title: 'Lexemes practiced',
+          subtitle: 'Unique lexemes with recorded attempts',
+        },
+        lastAttempt: {
+          title: 'Last attempt',
+          subtitle: 'Updated after each submitted answer',
+          never: 'No attempts recorded yet',
+        },
+      },
+      performance: {
+        heading: 'Overall performance',
+      },
+      attemptsSummary: {
+        logged: {
+          singular: '{count} attempt logged',
+          plural: '{count} attempts logged',
+        },
+        none: 'No attempts saved yet',
+      },
+      insight: 'Each answer improves your mixed practice sessions with better recommendations.',
+    },
+  },
+  de: {
+    languageToggle: {
+      label: 'Sprache',
+      english: 'Englisch',
+      german: 'Deutsch',
+    },
+    userMenu: {
+      ariaLabel: 'Benutzermenü öffnen',
+      signInLabel: 'Anmeldedialog öffnen',
+      accountLabel: 'Konto',
+      settingsLabel: 'Einstellungen',
+      refreshLabel: 'Neue Übungsaufgaben abrufen',
+      languageLabel: 'Sprache',
+      theme: {
+        toggleToDark: 'Zum dunklen Design wechseln',
+        toggleToLight: 'Zum hellen Design wechseln',
+      },
+      unknownUserInitial: '?',
+    },
+    home: {
+      topBar: {
+        focusLabel: 'Übungsschwerpunkt',
+        levelLabel: 'Verb-Niveau (GER)',
+        title: 'Setze deine personalisierte Sitzung fort',
+        signedOutSubtitle: 'Melde dich an, um deinen Fortschritt zu synchronisieren und Analysen freizuschalten.',
+        signedInSubtitle: 'Angemeldet als {name}.',
+      },
+      reviewBanner: {
+        title: 'Wiederholungsmodus',
+        description:
+          'Du hast alle verfügbaren Aufgaben abgeschlossen. Wir wiederholen sie jetzt im zeitlich gestaffelten Rhythmus, damit du weiter üben kannst.',
+      },
+      historyCard: {
+        title: 'Übungsrückblick',
+        summary: 'Zuletzt {count} Antworten protokolliert.',
+        emptySummary: 'Deine jüngsten Antworten erscheinen hier, sobald du mit dem Üben beginnst.',
+        emptyDetail: 'Wir fassen deine Antworten zusammen, sobald du eine Aufgabe abschließt.',
+        open: 'Rückblick anzeigen',
+        close: 'Details verbergen',
+        resultLabels: {
+          correct: 'Richtig',
+          incorrect: 'Falsch',
+        },
+      },
+      queueDiagnostics: {
+        title: 'Queue-Diagnose',
+        description: 'Behalte im Blick, wie viele Aufgaben bereitstehen und ob neue geladen werden.',
+        status: {
+          blocked: 'Blockiert',
+          fetching: 'Aufgaben werden geladen',
+          replenishing: 'Wird aufgefüllt',
+          healthy: 'Stabil',
+        },
+        labels: {
+          queued: 'Aufgaben in der Warteschlange',
+          threshold: 'Mindestschwelle',
+          server: 'Server erschöpft',
+          signature: 'Letzte Abrufsignatur',
+        },
+        serverStates: {
+          yes: 'Ja',
+          no: 'Nein',
+        },
+      },
+      b2Banner: {
+        title: 'B2-Prüfungsmodus',
+        description: 'Fokus auf Aufgaben auf B1/B2-Niveau.',
+      },
+      b2BerufCollection: {
+        title: 'B2-Beruf-Sammlung',
+        description: 'Das ist eine Beruf-Wortschatzsammlung innerhalb von B2, geladen über den kanonischen Aufgaben-Feed.',
+        cta: 'B2 Beruf üben',
+      },
+      b2Countdown: {
+        upcoming: '📅 B2 in {days} Tagen',
+        today: '📅 B2 heute! Viel Erfolg! 🍀',
+      },
+      practiceTabs: {
+        words: 'Wörter',
+        writing: 'Schreiben',
+      },
+    },
+    wortschatz: {
+      kicker: 'Wortschatztraining',
+      pageDescription:
+        'Durchsuche die gebündelte B2-Beruf-Wortliste oder übe sie direkt im eigenständigen Schnell-Drill.',
+      datasetBadge: 'B2 Beruf',
+      tabs: {
+        drill: 'Schnell-Drill',
+        list: 'Wortliste',
+      },
+      search: {
+        label: 'Wortschatz durchsuchen',
+        placeholder: 'Nach Deutsch, Englisch oder Beispiel suchen',
+      },
+      filters: {
+        label: 'Filter',
+        title: 'Wortschatzfilter',
+        description: 'Begrenze Liste und Drill-Warteschlange nach Sammlung, GER-Niveau oder Wortart.',
+        all: 'Alle',
+        collectionTitle: 'Sammlung',
+        levelTitle: 'GER-Niveau',
+        posTitle: 'Wortart',
+        reset: 'Filter zurücksetzen',
+      },
+      metrics: {
+        mastered: 'Geübt',
+        accuracy: 'Genauigkeit',
+        remaining: 'Verbleibend',
+        total: 'Versuche',
+        words: 'Wörter',
+        progressLabel: 'Fortschritt aus der Übungshistorie',
+        progressDetail: '{count} von {total} gefilterten Wörtern haben historische Übungsversuche.',
+      },
+      collectionLabels: {
+        b2_beruf: 'B2 Beruf',
+      },
+      levelLabels: {
+        A1: 'A1',
+        A2: 'A2',
+        B1: 'B1',
+        B2: 'B2',
+      },
+      posLabels: {
+        V: 'Verben',
+        N: 'Nomen',
+        Adj: 'Adjektive',
+        Adv: 'Adverbien',
+        Pron: 'Pronomen',
+        Präp: 'Präpositionen',
+        Konj: 'Konjunktionen',
+        Part: 'Partikeln',
+      },
+      list: {
+        emptyTitle: 'Kein Wortschatz passt zu diesen Filtern',
+        emptyDescription: 'Passe die Suche an oder setze die Wortart-Filter zurück, um mehr Wörter zu sehen.',
+        wordCount: {
+          singular: '{count} Wort',
+          plural: '{count} Wörter',
+        },
+        pronunciationLabel: 'Aussprechen',
+        examplePronunciationLabel: 'Beispiel aussprechen',
+        translationLabel: 'Englisch',
+        exampleLabel: 'Beispiel',
+        pluralLabel: 'Plural',
+        noTranslation: 'Noch keine Übersetzung verfügbar.',
+        noExample: 'Noch kein Beispielsatz verfügbar.',
+      },
+      drill: {
+        heading: 'Schnell-Drill',
+        description: 'Drehe jede Karte um, bewerte deinen Abruf und behalte die Beherrschung der aktuellen Filtermenge im Blick.',
+        emptyTitle: 'Keine Drill-Karten verfügbar',
+        emptyDescription: 'Passe die Suche an oder setze die Wortart-Filter zurück, um eine neue Drill-Warteschlange zu erstellen.',
+        completedTitle: 'Drill abgeschlossen',
+        completedDescription: 'Du hast das Ende der aktuellen Warteschlange erreicht. Starte neu, um dieselbe Filtermenge erneut zu mischen.',
+        frontPrompt: 'Rufe zuerst die Bedeutung ab, bevor du die Karte aufdeckst.',
+        backPrompt: 'Prüfe Bedeutung und Beispiel, bevor du die Karte bewertest.',
+        showAnswer: 'Antwort zeigen',
+        hideAnswer: 'Antwort ausblenden',
+        tapToReveal: 'Tippen zum Aufdecken',
+        backToQuestion: 'Zurück zur Frage',
+        correct: 'Gewusst',
+        incorrect: 'Wiederholen',
+        restart: 'Drill neu starten',
+        pronunciationLabel: 'Aussprechen',
+        queueProgressLabel: 'Fortschritt der Drill-Warteschlange',
+      },
+      errors: {
+        loadTitle: 'Wortschatz konnte nicht geladen werden',
+        loadDescription: 'Versuche es erneut, um die gebündelte Wortliste nachzuladen.',
+        retry: 'Erneut versuchen',
+      },
+    },
+    writing: {
+      unavailable: {
+        title: 'Writing Lab nicht verfügbar',
+        description:
+          'Schreibtraining ist experimentell und erfordert konfigurierte KI-Rückmeldung, bevor es in der App erscheint.',
+        backToPractice: 'Zurück zur Übung',
+      },
+    },
+    settingsDialog: {
+      b2ExamMode: {
+        label: 'B2-Prüfungsvorbereitung',
+        description: 'Fokussiere Wortschatz und Grammatikmuster auf B1/B2-Niveau für die telc Deutsch B2 Beruf Prüfung.',
+        countdown: '{days} Tage bis zum 30. April 2026',
+      },
+    },
+    auth: {
+      sidebar: {
+        signedOutTitle: 'Melde dich an, um deinen Fortschritt zu speichern',
+        signedOutSubtitle: 'Erstelle ein Konto, um Übungsverläufe geräteübergreifend zu synchronisieren.',
+        signedInTitle: 'Angemeldet',
+        signedInSubtitle: 'Deine Versuche werden sicher im Hintergrund synchronisiert.',
+        signInCta: 'Anmelden',
+        createAccountCta: 'Konto erstellen',
+        manageAccountCta: 'Konto verwalten',
+        verifyReminder: 'Bestätige deine E-Mail, um Synchronisierung und Admin-Tools zu aktivieren.',
+      },
+      dialog: {
+        accountTitle: 'Konto',
+        accountDescription: 'Sieh dir deine aktuelle Sitzung an und melde dich bei Bedarf ab.',
+        signedInHeading: 'Angemeldet als',
+        unknownUser: 'Unbekannter Benutzer',
+        roleLabel: 'Rolle: {role}',
+        verifyEmailReminder: 'Prüfe deinen Posteingang und bestätige diese E-Mail-Adresse.',
+        signOutLabel: 'Abmelden',
+        signingOutLabel: 'Abmelden…',
+        signInTitle: 'Willkommen zurück',
+        signUpTitle: 'Konto erstellen',
+        signInDescription: 'Melde dich an, um deinen Lernverlauf zu synchronisieren und Analysen freizuschalten.',
+        signUpDescription: 'Erstelle ein Konto, um Fortschritte zu verfolgen und personalisierte Einblicke zu erhalten.',
+        signInTab: 'Anmelden',
+        signUpTab: 'Registrieren',
+        emailLabel: 'E-Mail',
+        emailPlaceholder: 'du@example.com',
+        passwordLabel: 'Passwort',
+        passwordPlaceholder: 'Passwort eingeben',
+        nameLabel: 'Name',
+        namePlaceholder: 'Dein Name',
+        submitSignInLabel: 'Anmelden',
+        submitSignUpLabel: 'Konto erstellen',
+        signingInLabel: 'Melde an…',
+        signingUpLabel: 'Erstelle Konto…',
+        googleSignInLabel: 'Mit Google anmelden',
+        googleUnavailable: 'Google-Anmeldung ist vorübergehend nicht verfügbar. Bitte melde dich per E-Mail an.',
+        microsoftSignInLabel: 'Mit Microsoft anmelden',
+        microsoftUnavailable: 'Microsoft-Anmeldung ist vorübergehend nicht verfügbar. Bitte melde dich per E-Mail an.',
+        switchToSignUpPrompt: 'Noch kein Konto?',
+        switchToSignUpCta: 'Jetzt erstellen',
+        switchToSignInPrompt: 'Bereits ein Konto?',
+        switchToSignInCta: 'Anmelden',
+        resendVerificationPrompt: 'Keine Verifizierungs-E-Mail erhalten?',
+        resendVerificationCta: 'Verifizierungs-E-Mail erneut senden',
+        resendVerificationPendingLabel: 'Senden…',
+        resendVerificationSuccess: 'Verifizierungs-E-Mail gesendet. Prüfe deinen Posteingang.',
+        forgotPasswordPrompt: 'Passwort vergessen?',
+        forgotPasswordCta: 'Link zum Zurücksetzen senden',
+        forgotPasswordPendingLabel: 'Senden…',
+        forgotPasswordSuccess: 'Falls die E-Mail existiert, ist ein Link zum Zurücksetzen unterwegs.',
+        verificationNotice: 'Wir haben dir eine Verifizierungs-E-Mail gesendet. Bestätige sie, um dein Konto zu aktivieren.',
+        successTitle: 'Fast geschafft',
+        errorTitle: 'Etwas ist schiefgelaufen',
+        loadingStatus: 'Aktualisiere Kontostatus…',
+        validation: {
+          emailRequired: 'Bitte gib deine E-Mail-Adresse ein.',
+          passwordRequired: 'Bitte gib dein Passwort ein.',
+        },
+      },
+      mobile: {
+        accountLabel: 'Konto',
+        signInLabel: 'Anmeldedialog öffnen',
+        manageAccountLabel: 'Konto verwalten',
+      },
+      feedback: {
+        signInSuccess: 'Erfolgreich angemeldet',
+        signOutSuccess: 'Abgemeldet',
+        signUpSuccess: 'Verifizierungs-E-Mail gesendet',
+        unknownError: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
+      },
+    },
+    practiceCard: {
+      offline: {
+        title: 'Offline gespeichert',
+        description: 'Wir synchronisieren deinen Versuch, sobald du wieder online bist.',
+        announce: 'Übung wurde für die Offline-Synchronisierung gespeichert. Wir synchronisieren den Versuch, sobald du wieder online bist.',
+      },
+      error: {
+        title: 'Fehler',
+        generic: 'Übung konnte nicht gespeichert werden',
+      },
+      status: {
+        correct: 'Richtig',
+        incorrect: 'Versuch es erneut',
+        expectedAnswer: 'Erwartete Antwort:',
+        revealPrompt: 'Blende die Lösung ein, um deinen Fehler nachzuvollziehen.',
+      },
+      header: {
+        appName: 'Wortschatz',
+      },
+      translations: {
+        label: 'Übersetzung',
+        toggle: 'Tippe, um die Übersetzung anzuzeigen',
+        englishPrefix: 'Englisch:',
+        expectedAnswerPrefix: 'Erwartete Antwort:',
+        expectedFormPrefix: 'Erwartete Form:',
+        articleLabel: 'Artikel:',
+      },
+      exampleLabel: 'Beispiel',
+      exampleToggle: 'Tippe, um den Hinweis anzuzeigen',
+      metadata: {
+        sourceLabel: 'Quelle:',
+      },
+      actions: {
+        submit: 'Prüfen',
+        pronounceSrLabel: 'Aussprache abspielen',
+        revealAnswer: 'Antwort anzeigen',
+        hideAnswer: 'Antwort verbergen',
+        nextQuestion: 'Nächste Aufgabe',
+        retry: 'Nochmal versuchen',
+        skip: 'Aufgabe überspringen',
+      },
+      shortcuts: {
+        heading: 'Tastaturtipps',
+        whileAnswering: 'Während der Eingabe',
+        afterChecking: 'Nach der Auswertung',
+        submit: 'Antwort prüfen',
+        pronounce: 'Aussprache abspielen',
+        example: 'Hinweis ein- oder ausblenden',
+        reveal: 'Antwort ein- oder ausblenden',
+        retry: 'Aufgabe wiederholen',
+        next: 'Zur nächsten Aufgabe springen',
+        skip: 'Aktuelle Karte überspringen',
+      },
+      loadingNext: 'Lädt nächste Aufgabe…',
+      progress: {
+        completedLabel: '{count} abgeschlossen',
+      },
+      caseLabels: {
+        nominative: 'Nominativ',
+        accusative: 'Akkusativ',
+        dative: 'Dativ',
+        genitive: 'Genitiv',
+      },
+      numberLabels: {
+        singular: 'Singular',
+        plural: 'Plural',
+      },
+      degreeLabels: {
+        positive: 'Positiv',
+        comparative: 'Komparativ',
+        superlative: 'Superlativ',
+      },
+      conjugate: {
+        placeholder: 'Gib deine Antwort ein',
+        ariaLabel: 'Antwort eingeben',
+        instruction: 'Konjugiere „{lemma}“ in der {tenseLabel}-Form',
+        subjectSuffix: ' ({subjectLabel})',
+        tenseLabels: {
+          participle: 'Partizip II',
+          past: 'Präteritum',
+          present: 'Präsens',
+          fallback: 'Form',
+        },
+        subjectLabels: {
+          singular: {
+            1: 'ich',
+            2: 'du',
+            3: 'er/sie/es',
+          },
+          plural: {
+            1: 'wir',
+            2: 'ihr',
+            3: 'sie',
+          },
+          fallback: 'die angegebene Person',
+        },
+      },
+      noun: {
+        placeholder: 'z. B. die Kinder',
+        ariaLabel: 'Pluralform eingeben',
+        instruction: 'Bilde die {caseLabel} {numberLabel}-Form von „{lemma}“',
+      },
+      adjective: {
+        placeholder: 'z. B. schneller',
+        ariaLabel: 'Adjektivform eingeben',
+        syntacticFrameLabel: 'Rahmen:',
+        instruction: 'Bilde die {degreeLabel}form von „{lemma}“',
+      },
+      b2Writing: {
+        placeholder: 'Schreiben Sie Ihre Antwort auf Deutsch...',
+        ariaLabel: 'B2-Antwort eingeben',
+        submit: 'Antwort einreichen',
+        loadingAnalysis: 'Analysiere Ihre Antwort...',
+        analysisFailed: 'Ihre Antwort konnte gerade nicht analysiert werden.',
+        feedbackLabel: 'Feedback',
+        scoreLabel: 'Punktzahl:',
+        strengthsLabel: 'Stärken:',
+        noStrengths: 'Noch keine klaren Stärken erkannt.',
+        improvementsLabel: 'Verbesserungen:',
+        noImprovements: 'Keine weiteren Verbesserungen vorgeschlagen.',
+        correctionLabel: 'Korrektur:',
+        keyPhrasesLabel: 'Schlüsselphrasen:',
+        scenarioLabel: 'Szenario',
+        wordBankLabel: 'Wortbank',
+        responseLabel: 'Deine Antwort',
+        grammarFocusLabel: 'Grammatikfokus',
+        modelAnswerLabel: 'Musterantwort-Phrasen',
+        sentenceRequirement: 'Schreibe mindestens 2 Sätze, bevor du einreichst.',
+        matchSummary: '{matched}/{total} Schlüsselphrasen gefunden',
+        showGrammarFocus: 'Hinweis anzeigen',
+        hideGrammarFocus: 'Hinweis ausblenden',
+      },
+      vocabulary: {
+        badgeLabel: 'Wortschatz',
+        collectionBadge: 'Beruf-Sammlung',
+        prompt: 'Rufe die Bedeutung ab, decke die Antwort auf und bewerte dein Gedächtnis.',
+        answerLabel: 'Bedeutung',
+        revealAnswer: 'Bedeutung anzeigen',
+        correct: 'Gewusst',
+        incorrect: 'Wiederholen',
+      },
+      unsupported: {
+        title: 'Renderer fehlt',
+        description: `Für den Aufgabentyp ${PRACTICE_CARD_PLACEHOLDER} ist noch kein Renderer hinterlegt.`,
+        retry: 'Bitte versuche es später erneut.',
+      },
+    },
+    progressDisplay: {
+      headline: 'Fortschrittsübersicht',
+      description: {
+        withCefr: 'Fortschritt für {descriptor} · {cefr}.',
+        withoutCefr: 'Fortschritt für {descriptor}.',
+      },
+      taskDescriptor: {
+        mix: {
+          singular: 'Aufgabenmix ({count} Typ)',
+          plural: 'Aufgabenmix ({count} Typen)',
+        },
+        single: 'Aufgabentyp {taskType}',
+      },
+      taskTypeLabels: {
+        conjugate_form: 'Konjugation',
+        noun_case_declension: 'Nominaldeklination',
+        adj_ending: 'Adjektivendungen',
+        vocabulary_drill: 'Wortschatz',
+      },
+      cefrLevel: 'Niveau {level}',
+      streak: {
+        label: {
+          singular: 'Serie von {count} Tag',
+          plural: 'Serie von {count} Tagen',
+        },
+      },
+      cards: {
+        accuracy: {
+          title: 'Genauigkeit',
+          basedOn: {
+            singular: 'Basierend auf {count} Versuch',
+            plural: 'Basierend auf {count} Versuchen',
+          },
+        },
+        lexemes: {
+          title: 'Geübte Lexeme',
+          subtitle: 'Eindeutige Lexeme mit aufgezeichneten Versuchen',
+        },
+        lastAttempt: {
+          title: 'Letzter Versuch',
+          subtitle: 'Aktualisiert nach jeder Antwort',
+          never: 'Noch keine Versuche aufgezeichnet',
+        },
+      },
+      performance: {
+        heading: 'Gesamtleistung',
+      },
+      attemptsSummary: {
+        logged: {
+          singular: '{count} Versuch gespeichert',
+          plural: '{count} Versuche gespeichert',
+        },
+        none: 'Noch keine Versuche gespeichert',
+      },
+      insight: 'Jede Antwort verbessert deine gemischten Übungen mit besseren Empfehlungen.',
+    },
+  },
+};
+
+export function getMessages(locale: Locale): AppMessages {
+  return MESSAGES[locale] ?? MESSAGES[DEFAULT_LOCALE];
+}
+
+export function isSupportedLocale(value: string): value is Locale {
+  return SUPPORTED_LOCALES.includes(value as Locale);
+}
+
+export function formatUnsupportedRendererMessage(
+  descriptionTemplate: string,
+  taskType: TaskType,
+): string {
+  return descriptionTemplate.replace(PRACTICE_CARD_PLACEHOLDER, taskType);
+}

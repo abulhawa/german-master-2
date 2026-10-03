@@ -1,0 +1,598 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { PracticeCard } from '@/components/practice-card';
+import type { PracticeTask } from '@/lib/tasks';
+import { clientTaskRegistry } from '@/lib/tasks';
+import { createDefaultSettings } from '@/lib/practice-settings';
+import type { PracticeSettingsState } from '@shared';
+import type { PracticeCardResult } from '@/components/practice-card';
+import { LocaleProvider, type Locale } from '@/locales';
+
+vi.mock('@/lib/api', () => ({
+  submitPracticeAttempt: vi.fn().mockResolvedValue({ queued: false }),
+}));
+
+const { submitPracticeAttempt } = await import('@/lib/api');
+
+function createTask(): PracticeTask<'conjugate_form'> {
+  const registry = clientTaskRegistry.conjugate_form;
+  return {
+    taskId: 'task-1',
+    lexemeId: 'lex-1',
+    taskType: 'conjugate_form',
+    pos: 'V',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      lemma: 'gehen',
+      pos: 'V',
+      requestedForm: { tense: 'participle' },
+      instructions: 'Gib das Partizip II von „gehen“ an.',
+    },
+    expectedSolution: { form: 'gegangen', alternateForms: ['ging'] },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-1',
+      lemma: 'gehen',
+      metadata: { level: 'A1', english: 'to go' },
+    },
+    assignedAt: new Date('2024-01-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'conjugate_form'>;
+}
+
+function createNounTask(): PracticeTask<'noun_case_declension'> {
+  const registry = clientTaskRegistry.noun_case_declension;
+  return {
+    taskId: 'noun-task-1',
+    lexemeId: 'lex-noun-1',
+    taskType: 'noun_case_declension',
+    pos: 'N',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      lemma: 'Haus',
+      pos: 'N',
+      gender: 'das',
+      requestedCase: 'accusative',
+      requestedNumber: 'plural',
+      instructions: 'Bilde die Akkusativ Plural-Form von „Haus“.',
+    },
+    expectedSolution: { form: 'Häuser', article: 'die' },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-noun-1',
+      lemma: 'Haus',
+      metadata: { level: 'A1', english: 'house' },
+    },
+    assignedAt: new Date('2024-01-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'noun_case_declension'>;
+}
+
+function createDativeNounTask(): PracticeTask<'noun_case_declension'> {
+  const registry = clientTaskRegistry.noun_case_declension;
+  return {
+    taskId: 'noun-task-dative',
+    lexemeId: 'lex-noun-kind',
+    taskType: 'noun_case_declension',
+    pos: 'N',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      lemma: 'Kind',
+      pos: 'N',
+      gender: 'das',
+      requestedCase: 'dative',
+      requestedNumber: 'plural',
+      instructions: 'Setze „Kind“ in den Dativ Plural mit Artikel.',
+    },
+    expectedSolution: { form: 'Kindern', article: 'den' },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-noun-kind',
+      lemma: 'Kind',
+      metadata: { level: 'A2', english: 'child' },
+    },
+    assignedAt: new Date('2024-03-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'noun_case_declension'>;
+}
+
+function createAdjectiveTask(): PracticeTask<'adj_ending'> {
+  const registry = clientTaskRegistry.adj_ending;
+  return {
+    taskId: 'adj-task-1',
+    lexemeId: 'lex-adj-1',
+    taskType: 'adj_ending',
+    pos: 'Adj',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      lemma: 'schnell',
+      pos: 'Adj',
+      degree: 'comparative',
+      instructions: 'Bilde die Komparativform von „schnell“.',
+      syntacticFrame: 'Der Zug ist ____ als das Auto.',
+    },
+    expectedSolution: { form: 'schneller' },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-adj-1',
+      lemma: 'schnell',
+      metadata: { level: 'A2', english: 'fast' },
+    },
+    assignedAt: new Date('2024-01-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'adj_ending'>;
+}
+
+function createEszettAdjectiveTask(): PracticeTask<'adj_ending'> {
+  const registry = clientTaskRegistry.adj_ending;
+  return {
+    taskId: 'adj-task-ss',
+    lexemeId: 'lex-adj-hot',
+    taskType: 'adj_ending',
+    pos: 'Adj',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      lemma: 'heiß',
+      pos: 'Adj',
+      degree: 'comparative',
+      instructions: 'Bilde die Komparativform von „heiß“.',
+      syntacticFrame: 'Der Sommer ist ____ als der Frühling.',
+    },
+    expectedSolution: { form: 'heißer' },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-adj-hot',
+      lemma: 'heiß',
+      metadata: { level: 'B1', english: 'hot' },
+    },
+    assignedAt: new Date('2024-02-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'adj_ending'>;
+}
+
+function createB2WritingTask(): PracticeTask<'b2_writing_prompt'> {
+  const registry = clientTaskRegistry.b2_writing_prompt;
+  return {
+    taskId: 'b2-task-1',
+    lexemeId: 'lex-b2-1',
+    taskType: 'b2_writing_prompt',
+    pos: 'V',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    prompt: {
+      scenario: 'Ihr Kollege bittet Sie um eine Stellungnahme zum neuen Projektplan.',
+      wordBankItems: ['wuerde', 'meiner Meinung nach', 'jedoch', 'koennten Sie'],
+      cefrLevel: 'B2',
+      taskInstructions: 'Schreiben Sie eine kurze formelle Antwort in mindestens zwei Saetzen.',
+    },
+    expectedSolution: {
+      keyPhrases: ['wuerde', 'meiner Meinung nach', 'jedoch', 'koennten sie'],
+      grammarFocus: 'Nutzen Sie Konjunktiv II fuer einen hoeflichen Ton.',
+    },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-b2-1',
+      lemma: 'antworten',
+      metadata: { level: 'B2' },
+    },
+    assignedAt: new Date('2024-01-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'b2_writing_prompt'>;
+}
+
+function createVocabularyTask(): PracticeTask<'vocabulary_drill'> {
+  const registry = clientTaskRegistry.vocabulary_drill;
+  return {
+    taskId: 'vocab-task-1',
+    lexemeId: 'lex-vocab-1',
+    taskType: 'vocabulary_drill',
+    pos: 'N',
+    renderer: registry.renderer,
+    interactionMode: registry.interactionMode,
+    grading: registry.grading,
+    prompt: {
+      lemma: 'Arbeitsvertrag',
+      pos: 'N',
+      cefrLevel: 'B2',
+      collections: ['b2_beruf'],
+      instructions: 'Review the meaning of "Arbeitsvertrag".',
+      example: {
+        de: 'Der Arbeitsvertrag ist unterschrieben.',
+        en: 'The employment contract is signed.',
+      },
+    },
+    reveal: {
+      english: 'employment contract',
+    },
+    expectedSolution: { answer: 'Arbeitsvertrag', english: 'employment contract' },
+    queueCap: registry.defaultQueueCap,
+    lexeme: {
+      id: 'lex-vocab-1',
+      lemma: 'Arbeitsvertrag',
+      metadata: { level: 'B2', collections: ['b2_beruf'] },
+    },
+    assignedAt: new Date('2024-01-01T00:00:00.000Z').toISOString(),
+    source: 'seed',
+  } satisfies PracticeTask<'vocabulary_drill'>;
+}
+
+function getDefaultSettings(): PracticeSettingsState {
+  return createDefaultSettings();
+}
+
+describe('PracticeCard', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    Object.defineProperty(window, 'speechSynthesis', {
+      value: {
+        cancel: vi.fn(),
+        speak: vi.fn(),
+      },
+      configurable: true,
+      writable: true,
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('submits correct answers and emits result metadata', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(
+      screen.getByText('What is the Partizip II form of "gehen" (for he/she/it)?'),
+    ).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/enter answer/i);
+    await userEvent.type(input, 'gegangen');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.taskId).toBe(task.taskId);
+    expect(payload.result).toBe('correct');
+    expect(payload.submittedResponse).toBe('gegangen');
+    expect(payload.promptSummary).toContain('gehen');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledTimes(1);
+    });
+
+    const result = onResult.mock.calls[0][0];
+    expect(result.result).toBe('correct');
+    expect(result.submittedResponse).toBe('gegangen');
+    expect(result.expectedResponse).toEqual(task.expectedSolution);
+  });
+
+  it('localises conjugation instructions when switching locale', () => {
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={vi.fn()} />, 'de');
+
+    expect(screen.getByText('Konjugiere „gehen“ in der Partizip II-Form.')).toBeInTheDocument();
+  });
+
+  it('displays expected answer on incorrect attempt', async () => {
+    vi.mocked(submitPracticeAttempt).mockResolvedValueOnce({ queued: false });
+
+    const onResult = vi.fn();
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    const input = screen.getByLabelText(/enter answer/i);
+    await userEvent.type(input, 'geher');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText(/Expected answer/i)).toBeInTheDocument();
+    });
+
+    const result = onResult.mock.calls[0][0] as PracticeCardResult;
+    expect(result.result).toBe('incorrect');
+    expect(result.submittedResponse).toBe('geher');
+  });
+
+  it('renders noun declension renderer and accepts plural form', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createNounTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText('Give the Akkusativ Plural form of "Haus".')).toBeInTheDocument();
+    expect(screen.getByText(/Akkusativ/i)).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/enter plural form/i);
+    await userEvent.type(input, 'Häuser');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.taskType).toBe('noun_case_declension');
+    expect(payload.promptSummary).toContain('Haus');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ result: 'correct' }));
+    });
+  });
+
+  it('accepts noun answers that use umlaut fallback spellings', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createNounTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    const input = screen.getByLabelText(/enter plural form/i);
+    await userEvent.type(input, 'Haeuser');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.result).toBe('correct');
+    expect(payload.submittedResponse).toBe('Haeuser');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(
+        expect.objectContaining({ result: 'correct', submittedResponse: 'Haeuser' }),
+      );
+    });
+  });
+
+  it('accepts noun answers with definite article combinations', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createDativeNounTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText('Give the Dativ Plural form of "Kind".')).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/enter plural form/i);
+    await userEvent.type(input, 'den Kindern');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.submittedResponse).toBe('den Kindern');
+    expect(payload.expectedResponse).toEqual(task.expectedSolution);
+    expect(payload.promptSummary).toContain('Kind');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(
+        expect.objectContaining({ result: 'correct', submittedResponse: 'den Kindern' }),
+      );
+    });
+  });
+
+  it('renders adjective ending renderer and records submissions', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createAdjectiveTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText('Give the Komparativ form of "schnell".')).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/enter adjective form/i);
+    await userEvent.type(input, 'schneller');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.taskType).toBe('adj_ending');
+    expect(payload.promptSummary).toContain('schnell');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ result: 'correct' }));
+    });
+  });
+
+  it('accepts adjective answers that use ss as a fallback for ß', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createEszettAdjectiveTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    const input = screen.getByLabelText(/enter adjective form/i);
+    await userEvent.type(input, 'heisser');
+    await userEvent.click(screen.getByRole('button', { name: /check/i }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.result).toBe('correct');
+    expect(payload.submittedResponse).toBe('heisser');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(
+        expect.objectContaining({ result: 'correct', submittedResponse: 'heisser' }),
+      );
+    });
+  });
+
+  it('requests AI feedback for B2 writing prompts and renders the returned feedback', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          score: 72,
+          result: 'correct',
+          strengths: ['Polite formal tone', 'Clear structure'],
+          improvements: ['Use more precise connectors'],
+          correctedSentence: 'Ich würde den Plan jedoch früher kommunizieren.',
+          keyPhrasesFound: ['wuerde', 'meiner Meinung nach'],
+        }),
+        {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        },
+      ),
+    );
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createB2WritingTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText(task.prompt.scenario)).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/write your b2 response/i);
+    await userEvent.type(
+      input,
+      'Ich wuerde den Vorschlag so umsetzen. Meiner Meinung nach sollten wir den Plan frueher teilen.',
+    );
+    await userEvent.click(screen.getByRole('button', { name: /submit response/i }));
+
+    await waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledWith(
+        '/api/b2/feedback',
+        expect.objectContaining({ method: 'POST' }),
+      );
+    });
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.taskType).toBe('b2_writing_prompt');
+    expect(payload.result).toBe('correct');
+    expect(payload.submittedResponse).toContain('Ich wuerde');
+
+    await waitFor(() => {
+      expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ result: 'correct' }));
+    });
+
+    expect(screen.getByText('Feedback')).toBeInTheDocument();
+    expect(screen.getByText('Strengths:')).toBeInTheDocument();
+    expect(screen.getByText('Improvements:')).toBeInTheDocument();
+    expect(screen.getByText('Correction:')).toBeInTheDocument();
+    expect(screen.getByText('Key phrases:')).toBeInTheDocument();
+    expect(screen.getAllByText('wuerde').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('meiner Meinung nach').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('jedoch').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('koennten sie').length).toBeGreaterThan(0);
+  });
+
+  it('renders vocabulary drill as a reveal-and-self-grade flashcard', async () => {
+    const onResult = vi.fn<(result: PracticeCardResult) => void>();
+    const task = createVocabularyTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByRole('heading', { name: 'Arbeitsvertrag', level: 1 })).toBeInTheDocument();
+    expect(screen.queryByLabelText(/enter answer/i)).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Show meaning' }));
+    expect(screen.getByText('employment contract')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: 'I knew it' }));
+
+    await waitFor(() => {
+      expect(submitPracticeAttempt).toHaveBeenCalledTimes(1);
+    });
+
+    const payload = vi.mocked(submitPracticeAttempt).mock.calls[0][0];
+    expect(payload.taskType).toBe('vocabulary_drill');
+    expect(payload.result).toBe('correct');
+    expect(payload.submittedResponse).toEqual({ selfAssessment: 'known' });
+
+    expect(onResult).toHaveBeenCalledWith(
+      expect.objectContaining({
+        result: 'correct',
+        submittedResponse: { selfAssessment: 'known' },
+      }),
+    );
+  });
+
+  it('displays the CEFR level from lexeme metadata when provided as a string', () => {
+    const onResult = vi.fn();
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    const enrichedTask: PracticeTask<'conjugate_form'> = {
+      ...task,
+      lexeme: {
+        ...task.lexeme,
+        metadata: { ...task.lexeme.metadata, level: 'B2' },
+      },
+    };
+
+    renderWithLocale(<PracticeCard task={enrichedTask} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText(/CEFR B2/i)).toBeInTheDocument();
+  });
+
+  it('falls back to the default CEFR level when metadata level is not a string', () => {
+    const onResult = vi.fn();
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    const malformedTask: PracticeTask<'conjugate_form'> = {
+      ...task,
+      lexeme: {
+        ...task.lexeme,
+        metadata: { ...task.lexeme.metadata, level: { code: 'C1' } },
+      },
+    };
+
+    renderWithLocale(<PracticeCard task={malformedTask} settings={settings} onResult={onResult} />);
+
+    expect(screen.getByText(/CEFR A1/i)).toBeInTheDocument();
+  });
+
+  it('renders German copy when the locale is set to de', () => {
+    const onResult = vi.fn();
+    const task = createTask();
+    const settings = getDefaultSettings();
+
+    renderWithLocale(<PracticeCard task={task} settings={settings} onResult={onResult} />, 'de');
+
+    expect(screen.getByText('Konjugiere „gehen“ in der Partizip II-Form.')).toBeInTheDocument();
+    expect(screen.getByLabelText(/antwort eingeben/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /prüfen/i })).toBeInTheDocument();
+  });
+});
+function renderWithLocale(ui: React.ReactElement, locale: Locale = 'en') {
+  return render(<LocaleProvider initialLocale={locale}>{ui}</LocaleProvider>);
+}

@@ -1,0 +1,614 @@
+import type { RequestHandler } from "express";
+import { eq, inArray, or, sql, notInArray, type SQL } from "drizzle-orm";
+import type { LexemePos, TaskGrading, TaskType } from "@shared";
+import {
+  db,
+  lexemes,
+  practiceHistory,
+  taskSpecs,
+} from "@db";
+import { ensureTaskSpecCacheFresh } from "../../cache/task-specs-cache.js";
+import { logPracticeAttempt } from "../../practice-log.js";
+import { getTaskRegistryEntry } from "../../tasks/registry.js";
+import {
+  getSessionUserId,
+  normaliseCefrLevel,
+  normaliseLexemeMetadata,
+  normaliseString,
+  normaliseStringOrNull,
+  sendError,
+  serialisePracticeLogLevel,
+} from "../shared.js";
+import {
+  asLexemePos,
+  normaliseTaskPosFilter,
+  normaliseTaskPrompt,
+  parseTaskTypeFilter,
+  submissionSchema,
+  taskQuerySchema,
+} from "./schemas.js";
+import {
+  RECENT_ATTEMPT_WINDOW_MS,
+  fetchTaskRowById,
+  fetchTasksForTypes,
+  findTaskIdByLexemeAndType,
+  resolveVocabularyTaskIdByLegacyWordId,
+  type LegacyVocabularyResolutionFailure,
+} from "./queries.js";
+import { logStructured } from "../../logger.js";
+import { checkAnswerLeniency } from "../../services/groq-leniency.js";
+
+const LENIENCY_SUPPORTED_TASK_TYPES = new Set<TaskType>([
+  "conjugate_form",
+  "noun_case_declension",
+  "adj_ending",
+]);
+
+function normaliseCandidateAnswer(value: unknown): string | null {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  }
+
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    const formValue = record.form;
+    if (typeof formValue === "string") {
+      const trimmed = formValue.trim();
+      return trimmed.length > 0 ? trimmed : null;
+    }
+    const selfAssessmentValue = record.selfAssessment;
+    if (typeof selfAssessmentValue === "string") {
+      const trimmed = selfAssessmentValue.trim();
+      return trimmed.length > 0 ? trimmed : null;
+    }
+    const englishValue = record.english;
+    if (typeof englishValue === "string") {
+      const trimmed = englishValue.trim();
+      return trimmed.length > 0 ? trimmed : null;
+    }
+    const answerValue = record.answer;
+    if (typeof answerValue === "string") {
+      const trimmed = answerValue.trim();
+      return trimmed.length > 0 ? trimmed : null;
+    }
+  }
+
+  return null;
+}
+
+function buildVocabularyReveal(solution: unknown): Record<string, unknown> | undefined {
+  if (!solution || typeof solution !== "object") {
+    return undefined;
+  }
+
+  const reveal = { ...(solution as Record<string, unknown>) };
+  delete reveal.answer;
+  return Object.keys(reveal).length > 0 ? reveal : undefined;
+}
+
+function serialiseHistoryAnswer(value: unknown): string {
+  const candidate = normaliseCandidateAnswer(value);
+  if (candidate) {
+    return candidate;
+  }
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value === null || typeof value === "undefined") {
+    return "";
+  }
+
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return String(value);
+  }
+}
+
+export function createListTasksHandler(): RequestHandler {
+  return async (req, res, next) => {
+    const parsed = taskQuerySchema.safeParse(req.query ?? {});
+    if (!parsed.success) {
+      return res.status(400).json({
+        error: "Invalid task query",
+        code: "INVALID_TASK_QUERY",
+        details: parsed.error.flatten(),
+      });
+    }
+
+    try {
+      await ensureTaskSpecCacheFresh();
+
+      const {
+        pos,
+        taskType,
+        taskTypes: taskTypesRaw,
+        limit,
+        deviceId,
+        shuffleSeed,
+        level,
+        collection,
+        excludeTaskIds: excludeTaskIdsRaw,
+      } = parsed.data;
+      const filters: SQL[] = [];
+      let normalisedPos: LexemePos | null = null;
+      const resolvedTaskTypes: TaskType[] = [];
+
+      const appendTaskType = (value: string) => {
+        const resolved = parseTaskTypeFilter(value);
+        if (!resolved) {
+          throw new Error(value);
+        }
+        if (!resolvedTaskTypes.includes(resolved)) {
+          resolvedTaskTypes.push(resolved);
+        }
+      };
+
+      res.setHeader("Cache-Control", "no-store");
+
+      if (pos) {
+        normalisedPos = normaliseTaskPosFilter(pos);
+        if (!normalisedPos) {
+          return res.status(400).json({
+            error: `Unsupported part-of-speech filter: ${pos}`,
+            code: "INVALID_POS_FILTER",
+          });
+        }
+        filters.push(eq(taskSpecs.pos, normalisedPos));
+      }
+
+      const excludeTaskIds = Array.isArray(excludeTaskIdsRaw)
+        ? excludeTaskIdsRaw
+        : excludeTaskIdsRaw
+        ? [excludeTaskIdsRaw]
+        : [];
+      const normalisedExclusions = excludeTaskIds
+        .map((value) => normaliseString(value))
+        .filter((value): value is string => Boolean(value));
+      if (normalisedExclusions.length) {
+        filters.push(notInArray(taskSpecs.id, normalisedExclusions));
+      }
+
+      try {
+        if (taskType) {
+          appendTaskType(taskType);
+        }
+
+        if (taskTypesRaw) {
+          const candidates = Array.isArray(taskTypesRaw) ? taskTypesRaw : [taskTypesRaw];
+          for (const candidate of candidates) {
+            appendTaskType(candidate);
+          }
+        }
+      } catch (error) {
+        const invalidType = typeof error === "string" ? error : String(error);
+        return res.status(400).json({
+          error: `Unsupported task type filter: ${invalidType}`,
+          code: "INVALID_TASK_TYPE",
+        });
+      }
+
+      const requestedLevelsRaw = Array.isArray(level)
+        ? level
+        : typeof level === "string"
+        ? [level]
+        : [];
+      const requestedLevels = Array.from(new Set(requestedLevelsRaw));
+
+      if (requestedLevels.length > 0) {
+        filters.push(
+          inArray(
+            sql`upper(coalesce(${taskSpecs.prompt} ->> 'cefrLevel', ${taskSpecs.metadata} ->> 'level', ${lexemes.metadata} ->> 'level'))`,
+            requestedLevels,
+          ),
+        );
+      }
+
+      const requestedCollectionsRaw = Array.isArray(collection)
+        ? collection
+        : typeof collection === "string"
+        ? [collection]
+        : [];
+      const requestedCollections = Array.from(
+        new Set(
+          requestedCollectionsRaw
+            .map((value) => normaliseString(value))
+            .filter((value): value is string => Boolean(value)),
+        ),
+      );
+
+      if (requestedCollections.length > 0) {
+        const collectionFilters = requestedCollections.map((requestedCollection) => {
+          const collectionJson = JSON.stringify([requestedCollection]);
+          return or(
+            sql`coalesce(${lexemes.metadata} -> 'collections', '[]'::jsonb) @> ${collectionJson}::jsonb`,
+            sql`coalesce(${taskSpecs.prompt} -> 'collections', '[]'::jsonb) @> ${collectionJson}::jsonb`,
+            sql`coalesce(${taskSpecs.metadata} -> 'collections', '[]'::jsonb) @> ${collectionJson}::jsonb`,
+          );
+        });
+        const collectionFilter = or(...collectionFilters);
+        if (collectionFilter) {
+          filters.push(collectionFilter);
+        }
+      }
+
+      const sessionUserId = getSessionUserId(req.authSession);
+      const recencyThreshold = new Date(Date.now() - RECENT_ATTEMPT_WINDOW_MS);
+
+      const rows = await fetchTasksForTypes({
+        filters,
+        taskTypes: resolvedTaskTypes,
+        normalisedPos,
+        requestedLevels,
+        requestedCollections,
+        sessionUserId,
+        deviceId,
+        shuffleSeed,
+        recencyThreshold,
+        limit,
+      });
+
+      const payload: Array<{
+        taskId: string;
+        taskType: string;
+        renderer: string;
+        interactionMode: string;
+        grading: TaskGrading;
+        pos: string;
+        prompt: Record<string, unknown>;
+        solution?: unknown;
+        reveal?: Record<string, unknown>;
+        queueCap: number;
+        lexeme: { id: string; lemma: string; metadata: Record<string, unknown> | null };
+      }> = [];
+
+      for (const row of rows) {
+        const taskId = normaliseString(row.taskId);
+        const taskTypeValue = normaliseString(row.taskType);
+        const rendererValue = normaliseString(row.renderer);
+        const posValue = normaliseString(row.pos);
+        const lexemeId = normaliseString(row.lexemeId);
+        const lexemeLemmaRaw = normaliseStringOrNull(row.lexemeLemma);
+
+        if (!taskId || !taskTypeValue || !posValue || !lexemeId) {
+          continue;
+        }
+
+        const lexemeLemma = lexemeLemmaRaw ?? lexemeId;
+        if (!lexemeLemma) {
+          continue;
+        }
+
+        let registryEntry: ReturnType<typeof getTaskRegistryEntry> | null = null;
+        try {
+          registryEntry = getTaskRegistryEntry(taskTypeValue as TaskType);
+        } catch (error) {
+          console.warn("Pruning task with unsupported type", {
+            taskType: taskTypeValue,
+            taskId,
+            error,
+          });
+
+          try {
+            await db.delete(taskSpecs).where(eq(taskSpecs.id, taskId));
+          } catch (deleteError) {
+            console.error("Failed to delete unsupported task", {
+              taskId,
+              deleteError,
+            });
+          }
+
+          continue;
+        }
+
+        const prompt = normaliseTaskPrompt(row.prompt);
+        const lexemeMetadata = normaliseLexemeMetadata(row.lexemeMetadata);
+        const reveal = taskTypeValue === "vocabulary_drill"
+          ? buildVocabularyReveal(row.solution)
+          : undefined;
+
+        payload.push({
+          taskId,
+          taskType: taskTypeValue,
+          renderer: rendererValue ?? registryEntry.renderer,
+          interactionMode: registryEntry.interactionMode,
+          grading: registryEntry.grading,
+          pos: posValue,
+          prompt,
+          solution: row.solution,
+          ...(reveal ? { reveal } : {}),
+          queueCap: registryEntry.queueCap,
+          lexeme: {
+            id: lexemeId,
+            lemma: lexemeLemma,
+            metadata: lexemeMetadata,
+          },
+        });
+      }
+
+      const tasksByType = payload.reduce<Record<TaskType, typeof payload>>((acc, task) => {
+        const key = task.taskType as TaskType;
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key]!.push(task);
+        return acc;
+      }, {} as Record<TaskType, typeof payload>);
+
+      const responsePayload: {
+        tasks: typeof payload;
+        tasksByType?: Record<TaskType, typeof payload>;
+      } = { tasks: payload };
+
+      if (Object.keys(tasksByType).length > 0) {
+        responsePayload.tasksByType = tasksByType;
+      }
+
+      res.json(responsePayload);
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
+export function createSubmitTaskHandler(): RequestHandler {
+  return async (req, res) => {
+    const startTime = Date.now();
+    const parsed = submissionSchema.safeParse(req.body ?? {});
+    if (!parsed.success) {
+      return sendError(res, 400, "Invalid submission", "INVALID_SUBMISSION");
+    }
+
+    const payload = parsed.data;
+    res.setHeader("Cache-Control", "no-store");
+    const sessionUserId = getSessionUserId(req.authSession);
+
+    const resolveTaskIdFromPayload = async (): Promise<string | null> => {
+      if (!payload.lexemeId) {
+        return null;
+      }
+
+      return findTaskIdByLexemeAndType(payload.lexemeId, payload.taskType);
+    };
+
+    let legacyVocabularyResolutionFailure: LegacyVocabularyResolutionFailure | null = null;
+    let legacyVocabularyWordRef: string | null = null;
+
+    const resolveLegacyVocabularyTaskId = async (): Promise<string | null> => {
+      if (payload.taskType !== "vocabulary_drill") {
+        return null;
+      }
+
+      const legacyWordRef =
+        payload.taskId.startsWith("word_")
+          ? payload.taskId
+          : payload.lexemeId.startsWith("word_")
+          ? payload.lexemeId
+          : null;
+
+      legacyVocabularyWordRef = legacyWordRef;
+      if (!legacyWordRef) {
+        return null;
+      }
+
+      const result = await resolveVocabularyTaskIdByLegacyWordId(legacyWordRef);
+      if (result.taskId === null) {
+        legacyVocabularyResolutionFailure = result.failure;
+        return null;
+      }
+
+      return result.taskId;
+    };
+
+    let resolvedTaskId = normaliseString(payload.taskId);
+    let taskRow = resolvedTaskId ? await fetchTaskRowById(resolvedTaskId) : null;
+
+    if (!taskRow) {
+      const fallbackTaskId = await resolveTaskIdFromPayload();
+      if (fallbackTaskId) {
+        resolvedTaskId = fallbackTaskId;
+        taskRow = await fetchTaskRowById(fallbackTaskId);
+      }
+    }
+
+    if (!taskRow) {
+      const legacyVocabularyTaskId = await resolveLegacyVocabularyTaskId();
+      if (legacyVocabularyTaskId) {
+        resolvedTaskId = legacyVocabularyTaskId;
+        taskRow = await fetchTaskRowById(legacyVocabularyTaskId);
+      }
+    }
+
+    if (!taskRow || !resolvedTaskId) {
+      if (legacyVocabularyResolutionFailure) {
+        logStructured({
+          event: "submission.legacy_vocabulary_resolution_failed",
+          level: "warn",
+          source: "submission",
+          data: {
+            submittedTaskId: payload.taskId,
+            submittedLexemeId: payload.lexemeId,
+            legacyWordRef: legacyVocabularyWordRef,
+            failure: legacyVocabularyResolutionFailure,
+            deviceId: payload.deviceId ?? null,
+          },
+        });
+
+        return res.status(404).json({
+          error: "Task not found",
+          code: "TASK_NOT_FOUND",
+          details: {
+            legacyVocabularyResolutionFailure,
+          },
+        });
+      }
+
+      return sendError(res, 404, "Task not found", "TASK_NOT_FOUND");
+    }
+
+    if (!taskRow.pos) {
+      console.error("Task is missing part of speech", {
+        taskId: resolvedTaskId,
+      });
+      return sendError(res, 500, "Task configuration invalid", "TASK_INVALID_POS");
+    }
+
+    const normalizedTaskPos = asLexemePos(taskRow.pos);
+    if (!normalizedTaskPos) {
+      console.error("Task has unsupported part of speech", {
+        taskId: resolvedTaskId,
+        pos: taskRow.pos,
+      });
+      return sendError(res, 500, "Task configuration invalid", "TASK_INVALID_POS");
+    }
+
+    if (resolvedTaskId !== payload.taskId) {
+      console.warn("Resolved submission task identifier", {
+        submittedTaskId: payload.taskId,
+        resolvedTaskId,
+        deviceId: payload.deviceId,
+      });
+    }
+
+    const registryEntry = getTaskRegistryEntry(taskRow.taskType as TaskType);
+
+    const submittedAt = payload.submittedAt ? new Date(payload.submittedAt) : undefined;
+    const answeredAt = payload.answeredAt ? new Date(payload.answeredAt) : undefined;
+    const queuedAt = payload.queuedAt ? new Date(payload.queuedAt) : undefined;
+    const responseMs = payload.responseMs ?? payload.timeSpentMs ?? 0;
+    const resolvedCefrLevel = normaliseCefrLevel(payload.cefrLevel) ?? null;
+    const attemptTimestamp = submittedAt ?? new Date();
+    const serialisedLevel = serialisePracticeLogLevel(resolvedCefrLevel);
+    const submittedForm = normaliseCandidateAnswer(
+      payload.submittedResponse ?? payload.answer,
+    );
+    const expectedForm =
+      normaliseCandidateAnswer(taskRow.solution) ??
+      normaliseCandidateAnswer(payload.expectedResponse);
+    const taskTypeForLeniency = taskRow.taskType as TaskType;
+    let persistedResult = payload.result;
+    let leniencyApplied = false;
+    let leniencyReason: string | undefined;
+
+    try {
+      if (
+        payload.result === "incorrect" &&
+        process.env.GROQ_API_KEY &&
+        submittedForm &&
+        expectedForm &&
+        LENIENCY_SUPPORTED_TASK_TYPES.has(taskTypeForLeniency)
+      ) {
+        const leniencyResult = await checkAnswerLeniency({
+          lemma: taskRow.lexemeLemma ?? taskRow.lexemeId ?? payload.lexemeId,
+          taskType: taskTypeForLeniency,
+          expectedForm,
+          submittedForm,
+          cefrLevel: resolvedCefrLevel ?? undefined,
+        });
+
+        if (leniencyResult.isAcceptable && leniencyResult.confidence !== "low") {
+          persistedResult = "correct";
+          leniencyApplied = true;
+          leniencyReason = leniencyResult.reason;
+          logStructured({
+            event: "submission.leniency_override",
+            source: "submission",
+            data: {
+              taskId: resolvedTaskId,
+              taskType: taskTypeForLeniency,
+              expectedForm,
+              submittedForm,
+              reason: leniencyResult.reason,
+              confidence: leniencyResult.confidence,
+            },
+          });
+        }
+      }
+
+      const queueCap = registryEntry.queueCap;
+      const practiceHistoryValues = {
+        taskId: resolvedTaskId,
+        lexemeId: taskRow.lexemeId!,
+        lemma: taskRow.lexemeLemma ?? taskRow.lexemeId!,
+        pos: normalizedTaskPos,
+        taskType: taskRow.taskType!,
+        renderer: taskRow.renderer!,
+        deviceId: payload.deviceId,
+        userId: sessionUserId,
+        result: persistedResult,
+        submittedAnswer: serialiseHistoryAnswer(payload.submittedResponse ?? payload.answer),
+        correctAnswer: serialiseHistoryAnswer(
+          payload.expectedResponse ?? expectedForm ?? taskRow.solution,
+        ),
+        responseMs,
+        submittedAt: attemptTimestamp,
+        answeredAt: answeredAt ?? submittedAt ?? null,
+        queuedAt: queuedAt ?? null,
+        cefrLevel: resolvedCefrLevel,
+        hintsUsed: payload.hintsUsed ?? false,
+        metadata: {
+          submittedResponse: payload.submittedResponse ?? payload.answer ?? null,
+          expectedResponse: payload.expectedResponse ?? null,
+          promptSummary: typeof payload.promptSummary === "string" ? payload.promptSummary : null,
+          queueCap,
+          frequencyRank: taskRow.frequencyRank ?? null,
+          legacyVerb: payload.legacyVerb ?? null,
+        },
+      };
+
+      await db.insert(practiceHistory).values(practiceHistoryValues);
+
+      await logPracticeAttempt(db, {
+        taskId: resolvedTaskId,
+        lexemeId: taskRow.lexemeId!,
+        pos: normalizedTaskPos,
+        taskType: taskRow.taskType!,
+        deviceId: payload.deviceId ?? null,
+        userId: sessionUserId,
+        cefrLevel: serialisedLevel,
+        attemptedAt: attemptTimestamp,
+      });
+
+      res.json({
+        status: "recorded",
+        taskId: resolvedTaskId,
+        deviceId: payload.deviceId,
+        queueCap,
+        ...(leniencyApplied ? { leniencyApplied: true, leniencyReason } : {}),
+      });
+
+      // Log structured submission timing
+      logStructured({
+        event: "submission.processed",
+        level: "info",
+        source: "submission",
+        data: {
+          taskId: resolvedTaskId,
+          deviceId: payload.deviceId ?? null,
+          userId: sessionUserId ?? null,
+          durationMs: Date.now() - startTime,
+        },
+      });
+    } catch (error) {
+      console.error("Failed to process task submission", error);
+      logStructured({
+        event: "submission.failed",
+        level: "error",
+        source: "submission",
+        message: "Failed to process task submission",
+        error,
+        data: {
+          taskId: resolvedTaskId ?? null,
+          deviceId: payload.deviceId ?? null,
+          userId: sessionUserId ?? null,
+          durationMs: Date.now() - startTime,
+        },
+      });
+
+      sendError(res, 500, "Failed to record submission", "SUBMISSION_FAILED");
+    }
+  };
+}

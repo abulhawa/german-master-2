@@ -1,0 +1,68 @@
+import {
+  taskTypeRegistry as sharedRegistry,
+  type TaskType,
+  type TaskRegistryEntry,
+} from '@shared';
+
+export type ServerTaskRegistryEntry = TaskRegistryEntry & {
+  queueCap: number;
+  evaluation: {
+    strategy: 'string-equality' | 'self-assessment';
+    normalise: boolean;
+  };
+};
+
+export const taskRegistry: Record<TaskType, ServerTaskRegistryEntry> = {
+  conjugate_form: {
+    ...sharedRegistry.conjugate_form,
+    queueCap: 30,
+    evaluation: {
+      strategy: 'string-equality',
+      normalise: true,
+    },
+  },
+  noun_case_declension: {
+    ...sharedRegistry.noun_case_declension,
+    queueCap: 25,
+    evaluation: {
+      strategy: 'string-equality',
+      normalise: true,
+    },
+  },
+  adj_ending: {
+    ...sharedRegistry.adj_ending,
+    queueCap: 20,
+    evaluation: {
+      strategy: 'string-equality',
+      normalise: true,
+    },
+  },
+  b2_writing_prompt: {
+    ...sharedRegistry.b2_writing_prompt,
+    queueCap: 3,
+    evaluation: {
+      strategy: 'string-equality',
+      normalise: true,
+    },
+  },
+  vocabulary_drill: {
+    ...sharedRegistry.vocabulary_drill,
+    queueCap: 50,
+    evaluation: {
+      strategy: 'self-assessment',
+      normalise: false,
+    },
+  },
+};
+
+export function getTaskRegistryEntry(taskType: TaskType): ServerTaskRegistryEntry {
+  const entry = taskRegistry[taskType];
+  if (!entry) {
+    throw new Error(`Unknown task type: ${taskType}`);
+  }
+  return entry;
+}
+
+export function listTaskTypes(): TaskType[] {
+  return Object.keys(taskRegistry) as TaskType[];
+}

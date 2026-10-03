@@ -1,0 +1,407 @@
+/* @vitest-environment jsdom */
+
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import {
+  createConjugationTask,
+  buildPracticeTask,
+  renderHome,
+  seedPracticeSettings,
+  setupHomeNavigationTest,
+  mockFetchPracticeTasks,
+  MIGRATION_MARKER_KEY,
+  SETTINGS_STORAGE_KEY,
+} from './home-navigation/utils';
+
+import type { PracticeSettingsState, TaskType } from '@shared';
+import type { PracticeTask } from '@/lib/tasks';
+
+describe('Home navigation - practice workflows', () => {
+  beforeEach(() => {
+    setupHomeNavigationTest();
+  });
+
+  it('advances to the next task when skipping', async () => {
+    mockFetchPracticeTasks.mockResolvedValueOnce({
+      conjugate_form: [
+        createConjugationTask('task-1', 'gehen'),
+        createConjugationTask('task-2', 'kommen'),
+      ],
+    });
+    mockFetchPracticeTasks.mockResolvedValue({ conjugate_form: [] });
+
+    renderHome();
+
+    const practiceCard = await screen.findByTestId('practice-card');
+    const initialLemma = within(practiceCard).getByRole('heading', { level: 1 }).textContent;
+    expect(['gehen', 'kommen']).toContain(initialLemma);
+
+    const skipButton = await screen.findByRole('button', { name: /skip to next/i });
+    await userEvent.click(skipButton);
+
+    await waitFor(() => {
+      const updatedCard = screen.getByTestId('practice-card');
+      const nextLemma = within(updatedCard).getByRole('heading', { level: 1 }).textContent;
+      expect(['gehen', 'kommen']).toContain(nextLemma);
+      expect(nextLemma).not.toBe(initialLemma);
+    });
+  });
+
+  it('excludes skipped tasks when refilling the queue', async () => {
+    mockFetchPracticeTasks.mockResolvedValueOnce({
+      conjugate_form: [
+        createConjugationTask('task-1', 'gehen'),
+        createConjugationTask('task-2', 'kommen'),
+      ],
+    });
+    mockFetchPracticeTasks.mockResolvedValue({ conjugate_form: [] });
+
+    renderHome();
+
+    const practiceCard = await screen.findByTestId('practice-card');
+    const initialLemma = within(practiceCard).getByRole('heading', { level: 1 }).textContent;
+    const skippedTaskId = initialLemma === 'gehen' ? 'task-1' : 'task-2';
+
+    const skipButton = await screen.findByRole('button', { name: /skip to next/i });
+    await userEvent.click(skipButton);
+    await waitFor(() => {
+      const updatedCard = screen.getByTestId('practice-card');
+      const nextLemma = within(updatedCard).getByRole('heading', { level: 1 }).textContent;
+      expect(nextLemma).not.toBe(initialLemma);
+    });
+    await userEvent.click(skipButton);
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks.mock.calls.length).toBeGreaterThanOrEqual(2);
+    });
+
+    expect(
+      mockFetchPracticeTasks.mock.calls
+        .slice(1)
+        .some(([options]) => options.excludeTaskIds?.includes(skippedTaskId)),
+    ).toBe(true);
+  });
+
+  it('excludes completed tasks when refilling the queue', async () => {
+    mockFetchPracticeTasks.mockResolvedValueOnce({
+      conjugate_form: [
+        createConjugationTask('task-1', 'gehen'),
+        createConjugationTask('task-2', 'kommen'),
+      ],
+    });
+    mockFetchPracticeTasks.mockResolvedValue({ conjugate_form: [] });
+
+    renderHome();
+
+    const practiceCard = await screen.findByTestId('practice-card');
+    const initialLemma = within(practiceCard).getByRole('heading', { level: 1 }).textContent ?? '';
+    const completedTaskId = initialLemma === 'gehen' ? 'task-1' : 'task-2';
+
+    const answerInput = within(practiceCard).getByRole('textbox');
+    await userEvent.type(answerInput, `${initialLemma}-pp`);
+
+    const submitButton = within(practiceCard).getByRole('button', { name: /check/i });
+    await userEvent.click(submitButton);
+
+    const nextButton = await screen.findByRole('button', { name: /next question/i });
+    await userEvent.click(nextButton);
+
+    await waitFor(() => {
+      const updatedCard = screen.getByTestId('practice-card');
+      const nextLemma = within(updatedCard).getByRole('heading', { level: 1 }).textContent;
+      expect(nextLemma).not.toBe(initialLemma);
+    });
+
+    const secondCard = await screen.findByTestId('practice-card');
+    const secondLemma = within(secondCard).getByRole('heading', { level: 1 }).textContent ?? '';
+    const secondAnswerInput = within(secondCard).getByRole('textbox');
+    await userEvent.type(secondAnswerInput, `${secondLemma}-pp`);
+
+    const secondSubmitButton = within(secondCard).getByRole('button', { name: /check/i });
+    await userEvent.click(secondSubmitButton);
+
+    const secondNextButton = await screen.findByRole('button', { name: /next question/i });
+    await userEvent.click(secondNextButton);
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks.mock.calls.length).toBeGreaterThanOrEqual(2);
+    });
+
+    expect(
+      mockFetchPracticeTasks.mock.calls
+        .slice(1)
+        .some(([options]) => options.excludeTaskIds?.includes(completedTaskId)),
+    ).toBe(true);
+  });
+
+  it('reloads practice tasks for the selected verb level', async () => {
+    seedPracticeSettings();
+
+    mockFetchPracticeTasks.mockImplementation(async ({ level }) => {
+      const resolvedLevel = Array.isArray(level) ? level[0] : level;
+      if (resolvedLevel === 'B2') {
+        return { conjugate_form: [createConjugationTask('task-b2', 'reisen')] };
+      }
+      return { conjugate_form: [createConjugationTask('task-a1', 'gehen')] };
+    });
+
+    renderHome();
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({ level: ['A1'], taskTypes: ['conjugate_form'], limit: 15 }),
+      );
+    });
+
+    const practiceCard = await screen.findByTestId('practice-card');
+    expect(
+      within(practiceCard).getByRole('heading', { name: 'gehen', level: 1 }),
+    ).toBeInTheDocument();
+
+    const levelTrigger = await screen.findByRole('combobox', { name: /verb level/i });
+    await userEvent.click(levelTrigger);
+    expect(screen.queryByRole('option', { name: 'B2 Beruf' })).not.toBeInTheDocument();
+    const b2Option = await screen.findByRole('option', { name: 'B2' });
+    await userEvent.click(b2Option);
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({ level: ['B2'], taskTypes: ['conjugate_form'], limit: 15 }),
+      );
+    });
+    expect(
+      mockFetchPracticeTasks.mock.calls.some(
+        ([options]) =>
+          options.taskTypes.includes('conjugate_form') &&
+          Array.isArray(options.level) &&
+          options.level.includes('B2') &&
+          !options.collection,
+      ),
+    ).toBe(true);
+
+    await waitFor(() => {
+      const updatedCard = screen.queryByTestId('practice-card');
+      expect(updatedCard).not.toBeNull();
+      expect(
+        within(updatedCard!).getByRole('heading', { name: 'reisen', level: 1 }),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('exposes B2 Beruf as a collection and fetches canonical vocabulary drill tasks', async () => {
+    seedPracticeSettings();
+
+    mockFetchPracticeTasks.mockImplementation(async ({ taskTypes = [], limit = 15 }) => {
+      if (taskTypes.includes('vocabulary_drill')) {
+        return {
+          vocabulary_drill: Array.from({ length: limit }, (_, index) => buildPracticeTask('vocabulary_drill', index)),
+        };
+      }
+
+      return {
+        conjugate_form: [createConjugationTask('task-a1', 'gehen')],
+      };
+    });
+
+    renderHome();
+
+    const quickStartButton = await screen.findByRole('button', { name: 'Practice B2 Beruf' });
+    expect(quickStartButton).toBeInTheDocument();
+    expect(screen.queryByText(/Writing Lab/i)).not.toBeInTheDocument();
+
+    const scopeButton = await screen.findByRole('button', { name: /adjust practice scope/i });
+    await userEvent.click(scopeButton);
+
+    const b2BerufTab = await screen.findByRole('tab', { name: 'B2 Beruf' });
+    expect(b2BerufTab).toBeInTheDocument();
+
+    mockFetchPracticeTasks.mockClear();
+    await userEvent.click(quickStartButton);
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({
+          taskTypes: ['vocabulary_drill'],
+          level: ['B2'],
+          collection: ['b2_beruf'],
+          limit: 15,
+        }),
+      );
+    });
+
+    expect(await screen.findByText('B2 Beruf collection')).toBeInTheDocument();
+    expect(screen.getByText(/Beruf vocabulary collection within CEFR B2/i)).toBeInTheDocument();
+    expect(screen.queryByRole('combobox', { name: /verb level/i })).not.toBeInTheDocument();
+  });
+
+  it('starts a fresh shuffled cycle when exclusions exhaust the current scope', async () => {
+    seedPracticeSettings({
+      preferredTaskTypes: ['conjugate_form'],
+      defaultTaskType: 'conjugate_form',
+      cefrLevelByPos: { verb: 'B2' },
+      legacyVerbLevel: 'B2',
+    });
+
+    const recycledTask = createConjugationTask('task-b2', 'bewerten');
+
+    mockFetchPracticeTasks.mockImplementation(async ({ excludeTaskIds }) => {
+      if (excludeTaskIds?.includes(recycledTask.taskId)) {
+        return { conjugate_form: [] };
+      }
+
+      return { conjugate_form: [recycledTask] };
+    });
+
+    renderHome();
+
+    await screen.findByTestId('practice-card');
+
+    const skipButton = await screen.findByRole('button', { name: /skip to next/i });
+    await userEvent.click(skipButton);
+
+    await waitFor(() => {
+      const card = screen.getByTestId('practice-card');
+      expect(within(card).getByRole('heading', { name: 'bewerten', level: 1 })).toBeInTheDocument();
+    });
+
+    expect(
+      mockFetchPracticeTasks.mock.calls.some(([options]) => options.excludeTaskIds?.includes(recycledTask.taskId)),
+    ).toBe(true);
+    expect(
+      mockFetchPracticeTasks.mock.calls.some(([options]) => !options.excludeTaskIds?.length),
+    ).toBe(true);
+  });
+
+  it('requests tasks for each preferred task type in settings', async () => {
+    seedPracticeSettings({
+      preferredTaskTypes: ['conjugate_form', 'noun_case_declension'],
+      defaultTaskType: 'conjugate_form',
+    });
+
+    mockFetchPracticeTasks.mockImplementation(async ({ taskTypes = [], limit = 15 }) => {
+      return taskTypes.reduce((acc, type) => {
+        acc[type] = Array.from({ length: limit }, (_, index) => buildPracticeTask(type, index));
+        return acc;
+      }, {} as Record<TaskType, PracticeTask[]>);
+    });
+
+    renderHome();
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({
+          taskTypes: ['conjugate_form', 'noun_case_declension'],
+          limit: 8,
+          level: ['A1', 'A1'],
+        }),
+      );
+    });
+  });
+
+  it('uses the verb level as the fallback for other parts of speech', async () => {
+    seedPracticeSettings({
+      preferredTaskTypes: ['noun_case_declension'],
+      defaultTaskType: 'noun_case_declension',
+      cefrLevelByPos: { verb: 'B1' },
+    });
+
+    mockFetchPracticeTasks.mockImplementation(async ({ taskTypes = [], limit = 15 }) => {
+      return taskTypes.reduce((acc, type) => {
+        acc[type] = Array.from({ length: limit }, (_, index) => buildPracticeTask(type, index));
+        return acc;
+      }, {} as Record<TaskType, PracticeTask[]>);
+    });
+
+    renderHome();
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({ taskTypes: ['noun_case_declension'], level: ['B1'] }),
+      );
+    });
+  });
+
+  it('keeps B2 word practice separate and hides writing from primary navigation by default', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-04-02T12:00:00.000Z'));
+
+    try {
+      seedPracticeSettings({
+        b2ExamMode: true,
+        preferredTaskTypes: ['conjugate_form'],
+        defaultTaskType: 'conjugate_form',
+      });
+
+      mockFetchPracticeTasks.mockImplementation(async ({ taskTypes = [], limit = 15 }) => {
+        return taskTypes.reduce((acc, type) => {
+          acc[type] = Array.from({ length: limit }, (_, index) => buildPracticeTask(type, index));
+          return acc;
+        }, {} as Record<TaskType, PracticeTask[]>);
+      });
+
+      renderHome();
+
+      await waitFor(() => {
+        expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+          expect.objectContaining({
+            taskTypes: ['conjugate_form', 'adj_ending', 'noun_case_declension'],
+            level: ['B1', 'B2'],
+            limit: 5,
+          }),
+        );
+      });
+
+      expect(await screen.findByText('B2 Exam Mode')).toBeInTheDocument();
+      expect(screen.getByText('Focusing on B1/B2 level tasks.')).toBeInTheDocument();
+      expect(screen.getByText(/B2 in \d+ days/)).toBeInTheDocument();
+      expect(screen.queryByRole('tab', { name: /writing/i })).not.toBeInTheDocument();
+      expect(screen.queryByText(/Writing Lab/i)).not.toBeInTheDocument();
+      expect(screen.queryByRole('link', { name: /writing/i })).not.toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('updates preferred task types when selecting a custom mix', async () => {
+    seedPracticeSettings();
+
+    mockFetchPracticeTasks.mockImplementation(async ({ taskTypes = [], limit = 15 }) => {
+      return taskTypes.reduce((acc, type) => {
+        acc[type] = Array.from({ length: limit }, (_, index) => buildPracticeTask(type, index));
+        return acc;
+      }, {} as Record<TaskType, PracticeTask[]>);
+    });
+
+    renderHome();
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalled();
+    });
+
+    mockFetchPracticeTasks.mockClear();
+
+    const customMixButton = await screen.findByRole('button', { name: /adjust practice scope/i });
+    await userEvent.click(customMixButton);
+    const adjectiveCheckbox = await screen.findByLabelText(/Adjective endings/i);
+    await userEvent.click(adjectiveCheckbox);
+
+    await waitFor(() => {
+      expect(mockFetchPracticeTasks).toHaveBeenCalledWith(
+        expect.objectContaining({
+          taskTypes: ['conjugate_form', 'adj_ending'],
+          limit: 8,
+        }),
+      );
+    });
+
+    await waitFor(() => {
+      const stored = localStorage.getItem(SETTINGS_STORAGE_KEY);
+      expect(stored).toBeTruthy();
+      const parsed = stored ? (JSON.parse(stored) as PracticeSettingsState) : null;
+      expect(parsed?.preferredTaskTypes).toEqual(['conjugate_form', 'adj_ending']);
+      expect(localStorage.getItem(MIGRATION_MARKER_KEY)).toBe('1');
+    });
+  });
+});
