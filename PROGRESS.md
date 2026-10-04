@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This server-selection continuation started at `4085fa5` with a clean checkout and matching remote. The transactional-evidence workflows were confirmed successful at `b5650c9`. The current slice selects and pins local sessions from owned persisted state and current UTC deadlines.
+- This owned-read continuation started at `dc1d927` with a clean checkout and matching remote. Server-selection workflows were confirmed successful at `7f4a2ec`. The current slice exposes owned confirmed target snapshots and ordered sync changes with durable local cursors.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -92,12 +92,12 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 
 ## Exact next implementation slice
 
-1. Inspect checkout/recent commits and hosted server-selection results. Preserve newer work; grading, evidence policy, transactional persistence, local mixed selection, previews, Android repair and mockups are implemented.
-2. Expose owned target/sync snapshots through versioned transport, with ownership, cursor pagination/replay and close/reopen tests. Define how current due eligibility is refreshed from UTC deadlines and injected clock; stored sync changes retain their ingestion-time meaning. Keep confirmed snapshots separate from pending client work.
-3. Then expand the complete learner journey, including an honest shorter-session offer for this five-target catalog. Level/topic filtering, seeded variant selection and broader diversity require reviewed catalog/contract expansion. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+1. Inspect checkout/recent commits and hosted owned-read results. Preserve newer work; grading, evidence policy, transactional persistence, local mixed selection, confirmed reads, previews, Android repair and mockups are implemented.
+2. Owned target/sync transport is implemented locally with generated contracts, frozen snapshot pages/watermarks, owned cursors, restart recovery and UTC due refresh. Preserve this work; pending client reconciliation is still open.
+3. Implement the isolated 2.0 web Home → Practice → confirmed summary/Progress journey using `/v2/targets`, `/v2/sync` and server-selected sessions. Offer an honest shorter session for this five-target catalog instead of inventing questions to reach fifteen; add only the contract/catalog metadata needed for that flow. Level/topic filtering, seeded variant selection and broader diversity require reviewed catalog/contract expansion. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is owned target/sync transport, followed by the complete learner journey. M0/M1 remain open and M2 remains in progress. Ignored private recovery artifacts remain local.
+The next demonstration is the isolated complete web learner journey. M0/M1 remain open and M2 remains in progress. Ignored private recovery artifacts remain local.
 
 ## Pure evidence and scheduling policy slice
 
@@ -123,6 +123,14 @@ The next demonstration is owned target/sync transport, followed by the complete 
 - Contrasting accepted histories demonstrate new selection before deadline, due weakness at deadline and due/weak/new mixed ordering. Pure synthetic tests exercise full 8/5/2 quotas and bounded backlog behavior. Filesystem restart also replays session creation. [Decision](docs/adr/006_server_selected_sessions.md), [verification](docs/operations/server-selection-verification.md).
 - Local root install/check/test/build passed: backend six files / 57 tests; web 78 files / 301 tests. Final backend check/test/build repeated after release replay correction. No client/contracts changed, so Android/browser/device checks were not repeated. Existing dependency audit warnings remain. M2 stays in progress; M0/M1 gates remain open. No production mutation, deployment, content publication, store release or AI/Groq inference occurred.
 - Implementation `7f4a2ec` is committed and pushed to `main`. Both applicable hosted workflows passed at that exact commit: [Web checks 37191977392](https://github.com/abulhawa/german-master-2/actions/runs/37191977392) (install, generation/type checks, backend/web tests and builds) and [Repository safety 37191977396](https://github.com/abulhawa/german-master-2/actions/runs/37191977396). Android CI was not triggered by this server-only change. Staged and full-history Gitleaks scans passed with zero findings (777 commits at implementation head). This hosted-results checkpoint is documentation-only and committed/pushed at handoff. Next action: owned target/sync transport as described above.
+
+## Owned confirmed target/sync transport slice
+
+- Generated v2 TypeScript/Zod and Kotlin confirmed summaries, frozen target pages and sync upserts. Added authenticated `GET /v2/targets` and `GET /v2/sync` with strict bounded query transport and no-store caching. Summaries omit raw answers, learner identity, internal evidence history and client pending work.
+- Migration 003 stores immutable owner-scoped opaque cursors and frozen target pages. Snapshots share captured UTC time and sync watermark; accepted writes during pagination remain retrievable. Sync preserves ordered ingestion-time payloads and reusable polling positions across close/reopen. Fresh snapshots compute due at UTC deadlines without mutating projections or sync changes. Transport timestamps now preserve canonical millisecond precision in both languages.
+- Local root install/check/test/build passed: backend seven files / 61 tests, web 78 files / 301 tests. Final backend type check and four read tests passed after HTTP/concurrency assertions. Android offline 26 suites / 99 tests, debug assembly and lint passed (zero errors / 16 existing warnings). Built loopback launcher smoke passed for accepted answer, owned delta and frozen snapshot continuation. [Decision](docs/adr/007_owned_target_sync_transport.md), [verification](docs/operations/owned-reads-verification.md).
+- Cursor retention/expiry/reset, tombstones, production authentication/network PostgreSQL, multi-connection contention and durable client reconciliation remain open. No learner UI/device/browser journey acceptance is claimed. M2 remains in progress; M0/M1 gates remain open. No production mutation, deployment, content publication, store release or AI/Groq inference occurred.
+- Implementation is awaiting final staged scan/commit/push and hosted verification. Exact next action: isolated web learner flow with honest shorter-session handling, as described above.
 
 ## Local toolchain and checks
 

@@ -7,7 +7,7 @@ const defs = JSON.parse(
 ).$defs;
 const uuid =
   "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
-const dt = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$";
+const dt = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$";
 const allowed = new Set([
   "$ref",
   "oneOf",
@@ -76,7 +76,7 @@ function z(s) {
   if (s.maxItems !== undefined) v += `.max(${s.maxItems})`;
   if (s.format === "uuid") v += `.regex(new RegExp(${q(uuid)}))`;
   if (s.format === "date-time")
-    v += `.regex(new RegExp(${q(dt)})).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v, "Invalid instant")`;
+    v += `.regex(new RegExp(${q(dt)})).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant")`;
   if (s.uniqueItems)
     v += '.refine(v => new Set(v).size === v.length, "Duplicate items")';
   return v;
@@ -109,7 +109,7 @@ function checks(k, s) {
   if (s.format === "date-time") {
     c.push(`Regex(${q(dt)}).matches(${k})`);
     c.push(
-      `runCatching { java.time.Instant.parse(${k}).toString() == ${k} }.getOrDefault(false)`,
+      `runCatching { java.time.Instant.parse(${k}).toString() == ${k}.replace(".000Z", "Z") }.getOrDefault(false)`,
     );
   }
   if (s.type === "array" && s.items.type === "string") {

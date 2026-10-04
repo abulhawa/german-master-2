@@ -5,6 +5,8 @@ import { SessionSchema, type Session, type SessionRequest, type Attempt, type Ac
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
 import editorial from "../../../content/foundation/review.json";
+import { TargetPageSchema, SyncPageSchema, type TargetPage } from "@german-master/contracts";
+import { confirmedTarget } from "./reads";
 
 export class ApiFailure extends Error {
   constructor(public readonly code: string, public readonly status: number) { super(code); }
@@ -33,7 +35,7 @@ export class FoundationStore {
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
-    if (exists.rows[0].present) { await this.upgradeEvidence(); return; }
+    if (exists.rows[0].present) { await this.upgradeEvidence(); await this.upgradeReads(); return; }
     const migration = await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8");
     const catalog = foundationCatalog();
     await this.db.transaction(async tx => {
@@ -53,6 +55,78 @@ export class FoundationStore {
       }
     });
     await this.upgradeEvidence();
+    await this.upgradeReads();
+  }
+
+  private async upgradeReads() {
+    await this.db.transaction(async tx => {
+      const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=3");
+      if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/003_owned_reads.sql", import.meta.url), "utf8"));
+    });
+  }
+
+  private async readOwner(tx: Transaction, userId: string) {
+    await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
+    await this.lockLearner(tx, userId);
+  }
+
+  private async syncCursor(tx: Transaction, userId: string, sequence: number): Promise<string> {
+    const rows = await tx.query<{ id: string }>(`INSERT INTO gm.sync_cursor VALUES ($1,$2,$3)
+      ON CONFLICT (user_id,sequence) DO NOTHING RETURNING id`, [randomUUID(), userId, sequence]);
+    if (rows.rows.length) return rows.rows[0].id;
+    return (await tx.query<{ id: string }>("SELECT id FROM gm.sync_cursor WHERE user_id=$1 AND sequence=$2", [userId, sequence])).rows[0].id;
+  }
+
+  /** Frozen pages share a watermark; concurrent ingestion cannot fall between snapshot and sync. */
+  async targets(userId: string, limit = 50, cursor?: string): Promise<TargetPage> {
+    if (!Number.isInteger(limit) || limit < 1 || limit > 100) throw new ApiFailure('invalid_request', 400);
+    return this.db.transaction(async tx => {
+      await this.readOwner(tx, userId);
+      if (cursor) {
+        const page = await tx.query<{ payload: TargetPage }>("SELECT payload FROM gm.target_page WHERE id=$1 AND user_id=$2", [cursor, userId]);
+        if (!page.rows.length) throw new ApiFailure("invalid_cursor", 400);
+        return TargetPageSchema.parse(page.rows[0].payload);
+      }
+      const generatedAt = this.clock().toISOString();
+      const watermark = (await tx.query<{ n: number }>("SELECT COALESCE(max(sequence),0)::int AS n FROM gm.sync_change WHERE user_id=$1", [userId])).rows[0].n;
+      const syncCursor = await this.syncCursor(tx, userId, watermark);
+      const rows = await tx.query<{ id: string; snapshot: TargetSnapshot | null; last_sequence: number }>(
+        `SELECT t.id,st.snapshot,COALESCE(st.last_sequence,0)::int AS last_sequence FROM gm.learning_target t
+         LEFT JOIN gm.learner_target_state st ON st.target_id=t.id AND st.user_id=$1 ORDER BY t.id`, [userId]);
+      const targets = rows.rows.map(r => confirmedTarget(r.id, r.snapshot, r.last_sequence, generatedAt));
+      let nextPageCursor = '';
+      let first!: TargetPage;
+      // The local small catalog is materialized once. A network adapter needs bounded snapshot storage/expiry.
+      for (let offset = Math.max(0, Math.floor((targets.length - 1) / limit) * limit); offset >= 0; offset -= limit) {
+        first = TargetPageSchema.parse({ apiVersion: 'v2', generatedAt, targets: targets.slice(offset, offset + limit), nextPageCursor, syncCursor });
+        const id = randomUUID();
+        await tx.query("INSERT INTO gm.target_page VALUES ($1,$2,$3)", [id, userId, first]);
+        nextPageCursor = id;
+      }
+      return first;
+    });
+  }
+
+  /** Stable historical payloads; clock passage is not a new sync event. */
+  async sync(userId: string, limit = 50, cursor?: string) {
+    if (!Number.isInteger(limit) || limit < 1 || limit > 100) throw new ApiFailure('invalid_request', 400);
+    return this.db.transaction(async tx => {
+      await this.readOwner(tx, userId);
+      let after = 0;
+      if (cursor) {
+        const position = await tx.query<{ sequence: number }>("SELECT sequence FROM gm.sync_cursor WHERE id=$1 AND user_id=$2", [cursor, userId]);
+        if (!position.rows.length) throw new ApiFailure("invalid_cursor", 400);
+        after = position.rows[0].sequence;
+      }
+      const rows = await tx.query<{ sequence: number; target_id: string; payload: TargetSnapshot; received_sequence: number }>(
+        `SELECT c.sequence,c.target_id,c.payload,e.received_sequence FROM gm.sync_change c
+         JOIN gm.accepted_evidence e ON e.user_id=c.user_id AND e.id=c.evidence_id
+         WHERE c.user_id=$1 AND c.sequence>$2 ORDER BY c.sequence LIMIT $3`, [userId, after, limit + 1]);
+      const changes = rows.rows.slice(0, limit).map(r => ({ sequence: r.sequence, operation: 'upsert' as const,
+        target: confirmedTarget(r.target_id, r.payload, r.received_sequence) }));
+      return SyncPageSchema.parse({ apiVersion: 'v2', changes, hasMore: rows.rows.length > limit,
+        nextCursor: await this.syncCursor(tx, userId, changes.at(-1)?.sequence ?? after) });
+    });
   }
 
   private async lockLearner(tx: Transaction, userId: string) {

@@ -1003,6 +1003,190 @@
         "apiVersion",
         "acknowledgments"
       ]
+    },
+    "TargetSchedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dueAt": {
+          "type": "string",
+          "minLength": 1,
+          "format": "date-time"
+        },
+        "intervalStep": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "intervalDays": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "dueAt",
+        "intervalStep",
+        "intervalDays"
+      ]
+    },
+    "ConfirmedTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "policyVersion": {
+          "type": "string",
+          "const": "retained-evidence-v1"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "new",
+            "learning",
+            "needs_practice",
+            "improving",
+            "mastered"
+          ]
+        },
+        "exposureCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "qualifyingCheckCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "everMastered": {
+          "type": "boolean"
+        },
+        "lapseCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "lastSequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "schedule": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TargetSchedule"
+          },
+          "maxItems": 1
+        },
+        "isDue": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "targetId",
+        "policyVersion",
+        "state",
+        "exposureCount",
+        "qualifyingCheckCount",
+        "everMastered",
+        "lapseCount",
+        "lastSequence",
+        "schedule",
+        "isDue"
+      ]
+    },
+    "TargetPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "generatedAt": {
+          "type": "string",
+          "minLength": 1,
+          "format": "date-time"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConfirmedTarget"
+          },
+          "maxItems": 100
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "syncCursor": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "generatedAt",
+        "targets",
+        "nextPageCursor",
+        "syncCursor"
+      ]
+    },
+    "TargetChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "operation": {
+          "type": "string",
+          "const": "upsert"
+        },
+        "target": {
+          "$ref": "#/$defs/ConfirmedTarget"
+        }
+      },
+      "required": [
+        "sequence",
+        "operation",
+        "target"
+      ]
+    },
+    "SyncPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TargetChange"
+          },
+          "maxItems": 100
+        },
+        "nextCursor": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "hasMore": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "changes",
+        "nextCursor",
+        "hasMore"
+      ]
     }
   },
   "$ref": "#/$defs/Session"

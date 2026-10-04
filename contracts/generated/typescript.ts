@@ -127,7 +127,7 @@ export const AttemptSchema = z.strictObject({
   deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   answer: AnswerSchema,
   assistance: z.array(z.enum(["hint","reveal"])),
-  answeredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v, "Invalid instant"),
+  answeredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
   clientSequence: z.number().int().min(0).max(2147483647),
 });
 export type Attempt = z.infer<typeof AttemptSchema>;
@@ -191,7 +191,7 @@ export const ExposureEventSchema = z.strictObject({
   exerciseRevision: z.number().int().min(1).max(2147483647),
   deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   disposition: z.enum(["skip","exposure"]),
-  occurredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v, "Invalid instant"),
+  occurredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
 });
 export type ExposureEvent = z.infer<typeof ExposureEventSchema>;
 export const ExposureBatchSchema = z.strictObject({
@@ -224,3 +224,43 @@ export const ExposureBatchResponseSchema = z.strictObject({
   acknowledgments: z.array(ExposureAcknowledgmentSchema).min(1).max(50),
 });
 export type ExposureBatchResponse = z.infer<typeof ExposureBatchResponseSchema>;
+export const TargetScheduleSchema = z.strictObject({
+  dueAt: z.string().min(1).regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  intervalStep: z.number().int().min(0).max(2147483647),
+  intervalDays: z.number().int().min(0).max(2147483647),
+});
+export type TargetSchedule = z.infer<typeof TargetScheduleSchema>;
+export const ConfirmedTargetSchema = z.strictObject({
+  targetId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  policyVersion: z.literal("retained-evidence-v1"),
+  state: z.enum(["new","learning","needs_practice","improving","mastered"]),
+  exposureCount: z.number().int().min(0).max(2147483647),
+  qualifyingCheckCount: z.number().int().min(0).max(2147483647),
+  everMastered: z.boolean(),
+  lapseCount: z.number().int().min(0).max(2147483647),
+  lastSequence: z.number().int().min(0).max(2147483647),
+  schedule: z.array(TargetScheduleSchema).max(1),
+  isDue: z.boolean(),
+});
+export type ConfirmedTarget = z.infer<typeof ConfirmedTargetSchema>;
+export const TargetPageSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  generatedAt: z.string().min(1).regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  targets: z.array(ConfirmedTargetSchema).max(100),
+  nextPageCursor: z.string(),
+  syncCursor: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+});
+export type TargetPage = z.infer<typeof TargetPageSchema>;
+export const TargetChangeSchema = z.strictObject({
+  sequence: z.number().int().min(0).max(2147483647),
+  operation: z.literal("upsert"),
+  target: ConfirmedTargetSchema,
+});
+export type TargetChange = z.infer<typeof TargetChangeSchema>;
+export const SyncPageSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  changes: z.array(TargetChangeSchema).max(100),
+  nextCursor: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  hasMore: z.boolean(),
+});
+export type SyncPage = z.infer<typeof SyncPageSchema>;

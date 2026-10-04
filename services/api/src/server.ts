@@ -27,10 +27,25 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
     response.setHeader("Cache-Control", "no-store");
     response.setHeader("X-Content-Type-Options", "nosniff");
     try {
-      if (request.method !== "POST" || !["/v2/sessions", "/v2/attempts:batch", "/v2/exposures:batch"].includes(request.url ?? ""))
-        throw new ApiFailure("not_found", 404);
+      const url = new URL(request.url ?? '/', 'http://localhost');
+      const isWrite = request.method === 'POST' && ['/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch'].includes(request.url ?? '');
+      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync'].includes(url.pathname);
+      if (!isWrite && !isRead) throw new ApiFailure('not_found', 404);
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
+      if (request.method === 'GET') {
+        for (const key of url.searchParams.keys())
+          if (!['cursor', 'limit'].includes(key) || url.searchParams.getAll(key).length !== 1)
+            throw new ApiFailure('invalid_request', 400);
+        const cursor = url.searchParams.get('cursor') ?? undefined;
+        const rawLimit = url.searchParams.get('limit') ?? '50';
+        if ((cursor !== undefined && !UUID.test(cursor)) || !/^[1-9]\d{0,2}$/.test(rawLimit) || Number(rawLimit) > 100)
+          throw new ApiFailure('invalid_request', 400);
+        response.end(JSON.stringify(url.pathname === '/v2/targets'
+          ? await store.targets(userId, Number(rawLimit), cursor)
+          : await store.sync(userId, Number(rawLimit), cursor)));
+        return;
+      }
       if (request.headers["content-type"]?.split(";")[0].trim() !== "application/json")
         throw new ApiFailure("json_required", 415);
       const input = await body(request);

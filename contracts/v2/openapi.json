@@ -249,6 +249,122 @@
           }
         }
       }
+    },
+    "/v2/targets": {
+      "get": {
+        "operationId": "getTargets",
+        "description": "Confirmed target summaries at a frozen UTC instant and sync watermark. Follow nextPageCursor with cursor; empty string ends pagination. Persist all pages before using syncCursor. A fresh snapshot refreshes due eligibility.",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Confirmed owned page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request, cursor or authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid request, cursor or authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/sync": {
+      "get": {
+        "operationId": "getSync",
+        "description": "Owned ordered ingestion-time target upserts after an opaque cursor. Omitted cursor starts at zero. Reuse nextCursor until hasMore is false; commit changes locally before advancing. Due flags retain ingestion-time meaning; refresh targets or compare UTC deadlines for current eligibility.",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Confirmed owned page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SyncPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request, cursor or authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid request, cursor or authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -279,6 +395,12 @@
       },
       "ExposureBatchResponse": {
         "$ref": "./schema.json#/$defs/ExposureBatchResponse"
+      },
+      "TargetPage": {
+        "$ref": "./schema.json#/$defs/TargetPage"
+      },
+      "SyncPage": {
+        "$ref": "./schema.json#/$defs/SyncPage"
       }
     }
   }

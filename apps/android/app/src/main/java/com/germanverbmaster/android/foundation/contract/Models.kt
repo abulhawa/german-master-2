@@ -282,8 +282,8 @@ data class Attempt(
         require(exerciseRevision <= 2147483647) { "Invalid Attempt.exerciseRevision" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid Attempt.deviceId" }
         require(assistance.all { it in setOf("hint", "reveal") }) { "Invalid Attempt.assistance" }
-        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$").matches(answeredAt)) { "Invalid Attempt.answeredAt" }
-        require(runCatching { java.time.Instant.parse(answeredAt).toString() == answeredAt }.getOrDefault(false)) { "Invalid Attempt.answeredAt" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(answeredAt)) { "Invalid Attempt.answeredAt" }
+        require(runCatching { java.time.Instant.parse(answeredAt).toString() == answeredAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid Attempt.answeredAt" }
         require(clientSequence >= 0) { "Invalid Attempt.clientSequence" }
         require(clientSequence <= 2147483647) { "Invalid Attempt.clientSequence" }
     }
@@ -421,8 +421,8 @@ data class ExposureEvent(
         require(exerciseRevision <= 2147483647) { "Invalid ExposureEvent.exerciseRevision" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid ExposureEvent.deviceId" }
         require(disposition in setOf("skip", "exposure")) { "Invalid ExposureEvent.disposition" }
-        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$").matches(occurredAt)) { "Invalid ExposureEvent.occurredAt" }
-        require(runCatching { java.time.Instant.parse(occurredAt).toString() == occurredAt }.getOrDefault(false)) { "Invalid ExposureEvent.occurredAt" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(occurredAt)) { "Invalid ExposureEvent.occurredAt" }
+        require(runCatching { java.time.Instant.parse(occurredAt).toString() == occurredAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid ExposureEvent.occurredAt" }
     }
 }
 
@@ -494,6 +494,97 @@ data class ExposureBatchResponse(
     }
 }
 
+@Serializable
+data class TargetSchedule(
+    val dueAt: String,
+    val intervalStep: Int,
+    val intervalDays: Int
+) {
+    init {
+        require(dueAt.length >= 1) { "Invalid TargetSchedule.dueAt" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(dueAt)) { "Invalid TargetSchedule.dueAt" }
+        require(runCatching { java.time.Instant.parse(dueAt).toString() == dueAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid TargetSchedule.dueAt" }
+        require(intervalStep >= 0) { "Invalid TargetSchedule.intervalStep" }
+        require(intervalStep <= 2147483647) { "Invalid TargetSchedule.intervalStep" }
+        require(intervalDays >= 0) { "Invalid TargetSchedule.intervalDays" }
+        require(intervalDays <= 2147483647) { "Invalid TargetSchedule.intervalDays" }
+    }
+}
+
+@Serializable
+data class ConfirmedTarget(
+    val targetId: String,
+    val policyVersion: String,
+    val state: String,
+    val exposureCount: Int,
+    val qualifyingCheckCount: Int,
+    val everMastered: Boolean,
+    val lapseCount: Int,
+    val lastSequence: Int,
+    val schedule: List<TargetSchedule>,
+    val isDue: Boolean
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(targetId)) { "Invalid ConfirmedTarget.targetId" }
+        require(policyVersion == "retained-evidence-v1") { "Invalid ConfirmedTarget.policyVersion" }
+        require(state in setOf("new", "learning", "needs_practice", "improving", "mastered")) { "Invalid ConfirmedTarget.state" }
+        require(exposureCount >= 0) { "Invalid ConfirmedTarget.exposureCount" }
+        require(exposureCount <= 2147483647) { "Invalid ConfirmedTarget.exposureCount" }
+        require(qualifyingCheckCount >= 0) { "Invalid ConfirmedTarget.qualifyingCheckCount" }
+        require(qualifyingCheckCount <= 2147483647) { "Invalid ConfirmedTarget.qualifyingCheckCount" }
+        require(lapseCount >= 0) { "Invalid ConfirmedTarget.lapseCount" }
+        require(lapseCount <= 2147483647) { "Invalid ConfirmedTarget.lapseCount" }
+        require(lastSequence >= 0) { "Invalid ConfirmedTarget.lastSequence" }
+        require(lastSequence <= 2147483647) { "Invalid ConfirmedTarget.lastSequence" }
+        require(schedule.size <= 1) { "Invalid ConfirmedTarget.schedule" }
+    }
+}
+
+@Serializable
+data class TargetPage(
+    val apiVersion: String,
+    val generatedAt: String,
+    val targets: List<ConfirmedTarget>,
+    val nextPageCursor: String,
+    val syncCursor: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid TargetPage.apiVersion" }
+        require(generatedAt.length >= 1) { "Invalid TargetPage.generatedAt" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(generatedAt)) { "Invalid TargetPage.generatedAt" }
+        require(runCatching { java.time.Instant.parse(generatedAt).toString() == generatedAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid TargetPage.generatedAt" }
+        require(targets.size <= 100) { "Invalid TargetPage.targets" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(syncCursor)) { "Invalid TargetPage.syncCursor" }
+    }
+}
+
+@Serializable
+data class TargetChange(
+    val sequence: Int,
+    val operation: String,
+    val target: ConfirmedTarget
+) {
+    init {
+        require(sequence >= 0) { "Invalid TargetChange.sequence" }
+        require(sequence <= 2147483647) { "Invalid TargetChange.sequence" }
+        require(operation == "upsert") { "Invalid TargetChange.operation" }
+    }
+}
+
+@Serializable
+data class SyncPage(
+    val apiVersion: String,
+    val changes: List<TargetChange>,
+    val nextCursor: String,
+    val hasMore: Boolean
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid SyncPage.apiVersion" }
+        require(changes.size <= 100) { "Invalid SyncPage.changes" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(nextCursor)) { "Invalid SyncPage.nextCursor" }
+    }
+}
+
 object ContractShape {
     fun checkOption(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "text")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -530,4 +621,9 @@ object ContractShape {
     fun checkExposureRejected(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("eventId", "status", "error")); run { val p = o.getValue("eventId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkApiError(o.getValue("error")) } }
     fun checkExposureAcknowledgment(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["status"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "accepted" -> checkExposureAccepted(element); "duplicate" -> checkExposureDuplicate(element); "rejected" -> checkExposureRejected(element); else -> error("Unsupported discriminator") } } }
     fun checkExposureBatchResponse(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "acknowledgments")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("acknowledgments") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkExposureAcknowledgment(item) } } } }
+    fun checkTargetSchedule(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("dueAt", "intervalStep", "intervalDays")); run { val p = o.getValue("dueAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("intervalStep") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("intervalDays") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkConfirmedTarget(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("targetId", "policyVersion", "state", "exposureCount", "qualifyingCheckCount", "everMastered", "lapseCount", "lastSequence", "schedule", "isDue")); run { val p = o.getValue("targetId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("policyVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("state") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exposureCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("qualifyingCheckCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("everMastered") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) }; run { val p = o.getValue("lapseCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("lastSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val a = o.getValue("schedule") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkTargetSchedule(item) } }; run { val p = o.getValue("isDue") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) } } }
+    fun checkTargetPage(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "generatedAt", "targets", "nextPageCursor", "syncCursor")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("generatedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("targets") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkConfirmedTarget(item) } }; run { val p = o.getValue("nextPageCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("syncCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkTargetChange(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("sequence", "operation", "target")); run { val p = o.getValue("sequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("operation") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkConfirmedTarget(o.getValue("target")) } }
+    fun checkSyncPage(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "changes", "nextCursor", "hasMore")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("changes") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkTargetChange(item) } }; run { val p = o.getValue("nextCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("hasMore") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) } } }
 }
