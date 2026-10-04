@@ -1,0 +1,15 @@
+# Local web fixture ownership evidence
+
+4 October 2026; implementation is uncommitted. Existing native Topics changes were preserved.
+
+Story: only the tab owning the local fixture can edit saved work or send it to the authoritative loopback API; another tab waits, then reloads durable work after ownership transfers.
+
+- Root `npm ci --offline --no-audit --no-fund`, generated guards and TypeScript checks passed using `.local/tools/node-v22.23.3-win-x64` (Node 22.23.3). All nine backend files / 70 tests and 80 web files / 331 tests passed before adding the final profile-handoff test. Final targeted totals are recorded in PROGRESS.md.
+- Root web/client/API/server build passed. Initial sandboxed build and `dev:api` failed in tsx's `uv_os_get_passwd` call; approved execution outside the sandbox passed. No environment validation or check was bypassed.
+- Offline two-instance React tests with shared storage and a FIFO exclusive lock scheduler verify waiting tabs perform no learner reads/writes; ownership drains an in-flight operation before release; failed Skip acknowledgment save retains the exact event/draft for duplicate replay; a lost-response attempt hands off with identical payload and no second session; unsupported lock access preserves storage and sends no HTTP. Existing journey tests cover atomic snapshot/cursor saving, frozen session/profile/answer/Skip failure paths and replay.
+- Chrome with actual Web Locks: saved fixture preferences, started a five-question server-owned session, entered `Berufe`; a second same-origin tab showed only the waiting screen. Closing the first tab automatically mounted Home in the second. Continue restored the question and `Berufe` draft; Check answer returned server-confirmed Correct feedback and focused feedback. Captured console errors were empty. Local API used in-memory PGlite only; no production credentials, environment or database were involved.
+- The embedded Codex browser displayed the waiting screen, but closing its owner surface did not establish handoff. Chrome supplied the successful actual document-close evidence. Embedded browser lifecycle parity remains unverified. Agent-browser CLI was unavailable; Codex browser tools provided the fallback.
+
+No screen-reader, device/process-crash, complete offline grading/reconciliation, multi-browser/device ownership or production account acceptance is claimed. A background/frozen tab can hold ownership until its document is closed; no timed lease or unsafe force takeover exists. Browser support for Web Locks is required. Android implementation was not modified and its checks were not repeated. No AI/Groq calls, production mutations, deployments, content publication or store uploads occurred.
+
+Reproduce with `npm run dev:api` and `npm run dev:web` from the root, then open two Chrome tabs at `http://127.0.0.1:5000/renovation`. Use the first tab, observe the second waiting, close the first and resume from the second. Fixture API data resets on launcher restart; preserve local pending work and use explicit preview recovery when necessary.

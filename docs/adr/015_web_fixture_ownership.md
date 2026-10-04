@@ -1,0 +1,11 @@
+# ADR 015: Exclusive web fixture ownership across tabs
+
+Accepted for the isolated development journey, 4 October 2026.
+
+Acquire an origin-scoped exclusive Web Lock before mounting the learner journey or reading its editable state. Hold it throughout that mounted journey. Waiting tabs show a bilingual status screen and perform no learner HTTP or storage writes. When ownership becomes available, mount afresh and read the latest journey and pending profile record. Keep the existing storage namespaces and schemas; frozen profile/session/attempt/Skip payloads, device IDs, drafts, counters and atomic confirmed snapshot/cursor records are unchanged.
+
+This intentionally coarse scope prevents stale React state from overwriting another tab's records, including draft edits, assistance disclosure, preferences, discard, refresh and acknowledgment saves. A per-request network mutex alone would not prevent those races. Do not use expiring localStorage leases: a suspended owner could resume after another tab steals its lease. Browser-managed Web Locks release when the owning document is destroyed. Background tabs retain ownership; the user closes the owner tab to hand over. Do not force-steal a lock or automatically resend saved writes.
+
+Unmount aborts queued acquisition and closes the current owner. For React unmount while the document remains alive, retain the lock until outstanding practice/refresh/profile operations, including their acknowledgment saves, finish. New operations on a closing owner fail. The browser itself handles document destruction; unknown server outcomes remain retryable through unchanged saved IDs. Unsupported/denied lock access fails closed with a recovery message. Scope is one origin/browser storage partition, not multiple browsers or devices.
+
+The waiting screen uses the existing semantic card, heading, status/alert and shared tokens. English/German strings live in learner locales. Existing ADR 008 blueprint departures from legacy navigation/metrics/component requirements remain in force. There is no new client grading/mastery policy, production identity or offline pack. Production account partitions, cursor expiry/reset, background reconciliation and coordinated native storage remain separate gates.

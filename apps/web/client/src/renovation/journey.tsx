@@ -7,9 +7,36 @@ import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
 
 import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
+import { FixtureOwner, OWNER_LOCK } from "./ownership";
 
 const localApi = localLearnerApi();
-export default function LearnerJourney({ api = localApi, storage = browserStorage }: { api?: LearnerApi; storage?: JourneyStorage }) {
+type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage };
+export default function LearnerJourney(props: JourneyProps) {
+  const [owner, setOwner] = useState<FixtureOwner | null>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    let lease: FixtureOwner | null = null;
+    try {
+    if (!navigator.locks) { setFailed(true); return; }
+    void navigator.locks.request(OWNER_LOCK, { signal: controller.signal }, async () => {
+      if (controller.signal.aborted) return;
+      lease = new FixtureOwner();
+      setOwner(lease);
+      await lease.closed;
+    }).catch(() => { if (!controller.signal.aborted) setFailed(true); });
+    } catch { setFailed(true); }
+    return () => { controller.abort(); lease?.close(); };
+  }, []);
+  if (owner) return <OwnedLearnerJourney {...props} owner={owner} />;
+  const locale = (() => { try { return readJourney(props.storage ?? browserStorage).locale; } catch { return "en"; } })();
+  return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
+    <h1>{learnerCopy[locale].ownershipTitle}</h1>
+    <p role={failed ? "alert" : "status"}>{learnerCopy[locale][failed ? "ownershipUnavailable" : "ownershipWaiting"]}</p>
+  </PracticeCard></div></main>;
+}
+
+export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, owner }: JourneyProps & { owner?: FixtureOwner }) {
   const [loaded] = useState(() => { try { return { state: readJourney(storage), damaged: false }; } catch { return { state: emptyJourney(), damaged: true }; } });
   const [state, setState] = useState(loaded.state);
   const current = useRef(state);
@@ -43,7 +70,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   async function run(work: () => Promise<void>, fallback: "unavailable" | "connectionError") {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true); setError(null);
-    try { await work(); } catch (e) { if (!(e instanceof Error && e.message === "Storage unavailable")) setError(fallback); }
+    try { await (owner ? owner.run(work) : work()); } catch (e) { if (!(e instanceof Error && e.message === "Storage unavailable")) setError(fallback); }
     finally { lock.current = false; setBusy(false); }
   }
   async function refresh() {
@@ -60,7 +87,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   }
   async function loadProfile() {
     setProfileFailed(false);
-    try { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }); setProfile(value); }
+    try { const work = async () => { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }); setProfile(value); }; await (owner ? owner.run(work) : work()); }
     catch { setProfileFailed(true); }
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
@@ -161,6 +188,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
       {!profile && !profileFailed && <p role="status">{c.profileLoading}</p>}
       {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={profile.revision} profile={profile} api={api} storage={storage}
+        owner={owner}
         onPreviewLocale={locale => preference({ locale })}
         onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); setView("home"); void loadCatalog(); }}
         onReload={async () => { const value = await api.profile(); setProfile(value); preference({ locale: value.preferences.locale }); return value; }}

@@ -6,7 +6,7 @@ import acknowledgment from "@german-master/contracts/examples/attempt-response.j
 import targetPage from "@german-master/contracts/examples/target-page.json";
 import catalog from "@german-master/contracts/examples/catalog.json";
 import { PROFILE_PENDING_KEY } from "./setup";
-import LearnerJourney from "./journey";
+import { OwnedLearnerJourney as LearnerJourney } from "./journey";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } from "./storage";
 

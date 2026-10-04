@@ -4,9 +4,11 @@ import { FoundationButton, PracticeCard } from "../foundation/preview";
 import { learnerCopy } from "./locales";
 import type { LearnerApi } from "./api";
 import type { JourneyStorage } from "./storage";
+import type { FixtureOwner } from "./ownership";
 
 export const PROFILE_PENDING_KEY = "german-master-v2:local-fixture:profile-request-v1";
-export function ProfileSetup({ profile, api, storage, onSaved, onReload, onCancel, onPreviewLocale }: {
+export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, onCancel, onPreviewLocale }: {
+  owner?: FixtureOwner;
   profile: LearnerProfile; api: LearnerApi; storage: JourneyStorage;
   onPreviewLocale: (locale: "en" | "de") => void; onSaved: (profile: LearnerProfile) => void; onReload: () => Promise<LearnerProfile>; onCancel?: () => void;
 }) {
@@ -22,7 +24,8 @@ export function ProfileSetup({ profile, api, storage, onSaved, onReload, onCance
   const heading = useRef<HTMLHeadingElement>(null);
   const c = learnerCopy[preferences.locale];
   useEffect(() => { heading.current?.focus(); }, []);
-  async function save() {
+  function save() { return owner ? owner.run(saveOwned) : saveOwned(); }
+  async function saveOwned() {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true); setError(false);
     try {
@@ -37,7 +40,8 @@ export function ProfileSetup({ profile, api, storage, onSaved, onReload, onCance
     } catch { setError(true); }
     finally { lock.current = false; setBusy(false); }
   }
-  async function reload() {
+  function reload() { return owner ? owner.run(reloadOwned) : reloadOwned(); }
+  async function reloadOwned() {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true);
     try { const value = await onReload(); storage.setItem(PROFILE_PENDING_KEY, ""); setPending(null); setPreferences(value.preferences); setError(false); }
