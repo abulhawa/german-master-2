@@ -32,7 +32,10 @@ type EvidenceDetail = Omit<Extract<AcceptedEvidence, { kind: "assessment" | "rei
 
 /** Local PostgreSQL demonstration. Transactions serialize writes and enforce first submission. */
 export class FoundationStore {
-  constructor(public readonly db: PGlite, private readonly clock = () => new Date()) {}
+  constructor(public readonly db: PGlite, private readonly clock = () => new Date(),
+    private readonly cursorLifetimeMs = 7 * 24 * 60 * 60 * 1000) {
+    if (!Number.isSafeInteger(cursorLifetimeMs) || cursorLifetimeMs <= 0) throw new Error('Invalid cursor lifetime');
+  }
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
@@ -64,6 +67,8 @@ export class FoundationStore {
     await this.db.transaction(async tx => {
       const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=3");
       if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/003_owned_reads.sql", import.meta.url), "utf8"));
+      const expiry = await tx.query("SELECT version FROM gm.schema_migration WHERE version=5");
+      if (!expiry.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/005_cursor_expiry.sql", import.meta.url), "utf8"));
     });
   }
 
@@ -118,11 +123,14 @@ export class FoundationStore {
     await this.lockLearner(tx, userId);
   }
 
-  private async syncCursor(tx: Transaction, userId: string, sequence: number): Promise<string> {
-    const rows = await tx.query<{ id: string }>(`INSERT INTO gm.sync_cursor VALUES ($1,$2,$3)
-      ON CONFLICT (user_id,sequence) DO NOTHING RETURNING id`, [randomUUID(), userId, sequence]);
+  private async syncCursor(tx: Transaction, userId: string, sequence: number, now: Date): Promise<string> {
+    const rows = await tx.query<{ id: string }>(`SELECT id FROM gm.sync_cursor
+      WHERE user_id=$1 AND sequence=$2 AND expires_at>$3 ORDER BY expires_at DESC,id LIMIT 1`, [userId, sequence, now]);
     if (rows.rows.length) return rows.rows[0].id;
-    return (await tx.query<{ id: string }>("SELECT id FROM gm.sync_cursor WHERE user_id=$1 AND sequence=$2", [userId, sequence])).rows[0].id;
+    const id = randomUUID();
+    await tx.query('INSERT INTO gm.sync_cursor (id,user_id,sequence,expires_at) VALUES ($1,$2,$3,$4)',
+      [id, userId, sequence, new Date(now.getTime() + this.cursorLifetimeMs)]);
+    return id;
   }
 
   /** Frozen pages share a watermark; concurrent ingestion cannot fall between snapshot and sync. */
@@ -135,9 +143,10 @@ export class FoundationStore {
         if (!page.rows.length) throw new ApiFailure("invalid_cursor", 400);
         return TargetPageSchema.parse(page.rows[0].payload);
       }
-      const generatedAt = this.clock().toISOString();
+      const now = this.clock();
+      const generatedAt = now.toISOString();
       const watermark = (await tx.query<{ n: number }>("SELECT COALESCE(max(sequence),0)::int AS n FROM gm.sync_change WHERE user_id=$1", [userId])).rows[0].n;
-      const syncCursor = await this.syncCursor(tx, userId, watermark);
+      const syncCursor = await this.syncCursor(tx, userId, watermark, now);
       const rows = await tx.query<{ id: string; snapshot: TargetSnapshot | null; last_sequence: number }>(
         `SELECT t.id,st.snapshot,COALESCE(st.last_sequence,0)::int AS last_sequence FROM gm.learning_target t
          LEFT JOIN gm.learner_target_state st ON st.target_id=t.id AND st.user_id=$1 ORDER BY t.id`, [userId]);
@@ -161,8 +170,9 @@ export class FoundationStore {
     return this.db.transaction(async tx => {
       await this.readOwner(tx, userId);
       let after = 0;
+      const now = this.clock();
       if (cursor) {
-        const position = await tx.query<{ sequence: number }>("SELECT sequence FROM gm.sync_cursor WHERE id=$1 AND user_id=$2", [cursor, userId]);
+        const position = await tx.query<{ sequence: number }>("SELECT sequence FROM gm.sync_cursor WHERE id=$1 AND user_id=$2 AND expires_at>$3", [cursor, userId, now]);
         if (!position.rows.length) throw new ApiFailure("invalid_cursor", 400);
         after = position.rows[0].sequence;
       }
@@ -173,7 +183,7 @@ export class FoundationStore {
       const changes = rows.rows.slice(0, limit).map(r => ({ sequence: r.sequence, operation: 'upsert' as const,
         target: confirmedTarget(r.target_id, r.payload, r.received_sequence) }));
       return SyncPageSchema.parse({ apiVersion: 'v2', changes, hasMore: rows.rows.length > limit,
-        nextCursor: await this.syncCursor(tx, userId, changes.at(-1)?.sequence ?? after) });
+        nextCursor: await this.syncCursor(tx, userId, changes.at(-1)?.sequence ?? after, now) });
     });
   }
 
