@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { AnswerSchema, AttemptSchema, EvaluationSchema, ExposureEventSchema, SessionRequestSchema, FocusedSessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
-import type { LearnerApi } from "./api";
+import { SyncCursorReset, type LearnerApi } from "./api";
 
 // One atomic record scoped to the public local fixture; never used for production accounts.
 export const STORAGE_KEY = "german-master-v2:local-fixture:journey-v1";
@@ -58,7 +58,14 @@ export async function pull(api: LearnerApi, confirmed: NonNullable<Journey["conf
   let next = confirmed;
   const seen = new Set<string>();
   for (;;) {
-    const page = await api.sync(next.cursor);
+    let page;
+    try { page = await api.sync(next.cursor); }
+    catch (error) {
+      if (!(error instanceof SyncCursorReset)) throw error;
+      const fresh = await snapshot(api);
+      commit(fresh); // Replace only confirmed data after every snapshot page succeeds.
+      return fresh;
+    }
     const targets = new Map(next.targets.map(t => [t.targetId, t]));
     for (const change of page.changes) {
       const prior = targets.get(change.target.targetId);

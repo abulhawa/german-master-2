@@ -6,8 +6,9 @@ import acknowledgment from "@german-master/contracts/examples/attempt-response.j
 import targetPage from "@german-master/contracts/examples/target-page.json";
 import catalog from "@german-master/contracts/examples/catalog.json";
 import { PROFILE_PENDING_KEY } from "./setup";
+import { sessionRequest, prepareAttempt } from "../foundation/api";
 import { OwnedLearnerJourney as LearnerJourney } from "./journey";
-import { localLearnerApi, type LearnerApi } from "./api";
+import { localLearnerApi, SyncCursorReset, type LearnerApi } from "./api";
 import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } from "./storage";
 
 const session = SessionSchema.parse(sample);
@@ -18,6 +19,59 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it("recognizes only the server sync reset response", async () => {
+  const fetch = vi.fn().mockResolvedValue({ ok: false, status: 400, json: async () => ({ code: "invalid_cursor" }) });
+  vi.stubGlobal("fetch", fetch);
+  await expect(localLearnerApi().sync("old")).rejects.toBeInstanceOf(SyncCursorReset);
+  await expect(localLearnerApi().targets("old")).rejects.not.toBeInstanceOf(SyncCursorReset);
+  fetch.mockResolvedValue({ ok: false, status: 401, json: async () => ({ code: "invalid_cursor" }) });
+  await expect(localLearnerApi().sync("old")).rejects.not.toBeInstanceOf(SyncCursorReset);
+});
+
+it.each(["session", "attempt", "exposure"])("atomically recovers reset cursors while retaining pending %s and profile work", async kind => {
+  const api = apiFixture();
+  const state = emptyJourney(); state.confirmed = await snapshot(api);
+  const request = sessionRequest();
+  // Reuse validated journey records from the existing serializer for each pending operation.
+  const practiceSession = kind === "session" ? null : session;
+  state.practice = { request, session: practiceSession, index: 0, draft: { type: "short_answer", text: "saved draft" }, assisted: true, pending: null, pendingExposure: null, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0, skippedCount: 0 };
+  if (kind === "attempt") state.practice.pending = prepareAttempt(session, 0, { type: "short_answer", text: "saved draft" }, true, state.deviceId);
+  if (kind === "exposure") state.practice.pendingExposure = { eventId: crypto.randomUUID(), sessionQuestionId: session.questions[0].id, exerciseRevision: session.questions[0].exercise.revision, deviceId: state.deviceId, disposition: "skip", occurredAt: "2026-10-04T12:00:00Z" };
+  saveJourney(localStorage, state);
+  localStorage.setItem(PROFILE_PENDING_KEY, "frozen profile payload");
+  const saved = readJourney(localStorage);
+  api.sync = vi.fn().mockRejectedValue(new SyncCursorReset());
+  api.targets = vi.fn().mockResolvedValue({ ...page, targets: [], syncCursor: "fresh" });
+  await pull(api, saved.confirmed!, confirmed => saveJourney(localStorage, { ...readJourney(localStorage), confirmed }));
+  expect(readJourney(localStorage)).toEqual({ ...saved, confirmed: { targets: [], cursor: "fresh", generatedAt: page.generatedAt } });
+  expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("frozen profile payload");
+  api.sync = vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false }));
+  await pull(api, readJourney(localStorage).confirmed!, () => {});
+  expect(api.sync).toHaveBeenCalledWith("fresh");
+});
+
+it("retains the old snapshot when reset pagination or its atomic save fails", async () => {
+  const api = apiFixture(); const initial = await snapshot(api); const commit = vi.fn();
+  api.sync = vi.fn().mockRejectedValue(new SyncCursorReset());
+  api.targets = vi.fn().mockResolvedValueOnce({ ...page, nextPageCursor: "next" }).mockRejectedValueOnce(Error("offline"));
+  await expect(pull(api, initial, commit)).rejects.toThrow("offline"); expect(commit).not.toHaveBeenCalled();
+  api.targets = vi.fn().mockResolvedValue(page);
+  await expect(pull(api, initial, () => { throw Error("disk full"); })).rejects.toThrow("disk full");
+  expect(api.sync).toHaveBeenLastCalledWith(initial.cursor);
+  await pull(api, initial, commit); expect(commit).toHaveBeenCalledTimes(1);
+});
+
+it("retains an applied delta when a later page resets and recovery fails", async () => {
+  const api = apiFixture(); const initial = await snapshot(api);
+  api.sync = vi.fn().mockResolvedValueOnce({ apiVersion: "v2", changes: [{ sequence: 2, operation: "upsert", target: { ...page.targets[0], lastSequence: 2, state: "learning" } }], nextCursor: "applied", hasMore: true }).mockRejectedValueOnce(new SyncCursorReset());
+  api.targets = vi.fn().mockRejectedValue(Error("offline"));
+  let saved = initial;
+  await expect(pull(api, initial, value => { saved = value; })).rejects.toThrow("offline");
+  expect(saved.cursor).toBe("applied"); expect(saved.targets[0].state).toBe("learning");
+  api.sync = vi.fn().mockRejectedValue(new SyncCursorReset()); api.targets = vi.fn().mockResolvedValue({ ...page, syncCursor: "reset" });
+  await pull(api, saved, value => { saved = value; });
+  expect(api.sync).toHaveBeenCalledWith("applied"); expect(saved.cursor).toBe("reset");
+});
 it("retries a frozen skip after a lost response and reload, preserving its draft", async () => {
   const api = apiFixture();
   api.expose = vi.fn().mockRejectedValueOnce(Error("lost response")).mockImplementation(async event => ({ eventId: event.eventId, status: "duplicate", serverSequence: 1 }));

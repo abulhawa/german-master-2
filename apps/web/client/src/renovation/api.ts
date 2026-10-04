@@ -11,12 +11,22 @@ export interface LearnerApi extends FoundationApi {
   targets(cursor?: string): Promise<TargetPage>;
   sync(cursor: string): Promise<SyncPage>;
 }
+// The local server uses invalid_cursor for unknown or reset cursor records.
+export class SyncCursorReset extends Error {
+  constructor() { super("Sync cursor requires a fresh snapshot"); }
+}
 export function localLearnerApi(): LearnerApi {
   async function get(path: string, cursor?: string) {
     const response = await fetch(`${path}?limit=50${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""}`, {
       headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store",
     });
-    if (!response.ok) throw Error("Confirmed read unavailable");
+    if (!response.ok) {
+      if (path === "/v2/sync" && response.status === 400) {
+        const error: unknown = await response.json();
+        if (error && typeof error === "object" && "code" in error && error.code === "invalid_cursor") throw new SyncCursorReset();
+      }
+      throw Error("Confirmed read unavailable");
+    }
     return response.json();
   }
   return { ...localFoundationApi(),
