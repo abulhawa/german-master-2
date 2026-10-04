@@ -28,3 +28,7 @@ The separate app-private `german-master-v2-local-learner.json` preserves pending
 ## Limits
 
 Single-activity fixture storage does not establish production account partitions, cross-process coordination or durable offline attempt outboxes. Profile reads are not integrated into target sync. Fresh frozen snapshots are supported; delta ingestion/cursor expiry/reset are deferred. No milestone exit gate, learner usability, independent language review, production cutover, deployment or store acceptance is claimed. Next implement native server-selected Practice, frozen attempts/exposures, feedback, Skip and distinct summary counts.
+
+## Hosted confirmation
+
+Implementation `1b1050e` is committed and pushed to main. [Android checks](https://github.com/abulhawa/german-master-2/actions/runs/37207322904) and [Repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37207322906) both completed successfully at that exact commit. Android CI ran generated guards, unit tests, debug assembly and blocking lint; Web CI was not triggered by this Android-only slice. Staged and full-history Gitleaks scans found no secrets. The final hosted-results checkpoint is documentation-only and committed/pushed at handoff.
