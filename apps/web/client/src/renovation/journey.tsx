@@ -1,0 +1,155 @@
+import { useEffect, useRef, useState } from "react";
+import type { Answer } from "@german-master/contracts";
+import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
+import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
+import { learnerCopy, targetLabels } from "./locales";
+import { localLearnerApi, type LearnerApi } from "./api";
+import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
+
+const localApi = localLearnerApi();
+export default function LearnerJourney({ api = localApi, storage = browserStorage }: { api?: LearnerApi; storage?: JourneyStorage }) {
+  const [loaded] = useState(() => { try { return { state: readJourney(storage), damaged: false }; } catch { return { state: emptyJourney(), damaged: true }; } });
+  const [state, setState] = useState(loaded.state);
+  const current = useRef(state);
+  const [view, setView] = useState<"home" | "practice" | "progress">("home");
+  const [busy, setBusy] = useState(false);
+  const lock = useRef(false);
+  const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const feedback = useRef<HTMLDivElement>(null);
+  const c = learnerCopy[state.locale];
+  const p = state.practice;
+  const exercise = p?.session?.questions[p.index]?.exercise;
+  const complete = !!p?.session && p.index === p.session.questions.length;
+
+  function commit(next: Journey) {
+    try { saveJourney(storage, next); } catch { setError("storageError"); throw Error("Storage unavailable"); }
+    current.current = next; setState(next); setError(null);
+  }
+  function editPractice(update: Partial<NonNullable<Journey["practice"]>>) {
+    if (current.current.practice) commit({ ...current.current, practice: { ...current.current.practice, ...update } });
+  }
+  async function run(work: () => Promise<void>, fallback: "unavailable" | "connectionError") {
+    if (lock.current || loaded.damaged) return;
+    lock.current = true; setBusy(true); setError(null);
+    try { await work(); } catch (e) { if (!(e instanceof Error && e.message === "Storage unavailable")) setError(fallback); }
+    finally { lock.current = false; setBusy(false); }
+  }
+  async function refresh() {
+    await run(async () => {
+      const confirmed = current.current.confirmed;
+      if (confirmed) await pull(api, confirmed, value => commit({ ...current.current, confirmed: value }));
+      const fresh = await snapshot(api);
+      commit({ ...current.current, confirmed: fresh });
+    }, "unavailable");
+  }
+  useEffect(() => { void refresh(); }, [api]);
+  useEffect(() => { heading.current?.focus(); }, [view, p?.index, p?.session?.id]);
+  useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
+
+  async function start() {
+    setView("practice");
+    await run(async () => {
+      let practice = current.current.practice;
+      if (!practice || (practice.session && practice.index === practice.session.questions.length)) {
+        practice = { request: sessionRequest(), session: null, index: 0, draft: null, assisted: false,
+          pending: null, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
+        commit({ ...current.current, practice });
+      }
+      if (!practice.session) {
+        const session = await api.createSession(practice.request);
+        editPractice({ session });
+      }
+    }, "connectionError");
+  }
+  async function submit() {
+    await run(async () => {
+      const practice = current.current.practice;
+      if (!practice?.session || practice.rejected || practice.evaluation) return;
+      const question = practice.session.questions[practice.index];
+      const answer = readyAnswer(question.exercise, practice.draft as Answer | null);
+      if (!answer && !practice.pending) return;
+      const attempt = practice.pending ?? prepareAttempt(practice.session, practice.index, answer!, practice.assisted, current.current.deviceId);
+      editPractice({ pending: attempt }); // Save before any network write. Retry never changes this payload.
+      const result = await api.submit(attempt);
+      if (result.status === "rejected") editPractice({ rejected: true });
+      else editPractice({ evaluation: result.evaluation, confirmedCount: practice.confirmedCount + 1,
+        correctCount: practice.correctCount + (result.evaluation.outcome === "correct" ? 1 : 0) });
+    }, "connectionError");
+  }
+  function next() {
+    if (!p?.evaluation) return;
+    try { editPractice({ index: p.index + 1, draft: null, assisted: false, pending: null, evaluation: null, rejected: false });
+      if (p.session && p.index + 1 === p.session.questions.length) void refresh();
+    } catch { /* Error already surfaced; leave acknowledged question in place. */ }
+  }
+  const confirmed = state.confirmed;
+  const needs = confirmed?.targets.filter(t => t.state === "needs_practice").length ?? 0;
+  const due = confirmed?.targets.filter(t => t.isDue && t.state !== "needs_practice").length ?? 0;
+  const hasEvidence = confirmed?.targets.some(t => t.lastSequence > 0);
+  function preference(update: Partial<Journey>) { try { commit({ ...current.current, ...update }); } catch { /* Preserve prior state. */ } }
+
+  return <main className="gm-foundation" data-theme={state.theme} lang={state.locale}>
+    <div className="gm-column">
+      <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
+      {view !== "practice" && <div className="gm-settings">
+        <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey["locale"] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+        <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey["theme"] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
+      </div>}
+      {view !== "practice" && <p className="gm-notice">{c.notice}</p>}
+      {view !== "practice" && <nav className="gm-navigation" aria-label={c.subtitle}>
+        <FoundationButton className="gm-secondary" aria-current={view === "home" ? "page" : undefined} onClick={() => setView("home")}>{c.home}</FoundationButton>
+        <FoundationButton className="gm-secondary" aria-current={view === "progress" ? "page" : undefined} onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
+      </nav>}
+      {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
+        {error && <p role="alert">{c[error]}</p>}
+        {view === "home" && <PracticeCard>
+          <h1 ref={heading} tabIndex={-1}>{hasEvidence ? c.priorities : c.welcome}</h1>
+          {confirmed && <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
+          <p>{c.shorter}</p>
+          <FoundationButton disabled={busy} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
+          {confirmed && <p className="gm-meta">{c.stale}</p>}
+        </PracticeCard>}
+        {view === "practice" && <>
+          <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.close}</FoundationButton>
+          <PracticeCard>
+            {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
+              <h1 ref={heading} tabIndex={-1}>{c.complete}</h1><p role="status">{c.summary}: {p.confirmedCount} / {p.session.questions.length}</p>
+              <p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
+              <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
+            </> : exercise ? <>
+              <p className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</p>
+              <h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1><p>{exercise.instruction[state.locale]}</p>
+              <fieldset className="gm-answer-group" disabled={!!p.pending || busy}>
+                <ExerciseInput key={`${p.session.id}-${p.index}`} exercise={exercise} locale={state.locale} initialAnswer={p.draft as Answer | null} onAnswer={() => {}} onDraft={draft => { try { editPractice({ draft }); return true; } catch { return false; } }} />
+                <FoundationButton className="gm-secondary" disabled={p.assisted} onClick={() => { try { editPractice({ assisted: true }); } catch { /* Reveal only after assistance has been saved. */ } }}>{c.hint}</FoundationButton>
+                {p.assisted && <p>{exercise.hint[state.locale]}</p>}
+              </fieldset>
+              {!p.evaluation && <FoundationButton disabled={busy || p.rejected || (!p.pending && !readyAnswer(exercise, p.draft as Answer | null)) || error === "storageError"} onClick={() => void submit()}>{busy ? c.sending : p.pending ? c.retry : c.submit}</FoundationButton>}
+              {p.pending && !p.evaluation && <p role="status">{c.pending}</p>}
+              {p.rejected && <p role="alert">{c.rejected} {c.discardNote}</p>}
+              {p.evaluation && p.pending && <div className="gm-feedback" ref={feedback} tabIndex={-1}>
+                <p role="status">{p.evaluation.outcome === "correct" ? c.correct : c.incorrect}{p.evaluation.assisted ? ` · ${c.assisted}` : ""}</p>
+                <p>{c.yourAnswer}: <span lang="de">{answerText(p.pending.answer, p.session, p.index)}</span></p>
+                <p>{c.acceptedAnswer}: <span lang="de">{answerText(p.evaluation.acceptedAnswer, p.session, p.index)}</span></p>
+                <p>{p.evaluation.explanation[state.locale]}</p><FoundationButton onClick={next}>{c.next}</FoundationButton>
+              </div>}
+            </> : null}
+          </PracticeCard>
+        </>}
+        {view === "progress" && <PracticeCard>
+          <h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
+          {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p><ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
+            <strong>{targetLabels[t.targetId]?.[state.locale] ?? c.unknown}</strong><p>{c.states[t.state]}</p>
+            {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale)}</time></p>}
+            <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
+          </li>)}</ul></>}
+          <FoundationButton disabled={busy} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
+        </PracticeCard>}
+        {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy} onClick={() => { preference({ practice: null }); setView("home"); }}>{c.discard}</FoundationButton></details>}
+      </>}
+    </div>
+  </main>;
+}

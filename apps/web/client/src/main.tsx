@@ -5,10 +5,12 @@ import { registerSW } from "virtual:pwa-register";
 
 const FoundationPreview = lazy(() => import("./foundation/preview"));
 const BackendPreview = lazy(() => import("./foundation/backend-preview"));
+const LearnerJourney = lazy(() => import("./renovation/journey"));
 const App = lazy(() => import("./App"));
 
 const foundation = import.meta.env.DEV && window.location.pathname === "/foundation";
-if (!foundation) registerSW({ immediate: true });
+const renovation = import.meta.env.DEV && window.location.pathname === "/renovation";
+if (!foundation && !renovation) registerSW({ immediate: true });
 
 const rootElement = document.getElementById("root");
 
@@ -19,7 +21,7 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <StrictMode>
     <Suspense fallback={null}>
-      {foundation ? (window.location.search === "?backend=1" ? <BackendPreview /> : <FoundationPreview />) : <App />}
+      {renovation ? <LearnerJourney /> : foundation ? (window.location.search === "?backend=1" ? <BackendPreview /> : <FoundationPreview />) : <App />}
     </Suspense>
   </StrictMode>,
 );

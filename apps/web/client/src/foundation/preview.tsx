@@ -51,14 +51,18 @@ export function ExerciseInput({
   exercise,
   locale,
   onAnswer,
+  initialAnswer,
+  onDraft,
 }: {
   exercise: Exercise;
   locale: Locale;
   onAnswer: (answer: Answer | null) => void;
+  initialAnswer?: Answer | null;
+  onDraft?: (answer: Answer | null) => boolean | void;
 }) {
-  const [text, setText] = useState("");
-  const [values, setValues] = useState<Record<string, string>>({});
-  const [order, setOrder] = useState<string[]>([]);
+  const [text, setText] = useState(() => initialAnswer?.type === "short_answer" ? initialAnswer.text : initialAnswer?.type === "choice" ? initialAnswer.optionId : "");
+  const [values, setValues] = useState<Record<string, string>>(() => initialAnswer?.type === "cloze" || initialAnswer?.type === "multi_slot" ? Object.fromEntries(initialAnswer.values.map(v => [v.slotId, v.text])) : {});
+  const [order, setOrder] = useState<string[]>(() => initialAnswer?.type === "word_order" ? initialAnswer.tokenIds : []);
   const c = copy[locale];
   if (exercise.type === "short_answer")
     return (
@@ -67,6 +71,7 @@ export function ExerciseInput({
         label={c.answer}
         value={text}
         onChange={(v) => {
+          if (onDraft?.({ type: "short_answer", text: v }) === false) return;
           setText(v);
           onAnswer(v.trim() ? { type: exercise.type, text: v } : null);
         }}
@@ -84,6 +89,7 @@ export function ExerciseInput({
               value={o.id}
               checked={text === o.id}
               onChange={() => {
+                if (onDraft?.({ type: "choice", optionId: o.id }) === false) return;
                 setText(o.id);
                 onAnswer({ type: "choice", optionId: o.id });
               }}
@@ -104,6 +110,7 @@ export function ExerciseInput({
             value={values[slot.id] ?? ""}
             onChange={(v) => {
               const next = { ...values, [slot.id]: v };
+              if (onDraft?.({ type: exercise.type, values: exercise.slots.map(s => ({ slotId: s.id, text: next[s.id] ?? "" })) }) === false) return;
               setValues(next);
               onAnswer(
                 exercise.slots.every((s) => next[s.id]?.trim())
@@ -138,6 +145,7 @@ export function ExerciseInput({
               type="button"
               onClick={() => {
                 const next = [...order, t.id];
+                if (onDraft?.({ type: "word_order", tokenIds: next }) === false) return;
                 setOrder(next);
                 onAnswer(
                   next.length === exercise.tokens.length
@@ -154,6 +162,7 @@ export function ExerciseInput({
         type="button"
         disabled={!order.length}
         onClick={() => {
+          if (onDraft?.(null) === false) return;
           setOrder([]);
           onAnswer(null);
         }}

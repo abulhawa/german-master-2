@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This owned-read continuation started at `dc1d927` with a clean checkout and matching remote. Server-selection workflows were confirmed successful at `7f4a2ec`. The current slice exposes owned confirmed target snapshots and ordered sync changes with durable local cursors.
+- This web-journey continuation started at `1ec0cd8` with a clean checkout. Hosted owned-read workflows were confirmed successful at `3d5ab87`. The current slice implements an isolated Home → Practice → confirmed summary/Progress journey with fixture-only browser persistence.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -74,7 +74,7 @@ The hosted-results checkpoint update is documentation-only and accompanies this 
 | M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
 | M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
 | M2 Authoritative engine | In progress | Grading, idempotent attempts/exposures and transactional evidence/state/schedules/sync implemented locally; local small-catalog selection implemented; production adapters and broader selection acceptance remain |
-| M3 Web vertical slice | Not started | Complete 2.0 learner journey |
+| M3 Web vertical slice | In progress | Local Home/Practice/summary/Progress implemented; setup, target detail/Topics, production auth and full accessibility acceptance remain |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
 | M6 Pilot and readiness | Not started | Reviewed content, usability and delayed-retention follow-up |
@@ -93,11 +93,11 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 ## Exact next implementation slice
 
 1. Inspect checkout/recent commits and hosted owned-read results. Preserve newer work; grading, evidence policy, transactional persistence, local mixed selection, confirmed reads, previews, Android repair and mockups are implemented.
-2. Owned target/sync transport is implemented locally with generated contracts, frozen snapshot pages/watermarks, owned cursors, restart recovery and UTC due refresh. Preserve this work; pending client reconciliation is still open.
-3. Implement the isolated 2.0 web Home → Practice → confirmed summary/Progress journey using `/v2/targets`, `/v2/sync` and server-selected sessions. Offer an honest shorter session for this five-target catalog instead of inventing questions to reach fifteen; add only the contract/catalog metadata needed for that flow. Level/topic filtering, seeded variant selection and broader diversity require reviewed catalog/contract expansion. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+2. Owned target/sync transport is implemented locally with generated contracts, frozen snapshot pages/watermarks, owned cursors, restart recovery and UTC due refresh. The isolated single-tab web fixture now saves complete snapshots and each sync page atomically with its cursor; production account partitions, multi-tab/process outbox coordination and offline reconciliation remain open.
+3. Preserve the implemented isolated web Home → Practice → confirmed summary/Progress journey at `/renovation`, including its honest five-question session and fixture-only saved drafts/frozen attempts/atomic confirmed cursors. Next implement versioned solution-free target/topic catalog metadata and authoritative focused session requests, then target detail and Topics using that same API. Replace fixture-only bilingual labels without importing grading rubrics into clients. Level/topic filtering, seeded variant selection and broader diversity require reviewed catalog/contract expansion. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is the isolated complete web learner journey. M0/M1 remain open and M2 remains in progress. Ignored private recovery artifacts remain local.
+The next demonstration is genuine target detail and topic/target-focused practice within the isolated web journey. M0/M1 remain open; M2/M3 remain in progress. Ignored private recovery artifacts remain local.
 
 ## Pure evidence and scheduling policy slice
 
@@ -143,3 +143,12 @@ The next demonstration is the isolated complete web learner journey. M0/M1 remai
 ## Update this checkpoint at handoff
 
 Record the current slice and state, affected files, checks with actual results, remaining blockers, decisions changed and the next concrete implementation action. Mark completed work once. Link detailed evidence instead of pasting logs. Commit and push checkpoint updates with the authorized repository changes; if any work remains uncommitted or unpushed, state that explicitly. Never put credentials or private account details in this public file.
+
+## Isolated web learner journey slice
+
+- Development-only `/renovation` now provides Home → server-selected five-question Practice → server feedback → acknowledged summary → confirmed Progress. Honest shorter-session copy replaces any assumption of fifteen available questions. Distinct Needs practice and due-retention counts do not double-count targets; the UI renders server states and deadlines without adding mastery policy.
+- Versioned fixture-only localStorage saves stable session/device IDs, partial drafts, assistance before hint reveal, current question, immutable pending attempts, feedback and summary counts. Reload restores draft/feedback; ambiguous failures retry the same payload. Storage failures block new writes and corrupt records are preserved. Explicit discard handles unusable preview sessions after the in-memory server resets.
+- Complete frozen target snapshots precede cursor commits. Ordered sync pages save target upserts/cursors together, retaining committed pages on a later failure; a fresh snapshot refreshes due flags. Confirmed and pending work stay separate. English/German copy and semantic light/dark tokens are used; focused practice hides main navigation/settings. [Decision](docs/adr/008_local_web_journey.md), [evidence and limits](docs/operations/web-journey-verification.md).
+- Local root install/check/test/build passed: backend 7 files / 61 tests; web 79 files / 312 tests. Browser completed all five live local HTTP exercises and confirmed Progress, restored a draft after reload, checked heading focus, keyboard activation, 320px reflow, themes, German copy and a 200% CSS-zoom simulation. No Android/contracts changed; native checks were not rerun. Full screen-reader/device/usability acceptance is not claimed.
+- M3 is now in progress, not complete; M0/M1 gates remain open and M2 remains in progress. Single-tab public fixture storage does not establish a production outbox or authenticated partitions. Offline grading, cursor expiry/reset, full catalog metadata, setup and Topics/focused selection remain open. No production mutation, deployment, content publication, store release or AI/Groq inference occurred.
+- Exact next action: add versioned solution-free target/topic metadata and authoritative focused session requests; use them for target detail and Topics while preserving this confirmed web journey. Commit/push and hosted verification status will be recorded after checks complete.

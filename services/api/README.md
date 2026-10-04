@@ -9,6 +9,8 @@ npm run dev:web
 
 Open `http://127.0.0.1:5000/foundation?backend=1`. `/foundation` still provides the static renderer inspection. Backend mode creates five fresh owned questions, submits answers and displays confirmed server feedback, then a summary. It does not calculate mastery. The Vite development proxy forwards `/v2` to the isolated API on loopback port 5001.
 
+For the isolated learner journey, open `http://127.0.0.1:5000/renovation`: Home → explicitly shorter five-question practice → confirmed summary → Progress. The server supplies selection, grading and retained-evidence state. The web preview saves drafts, immutable pending answers, acknowledgments and confirmed read cursors in a versioned fixture-only localStorage record across reloads. Use one tab; this is connected practice, not offline grading or production account storage. The server still resets on restart. See [journey evidence](../../docs/operations/web-journey-verification.md) and [ADR 008](../../docs/adr/008_local_web_journey.md).
+
 Android debug demonstration on an isolated emulator/device:
 
 ```powershell
