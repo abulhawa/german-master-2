@@ -27,3 +27,7 @@ Agent-browser 0.27.0 against the live isolated loopback web/API:
 ## Limits and next work
 
 Fixture authentication, one-tab browser storage and embedded PostgreSQL do not establish production account security, durable offline coordination or independent network connections. Profile changes are not emitted through the target-only sync contract; clients reread profiles on load. Saved profile locale is reapplied on reload; quick language/theme controls are local preview overrides. The server launcher is ephemeral. All content remains unreviewed local B1 drafts; thirty-target/diversity and independent language review gates remain open. M0/M1 remain open and M2/M3 remain in progress. Next implement web skip with durable exposure retries and distinct summary counts, preserving authority and frozen requests.
+
+## Hosted confirmation
+
+Implementation `4799d61` is pushed to main. All three applicable workflows passed at that exact commit: [Web checks](https://github.com/abulhawa/german-master-2/actions/runs/37201865023), [Android checks](https://github.com/abulhawa/german-master-2/actions/runs/37201865007) and [Repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37201864999). Web logs confirm 319 passing tests. Local staged and full-history Gitleaks scans passed with zero findings; the latter scanned 785 commits. Final evidence/checkpoint edits are documentation-only and are committed/pushed at handoff.
