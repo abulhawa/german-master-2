@@ -24,4 +24,5 @@ The foundation and authoritative engine remain implemented locally. This starts 
 
 Versioned, reviewed server catalog metadata and target-focused session selection are the next implementation slice. Keep the local Home/Practice/summary/Progress flow and its retry/reconciliation evidence intact while replacing fixture-only presentation labels and adding genuine target detail and Topics behavior.
 
-Decision: [ADR 008](../adr/008_local_web_journey.md). Hosted results are recorded in the checkpoint once their exact implementation commit has completed.
+Decision: [ADR 008](../adr/008_local_web_journey.md). Hosted [Web checks 37195816902](https://github.com/abulhawa/german-master-2/actions/runs/37195816902) and [Repository safety 37195816925](https://github.com/abulhawa/german-master-2/actions/runs/37195816925) passed at implementation `55cfbd1`. Web CI verified install, generated/type checks, 61 backend tests, 312 web tests and builds. Android CI was not triggered. Local staged/full-history Gitleaks scans also found no leaks (781 commits at implementation head).
+
