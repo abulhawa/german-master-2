@@ -17,7 +17,7 @@ Root `npm ci`, `npm run check`, `npm test` and `npm run build` passed with porta
 
 Dependency installation reports the existing 12 audit findings (six moderate/six high); dependency changes are outside this slice. Browserslist reports stale data. No new dependencies were introduced. Android, browser and device checks were not rerun: no client rendering, native code, generated transport or tokens changed. Existing HTTP tests exercise the session route; selection-specific contrasting-history tests use the store transaction boundary. No native/runtime journey acceptance is claimed.
 
-Full-history Gitleaks 8.30.1 passed with zero findings on 776 existing commits before this implementation commit. Staged changes are also scanned before committing. Hosted outcomes are recorded in `PROGRESS.md` once available.
+Staged diff and full-history Gitleaks 8.30.1 scans passed with zero findings; the final history scan covered 777 commits at `7f4a2ec`. Both applicable hosted workflows passed at this exact implementation commit: [Web checks](https://github.com/abulhawa/german-master-2/actions/runs/37191977392) and [Repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37191977396). Android CI did not trigger for this server-only change.
 
 ## Remaining gates
 
