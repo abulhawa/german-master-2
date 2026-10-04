@@ -24,8 +24,12 @@ interface LearnerApi {
     suspend fun profile(): LearnerProfile
     suspend fun save(request: ProfileRequest): LearnerProfile
     suspend fun targets(cursor: String): TargetPage
+    suspend fun sync(cursor: String): SyncPage
     suspend fun catalog(): Catalog
 }
+
+/** Only an owned sync read can request full snapshot recovery. */
+class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh snapshot")
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
@@ -38,7 +42,7 @@ class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
         return ContractReader.json.decodeFromJsonElement(ExposureBatchResponse.serializer(), raw).acknowledgments.single().also { check(it.eventId == event.eventId) }
     }
     init { require(port in 1..65535) }
-    private suspend fun request(path: String, body: String? = null): String = withContext(Dispatchers.IO) {
+    private suspend fun request(path: String, body: String? = null, resetOnInvalidCursor: Boolean = false): String = withContext(Dispatchers.IO) {
         val connection = URI("http://127.0.0.1:$port$path").toURL().openConnection() as HttpURLConnection
         try {
             connection.connectTimeout = 10000
@@ -51,7 +55,16 @@ class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
                 connection.setRequestProperty("Content-Type", "application/json")
                 connection.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
             }
-            check(connection.responseCode == 200) { "Local API request failed (${connection.responseCode})" }
+            val status = connection.responseCode
+            if (resetOnInvalidCursor && status == 400) {
+                val error = runCatching {
+                    val raw = ContractReader.json.parseToJsonElement(connection.errorStream.bufferedReader(Charsets.UTF_8).use { it.readText() })
+                    ContractShape.checkApiError(raw)
+                    ContractReader.json.decodeFromJsonElement(ApiError.serializer(), raw)
+                }.getOrNull()
+                if (error?.code == "invalid_cursor") throw SyncCursorReset()
+            }
+            check(status == 200) { "Local API request failed ($status)" }
             connection.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
         } finally { connection.disconnect() }
     }
@@ -76,6 +89,11 @@ class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
         ContractShape.checkCatalog(raw)
         return ContractReader.json.decodeFromJsonElement(Catalog.serializer(), raw)
     }
+    override suspend fun sync(cursor: String): SyncPage {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/sync?cursor=${URLEncoder.encode(cursor, "UTF-8")}", resetOnInvalidCursor = true))
+        ContractShape.checkSyncPage(raw)
+        return ContractReader.json.decodeFromJsonElement(SyncPage.serializer(), raw)
+    }
 }
 
 @Serializable
@@ -86,7 +104,8 @@ data class LearnerCache(
     val targets: List<ConfirmedTarget> = emptyList(),
     val generatedAt: String? = null,
     val catalog: Catalog? = null,
-    val practice: NativePractice? = null
+    val practice: NativePractice? = null,
+    val syncCursor: String? = null
 )
 
 interface LearnerStore {
@@ -171,6 +190,14 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     suspend fun refresh() = mutex.withLock {
         val profile = api.profile()
         val catalog = api.catalog()
+        if (state.syncCursor != null) pullConfirmed()
+        // Refresh time-sensitive due flags, including after successful deltas.
+        val fresh = snapshot()
+        commit(state.copy(profile = profile, catalog = catalog, targets = fresh.targets,
+            generatedAt = fresh.generatedAt, syncCursor = fresh.syncCursor))
+    }
+    private data class Snapshot(val targets: List<ConfirmedTarget>, val generatedAt: String, val syncCursor: String)
+    private suspend fun snapshot(): Snapshot {
         val targets = mutableListOf<ConfirmedTarget>()
         val cursors = mutableSetOf<String>()
         var cursor = ""
@@ -185,7 +212,27 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
             cursor = page.nextPageCursor
         } while (cursor.isNotEmpty())
         check(targets.map { it.targetId }.distinct().size == targets.size) { "Duplicate snapshot target" }
-        commit(state.copy(profile = profile, catalog = catalog, targets = targets, generatedAt = generatedAt))
+        return Snapshot(targets, requireNotNull(generatedAt), requireNotNull(watermark))
+    }
+    private suspend fun pullConfirmed() {
+        val seen = mutableSetOf(requireNotNull(state.syncCursor))
+        while (true) {
+            val page = try { api.sync(requireNotNull(state.syncCursor)) }
+            catch (_: SyncCursorReset) {
+                val fresh = snapshot()
+                commit(state.copy(targets = fresh.targets, generatedAt = fresh.generatedAt, syncCursor = fresh.syncCursor))
+                return
+            }
+            check(!page.hasMore || seen.add(page.nextCursor)) { "Repeated sync cursor" }
+            val targets = state.targets.associateBy { it.targetId }.toMutableMap()
+            for (change in page.changes) {
+                val prior = targets[change.target.targetId]
+                if (prior == null || change.target.lastSequence >= prior.lastSequence) targets[change.target.targetId] = change.target
+            }
+            // Durable data and cursor together, before requesting another page.
+            commit(state.copy(targets = targets.values.toList(), syncCursor = page.nextCursor))
+            if (!page.hasMore) return
+        }
     }
     suspend fun save(preferences: ProfilePreferences) = mutex.withLock {
         check(state.pending == null) { "Retry or reload pending preferences first" }

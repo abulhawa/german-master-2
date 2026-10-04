@@ -19,6 +19,7 @@ class NativeFocusTest {
     private val target = "00000000-0000-4000-8000-000000000002"
     private val catalog = Catalog("v2", session.contentReleaseId, "unpublished_local_draft", listOf(CatalogTopic(topic, LocalizedText("Grammar", "Grammatik"))), listOf(CatalogTarget(target, topic, LocalizedText("Target", "Lernziel"), LocalizedText("Description", "Beschreibung"), "B1", 1)))
     private inner class Api : LearnerApi {
+        override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
         val requests = mutableListOf<FocusedSessionRequest>()
         var lose = false
         override suspend fun session(request: FocusedSessionRequest): Session {

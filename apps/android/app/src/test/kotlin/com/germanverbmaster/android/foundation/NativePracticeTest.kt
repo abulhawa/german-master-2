@@ -22,6 +22,7 @@ class NativePracticeTest {
         override fun write(value: LearnerCache) { check(!fail); cache = value }
     }
     private inner class Api : LearnerApi {
+        override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
         val attempts = mutableListOf<Attempt>()
         val exposures = mutableListOf<ExposureEvent>()
         val requests = mutableListOf<SessionRequest>()

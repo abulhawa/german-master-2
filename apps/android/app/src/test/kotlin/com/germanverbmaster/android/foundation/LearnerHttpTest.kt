@@ -2,6 +2,7 @@ package com.germanverbmaster.android.foundation
 
 import com.germanverbmaster.android.foundation.contract.*
 import com.germanverbmaster.android.learner.LocalLearnerApi
+import com.germanverbmaster.android.learner.SyncCursorReset
 import com.sun.net.httpserver.HttpServer
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.encodeToString
@@ -32,6 +33,7 @@ class LearnerHttpTest {
                 "/v2/exposures:batch" -> ContractReader.json.encodeToString(ExposureBatchResponse("v2", listOf(ExposureDuplicate(event.eventId, 1))))
                 "/v2/profile" -> ContractReader.json.encodeToString(profile)
                 "/v2/targets" -> ContractReader.json.encodeToString(TargetPage("v2", "2026-10-04T10:00:00Z", emptyList(), "", id))
+                "/v2/sync" -> ContractReader.json.encodeToString(SyncPage("v2", emptyList(), id, false))
                 else -> ContractReader.json.encodeToString(Catalog("v2", id, "unpublished_local_draft", emptyList(), emptyList()))
             }.toByteArray()
             exchange.sendResponseHeaders(200, response.size.toLong())
@@ -58,6 +60,41 @@ class LearnerHttpTest {
             assertEquals(session, api.session(focused))
             assertEquals("POST /v2/sessions", calls.last())
             assertEquals(ContractReader.json.encodeToString(focused), bodies.last())
+            assertEquals(SyncPage("v2", emptyList(), id, false), api.sync(id))
+            assertEquals("GET /v2/sync?cursor=$id", calls.last())
+        } finally { server.stop(0) }
+    }
+
+    @Test fun onlyStrictInvalidCursorOnSyncRequestsSnapshotReset() = runBlocking {
+        val id = "00000000-0000-4000-8000-000000000001"
+        var status = 400
+        var body = ContractReader.json.encodeToString(ApiError("invalid_cursor", "Unavailable", id, false))
+        val server = HttpServer.create(InetSocketAddress("127.0.0.1", 0), 0)
+        server.createContext("/v2/") { exchange ->
+            val bytes = body.toByteArray()
+            exchange.sendResponseHeaders(status, bytes.size.toLong())
+            exchange.responseBody.use { it.write(bytes) }
+            exchange.close()
+        }
+        server.start()
+        try {
+            val api = LocalLearnerApi(server.address.port)
+            assertTrue(runCatching { api.sync(id) }.exceptionOrNull() is SyncCursorReset)
+            assertFalse(runCatching { api.targets(id) }.exceptionOrNull() is SyncCursorReset)
+            assertFalse(runCatching { api.profile() }.exceptionOrNull() is SyncCursorReset)
+            for (otherStatus in listOf(401, 403, 500)) {
+                status = otherStatus
+                assertFalse(runCatching { api.sync(id) }.exceptionOrNull() is SyncCursorReset)
+            }
+            status = 400
+            for (invalid in listOf("not json", "{\"code\":\"invalid_cursor\"}",
+                ContractReader.json.encodeToString(ApiError("invalid_request", "Unavailable", id, false)))) {
+                body = invalid
+                val error = runCatching { api.sync(id) }.exceptionOrNull()
+                assertNotNull(error); assertFalse(error is SyncCursorReset)
+            }
+            status = 200; body = "{\"apiVersion\":\"v2\"}"
+            assertTrue(runCatching { api.sync(id) }.isFailure)
         } finally { server.stop(0) }
     }
 }

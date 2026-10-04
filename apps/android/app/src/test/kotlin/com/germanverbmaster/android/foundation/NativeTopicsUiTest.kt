@@ -22,6 +22,7 @@ class NativeTopicsUiTest {
         val requests = mutableListOf<FocusedSessionRequest>()
         val catalog = Catalog("v2", session.contentReleaseId, "unpublished_local_draft", listOf(CatalogTopic(topic, LocalizedText("Grammar", "Grammatik"))), listOf(CatalogTarget(target, topic, LocalizedText("Nouns", "Nomen"), LocalizedText("Noun description", "Nomenbeschreibung"), "B1", 1)))
         val api = object : LearnerApi {
+            override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
             override suspend fun profile() = LearnerProfile("v2", 0, true, ProfilePreferences("en", "UTC", "B1", 15))
             override suspend fun save(request: ProfileRequest) = profile()
             override suspend fun catalog() = catalog

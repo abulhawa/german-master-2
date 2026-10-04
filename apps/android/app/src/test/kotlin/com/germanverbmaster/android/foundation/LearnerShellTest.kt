@@ -21,6 +21,7 @@ class LearnerShellTest {
         val targets = listOf(ConfirmedTarget(id, "retained-evidence-v1", "needs_practice", 1, 0, false, 0, 1, emptyList(), true))
         val api = object : LearnerApi {
             override suspend fun profile() = profile
+            override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
             override suspend fun save(request: ProfileRequest) = error("offline")
             override suspend fun catalog() = Catalog("v2", id, "unpublished_local_draft", emptyList(), emptyList())
             override suspend fun targets(cursor: String) = TargetPage("v2", "2026-10-04T10:00:00Z", targets, "", id)

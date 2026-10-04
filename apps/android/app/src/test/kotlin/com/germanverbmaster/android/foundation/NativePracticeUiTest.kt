@@ -20,6 +20,7 @@ class NativePracticeUiTest {
         val answers = ContractReader.attempts(requireNotNull(javaClass.classLoader?.getResource("attempt-batch.json")).readText()).attempts
         val attempts = mutableListOf<Attempt>()
         val api = object : LearnerApi {
+            override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
             override suspend fun profile() = LearnerProfile("v2", 0, true, ProfilePreferences("en", "UTC", "B1", 15))
             override suspend fun save(request: ProfileRequest) = profile()
             override suspend fun catalog() = Catalog("v2", session.contentReleaseId, "unpublished_local_draft", emptyList(), emptyList())

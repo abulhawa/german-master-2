@@ -29,6 +29,7 @@ class LearnerRepositoryTest {
         var failPage = false
         var paginated = false
         override suspend fun profile() = current
+        override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
         override suspend fun catalog() = Catalog("v2", id, "unpublished_local_draft", emptyList(), emptyList())
         override suspend fun targets(cursor: String): TargetPage {
             if (failPage && cursor.isNotEmpty()) error("offline")
