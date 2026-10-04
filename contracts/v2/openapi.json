@@ -25,7 +25,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SessionRequest"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SessionRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/FocusedSessionRequest"
+                  }
+                ]
               }
             }
           }
@@ -365,6 +372,30 @@
           }
         }
       }
+    },
+    "/v2/catalog": {
+      "get": {
+        "operationId": "readLocalDraftCatalog",
+        "description": "Authenticated solution-free metadata for the isolated unpublished foundation release. Not a production publication endpoint. No query parameters.",
+        "responses": {
+          "200": {
+            "description": "Draft catalog metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unsupported query"
+          },
+          "401": {
+            "description": "Authentication required"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -401,6 +432,12 @@
       },
       "SyncPage": {
         "$ref": "./schema.json#/$defs/SyncPage"
+      },
+      "FocusedSessionRequest": {
+        "$ref": "./schema.json#/$defs/FocusedSessionRequest"
+      },
+      "Catalog": {
+        "$ref": "./schema.json#/$defs/Catalog"
       }
     }
   }

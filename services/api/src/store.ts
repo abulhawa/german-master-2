@@ -1,9 +1,10 @@
 import { PGlite, type Transaction } from "@electric-sql/pglite";
 import { readFile } from "node:fs/promises";
 import { randomUUID, createHash } from "node:crypto";
-import { SessionSchema, type Session, type SessionRequest, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
+import { SessionSchema, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
+import metadata from "../../../content/foundation/metadata.json";
 import editorial from "../../../content/foundation/review.json";
 import { TargetPageSchema, SyncPageSchema, type TargetPage } from "@german-master/contracts";
 import { confirmedTarget } from "./reads";
@@ -261,7 +262,26 @@ export class FoundationStore {
     }
   }
 
-  async createSession(userId: string, request: SessionRequest): Promise<Session> {
+  /** Explicit unpublished fixture metadata; never exposes rubrics or accepted forms. */
+  async catalog() {
+    const releaseId = foundationCatalog().session.contentReleaseId;
+    const rows = await this.db.query<{ id: string; topic_id: string; title: unknown; level: string; count: number }>(
+      `SELECT t.id,s.topic_id,tp.title,t.level,LEAST(1,count(DISTINCT e.id))::int AS count
+       FROM gm.learning_target t JOIN gm.skill s ON s.id=t.skill_id JOIN gm.topic tp ON tp.id=s.topic_id
+       LEFT JOIN gm.exercise e ON e.target_id=t.id
+       LEFT JOIN gm.content_release_exercise cr ON cr.exercise_id=e.id AND cr.release_id=$1
+       WHERE t.status<>'retired' AND cr.exercise_id IS NOT NULL
+       GROUP BY t.id,s.topic_id,tp.title,t.level ORDER BY t.id`, [releaseId]);
+    const topics = new Map(rows.rows.map(r => [r.topic_id, { id: r.topic_id, title: r.title }]));
+    return CatalogSchema.parse({ apiVersion: 'v2', contentReleaseId: releaseId, status: 'unpublished_local_draft',
+      topics: [...topics.values()], targets: rows.rows.map(r => {
+        const text = metadata.targets.find(t => t.id === r.id);
+        if (!text) throw Error('Missing catalog metadata');
+        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: r.count };
+      }) });
+  }
+
+  async createSession(userId: string, request: SessionRequest | FocusedSessionRequest): Promise<Session> {
     return this.db.transaction(async tx => {
       await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
       await this.lockLearner(tx, userId);
@@ -276,6 +296,7 @@ export class FoundationStore {
         releaseId = previous.rows[0].release_id;
       } else {
         const now = this.clock().toISOString();
+        const focus = "focus" in request ? request.focus : null;
         const eligible = await tx.query<SelectionCandidate>(
           `SELECT e.target_id AS "targetId",r.exercise_id AS "exerciseId",r.revision,
             COALESCE(st.snapshot->>'state','new') AS state,sc.due_at AS "dueAt",
@@ -287,8 +308,10 @@ export class FoundationStore {
            JOIN gm.revision_evidence_identity i ON i.exercise_id=r.exercise_id AND i.revision=r.revision
            LEFT JOIN gm.learner_target_state st ON st.target_id=e.target_id AND st.user_id=$1
            LEFT JOIN gm.review_schedule sc ON sc.target_id=e.target_id AND sc.user_id=$1
-           WHERE cr.release_id=$2 AND t.status<>'retired' AND r.type || '@1' = ANY($3::text[])`,
-          [userId, catalog.session.contentReleaseId, request.capabilities]);
+           WHERE cr.release_id=$2 AND t.status<>'retired' AND r.type || '@1' = ANY($3::text[])
+             AND ($4::text IS NULL OR ($4='target' AND t.id=$5::uuid)
+               OR ($4='topic' AND t.skill_id IN (SELECT id FROM gm.skill WHERE topic_id=$5::uuid)))`,
+          [userId, catalog.session.contentReleaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null]);
         const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);

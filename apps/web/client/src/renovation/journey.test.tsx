@@ -4,6 +4,7 @@ import { SessionSchema, AttemptBatchResponseSchema, TargetPageSchema } from "@ge
 import sample from "@german-master/contracts/examples/session.json";
 import acknowledgment from "@german-master/contracts/examples/attempt-response.json";
 import targetPage from "@german-master/contracts/examples/target-page.json";
+import catalog from "@german-master/contracts/examples/catalog.json";
 import LearnerJourney from "./journey";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } from "./storage";
@@ -12,7 +13,7 @@ const session = SessionSchema.parse(sample);
 const ack = AttemptBatchResponseSchema.parse(acknowledgment).acknowledgments[0];
 const page = TargetPageSchema.parse(targetPage);
 function apiFixture(): LearnerApi {
-  return { createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
+  return { catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
@@ -24,6 +25,57 @@ async function start(api = apiFixture()) {
   return api;
 }
 describe("isolated learner journey", () => {
+  it("opens Topics and target detail, then recovers the exact focused request after reload", async () => {
+    const api = apiFixture();
+    api.createFocusedSession = vi.fn().mockRejectedValueOnce(Error("lost response")).mockResolvedValue({ ...session, questions: [session.questions[0]] });
+    render(<LearnerJourney api={api} />);
+    fireEvent.click(screen.getByRole("button", { name: "Topics" }));
+    fireEvent.click(await screen.findByRole("button", { name: "German in everyday work" }));
+    fireEvent.click(screen.getByRole("button", { name: "Plural of Beruf" }));
+    expect(screen.getByRole("heading")).toHaveFocus();
+    expect(screen.getByText("Available questions: 1")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByRole("button", { name: "Practise this" })).toBeEnabled());
+    fireEvent.click(screen.getByRole("button", { name: "Practise this" }));
+    await screen.findByRole("alert");
+    const saved = readJourney(localStorage).practice!.request;
+    expect(saved).toMatchObject({ questionCount: 1, focus: { type: "target", id: catalog.targets[0].id } });
+    cleanup(); await start(api);
+    expect(api.createFocusedSession).toHaveBeenLastCalledWith(saved);
+    expect(api.createSession).not.toHaveBeenCalled();
+    fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+    fireEvent.click(screen.getByText("Check answer"));
+    fireEvent.click(await screen.findByText("Continue"));
+    expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 1 / 1");
+  });
+  it("starts topic focus and preserves unfinished practice when browsing another target", async () => {
+    const api = apiFixture();
+    render(<LearnerJourney api={api} />);
+    fireEvent.click(screen.getByRole("button", { name: "Topics" }));
+    fireEvent.click(await screen.findByRole("button", { name: "German in everyday work" }));
+    await waitFor(() => expect(screen.getByRole("button", { name: "Practise this" })).toBeEnabled());
+    fireEvent.click(screen.getByRole("button", { name: "Practise this" }));
+    await screen.findByLabelText("Your answer");
+    expect(api.createFocusedSession).toHaveBeenCalledWith(expect.objectContaining({ questionCount: 5, focus: { type: "topic", id: catalog.topics[0].id } }));
+    const saved = readJourney(localStorage).practice!.request;
+    fireEvent.click(screen.getByText("Close practice"));
+    fireEvent.click(screen.getByRole("button", { name: "Topics" }));
+    fireEvent.click(screen.getByRole("button", { name: "German in everyday work" }));
+    fireEvent.click(screen.getByRole("button", { name: "Dative after mit" }));
+    expect(screen.queryByRole("button", { name: "Practise this" })).not.toBeInTheDocument();
+    expect(readJourney(localStorage).practice!.request).toEqual(saved);
+    fireEvent.click(screen.getByRole("button", { name: "Continue practice" }));
+    expect(api.createFocusedSession).toHaveBeenCalledTimes(1);
+  });
+  it("shows catalog failures with retry and renders German metadata", async () => {
+    const api = apiFixture(); api.catalog = vi.fn().mockRejectedValueOnce(Error("offline")).mockResolvedValue(catalog);
+    render(<LearnerJourney api={api} />);
+    fireEvent.click(screen.getByRole("button", { name: "Topics" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("Topic information is unavailable");
+    fireEvent.click(screen.getByRole("button", { name: "Reload topics" }));
+    await screen.findByRole("button", { name: "German in everyday work" });
+    fireEvent.change(screen.getByLabelText("Interface language"), { target: { value: "de" } });
+    expect(screen.getByRole("button", { name: "Deutsch im Arbeitsalltag" })).toBeInTheDocument();
+  });
   it("reuses a saved session request after an ambiguous creation failure and reload", async () => {
     const api = apiFixture();
     api.createSession = vi.fn().mockRejectedValueOnce(Error("lost session response")).mockResolvedValue(session);

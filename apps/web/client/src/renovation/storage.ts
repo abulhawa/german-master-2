@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AnswerSchema, AttemptSchema, EvaluationSchema, SessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
+import { AnswerSchema, AttemptSchema, EvaluationSchema, SessionRequestSchema, FocusedSessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
 import type { LearnerApi } from "./api";
 
 // One atomic record scoped to the public local fixture; never used for production accounts.
@@ -8,7 +8,7 @@ const DraftSchema = z.union([AnswerSchema, z.object({ type: z.literal("word_orde
 export const JourneySchema = z.object({
   version: z.literal(1), deviceId: z.string().uuid(), locale: z.enum(["en", "de"]), theme: z.enum(["system", "light", "dark"]),
   confirmed: z.object({ targets: z.array(ConfirmedTargetSchema), cursor: z.string(), generatedAt: z.string() }).nullable(),
-  practice: z.object({ request: SessionRequestSchema, session: SessionSchema.nullable(), index: z.number().int().min(0),
+  practice: z.object({ request: z.union([SessionRequestSchema, FocusedSessionRequestSchema]), session: SessionSchema.nullable(), index: z.number().int().min(0),
     draft: DraftSchema.nullable(), assisted: z.boolean(), pending: AttemptSchema.nullable(), evaluation: EvaluationSchema.nullable(),
     rejected: z.boolean(), confirmedCount: z.number().int().min(0), correctCount: z.number().int().min(0),
   }).nullable(),

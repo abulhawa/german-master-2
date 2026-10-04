@@ -1,7 +1,9 @@
-import { TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
+import { CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
 
 export interface LearnerApi extends FoundationApi {
+  catalog(): Promise<Catalog>;
+  createFocusedSession(request: FocusedSessionRequest): Promise<Session>;
   targets(cursor?: string): Promise<TargetPage>;
   sync(cursor: string): Promise<SyncPage>;
 }
@@ -14,6 +16,16 @@ export function localLearnerApi(): LearnerApi {
     return response.json();
   }
   return { ...localFoundationApi(),
+    async catalog() {
+      const response = await fetch("/v2/catalog", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
+      if (!response.ok) throw Error("Catalog unavailable");
+      return CatalogSchema.parse(await response.json());
+    },
+    async createFocusedSession(request) {
+      const response = await fetch("/v2/sessions", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
+      if (!response.ok) throw Error("Focused session unavailable");
+      return SessionSchema.parse(await response.json());
+    },
     async targets(cursor) { return TargetPageSchema.parse(await get("/v2/targets", cursor)); },
     async sync(cursor) { return SyncPageSchema.parse(await get("/v2/sync", cursor)); },
   };

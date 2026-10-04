@@ -180,8 +180,8 @@
 .gm-foundation .gm-meta {
   color: var(--gm-secondary);
 }
-.gm-navigation { display: flex; gap: var(--gm-space-8); margin: var(--gm-space-16) 0; }
-.gm-navigation > * { flex: 1; }
+.gm-navigation { display: flex; flex-wrap: wrap; gap: var(--gm-space-8); margin: var(--gm-space-16) 0; }
+.gm-navigation > * { flex: 1 1 auto; padding-inline: var(--gm-space-8); }
 .gm-targets { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--gm-space-16); }
 .gm-targets li { border-bottom: 1px solid var(--gm-border); padding-bottom: var(--gm-space-16); }
 .gm-foundation .gm-column > .gm-card { margin: var(--gm-space-16) 0; }

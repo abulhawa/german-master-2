@@ -585,6 +585,95 @@ data class SyncPage(
     }
 }
 
+@Serializable
+@SerialName("target")
+data class TargetFocus(
+    override val id: String
+) : PracticeFocus() {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid TargetFocus.id" }
+    }
+}
+
+@Serializable
+@SerialName("topic")
+data class TopicFocus(
+    override val id: String
+) : PracticeFocus() {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid TopicFocus.id" }
+    }
+}
+
+@Serializable
+@OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
+@JsonClassDiscriminator("type")
+sealed class PracticeFocus {
+    abstract val id: String
+}
+
+@Serializable
+data class FocusedSessionRequest(
+    val apiVersion: String,
+    val requestId: String,
+    val questionCount: Int,
+    val capabilities: List<String>,
+    val focus: PracticeFocus
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid FocusedSessionRequest.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid FocusedSessionRequest.requestId" }
+        require(questionCount >= 1) { "Invalid FocusedSessionRequest.questionCount" }
+        require(questionCount <= 50) { "Invalid FocusedSessionRequest.questionCount" }
+        require(capabilities.size >= 1) { "Invalid FocusedSessionRequest.capabilities" }
+        require(capabilities.distinct().size == capabilities.size) { "Invalid FocusedSessionRequest.capabilities" }
+        require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1") }) { "Invalid FocusedSessionRequest.capabilities" }
+    }
+}
+
+@Serializable
+data class CatalogTopic(
+    val id: String,
+    val title: LocalizedText
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid CatalogTopic.id" }
+    }
+}
+
+@Serializable
+data class CatalogTarget(
+    val id: String,
+    val topicId: String,
+    val title: LocalizedText,
+    val description: LocalizedText,
+    val level: String,
+    val availableQuestionCount: Int
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid CatalogTarget.id" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(topicId)) { "Invalid CatalogTarget.topicId" }
+        require(level in setOf("B1", "B2")) { "Invalid CatalogTarget.level" }
+        require(availableQuestionCount >= 0) { "Invalid CatalogTarget.availableQuestionCount" }
+        require(availableQuestionCount <= 50) { "Invalid CatalogTarget.availableQuestionCount" }
+    }
+}
+
+@Serializable
+data class Catalog(
+    val apiVersion: String,
+    val contentReleaseId: String,
+    val status: String,
+    val topics: List<CatalogTopic>,
+    val targets: List<CatalogTarget>
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid Catalog.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid Catalog.contentReleaseId" }
+        require(status == "unpublished_local_draft") { "Invalid Catalog.status" }
+    }
+}
+
 object ContractShape {
     fun checkOption(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "text")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -626,4 +715,11 @@ object ContractShape {
     fun checkTargetPage(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "generatedAt", "targets", "nextPageCursor", "syncCursor")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("generatedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("targets") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkConfirmedTarget(item) } }; run { val p = o.getValue("nextPageCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("syncCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkTargetChange(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("sequence", "operation", "target")); run { val p = o.getValue("sequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("operation") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkConfirmedTarget(o.getValue("target")) } }
     fun checkSyncPage(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "changes", "nextCursor", "hasMore")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("changes") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkTargetChange(item) } }; run { val p = o.getValue("nextCursor") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("hasMore") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) } } }
+    fun checkTargetFocus(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "id")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkTopicFocus(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "id")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkPracticeFocus(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["type"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "target" -> checkTargetFocus(element); "topic" -> checkTopicFocus(element); else -> error("Unsupported discriminator") } } }
+    fun checkFocusedSessionRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "questionCount", "capabilities", "focus")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("questionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val a = o.getValue("capabilities") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }; checkPracticeFocus(o.getValue("focus")) } }
+    fun checkCatalogTopic(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "title")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("title")) } }
+    fun checkCatalogTarget(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "topicId", "title", "description", "level", "availableQuestionCount")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("topicId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("title")); checkLocalizedText(o.getValue("description")); run { val p = o.getValue("level") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("availableQuestionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkCatalog(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "contentReleaseId", "status", "topics", "targets")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("topics") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkCatalogTopic(item) } }; run { val a = o.getValue("targets") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkCatalogTarget(item) } } } }
 }

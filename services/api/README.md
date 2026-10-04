@@ -39,3 +39,9 @@ Remaining boundaries: verified production identity; network PostgreSQL transacti
 `GET /v2/targets?limit=50` returns a frozen confirmed snapshot. Follow its `nextPageCursor` via `cursor` until empty, then persist the complete snapshot and its `syncCursor`. `GET /v2/sync?cursor=...&limit=50` pulls owned ingestion-time upserts; apply changes before saving `nextCursor`. Continue while `hasMore`, then reuse that position to poll. Omit the sync cursor to read from the beginning. Limits are 1–100; authentication is the same as session writes.
 
 Fresh target reads refresh due flags using UTC deadlines; sync retains the originally ingested flags. See [ADR 007](../../docs/adr/007_owned_target_sync_transport.md) for replay, sequence and local retention limits. These endpoints expose confirmed summaries only; durable client outboxes and reconciliation are still unimplemented.
+
+## Local catalog and focused practice
+
+`GET /v2/catalog` returns authenticated, solution-free bilingual metadata for the five unpublished local targets. Its explicit `unpublished_local_draft` status is not publication approval. No query parameters are supported. `/renovation` uses it for Topics, topic detail and confirmed target detail.
+
+`POST /v2/sessions` also accepts the existing fields plus `focus: { type: "target" | "topic", id: "UUID" }`. Filtering happens before authoritative selection. Counts remain exact; unavailable scopes/capabilities return `insufficient_content`. Focus is part of request replay/conflict identity. The demonstration offers one question per target or up to five per topic; non-due extra practice remains reinforcement. Saved focused requests resume across reload without replacing unfinished mixed practice. See [ADR 009](../../docs/adr/009_local_catalog_focus.md).

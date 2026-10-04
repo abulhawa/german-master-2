@@ -7,6 +7,20 @@ import org.junit.Test
 
 class ContractTest {
     private fun resource(name: String) = requireNotNull(javaClass.classLoader?.getResource(name)).readText()
+    @Test fun catalogAndFocusedRequestRoundTrip() {
+        val raw = ContractReader.json.parseToJsonElement(resource("catalog.json"))
+        ContractShape.checkCatalog(raw)
+        val catalog = ContractReader.json.decodeFromString<Catalog>(raw.toString())
+        assertEquals(5, catalog.targets.size)
+        assertEquals(catalog, ContractReader.json.decodeFromString<Catalog>(ContractReader.json.encodeToString(catalog)))
+        val request = FocusedSessionRequest("v2", "00000000-0000-4000-8000-000000000001", 1,
+            listOf("short_answer@1"), TargetFocus(catalog.targets.first().id))
+        val encoded = ContractReader.json.encodeToString(request)
+        ContractShape.checkFocusedSessionRequest(ContractReader.json.parseToJsonElement(encoded))
+        assertEquals(request, ContractReader.json.decodeFromString<FocusedSessionRequest>(encoded))
+        val extra = JsonObject(raw.jsonObject + ("rubric" to JsonPrimitive("solution")))
+        assertTrue(runCatching { ContractShape.checkCatalog(extra) }.isFailure)
+    }
     @Test fun confirmedReadContractsRoundTrip() {
         val raw = ContractReader.json.parseToJsonElement(resource("target-page.json"))
         ContractShape.checkTargetPage(raw)

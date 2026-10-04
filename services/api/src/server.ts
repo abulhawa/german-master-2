@@ -1,6 +1,6 @@
 import { createServer, type IncomingMessage } from "node:http";
 import { randomUUID } from "node:crypto";
-import { AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
+import { AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
 import { ApiFailure, FoundationStore } from "./store";
 
 export type Authenticate = (request: IncomingMessage) => Promise<string | null>;
@@ -29,11 +29,16 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
     try {
       const url = new URL(request.url ?? '/', 'http://localhost');
       const isWrite = request.method === 'POST' && ['/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch'].includes(request.url ?? '');
-      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync'].includes(url.pathname);
+      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog'].includes(url.pathname);
       if (!isWrite && !isRead) throw new ApiFailure('not_found', 404);
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
       if (request.method === 'GET') {
+        if (url.pathname === '/v2/catalog') {
+          if (url.search) throw new ApiFailure('invalid_request', 400);
+          response.end(JSON.stringify(await store.catalog()));
+          return;
+        }
         for (const key of url.searchParams.keys())
           if (!['cursor', 'limit'].includes(key) || url.searchParams.getAll(key).length !== 1)
             throw new ApiFailure('invalid_request', 400);
@@ -50,7 +55,7 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
         throw new ApiFailure("json_required", 415);
       const input = await body(request);
       if (request.url === "/v2/sessions") {
-        const parsed = SessionRequestSchema.safeParse(input);
+        const parsed = (input && typeof input === "object" && "focus" in input ? FocusedSessionRequestSchema : SessionRequestSchema).safeParse(input);
         if (!parsed.success) throw new ApiFailure("invalid_request", 400);
         response.end(JSON.stringify(await store.createSession(userId, parsed.data)));
       } else if (request.url === "/v2/exposures:batch") {
