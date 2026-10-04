@@ -14,10 +14,12 @@ const profileKey = "german-master-v2:local-fixture:profile-request-v1";
 const nativeFetch = globalThis.fetch;
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
 
-it.each(["attempt", "skip", "profile"])("refreshes through real HTTP expiry without losing pending %s on failed pagination", async kind => {
+it.each(["attempt", "skip", "profile"].flatMap(kind =>
+  ["response-loss", "expired-page"].map(failure => ({ kind, failure }))))(
+  "refreshes through real HTTP expiry without losing pending $kind on $failure", async ({ kind, failure }) => {
   const db = new PGlite();
   let now = Date.parse("2026-10-04T12:00:00Z");
-  const store = new FoundationStore(db, () => new Date(now), 1000);
+  const store = new FoundationStore(db, () => new Date(now), 1000, 1000);
   const owner = randomUUID();
   await store.initialize();
   const server = createApi(store, async request => request.headers.authorization === "Bearer foundation-local-demo" ? owner : null);
@@ -25,8 +27,9 @@ it.each(["attempt", "skip", "profile"])("refreshes through real HTTP expiry with
   const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   const reads: string[] = [], writes: string[] = [];
   const syncStatuses: number[] = [];
+  const pageStatuses: number[] = [];
   let failPage = false;
-  // Only loopback addressing, page size and deliberate response loss are injected.
+  // Only loopback addressing, page size, response loss and server time/cleanup are injected.
   // Transport parsing, reset recognition, component refresh and storage are real.
   vi.stubGlobal("fetch", async (input: string, init?: RequestInit) => {
     const url = new URL(input, base);
@@ -34,10 +37,18 @@ it.each(["attempt", "skip", "profile"])("refreshes through real HTTP expiry with
     else reads.push(url.pathname + url.search);
     if (url.pathname === "/v2/targets") {
       url.searchParams.set("limit", "1");
-      if (failPage && url.searchParams.has("cursor")) throw Error("Injected page response loss");
+      if (failPage && url.searchParams.has("cursor")) {
+        if (failure === "response-loss") throw Error("Injected page response loss");
+        // Expire the real frozen chain at its exact deadline, then delete it.
+        // The continuation still reaches HTTP and must fail without an auto retry.
+        now += 1000;
+        await store.cleanupReads();
+        expect((await db.query("SELECT * FROM gm.target_page")).rows).toHaveLength(0);
+      }
     }
     const response = await nativeFetch(url, init);
     if (url.pathname === "/v2/sync") syncStatuses.push(response.status);
+    if (url.pathname === "/v2/targets") pageStatuses.push(response.status);
     return response;
   });
   try {
@@ -65,7 +76,7 @@ it.each(["attempt", "skip", "profile"])("refreshes through real HTTP expiry with
     if (kind === "skip") expect((await api.expose(event)).status).toBe("accepted");
     if (kind === "profile") await api.saveProfile(JSON.parse(frozenProfile));
     const before = readJourney(localStorage);
-    writes.length = 0; reads.length = 0;
+    writes.length = 0; reads.length = 0; pageStatuses.length = 0;
     now += 1000; failPage = true;
     render(<OwnedLearnerJourney api={api} />);
     await screen.findByText("Could not refresh confirmed progress. Previously confirmed data stays available.");
@@ -73,15 +84,23 @@ it.each(["attempt", "skip", "profile"])("refreshes through real HTTP expiry with
     expect(writes).toEqual([]);
     expect(reads.some(path => path.startsWith("/v2/sync?"))).toBe(true);
     expect(syncStatuses).toEqual([400]);
-    cleanup(); failPage = false;
-    // Remount reads the persisted old cursor and explicitly retries full recovery.
-    render(<OwnedLearnerJourney api={api} />);
+    if (failure === "expired-page") expect(pageStatuses).toEqual([200, 400]);
+    expect(reads.filter(path => path.startsWith("/v2/targets") && !path.includes("cursor="))).toHaveLength(1);
+    failPage = false;
+    // Pending profile setup has no refresh button; remount retries its saved cursor.
+    // Other cases exercise an explicit retry in the same mounted component.
+    if (kind === "profile") { cleanup(); render(<OwnedLearnerJourney api={api} />); }
+    else fireEvent.click(screen.getByText("Refresh confirmed progress"));
     await waitFor(() => expect(readJourney(localStorage).confirmed!.cursor).not.toBe(before.confirmed!.cursor));
     await waitFor(() => expect(screen.queryByText("Could not refresh confirmed progress. Previously confirmed data stays available.")).toBeNull());
     expect(readJourney(localStorage).practice).toEqual(before.practice);
     expect(readJourney(localStorage).confirmed!.targets).toHaveLength(5);
     expect(readJourney(localStorage).confirmed!.targets.reduce((total, target) => total + target.exposureCount, 0)).toBe(kind === "profile" ? 0 : 1);
     expect(writes).toEqual([]);
+    // Existing refresh pulls recovered state, then reads a fresh full snapshot.
+    await waitFor(() => expect(pageStatuses.filter(status => status === 200)).toHaveLength(11));
+    expect(reads.filter(path => path.startsWith("/v2/targets") && !path.includes("cursor="))).toHaveLength(3);
+    expect(readJourney(localStorage).confirmed!.generatedAt).toBe(new Date(now).toISOString());
     if (kind === "profile") {
       expect(localStorage.getItem(profileKey)).toBe(frozenProfile);
       const revision = (await api.profile()).revision;
