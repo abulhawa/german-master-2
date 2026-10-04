@@ -1,6 +1,9 @@
 package com.germanverbmaster.android.foundation
 
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.liveRegion
@@ -40,8 +43,12 @@ fun PracticeCard(content: @Composable ColumnScope.() -> Unit) {
 }
 
 @Composable
-fun AnswerField(label: String, value: String, onChange: (String) -> Unit) {
-    OutlinedTextField(value=value, onValueChange=onChange, label={Text(label)}, modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp))
+fun AnswerField(label: String, value: String, onCheck: (() -> Unit)? = null, onChange: (String) -> Unit) {
+    OutlinedTextField(value=value, onValueChange=onChange, label={Text(label)},
+        singleLine=onCheck != null,
+        keyboardOptions=KeyboardOptions(imeAction=if(onCheck != null) ImeAction.Done else ImeAction.Default),
+        keyboardActions=KeyboardActions(onDone={ onCheck?.invoke() }),
+        modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp))
 }
 
 @Composable

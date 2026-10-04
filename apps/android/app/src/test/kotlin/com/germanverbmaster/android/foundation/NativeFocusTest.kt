@@ -65,7 +65,7 @@ class NativeFocusTest {
         assertTrue(api.requests.isEmpty())
         store.write(store.read().copy(pending = null, catalog = catalog.copy(targets = catalog.targets.map { it.copy(availableQuestionCount = 8) })))
         repo = LearnerRepository(api, store); repo.startPractice(TopicFocus(topic))
-        assertEquals(5, api.requests.single().questionCount)
+        assertEquals(8, api.requests.single().questionCount)
         assertEquals(TopicFocus(topic), repo.state.practice!!.focus)
     }
     @Test fun failedFocusFreezePreventsNetworkAndLeavesSnapshotUntouched() = runBlocking {

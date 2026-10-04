@@ -53,6 +53,14 @@ class NativePracticeUiTest {
                     }
                     compose.onNodeWithText("Reset order").performScrollTo().performClick()
                     (answers[3].answer as AnswerWordOrder).tokenIds.forEach { id -> compose.onNodeWithText((session.questions[3].exercise as ExerciseWordOrder).tokens.first { it.id == id }.text, substring = false).performScrollTo().performClick() }
+                    val ordered = (answers[3].answer as AnswerWordOrder).tokenIds
+                    val firstWord = (session.questions[3].exercise as ExerciseWordOrder).tokens.first { it.id == ordered[0] }.text
+                    compose.onNodeWithText("Move left: $firstWord (1)").assertIsNotEnabled()
+                    compose.onNodeWithText("Move right: $firstWord (1)").performScrollTo().performClick()
+                    assertEquals(listOf(ordered[1], ordered[0]) + ordered.drop(2), repo.state.practice!!.order)
+                    assertEquals(repo.state.practice, LearnerRepository(api, store).state.practice)
+                    compose.onNodeWithText("Move left: $firstWord (2)").performScrollTo().performClick()
+                    assertEquals(ordered, (repo.state.practice!!.draft as AnswerWordOrder).tokenIds)
                 }
                 4 -> {
                     compose.onNodeWithText("du").performTextInput("arbeitest")
@@ -63,7 +71,8 @@ class NativePracticeUiTest {
             }
             if(index == 1) compose.onNodeWithText("Skip", substring = false).performScrollTo().performClick()
             else {
-                compose.onNodeWithText("Check", substring = false).performScrollTo().performClick()
+                if (index == 0) compose.onNodeWithText("Answer", substring = false).performImeAction()
+                else compose.onNodeWithText("Check", substring = false).performScrollTo().performClick()
                 compose.waitForIdle()
                 compose.onNodeWithText("Server feedback").assertExists()
                 compose.onNodeWithText("Continue", substring = false).performScrollTo().performClick()
@@ -72,6 +81,10 @@ class NativePracticeUiTest {
         }
         compose.onNodeWithText("Confirmed summary").assertExists()
         compose.onNodeWithText("Graded: 4 · Skipped: 1 · Correct: 4").assertExists()
+        compose.onNodeWithText("Targets covered").assertExists()
+        compose.onNodeWithText("View Progress").performScrollTo().performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("Confirmed Progress").assertExists()
         assertTrue(attempts[0].assistance.contains("hint"))
     }
 }

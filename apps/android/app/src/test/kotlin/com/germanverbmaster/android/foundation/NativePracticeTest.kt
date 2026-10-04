@@ -3,6 +3,7 @@ package com.germanverbmaster.android.foundation
 import com.germanverbmaster.android.learner.*
 import com.germanverbmaster.android.foundation.contract.*
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.decodeFromString
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,11 +25,13 @@ class NativePracticeTest {
     private inner class Api : LearnerApi {
         override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
         val attempts = mutableListOf<Attempt>()
+        val reports = mutableListOf<ContentReportRequest>()
+        override suspend fun report(request: ContentReportRequest): ContentReportReceipt { reports.add(request); after(); if(lose) {lose = false; error("response lost")}; return ContentReportReceipt("v2",request.reportId,"recorded") }
         val exposures = mutableListOf<ExposureEvent>()
         val requests = mutableListOf<SessionRequest>()
         var lose = false
         var after: () -> Unit = {}
-        override suspend fun session(request: SessionRequest): Session { requests.add(request); if(lose) { lose = false; error("response lost") }; return session }
+        override suspend fun session(request: SessionRequest): Session { requests.add(request); if(lose) { lose = false; error("response lost") }; return session.copy(questions = session.questions.take(request.questionCount)) }
         override suspend fun submit(attempt: Attempt): Acknowledgment {
             attempts.add(attempt); after()
             if(lose) { lose = false; error("response lost") }
@@ -40,7 +43,25 @@ class NativePracticeTest {
         override suspend fun catalog() = error("unused")
         override suspend fun targets(cursor: String) = error("unused")
     }
-    private suspend fun cache(api: Api) = LearnerCache(profile = api.profile())
+    private val catalog = ContractReader.json.decodeFromString<Catalog>(requireNotNull(javaClass.classLoader?.getResource("catalog.json")).readText())
+    private suspend fun cache(api: Api) = LearnerCache(profile = api.profile(), catalog = catalog)
+    @Test fun reportRetrySurvivesRestartAndAcknowledgmentSaveFailureWithoutChangingPractice() = runBlocking {
+        val api = Api(); val file = File(Files.createTempDirectory("report").toFile(), "cache.json")
+        val store = AtomicLearnerStore(file); store.write(cache(api))
+        var repo = LearnerRepository(api, store); repo.startPractice(); repo.draft(answers[0].answer); repo.hint()
+        val practice = repo.state.practice
+        api.lose = true; assertTrue(runCatching { repo.reportProblem("ambiguous_prompt") }.isFailure)
+        val frozen = repo.state.contentReport
+        repo = LearnerRepository(api,store); assertEquals(practice,repo.state.practice)
+        repo.reportProblem("other")
+        assertEquals(frozen,api.reports[1]); assertTrue(repo.state.reportRecorded); assertEquals(practice,repo.state.practice)
+        val memory = Store(repo.state.copy(contentReport = null, reportRecorded = false)); repo = LearnerRepository(api,memory)
+        api.after = {memory.fail = true}; assertTrue(runCatching {repo.reportProblem("other")}.isFailure)
+        assertFalse(repo.state.reportRecorded)
+        val second = repo.state.contentReport
+        memory.fail = false; api.after = {}; repo = LearnerRepository(api,memory); repo.reportProblem("incorrect_answer")
+        assertEquals(second,api.reports.last()); assertEquals(practice,repo.state.practice)
+    }
     @Test fun restartPreservesDraftAssistanceFrozenAnswerFeedbackAndCounts() = runBlocking {
         val api = Api(); val file = File(Files.createTempDirectory("practice").toFile(), "cache.json")
         val store = AtomicLearnerStore(file); store.write(cache(api))
@@ -72,7 +93,7 @@ class NativePracticeTest {
         val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api, store)
         api.lose = true; assertTrue(runCatching { repo.startPractice() }.isFailure)
         repo = LearnerRepository(api, store); repo.startPractice()
-        assertEquals(api.requests[0], api.requests[1]); assertEquals(15, api.requests[1].questionCount)
+        assertEquals(api.requests[0], api.requests[1]); assertEquals(5, api.requests[1].questionCount)
     }
     @Test fun skipAcknowledgmentSaveFailureRetriesExactEventWithoutAdvancing() = runBlocking {
         val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api, store)
@@ -97,5 +118,21 @@ class NativePracticeTest {
         repo.startPractice(); repo.draft(AnswerShortAnswer(""))
         assertTrue(runCatching { repo.answer() }.isFailure); assertTrue(api.attempts.isEmpty())
         assertEquals(AnswerShortAnswer(""), LearnerRepository(api, store).state.practice!!.draft)
+    }
+    @Test fun mixedAvailabilityBoundsNewRequestsAndNeverRewritesAnUnacknowledgedRequest() = runBlocking {
+        val api = Api(); val store = Store(cache(api).copy(catalog = catalog.copy(targets = catalog.targets.take(3))))
+        var repo = LearnerRepository(api, store)
+        api.lose = true
+        assertTrue(runCatching { repo.startPractice() }.isFailure)
+        assertEquals(3, api.requests.single().questionCount)
+        val savedRequest = repo.state.practice!!.request
+        store.cache = store.cache.copy(catalog = catalog.copy(targets = emptyList()))
+        repo = LearnerRepository(api, store); repo.startPractice()
+        assertEquals(savedRequest, api.requests.last())
+        assertEquals(3, repo.state.practice!!.session!!.questions.size)
+        repo.discardPractice()
+        assertTrue(runCatching { repo.startPractice() }.isFailure)
+        assertNull(repo.state.practice)
+        assertEquals(2, api.requests.size)
     }
 }

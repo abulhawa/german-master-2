@@ -1,0 +1,35 @@
+import { afterEach, expect, it, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { SessionSchema, type ContentReportRequest } from '@german-master/contracts';
+import sample from '@german-master/contracts/examples/session.json';
+import { ContentReport, REPORT_KEY } from './report';
+const question=SessionSchema.parse(sample).questions[0];
+afterEach(()=>{cleanup();localStorage.clear();});
+it('freezes reports across response loss, remount and leaving practice without affecting the answer', async()=>{
+  const requests: ContentReportRequest[]=[];
+  const send=vi.fn(async(request:ContentReportRequest)=>{requests.push(request);if(requests.length===1)throw Error('lost');return {apiVersion:'v2' as const,reportId:request.reportId,status:'recorded' as const};});
+  const view=render(<ContentReport question={question} locale="en" storage={localStorage} send={send}/>);
+  fireEvent.click(screen.getByText('Send report'));
+  await screen.findByRole('alert');
+  const frozen=JSON.parse(localStorage.getItem(REPORT_KEY)!).request;
+  expect(frozen.sessionQuestionId).toBe(question.id);
+  expect(frozen.exerciseRevision).toBe(question.exercise.revision);
+  view.unmount();
+  render(<ContentReport locale="de" storage={localStorage} send={send}/>);
+  expect(send).toHaveBeenCalledTimes(1);
+  fireEvent.click(screen.getByText('Gespeicherte Meldung erneut senden'));
+  await waitFor(()=>expect(JSON.parse(localStorage.getItem(REPORT_KEY)!).recorded).toBe(true));
+  expect(requests[1]).toEqual(frozen);
+});
+it('does not send before durable save and preserves frozen payload when receipt save fails',async()=>{
+  let fail=true;
+  const storage={getItem:(key:string)=>localStorage.getItem(key),setItem:(key:string,value:string)=>{if(fail)throw Error('disk');localStorage.setItem(key,value);}};
+  const send=vi.fn(async(request:ContentReportRequest)=>{fail=true;return {apiVersion:'v2' as const,reportId:request.reportId,status:'recorded' as const};});
+  render(<ContentReport question={question} locale="en" storage={storage} send={send}/>);
+  fireEvent.click(screen.getByText('Send report'));
+  await screen.findByRole('alert');expect(send).not.toHaveBeenCalled();
+  fail=false;fireEvent.click(screen.getByText('Send report'));
+  await screen.findByText('Report saved on this device; awaiting confirmation.');
+  expect(JSON.parse(localStorage.getItem(REPORT_KEY)!).recorded).toBe(false);
+  expect(send).toHaveBeenCalledTimes(1);
+});

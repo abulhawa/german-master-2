@@ -1,0 +1,4 @@
+export const reportCopy = {
+  en: {title:'Report an exercise problem',category:'Problem',incorrect_answer:'Incorrect accepted answer',ambiguous_prompt:'Ambiguous prompt',other:'Other exercise problem',send:'Send report',retry:'Retry saved report',pending:'Report saved on this device; awaiting confirmation.',recorded:'Report recorded for this exercise revision. Your learning result is unchanged.',error:'Could not save or send the report. Retry explicitly.'},
+  de: {title:'Problem mit der Übung melden',category:'Problem',incorrect_answer:'Falsche akzeptierte Antwort',ambiguous_prompt:'Mehrdeutige Aufgabenstellung',other:'Anderes Problem mit der Übung',send:'Meldung senden',retry:'Gespeicherte Meldung erneut senden',pending:'Meldung auf diesem Gerät gespeichert; Bestätigung ausstehend.',recorded:'Meldung für diese Übungsversion gespeichert. Ihr Lernergebnis bleibt unverändert.',error:'Meldung konnte nicht gespeichert oder gesendet werden. Versuchen Sie es erneut.'}
+};

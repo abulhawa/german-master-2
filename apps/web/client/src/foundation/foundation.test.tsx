@@ -11,7 +11,7 @@ import response from "@german-master/contracts/examples/attempt-response.json";
 import corpus from "@german-master/contracts/examples/conformance.json";
 import batch from "@german-master/contracts/examples/attempt-batch.json";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
-import Preview from "./preview";
+import Preview, { ExerciseInput } from "./preview";
 
 describe("shared v2 contract", () => {
   for (const example of corpus)
@@ -105,4 +105,32 @@ it("keeps editorial answers linked to immutable revisions and valid controls", (
       );
   }
   expect(editorial.publicationApproved).toBe(false);
+});
+
+it("reorders token identities without submitting and keeps order unchanged when saving fails", () => {
+  const exercise = SessionSchema.parse(session).questions[3].exercise;
+  if (exercise.type !== "word_order") throw Error("Expected word order fixture");
+  const ids = exercise.tokens.map(t => t.id);
+  let saved = ids;
+  let failed = false;
+  let answer: unknown = null;
+  const input = () => <ExerciseInput exercise={exercise} locale="en" initialAnswer={{ type: "word_order", tokenIds: saved }}
+    onDraft={draft => { if (failed) return false; if (draft?.type === "word_order") saved = draft.tokenIds; return true; }}
+    onAnswer={value => { answer = value; }} />;
+  render(input());
+  const first = exercise.tokens[0].text;
+  expect(screen.getByRole("button", { name: `Move left: ${first} (1)` })).toBeDisabled();
+  expect(screen.getByRole("button", { name: `Move right: ${exercise.tokens.at(-1)!.text} (${ids.length})` })).toBeDisabled();
+  fireEvent.click(screen.getByRole("button", { name: `Move right: ${first} (1)` }));
+  expect(saved).toEqual([ids[1], ids[0], ...ids.slice(2)]);
+  expect(answer).toEqual({ type: "word_order", tokenIds: saved });
+  cleanup(); render(input()); // Restored order after remount.
+  failed = true;
+  fireEvent.click(screen.getByRole("button", { name: `Move left: ${first} (2)` }));
+  expect(saved[0]).toBe(ids[1]);
+  expect(screen.getByRole("button", { name: `Move left: ${first} (2)` })).toBeEnabled();
+  failed = false;
+  fireEvent.click(screen.getByRole("button", { name: `Move left: ${first} (2)` }));
+  expect(saved).toEqual(ids);
+  cleanup();
 });

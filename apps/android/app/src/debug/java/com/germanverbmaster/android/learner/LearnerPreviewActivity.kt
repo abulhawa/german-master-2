@@ -69,9 +69,13 @@ fun LearnerShell(repository: LearnerRepository) {
             Text(label("Local learner preview", "Lokale Lernvorschau"))
             Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
             if (busy) Text(label("Loading…", "Wird geladen…"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+            if (cache.contentReport != null && !cache.reportRecorded) {
+                Text(label("Exercise report saved; awaiting confirmation.", "Übungsmeldung gespeichert; Bestätigung ausstehend."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+                LearnerButton(label("Retry saved report", "Gespeicherte Meldung erneut senden"), !busy) { run(false) { repository.reportProblem(requireNotNull(cache.contentReport).category) } }
+            }
             if (failed) Text(label("Could not refresh or save. Saved work remains available. Retry the saved operation.", "Aktualisieren oder Speichern fehlgeschlagen. Gespeicherte Daten bleiben erhalten. Gespeicherten Vorgang erneut versuchen."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
             if (screen == "practice" && cache.practice != null) {
-                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }) { screen = "home" }
+                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }) { screen = "home" }
             } else {
             if (cache.pending != null) {
                 Text(label("Preferences saved on this device, awaiting confirmation. Progress below is server-confirmed only.", "Einstellungen lokal gespeichert, Bestätigung ausstehend. Fortschritt zeigt nur bestätigte Daten."))

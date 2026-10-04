@@ -64,6 +64,16 @@ export function ExerciseInput({
   const [values, setValues] = useState<Record<string, string>>(() => initialAnswer?.type === "cloze" || initialAnswer?.type === "multi_slot" ? Object.fromEntries(initialAnswer.values.map(v => [v.slotId, v.text])) : {});
   const [order, setOrder] = useState<string[]>(() => initialAnswer?.type === "word_order" ? initialAnswer.tokenIds : []);
   const c = copy[locale];
+  function moveToken(index: number, direction: -1 | 1) {
+    if (exercise.type !== "word_order") return;
+    const destination = index + direction;
+    if (destination < 0 || destination >= order.length) return;
+    const next = [...order];
+    [next[index], next[destination]] = [next[destination], next[index]];
+    if (onDraft?.({ type: "word_order", tokenIds: next }) === false) return;
+    setOrder(next);
+    onAnswer(next.length === exercise.tokens.length ? { type: "word_order", tokenIds: next } : null);
+  }
   if (exercise.type === "short_answer")
     return (
       <AnswerField
@@ -131,10 +141,17 @@ export function ExerciseInput({
   return (
     <div className="gm-order">
       <p>{c.answer}</p>
-      <ol lang="de" aria-live="polite">
-        {order.map((id) => (
-          <li key={id}>{exercise.tokens.find((t) => t.id === id)?.text}</li>
-        ))}
+      <ol aria-live="polite">
+        {order.map((id, index) => {
+          const word = exercise.tokens.find(t => t.id === id)?.text;
+          return <li key={id}>
+            <span lang="de">{word}</span>
+            <FoundationButton type="button" disabled={index === 0}
+              aria-label={`${c.moveLeft}: ${word} (${index + 1})`} onClick={() => moveToken(index, -1)}>{c.moveLeft}</FoundationButton>
+            <FoundationButton type="button" disabled={index === order.length - 1}
+              aria-label={`${c.moveRight}: ${word} (${index + 1})`} onClick={() => moveToken(index, 1)}>{c.moveRight}</FoundationButton>
+          </li>;
+        })}
       </ol>
       <div lang="de">
         {exercise.tokens

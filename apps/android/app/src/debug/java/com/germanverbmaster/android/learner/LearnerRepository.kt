@@ -17,6 +17,7 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun report(request: ContentReportRequest): ContentReportReceipt = error("Reporting unavailable")
     suspend fun session(request: FocusedSessionRequest): Session = error("Focused practice unavailable")
     suspend fun session(request: SessionRequest): Session = error("Practice unavailable")
     suspend fun submit(attempt: Attempt): Acknowledgment = error("Practice unavailable")
@@ -33,6 +34,11 @@ class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh s
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
+    override suspend fun report(request: ContentReportRequest): ContentReportReceipt {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/content-reports", ContractReader.json.encodeToString(request)))
+        ContractShape.checkContentReportReceipt(raw)
+        return ContractReader.json.decodeFromJsonElement(ContentReportReceipt.serializer(), raw).also { check(it.reportId == request.reportId) }
+    }
     override suspend fun session(request: FocusedSessionRequest) = ContractReader.session(request("/v2/sessions", ContractReader.json.encodeToString(request)))
     override suspend fun session(request: SessionRequest) = ContractReader.session(request("/v2/sessions", ContractReader.json.encodeToString(request)))
     override suspend fun submit(attempt: Attempt): Acknowledgment = ContractReader.acknowledgments(request("/v2/attempts:batch", ContractReader.json.encodeToString(AttemptBatch("v2", listOf(attempt))))).acknowledgments.single().also { check(it.attemptId == attempt.attemptId) }
@@ -105,7 +111,9 @@ data class LearnerCache(
     val generatedAt: String? = null,
     val catalog: Catalog? = null,
     val practice: NativePractice? = null,
-    val syncCursor: String? = null
+    val syncCursor: String? = null,
+    val contentReport: ContentReportRequest? = null,
+    val reportRecorded: Boolean = false
 )
 
 interface LearnerStore {
@@ -134,21 +142,30 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
+    suspend fun reportProblem(category: String) = mutex.withLock {
+        val request = if (state.contentReport != null && !state.reportRecorded) requireNotNull(state.contentReport) else {
+            val question = requireNotNull(state.practice).question
+            ContentReportRequest("v2", UUID.randomUUID().toString(), question.id, question.exercise.revision, category)
+        }
+        commit(state.copy(contentReport = request, reportRecorded = false))
+        val receipt = api.report(request)
+        check(receipt.reportId == request.reportId && receipt.status == "recorded")
+        commit(state.copy(reportRecorded = true))
+    }
     suspend fun startPractice(focus: PracticeFocus? = null) = mutex.withLock {
         // A saved request always wins, including a request awaiting its first response.
         check(focus == null || state.practice == null) { "Resume or discard saved practice first" }
         if(state.practice?.session != null) return@withLock
         check(state.pending == null && state.profile?.setupCompleted == true)
         if (state.practice == null) {
-            val count = if (focus == null) requireNotNull(state.profile).preferences.sessionQuestionCount else {
-                val catalog = requireNotNull(state.catalog)
-                val available = when (focus) {
-                    is TargetFocus -> catalog.targets.singleOrNull { it.id == focus.id }?.availableQuestionCount ?: 0
-                    is TopicFocus -> if (catalog.topics.any { it.id == focus.id }) catalog.targets.filter { it.topicId == focus.id }.sumOf { it.availableQuestionCount } else 0
-                }
-                check(available > 0) { "No questions available for this focus" }
-                if (focus is TargetFocus) 1 else minOf(5, available)
+            val catalog = requireNotNull(state.catalog) { "Refresh question availability before starting" }
+            val available = when (focus) {
+                null -> catalog.targets.sumOf { it.availableQuestionCount }
+                is TargetFocus -> catalog.targets.singleOrNull { it.id == focus.id }?.availableQuestionCount ?: 0
+                is TopicFocus -> if (catalog.topics.any { it.id == focus.id }) catalog.targets.filter { it.topicId == focus.id }.sumOf { it.availableQuestionCount } else 0
             }
+            check(available > 0) { "No questions available for these preferences" }
+            val count = if (focus is TargetFocus) 1 else minOf(requireNotNull(state.profile).preferences.sessionQuestionCount, available)
             commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = count), focus = focus)))
         }
         val p = requireNotNull(state.practice)

@@ -16,6 +16,17 @@
     }
   ],
   "paths": {
+    "/v2/content-reports": {
+      "post": {
+        "operationId": "reportContent",
+        "description": "Record a category against an owned pinned exercise revision. Same reportId and payload replay identically; changes conflict. New reports limited to ten per learner per rolling hour in the local adapter. No answer text is uploaded and learning evidence is unchanged.",
+        "requestBody": {"required":true,"content":{"application/json":{"schema":{"$ref":"./schema.json#/$defs/ContentReportRequest"}}}},
+        "responses": {
+          "200":{"description":"Recorded or replayed","content":{"application/json":{"schema":{"$ref":"./schema.json#/$defs/ContentReportReceipt"}}}},
+          "400":{"description":"Invalid request"},"401":{"description":"Authentication required"},"404":{"description":"Owned question unavailable"},"409":{"description":"Revision mismatch or report conflict"},"429":{"description":"New-report rate limit; explicit later retry"}
+        }
+      }
+    },
     "/v2/sessions": {
       "post": {
         "operationId": "createSession",

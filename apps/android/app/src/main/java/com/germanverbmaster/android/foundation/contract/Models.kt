@@ -6,6 +6,36 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.json.*
 
 @Serializable
+data class ContentReportRequest(
+    val apiVersion: String,
+    val reportId: String,
+    val sessionQuestionId: String,
+    val exerciseRevision: Int,
+    val category: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid ContentReportRequest.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(reportId)) { "Invalid ContentReportRequest.reportId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(sessionQuestionId)) { "Invalid ContentReportRequest.sessionQuestionId" }
+        require(exerciseRevision >= 1) { "Invalid ContentReportRequest.exerciseRevision" }
+        require(category in setOf("incorrect_answer", "ambiguous_prompt", "other")) { "Invalid ContentReportRequest.category" }
+    }
+}
+
+@Serializable
+data class ContentReportReceipt(
+    val apiVersion: String,
+    val reportId: String,
+    val status: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid ContentReportReceipt.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(reportId)) { "Invalid ContentReportReceipt.reportId" }
+        require(status == "recorded") { "Invalid ContentReportReceipt.status" }
+    }
+}
+
+@Serializable
 data class Option(
     val id: String,
     val text: String
@@ -719,6 +749,8 @@ data class ProfileRequest(
 }
 
 object ContractShape {
+    fun checkContentReportRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "sessionQuestionId", "exerciseRevision", "category")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("category") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkContentReportReceipt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "status")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkOption(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "text")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlotValue(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("slotId", "text")); run { val p = o.getValue("slotId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }

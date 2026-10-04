@@ -8,6 +8,7 @@ import metadata from "../../../content/foundation/metadata.json";
 import editorial from "../../../content/foundation/review.json";
 import { TargetPageSchema, SyncPageSchema, type TargetPage, LearnerProfileSchema, ProfileRequestSchema, type ProfileRequest, type LearnerProfile } from "@german-master/contracts";
 import { confirmedTarget } from "./reads";
+import { ContentReportRequestSchema, ContentReportReceiptSchema, type ContentReportRequest } from '@german-master/contracts';
 
 export class ApiFailure extends Error {
   constructor(public readonly code: string, public readonly status: number) { super(code); }
@@ -87,6 +88,26 @@ export class FoundationStore {
     await this.db.transaction(async tx => {
       const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=4");
       if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/004_owned_profile.sql", import.meta.url), "utf8"));
+      const reports = await tx.query('SELECT version FROM gm.schema_migration WHERE version=7');
+      if (!reports.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/007_content_reports.sql', import.meta.url), 'utf8'));
+    });
+  }
+
+  async report(userId: string, input: ContentReportRequest) {
+    const request = ContentReportRequestSchema.parse(input);
+    return this.db.transaction(async tx => {
+      const previous = await tx.query<{payload: unknown}>('SELECT payload FROM gm.content_report WHERE user_id=$1 AND id=$2', [userId,request.reportId]);
+      if (previous.rows.length) {
+        if (canonical(previous.rows[0].payload) !== canonical(request)) throw new ApiFailure('report_conflict',409);
+      } else {
+        const question = await tx.query<{exercise_id:string; revision:number}>('SELECT exercise_id,revision FROM gm.session_question WHERE user_id=$1 AND id=$2', [userId,request.sessionQuestionId]);
+        if (!question.rows.length) throw new ApiFailure('question_unavailable',404);
+        if (question.rows[0].revision !== request.exerciseRevision) throw new ApiFailure('revision_mismatch',409);
+        const count = await tx.query<{n:number}>('SELECT count(*)::int AS n FROM gm.content_report WHERE user_id=$1 AND received_at>$2',[userId,new Date(this.clock().getTime()-3600000)]);
+        if (count.rows[0].n >= 10) throw new ApiFailure('report_rate_limited',429);
+        await tx.query('INSERT INTO gm.content_report VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',[userId,request.reportId,request.sessionQuestionId,question.rows[0].exercise_id,request.exerciseRevision,request.category,request,this.clock()]);
+      }
+      return ContentReportReceiptSchema.parse({apiVersion:'v2',reportId:request.reportId,status:'recorded'});
     });
   }
 

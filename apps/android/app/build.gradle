@@ -52,6 +52,12 @@ android {
     }
 
     buildTypes {
+        learnerPreview {
+            initWith(debug)
+            applicationIdSuffix = ".preview"
+            versionNameSuffix = "-preview"
+            matchingFallbacks = ["debug"]
+        }
         release {
             signingConfig = signingConfigs.getByName("release")
             minifyEnabled = true
@@ -92,6 +98,11 @@ android {
     }
 }
 
+// Install the isolated fixture beside the release app without replacing its signing/data.
+android.sourceSets.learnerPreview.kotlin.srcDir("src/debug/java")
+android.sourceSets.learnerPreview.res.srcDir("src/debug/res")
+configurations.learnerPreviewImplementation.extendsFrom(configurations.debugImplementation)
+
 play {
     serviceAccountCredentials.set(file("play-service-account.json"))
     defaultToAppBundles.set(true)
@@ -105,6 +116,8 @@ room {
 apply from: "../gradle/tasks/screenshots.gradle"
 
 tasks.withType(Test).configureEach {
+    systemProperty("gm.repoRoot", rootProject.file("../..").absolutePath)
+    systemProperty("gm.testNode", System.getenv("GM_TEST_NODE") ?: "node")
     for (def propertyName : ["roborazzi.test.record", "roborazzi.test.verify"]) {
         def propertyValue = System.getProperty(propertyName)
         if (propertyValue != null) systemProperty(propertyName, propertyValue)

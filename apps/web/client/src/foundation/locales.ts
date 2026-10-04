@@ -10,6 +10,8 @@ export const copy = {
     inspect: "Inspect answer",
     next: "Next exercise",
     reset: "Reset order",
+    moveLeft: "Move left",
+    moveRight: "Move right",
     ready: "Answer prepared for the v2 API. Backend grading is next.",
     question: "Question",
     of: "of",
@@ -31,6 +33,8 @@ export const copy = {
     inspect: "Antwort ansehen",
     next: "Nächste Aufgabe",
     reset: "Reihenfolge zurücksetzen",
+    moveLeft: "Nach links",
+    moveRight: "Nach rechts",
     ready:
       "Antwort für die v2-API vorbereitet. Die Bewertung durch den Server folgt.",
     question: "Aufgabe",

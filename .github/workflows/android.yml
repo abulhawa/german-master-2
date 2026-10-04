@@ -2,10 +2,10 @@ name: Android checks
 
 on:
   pull_request:
-    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**']
+    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**', 'services/**', 'packages/**', 'db/**', 'package.json', 'package-lock.json']
   push:
     branches: [main]
-    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**']
+    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**', 'services/**', 'packages/**', 'db/**', 'package.json', 'package-lock.json']
   workflow_dispatch:
 
 permissions:
@@ -38,11 +38,14 @@ jobs:
       - name: Check generated foundation contracts and tokens
         working-directory: .
         run: node contracts/scripts/generate.mjs --check && node design/generate.mjs --check
+      - name: Install authoritative API dependencies for native HTTP verification
+        working-directory: .
+        run: npm ci
       - uses: gradle/actions/setup-gradle@v4
       - name: Install imported app SDK requirements
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
       - name: Verify debug app
-        run: bash gradlew testDebugUnitTest assembleDebug --no-daemon --continue --max-workers=4
+        run: bash gradlew testDebugUnitTest assembleDebug assembleLearnerPreview --no-daemon --continue --max-workers=4
       - name: Lint debug app
         if: ${{ !cancelled() }}
-        run: bash gradlew lintDebug --no-daemon --max-workers=4
+        run: bash gradlew lintDebug lintLearnerPreview --no-daemon --max-workers=4

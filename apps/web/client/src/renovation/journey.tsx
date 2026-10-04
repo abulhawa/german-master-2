@@ -8,6 +8,7 @@ import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull,
 
 import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
 import { FixtureOwner, OWNER_LOCK } from "./ownership";
+import { ContentReport } from './report';
 
 const localApi = localLearnerApi();
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage };
@@ -174,6 +175,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   return <main className="gm-foundation" data-theme={state.theme} lang={state.locale}>
     <div className="gm-column">
       <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
+      {!loaded.damaged && <ContentReport question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report ? request => owner ? owner.run(() => api.report!(request)) : api.report!(request) : undefined} />}
       {view !== "practice" && !setup && <div className="gm-settings">
         <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey["locale"] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey["theme"] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
@@ -210,11 +212,19 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
             {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
               <h1 ref={heading} tabIndex={-1}>{c.complete}</h1><p role="status">{c.summary}: {p.confirmedCount} / {p.session.questions.length}</p>
               <p>{c.skippedCount}: {p.skippedCount}</p><p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
+              <h2>{c.coveredTargets}</h2>
+              <ul>{p.session.questions.filter((question, index, questions) => questions.findIndex(q => q.exercise.targetId === question.exercise.targetId) === index).map(question =>
+                <li key={question.exercise.targetId}>{catalog?.targets.find(t => t.id === question.exercise.targetId)?.title[state.locale] ?? question.exercise.prompt}</li>)}</ul>
               <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
             </> : exercise ? <>
               <p className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</p>
+              {!("focus" in p.request) && p.session.questions.length < (profile?.preferences.sessionQuestionCount ?? p.request.questionCount) && <p>{c.shorterSession}: {p.session.questions.length}</p>}
               <h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1><p>{exercise.instruction[state.locale]}</p>
-              <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || busy}>
+              <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || busy} onKeyDown={event => {
+                if (event.key !== "Enter" || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229 || event.repeat || !(event.target instanceof HTMLInputElement) || event.target.type !== "text") return;
+                event.preventDefault();
+                if (!busy && !p.pending && !p.pendingExposure && !p.evaluation && !p.rejected && readyAnswer(exercise, p.draft as Answer | null)) void submit();
+              }}>
                 <ExerciseInput key={`${p.session.id}-${p.index}`} exercise={exercise} locale={state.locale} initialAnswer={p.draft as Answer | null} onAnswer={() => {}} onDraft={draft => { try { editPractice({ draft }); return true; } catch { return false; } }} />
                 <FoundationButton className="gm-secondary" disabled={p.assisted} onClick={() => { try { editPractice({ assisted: true }); } catch { /* Reveal only after assistance has been saved. */ } }}>{c.hint}</FoundationButton>
                 {p.assisted && <p>{exercise.hint[state.locale]}</p>}

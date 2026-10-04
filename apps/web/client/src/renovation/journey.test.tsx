@@ -19,6 +19,28 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it("Enter checks typed answers once, ignores composition and keeps feedback for explicit continuation", async () => {
+  const api = apiFixture();
+  render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
+  fireEvent.click(await screen.findByText("Start short practice"));
+  const input = await screen.findByLabelText("Your answer");
+  fireEvent.keyDown(input, { key: "Enter" });
+  expect(api.submit).not.toHaveBeenCalled();
+  fireEvent.change(input, { target: { value: "Berufe" } });
+  fireEvent.keyDown(input, { key: "Enter", isComposing: true });
+  fireEvent.keyDown(input, { key: "Enter", repeat: true });
+  fireEvent.keyDown(input, { key: "Enter", keyCode: 229 });
+  expect(api.submit).not.toHaveBeenCalled();
+  fireEvent.keyDown(input, { key: "Enter" });
+  fireEvent.keyDown(input, { key: "Enter" });
+  await screen.findByText("Continue");
+  expect(api.submit).toHaveBeenCalledTimes(1);
+  expect(readJourney(localStorage).practice?.index).toBe(0);
+  fireEvent.keyDown(input, { key: "Enter" });
+  expect(api.submit).toHaveBeenCalledTimes(1);
+  expect(readJourney(localStorage).practice?.index).toBe(0);
+});
 it("recognizes only the server sync reset response", async () => {
   const fetch = vi.fn().mockResolvedValue({ ok: false, status: 400, json: async () => ({ code: "invalid_cursor" }) });
   vi.stubGlobal("fetch", fetch);
@@ -348,6 +370,8 @@ describe("isolated learner journey", () => {
       fireEvent.click(screen.getByText("Continue"));
     }
     expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 5 / 5");
+    expect(screen.getByRole("heading", { name: "Targets covered" })).toBeInTheDocument();
+    expect(screen.getByText("Word order after weil")).toBeInTheDocument();
     await waitFor(() => expect(api.sync).toHaveBeenCalled());
     await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
     fireEvent.click(screen.getByText("Progress"));

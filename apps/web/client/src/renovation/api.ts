@@ -1,8 +1,10 @@
 import { LearnerProfileSchema, type LearnerProfile, type ProfileRequest, CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
 import { ExposureBatchResponseSchema, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
+import { ContentReportReceiptSchema, type ContentReportRequest, type ContentReportReceipt } from '@german-master/contracts';
 
 export interface LearnerApi extends FoundationApi {
+  report?(request: ContentReportRequest): Promise<ContentReportReceipt>;
   expose(event: ExposureEvent): Promise<ExposureAcknowledgment>;
   profile(): Promise<LearnerProfile>;
   saveProfile(request: ProfileRequest): Promise<LearnerProfile>;
@@ -30,6 +32,13 @@ export function localLearnerApi(): LearnerApi {
     return response.json();
   }
   return { ...localFoundationApi(),
+    async report(request) {
+      const response = await fetch('/v2/content-reports', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      if (!response.ok) throw Error('Report unavailable');
+      const receipt = ContentReportReceiptSchema.parse(await response.json());
+      if (receipt.reportId !== request.reportId) throw Error('Report receipt mismatch');
+      return receipt;
+    },
     async expose(event) {
       const response = await fetch("/v2/exposures:batch", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify({ apiVersion: "v2", events: [event] }) });
       if (!response.ok) throw Error("Exposure unavailable");

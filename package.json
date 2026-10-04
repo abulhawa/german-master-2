@@ -15,6 +15,7 @@
     "services/api"
   ],
   "scripts": {
+    "content:review": "tsx services/api/scripts/review-content.ts",
     "dev": "npm run dev --workspace=apps/web",
     "dev:web": "npm run dev:client --workspace=apps/web",
     "check": "npm run check:generated && npm run check --workspace=apps/web && npm run check:backend",

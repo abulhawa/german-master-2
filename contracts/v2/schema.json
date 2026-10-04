@@ -2,6 +2,26 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://german-master.invalid/contracts/v2/schema.json",
   "$defs": {
+    "ContentReportRequest": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "apiVersion": {"type":"string","const":"v2"},
+        "reportId": {"type":"string","format":"uuid"},
+        "sessionQuestionId": {"type":"string","format":"uuid"},
+        "exerciseRevision": {"type":"integer","minimum":1},
+        "category": {"type":"string","enum":["incorrect_answer","ambiguous_prompt","other"]}
+      },
+      "required": ["apiVersion","reportId","sessionQuestionId","exerciseRevision","category"]
+    },
+    "ContentReportReceipt": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "apiVersion": {"type":"string","const":"v2"},
+        "reportId": {"type":"string","format":"uuid"},
+        "status": {"type":"string","const":"recorded"}
+      },
+      "required": ["apiVersion","reportId","status"]
+    },
     "Option": {
       "type": "object",
       "additionalProperties": false,
