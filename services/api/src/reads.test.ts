@@ -22,6 +22,56 @@ it('validates shared transport fixtures and rejects invalid instants and client 
 
 const user = randomUUID(), other = randomUUID();
 const request = (): SessionRequest => ({ apiVersion: 'v2', requestId: randomUUID(), questionCount: 1, capabilities: ['short_answer@1'] });
+it('bounds undated legacy page grace once across repeated initialization', async () => {
+  const db = new PGlite(); let now = Date.parse('2026-10-04T12:00:00Z');
+  const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
+  try {
+    await store.initialize(); const snapshot = await store.targets(user, 1);
+    const frozen = await store.targets(user, 1, snapshot.nextPageCursor);
+    await db.exec(`ALTER TABLE gm.target_page DROP COLUMN expires_at;
+      DROP INDEX gm.sync_cursor_expiry;
+      DELETE FROM gm.schema_migration WHERE version=6;`);
+    now += 10000; await store.initialize();
+    expect(await store.targets(user, 1, snapshot.nextPageCursor)).toEqual(frozen);
+    now += 1999; await store.initialize();
+    expect(await store.targets(user, 1, snapshot.nextPageCursor)).toEqual(frozen);
+    now += 1;
+    await expect(store.targets(user, 1, snapshot.nextPageCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
+    await store.cleanupReads();
+    expect((await db.query('SELECT * FROM gm.target_page')).rows).toEqual([]);
+  } finally { await db.close(); }
+});
+it('prunes only expired transport records atomically while active pages and evidence survive', async () => {
+  const db = new PGlite(); let now = Date.parse('2026-10-04T12:00:00Z');
+  const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
+  try {
+    await store.initialize();
+    const input = await answer(store, new Date(now).toISOString());
+    const old = await store.targets(user, 1);
+    const frozen = await store.targets(user, 1, old.nextPageCursor);
+    now += 1000;
+    const active = await store.targets(other, 1);
+    await store.cleanupReads();
+    expect(await store.targets(user, 1, old.nextPageCursor)).toEqual(frozen);
+    expect((await db.query('SELECT * FROM gm.sync_cursor WHERE id=$1', [old.syncCursor])).rows).toHaveLength(0);
+    now += 1000;
+    await expect(store.targets(user, 1, old.nextPageCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
+    // A failing second delete must roll back the preceding page deletion.
+    await db.exec(`CREATE TRIGGER fail_cleanup BEFORE DELETE ON gm.sync_cursor FOR EACH ROW EXECUTE FUNCTION gm.reject_mutation();`);
+    await expect(store.cleanupReads()).rejects.toThrow();
+    expect((await db.query('SELECT * FROM gm.target_page WHERE id=$1', [old.nextPageCursor])).rows).toHaveLength(1);
+    await db.exec('DROP TRIGGER fail_cleanup ON gm.sync_cursor');
+    const activePage = await store.targets(other, 1, active.nextPageCursor);
+    await store.cleanupReads(); await store.cleanupReads();
+    expect((await db.query('SELECT * FROM gm.target_page WHERE id=$1', [old.nextPageCursor])).rows).toHaveLength(0);
+    expect(await store.targets(other, 1, active.nextPageCursor)).toEqual(activePage);
+    expect((await store.submit(user, input, randomUUID())).status).toBe('duplicate');
+    expect((await db.query('SELECT * FROM gm.accepted_evidence WHERE user_id=$1', [user])).rows).toHaveLength(1);
+    expect((await store.sync(user)).changes).toHaveLength(1);
+    const fresh = await store.targets(user);
+    expect(fresh.targets[0].exposureCount).toBe(1);
+  } finally { await db.close(); }
+});
 async function answer(store: FoundationStore, now: string, owner = user) {
   const q = (await store.createSession(owner, request())).questions[0];
   const input: Attempt = { attemptId: randomUUID(), deviceId: randomUUID(), clientSequence: 1,
@@ -106,17 +156,17 @@ it('orders sparse owned deltas, rejects foreign/wrong-kind cursors and survives 
     expect(await store.sync(user, 1, last.nextCursor)).toMatchObject({ changes: [], nextCursor: last.nextCursor });
     const expiredStore = new FoundationStore(db, () => new Date('2026-12-01T00:00:00Z'));
     await expect(expiredStore.sync(user, 1, baseline.syncCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
-    expect(await expiredStore.targets(user, 1, baseline.nextPageCursor)).toEqual(page);
+    await expect(expiredStore.targets(user, 1, baseline.nextPageCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
     const replacement = await expiredStore.targets(user);
     expect(replacement.syncCursor).not.toBe(last.nextCursor);
     expect(await expiredStore.sync(user, 1, replacement.syncCursor)).toMatchObject({ changes: [] });
-    await expect(db.query('DELETE FROM gm.sync_cursor')).rejects.toThrow();
+    await expect(db.query('UPDATE gm.sync_cursor SET sequence=0')).rejects.toThrow();
   } finally { await db.close(); await rm(directory, { recursive: true, force: true }); }
 });
 
 it('expires at the exact HTTP boundary, recovers a frozen snapshot and accepts pending writes once', async () => {
   const db = new PGlite(); let now = Date.parse('2026-10-04T12:00:00Z');
-  const store = new FoundationStore(db, () => new Date(now), 1000);
+  const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
   await store.initialize();
   const server = createApi(store, async r => r.headers.authorization === `Bearer ${user}` ? user : null);
   await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -158,6 +208,16 @@ it('expires at the exact HTTP boundary, recovers a frozen snapshot and accepts p
     expect(tail.changes).toHaveLength(1); expect(tail.changes[0].target.exposureCount).toBe(1);
     expect((await db.query('SELECT * FROM gm.accepted_evidence WHERE user_id=$1', [user])).rows).toHaveLength(1);
     expect((await get(`/v2/sync?cursor=${before.syncCursor}`)).status).toBe(400);
+    now += 999;
+    expect((await get(`/v2/targets?cursor=${before.nextPageCursor}`)).status).toBe(200);
+    now += 1;
+    const expiredPage = await get(`/v2/targets?cursor=${before.nextPageCursor}`);
+    expect(expiredPage.status).toBe(400);
+    expect((await expiredPage.json()).code).toBe('invalid_cursor');
+    await store.cleanupReads();
+    expect((await get(`/v2/targets?cursor=${before.nextPageCursor}`)).status).toBe(400);
+    expect((await get('/v2/targets')).status).toBe(200);
+    expect((await (await submit()).json()).acknowledgments[0].status).toBe('duplicate');
   } finally { await new Promise<void>(resolve => server.close(() => resolve())); await db.close(); }
 });
 

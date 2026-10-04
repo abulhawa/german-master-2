@@ -33,8 +33,10 @@ type EvidenceDetail = Omit<Extract<AcceptedEvidence, { kind: "assessment" | "rei
 /** Local PostgreSQL demonstration. Transactions serialize writes and enforce first submission. */
 export class FoundationStore {
   constructor(public readonly db: PGlite, private readonly clock = () => new Date(),
-    private readonly cursorLifetimeMs = 7 * 24 * 60 * 60 * 1000) {
+    private readonly cursorLifetimeMs = 7 * 24 * 60 * 60 * 1000,
+    private readonly pageLifetimeMs = 7 * 24 * 60 * 60 * 1000) {
     if (!Number.isSafeInteger(cursorLifetimeMs) || cursorLifetimeMs <= 0) throw new Error('Invalid cursor lifetime');
+    if (!Number.isSafeInteger(pageLifetimeMs) || pageLifetimeMs <= 0) throw new Error('Invalid page lifetime');
   }
 
   async initialize() {
@@ -69,6 +71,15 @@ export class FoundationStore {
       if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/003_owned_reads.sql", import.meta.url), "utf8"));
       const expiry = await tx.query("SELECT version FROM gm.schema_migration WHERE version=5");
       if (!expiry.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/005_cursor_expiry.sql", import.meta.url), "utf8"));
+      const retention = await tx.query("SELECT version FROM gm.schema_migration WHERE version=6");
+      if (!retention.rows.length) {
+        await tx.exec(await readFile(new URL("../../../db/migrations/006_read_retention.sql", import.meta.url), "utf8"));
+        // Undated legacy pages receive one bounded upgrade grace period.
+        await tx.query('ALTER TABLE gm.target_page DISABLE TRIGGER immutable_target_page');
+        await tx.query('UPDATE gm.target_page SET expires_at=$1', [new Date(this.clock().getTime() + this.pageLifetimeMs)]);
+        await tx.query('ALTER TABLE gm.target_page ENABLE TRIGGER immutable_target_page');
+        await tx.query('ALTER TABLE gm.target_page ALTER COLUMN expires_at DROP DEFAULT');
+      }
     });
   }
 
@@ -133,17 +144,29 @@ export class FoundationStore {
     return id;
   }
 
+  private async pruneReads(tx: Transaction, now: Date) {
+    await tx.query('DELETE FROM gm.target_page WHERE expires_at<=$1', [now]);
+    await tx.query('DELETE FROM gm.sync_cursor WHERE expires_at<=$1', [now]);
+  }
+
+  /** Local maintenance only: evidence, projections and idempotency records are untouched. */
+  async cleanupReads() {
+    const now = this.clock();
+    await this.db.transaction(tx => this.pruneReads(tx, now));
+  }
+
   /** Frozen pages share a watermark; concurrent ingestion cannot fall between snapshot and sync. */
   async targets(userId: string, limit = 50, cursor?: string): Promise<TargetPage> {
     if (!Number.isInteger(limit) || limit < 1 || limit > 100) throw new ApiFailure('invalid_request', 400);
     return this.db.transaction(async tx => {
       await this.readOwner(tx, userId);
+      const now = this.clock();
       if (cursor) {
-        const page = await tx.query<{ payload: TargetPage }>("SELECT payload FROM gm.target_page WHERE id=$1 AND user_id=$2", [cursor, userId]);
+        const page = await tx.query<{ payload: TargetPage }>("SELECT payload FROM gm.target_page WHERE id=$1 AND user_id=$2 AND expires_at>$3", [cursor, userId, now]);
         if (!page.rows.length) throw new ApiFailure("invalid_cursor", 400);
         return TargetPageSchema.parse(page.rows[0].payload);
       }
-      const now = this.clock();
+      await this.pruneReads(tx, now);
       const generatedAt = now.toISOString();
       const watermark = (await tx.query<{ n: number }>("SELECT COALESCE(max(sequence),0)::int AS n FROM gm.sync_change WHERE user_id=$1", [userId])).rows[0].n;
       const syncCursor = await this.syncCursor(tx, userId, watermark, now);
@@ -153,11 +176,12 @@ export class FoundationStore {
       const targets = rows.rows.map(r => confirmedTarget(r.id, r.snapshot, r.last_sequence, generatedAt));
       let nextPageCursor = '';
       let first!: TargetPage;
-      // The local small catalog is materialized once. A network adapter needs bounded snapshot storage/expiry.
+      // Materialize one immutable chain with a shared deadline; reads never renew it.
       for (let offset = Math.max(0, Math.floor((targets.length - 1) / limit) * limit); offset >= 0; offset -= limit) {
         first = TargetPageSchema.parse({ apiVersion: 'v2', generatedAt, targets: targets.slice(offset, offset + limit), nextPageCursor, syncCursor });
         const id = randomUUID();
-        await tx.query("INSERT INTO gm.target_page VALUES ($1,$2,$3)", [id, userId, first]);
+        await tx.query("INSERT INTO gm.target_page (id,user_id,payload,expires_at) VALUES ($1,$2,$3,$4)",
+          [id, userId, first, new Date(now.getTime() + this.pageLifetimeMs)]);
         nextPageCursor = id;
       }
       return first;
@@ -171,6 +195,7 @@ export class FoundationStore {
       await this.readOwner(tx, userId);
       let after = 0;
       const now = this.clock();
+      await this.pruneReads(tx, now);
       if (cursor) {
         const position = await tx.query<{ sequence: number }>("SELECT sequence FROM gm.sync_cursor WHERE id=$1 AND user_id=$2 AND expires_at>$3", [cursor, userId, now]);
         if (!position.rows.length) throw new ApiFailure("invalid_cursor", 400);
