@@ -115,5 +115,6 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: path.resolve(__dirname, "vitest.setup.ts"),
     include: ["../tests/**/*.test.ts", "src/**/*.{test,spec}.{ts,tsx}"],
+    exclude: ["**/node_modules/**", "**/*.integration.test.tsx"],
   },
 });
