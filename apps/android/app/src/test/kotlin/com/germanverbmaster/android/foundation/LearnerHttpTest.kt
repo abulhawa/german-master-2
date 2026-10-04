@@ -54,6 +54,10 @@ class LearnerHttpTest {
             assertEquals(ContractReader.json.encodeToString(request), bodies[4])
             assertEquals(ContractReader.json.encodeToString(AttemptBatch("v2", listOf(attempt))), bodies[5])
             assertEquals(ContractReader.json.encodeToString(ExposureBatch("v2", listOf(event))), bodies[6])
+            val focused = FocusedSessionRequest("v2", id, 1, request.capabilities, TargetFocus(id))
+            assertEquals(session, api.session(focused))
+            assertEquals("POST /v2/sessions", calls.last())
+            assertEquals(ContractReader.json.encodeToString(focused), bodies.last())
         } finally { server.stop(0) }
     }
 }

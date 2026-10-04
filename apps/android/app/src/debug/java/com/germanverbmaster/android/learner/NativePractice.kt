@@ -26,7 +26,8 @@ data class NativePractice(
     val rejected: Boolean = false,
     val graded: Int = 0,
     val skipped: Int = 0,
-    val correct: Int = 0
+    val correct: Int = 0,
+    val focus: PracticeFocus? = null
 ) {
     init {
         require(index >= 0 && graded >= 0 && skipped >= 0 && correct in 0..graded)

@@ -47,12 +47,13 @@ fun LearnerShell(repository: LearnerRepository) {
     var failed by remember { mutableStateOf(false) }
     var fresh by remember { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf("home") }
+    var detailId by rememberSaveable { mutableStateOf("") }
     val scope = rememberCoroutineScope()
-    fun run(refresh: Boolean = true, action: suspend () -> Unit) {
+    fun run(refresh: Boolean = true, completed: () -> Unit = {}, action: suspend () -> Unit) {
         if (busy) return
         busy = true; failed = false; if(refresh) fresh = false
         scope.launch {
-            try { withContext(Dispatchers.IO) { action(); if (refresh) repository.refresh() }; if(refresh) fresh = true }
+            try { withContext(Dispatchers.IO) { action(); if (refresh) repository.refresh() }; if(refresh) fresh = true; completed() }
             catch (cancel: kotlinx.coroutines.CancellationException) { throw cancel }
             catch (_: Exception) { failed = true }
             finally { cache = repository.state; if(cache.practice?.let { it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
@@ -97,8 +98,9 @@ fun LearnerShell(repository: LearnerRepository) {
             } else if (profile != null) {
                 LearnerButton(label("Home", "Startseite"), !busy) { screen = "home" }
                 LearnerButton(label("Progress", "Fortschritt"), !busy) { screen = "progress" }
+                LearnerButton(label("Topics", "Themen"), !busy) { screen = "topics" }
                 LearnerButton(label("Edit preferences", "Einstellungen ändern"), !busy) { screen = "setup" }
-                Text(if (screen == "progress") label("Confirmed Progress", "Bestätigter Fortschritt") else label("Home", "Startseite"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
+                Text(when(screen) { "progress" -> label("Confirmed Progress", "Bestätigter Fortschritt"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); "target" -> label("Target detail", "Lernzieldetails"); else -> label("Home", "Startseite") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
                 Text(label("Confirmed snapshot", "Bestätigter Datenstand") + ": " + (cache.generatedAt ?: "—"))
                 if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
                 if (screen == "home") {
@@ -108,13 +110,18 @@ fun LearnerShell(repository: LearnerRepository) {
                     val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
                     Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available draft questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Entwurfsfragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
                     LearnerButton(label(if(cache.practice == null) "Start practice" else "Continue practice", if(cache.practice == null) "Übung starten" else "Übung fortsetzen"), !busy && (cache.practice != null || (cache.pending == null && (available ?: 0) > 0))) { screen = "practice"; run(false) { repository.startPractice() } }
+                } else if (screen in setOf("topics", "topic", "target")) {
+                    NativeTopicsView(cache, screen, detailId, german, busy,
+                        open = { destination, id -> screen = destination; detailId = id },
+                        resume = { screen = "practice"; run(false) { repository.startPractice() } },
+                        start = { focus -> run(false, { screen = "practice" }) { repository.startPractice(focus) } })
                 } else {
                     listOf("needs_practice" to label("Needs practice", "Übungsbedarf"), "improving" to label("Improving", "Verbessert"), "mastered" to label("Mastered", "Beherrscht")).forEach { (state, title) ->
                         val targets = cache.targets.filter { it.state == state }
                         Text("$title (${targets.size})", Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                         targets.forEach { target ->
                             val metadata = cache.catalog?.targets?.find { it.id == target.targetId }
-                            Text(metadata?.title?.let { if (german) it.de else it.en } ?: target.targetId)
+                            LearnerButton(metadata?.title?.let { if (german) it.de else it.en } ?: target.targetId, !busy) { detailId = target.targetId; screen = "target" }
                             Text(label("Qualifying checks", "Qualifizierte Prüfungen") + ": ${target.qualifyingCheckCount}")
                             target.schedule.firstOrNull()?.let {
                                 val date = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(ZoneId.of(profile.preferences.timezone)).format(Instant.parse(it.dueAt))

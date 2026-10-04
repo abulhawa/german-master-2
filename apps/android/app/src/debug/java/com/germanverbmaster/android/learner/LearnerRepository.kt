@@ -17,6 +17,7 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun session(request: FocusedSessionRequest): Session = error("Focused practice unavailable")
     suspend fun session(request: SessionRequest): Session = error("Practice unavailable")
     suspend fun submit(attempt: Attempt): Acknowledgment = error("Practice unavailable")
     suspend fun expose(event: ExposureEvent): ExposureAcknowledgment = error("Practice unavailable")
@@ -28,6 +29,7 @@ interface LearnerApi {
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
+    override suspend fun session(request: FocusedSessionRequest) = ContractReader.session(request("/v2/sessions", ContractReader.json.encodeToString(request)))
     override suspend fun session(request: SessionRequest) = ContractReader.session(request("/v2/sessions", ContractReader.json.encodeToString(request)))
     override suspend fun submit(attempt: Attempt): Acknowledgment = ContractReader.acknowledgments(request("/v2/attempts:batch", ContractReader.json.encodeToString(AttemptBatch("v2", listOf(attempt))))).acknowledgments.single().also { check(it.attemptId == attempt.attemptId) }
     override suspend fun expose(event: ExposureEvent): ExposureAcknowledgment {
@@ -113,12 +115,28 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
-    suspend fun startPractice() = mutex.withLock {
+    suspend fun startPractice(focus: PracticeFocus? = null) = mutex.withLock {
+        // A saved request always wins, including a request awaiting its first response.
+        check(focus == null || state.practice == null) { "Resume or discard saved practice first" }
         if(state.practice?.session != null) return@withLock
         check(state.pending == null && state.profile?.setupCompleted == true)
-        if (state.practice == null) commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = requireNotNull(state.profile).preferences.sessionQuestionCount))))
+        if (state.practice == null) {
+            val count = if (focus == null) requireNotNull(state.profile).preferences.sessionQuestionCount else {
+                val catalog = requireNotNull(state.catalog)
+                val available = when (focus) {
+                    is TargetFocus -> catalog.targets.singleOrNull { it.id == focus.id }?.availableQuestionCount ?: 0
+                    is TopicFocus -> if (catalog.topics.any { it.id == focus.id }) catalog.targets.filter { it.topicId == focus.id }.sumOf { it.availableQuestionCount } else 0
+                }
+                check(available > 0) { "No questions available for this focus" }
+                if (focus is TargetFocus) 1 else minOf(5, available)
+            }
+            commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = count), focus = focus)))
+        }
         val p = requireNotNull(state.practice)
-        if (p.session == null) commit(state.copy(practice = p.copy(session = api.session(p.request))))
+        if (p.session == null) {
+            val session = p.focus?.let { api.session(FocusedSessionRequest(p.request.apiVersion, p.request.requestId, p.request.questionCount, p.request.capabilities, it)) } ?: api.session(p.request)
+            commit(state.copy(practice = p.copy(session = session)))
+        }
     }
     fun draft(answer: Answer?) { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(draft = answer))) }
     fun order(ids: List<String>) { val p = requireNotNull(state.practice); check(p.editable); val exercise = p.question.exercise as ExerciseWordOrder; check(ids.distinct() == ids && ids.all { id -> exercise.tokens.any { it.id == id } }); commit(state.copy(practice = p.copy(order = ids, draft = if(ids.size >= 2) AnswerWordOrder(ids) else null))) }
