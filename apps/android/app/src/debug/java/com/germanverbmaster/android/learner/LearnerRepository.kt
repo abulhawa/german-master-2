@@ -17,6 +17,9 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun session(request: SessionRequest): Session = error("Practice unavailable")
+    suspend fun submit(attempt: Attempt): Acknowledgment = error("Practice unavailable")
+    suspend fun expose(event: ExposureEvent): ExposureAcknowledgment = error("Practice unavailable")
     suspend fun profile(): LearnerProfile
     suspend fun save(request: ProfileRequest): LearnerProfile
     suspend fun targets(cursor: String): TargetPage
@@ -25,6 +28,13 @@ interface LearnerApi {
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
+    override suspend fun session(request: SessionRequest) = ContractReader.session(request("/v2/sessions", ContractReader.json.encodeToString(request)))
+    override suspend fun submit(attempt: Attempt): Acknowledgment = ContractReader.acknowledgments(request("/v2/attempts:batch", ContractReader.json.encodeToString(AttemptBatch("v2", listOf(attempt))))).acknowledgments.single().also { check(it.attemptId == attempt.attemptId) }
+    override suspend fun expose(event: ExposureEvent): ExposureAcknowledgment {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/exposures:batch", ContractReader.json.encodeToString(ExposureBatch("v2", listOf(event)))))
+        ContractShape.checkExposureBatchResponse(raw)
+        return ContractReader.json.decodeFromJsonElement(ExposureBatchResponse.serializer(), raw).acknowledgments.single().also { check(it.eventId == event.eventId) }
+    }
     init { require(port in 1..65535) }
     private suspend fun request(path: String, body: String? = null): String = withContext(Dispatchers.IO) {
         val connection = URI("http://127.0.0.1:$port$path").toURL().openConnection() as HttpURLConnection
@@ -73,7 +83,8 @@ data class LearnerCache(
     val pending: ProfileRequest? = null,
     val targets: List<ConfirmedTarget> = emptyList(),
     val generatedAt: String? = null,
-    val catalog: Catalog? = null
+    val catalog: Catalog? = null,
+    val practice: NativePractice? = null
 )
 
 interface LearnerStore {
@@ -102,6 +113,43 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
+    suspend fun startPractice() = mutex.withLock {
+        if(state.practice?.session != null) return@withLock
+        check(state.pending == null && state.profile?.setupCompleted == true)
+        if (state.practice == null) commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = requireNotNull(state.profile).preferences.sessionQuestionCount))))
+        val p = requireNotNull(state.practice)
+        if (p.session == null) commit(state.copy(practice = p.copy(session = api.session(p.request))))
+    }
+    fun draft(answer: Answer?) { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(draft = answer))) }
+    fun order(ids: List<String>) { val p = requireNotNull(state.practice); check(p.editable); val exercise = p.question.exercise as ExerciseWordOrder; check(ids.distinct() == ids && ids.all { id -> exercise.tokens.any { it.id == id } }); commit(state.copy(practice = p.copy(order = ids, draft = if(ids.size >= 2) AnswerWordOrder(ids) else null))) }
+    fun hint() { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(assisted = true))) }
+    suspend fun answer() = mutex.withLock {
+        var p = requireNotNull(state.practice)
+        check(p.exposure == null && p.evaluation == null && !p.rejected)
+        if (p.pending == null) {
+            check(nativeAnswerReady(p.question.exercise, p.draft))
+            commit(state.copy(practice = p.copy(pending = com.germanverbmaster.android.foundation.foundationAttempt(requireNotNull(p.session), p.index, requireNotNull(p.draft), p.assisted, p.deviceId))))
+            p = requireNotNull(state.practice)
+        }
+        val result = api.submit(requireNotNull(p.pending))
+        check(result.attemptId == p.pending.attemptId)
+        val evaluation = when(result) { is AttemptAcknowledgment -> result.evaluation; is AttemptDuplicate -> result.evaluation; is AttemptRejection -> null }
+        commit(state.copy(practice = p.copy(evaluation = evaluation, rejected = evaluation == null,
+            graded = p.graded + if(evaluation != null) 1 else 0, correct = p.correct + if(evaluation?.outcome == "correct") 1 else 0)))
+    }
+    suspend fun skip() = mutex.withLock {
+        var p = requireNotNull(state.practice)
+        check(p.pending == null && p.evaluation == null && !p.rejected)
+        if(p.exposure == null) {
+            commit(state.copy(practice = p.copy(exposure = ExposureEvent(UUID.randomUUID().toString(), p.question.id, p.question.exercise.revision, p.deviceId, "skip", java.time.Instant.now().truncatedTo(java.time.temporal.ChronoUnit.SECONDS).toString()))))
+            p = requireNotNull(state.practice)
+        }
+        val ack = api.expose(requireNotNull(p.exposure))
+        check(ack.eventId == p.exposure.eventId)
+        commit(state.copy(practice = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)))
+    }
+    fun continuePractice() { val p = requireNotNull(state.practice); check(p.evaluation != null); commit(state.copy(practice = p.next())) }
+    fun discardPractice() { commit(state.copy(practice = null)) }
     suspend fun refresh() = mutex.withLock {
         val profile = api.profile()
         val catalog = api.catalog()

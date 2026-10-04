@@ -48,13 +48,14 @@ fun LearnerShell(repository: LearnerRepository) {
     var fresh by remember { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf("home") }
     val scope = rememberCoroutineScope()
-    fun run(action: suspend () -> Unit) {
+    fun run(refresh: Boolean = true, action: suspend () -> Unit) {
         if (busy) return
-        busy = true; failed = false; fresh = false
+        busy = true; failed = false; if(refresh) fresh = false
         scope.launch {
-            try { withContext(Dispatchers.IO) { action(); repository.refresh() }; fresh = true }
+            try { withContext(Dispatchers.IO) { action(); if (refresh) repository.refresh() }; if(refresh) fresh = true }
+            catch (cancel: kotlinx.coroutines.CancellationException) { throw cancel }
             catch (_: Exception) { failed = true }
-            finally { cache = repository.state; busy = false }
+            finally { cache = repository.state; if(cache.practice?.let { it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
         }
     }
     LaunchedEffect(repository) { run {} }
@@ -67,7 +68,10 @@ fun LearnerShell(repository: LearnerRepository) {
             Text(label("Local learner preview", "Lokale Lernvorschau"))
             Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
             if (busy) Text(label("Loading…", "Wird geladen…"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-            if (failed) Text(label("Could not refresh or save. Saved work remains available. Retry, or reload current preferences to correct a conflict.", "Aktualisieren oder Speichern fehlgeschlagen. Gespeicherte Daten bleiben erhalten. Erneut versuchen oder aktuelle Einstellungen laden."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+            if (failed) Text(label("Could not refresh or save. Saved work remains available. Retry the saved operation.", "Aktualisieren oder Speichern fehlgeschlagen. Gespeicherte Daten bleiben erhalten. Gespeicherten Vorgang erneut versuchen."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+            if (screen == "practice" && cache.practice != null) {
+                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }) { screen = "home" }
+            } else {
             if (cache.pending != null) {
                 Text(label("Preferences saved on this device, awaiting confirmation. Progress below is server-confirmed only.", "Einstellungen lokal gespeichert, Bestätigung ausstehend. Fortschritt zeigt nur bestätigte Daten."))
                 LearnerButton(label("Retry saved preferences", "Gespeicherte Einstellungen erneut senden"), !busy) { run { repository.retry() } }
@@ -103,7 +107,7 @@ fun LearnerShell(repository: LearnerRepository) {
                     if (cache.targets.isEmpty()) Text(label("Let’s find what to practise.", "Finden wir heraus, was du üben kannst."))
                     val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
                     Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available draft questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Entwurfsfragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
-                    Text(label("Native practice will be added in the next slice. Foundation previews remain separate.", "Native Übungen folgen im nächsten Schritt. Foundation-Vorschauen bleiben separat."))
+                    LearnerButton(label(if(cache.practice == null) "Start practice" else "Continue practice", if(cache.practice == null) "Übung starten" else "Übung fortsetzen"), !busy && (cache.practice != null || (cache.pending == null && (available ?: 0) > 0))) { screen = "practice"; run(false) { repository.startPractice() } }
                 } else {
                     listOf("needs_practice" to label("Needs practice", "Übungsbedarf"), "improving" to label("Improving", "Verbessert"), "mastered" to label("Mastered", "Beherrscht")).forEach { (state, title) ->
                         val targets = cache.targets.filter { it.state == state }
@@ -123,6 +127,8 @@ fun LearnerShell(repository: LearnerRepository) {
             }
         }
     }
+}
+
 }
 
 @Composable
