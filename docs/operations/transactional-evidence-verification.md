@@ -24,7 +24,7 @@ The new `evidence-store.test.ts` checks:
 - Root `npm run build`: web client, inherited API/server bundles and isolated foundation launcher passed.
 - Built `services/api/dist/local.js` smoke check on isolated loopback port 5017: created two questions, accepted a correct short answer, accepted a skip and replayed the skip with its original sequence. The smoke process was stopped afterward.
 - Android `testDebugUnitTest lintDebug assembleDebug --offline --no-daemon --continue --max-workers=4`: passed; 26 suites / 98 tests, zero failures/errors/skips, lint zero errors / 16 warnings. New generated exposure contracts decode and round-trip the shared acceptance corpus. No emulator/device verification or new UI behavior is claimed.
-- Whitespace and secret scans are recorded in the checkpoint alongside final commit/hosted verification.
+- Whitespace checks and staged/full-history Gitleaks scans passed with zero findings; full history covered 775 commits at implementation `b5650c9`. All three hosted workflows passed at exact implementation `b5650c9`: [Web](https://github.com/abulhawa/german-master-2/actions/runs/37166238284), [Android](https://github.com/abulhawa/german-master-2/actions/runs/37166238314) and [Repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37166238283). The root checkpoint records the final handoff.
 
 All ordinary checks used local fixtures/mocks. No production database/environment was loaded, no AI/Groq inference calls occurred, no content was published and no store release was uploaded.
 
