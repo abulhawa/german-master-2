@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AnswerSchema, AttemptSchema, EvaluationSchema, SessionRequestSchema, FocusedSessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
+import { AnswerSchema, AttemptSchema, EvaluationSchema, ExposureEventSchema, SessionRequestSchema, FocusedSessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
 import type { LearnerApi } from "./api";
 
 // One atomic record scoped to the public local fixture; never used for production accounts.
@@ -11,6 +11,7 @@ export const JourneySchema = z.object({
   practice: z.object({ request: z.union([SessionRequestSchema, FocusedSessionRequestSchema]), session: SessionSchema.nullable(), index: z.number().int().min(0),
     draft: DraftSchema.nullable(), assisted: z.boolean(), pending: AttemptSchema.nullable(), evaluation: EvaluationSchema.nullable(),
     rejected: z.boolean(), confirmedCount: z.number().int().min(0), correctCount: z.number().int().min(0),
+    pendingExposure: ExposureEventSchema.nullable().default(null), skippedCount: z.number().int().min(0).default(0),
   }).nullable(),
 });
 export type Journey = z.infer<typeof JourneySchema>;

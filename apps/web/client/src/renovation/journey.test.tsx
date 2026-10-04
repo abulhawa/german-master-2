@@ -14,10 +14,105 @@ const session = SessionSchema.parse(sample);
 const ack = AttemptBatchResponseSchema.parse(acknowledgment).acknowledgments[0];
 const page = TargetPageSchema.parse(targetPage);
 function apiFixture(): LearnerApi {
-  return { profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
+  return { expose: vi.fn(async event => ({ eventId: event.eventId, status: "accepted" as const, serverSequence: 1 })), profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it("retries a frozen skip after a lost response and reload, preserving its draft", async () => {
+  const api = apiFixture();
+  api.expose = vi.fn().mockRejectedValueOnce(Error("lost response")).mockImplementation(async event => ({ eventId: event.eventId, status: "duplicate", serverSequence: 1 }));
+  await start(api);
+  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "unfinished" } });
+  fireEvent.click(screen.getByText("Skip"));
+  await screen.findByRole("alert");
+  const saved = readJourney(localStorage).practice!;
+  expect(saved).toMatchObject({ index: 0, draft: { text: "unfinished" }, skippedCount: 0 });
+  expect(saved.pendingExposure).toMatchObject({ disposition: "skip", sessionQuestionId: session.questions[0].id, exerciseRevision: session.questions[0].exercise.revision });
+  expect(screen.getByLabelText("Your answer")).toBeDisabled();
+  expect(screen.queryByText("Check answer")).not.toBeInTheDocument();
+  cleanup(); await start(api);
+  expect(screen.getByLabelText("Your answer")).toHaveValue("unfinished");
+  fireEvent.click(screen.getByText("Retry skip"));
+  await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(1));
+  expect(api.expose).toHaveBeenLastCalledWith(saved.pendingExposure);
+  expect(readJourney(localStorage).practice).toMatchObject({ skippedCount: 1, confirmedCount: 0, correctCount: 0, pendingExposure: null, draft: null });
+  expect(screen.getByRole("heading")).toHaveFocus();
+  expect(api.submit).not.toHaveBeenCalled();
+});
+it("blocks skip before HTTP when storage fails", async () => {
+  const api = apiFixture(); let fail = false;
+  const storage = { getItem: (key: string) => localStorage.getItem(key), setItem: (key: string, value: string) => { if (fail) throw Error("disk full"); localStorage.setItem(key, value); } };
+  render(<LearnerJourney api={api} storage={storage} />);
+  await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
+  fireEvent.click(screen.getByText("Start short practice"));
+  await screen.findByLabelText("Your answer");
+  fail = true; fireEvent.click(screen.getByText("Skip"));
+  expect(await screen.findByRole("alert")).toHaveTextContent("Could not save practice");
+  expect(api.expose).not.toHaveBeenCalled();
+  expect(readJourney(localStorage).practice!.index).toBe(0);
+});
+it("keeps rejected skips and drafts without grade or advancement", async () => {
+  const api = apiFixture();
+  api.expose = vi.fn(async event => ({ eventId: event.eventId, status: "rejected", error: { code: "question_completed", message: "Already completed", requestId: crypto.randomUUID(), retryable: false } }));
+  await start(api); fireEvent.click(screen.getByText("Skip"));
+  await waitFor(() => expect(readJourney(localStorage).practice!.rejected).toBe(true));
+  expect(readJourney(localStorage).practice).toMatchObject({ index: 0, skippedCount: 0, evaluation: null });
+  expect(screen.getByText("Retry skip")).toBeDisabled();
+});
+it("replays skip when saving its server acknowledgment fails", async () => {
+  const api = apiFixture(); let fail = false;
+  const storage = { getItem: (key: string) => localStorage.getItem(key), setItem: (key: string, value: string) => { if (fail) throw Error("disk full"); localStorage.setItem(key, value); } };
+  api.expose = vi.fn(async event => { fail = true; return { eventId: event.eventId, status: "accepted", serverSequence: 1 }; });
+  render(<LearnerJourney api={api} storage={storage} />);
+  await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
+  fireEvent.click(screen.getByText("Start short practice")); await screen.findByLabelText("Your answer");
+  fireEvent.click(screen.getByText("Skip"));
+  await screen.findByRole("alert");
+  const event = readJourney(localStorage).practice!.pendingExposure;
+  expect(readJourney(localStorage).practice).toMatchObject({ index: 0, skippedCount: 0 });
+  fail = false; cleanup();
+  api.expose = vi.fn(async input => ({ eventId: input.eventId, status: "duplicate", serverSequence: 1 }));
+  await start(api); fireEvent.click(screen.getByText("Retry skip"));
+  await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(1));
+  expect(api.expose).toHaveBeenCalledWith(event);
+  expect(readJourney(localStorage).practice!.skippedCount).toBe(1);
+});
+it("prevents skip while an answer awaits confirmation", async () => {
+  const api = apiFixture(); api.submit = vi.fn().mockRejectedValue(Error("lost response"));
+  await start(api); fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByText("Check answer")); await screen.findByRole("alert");
+  expect(screen.queryByText("Skip")).not.toBeInTheDocument();
+  expect(api.expose).not.toHaveBeenCalled();
+});
+it("counts graded and skipped questions separately and refreshes confirmed targets", async () => {
+  const api = apiFixture(); await start(api);
+  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByText("Check answer"));
+  fireEvent.click(await screen.findByText("Continue"));
+  const reads = vi.mocked(api.targets).mock.calls.length;
+  for (let index = 1; index < session.questions.length; index++) {
+    fireEvent.click(screen.getByText("Skip"));
+    await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(index + 1));
+  }
+  expect(screen.getByText("Questions skipped: 4")).toBeInTheDocument();
+  expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 1 / 5");
+  expect(screen.getByText("Correct answers: 1")).toBeInTheDocument();
+  await waitFor(() => expect(vi.mocked(api.targets).mock.calls.length).toBeGreaterThan(reads));
+});
+it("reads pre-skip saved sessions without losing pending attempts", () => {
+  const saved = emptyJourney();
+  const practice = { request: { apiVersion: "v2", requestId: crypto.randomUUID(), questionCount: 5, capabilities: ["short_answer@1"] }, session, index: 0,
+    draft: null, assisted: false, pending: null, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...saved, practice }));
+  expect(readJourney(localStorage).practice).toEqual({ ...practice, pendingExposure: null, skippedCount: 0 });
+});
+it("validates exposure acknowledgment linkage before accepting a response", async () => {
+  const event = { eventId: crypto.randomUUID(), sessionQuestionId: session.questions[0].id, exerciseRevision: 1, deviceId: crypto.randomUUID(), disposition: "skip" as const, occurredAt: new Date().toISOString() };
+  const fetchMock = vi.fn(async (_path: string, _options: RequestInit) => ({ ok: true, json: async () => ({ apiVersion: "v2", acknowledgments: [{ eventId: crypto.randomUUID(), status: "accepted", serverSequence: 1 }] }) }));
+  vi.stubGlobal("fetch", fetchMock);
+  await expect(localLearnerApi().expose(event)).rejects.toThrow("linkage mismatch");
+  expect(JSON.parse(fetchMock.mock.calls[0][1].body as string)).toEqual({ apiVersion: "v2", events: [event] });
+});
 async function start(api = apiFixture()) {
   render(<LearnerJourney api={api} />);
   await waitFor(() => expect(screen.getByText(/Start short practice|Continue practice/)).toBeEnabled());
@@ -50,7 +145,7 @@ it("retries frozen setup payload after lost response and reload without overwrit
   const api = apiFixture();
   const saved = emptyJourney(); saved.practice = { request: { apiVersion: "v2", requestId: crypto.randomUUID(), questionCount: 5,
     capabilities: ["short_answer@1"] }, session, index: 0, draft: { type: "short_answer", text: "draft" }, assisted: false, pending: null, evaluation: null,
-    rejected: false, confirmedCount: 0, correctCount: 0 };
+    rejected: false, pendingExposure: null, skippedCount: 0, confirmedCount: 0, correctCount: 0 };
   saveJourney(localStorage, saved);
   let profile = await api.profile();
   api.profile = vi.fn(async () => profile);

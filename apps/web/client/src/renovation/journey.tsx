@@ -78,7 +78,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
           : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : availableCount;
         if (!available) throw Error("No compatible content");
         practice = { request: focus ? { ...base, questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, available), focus } : base, session: null, index: 0, draft: null, assisted: false,
-          pending: null, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
+          pending: null, pendingExposure: null, skippedCount: 0, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
         commit({ ...current.current, practice });
       }
       if (!practice.session) {
@@ -90,7 +90,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   async function submit() {
     await run(async () => {
       const practice = current.current.practice;
-      if (!practice?.session || practice.rejected || practice.evaluation) return;
+      if (!practice?.session || practice.rejected || practice.evaluation || practice.pendingExposure) return;
       const question = practice.session.questions[practice.index];
       const answer = readyAnswer(question.exercise, practice.draft as Answer | null);
       if (!answer && !practice.pending) return;
@@ -101,6 +101,26 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
       else editPractice({ evaluation: result.evaluation, confirmedCount: practice.confirmedCount + 1,
         correctCount: practice.correctCount + (result.evaluation.outcome === "correct" ? 1 : 0) });
     }, "connectionError");
+  }
+  async function skip() {
+    let completed = false;
+    await run(async () => {
+      const practice = current.current.practice;
+      if (!practice?.session || practice.pending || practice.evaluation || practice.rejected) return;
+      const question = practice.session.questions[practice.index];
+      if (!question) return;
+      const event = practice.pendingExposure ?? { eventId: crypto.randomUUID(), sessionQuestionId: question.id,
+        exerciseRevision: question.exercise.revision, deviceId: current.current.deviceId, disposition: "skip" as const,
+        occurredAt: new Date().toISOString() };
+      editPractice({ pendingExposure: event });
+      const result = await api.expose(event);
+      if (result.eventId !== event.eventId) throw Error("Exposure acknowledgment linkage mismatch");
+      if (result.status === "rejected") { editPractice({ rejected: true }); return; }
+      editPractice({ index: practice.index + 1, draft: null, assisted: false, pendingExposure: null,
+        skippedCount: practice.skippedCount + 1 });
+      completed = practice.index + 1 === practice.session.questions.length;
+    }, "connectionError");
+    if (completed) await refresh();
   }
   function next() {
     if (!p?.evaluation) return;
@@ -161,19 +181,21 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
           <PracticeCard>
             {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
               <h1 ref={heading} tabIndex={-1}>{c.complete}</h1><p role="status">{c.summary}: {p.confirmedCount} / {p.session.questions.length}</p>
-              <p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
+              <p>{c.skippedCount}: {p.skippedCount}</p><p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
               <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
             </> : exercise ? <>
               <p className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</p>
               <h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1><p>{exercise.instruction[state.locale]}</p>
-              <fieldset className="gm-answer-group" disabled={!!p.pending || busy}>
+              <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || busy}>
                 <ExerciseInput key={`${p.session.id}-${p.index}`} exercise={exercise} locale={state.locale} initialAnswer={p.draft as Answer | null} onAnswer={() => {}} onDraft={draft => { try { editPractice({ draft }); return true; } catch { return false; } }} />
                 <FoundationButton className="gm-secondary" disabled={p.assisted} onClick={() => { try { editPractice({ assisted: true }); } catch { /* Reveal only after assistance has been saved. */ } }}>{c.hint}</FoundationButton>
                 {p.assisted && <p>{exercise.hint[state.locale]}</p>}
               </fieldset>
-              {!p.evaluation && <FoundationButton disabled={busy || p.rejected || (!p.pending && !readyAnswer(exercise, p.draft as Answer | null)) || error === "storageError"} onClick={() => void submit()}>{busy ? c.sending : p.pending ? c.retry : c.submit}</FoundationButton>}
+              {!p.evaluation && !p.pendingExposure && <FoundationButton disabled={busy || p.rejected || (!p.pending && !readyAnswer(exercise, p.draft as Answer | null)) || error === "storageError"} onClick={() => void submit()}>{busy ? c.sending : p.pending ? c.retry : c.submit}</FoundationButton>}
+              {!p.evaluation && !p.pending && <FoundationButton className="gm-secondary" disabled={busy || p.rejected || error === "storageError"} onClick={() => void skip()}>{p.pendingExposure ? c.retrySkip : c.skip}</FoundationButton>}
+              {p.pendingExposure && <p role="status">{c.skipPending}</p>}
               {p.pending && !p.evaluation && <p role="status">{c.pending}</p>}
-              {p.rejected && <p role="alert">{c.rejected} {c.discardNote}</p>}
+              {p.rejected && <p role="alert">{p.pendingExposure ? c.skipRejected : c.rejected} {c.discardNote}</p>}
               {p.evaluation && p.pending && <div className="gm-feedback" ref={feedback} tabIndex={-1}>
                 <p role="status">{p.evaluation.outcome === "correct" ? c.correct : c.incorrect}{p.evaluation.assisted ? ` · ${c.assisted}` : ""}</p>
                 <p>{c.yourAnswer}: <span lang="de">{answerText(p.pending.answer, p.session, p.index)}</span></p>

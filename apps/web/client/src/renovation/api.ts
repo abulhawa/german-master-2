@@ -1,7 +1,9 @@
 import { LearnerProfileSchema, type LearnerProfile, type ProfileRequest, CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
+import { ExposureBatchResponseSchema, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 
 export interface LearnerApi extends FoundationApi {
+  expose(event: ExposureEvent): Promise<ExposureAcknowledgment>;
   profile(): Promise<LearnerProfile>;
   saveProfile(request: ProfileRequest): Promise<LearnerProfile>;
   catalog(): Promise<Catalog>;
@@ -18,6 +20,13 @@ export function localLearnerApi(): LearnerApi {
     return response.json();
   }
   return { ...localFoundationApi(),
+    async expose(event) {
+      const response = await fetch("/v2/exposures:batch", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify({ apiVersion: "v2", events: [event] }) });
+      if (!response.ok) throw Error("Exposure unavailable");
+      const parsed = ExposureBatchResponseSchema.parse(await response.json());
+      if (parsed.acknowledgments.length !== 1 || parsed.acknowledgments[0].eventId !== event.eventId) throw Error("Exposure acknowledgment linkage mismatch");
+      return parsed.acknowledgments[0];
+    },
     async profile() {
       const response = await fetch("/v2/profile", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
       if (!response.ok) throw Error("Profile unavailable");
