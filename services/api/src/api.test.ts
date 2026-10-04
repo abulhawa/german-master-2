@@ -14,9 +14,11 @@ const user = "00000000-0000-4000-8000-000000000010";
 const other = "00000000-0000-4000-8000-000000000011";
 const request = (): SessionRequest => ({ apiVersion: "v2", requestId: randomUUID(), questionCount: 5,
   capabilities: ["short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1"] });
-const attemptFor = (session: Session, index = 0): Attempt => ({ ...answers.attempts[index],
-  attemptId: randomUUID(), sessionQuestionId: session.questions[index].id, answer: answers.attempts[index].answer as Attempt["answer"],
-  assistance: [] });
+const attemptFor = (session: Session, index = 0): Attempt => {
+  const question = session.questions.find(q => q.exercise.id === `00000000-0000-4000-8000-${String(100 + index).padStart(12, "0")}`)!;
+  return { ...answers.attempts[index], attemptId: randomUUID(), sessionQuestionId: question.id,
+    answer: answers.attempts[index].answer as Attempt["answer"], assistance: [] };
+};
 
 describe("isolated PostgreSQL-backed HTTP session", () => {
   let db: PGlite;
@@ -134,12 +136,14 @@ it("preserves accepted acknowledgments across a local database close/reopen", as
   try {
     let store = new FoundationStore(db);
     await store.initialize();
-    const session = await store.createSession(user, request());
+    const sessionRequest = request();
+    const session = await store.createSession(user, sessionRequest);
     const input = attemptFor(session);
     const accepted = await store.submit(user, input, randomUUID());
     await db.close();
     db = new PGlite(directory); store = new FoundationStore(db);
     await store.initialize();
+    expect(await store.createSession(user, sessionRequest)).toEqual(session);
     expect(await store.submit(user, input, randomUUID())).toEqual({ ...accepted, status: "duplicate" });
   } finally { await db.close(); await rm(directory, { recursive: true, force: true }); }
 });

@@ -2,7 +2,7 @@ import { PGlite, type Transaction } from "@electric-sql/pglite";
 import { readFile } from "node:fs/promises";
 import { randomUUID, createHash } from "node:crypto";
 import { SessionSchema, type Session, type SessionRequest, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
-import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot } from "@german-master/learning-engine";
+import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
 import editorial from "../../../content/foundation/review.json";
 
@@ -189,27 +189,45 @@ export class FoundationStore {
 
   async createSession(userId: string, request: SessionRequest): Promise<Session> {
     return this.db.transaction(async tx => {
-      const previous = await tx.query<{ id: string; request_payload: unknown }>(
-        "SELECT id,request_payload FROM gm.practice_session WHERE user_id=$1 AND request_id=$2", [userId, request.requestId]);
+      await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
+      await this.lockLearner(tx, userId);
+      const previous = await tx.query<{ id: string; request_payload: unknown; release_id: string }>(
+        "SELECT id,request_payload,release_id FROM gm.practice_session WHERE user_id=$1 AND request_id=$2", [userId, request.requestId]);
       let sessionId: string;
       const catalog = foundationCatalog();
+      let releaseId = catalog.session.contentReleaseId;
       if (previous.rows.length) {
         if (canonical(previous.rows[0].request_payload) !== canonical(request)) throw new ApiFailure("session_conflict", 409);
         sessionId = previous.rows[0].id;
+        releaseId = previous.rows[0].release_id;
       } else {
-        const questions = catalog.session.questions.filter(q => request.capabilities.includes(`${q.exercise.type}@1`));
+        const now = this.clock().toISOString();
+        const eligible = await tx.query<SelectionCandidate>(
+          `SELECT e.target_id AS "targetId",r.exercise_id AS "exerciseId",r.revision,
+            COALESCE(st.snapshot->>'state','new') AS state,sc.due_at AS "dueAt",
+            st.snapshot->>'lastInformativeAt' AS "lastInformativeAt"
+           FROM gm.content_release_exercise cr JOIN gm.exercise_revision r
+             ON r.exercise_id=cr.exercise_id AND r.revision=cr.revision
+           JOIN gm.exercise e ON e.id=r.exercise_id
+           JOIN gm.learning_target t ON t.id=e.target_id
+           JOIN gm.revision_evidence_identity i ON i.exercise_id=r.exercise_id AND i.revision=r.revision
+           LEFT JOIN gm.learner_target_state st ON st.target_id=e.target_id AND st.user_id=$1
+           LEFT JOIN gm.review_schedule sc ON sc.target_id=e.target_id AND sc.user_id=$1
+           WHERE cr.release_id=$2 AND t.status<>'retired' AND r.type || '@1' = ANY($3::text[])`,
+          [userId, catalog.session.contentReleaseId, request.capabilities]);
+        const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
+          dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);
         sessionId = randomUUID();
-        await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
         await tx.query("INSERT INTO gm.practice_session (id,user_id,request_id,request_payload,release_id,engine_version,status,issued_at) VALUES ($1,$2,$3,$4,$5,$6,'active',$7)",
-          [sessionId, userId, request.requestId, request, catalog.session.contentReleaseId, EVALUATOR_VERSION, this.clock().toISOString()]);
-        for (const [position, { exercise }] of questions.slice(0, request.questionCount).entries())
-          await tx.query("INSERT INTO gm.session_question (id,user_id,session_id,release_id,exercise_id,revision,position) VALUES ($1,$2,$3,$4,$5,$6,$7)",
-            [randomUUID(), userId, sessionId, catalog.session.contentReleaseId, exercise.id, exercise.revision, position]);
+          [sessionId, userId, request.requestId, request, catalog.session.contentReleaseId, SELECTION_POLICY_VERSION, now]);
+        for (const [position, question] of questions.entries())
+          await tx.query("INSERT INTO gm.session_question (id,user_id,session_id,release_id,exercise_id,revision,position,evidence_role) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
+            [randomUUID(), userId, sessionId, catalog.session.contentReleaseId, question.exerciseId, question.revision, position, question.role]);
       }
       const questions = await tx.query<{ id: string; payload: Exercise }>(
         "SELECT q.id,r.payload FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.session_id=$1 AND q.user_id=$2 ORDER BY q.position", [sessionId, userId]);
-      return SessionSchema.parse({ apiVersion: "v2", id: sessionId, contentReleaseId: catalog.session.contentReleaseId,
+      return SessionSchema.parse({ apiVersion: "v2", id: sessionId, contentReleaseId: releaseId,
         questions: questions.rows.map(q => ({ id: q.id, exercise: q.payload })) });
     });
   }

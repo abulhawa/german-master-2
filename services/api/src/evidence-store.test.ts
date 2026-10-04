@@ -104,10 +104,10 @@ it("competing same-target sessions retain both receipts and only one qualifying 
 it("assistance requests earlier practice without shortening the retention gate", async () => {
   const first = await attempt(); await store.submit(user, first, randomUUID());
   now = "2026-10-05T12:00:00Z";
+  const assisted = { ...await attempt(), assistance: ["hint" as const] };
   await store.submit(user, await attempt(), randomUUID());
   const target = (await db.query<{ target_id: string }>("SELECT target_id FROM gm.accepted_evidence LIMIT 1")).rows[0].target_id;
   const before = await store.rebuild(user, target);
-  const assisted = { ...await attempt(), assistance: ["hint" as const] };
   await store.submit(user, assisted, randomUUID());
   const after = await store.rebuild(user, target);
   expect(after.nextQualifyingAt).toBe(before.nextQualifyingAt);
@@ -129,13 +129,16 @@ it("four spaced catalog checks remain improving without invented diversity", asy
 });
 
 it("a server-pinned reinforcement records grading without independent assessment", async () => {
-  await db.exec("ALTER TABLE gm.session_question ALTER COLUMN evidence_role SET DEFAULT 'reinforcement'");
-  const input = await attempt();
-  await db.exec("ALTER TABLE gm.session_question ALTER COLUMN evidence_role SET DEFAULT 'assessment'");
-  expect((await store.submit(user, input, randomUUID())).status).toBe("accepted");
+  const first = await attempt();
+  await store.submit(user, first, randomUUID());
   const target = (await db.query<{ target_id: string }>("SELECT target_id FROM gm.accepted_evidence")).rows[0].target_id;
-  expect(await store.rebuild(user, target)).toMatchObject({ state: "new", exposureCount: 1,
-    qualifyingChecks: [], schedule: null, decisions: [{ effect: "reinforcement" }] });
+  const before = await store.rebuild(user, target);
+  const input = await attempt();
+  expect((await store.submit(user, input, randomUUID())).status).toBe("accepted");
+  const after = await store.rebuild(user, target);
+  expect(after).toMatchObject({ state: before.state, exposureCount: 2,
+    qualifyingChecks: before.qualifyingChecks, schedule: before.schedule });
+  expect(after.decisions[1].effect).toBe("reinforcement");
 });
 
 it("a failed skip sync write rolls back exposure, device and completion", async () => {

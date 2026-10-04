@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This transactional-evidence continuation started at `b5b288a` with a clean checkout and matching remote. Android repair, mockups, shared exercise foundation, authoritative backend grading and pure evidence policy were already complete. This slice connects accepted evidence to transactional server projections/schedules/sync changes.
+- This server-selection continuation started at `4085fa5` with a clean checkout and matching remote. The transactional-evidence workflows were confirmed successful at `b5650c9`. The current slice selects and pins local sessions from owned persisted state and current UTC deadlines.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -48,7 +48,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 ## Remaining limitations
 
-The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading, retained-evidence reduction and transactional state/schedule/sync persistence are implemented locally; production identity/network database, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading, retained-evidence reduction and transactional state/schedule/sync persistence are implemented locally; production identity/network database, production selection/content acceptance, durable sync and the complete 2.0 learner journey remain open.
 
 Hosted verification after the repair:
 
@@ -73,7 +73,7 @@ The hosted-results checkpoint update is documentation-only and accompanies this 
 |---|---|---|
 | M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
 | M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
-| M2 Authoritative engine | In progress | Grading, idempotent attempts/exposures and transactional evidence/state/schedules/sync implemented locally; adaptive selection and production adapters remain |
+| M2 Authoritative engine | In progress | Grading, idempotent attempts/exposures and transactional evidence/state/schedules/sync implemented locally; local small-catalog selection implemented; production adapters and broader selection acceptance remain |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
@@ -92,12 +92,12 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 
 ## Exact next implementation slice
 
-1. Inspect checkout/recent commits and hosted transactional-evidence results. Preserve newer work; do not restart completed grading, evidence policy, transactional persistence, skip ingestion, previews, Android repair or mockups.
-2. Drive a small server-selected session from differing learner histories, using persisted target state and UTC schedule eligibility. Preserve capability negotiation, replay-safe selection, immutable revision/editorial role pinning and solution-free payloads. Demonstrate due/weak/new ordering with synthetic histories; do not invent catalog diversity or imply content approval. Read ADRs 004 and 005 before using schedule eligibility or reinforcement.
-3. Then expose owned target/sync snapshots through versioned transport and expand the complete learner journey. Stored `isDue` is as of ingestion; refresh it from schedule deadline and injected clock. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+1. Inspect checkout/recent commits and hosted server-selection results. Preserve newer work; grading, evidence policy, transactional persistence, local mixed selection, previews, Android repair and mockups are implemented.
+2. Expose owned target/sync snapshots through versioned transport, with ownership, cursor pagination/replay and close/reopen tests. Define how current due eligibility is refreshed from UTC deadlines and injected clock; stored sync changes retain their ingestion-time meaning. Keep confirmed snapshots separate from pending client work.
+3. Then expand the complete learner journey, including an honest shorter-session offer for this five-target catalog. Level/topic filtering, seeded variant selection and broader diversity require reviewed catalog/contract expansion. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is server-selected sessions for differing learner histories, followed by target/sync transport and the complete learner journey. Transactional server-owned evidence/state/scheduling is now implemented locally. The first backend session is verified locally and in hosted CI at `4877d22`; the pure evidence policy is locally verified as recorded below. Full milestone exit gates remain in blueprint Sections 23–26. Ignored private recovery artifacts remain local.
+The next demonstration is owned target/sync transport, followed by the complete learner journey. M0/M1 remain open and M2 remains in progress. Ignored private recovery artifacts remain local.
 
 ## Pure evidence and scheduling policy slice
 
@@ -115,6 +115,14 @@ The next demonstration is server-selected sessions for differing learner histori
 - Added generated TypeScript/Kotlin exposure contracts, shared conformance fixtures and `POST /v2/exposures:batch`. Exposure is nonterminal; skip finishes a question without grading. Both record exposure only, preserve event idempotency and compete with answers for first terminal submission. Skip UI and public sync retrieval remain open.
 - New PostgreSQL tests cover exact projection replay, saved timezone/issuance/identities, duplicate acknowledgment, late final-write rollback, competing same-target sessions, assisted retention gates, reinforcement, single-variant mastery limits, skip/answer race, ownership, strict HTTP transport, old-schema upgrade and close/reopen recovery. [Decision](docs/adr/005_transactional_evidence.md), [verification](docs/operations/transactional-evidence-verification.md).
 - Local root install/check/build passed; backend 4 files / 51 tests and web 78 files / 301 tests passed. Android offline 26 suites / 98 tests, debug assembly and lint passed (zero errors / 16 warnings). Built loopback launcher accepted an answer and replay-safe skip. Implementation `b5650c9` is committed and pushed to `main`. All three hosted workflows passed at that exact commit: [Web checks 37166238284](https://github.com/abulhawa/german-master-2/actions/runs/37166238284), [Android checks 37166238314](https://github.com/abulhawa/german-master-2/actions/runs/37166238314) and [Repository safety 37166238283](https://github.com/abulhawa/german-master-2/actions/runs/37166238283). Staged and full-history Gitleaks scans passed with zero findings (775 commits at implementation head). M0/M1 gates remain open and M2 remains in progress. No production mutation, content publication, store release or AI/Groq inference occurred.
+
+## Server-selected session slice
+
+- Implemented server-only `mixed-selection-v1` with weak/due/new quotas, bounded overdue urgency, stable identity ties, manageable opening and interleaving. Missing pools are reallocated; at most one question per distinct target is used in this five-draft catalog. Non-due extra practice is pinned reinforcement, so it cannot inflate retained mastery.
+- Session creation now reads owned persisted states and UTC schedules under the learner lock, filters capabilities and retired targets, pins database revisions/editorial identities and saves selection version/roles. Eligibility refreshes from injected time without changing saved projections. Replays preserve stored allocation, roles and release after history/clock changes; concurrent duplicate requests return one session.
+- Contrasting accepted histories demonstrate new selection before deadline, due weakness at deadline and due/weak/new mixed ordering. Pure synthetic tests exercise full 8/5/2 quotas and bounded backlog behavior. Filesystem restart also replays session creation. [Decision](docs/adr/006_server_selected_sessions.md), [verification](docs/operations/server-selection-verification.md).
+- Local root install/check/test/build passed: backend six files / 57 tests; web 78 files / 301 tests. Final backend check/test/build repeated after release replay correction. No client/contracts changed, so Android/browser/device checks were not repeated. Existing dependency audit warnings remain. M2 stays in progress; M0/M1 gates remain open. No production mutation, deployment, content publication, store release or AI/Groq inference occurred.
+- Implementation and checkpoint committed/pushed with this slice; hosted results pending. Next action: owned target/sync transport as described above.
 
 ## Local toolchain and checks
 
