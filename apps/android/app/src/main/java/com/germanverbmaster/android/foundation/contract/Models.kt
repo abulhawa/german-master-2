@@ -674,6 +674,50 @@ data class Catalog(
     }
 }
 
+@Serializable
+data class ProfilePreferences(
+    val locale: String,
+    val timezone: String,
+    val level: String,
+    val sessionQuestionCount: Int
+) {
+    init {
+        require(locale in setOf("en", "de")) { "Invalid ProfilePreferences.locale" }
+        require(timezone.length >= 1) { "Invalid ProfilePreferences.timezone" }
+        require(level in setOf("B1", "B2")) { "Invalid ProfilePreferences.level" }
+        require(sessionQuestionCount in setOf(5, 15)) { "Invalid ProfilePreferences.sessionQuestionCount" }
+    }
+}
+
+@Serializable
+data class LearnerProfile(
+    val apiVersion: String,
+    val revision: Int,
+    val setupCompleted: Boolean,
+    val preferences: ProfilePreferences
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid LearnerProfile.apiVersion" }
+        require(revision >= 0) { "Invalid LearnerProfile.revision" }
+        require(revision <= 2147483647) { "Invalid LearnerProfile.revision" }
+    }
+}
+
+@Serializable
+data class ProfileRequest(
+    val apiVersion: String,
+    val requestId: String,
+    val expectedRevision: Int,
+    val preferences: ProfilePreferences
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid ProfileRequest.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid ProfileRequest.requestId" }
+        require(expectedRevision >= 0) { "Invalid ProfileRequest.expectedRevision" }
+        require(expectedRevision <= 2147483646) { "Invalid ProfileRequest.expectedRevision" }
+    }
+}
+
 object ContractShape {
     fun checkOption(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "text")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -722,4 +766,7 @@ object ContractShape {
     fun checkCatalogTopic(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "title")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("title")) } }
     fun checkCatalogTarget(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "topicId", "title", "description", "level", "availableQuestionCount")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("topicId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("title")); checkLocalizedText(o.getValue("description")); run { val p = o.getValue("level") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("availableQuestionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
     fun checkCatalog(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "contentReleaseId", "status", "topics", "targets")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("topics") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkCatalogTopic(item) } }; run { val a = o.getValue("targets") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkCatalogTarget(item) } } } }
+    fun checkProfilePreferences(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("locale", "timezone", "level", "sessionQuestionCount")); run { val p = o.getValue("locale") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("timezone") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("level") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkLearnerProfile(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "revision", "setupCompleted", "preferences")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("revision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("setupCompleted") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) }; checkProfilePreferences(o.getValue("preferences")) } }
+    fun checkProfileRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "expectedRevision", "preferences")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("expectedRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; checkProfilePreferences(o.getValue("preferences")) } }
 }

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import type { Answer, Catalog, PracticeFocus } from "@german-master/contracts";
+import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
 import { learnerCopy } from "./locales";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
+
+import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
 
 const localApi = localLearnerApi();
 export default function LearnerJourney({ api = localApi, storage = browserStorage }: { api?: LearnerApi; storage?: JourneyStorage }) {
@@ -12,6 +14,9 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   const [state, setState] = useState(loaded.state);
   const current = useRef(state);
   const [view, setView] = useState<"home" | "practice" | "progress" | "topics" | "topic" | "target">("home");
+  const [profile, setProfile] = useState<LearnerProfile | null>(null);
+  const [profileFailed, setProfileFailed] = useState(false);
+  const [editingSetup, setEditingSetup] = useState(() => { try { return !!storage.getItem(PROFILE_PENDING_KEY); } catch { return true; } });
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [catalogFailed, setCatalogFailed] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -23,7 +28,10 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   const c = learnerCopy[state.locale];
   const p = state.practice;
   const exercise = p?.session?.questions[p.index]?.exercise;
+  const setup = editingSetup || (!!profile && !profile.setupCompleted);
+  const availableCount = catalog?.targets.filter(t => t.availableQuestionCount > 0).length ?? 0;
   const complete = !!p?.session && p.index === p.session.questions.length;
+  const canPractice = !!p && !complete || !!profile?.setupCompleted && !setup && availableCount > 0;
 
   function commit(next: Journey) {
     try { saveJourney(storage, next); } catch { setError("storageError"); throw Error("Storage unavailable"); }
@@ -50,20 +58,26 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
     setCatalogFailed(false);
     try { setCatalog(await api.catalog()); } catch { setCatalogFailed(true); }
   }
-  useEffect(() => { void refresh(); void loadCatalog(); }, [api]);
-  useEffect(() => { heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id]);
+  async function loadProfile() {
+    setProfileFailed(false);
+    try { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }); setProfile(value); }
+    catch { setProfileFailed(true); }
+  }
+  useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
+  useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
 
   async function start(focus?: PracticeFocus) {
+    if (!canPractice) return;
     setView("practice");
     await run(async () => {
       let practice = current.current.practice;
       if (!practice || (practice.session && practice.index === practice.session.questions.length)) {
-        const base = sessionRequest();
+        const base = { ...sessionRequest(), questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount) };
         const available = focus?.type === "target" ? catalog?.targets.find(t => t.id === focus.id)?.availableQuestionCount
-          : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : 5;
+          : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : availableCount;
         if (!available) throw Error("No compatible content");
-        practice = { request: focus ? { ...base, questionCount: Math.min(5, available), focus } : base, session: null, index: 0, draft: null, assisted: false,
+        practice = { request: focus ? { ...base, questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, available), focus } : base, session: null, index: 0, draft: null, assisted: false,
           pending: null, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
         commit({ ...current.current, practice });
       }
@@ -106,37 +120,46 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
   function showTarget(id: string) { setSelectedId(id); setView("target"); }
   function focusAction(focus: PracticeFocus, count: number) {
     return <><p>{c.available}: {count}</p><p>{c.focusedShort}</p>
-      {p && !complete ? <><p>{c.resumeFirst}</p><FoundationButton disabled={busy} onClick={() => void start()}>{c.resume}</FoundationButton></>
+      {p && !complete ? <><p>{c.resumeFirst}</p><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.resume}</FoundationButton></>
         : <FoundationButton disabled={busy || count === 0} onClick={() => void start(focus)}>{c.practise}</FoundationButton>}</>;
   }
 
   return <main className="gm-foundation" data-theme={state.theme} lang={state.locale}>
     <div className="gm-column">
       <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
-      {view !== "practice" && <div className="gm-settings">
+      {view !== "practice" && !setup && <div className="gm-settings">
         <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey["locale"] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey["theme"] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
       </div>}
       {view !== "practice" && <p className="gm-notice">{c.notice}</p>}
-      {view !== "practice" && <nav className="gm-navigation" aria-label={c.subtitle}>
+      {view !== "practice" && !setup && <nav className="gm-navigation" aria-label={c.subtitle}>
         <FoundationButton className="gm-secondary" aria-current={view === "home" ? "page" : undefined} onClick={() => setView("home")}>{c.home}</FoundationButton>
         <FoundationButton className="gm-secondary" aria-current={view === "progress" ? "page" : undefined} onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
         <FoundationButton className="gm-secondary" aria-current={view === "topics" || view === "topic" ? "page" : undefined} onClick={() => setView("topics")}>{c.topics}</FoundationButton>
       </nav>}
+      {view !== "practice" && !setup && <FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>}
+      {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
+      {!profile && !profileFailed && <p role="status">{c.profileLoading}</p>}
+      {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={profile.revision} profile={profile} api={api} storage={storage}
+        onPreviewLocale={locale => preference({ locale })}
+        onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); setView("home"); void loadCatalog(); }}
+        onReload={async () => { const value = await api.profile(); setProfile(value); preference({ locale: value.preferences.locale }); return value; }}
+        onCancel={profile.setupCompleted ? () => setEditingSetup(false) : undefined} />}
+      {setup && view !== "practice" && p && !complete && <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.resume}</FoundationButton>}
       {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
         {error && <p role="alert">{c[error]}</p>}
-        {view === "home" && <PracticeCard>
+        {view === "home" && !setup && <PracticeCard>
           <h1 ref={heading} tabIndex={-1}>{hasEvidence ? c.priorities : c.welcome}</h1>
           {confirmed && <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
-          <p>{c.shorter}</p>
-          <FoundationButton disabled={busy} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
+          <p>{c.draftLevel}</p><p>{c.requested}: {profile?.preferences.sessionQuestionCount ?? 15} · {c.available}: {availableCount}</p>{availableCount === 0 && <p>{c.noContent}</p>}
+          <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {confirmed && <p className="gm-meta">{c.stale}</p>}
         </PracticeCard>}
         {view === "practice" && <>
           <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.close}</FoundationButton>
           <PracticeCard>
-            {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
+            {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
               <h1 ref={heading} tabIndex={-1}>{c.complete}</h1><p role="status">{c.summary}: {p.confirmedCount} / {p.session.questions.length}</p>
               <p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
               <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
@@ -160,17 +183,17 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
             </> : null}
           </PracticeCard>
         </>}
-        {view === "progress" && <PracticeCard>
+        {view === "progress" && !setup && <PracticeCard>
           <h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p><ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
             <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p>{c.states[t.state]}</p>
-            {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale)}</time></p>}
+            {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
             <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
           </li>)}</ul></>}
-          <FoundationButton disabled={busy} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
+          <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
         </PracticeCard>}
-        {(view === "topics" || view === "topic" || view === "target") && <PracticeCard>
+        {(view === "topics" || view === "topic" || view === "target") && !setup && <PracticeCard>
           <h1 ref={heading} tabIndex={-1}>{view === "topics" ? c.topics : view === "topic" ? selectedTopic?.title[state.locale] ?? c.topicDetail : selectedTarget?.title[state.locale] ?? c.detail}</h1>
           {catalogFailed && <p role="alert">{c.catalogUnavailable}</p>}
           {(!catalog || catalogFailed) && <FoundationButton disabled={busy} onClick={() => void loadCatalog()}>{c.retryCatalog}</FoundationButton>}
@@ -187,7 +210,7 @@ export default function LearnerJourney({ api = localApi, storage = browserStorag
           {view === "target" && selectedTarget && <>
             <p>{selectedTarget.level} · {selectedTarget.description[state.locale]}</p>
             {targetState ? <><p>{c.states[targetState.state]}</p><p>{c.checks}: {targetState.qualifyingCheckCount}</p>
-              {targetState.schedule[0] && <p>{targetState.isDue ? c.due : c.later}: <time dateTime={targetState.schedule[0].dueAt}>{new Date(targetState.schedule[0].dueAt).toLocaleDateString(state.locale)}</time></p>}
+              {targetState.schedule[0] && <p>{targetState.isDue ? c.due : c.later}: <time dateTime={targetState.schedule[0].dueAt}>{new Date(targetState.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
               <p className="gm-meta">{c.stale}</p></> : <p>{c.empty}</p>}
             <p>{c.retentionNote}</p>
             {focusAction({ type: "target", id: selectedTarget.id }, selectedTarget.availableQuestionCount)}

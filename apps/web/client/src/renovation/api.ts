@@ -1,7 +1,9 @@
-import { CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
+import { LearnerProfileSchema, type LearnerProfile, type ProfileRequest, CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
 
 export interface LearnerApi extends FoundationApi {
+  profile(): Promise<LearnerProfile>;
+  saveProfile(request: ProfileRequest): Promise<LearnerProfile>;
   catalog(): Promise<Catalog>;
   createFocusedSession(request: FocusedSessionRequest): Promise<Session>;
   targets(cursor?: string): Promise<TargetPage>;
@@ -16,6 +18,16 @@ export function localLearnerApi(): LearnerApi {
     return response.json();
   }
   return { ...localFoundationApi(),
+    async profile() {
+      const response = await fetch("/v2/profile", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
+      if (!response.ok) throw Error("Profile unavailable");
+      return LearnerProfileSchema.parse(await response.json());
+    },
+    async saveProfile(request) {
+      const response = await fetch("/v2/profile", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
+      if (!response.ok) throw Error("Profile update unavailable");
+      return LearnerProfileSchema.parse(await response.json());
+    },
     async catalog() {
       const response = await fetch("/v2/catalog", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
       if (!response.ok) throw Error("Catalog unavailable");

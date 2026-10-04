@@ -1,6 +1,6 @@
 import { createServer, type IncomingMessage } from "node:http";
 import { randomUUID } from "node:crypto";
-import { AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
+import { ProfileRequestSchema, AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
 import { ApiFailure, FoundationStore } from "./store";
 
 export type Authenticate = (request: IncomingMessage) => Promise<string | null>;
@@ -28,15 +28,19 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
     response.setHeader("X-Content-Type-Options", "nosniff");
     try {
       const url = new URL(request.url ?? '/', 'http://localhost');
-      const isWrite = request.method === 'POST' && ['/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch'].includes(request.url ?? '');
-      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog'].includes(url.pathname);
+      const isWrite = request.method === 'POST' && ['/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile'].includes(request.url ?? '');
+      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog', '/v2/profile'].includes(url.pathname);
       if (!isWrite && !isRead) throw new ApiFailure('not_found', 404);
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
       if (request.method === 'GET') {
+        if (url.pathname === '/v2/profile') {
+          if (url.search) throw new ApiFailure('invalid_request', 400);
+          response.end(JSON.stringify(await store.profile(userId))); return;
+        }
         if (url.pathname === '/v2/catalog') {
           if (url.search) throw new ApiFailure('invalid_request', 400);
-          response.end(JSON.stringify(await store.catalog()));
+          response.end(JSON.stringify(await store.catalog(userId)));
           return;
         }
         for (const key of url.searchParams.keys())
@@ -54,7 +58,11 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
       if (request.headers["content-type"]?.split(";")[0].trim() !== "application/json")
         throw new ApiFailure("json_required", 415);
       const input = await body(request);
-      if (request.url === "/v2/sessions") {
+      if (request.url === "/v2/profile") {
+        const parsed = ProfileRequestSchema.safeParse(input);
+        if (!parsed.success) throw new ApiFailure("invalid_request", 400);
+        response.end(JSON.stringify(await store.saveProfile(userId, parsed.data)));
+      } else if (request.url === "/v2/sessions") {
         const parsed = (input && typeof input === "object" && "focus" in input ? FocusedSessionRequestSchema : SessionRequestSchema).safeParse(input);
         if (!parsed.success) throw new ApiFailure("invalid_request", 400);
         response.end(JSON.stringify(await store.createSession(userId, parsed.data)));

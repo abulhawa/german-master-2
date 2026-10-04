@@ -1374,6 +1374,98 @@
         "topics",
         "targets"
       ]
+    },
+    "ProfilePreferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locale": {
+          "type": "string",
+          "enum": [
+            "en",
+            "de"
+          ]
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "B1",
+            "B2"
+          ]
+        },
+        "sessionQuestionCount": {
+          "type": "integer",
+          "enum": [
+            5,
+            15
+          ]
+        }
+      },
+      "required": [
+        "locale",
+        "timezone",
+        "level",
+        "sessionQuestionCount"
+      ]
+    },
+    "LearnerProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "setupCompleted": {
+          "type": "boolean"
+        },
+        "preferences": {
+          "$ref": "#/$defs/ProfilePreferences"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "revision",
+        "setupCompleted",
+        "preferences"
+      ]
+    },
+    "ProfileRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483646
+        },
+        "preferences": {
+          "$ref": "#/$defs/ProfilePreferences"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "expectedRevision",
+        "preferences"
+      ]
     }
   },
   "$ref": "#/$defs/Session"

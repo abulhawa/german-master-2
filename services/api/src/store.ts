@@ -6,7 +6,7 @@ import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EV
 import { foundationCatalog } from "./catalog";
 import metadata from "../../../content/foundation/metadata.json";
 import editorial from "../../../content/foundation/review.json";
-import { TargetPageSchema, SyncPageSchema, type TargetPage } from "@german-master/contracts";
+import { TargetPageSchema, SyncPageSchema, type TargetPage, LearnerProfileSchema, ProfileRequestSchema, type ProfileRequest, type LearnerProfile } from "@german-master/contracts";
 import { confirmedTarget } from "./reads";
 
 export class ApiFailure extends Error {
@@ -36,7 +36,7 @@ export class FoundationStore {
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
-    if (exists.rows[0].present) { await this.upgradeEvidence(); await this.upgradeReads(); return; }
+    if (exists.rows[0].present) { await this.upgradeEvidence(); await this.upgradeReads(); await this.upgradeProfile(); return; }
     const migration = await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8");
     const catalog = foundationCatalog();
     await this.db.transaction(async tx => {
@@ -57,6 +57,7 @@ export class FoundationStore {
     });
     await this.upgradeEvidence();
     await this.upgradeReads();
+    await this.upgradeProfile();
   }
 
   private async upgradeReads() {
@@ -66,8 +67,54 @@ export class FoundationStore {
     });
   }
 
+  private async upgradeProfile() {
+    await this.db.transaction(async tx => {
+      const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=4");
+      if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/004_owned_profile.sql", import.meta.url), "utf8"));
+    });
+  }
+
+  private async profileIn(tx: Transaction, userId: string): Promise<LearnerProfile> {
+    const result = await tx.query<{ locale: string; timezone: string; level: string; session_question_count: number; revision: number; setup_completed: boolean }>(
+      "SELECT * FROM gm.learner_profile WHERE user_id=$1", [userId]);
+    const row = result.rows[0];
+    return LearnerProfileSchema.parse({ apiVersion: "v2", revision: row.revision, setupCompleted: row.setup_completed,
+      preferences: { locale: row.locale, timezone: row.timezone, level: row.level, sessionQuestionCount: row.session_question_count } });
+  }
+
+  async profile(userId: string) {
+    return this.db.transaction(async tx => { await this.readOwner(tx, userId); return this.profileIn(tx, userId); });
+  }
+
+  async saveProfile(userId: string, input: ProfileRequest) {
+    const parsed = ProfileRequestSchema.safeParse(input);
+    if (!parsed.success) throw new ApiFailure("invalid_request", 400);
+    // Require an IANA-style name (including UTC); never accept numeric offsets or whitespace.
+    const timezone = input.preferences.timezone;
+    if (timezone !== "UTC" && !/^[A-Za-z_]+(?:\/[A-Za-z0-9_+\-]+)+$/.test(timezone)) throw new ApiFailure("invalid_timezone", 400);
+    try { new Intl.DateTimeFormat("en", { timeZone: timezone }).format(); }
+    catch { throw new ApiFailure("invalid_timezone", 400); }
+    return this.db.transaction(async tx => {
+      await this.readOwner(tx, userId);
+      const prior = await tx.query<{ request: ProfileRequest; response: LearnerProfile }>(
+        "SELECT request,response FROM gm.profile_request WHERE user_id=$1 AND request_id=$2", [userId, input.requestId]);
+      if (prior.rows.length) {
+        if (canonical(prior.rows[0].request) !== canonical(input)) throw new ApiFailure("profile_request_conflict", 409);
+        return LearnerProfileSchema.parse(prior.rows[0].response);
+      }
+      const current = await this.profileIn(tx, userId);
+      if (current.revision !== input.expectedRevision) throw new ApiFailure("profile_revision_conflict", 409);
+      const p = input.preferences;
+      await tx.query(`UPDATE gm.learner_profile SET locale=$2,timezone=$3,level=$4,session_question_count=$5,
+        revision=revision+1,setup_completed=true WHERE user_id=$1`, [userId, p.locale, p.timezone, p.level, p.sessionQuestionCount]);
+      const response = await this.profileIn(tx, userId);
+      await tx.query("INSERT INTO gm.profile_request VALUES ($1,$2,$3,$4)", [userId, input.requestId, input, response]);
+      return response;
+    });
+  }
+
   private async readOwner(tx: Transaction, userId: string) {
-    await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
+    await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
     await this.lockLearner(tx, userId);
   }
 
@@ -263,7 +310,8 @@ export class FoundationStore {
   }
 
   /** Explicit unpublished fixture metadata; never exposes rubrics or accepted forms. */
-  async catalog() {
+  async catalog(userId?: string) {
+    const profile = userId ? await this.profile(userId) : null;
     const releaseId = foundationCatalog().session.contentReleaseId;
     const rows = await this.db.query<{ id: string; topic_id: string; title: unknown; level: string; count: number }>(
       `SELECT t.id,s.topic_id,tp.title,t.level,LEAST(1,count(DISTINCT e.id))::int AS count
@@ -272,18 +320,19 @@ export class FoundationStore {
        LEFT JOIN gm.content_release_exercise cr ON cr.exercise_id=e.id AND cr.release_id=$1
        WHERE t.status<>'retired' AND cr.exercise_id IS NOT NULL
        GROUP BY t.id,s.topic_id,tp.title,t.level ORDER BY t.id`, [releaseId]);
+    const practisedTargets = new Set(userId ? (await this.db.query<{ target_id: string }>("SELECT target_id FROM gm.learner_target_state WHERE user_id=$1", [userId])).rows.map(r => r.target_id) : []);
     const topics = new Map(rows.rows.map(r => [r.topic_id, { id: r.topic_id, title: r.title }]));
     return CatalogSchema.parse({ apiVersion: 'v2', contentReleaseId: releaseId, status: 'unpublished_local_draft',
       topics: [...topics.values()], targets: rows.rows.map(r => {
         const text = metadata.targets.find(t => t.id === r.id);
         if (!text) throw Error('Missing catalog metadata');
-        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: r.count };
+        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && profile.preferences.level !== r.level && !practisedTargets.has(r.id) ? 0 : r.count };
       }) });
   }
 
   async createSession(userId: string, request: SessionRequest | FocusedSessionRequest): Promise<Session> {
     return this.db.transaction(async tx => {
-      await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
+      await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
       await this.lockLearner(tx, userId);
       const previous = await tx.query<{ id: string; request_payload: unknown; release_id: string }>(
         "SELECT id,request_payload,release_id FROM gm.practice_session WHERE user_id=$1 AND request_id=$2", [userId, request.requestId]);
@@ -296,6 +345,7 @@ export class FoundationStore {
         releaseId = previous.rows[0].release_id;
       } else {
         const now = this.clock().toISOString();
+        const profile = await this.profileIn(tx, userId);
         const focus = "focus" in request ? request.focus : null;
         const eligible = await tx.query<SelectionCandidate>(
           `SELECT e.target_id AS "targetId",r.exercise_id AS "exerciseId",r.revision,
@@ -308,10 +358,10 @@ export class FoundationStore {
            JOIN gm.revision_evidence_identity i ON i.exercise_id=r.exercise_id AND i.revision=r.revision
            LEFT JOIN gm.learner_target_state st ON st.target_id=e.target_id AND st.user_id=$1
            LEFT JOIN gm.review_schedule sc ON sc.target_id=e.target_id AND sc.user_id=$1
-           WHERE cr.release_id=$2 AND t.status<>'retired' AND r.type || '@1' = ANY($3::text[])
+           WHERE cr.release_id=$2 AND t.status<>'retired' AND (t.level=$6 OR st.user_id IS NOT NULL) AND r.type || '@1' = ANY($3::text[])
              AND ($4::text IS NULL OR ($4='target' AND t.id=$5::uuid)
                OR ($4='topic' AND t.skill_id IN (SELECT id FROM gm.skill WHERE topic_id=$5::uuid)))`,
-          [userId, catalog.session.contentReleaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null]);
+          [userId, catalog.session.contentReleaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null, profile.preferences.level]);
         const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);

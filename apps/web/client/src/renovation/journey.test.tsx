@@ -5,6 +5,7 @@ import sample from "@german-master/contracts/examples/session.json";
 import acknowledgment from "@german-master/contracts/examples/attempt-response.json";
 import targetPage from "@german-master/contracts/examples/target-page.json";
 import catalog from "@german-master/contracts/examples/catalog.json";
+import { PROFILE_PENDING_KEY } from "./setup";
 import LearnerJourney from "./journey";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } from "./storage";
@@ -13,7 +14,7 @@ const session = SessionSchema.parse(sample);
 const ack = AttemptBatchResponseSchema.parse(acknowledgment).acknowledgments[0];
 const page = TargetPageSchema.parse(targetPage);
 function apiFixture(): LearnerApi {
-  return { catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
+  return { profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
@@ -24,6 +25,78 @@ async function start(api = apiFixture()) {
   await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
   return api;
 }
+it("requires setup, confirms preferences and reports unavailable B2 drafts", async () => {
+  const api = apiFixture();
+  let profile: Awaited<ReturnType<LearnerApi["profile"]>> = { apiVersion: "v2", revision: 0, setupCompleted: false,
+    preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } };
+  api.profile = vi.fn(async () => profile);
+  api.saveProfile = vi.fn(async input => { profile = { ...profile, revision: 1, setupCompleted: true, preferences: input.preferences }; return profile; });
+  api.catalog = vi.fn(async () => ({ ...catalog, targets: catalog.targets.map(t => ({ ...t, availableQuestionCount: profile.preferences.level === "B2" ? 0 : 1 })) } as Awaited<ReturnType<LearnerApi["catalog"]>>));
+  render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByRole("heading", { name: "Set up your practice" })).toHaveFocus());
+  expect(screen.queryByText("Start short practice")).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
+  fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "UTC" } });
+  fireEvent.click(screen.getByText("Save preferences"));
+  await screen.findByText(/No new questions are available/);
+  expect(screen.getByText("Start short practice")).toBeDisabled();
+  expect(api.createSession).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByText("Practice preferences"));
+  fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B1" } });
+  fireEvent.click(screen.getByText("Save preferences"));
+  await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
+});
+it("retries frozen setup payload after lost response and reload without overwriting practice", async () => {
+  const api = apiFixture();
+  const saved = emptyJourney(); saved.practice = { request: { apiVersion: "v2", requestId: crypto.randomUUID(), questionCount: 5,
+    capabilities: ["short_answer@1"] }, session, index: 0, draft: { type: "short_answer", text: "draft" }, assisted: false, pending: null, evaluation: null,
+    rejected: false, confirmedCount: 0, correctCount: 0 };
+  saveJourney(localStorage, saved);
+  let profile = await api.profile();
+  api.profile = vi.fn(async () => profile);
+  api.saveProfile = vi.fn().mockRejectedValueOnce(Error("lost response")).mockImplementation(async input => {
+    profile = { ...profile, revision: 2, preferences: input.preferences }; return profile;
+  });
+  render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
+  fireEvent.click(screen.getByText("Practice preferences"));
+  fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "Asia/Tokyo" } });
+  fireEvent.click(screen.getByText("Save preferences"));
+  await screen.findByRole("alert");
+  const request = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
+  cleanup(); render(<LearnerJourney api={api} />);
+  await screen.findByText("Retry");
+  expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
+  fireEvent.click(screen.getByText("Retry"));
+  await screen.findByRole("heading", { name: /Your next practice|find what to practise/ });
+  expect(api.saveProfile).toHaveBeenLastCalledWith(request);
+  expect(readJourney(localStorage).practice).toEqual(saved.practice);
+  expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
+});
+it("blocks setup writes when local pending storage fails", async () => {
+  const api = apiFixture(); api.profile = vi.fn(async () => ({ ...(await apiFixture().profile()), setupCompleted: false }));
+  const storage = { getItem: () => null, setItem: (key: string) => { if (key === PROFILE_PENDING_KEY) throw Error("disk full"); } };
+  render(<LearnerJourney api={api} storage={storage} />);
+  fireEvent.click(await screen.findByText("Save preferences"));
+  expect(await screen.findByRole("alert")).toHaveTextContent("Preferences could not be confirmed");
+  expect(api.saveProfile).not.toHaveBeenCalled();
+});
+
+it("reloads current preferences to correct an invalid frozen setup request", async () => {
+  const api = apiFixture();
+  const request = { apiVersion: "v2", requestId: crypto.randomUUID(), expectedRevision: 1,
+    preferences: { locale: "en", timezone: "Invalid/Zone", level: "B1", sessionQuestionCount: 15 } };
+  localStorage.setItem(PROFILE_PENDING_KEY, JSON.stringify(request));
+  render(<LearnerJourney api={api} />);
+  expect(await screen.findByText("Retry")).toBeInTheDocument();
+  expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
+  fireEvent.click(screen.getByText("Reload current preferences"));
+  await waitFor(() => expect(screen.getByLabelText("Timezone (IANA name)")).toBeEnabled());
+  expect(screen.getByLabelText("Timezone (IANA name)")).toHaveValue("Europe/Berlin");
+  expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
+  expect(api.saveProfile).not.toHaveBeenCalled();
+});
+
 describe("isolated learner journey", () => {
   it("opens Topics and target detail, then recovers the exact focused request after reload", async () => {
     const api = apiFixture();

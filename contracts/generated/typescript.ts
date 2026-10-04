@@ -306,3 +306,24 @@ export const CatalogSchema = z.strictObject({
   targets: z.array(CatalogTargetSchema),
 });
 export type Catalog = z.infer<typeof CatalogSchema>;
+export const ProfilePreferencesSchema = z.strictObject({
+  locale: z.enum(["en","de"]),
+  timezone: z.string().min(1),
+  level: z.enum(["B1","B2"]),
+  sessionQuestionCount: z.union([z.literal(5), z.literal(15)]),
+});
+export type ProfilePreferences = z.infer<typeof ProfilePreferencesSchema>;
+export const LearnerProfileSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  revision: z.number().int().min(0).max(2147483647),
+  setupCompleted: z.boolean(),
+  preferences: ProfilePreferencesSchema,
+});
+export type LearnerProfile = z.infer<typeof LearnerProfileSchema>;
+export const ProfileRequestSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  expectedRevision: z.number().int().min(0).max(2147483646),
+  preferences: ProfilePreferencesSchema,
+});
+export type ProfileRequest = z.infer<typeof ProfileRequestSchema>;

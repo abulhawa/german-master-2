@@ -396,6 +396,56 @@
           }
         }
       }
+    },
+    "/v2/profile": {
+      "get": {
+        "operationId": "readOwnedProfile",
+        "description": "Owned saved preferences. Reads create a default unconfigured local fixture profile. No learner identity is exposed.",
+        "responses": {
+          "200": {
+            "description": "Current profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/LearnerProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "saveOwnedProfile",
+        "description": "Revision-checked, request-ID replay-safe setup. Saved event timezones and existing sessions remain unchanged. Replays return the original response; refresh GET for latest state.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schema.json#/$defs/ProfileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Confirmed profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/LearnerProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid preferences or IANA timezone"
+          },
+          "409": {
+            "description": "Changed replay payload or stale expected revision"
+          }
+        }
+      }
     }
   },
   "components": {

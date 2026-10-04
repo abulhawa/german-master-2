@@ -27,3 +27,5 @@ Attempt acknowledgments retain the original attempt receipt sequence for compati
 ## Confirmed reads
 
 `TargetPage` provides confirmed summaries at one `generatedAt` instant with frozen `nextPageCursor` pagination and a `syncCursor` watermark. `SyncPage` provides ordered ingestion-time `upsert` summaries and a reusable `nextCursor`; client pending work is absent. `schedule` has zero or one UTC review deadline, and `lastSequence` is accepted-evidence order. Shared `target-page.json` and `sync-page.json` fixtures are decoded in TypeScript and Kotlin. See [ADR 007](../docs/adr/007_owned_target_sync_transport.md) for complete cursor, due-refresh and local storage semantics.
+
+Owned setup transport adds `ProfilePreferences`, `LearnerProfile` and `ProfileRequest`, generated in both languages. The server additionally validates IANA timezone names at ingestion. Profile writes use stable request IDs and expected revisions; replay returns the original response, so clients reread current state afterward. See [ADR 010](../docs/adr/010_owned_profile_setup.md).

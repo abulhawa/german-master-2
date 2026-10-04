@@ -68,7 +68,7 @@ function z(s) {
             ? `z.array(${z(s.items)})`
             : null;
   if (!v) throw Error("Unsupported schema " + q(s));
-  if (s.enum) v = `z.enum(${q(s.enum)})`;
+  if (s.enum) v = s.type === "integer" ? `z.union([${s.enum.map(x => `z.literal(${x})`).join(", ")}])` : `z.enum(${q(s.enum)})`;
   if (s.minLength !== undefined) v += `.min(${s.minLength})`;
   if (s.minimum !== undefined) v += `.min(${s.minimum})`;
   if (s.maximum !== undefined) v += `.max(${s.maximum})`;

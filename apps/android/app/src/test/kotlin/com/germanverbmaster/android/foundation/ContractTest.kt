@@ -7,6 +7,21 @@ import org.junit.Test
 
 class ContractTest {
     private fun resource(name: String) = requireNotNull(javaClass.classLoader?.getResource(name)).readText()
+    @Test fun profileAndSetupRoundTrip() {
+        val prefs = ProfilePreferences("de", "Europe/Berlin", "B2", 5)
+        val profile = LearnerProfile("v2", 2, true, prefs)
+        val raw = ContractReader.json.encodeToString(profile)
+        ContractShape.checkLearnerProfile(ContractReader.json.parseToJsonElement(raw))
+        assertEquals(profile, ContractReader.json.decodeFromString<LearnerProfile>(raw))
+        val request = ProfileRequest("v2", "00000000-0000-4000-8000-000000000001", 1, prefs)
+        val encoded = ContractReader.json.encodeToString(request)
+        ContractShape.checkProfileRequest(ContractReader.json.parseToJsonElement(encoded))
+        assertEquals(request, ContractReader.json.decodeFromString<ProfileRequest>(encoded))
+        assertTrue(runCatching { ProfilePreferences("en", "UTC", "B1", 10) }.isFailure)
+        assertTrue(runCatching { ProfilePreferences("en", "UTC", "C1", 5) }.isFailure)
+        val extra = JsonObject(ContractReader.json.parseToJsonElement(raw).jsonObject + ("userId" to JsonPrimitive("owner")))
+        assertTrue(runCatching { ContractShape.checkLearnerProfile(extra) }.isFailure)
+    }
     @Test fun catalogAndFocusedRequestRoundTrip() {
         val raw = ContractReader.json.parseToJsonElement(resource("catalog.json"))
         ContractShape.checkCatalog(raw)
