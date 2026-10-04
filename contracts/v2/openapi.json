@@ -171,6 +171,84 @@
           }
         }
       }
+    },
+    "/v2/exposures:batch": {
+      "post": {
+        "operationId": "submitExposures",
+        "description": "Owned replay-safe exposure or terminal skip events. Exposure does not finish a question; skip finishes it without grading. Neither advances mastery. Each accepted item atomically saves evidence, projection, schedule and sync change.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExposureBatch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExposureBatchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ownership failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Idempotency or capability conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -195,6 +273,12 @@
       },
       "ApiError": {
         "$ref": "./schema.json#/$defs/ApiError"
+      },
+      "ExposureBatch": {
+        "$ref": "./schema.json#/$defs/ExposureBatch"
+      },
+      "ExposureBatchResponse": {
+        "$ref": "./schema.json#/$defs/ExposureBatchResponse"
       }
     }
   }

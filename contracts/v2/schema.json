@@ -831,6 +831,178 @@
         "apiVersion",
         "acknowledgments"
       ]
+    },
+    "ExposureEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sessionQuestionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "deviceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "skip",
+            "exposure"
+          ]
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "eventId",
+        "sessionQuestionId",
+        "exerciseRevision",
+        "deviceId",
+        "disposition",
+        "occurredAt"
+      ]
+    },
+    "ExposureBatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExposureEvent"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "events"
+      ]
+    },
+    "ExposureAccepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "accepted"
+        },
+        "serverSequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "eventId",
+        "status",
+        "serverSequence"
+      ]
+    },
+    "ExposureDuplicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "duplicate"
+        },
+        "serverSequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "eventId",
+        "status",
+        "serverSequence"
+      ]
+    },
+    "ExposureRejected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "rejected"
+        },
+        "error": {
+          "$ref": "#/$defs/ApiError"
+        }
+      },
+      "required": [
+        "eventId",
+        "status",
+        "error"
+      ]
+    },
+    "ExposureAcknowledgment": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ExposureAccepted"
+        },
+        {
+          "$ref": "#/$defs/ExposureDuplicate"
+        },
+        {
+          "$ref": "#/$defs/ExposureRejected"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "status"
+      }
+    },
+    "ExposureBatchResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "acknowledgments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExposureAcknowledgment"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "acknowledgments"
+      ]
     }
   },
   "$ref": "#/$defs/Session"

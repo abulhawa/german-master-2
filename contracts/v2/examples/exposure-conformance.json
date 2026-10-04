@@ -1,0 +1,122 @@
+[
+  {
+    "name": "terminal skip",
+    "valid": true,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "skip",
+          "occurredAt": "2026-10-04T12:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "name": "nonterminal exposure",
+    "valid": true,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "exposure",
+          "occurredAt": "2026-10-04T12:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "name": "reject client timezone",
+    "valid": false,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "skip",
+          "occurredAt": "2026-10-04T12:00:00Z",
+          "timeZone": "UTC"
+        }
+      ]
+    }
+  },
+  {
+    "name": "reject assessment",
+    "valid": false,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "assessment",
+          "occurredAt": "2026-10-04T12:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "name": "reject quoted revision",
+    "valid": false,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": "1",
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "skip",
+          "occurredAt": "2026-10-04T12:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "name": "reject future API",
+    "valid": false,
+    "batch": {
+      "apiVersion": "v3",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "skip",
+          "occurredAt": "2026-10-04T12:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "name": "reject impossible date",
+    "valid": false,
+    "batch": {
+      "apiVersion": "v2",
+      "events": [
+        {
+          "eventId": "00000000-0000-4000-8000-000000000710",
+          "sessionQuestionId": "00000000-0000-4000-8000-000000000300",
+          "exerciseRevision": 1,
+          "deviceId": "00000000-0000-4000-8000-000000000020",
+          "disposition": "skip",
+          "occurredAt": "2026-02-30T12:00:00Z"
+        }
+      ]
+    }
+  }
+]

@@ -1,6 +1,6 @@
 # Shared foundation contracts
 
-`v2/schema.json` is the transport source of truth (JSON Schema 2020-12). `v2/openapi.json` describes the draft session/attempt API boundary, implemented by the isolated local foundation service under `services/api`. `/v2` versions the API; `schemaVersion: 1` versions each of the five exercise payload forms. Exercise IDs and positive revisions identify immutable content; questions pin them within a content release.
+`v2/schema.json` is the transport source of truth (JSON Schema 2020-12). `v2/openapi.json` describes the draft session/attempt/exposure API boundary, implemented by the isolated local foundation service under `services/api`. `/v2` versions the API; `schemaVersion: 1` versions each of the five exercise payload forms. Exercise IDs and positive revisions identify immutable content; questions pin them within a content release.
 
 Run `npm run generate:foundation` from the repository root after schema/token edits. The checked-in generator v1 produces Zod transport types and Kotlin serialization models. `npm run check:generated` detects drift; both CI jobs run it. The generator fails on unsupported schema keywords instead of silently ignoring them. Generated files are not hand-edited.
 
@@ -10,10 +10,16 @@ Objects are closed and all fields required. Integers use the same signed 32-bit 
 
 `Attempt` contains no learner ID or grade. The service derives ownership from its injected authenticator, validates question/revision/answer linkage and assistance, and rejects a reused attempt ID with changed payload. The local launcher uses only public fixture authentication; verified production identity remains open. Each accepted batch item commits independently; duplicate acknowledgments retain their original evaluation. `Evaluation.assisted` explicitly reports whether hint/reveal events accompanied the submission. Client clocks and sequences are evidence, not server ordering authority. The current server sequence is bounded to the draft integer range; move to decimal-string cursors before scaling beyond it.
 
-This first contract covers online attempts. Offline-pack IDs, local policy metadata, skip/exposure commands, explicit partial session completion, guest claiming, cursor sync and the remaining blueprint endpoints must be added and tested before those flows are enabled. Backend preview modes submit answers and display confirmed evaluations without local grading or mastery. Static inspection modes remain available. See `services/api/README.md` for setup and limitations.
+This first contract covers online attempts. Offline-pack IDs, local policy metadata, explicit partial session completion, guest claiming, cursor sync and the remaining blueprint endpoints must be added and tested before those flows are enabled. Backend preview modes submit answers and display confirmed evaluations without local grading or mastery. Static inspection modes remain available. See `services/api/README.md` for setup and limitations.
 
 ## Demonstration
 
 - Web: root `npm run dev:web`, then `/foundation`. The route is development-only; production still opens the inherited client. The preview lazy-loads independently of legacy auth/server modules.
 - Android: build/install the debug APK, then `adb shell am start -n com.germanverbmaster.android/.foundation.FoundationPreviewActivity`. The activity is declared only in the debug manifest. Existing application identity and release navigation are preserved. The inherited Application still owns background workers, so use an isolated device without production configuration when demonstrating.
 - Automated: web rendering tests interact with every input form; Kotlin tests decode/round-trip the shared fixtures; a Robolectric Compose test renders every prompt. These do not establish device/TalkBack acceptance.
+
+## Exposure ingestion
+
+`ExposureEvent` and `POST /v2/exposures:batch` accept explicit `skip` or `exposure` dispositions with UUID event/question/device identities, revision and canonical UTC occurrence time. They accept neither grades nor timezone/editorial/mastery claims. Exposure is nonterminal; skip completes that question without an evaluation. Answers and skips compete for the first terminal submission. Changed event payloads conflict; identical retries return the original exposure sequence without another sync change. `examples/exposure-conformance.json` is checked by TypeScript and Kotlin tests. The previews do not yet offer skip controls.
+
+Attempt acknowledgments retain the original attempt receipt sequence for compatibility. Exposure acknowledgments use the accepted-evidence receipt sequence. Neither is a sync cursor; `sync_change.sequence` is a separate ordered server cursor whose public transport remains to be implemented.

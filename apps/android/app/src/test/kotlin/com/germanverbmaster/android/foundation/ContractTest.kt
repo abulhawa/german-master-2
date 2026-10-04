@@ -7,6 +7,19 @@ import org.junit.Test
 
 class ContractTest {
     private fun resource(name: String) = requireNotNull(javaClass.classLoader?.getResource(name)).readText()
+    @Test fun sharedExposureAcceptanceCorpus() {
+        val corpus = ContractReader.json.parseToJsonElement(resource("exposure-conformance.json")).jsonArray
+        corpus.forEach { value ->
+            val c = value.jsonObject
+            val result = runCatching {
+                val batch = c.getValue("batch")
+                ContractShape.checkExposureBatch(batch)
+                val decoded = ContractReader.json.decodeFromString<ExposureBatch>(batch.toString())
+                assertEquals(decoded, ContractReader.json.decodeFromString<ExposureBatch>(ContractReader.json.encodeToString(decoded)))
+            }
+            assertEquals(c.getValue("name").jsonPrimitive.content, c.getValue("valid").jsonPrimitive.boolean, result.isSuccess)
+        }
+    }
     @Test fun sharedAcceptanceCorpus() {
         val corpus=ContractReader.json.parseToJsonElement(resource("conformance.json")).jsonArray
         corpus.forEach { value ->

@@ -1,6 +1,6 @@
 import { createServer, type IncomingMessage } from "node:http";
 import { randomUUID } from "node:crypto";
-import { AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, type ApiError } from "@german-master/contracts";
+import { AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
 import { ApiFailure, FoundationStore } from "./store";
 
 export type Authenticate = (request: IncomingMessage) => Promise<string | null>;
@@ -27,7 +27,7 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
     response.setHeader("Cache-Control", "no-store");
     response.setHeader("X-Content-Type-Options", "nosniff");
     try {
-      if (request.method !== "POST" || !["/v2/sessions", "/v2/attempts:batch"].includes(request.url ?? ""))
+      if (request.method !== "POST" || !["/v2/sessions", "/v2/attempts:batch", "/v2/exposures:batch"].includes(request.url ?? ""))
         throw new ApiFailure("not_found", 404);
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
@@ -38,6 +38,12 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
         const parsed = SessionRequestSchema.safeParse(input);
         if (!parsed.success) throw new ApiFailure("invalid_request", 400);
         response.end(JSON.stringify(await store.createSession(userId, parsed.data)));
+      } else if (request.url === "/v2/exposures:batch") {
+        const parsed = ExposureBatchSchema.safeParse(input);
+        if (!parsed.success) throw new ApiFailure("invalid_request", 400);
+        const acknowledgments = [];
+        for (const event of parsed.data.events) acknowledgments.push(await store.expose(userId, event, requestId));
+        response.end(JSON.stringify(ExposureBatchResponseSchema.parse({ apiVersion: "v2", acknowledgments })));
       } else {
         // Envelope failures reject the request; valid typed items are committed independently.
         const parsed = AttemptBatchSchema.safeParse(input);

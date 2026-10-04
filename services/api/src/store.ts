@@ -1,8 +1,8 @@
-import { PGlite } from "@electric-sql/pglite";
+import { PGlite, type Transaction } from "@electric-sql/pglite";
 import { readFile } from "node:fs/promises";
 import { randomUUID, createHash } from "node:crypto";
-import { SessionSchema, type Session, type SessionRequest, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise } from "@german-master/contracts";
-import { grade, EVALUATOR_VERSION, GradingError, type Rubric } from "@german-master/learning-engine";
+import { SessionSchema, type Session, type SessionRequest, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
+import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
 import editorial from "../../../content/foundation/review.json";
 
@@ -18,13 +18,22 @@ export function canonical(value: unknown): string {
   return JSON.stringify(value);
 }
 
+type PinnedQuestion = {
+  revision: number; payload: Exercise; rubric: Rubric; target_id: string; target_kind: string;
+  variant_key: string; context_key: string; transfer_key: string | null;
+  evidence_role: "assessment" | "reinforcement"; issued_at: Date; timezone: string;
+};
+type EvidenceDetail = Omit<Extract<AcceptedEvidence, { kind: "assessment" | "reinforcement" }>,
+  "id" | "learnerId" | "targetId" | "receivedSequence" | "receivedAt" | "sessionIssuedAt" | "timeZone"> |
+  { kind: "exposure"; answeredAt?: string };
+
 /** Local PostgreSQL demonstration. Transactions serialize writes and enforce first submission. */
 export class FoundationStore {
   constructor(public readonly db: PGlite, private readonly clock = () => new Date()) {}
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
-    if (exists.rows[0].present) return;
+    if (exists.rows[0].present) { await this.upgradeEvidence(); return; }
     const migration = await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8");
     const catalog = foundationCatalog();
     await this.db.transaction(async tx => {
@@ -43,6 +52,139 @@ export class FoundationStore {
         await tx.query("INSERT INTO gm.content_release_exercise VALUES ($1,$2,$3)", [catalog.session.contentReleaseId, exercise.id, exercise.revision]);
       }
     });
+    await this.upgradeEvidence();
+  }
+
+  private async lockLearner(tx: Transaction, userId: string) {
+    // Serialize receipt ordering and projection updates for one learner. Network adapter
+    // must retain this lock and prove behavior with independent connections.
+    const profile = await tx.query("SELECT user_id FROM gm.learner_profile WHERE user_id=$1 FOR UPDATE", [userId]);
+    if (!profile.rows.length) throw new ApiFailure("question_unavailable", 403);
+  }
+
+  private async pinnedQuestion(tx: Transaction, userId: string, questionId: string, revision: number) {
+    const question = await tx.query<PinnedQuestion>(
+      `SELECT q.revision,q.evidence_role,r.payload,r.rubric,e.target_id,t.kind AS target_kind,
+        i.variant_key,i.context_key,i.transfer_key,s.issued_at,p.timezone
+       FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision
+       JOIN gm.exercise e ON e.id=q.exercise_id JOIN gm.learning_target t ON t.id=e.target_id
+       JOIN gm.revision_evidence_identity i ON i.exercise_id=q.exercise_id AND i.revision=q.revision
+       JOIN gm.practice_session s ON s.id=q.session_id JOIN gm.learner_profile p ON p.user_id=q.user_id
+       WHERE q.id=$1 AND q.user_id=$2`, [questionId, userId]);
+    if (!question.rows.length) throw new ApiFailure("question_unavailable", 403);
+    if (question.rows[0].revision !== revision) throw new ApiFailure("revision_mismatch", 409);
+    return question.rows[0];
+  }
+
+  private async ensureOpen(tx: Transaction, userId: string, questionId: string) {
+    const answered = await tx.query(`SELECT id FROM gm.attempt WHERE user_id=$1 AND question_id=$2
+      UNION ALL SELECT id FROM gm.exposure_event WHERE user_id=$1 AND question_id=$2 AND disposition='skip'`, [userId, questionId]);
+    if (answered.rows.length) throw new ApiFailure("question_already_answered", 409);
+  }
+
+  private async completeSession(tx: Transaction, userId: string, questionId: string) {
+    await tx.query(`UPDATE gm.practice_session s SET status='completed' WHERE s.user_id=$1
+      AND s.id=(SELECT session_id FROM gm.session_question WHERE id=$2 AND user_id=$1)
+      AND NOT EXISTS (SELECT 1 FROM gm.session_question q WHERE q.session_id=s.id
+        AND NOT EXISTS (SELECT 1 FROM gm.attempt a WHERE a.user_id=$1 AND a.question_id=q.id)
+        AND NOT EXISTS (SELECT 1 FROM gm.exposure_event x WHERE x.user_id=$1 AND x.question_id=q.id AND x.disposition='skip'))`, [userId, questionId]);
+  }
+
+  private async saveEvidence(tx: Transaction, userId: string, sourceId: string, pinned: PinnedQuestion,
+    now: string, detail: EvidenceDetail, source: "attempt" | "exposure") {
+    const sequence = (await tx.query<{ n: number }>("SELECT nextval(pg_get_serial_sequence('gm.accepted_evidence','received_sequence'))::int AS n")).rows[0].n;
+    const id = randomUUID();
+    const event: AcceptedEvidence = { id, learnerId: userId, targetId: pinned.target_id,
+      receivedSequence: sequence, receivedAt: now, sessionIssuedAt: new Date(pinned.issued_at).toISOString(),
+      timeZone: pinned.timezone, ...detail };
+    await tx.query(`INSERT INTO gm.accepted_evidence
+      (user_id,id,target_id,attempt_id,exposure_id,received_sequence,policy_version,payload)
+      OVERRIDING SYSTEM VALUE VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
+      [userId, id, pinned.target_id, source === "attempt" ? sourceId : null,
+        source === "exposure" ? sourceId : null, sequence, EVIDENCE_POLICY_VERSION, event]);
+    const snapshot = await this.rebuildIn(tx, userId, pinned.target_id, now);
+    await tx.query(`INSERT INTO gm.learner_target_state VALUES ($1,$2,$3,$4,$5)
+      ON CONFLICT (user_id,target_id) DO UPDATE SET policy_version=$3,last_sequence=$4,snapshot=$5`,
+      [userId, pinned.target_id, EVIDENCE_POLICY_VERSION, sequence, snapshot]);
+    if (snapshot.schedule) await tx.query(`INSERT INTO gm.review_schedule VALUES ($1,$2,$3,$4)
+      ON CONFLICT (user_id,target_id) DO UPDATE SET due_at=$3,schedule=$4`,
+      [userId, pinned.target_id, snapshot.schedule.dueAt, snapshot.schedule]);
+    else await tx.query("DELETE FROM gm.review_schedule WHERE user_id=$1 AND target_id=$2", [userId, pinned.target_id]);
+    await tx.query("INSERT INTO gm.sync_change (user_id,target_id,evidence_id,operation,payload) VALUES ($1,$2,$3,'upsert',$4)",
+      [userId, pinned.target_id, id, snapshot]);
+    return sequence;
+  }
+
+  private async rebuildIn(tx: Transaction, userId: string, targetId: string, now: string): Promise<TargetSnapshot> {
+    const rows = await tx.query<{ payload: AcceptedEvidence }>(
+      "SELECT payload FROM gm.accepted_evidence WHERE user_id=$1 AND target_id=$2 ORDER BY received_sequence", [userId, targetId]);
+    const target = await tx.query<{ kind: string; timezone: string }>(
+      "SELECT t.kind,p.timezone FROM gm.learning_target t CROSS JOIN gm.learner_profile p WHERE t.id=$1 AND p.user_id=$2", [targetId, userId]);
+    if (!target.rows.length) throw new ApiFailure("target_unavailable", 404);
+    return reduceEvidence({ learnerId: userId, targetId, targetKind: target.rows[0].kind === "lexical" ? "lexical" : "concept",
+      timeZone: target.rows[0].timezone, now, policyVersion: EVIDENCE_POLICY_VERSION }, rows.rows.map(r => r.payload));
+  }
+
+  /** Read-only replay. Stored event timezones/editorial identities remain authoritative. */
+  async rebuild(userId: string, targetId: string) {
+    return this.db.transaction(tx => this.rebuildIn(tx, userId, targetId, this.clock().toISOString()));
+  }
+
+  private async upgradeEvidence() {
+    await this.db.transaction(async tx => {
+      const exists = await tx.query<{ present: boolean }>("SELECT to_regclass('gm.schema_migration') IS NOT NULL AS present");
+      if (exists.rows[0].present) return;
+      await tx.exec(await readFile(new URL("../../../db/migrations/002_evidence_projection.sql", import.meta.url), "utf8"));
+      for (const target of editorial.targets) {
+        const identity = target.evidenceIdentity;
+        await tx.query("INSERT INTO gm.revision_evidence_identity VALUES ($1,$2,$3,$4,$5)",
+          [target.exerciseId, target.revision, identity.variantKey, identity.contextKey, identity.transferKey]);
+      }
+      const old = await tx.query<{ user_id: string; id: string; payload: Attempt; received_at: Date; evaluation: AttemptAcknowledgment["evaluation"] }>(
+        `SELECT a.*,e.evaluation FROM gm.attempt a JOIN gm.attempt_evaluation e
+         ON e.user_id=a.user_id AND e.attempt_id=a.id ORDER BY a.received_sequence`);
+      for (const row of old.rows) {
+        const pinned = await this.pinnedQuestion(tx, row.user_id, row.payload.sessionQuestionId, row.payload.exerciseRevision);
+        // Prior sessions lack reliable issuance metadata. Keep outcomes/exposure,
+        // but never retrospectively grant spaced-success credit.
+        await this.saveEvidence(tx, row.user_id, row.id, pinned, new Date(row.received_at).toISOString(), {
+          kind: pinned.evidence_role, outcome: row.evaluation.outcome as "correct" | "incorrect",
+          assisted: row.evaluation.assisted, evaluationVersion: row.evaluation.policyVersion,
+          variantKey: pinned.variant_key, contextKey: pinned.context_key,
+          ...(pinned.transfer_key ? { transferKey: pinned.transfer_key } : {}),
+        }, "attempt");
+      }
+      await tx.query("INSERT INTO gm.schema_migration VALUES (2)");
+    });
+  }
+
+  async expose(userId: string, event: ExposureEvent, requestId: string): Promise<ExposureAcknowledgment> {
+    try {
+      return await this.db.transaction(async tx => {
+        await this.lockLearner(tx, userId);
+        const prior = await tx.query<{ payload: ExposureEvent; received_sequence: number }>(
+          `SELECT x.payload,e.received_sequence FROM gm.exposure_event x JOIN gm.accepted_evidence e
+           ON e.user_id=x.user_id AND e.exposure_id=x.id WHERE x.user_id=$1 AND x.id=$2`, [userId, event.eventId]);
+        if (prior.rows.length) {
+          if (canonical(prior.rows[0].payload) !== canonical(event)) throw new ApiFailure("exposure_conflict", 409);
+          return { eventId: event.eventId, status: "duplicate", serverSequence: prior.rows[0].received_sequence };
+        }
+        const pinned = await this.pinnedQuestion(tx, userId, event.sessionQuestionId, event.exerciseRevision);
+        await this.ensureOpen(tx, userId, event.sessionQuestionId);
+        await tx.query("INSERT INTO gm.device VALUES ($1,$2) ON CONFLICT DO NOTHING", [userId, event.deviceId]);
+        await tx.query("INSERT INTO gm.exposure_event VALUES ($1,$2,$3,$4,$5,$6)",
+          [userId, event.eventId, event.sessionQuestionId, event.deviceId, event.disposition, event]);
+        const sequence = await this.saveEvidence(tx, userId, event.eventId, pinned, this.clock().toISOString(),
+          { kind: "exposure", answeredAt: event.occurredAt }, "exposure");
+        await this.completeSession(tx, userId, event.sessionQuestionId);
+        return { eventId: event.eventId, status: "accepted", serverSequence: sequence };
+      });
+    } catch (error) {
+      if (!(error instanceof ApiFailure)) throw error;
+      return { eventId: event.eventId, status: "rejected", error: {
+        code: error.code, message: "This exposure could not be accepted.", requestId, retryable: false,
+      } };
+    }
   }
 
   async createSession(userId: string, request: SessionRequest): Promise<Session> {
@@ -59,10 +201,10 @@ export class FoundationStore {
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);
         sessionId = randomUUID();
         await tx.query("INSERT INTO gm.learner_profile VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
-        await tx.query("INSERT INTO gm.practice_session VALUES ($1,$2,$3,$4,$5,$6,'active')",
-          [sessionId, userId, request.requestId, request, catalog.session.contentReleaseId, EVALUATOR_VERSION]);
+        await tx.query("INSERT INTO gm.practice_session (id,user_id,request_id,request_payload,release_id,engine_version,status,issued_at) VALUES ($1,$2,$3,$4,$5,$6,'active',$7)",
+          [sessionId, userId, request.requestId, request, catalog.session.contentReleaseId, EVALUATOR_VERSION, this.clock().toISOString()]);
         for (const [position, { exercise }] of questions.slice(0, request.questionCount).entries())
-          await tx.query("INSERT INTO gm.session_question VALUES ($1,$2,$3,$4,$5,$6,$7)",
+          await tx.query("INSERT INTO gm.session_question (id,user_id,session_id,release_id,exercise_id,revision,position) VALUES ($1,$2,$3,$4,$5,$6,$7)",
             [randomUUID(), userId, sessionId, catalog.session.contentReleaseId, exercise.id, exercise.revision, position]);
       }
       const questions = await tx.query<{ id: string; payload: Exercise }>(
@@ -75,20 +217,15 @@ export class FoundationStore {
   async submit(userId: string, attempt: Attempt, requestId: string): Promise<Acknowledgment> {
     try {
       return await this.db.transaction(async tx => {
+        await this.lockLearner(tx, userId);
         const prior = await tx.query<{ payload: Attempt; received_sequence: number; evaluation: AttemptAcknowledgment["evaluation"] }>(
           "SELECT a.payload,a.received_sequence,e.evaluation FROM gm.attempt a JOIN gm.attempt_evaluation e ON e.user_id=a.user_id AND e.attempt_id=a.id WHERE a.user_id=$1 AND a.id=$2 ORDER BY e.evaluated_at LIMIT 1", [userId, attempt.attemptId]);
         if (prior.rows.length) {
           if (canonical(prior.rows[0].payload) !== canonical(attempt)) throw new ApiFailure("attempt_conflict", 409);
           return { attemptId: attempt.attemptId, status: "duplicate", evaluation: prior.rows[0].evaluation, serverSequence: prior.rows[0].received_sequence };
         }
-        const question = await tx.query<{ revision: number; payload: Exercise; rubric: Rubric }>(
-          "SELECT q.revision,r.payload,r.rubric FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.id=$1 AND q.user_id=$2", [attempt.sessionQuestionId, userId]);
-        // Same rejection for missing and foreign questions: do not disclose another learner's data.
-        if (!question.rows.length) throw new ApiFailure("question_unavailable", 403);
-        const pinned = question.rows[0];
-        if (pinned.revision !== attempt.exerciseRevision) throw new ApiFailure("revision_mismatch", 409);
-        const submitted = await tx.query("SELECT id FROM gm.attempt WHERE user_id=$1 AND question_id=$2", [userId, attempt.sessionQuestionId]);
-        if (submitted.rows.length) throw new ApiFailure("question_already_answered", 409);
+        const pinned = await this.pinnedQuestion(tx, userId, attempt.sessionQuestionId, attempt.exerciseRevision);
+        await this.ensureOpen(tx, userId, attempt.sessionQuestionId);
         const evaluation = grade(pinned.payload, pinned.rubric, attempt.answer, attempt.assistance);
         await tx.query("INSERT INTO gm.device VALUES ($1,$2) ON CONFLICT DO NOTHING", [userId, attempt.deviceId]);
         const now = this.clock().toISOString();
@@ -97,7 +234,14 @@ export class FoundationStore {
           [userId, attempt.attemptId, attempt.sessionQuestionId, attempt.deviceId, attempt, now]);
         await tx.query("INSERT INTO gm.attempt_evaluation VALUES ($1,$2,$3,$4,$5)",
           [userId, attempt.attemptId, EVALUATOR_VERSION, evaluation, now]);
-        await tx.query("UPDATE gm.practice_session s SET status='completed' WHERE s.user_id=$1 AND s.id=(SELECT session_id FROM gm.session_question WHERE id=$2 AND user_id=$1) AND NOT EXISTS (SELECT 1 FROM gm.session_question q WHERE q.session_id=s.id AND NOT EXISTS (SELECT 1 FROM gm.attempt a WHERE a.user_id=$1 AND a.question_id=q.id))", [userId, attempt.sessionQuestionId]);
+        await this.saveEvidence(tx, userId, attempt.attemptId, pinned, now, {
+          kind: pinned.evidence_role, outcome: evaluation.outcome as "correct" | "incorrect",
+          assisted: evaluation.assisted, evaluationVersion: evaluation.policyVersion,
+          variantKey: pinned.variant_key, contextKey: pinned.context_key,
+          ...(pinned.transfer_key ? { transferKey: pinned.transfer_key } : {}),
+          answeredAt: attempt.answeredAt,
+        }, "attempt");
+        await this.completeSession(tx, userId, attempt.sessionQuestionId);
         return { attemptId: attempt.attemptId, status: "accepted", evaluation, serverSequence: inserted.rows[0].received_sequence };
       });
     } catch (error) {

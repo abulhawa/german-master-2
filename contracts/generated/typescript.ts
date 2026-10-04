@@ -185,3 +185,42 @@ export const AttemptBatchResponseSchema = z.strictObject({
   acknowledgments: z.array(AcknowledgmentSchema).min(1).max(50),
 });
 export type AttemptBatchResponse = z.infer<typeof AttemptBatchResponseSchema>;
+export const ExposureEventSchema = z.strictObject({
+  eventId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  sessionQuestionId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  exerciseRevision: z.number().int().min(1).max(2147483647),
+  deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  disposition: z.enum(["skip","exposure"]),
+  occurredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v, "Invalid instant"),
+});
+export type ExposureEvent = z.infer<typeof ExposureEventSchema>;
+export const ExposureBatchSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  events: z.array(ExposureEventSchema).min(1).max(50),
+});
+export type ExposureBatch = z.infer<typeof ExposureBatchSchema>;
+export const ExposureAcceptedSchema = z.strictObject({
+  eventId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("accepted"),
+  serverSequence: z.number().int().min(1).max(2147483647),
+});
+export type ExposureAccepted = z.infer<typeof ExposureAcceptedSchema>;
+export const ExposureDuplicateSchema = z.strictObject({
+  eventId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("duplicate"),
+  serverSequence: z.number().int().min(1).max(2147483647),
+});
+export type ExposureDuplicate = z.infer<typeof ExposureDuplicateSchema>;
+export const ExposureRejectedSchema = z.strictObject({
+  eventId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("rejected"),
+  error: ApiErrorSchema,
+});
+export type ExposureRejected = z.infer<typeof ExposureRejectedSchema>;
+export const ExposureAcknowledgmentSchema = z.discriminatedUnion("status", [ExposureAcceptedSchema, ExposureDuplicateSchema, ExposureRejectedSchema]);
+export type ExposureAcknowledgment = z.infer<typeof ExposureAcknowledgmentSchema>;
+export const ExposureBatchResponseSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  acknowledgments: z.array(ExposureAcknowledgmentSchema).min(1).max(50),
+});
+export type ExposureBatchResponse = z.infer<typeof ExposureBatchResponseSchema>;

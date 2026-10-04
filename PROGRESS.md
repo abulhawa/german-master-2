@@ -20,7 +20,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This evidence-policy continuation started at `798899c` with a clean checkout and matching remote. Android repair, mockups, shared exercise foundation and the first authoritative backend-graded session are complete; this slice implements the pure server-owned evidence reducer and review policy.
+- This transactional-evidence continuation started at `b5b288a` with a clean checkout and matching remote. Android repair, mockups, shared exercise foundation, authoritative backend grading and pure evidence policy were already complete. This slice connects accepted evidence to transactional server projections/schedules/sync changes.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -48,7 +48,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 ## Remaining limitations
 
-The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading and the pure evidence/scheduling policy are implemented locally; transactional projection/API integration, production identity/network database, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
+The historical Kotlin script/UAST lint crash is resolved locally. Sixteen lint warnings and Gradle 10 deprecations remain. No device/emulator was attached; native real HTTP/device/TalkBack behavior and release assembly remain unverified. Deployment source identity and public database-row export have evidence, but live API/environment parity, full PostgreSQL/auth/storage restore, off-machine recovery, published Android version and release signing continuity remain open. The five content drafts are not independently approved or published. Authoritative sample grading and the pure evidence/scheduling policy are implemented locally; production identity/network database, adaptive selection, durable sync and the complete 2.0 learner journey remain open.
 
 Hosted verification after the repair:
 
@@ -73,7 +73,7 @@ The hosted-results checkpoint update is documentation-only and accompanies this 
 |---|---|---|
 | M0 Preserve and baseline | In progress | Live deployment/API settings, full PostgreSQL/auth/storage recovery, off-machine backup and store/signing records |
 | M1 Contracts design and content | In progress | Foundation demonstration implemented; independent review, 30 targets, target-centered database model, complete contract/design acceptance remain |
-| M2 Authoritative engine | In progress | Grading/idempotent attempts and pure evidence/scheduling policy implemented locally; transactional projections, adaptive selection and production adapters remain |
+| M2 Authoritative engine | In progress | Grading, idempotent attempts/exposures and transactional evidence/state/schedules/sync implemented locally; adaptive selection and production adapters remain |
 | M3 Web vertical slice | Not started | Complete 2.0 learner journey |
 | M4 Android parity | Not started | Native 2.0 journey using product API |
 | M5 Offline and operations | Not started | Verified durable outboxes, cross-device reconciliation, privacy and release recovery |
@@ -92,20 +92,29 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 
 ## Exact next implementation slice
 
-1. Inspect checkout/recent commits and hosted evidence-policy results. Preserve newer work; do not restart completed grading, evidence policy, previews, Android repair or mockups.
-2. Extend the isolated target-centered database/API to persist accepted evidence with pinned editorial variant/context/transfer identities and saved profile timezone. Invoke `retained-evidence-v1` and commit attempt/evaluation, derived target state/schedule and sync change atomically. Prove replay/rebuild, rollback, acknowledgment idempotency and competing updates. Read ADR 004 before mapping events: assistance cannot shorten retention eligibility, reinforcement is not independent assessment, and the current one-variant draft catalog cannot satisfy mastery/transfer gates. Add explicit skip/exposure transport contracts with their ingestion endpoint.
-3. Then drive a small server-selected session from differing learner histories before expanding learner navigation. Production auth/network PostgreSQL adapters and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
+1. Inspect checkout/recent commits and hosted transactional-evidence results. Preserve newer work; do not restart completed grading, evidence policy, transactional persistence, skip ingestion, previews, Android repair or mockups.
+2. Drive a small server-selected session from differing learner histories, using persisted target state and UTC schedule eligibility. Preserve capability negotiation, replay-safe selection, immutable revision/editorial role pinning and solution-free payloads. Demonstrate due/weak/new ordering with synthetic histories; do not invent catalog diversity or imply content approval. Read ADRs 004 and 005 before using schedule eligibility or reinforcement.
+3. Then expose owned target/sync snapshots through versioned transport and expand the complete learner journey. Stored `isDue` is as of ingestion; refresh it from schedule deadline and injected clock. Production auth/network PostgreSQL adapters, least-privilege roles and multi-connection contention must be verified before staging; no production reset/cutover is authorized. Independent German-language review, 30-target expansion and complete M1 acceptance remain required before publication/pilot.
 4. Resume M0 dependent checks when full export/restore tooling, private backup destination and Play/signing records are available. Use the specific blockers in `docs/operations/m0-inventory.md`; do not repeat successful row/source recovery or claim it satisfies full restore.
 
-The next demonstration is transactionally persisted server-owned state/scheduling and session selection for differing learner histories, followed by the complete learner journey. The first backend session is verified locally and in hosted CI at `4877d22`; the pure evidence policy is locally verified as recorded below. Full milestone exit gates remain in blueprint Sections 23–26. Ignored private recovery artifacts remain local.
+The next demonstration is server-selected sessions for differing learner histories, followed by target/sync transport and the complete learner journey. Transactional server-owned evidence/state/scheduling is now implemented locally. The first backend session is verified locally and in hosted CI at `4877d22`; the pure evidence policy is locally verified as recorded below. Full milestone exit gates remain in blueprint Sections 23–26. Ignored private recovery artifacts remain local.
 
 ## Pure evidence and scheduling policy slice
 
 - Implemented `retained-evidence-v1` in `packages/learning-engine/src/evidence.ts`, with injected clock, saved event timezones, immutable accepted evidence and deterministic server receipt-sequence replay. Includes five learner states, spaced/local-date gates, editorial transfer/context diversity, independent failure and recovery, retained mastery transitions/lapse cycles, and the 1/3/7/14/30-day ladder.
 - Assisted practice can request an earlier review while leaving retention eligibility fixed. Skip/exposure and reinforcement cannot advance mastery. Implausible answer timing is excluded from retention successes; late success cannot repair a later failure. Existing single-variant catalog targets remain below Mastered.
-- This is a pure server-engine slice only: the API does not invoke it yet, and no projection/schedule/sync persistence or public skip endpoint is claimed. M2 remains in progress. [Policy decision](docs/adr/004_retained_evidence_policy.md), [verification and reproduction evidence](docs/operations/evidence-policy-verification.md).
+- At this historical handoff it was a pure server-engine slice only; the transactional-evidence slice below now invokes it and persists projections/schedules/sync changes with a public skip/exposure ingestion endpoint. M2 remains in progress. [Policy decision](docs/adr/004_retained_evidence_policy.md), [verification and reproduction evidence](docs/operations/evidence-policy-verification.md).
 - Local root install/check/build passed; backend 3 files / 37 tests, web 78 files / 301 tests passed. Two install EPERM failures were resolved by stopping stale project preview binary holders. Android/browser/device checks were not rerun because client code/contracts did not change. No live inference, production mutation, content publication or store release occurred.
 - Implementation `a520eab` is committed and pushed to `main`. Both applicable hosted workflows passed at that exact commit: [Web checks 37160726354](https://github.com/abulhawa/german-master-2/actions/runs/37160726354) (install, generated/type checks, 37 backend tests, 301 web tests and build) and [Repository safety 37160726305](https://github.com/abulhawa/german-master-2/actions/runs/37160726305). Android CI was not triggered by this server-only change. Local staged and full-history Gitleaks scans passed with zero findings (773 commits at implementation head). This final hosted-results checkpoint is documentation-only and committed/pushed at handoff.
+
+
+## Transactional evidence and scheduling slice
+
+- Accepted answers now atomically commit source/evaluation, immutable accepted evidence, `retained-evidence-v1` target projection, review schedule, ordered sync change and session completion. Learner row locking serializes ingestion. Replays return original acknowledgments without another event/projection/sync change.
+- Added migration 002 with saved issuance, immutable pinned editorial identities and question assessment/reinforcement roles. Events save the profile timezone at ingestion. Grammar maps to the concept diversity gate. Historical local fixtures upgrade conservatively without granting retrospective spaced-success credit; initialization/backfill is replay-safe. Targets/exercise linkage/session issuance are frozen.
+- Added generated TypeScript/Kotlin exposure contracts, shared conformance fixtures and `POST /v2/exposures:batch`. Exposure is nonterminal; skip finishes a question without grading. Both record exposure only, preserve event idempotency and compete with answers for first terminal submission. Skip UI and public sync retrieval remain open.
+- New PostgreSQL tests cover exact projection replay, saved timezone/issuance/identities, duplicate acknowledgment, late final-write rollback, competing same-target sessions, assisted retention gates, reinforcement, single-variant mastery limits, skip/answer race, ownership, strict HTTP transport, old-schema upgrade and close/reopen recovery. [Decision](docs/adr/005_transactional_evidence.md), [verification](docs/operations/transactional-evidence-verification.md).
+- Local root install/check/build passed; backend 4 files / 51 tests and web 78 files / 301 tests passed. Android offline 26 suites / 98 tests, debug assembly and lint passed (zero errors / 16 warnings). Built loopback launcher accepted an answer and replay-safe skip. Hosted results are pending. M0/M1 gates remain open and M2 remains in progress. No production mutation, content publication, store release or AI/Groq inference occurred.
 
 ## Local toolchain and checks
 

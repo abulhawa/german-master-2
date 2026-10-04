@@ -405,6 +405,95 @@ data class AttemptBatchResponse(
     }
 }
 
+@Serializable
+data class ExposureEvent(
+    val eventId: String,
+    val sessionQuestionId: String,
+    val exerciseRevision: Int,
+    val deviceId: String,
+    val disposition: String,
+    val occurredAt: String
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(eventId)) { "Invalid ExposureEvent.eventId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(sessionQuestionId)) { "Invalid ExposureEvent.sessionQuestionId" }
+        require(exerciseRevision >= 1) { "Invalid ExposureEvent.exerciseRevision" }
+        require(exerciseRevision <= 2147483647) { "Invalid ExposureEvent.exerciseRevision" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid ExposureEvent.deviceId" }
+        require(disposition in setOf("skip", "exposure")) { "Invalid ExposureEvent.disposition" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$").matches(occurredAt)) { "Invalid ExposureEvent.occurredAt" }
+        require(runCatching { java.time.Instant.parse(occurredAt).toString() == occurredAt }.getOrDefault(false)) { "Invalid ExposureEvent.occurredAt" }
+    }
+}
+
+@Serializable
+data class ExposureBatch(
+    val apiVersion: String,
+    val events: List<ExposureEvent>
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid ExposureBatch.apiVersion" }
+        require(events.size >= 1) { "Invalid ExposureBatch.events" }
+        require(events.size <= 50) { "Invalid ExposureBatch.events" }
+    }
+}
+
+@Serializable
+@SerialName("accepted")
+data class ExposureAccepted(
+    override val eventId: String,
+    val serverSequence: Int
+) : ExposureAcknowledgment() {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(eventId)) { "Invalid ExposureAccepted.eventId" }
+        require(serverSequence >= 1) { "Invalid ExposureAccepted.serverSequence" }
+        require(serverSequence <= 2147483647) { "Invalid ExposureAccepted.serverSequence" }
+    }
+}
+
+@Serializable
+@SerialName("duplicate")
+data class ExposureDuplicate(
+    override val eventId: String,
+    val serverSequence: Int
+) : ExposureAcknowledgment() {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(eventId)) { "Invalid ExposureDuplicate.eventId" }
+        require(serverSequence >= 1) { "Invalid ExposureDuplicate.serverSequence" }
+        require(serverSequence <= 2147483647) { "Invalid ExposureDuplicate.serverSequence" }
+    }
+}
+
+@Serializable
+@SerialName("rejected")
+data class ExposureRejected(
+    override val eventId: String,
+    val error: ApiError
+) : ExposureAcknowledgment() {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(eventId)) { "Invalid ExposureRejected.eventId" }
+    }
+}
+
+@Serializable
+@OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
+@JsonClassDiscriminator("status")
+sealed class ExposureAcknowledgment {
+    abstract val eventId: String
+}
+
+@Serializable
+data class ExposureBatchResponse(
+    val apiVersion: String,
+    val acknowledgments: List<ExposureAcknowledgment>
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid ExposureBatchResponse.apiVersion" }
+        require(acknowledgments.size >= 1) { "Invalid ExposureBatchResponse.acknowledgments" }
+        require(acknowledgments.size <= 50) { "Invalid ExposureBatchResponse.acknowledgments" }
+    }
+}
+
 object ContractShape {
     fun checkOption(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "text")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("text") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -434,4 +523,11 @@ object ContractShape {
     fun checkAttemptDuplicate(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("attemptId", "status", "evaluation", "serverSequence")); run { val p = o.getValue("attemptId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkEvaluation(o.getValue("evaluation")); run { val p = o.getValue("serverSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
     fun checkAcknowledgment(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["status"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "accepted" -> checkAttemptAcknowledgment(element); "duplicate" -> checkAttemptDuplicate(element); "rejected" -> checkAttemptRejection(element); else -> error("Unsupported discriminator") } } }
     fun checkAttemptBatchResponse(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "acknowledgments")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("acknowledgments") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkAcknowledgment(item) } } } }
+    fun checkExposureEvent(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("eventId", "sessionQuestionId", "exerciseRevision", "deviceId", "disposition", "occurredAt")); run { val p = o.getValue("eventId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("deviceId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("disposition") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("occurredAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkExposureBatch(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "events")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("events") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkExposureEvent(item) } } } }
+    fun checkExposureAccepted(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("eventId", "status", "serverSequence")); run { val p = o.getValue("eventId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("serverSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkExposureDuplicate(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("eventId", "status", "serverSequence")); run { val p = o.getValue("eventId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("serverSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkExposureRejected(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("eventId", "status", "error")); run { val p = o.getValue("eventId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkApiError(o.getValue("error")) } }
+    fun checkExposureAcknowledgment(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["status"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "accepted" -> checkExposureAccepted(element); "duplicate" -> checkExposureDuplicate(element); "rejected" -> checkExposureRejected(element); else -> error("Unsupported discriminator") } } }
+    fun checkExposureBatchResponse(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "acknowledgments")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("acknowledgments") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkExposureAcknowledgment(item) } } } }
 }
