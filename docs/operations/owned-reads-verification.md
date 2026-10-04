@@ -19,7 +19,7 @@ Generated v2 confirmed summary/page contracts, authenticated `/v2/targets` and `
 - Android offline `testDebugUnitTest lintDebug assembleDebug --no-daemon --max-workers=4` passed. 26 suites / 99 tests, zero failures/errors/skips. Lint: zero errors / 16 existing warnings. Debug assembly passed. No device/emulator/TalkBack verification is claimed.
 - Built loopback launcher smoke passed: frozen two-target snapshot page, accepted incorrect answer, one owned sync delta after the snapshot watermark and unchanged continuation time. The temporary in-memory launcher was stopped.
 - Existing installation audit: 12 findings (six moderate/six high); stale Browserslist data and Android deprecations remain. No dependency changes or live services were used. No browser rendering was reverified because no learner UI changed.
-- Diff whitespace verification passed. Full-history Gitleaks 8.30.1 scan at the starting history passed with zero findings (778 commits). Final staged/history scans and hosted results are recorded at handoff.
+- Diff whitespace verification and Gitleaks 8.30.1 staged/full-history scans passed with zero findings (779 commits at implementation head `3d5ab87`). Implementation is committed and pushed to main. All three hosted workflows passed at that exact commit: [Web checks](https://github.com/abulhawa/german-master-2/actions/runs/37193710368), [Android checks](https://github.com/abulhawa/german-master-2/actions/runs/37193710406) and [Repository safety](https://github.com/abulhawa/german-master-2/actions/runs/37193710348).
 
 ## Limits and next action
 
