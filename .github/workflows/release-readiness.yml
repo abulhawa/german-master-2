@@ -1,0 +1,42 @@
+name: Release readiness
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/release-readiness.yml'
+      - 'tools/release/**'
+      - 'apps/android/app/build.gradle'
+      - 'apps/web/vercel.json'
+      - 'db/baseline/**'
+      - 'docs/operations/v2-staging-plan.json'
+      - '.gitignore'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-readiness-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guardrails:
+    name: Non-deploying release guardrails
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.3'
+      - name: Verify release invariants and build provenance manifest
+        run: node tools/release/readiness.mjs --output "$RUNNER_TEMP/release-readiness.json"
+      - name: Preserve non-secret readiness evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-readiness-${{ github.sha }}
+          path: ${{ runner.temp }}/release-readiness.json
+          if-no-files-found: error
+          retention-days: 14
