@@ -162,11 +162,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
-  useEffect(() => {
-    if (setup && view !== "practice") return;
-    const frame = requestAnimationFrame(() => heading.current?.focus());
-    return () => cancelAnimationFrame(frame);
-  }, [view, selectedId, p?.index, p?.session?.id, setup]);
+  useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
   useEffect(() => { if (view === 'practice') heading.current?.focus(); }, [closing, p?.completion, view]);
 
@@ -254,11 +250,17 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const due = confirmed?.targets.filter(t => t.isDue && t.state !== "needs_practice").length ?? 0;
   const hasEvidence = confirmed?.targets.some(t => t.lastSequence > 0);
   function preference(update: Partial<Journey>) { try { commit({ ...current.current, ...update }); } catch { /* Preserve prior state. */ } }
+  function navigate(nextView: typeof view) {
+    setView(nextView);
+    // Keyboard activation leaves focus on the triggering button in real browsers.
+    // Refocus after the click/default-action turn so the new page is announced.
+    setTimeout(() => heading.current?.focus(), 0);
+  }
 
   const selectedTarget = catalog?.targets.find(t => t.id === selectedId);
   const selectedTopic = catalog?.topics.find(t => t.id === selectedId);
   const targetState = confirmed?.targets.find(t => t.targetId === selectedId);
-  function showTarget(id: string) { setSelectedId(id); setView("target"); }
+  function showTarget(id: string) { setSelectedId(id); navigate("target"); }
   function focusAction(focus: PracticeFocus, count: number) {
     return <><p>{c.available}: {count}</p><p>{c.focusedShort}</p>
       {p && !complete ? <><p>{c.resumeFirst}</p><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.resume}</FoundationButton></>
@@ -276,9 +278,9 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       </div>}
       {view !== "practice" && <p className="gm-notice">{c.notice}</p>}
       {view !== "practice" && !setup && <nav className="gm-navigation" aria-label={c.subtitle}>
-        <FoundationButton className="gm-secondary" aria-current={view === "home" ? "page" : undefined} onClick={() => setView("home")}>{c.home}</FoundationButton>
-        <FoundationButton className="gm-secondary" aria-current={view === "progress" ? "page" : undefined} onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
-        <FoundationButton className="gm-secondary" aria-current={view === "topics" || view === "topic" ? "page" : undefined} onClick={() => setView("topics")}>{c.topics}</FoundationButton>
+        <FoundationButton className="gm-secondary" aria-current={view === "home" ? "page" : undefined} onClick={() => navigate("home")}>{c.home}</FoundationButton>
+        <FoundationButton className="gm-secondary" aria-current={view === "progress" ? "page" : undefined} onClick={() => { navigate("progress"); void refresh(); }}>{c.progress}</FoundationButton>
+        <FoundationButton className="gm-secondary" aria-current={view === "topics" || view === "topic" ? "page" : undefined} onClick={() => navigate("topics")}>{c.topics}</FoundationButton>
       </nav>}
       {view !== "practice" && !setup && <FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>}
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
@@ -329,7 +331,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
               <h2>{c.coveredTargets}</h2>
               <ul>{p.session.questions.slice(0, p.index + (p.evaluation ? 1 : 0)).filter((question, index, questions) => questions.findIndex(q => q.exercise.targetId === question.exercise.targetId) === index).map(question =>
                 <li key={question.exercise.targetId}>{catalog?.targets.find(t => t.id === question.exercise.targetId)?.title[state.locale] ?? question.exercise.prompt}</li>)}</ul>
-              <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
+              <FoundationButton onClick={() => { navigate("progress"); void refresh(); }}>{c.progress}</FoundationButton>
             </> : exercise ? <>
               <p className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</p>
               {!("focus" in p.request) && p.session.questions.length < (profile?.preferences.sessionQuestionCount ?? p.request.questionCount) && <p>{c.shorterSession}: {p.session.questions.length}</p>}
@@ -372,7 +374,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           {catalogFailed && <p role="alert">{c.catalogUnavailable}</p>}
           {(!catalog || catalogFailed) && <FoundationButton disabled={busy} onClick={() => void loadCatalog()}>{c.retryCatalog}</FoundationButton>}
           {view === "topics" && catalog && <ul className="gm-targets">{catalog.topics.map(topic => <li key={topic.id}>
-            <FoundationButton className="gm-secondary" onClick={() => { setSelectedId(topic.id); setView("topic"); }}>{topic.title[state.locale]}</FoundationButton>
+            <FoundationButton className="gm-secondary" onClick={() => { setSelectedId(topic.id); navigate("topic"); }}>{topic.title[state.locale]}</FoundationButton>
             <p>{c.available}: {catalog.targets.filter(t => t.topicId === topic.id && t.availableQuestionCount > 0).length}</p>
           </li>)}</ul>}
           {view === "topic" && selectedTopic && catalog && <>
@@ -389,7 +391,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <p>{c.retentionNote}</p>
             {focusAction({ type: "target", id: selectedTarget.id }, selectedTarget.availableQuestionCount)}
           </>}
-          {view !== "topics" && <FoundationButton className="gm-secondary" onClick={() => setView("topics")}>{c.back}</FoundationButton>}
+          {view !== "topics" && <FoundationButton className="gm-secondary" onClick={() => navigate("topics")}>{c.back}</FoundationButton>}
         </PracticeCard>}
         {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy || !!p.completion && !p.completionReceipt} onClick={() => { preference({ practice: null }); setView("home"); }}>{c.discard}</FoundationButton></details>}
       </>}
