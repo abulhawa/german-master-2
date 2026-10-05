@@ -39,3 +39,12 @@ jobs:
       - name: Build without production configuration
         if: ${{ !cancelled() }}
         run: npm run build
+      - name: Build isolated offline learner preview
+        if: ${{ !cancelled() }}
+        run: npm run build:learner-preview
+      - name: Install isolated browser for offline acceptance
+        if: ${{ !cancelled() }}
+        run: npx playwright install --with-deps chromium
+      - name: Offline shell cold launch and late sync
+        if: ${{ !cancelled() }}
+        run: npm run test:offline-shell
