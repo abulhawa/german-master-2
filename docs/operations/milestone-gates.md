@@ -73,3 +73,26 @@ Both isolated preview entry points now support dedicated provider authentication
 Configured hosts reopen only the previously verified subject's saved work, keep network delivery gated, preserve frozen writes and durable privacy markers, and expose explicit reauthentication. Mounted web and native AtomicFile tests practise actual locally generated packs with expired mocked auth across restart. Native persisted legacy jobs are paused without constructing legacy auth/data dependencies in the opt-in v2 release. Dedicated product builds do not authorize cutover. These close local cold-host and build-routing engineering requirements; no complete M0–M6 gate closes. Live provider/Keystore/two-device/accessibility, reviewed content, host identity deletion/retention/recovery, staging operations and pilot gates remain open. See [ADR 030](../adr/030_offline_account_hosts_and_v2_artifacts.md).
 
 Explicit published runtime catalogs replace hardcoded foundation selection for network practice. Hash/member/status validation, non-fixture IDs, selected snapshots and pinned session/pack replay pass against synthetic local SQL catalogs. Generated client status contracts accept published catalogs. This closes local provider transport/revocation and catalog-routing engineering requirements; no full M0–M6 exit gate closes. M2 still needs actual independently reviewed content, approved network setup/advisors/contention/load. M3/M4/M5 still need deployed release-host acceptance, real identity/reconciliation, actual provider offline cold-launch acceptance, retention/host deletion and physical accessibility. M0 recovery/Play custody, M1 independent German/design acceptance and M6 pilot remain open. See [ADR 029](../adr/029_client_provider_and_runtime_catalog.md).
+
+## Client and real staging checkpoint — 6 October 2026
+
+Both clients now have durable identity-specific deletion markers, transient
+proof transports and session-free receipt recovery with cleanup barriers.
+Opt-in network admission delivers through the private serialized worker.
+Local web/native actual HTTP restart/receipt-loss checks pass; controls stay
+disabled by default pending live lifecycle/retention acceptance.
+
+Actual Pixel fixture reporting survives disconnected loopback and force-stop,
+then confirms on explicit retry without changing learning evidence. Three
+forms received Correct feedback, and 200% font/IME/recreation preserved work.
+The preview-only adjustResize omission was fixed and visually verified.
+All-five-form, full completion, TalkBack and complete large-font acceptance
+remain open. At owner-requested wrap, the fourth-question word-order draft
+is saved. Vertical scroll drift is explicitly deferred before production.
+See [client/device evidence](identity-deletion-clients.md).
+
+The first clean v2 staging baseline/access/privacy installation was separately
+approved and executed. Actual role/RLS/empty-state metadata passes; initial
+advisors report security/performance findings requiring remediation. No full
+milestone closes and no live identity, contention/load or restore acceptance
+is claimed. See [staging installation evidence](staging-initial-install-review.md).

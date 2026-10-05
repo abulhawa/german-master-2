@@ -9,7 +9,7 @@ import { browserStorage } from './storage';
 import { providerCopy as copy } from './provider-locales';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
-export function ProviderLearnerJourney({host,origin}:{host:ReturnType<typeof createLearnerProvider>;origin:string}) {
+export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
   const [account,setAccount] = useState<AccountBinding|null>(null);
   const [busy,setBusy] = useState(true);
   const [failed,setFailed] = useState(false);
@@ -58,6 +58,7 @@ export function ProviderLearnerJourney({host,origin}:{host:ReturnType<typeof cre
     return ()=> {alive=false;++ticket;data.subscription.unsubscribe();host.provider.invalidate();};
   },[host,retry]);
   const api=useMemo(()=>account ? host.provider.api(account,origin) : undefined,[host,account,origin]);
+  const identityDeletion=useMemo(()=>account&&deletionEnabled?host.provider.identityDeletion(account,origin):undefined,[host,account,origin,deletionEnabled]);
   async function signIn() {
     if(busy||loginLock.current) return;loginLock.current=true;setBusy(true);setFailed(false);
     try {const {error}=await host.client.auth.signInWithPassword({email,password});if(error)throw Error('Sign-in failed');}
@@ -70,7 +71,7 @@ export function ProviderLearnerJourney({host,origin}:{host:ReturnType<typeof cre
   }
   if(account&&!showLogin) return <><div className="gm-foundation" lang={locale}><div className="gm-column">
     {local&&<p role="status">{c.local}</p>}<FoundationButton onClick={()=>setShowLogin(true)}>{c.reauth}</FoundationButton>
-  </div></div><LearnerJourney account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} /></>;
+  </div></div><LearnerJourney account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} /></>;
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
     <h1>{c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}

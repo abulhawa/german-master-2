@@ -110,3 +110,18 @@ changelog or live auth verification is claimed.
 RLS behavior and hard-delete cascades were checked against the official
 [auth RLS migration](https://github.com/supabase/auth/blob/master/migrations/20240612123726_enable_rls_update_grants.up.sql)
 and [user-management documentation source](https://github.com/supabase/supabase/blob/master/apps/docs/content/guides/auth/managing-user-data.mdx).
+
+## Client protocol continuation — 6 October 2026
+
+Subject-bound web/native durable markers and transient fresh-proof controls now
+exist behind disabled-by-default host controls. Recovery is read-only and can
+run after session loss. Only a saved identity-specific receipt permits captured
+subject cleanup, and the local terminal marker precedes last-account removal.
+The opt-in network composition dispatches freshly admitted begin requests through
+its serialized private worker; status never dispatches. No automatic scheduler
+or multi-host coordination is added. See operations/identity-deletion-clients.md.
+
+The owner separately approved and executed the clean initial staging schema,
+including the private identity subsystem and verifier policies. No credential,
+auth mutation, publication or deployment approval follows from that installation.
+Post-install advisors are recorded in operations/staging-initial-install-review.md.

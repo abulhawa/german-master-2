@@ -18,6 +18,36 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun identityReceiptLossRecoversThroughActualHttpAfterAtomicFileRestartAndSessionLoss() = runBlocking {
+        Harness().use { harness ->
+            val directory=Files.createTempDirectory("identity-http").toFile()
+            try {
+                var active:LearnerIdentity?=LearnerIdentity(FIXTURE_SUBJECT,1)
+                val account=LearnerAccount(requireNotNull(active)) {active}
+                val store=account.store(directory)
+                val transport=HttpIdentityDeletion("https://api.example",account,{"foundation-local-demo"}, { uri ->
+                    java.net.URI("http://127.0.0.1:${harness.port}${uri.path}").toURL().openConnection() as java.net.HttpURLConnection
+                })
+                var lose=true;var cleanup=0
+                val lossy=object:IdentityDeletionTransport by transport {
+                    override suspend fun begin(request:IdentityDeletionRecovery,proof:IdentityDeletionProof):IdentityDeletionResponse {
+                        val receipt=transport.begin(request,proof)
+                        if(lose){lose=false;error("response lost")};return receipt
+                    }
+                }
+                fun repository()=LearnerRepository(harness.api,store,account).also {it.identityDeletionTransport=lossy;it.clearDeletedIdentity={cleanup++}}
+                var repo=repository();repo.refresh()
+                val prior=repo.state
+                assertTrue(runCatching {repo.deleteIdentity(IdentityDeletionProof("learner@example.com","fresh-test-proof"))}.isFailure)
+                assertEquals(prior.profile,repo.state.profile);assertEquals(0,cleanup)
+                assertTrue(runCatching {repo.refresh()}.isFailure)
+                active=null;repo=repository();repo.deleteIdentity()
+                assertTrue(repo.state.identityDeletion?.complete==true);assertEquals(1,cleanup)
+                assertNull(repo.state.profile);assertEquals(repo.state,store.read())
+                assertTrue(runCatching {harness.api.profile()}.isFailure)
+            } finally {directory.listFiles()?.forEach {it.delete()};directory.delete()}
+        }
+    }
     @Test fun configuredColdRepositoryPractisesSavedPackWithExpiredAuthAndKeepsRevocationBlocked() = runBlocking {
         Harness().use { harness ->
             val directory=Files.createTempDirectory("configured-cold").toFile()

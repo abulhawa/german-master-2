@@ -48,10 +48,18 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             finally { cache = repository.state; if(cache.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
         }
     }
-    LaunchedEffect(repository) { if (cache.deletion == null && !cache.signedOut) run {} }
+    LaunchedEffect(repository) { if (cache.identityDeletion == null && cache.deletion == null && !cache.signedOut) run {} }
     val german = cache.profile?.preferences?.locale == "de"
     fun label(en: String, de: String) = if (german) de else en
     val setup = screen == "setup" || cache.profile?.setupCompleted != true
+    if(cache.identityDeletion!=null) {
+        Surface(Modifier.fillMaxSize()) {
+            Column(Modifier.safeDrawingPadding().imePadding().padding(24.dp).verticalScroll(rememberScrollState())) {
+                NativeIdentityDeletionControl(repository,german,false) {cache=repository.state}
+            }
+        }
+        return
+    }
     if (cache.deletion != null) {
         Surface(Modifier.fillMaxSize()) {
             Column(Modifier.safeDrawingPadding().padding(24.dp).verticalScroll(rememberScrollState())) {
@@ -122,6 +130,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 if (screen == "home") {
                     NativePrivacyExport(repository, german, busy) { cache = repository.state }
                     if(!repository.authenticatedAccount) NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
+                    if(repository.identityDeletionEnabled) NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
                     NativePrivacySignOut(repository, german, busy) { cache = repository.state }
                     Text(label("Needs practice", "Übungsbedarf") + ": ${cache.targets.count { it.state == "needs_practice" }}")
                     Text(label("Retention checks", "Behalten überprüfen") + ": ${cache.targets.count { it.isDue && it.state != "needs_practice" }}")

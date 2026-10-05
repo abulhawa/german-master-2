@@ -20,7 +20,7 @@ export function serializedDeletionWorker(service:IdentityDeletionService) {
  * Rate limits are process-local, bounded, keyed by socket peer (never forwarded
  * headers); multi-host deployment must supply an upstream shared limit as well. */
 export function identityDeletionHttp(service:IdentityDeletionService,authenticate:Authenticate,
-  clock=()=>Date.now()) {
+  clock=()=>Date.now(), deliverAdmitted?:(requestId:string)=>Promise<unknown>) {
   const peers=new Map<string,{start:number;count:number}>();
   return async (request:IncomingMessage,response:ServerResponse):Promise<boolean>=> {
     const path=request.url;
@@ -53,6 +53,12 @@ export function identityDeletionHttp(service:IdentityDeletionService,authenticat
       if(typeof expected!=='string' || expected.toLowerCase()!==subject.toLowerCase()) throw new ApiFailure('account_changed',409);
       const data=parsed.data;
       receipt=await service.begin(subject,data.requestId,data.recoveryCapability,data.proof);
+      // Only fresh authenticated admission may dispatch; status is always read-only.
+      // A failed/ambiguous delivery retains the durable pending job for explicit retry.
+      if(deliverAdmitted && receipt.status==='pending') {
+        try {await deliverAdmitted(receipt.requestId);} catch { /* Recover durable state below. */ }
+        receipt=await service.recover(data.requestId,data.recoveryCapability);
+      }
     } else {
       const parsed=IdentityDeletionRecoverySchema.safeParse(input);
       if(!parsed.success) throw new ApiFailure('invalid_request',400);

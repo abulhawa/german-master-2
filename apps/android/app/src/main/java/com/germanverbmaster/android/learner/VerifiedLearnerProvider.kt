@@ -14,6 +14,7 @@ interface LearnerAuth {
     fun accessToken(): String?
     suspend fun verifiedSubject(token: String): String
     suspend fun revoke()
+    suspend fun clearDeleted(subject: String) { error("Local identity cleanup unavailable") }
 }
 
 interface VerifiedSubjectStore {
@@ -42,6 +43,14 @@ class SupabaseLearnerAuth(private val client: SupabaseClient) : LearnerAuth {
         return user.id
     }
     override suspend fun revoke() { client.auth.signOut(SignOutScope.LOCAL) }
+    override suspend fun clearDeleted(subject: String) {
+        client.auth.awaitInitialization()
+        val session=client.auth.currentSessionOrNull() ?: client.auth.sessionManager.loadSessionOrNull()
+        if(session!=null) {
+            val captured=session.user?.id ?: ContractReader.json.parseToJsonElement(String(Base64.getUrlDecoder().decode(session.accessToken.split('.')[1]),Charsets.UTF_8)).jsonObject.getValue("sub").jsonPrimitive.content
+            if(captured==subject)client.auth.clearSession()
+        }
+    }
 }
 
 /** JWT parsing is a precondition, never signature verification or learning authority. */
@@ -115,9 +124,22 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
         saved?.write("")
         invalidate()
     }
-    suspend fun repository(directory: java.io.File, origin: String, localOnly: Boolean = false): LearnerRepository {
+    suspend fun repository(directory: java.io.File, origin: String, localOnly: Boolean = false, deletionEnabled: Boolean = false): LearnerRepository {
         val account = if(localOnly) requireNotNull(localBinding()) { "No verified saved account" } else bind()
         return LearnerRepository(api(account,origin),account.store(directory),account) { revoke(account) }.also {
+            it.identityDeletionEnabled=deletionEnabled
+            it.identityDeletionTransport = HttpIdentityDeletion(origin,account, {
+                account.assertCurrent();check(online);val value=verified();account.assertCurrent();check(value.subject==account.identity.subject);value.token
+            })
+            it.clearDeletedIdentity = {
+                check(it.state.identityDeletion?.receipt is com.germanverbmaster.android.foundation.contract.IdentityDeletionCompleted)
+                auth.clearDeleted(account.identity.subject)
+                if(active?.subject==account.identity.subject)invalidate()
+            }
+            it.forgetDeletedIdentity = {
+                check(it.state.identityDeletion?.complete==true)
+                if(saved?.read()==account.identity.subject)saved.write("")
+            }
             it.authorizeResume = { check(online); account.assertCurrent(); val value=verified(); account.assertCurrent();check(value.subject==account.identity.subject) }
         }
     }

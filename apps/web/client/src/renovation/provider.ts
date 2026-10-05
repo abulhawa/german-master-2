@@ -2,6 +2,8 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { AccountBinding, type LearnerIdentity } from './account';
 import { localLearnerApi } from './api';
 import { browserStorage, type JourneyStorage } from './storage';
+import { LearnerIdentityDeletion, type IdentityDeletionTransport } from './identity-deletion';
+import { IdentityDeletionBeginSchema, IdentityDeletionResponseSchema } from '@german-master/contracts';
 
 type Auth = Pick<SupabaseClient['auth'], 'getSession' | 'getUser' | 'signOut'>;
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -74,6 +76,7 @@ export class VerifiedLearnerProvider {
       throw Error('HTTPS API origin required');
     const transport: typeof fetch = async (input, init) => {
       account.assertCurrent();
+      new LearnerIdentityDeletion(account,account.storage(this.saved)).assertActive();
       if (!this.online) throw Error('Sign in before syncing');
       const credential = await this.credential();
       account.assertCurrent();
@@ -84,6 +87,7 @@ export class VerifiedLearnerProvider {
       headers.set('X-Learner-Subject', account.identity.subject);
       const response = await send(new URL(input, url), { ...init, headers, cache: 'no-store', credentials: 'omit', redirect: 'error' });
       account.assertCurrent();
+      new LearnerIdentityDeletion(account,account.storage(this.saved)).assertActive();
       if (response.status === 401) { this.online = false; throw Error('Sign in before syncing'); }
       return response;
     };
@@ -91,6 +95,46 @@ export class VerifiedLearnerProvider {
     // Real service deletion stays closed until host-auth deletion is integrated.
     delete api.deleteLearner;
     return api;
+  }
+
+  identityDeletion(account:AccountBinding,origin:string,send:typeof fetch=fetch):IdentityDeletionTransport {
+    const url=new URL(origin);
+    if(url.protocol!=='https:' || url.username || url.password || url.pathname!=='/' || url.search || url.hash) throw Error('HTTPS API origin required');
+    const request=async (path:string,body:unknown,headers:Headers)=> {
+      headers.set('Content-Type','application/json');
+      const response=await send(new URL(path,url),{method:'POST',body:JSON.stringify(body),headers,cache:'no-store',credentials:'omit',redirect:'error',signal:AbortSignal.timeout(15000)});
+      if(!response.ok)throw Error('Identity deletion unavailable');
+      return IdentityDeletionResponseSchema.parse(await response.json());
+    };
+    return {
+      begin:async (frozen,proof)=> {
+        account.assertCurrent();if(!this.online)throw Error('Sign in before deleting');
+        const credential=await this.credential();account.assertCurrent();
+        if(credential.subject!==account.identity.subject)throw Error('Account changed');
+        const receipt=await request('/v2/me/identity-deletion:begin',IdentityDeletionBeginSchema.parse({...frozen,confirmation:'delete_identity',proof}),
+          new Headers({Authorization:`Bearer ${credential.token}`,'X-Learner-Subject':account.identity.subject}));
+        // Deletion may have invalidated the session while the response was in flight.
+        // The frozen capability/UUID, rather than the surviving SDK binding, owns it.
+        return receipt;
+      },
+      recover:frozen=>request('/v2/me/identity-deletion:status',frozen,new Headers()),
+    };
+  }
+
+  async clearDeletedIdentity(account:AccountBinding) {
+    const marker=new LearnerIdentityDeletion(account,account.storage(this.saved)).read();
+    if(marker?.receipt?.status!=='identity_deleted')throw Error('Identity deletion is not confirmed');
+    // Clear only captured-subject credentials; another signed-in account is untouched.
+    const {data,error}=await this.auth.getSession();if(error)throw Error('Local credential cleanup unavailable');
+    if(data.session?.user.id.toLowerCase()===account.identity.subject) {
+      const result=await this.auth.signOut({scope:'local'});if(result.error)throw Error('Local credential cleanup unavailable');
+    }
+    if(this.active?.subject===account.identity.subject)this.invalidate();
+  }
+
+  async forgetDeletedIdentity(account:AccountBinding) {
+    if(!new LearnerIdentityDeletion(account,account.storage(this.saved)).read()?.complete)throw Error('Local deletion is not complete');
+    if(this.saved.getItem(this.savedKey)===account.identity.subject)this.saved.setItem(this.savedKey,'');
   }
 
   async revoke(account: AccountBinding) {

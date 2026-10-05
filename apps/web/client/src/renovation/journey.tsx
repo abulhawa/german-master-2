@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
@@ -20,9 +20,12 @@ import { PrivacyDeletion, PrivacySignOut } from './privacy';
 import { LearnerSignOut } from './signout';
 import { REPORT_KEY } from './report';
 import { STORAGE_KEY } from './storage';
+import { LearnerIdentityDeletion, type IdentityDeletionTransport } from './identity-deletion';
+import { IdentityDeletionControl } from './identity-deletion-control';
+import type { IdentityDeletionProof } from '@german-master/contracts';
 
 const localApi = localLearnerApi(fixtureAccount);
-type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean };
+type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean; identityDeletion?:IdentityDeletionTransport; clearDeletedIdentity?:()=>Promise<void>; forgetDeletedIdentity?:()=>Promise<void> };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
   return <AccountLearnerJourney key={`${account.identity.subject}:${account.identity.generation}`} {...props} account={account} />;
@@ -52,7 +55,7 @@ function AccountLearnerJourney(props: JourneyProps & { account: AccountBinding }
   </PracticeCard></div></main>;
 }
 
-export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke, authorizeResume }: JourneyProps & { owner?: FixtureOwner }) {
+export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke, authorizeResume, identityDeletion, clearDeletedIdentity,forgetDeletedIdentity }: JourneyProps & { owner?: FixtureOwner }) {
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
   useEffect(()=>()=>{
@@ -62,7 +65,8 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
   const rawApi = useMemo(() => suppliedApi ?? localLearnerApi(account), [suppliedApi,account]);
   const deletion = useMemo(() => new LearnerDeletion(account,storage), [account,storage]);
   const signout = useMemo(()=>new LearnerSignOut(account,storage),[account,storage]);
-  const barrier = useMemo(()=>({assertActive:()=>{account.assertCurrent();deletion.assertActive();signout.assertActive();}}),[account,deletion,signout]);
+  const identityMarker=useMemo(()=>new LearnerIdentityDeletion(account,storage),[account,storage]);
+  const barrier = useMemo(()=>({assertActive:()=>{account.assertCurrent();identityMarker.assertActive();deletion.assertActive();signout.assertActive();}}),[account,deletion,signout,identityMarker]);
   const api = useMemo(() => deletionGuard(rawApi,barrier), [rawApi,barrier]);
   const activeOwner = useMemo(() => owner ? new Proxy(owner,{get(target,key) {
     if(key === 'run') return <T,>(work:()=>Promise<T>)=>target.run(async()=>{barrier.assertActive();const result=await work();barrier.assertActive();return result;});
@@ -70,8 +74,8 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
   }}) : undefined,[owner,barrier]);
   const activeStorage = useMemo(() => ({getItem:storage.getItem.bind(storage),setItem:(key:string,value:string)=> { barrier.assertActive(); storage.setItem(key,value); }}), [storage,barrier]);
   const [,refresh] = useState(0);
-  let saved; let signedOut; let damaged = false;
-  try { saved = deletion.read();signedOut=signout.read(); } catch { damaged = true; }
+  let saved; let signedOut; let identitySaved=null; let damaged = false;
+  try { saved = deletion.read();signedOut=signout.read();identitySaved=identityMarker.read(); } catch { damaged = true; }
   const locale = (() => { try { return readJourney(storage).locale; } catch { return 'en' as const; } })();
   async function cleanup() {
       // Only this subject's database and three owned keys; never clear the origin.
@@ -84,14 +88,20 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
     finally { refresh(v=>v+1); }
   }
   async function leave(removeLocal:boolean) {
-    const work=()=>{deletion.assertActive();return signout.finish(removeLocal,()=>syncSavedWork(api,activeStorage,db),cleanup,()=>refresh(v=>v+1),revoke);};
+    const work=()=>{identityMarker.assertActive();deletion.assertActive();return signout.finish(removeLocal,()=>syncSavedWork(api,activeStorage,db),cleanup,()=>refresh(v=>v+1),revoke);};
     try { await(owner?owner.run(work):work()); } finally { refresh(v=>v+1); }
   }
+  async function deleteIdentity(proof?:IdentityDeletionProof) {
+    const work=()=>{signout.assertActive();deletion.assertActive();return identityMarker.deliver(identityDeletion!,async()=>{await cleanup();await clearDeletedIdentity!();},proof,()=>refresh(v=>v+1),forgetDeletedIdentity);};
+    try {if(!identityDeletion||!clearDeletedIdentity)throw Error('Identity deletion not configured');await(owner?owner.run(work):work());}finally{refresh(v=>v+1);}
+  }
+  const identityControl=identityDeletion&&clearDeletedIdentity?(currentLocale:'en'|'de',blocked:boolean)=><IdentityDeletionControl locale={currentLocale} marker={identitySaved} blocked={blocked||damaged} deliver={deleteIdentity}/>:undefined;
+  if(identitySaved) return <main className="gm-foundation" lang={locale}><div className="gm-column">{identityControl?.(locale,false)??<p role="alert">{locale==='de'?'Kontolöschung gespeichert. Üben und Synchronisieren sind gesperrt.':'Account deletion saved. Practice and sync are blocked.'}</p>}</div></main>;
   if (saved || damaged) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacyDeletion locale={locale} pending={!!saved} confirmed={!!saved?.receipt} complete={!!saved?.complete} blocked={damaged} remove={remove} /></div></main>;
   if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut authenticated={!!revoke} locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{authorizeResume?.();signout.resume();refresh(v=>v+1);}} /></div></main>;
-  return <ActiveLearnerJourney authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
+  return <ActiveLearnerJourney identityControl={identityControl} authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
 }
-function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void> }) {
+function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false,identityControl }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void>; identityControl?:(locale:'en'|'de',blocked:boolean)=>ReactNode }) {
   const api = useMemo(() => suppliedApi ?? (account === fixtureAccount ? localApi : localLearnerApi(account)), [suppliedApi, account]);
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
@@ -307,6 +317,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
         {view === 'home' && api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
         {view === 'home' && <PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
+        {view === 'home' && identityControl?.(state.locale,busy||loaded.damaged)}
         {view === 'home' && api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
           if (lock.current) throw Error('Learner operation in progress');
           lock.current=true;setBusy(true);

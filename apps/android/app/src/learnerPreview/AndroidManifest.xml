@@ -7,7 +7,7 @@
         tools:replace="android:name,android:label,android:allowBackup">
         <!-- No legacy OAuth links or scheduled raw-table workers in the fixture app. -->
         <activity android:name=".MainActivity" tools:node="remove" />
-        <activity android:name=".learner.LearnerPreviewActivity" android:exported="true">
+        <activity android:name=".learner.LearnerPreviewActivity" android:exported="true" android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

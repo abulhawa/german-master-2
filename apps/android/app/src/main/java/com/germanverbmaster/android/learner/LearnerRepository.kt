@@ -146,6 +146,7 @@ data class LearnerCache(
     val deletion: PrivacyDeleteRequest? = null,
     val deletionReceipt: PrivacyDeleteReceipt? = null,
     val deletionLocalComplete: Boolean = false,
+    val identityDeletion: NativeIdentityDeletion? = null,
     val signedOut: Boolean = false,
     val localRemovalPending: Boolean = false,
     val authRevocationPending: Boolean = false,
@@ -193,17 +194,30 @@ class AtomicLearnerStore(file: File) : LearnerStore {
 }
 
 class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null, private val revoke: (suspend () -> Unit)? = null) {
+    var identityDeletionEnabled: Boolean = false
+        internal set
+    var identityDeletionTransport: IdentityDeletionTransport? = null
+        internal set
+    var clearDeletedIdentity: (suspend () -> Unit)? = null
+        internal set
+    var forgetDeletedIdentity: (suspend () -> Unit)? = null
+        internal set
     var authorizeResume: (suspend () -> Unit)? = null
         internal set
     val authenticatedAccount: Boolean get() = revoke != null
     private val deletionApi = account?.let { BoundLearnerApi(transport, it) } ?: transport
-    private val api = ActiveLearnerApi(deletionApi) { check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" } }
+    private val api = ActiveLearnerApi(deletionApi) { check(state.identityDeletion == null && state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" } }
     private val mutex = Mutex()
     var state = store.read()
         private set
-    private fun commit(next: LearnerCache) { account?.assertCurrent(); check(state.deletion == null && !state.signedOut); commitPrivacy(next) }
+    private fun commit(next: LearnerCache) { account?.assertCurrent(); check(state.identityDeletion == null && state.deletion == null && !state.signedOut); commitPrivacy(next) }
     private fun commitPrivacy(next: LearnerCache) { store.write(next); state = next }
     init {
+        state.identityDeletion?.let {
+            check(it.receipt == null || it.receipt.requestId == it.request.requestId)
+            check(!it.complete || it.receipt is IdentityDeletionCompleted)
+            check(state.deletion == null && !state.signedOut)
+        }
         check(!state.deletionLocalComplete || state.deletionReceipt != null)
         check(!state.localRemovalPending || state.signedOut)
         check(state.deletion == null || !state.signedOut)
@@ -214,6 +228,32 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
                 "Saved learner data belongs to a different account"
             }
             if (state.subjectId == null) commit(state.copy(subjectId = subject))
+        }
+    }
+    /** The same mutex drains uploads before persisting the irreversible barrier. */
+    suspend fun deleteIdentity(proof: IdentityDeletionProof? = null) = mutex.withLock {
+        val transport = requireNotNull(identityDeletionTransport)
+        val clear = requireNotNull(clearDeletedIdentity)
+        val subject = requireNotNull(state.subjectId)
+        check(state.deletion == null && !state.signedOut)
+        var marker = state.identityDeletion ?: run {
+            account?.assertCurrent();requireNotNull(proof)
+            val bytes=ByteArray(32).also { java.security.SecureRandom().nextBytes(it) }
+            NativeIdentityDeletion(IdentityDeletionRecovery("v2",UUID.randomUUID().toString(),java.util.Base64.getUrlEncoder().withoutPadding().encodeToString(bytes))).also {
+                commitPrivacy(state.copy(identityDeletion=it))
+            }
+        }
+        if(marker.complete) { forgetDeletedIdentity?.invoke();return@withLock }
+        if(marker.receipt !is IdentityDeletionCompleted) {
+            val receipt=if(proof==null)transport.recover(marker.request) else transport.begin(marker.request,proof)
+            check(receipt.requestId==marker.request.requestId) { "Identity deletion receipt mismatch" }
+            marker=marker.copy(receipt=receipt);commitPrivacy(state.copy(identityDeletion=marker))
+        }
+        if(marker.receipt is IdentityDeletionCompleted) {
+            // Preserve the identity receipt if local provider/cache cleanup fails.
+            clear()
+            commitPrivacy(LearnerCache(subjectId=subject,identityDeletion=marker.copy(complete=true)))
+            forgetDeletedIdentity?.invoke()
         }
     }
     /** Explicit retry only. The mutex drains earlier operations before freezing deletion. */
@@ -235,7 +275,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         if(!state.deletionLocalComplete) commitPrivacy(LearnerCache(subjectId = subject,deletion = request,deletionReceipt = receipt,deletionLocalComplete = true))
     }
     suspend fun signOut(removeLocal: Boolean) = mutex.withLock {
-        check(state.deletion == null)
+        check(state.identityDeletion == null && state.deletion == null)
         account?.assertCurrent()
         val subject = requireNotNull(state.subjectId) { "Sign-out requires a bound learner" }
         if(!state.signedOut) {
@@ -254,7 +294,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     suspend fun resumeLocalFixture() = mutex.withLock {
         authorizeResume?.invoke()
         account?.assertCurrent()
-        check(state.deletion == null && state.signedOut && !state.localRemovalPending && !state.authRevocationPending)
+        check(state.identityDeletion == null && state.deletion == null && state.signedOut && !state.localRemovalPending && !state.authRevocationPending)
         commitPrivacy(state.copy(signedOut = false))
     }
     suspend fun prepareReserve() = mutex.withLock { prepareReserveOwned() }
@@ -501,7 +541,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     }
     suspend fun syncSavedWork() = mutex.withLock { syncSavedWorkOwned() }
     private suspend fun syncSavedWorkOwned() {
-        check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" }
+        check(state.identityDeletion == null && state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" }
         if (state.pending != null) sendPending()
         val online = state.practice?.takeIf { it.offlinePack == null }
         if (online != null) {

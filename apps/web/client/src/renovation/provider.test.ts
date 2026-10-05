@@ -2,6 +2,7 @@ import { afterEach, expect, it, vi } from 'vitest';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { VerifiedLearnerProvider } from './provider';
 import { LearnerSignOut } from './signout';
+import { LearnerIdentityDeletion } from './identity-deletion';
 const project = 'zgmyrpzwgtydwlzponih';
 const subject = '00000000-0000-4000-8000-000000000020';
 const other = '00000000-0000-4000-8000-000000000021';
@@ -19,6 +20,16 @@ function fixture() {
   return { provider, auth, token, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
 }
 afterEach(()=>localStorage.clear());
+it('confirmed old-subject cleanup preserves a newly signed-in account and its saved reference',async()=> {
+  const f=fixture(),a=await f.provider.bind();
+  const saved={getItem:(key:string)=>localStorage.getItem(key),setItem:(key:string,value:string)=>localStorage.setItem(key,value)};
+  const marker=new LearnerIdentityDeletion(a,a.storage(saved));
+  await marker.deliver({begin:async request=>({apiVersion:'v2',requestId:request.requestId,status:'identity_deleted',completedAt:'2026-10-05T20:00:00Z'}),recover:vi.fn()},async()=>{}, {email:'learner@example.com',password:'fresh'});
+  f.switch();const b=await f.provider.bind();
+  await f.provider.clearDeletedIdentity(a);await f.provider.forgetDeletedIdentity(a);
+  expect(f.auth.signOut).not.toHaveBeenCalled();b.assertCurrent();
+  expect(f.provider.localBinding()?.identity.subject).toBe(other);
+});
 it('uses verified credentials for reads and frozen submissions; never sends fixture authorization', async () => {
   const f = fixture(); const account = await f.provider.bind();
   const request = { apiVersion: 'v2' as const, requestId: subject, questionCount: 1, capabilities: ['short_answer@1'] };
