@@ -40,6 +40,18 @@ describe("isolated PostgreSQL-backed HTTP session", () => {
     base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
   });
   afterAll(async () => { await new Promise<void>(resolve => server.close(() => resolve())); await db.close(); });
+  it('rejects a mismatched or malformed captured subject before request parsing or mutation', async () => {
+    const before = await store.profile(other);
+    for (const expected of [user, 'invalid-subject']) {
+      const response = await fetch(base + '/v2/profile', {method:'POST',headers:{Authorization:`Bearer ${other}`,'Content-Type':'application/json','X-Learner-Subject':expected},body:'invalid JSON deliberately not read'});
+      expect(response.status).toBe(409); expect((await response.json()).code).toBe('account_changed');
+    }
+    expect(await store.profile(other)).toEqual(before);
+    const response = await fetch(base + '/v2/profile', {headers:{Authorization:`Bearer ${user}`,'X-Learner-Subject':other}});
+    expect(response.status).toBe(409);
+    const allowed = await fetch(base + '/v2/profile', {headers:{Authorization:`Bearer ${user}`,'X-Learner-Subject':user.toUpperCase()}});
+    expect(allowed.status).toBe(200);
+  });
   it("creates owned solution-free questions, replays a request and conflicts on changes", async () => {
     const input = request();
     const created = await post("/v2/sessions", input);

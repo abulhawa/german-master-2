@@ -37,7 +37,7 @@ interface LearnerApi {
 class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh snapshot")
 
 /** Only the public local fixture; never production authentication. */
-class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
+class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject: String? = null) : LearnerApi {
     override suspend fun preparePack(request: SessionRequest): PreparedPack = PreparedPackReader.read(request("/v2/packs", ContractReader.json.encodeToString(request))).also { check(it.packId == request.requestId) }
     override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/sessions/$sessionId/complete", ContractReader.json.encodeToString(request)))
@@ -66,6 +66,7 @@ class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
             connection.connectTimeout = 10000
             connection.readTimeout = 10000
             connection.setRequestProperty("Authorization", "Bearer foundation-local-demo")
+            expectedSubject?.let { connection.setRequestProperty("X-Learner-Subject", it) }
             connection.setRequestProperty("Cache-Control", "no-store")
             if (body != null) {
                 connection.requestMethod = "POST"
@@ -117,6 +118,7 @@ class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
 @Serializable
 data class LearnerCache(
     val version: Int = 1,
+    val subjectId: String? = null,
     val profile: LearnerProfile? = null,
     val pending: ProfileRequest? = null,
     val targets: List<ConfirmedTarget> = emptyList(),
@@ -160,11 +162,21 @@ class AtomicLearnerStore(file: File) : LearnerStore {
     }
 }
 
-class LearnerRepository(private val api: LearnerApi, private val store: LearnerStore) {
+class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null) {
+    private val api = account?.let { BoundLearnerApi(transport, it) } ?: transport
     private val mutex = Mutex()
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
+    init {
+        account?.let {
+            val subject = it.identity.subject
+            check(state.subjectId == subject || state.subjectId == null && (state == LearnerCache() || subject == FIXTURE_SUBJECT)) {
+                "Saved learner data belongs to a different account"
+            }
+            if (state.subjectId == null) commit(state.copy(subjectId = subject))
+        }
+    }
     suspend fun prepareReserve() = mutex.withLock { prepareReserveOwned() }
     private suspend fun prepareReserveOwned() {
         val request = state.packRequest ?: run {

@@ -5,6 +5,7 @@ import { ContentReportReceiptSchema, type ContentReportRequest, type ContentRepo
 import { SessionCompletionReceiptSchema, type SessionCompletionRequest, type SessionCompletionReceipt } from '@german-master/contracts';
 import { type PreparedPack, type SessionRequest } from '@german-master/contracts';
 import { validatePreparedPack } from '@german-master/learning-engine';
+import type { AccountBinding } from './account';
 
 export interface LearnerApi extends FoundationApi {
   preparePack?(request: SessionRequest): Promise<PreparedPack>;
@@ -22,68 +23,79 @@ export interface LearnerApi extends FoundationApi {
 export class SyncCursorReset extends Error {
   constructor() { super("Sync cursor requires a fresh snapshot"); }
 }
-export function localLearnerApi(): LearnerApi {
+export function localLearnerApi(account?: AccountBinding): LearnerApi {
+  const binding = account ? { subject: account.identity.subject, assertCurrent: () => account.assertCurrent() } : undefined;
+  async function transportRequest(input: string, init: RequestInit) {
+    binding?.assertCurrent();
+    const response = await fetch(input, { ...init, headers: { ...init.headers, ...(binding ? { 'X-Learner-Subject': binding.subject } : {}) } });
+    binding?.assertCurrent();
+    return response;
+  }
+  async function json(response: Response) {
+    const body: unknown = await response.json(); binding?.assertCurrent(); return body;
+  }
   async function get(path: string, cursor?: string) {
-    const response = await fetch(`${path}?limit=50${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""}`, {
+    const response = await transportRequest(`${path}?limit=50${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""}`, {
       headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store",
     });
     if (!response.ok) {
       if (path === "/v2/sync" && response.status === 400) {
-        const error: unknown = await response.json();
+        const error: unknown = await json(response);
         if (error && typeof error === "object" && "code" in error && error.code === "invalid_cursor") throw new SyncCursorReset();
       }
       throw Error("Confirmed read unavailable");
     }
-    return response.json();
+    return json(response);
   }
-  return { ...localFoundationApi(),
+  return { ...localFoundationApi(binding),
     async preparePack(request) {
-      const response = await fetch('/v2/packs', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      const response = await transportRequest('/v2/packs', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if(!response.ok) throw Error('Pack unavailable');
-      const pack = await validatePreparedPack(await response.json());
+      const pack = await validatePreparedPack(await json(response));
+      binding?.assertCurrent();
       if(pack.packId !== request.requestId) throw Error('Pack request mismatch');
       return pack;
     },
     async complete(sessionId, request) {
-      const response = await fetch(`/v2/sessions/${encodeURIComponent(sessionId)}/complete`, {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      const response = await transportRequest(`/v2/sessions/${encodeURIComponent(sessionId)}/complete`, {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if (!response.ok) throw Error('Completion unavailable');
-      const receipt = SessionCompletionReceiptSchema.parse(await response.json());
+      const receipt = SessionCompletionReceiptSchema.parse(await json(response));
       if (receipt.sessionId !== sessionId || receipt.requestId !== request.requestId || receipt.mode !== request.mode) throw Error('Completion receipt mismatch');
       return receipt;
     },
     async report(request) {
-      const response = await fetch('/v2/content-reports', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      const response = await transportRequest('/v2/content-reports', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if (!response.ok) throw Error('Report unavailable');
-      const receipt = ContentReportReceiptSchema.parse(await response.json());
+      const receipt = ContentReportReceiptSchema.parse(await json(response));
       if (receipt.reportId !== request.reportId) throw Error('Report receipt mismatch');
       return receipt;
     },
     async expose(event) {
-      const response = await fetch("/v2/exposures:batch", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify({ apiVersion: "v2", events: [event] }) });
+      const response = await transportRequest("/v2/exposures:batch", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify({ apiVersion: "v2", events: [event] }) });
       if (!response.ok) throw Error("Exposure unavailable");
-      const parsed = ExposureBatchResponseSchema.parse(await response.json());
+      const parsed = ExposureBatchResponseSchema.parse(await json(response));
       if (parsed.acknowledgments.length !== 1 || parsed.acknowledgments[0].eventId !== event.eventId) throw Error("Exposure acknowledgment linkage mismatch");
       return parsed.acknowledgments[0];
     },
     async profile() {
-      const response = await fetch("/v2/profile", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
+      const response = await transportRequest("/v2/profile", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
       if (!response.ok) throw Error("Profile unavailable");
-      return LearnerProfileSchema.parse(await response.json());
+      return LearnerProfileSchema.parse(await json(response));
     },
     async saveProfile(request) {
-      const response = await fetch("/v2/profile", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
+      const response = await transportRequest("/v2/profile", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
       if (!response.ok) throw Error("Profile update unavailable");
-      return LearnerProfileSchema.parse(await response.json());
+      return LearnerProfileSchema.parse(await json(response));
     },
     async catalog() {
-      const response = await fetch("/v2/catalog", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
+      const response = await transportRequest("/v2/catalog", { headers: { Authorization: "Bearer foundation-local-demo" }, cache: "no-store" });
       if (!response.ok) throw Error("Catalog unavailable");
-      return CatalogSchema.parse(await response.json());
+      return CatalogSchema.parse(await json(response));
     },
     async createFocusedSession(request) {
-      const response = await fetch("/v2/sessions", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
+      const response = await transportRequest("/v2/sessions", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo" }, body: JSON.stringify(request) });
       if (!response.ok) throw Error("Focused session unavailable");
-      return SessionSchema.parse(await response.json());
+      return SessionSchema.parse(await json(response));
     },
     async targets(cursor) { return TargetPageSchema.parse(await get("/v2/targets", cursor)); },
     async sync(cursor) { return SyncPageSchema.parse(await get("/v2/sync", cursor)); },

@@ -18,6 +18,15 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun capturedSubjectMismatchCannotReadOrChangeTheAuthoritativeFixture() = runBlocking {
+        Harness().use { harness ->
+            val original = harness.api.profile()
+            val foreign = LocalLearnerApi(harness.port, UUID.randomUUID().toString())
+            assertTrue(runCatching {foreign.profile()}.isFailure)
+            assertTrue(runCatching {foreign.save(ProfileRequest("v2",UUID.randomUUID().toString(),original.revision,original.preferences.copy(locale="de")))}.isFailure)
+            assertEquals(original,harness.api.profile())
+        }
+    }
     @Test fun preparedPackUsesActualOwnedHttpAndValidatesWholePayloadBeforeReady() = runBlocking {
         Harness().use { harness ->
             val request = foundationSessionRequest().copy(questionCount = 5)
@@ -167,7 +176,8 @@ class NativeAuthoritativeHttpTest {
         private fun receive(): JsonObject = reader.submit<JsonObject> {
             ContractReader.json.parseToJsonElement(checkNotNull(output.readLine()) { "Harness exited" }).jsonObject
         }.get(30, TimeUnit.SECONDS)
-        val api = LocalLearnerApi(receive().getValue("port").jsonPrimitive.int)
+        val port = receive().getValue("port").jsonPrimitive.int
+        val api = LocalLearnerApi(port, FIXTURE_SUBJECT)
         fun command(action: String): JsonObject {
             input.write("{\"action\":\"$action\"}\n"); input.flush()
             return receive()

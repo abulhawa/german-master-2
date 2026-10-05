@@ -2,13 +2,16 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, waitFor, within } from "@testing-library/react";
 import LearnerJourney from "./journey";
 import { FixtureOwner, OWNER_LOCK } from "./ownership";
-import { readJourney } from "./storage";
+import { readJourney, emptyJourney, saveJourney } from "./storage";
+import { AccountBinding, FIXTURE_SUBJECT, type LearnerIdentity } from './account';
+import { sessionRequest } from '../foundation/api';
 import type { LearnerApi } from "./api";
 import sample from "@german-master/contracts/examples/session.json";
 import targets from "@german-master/contracts/examples/target-page.json";
 import catalog from "@german-master/contracts/examples/catalog.json";
 import acknowledgment from "@german-master/contracts/examples/attempt-response.json";
 import { PROFILE_PENDING_KEY } from "./setup";
+import { SessionSchema } from '@german-master/contracts';
 
 // FIFO exclusive scheduler represents separate tabs sharing the browser lock.
 function locks() {
@@ -31,6 +34,27 @@ function fixture(): LearnerApi {
   } as LearnerApi;
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+it('remounts subject-owned state on account switch and restores the first learners draft after reauthentication', async () => {
+  let current: LearnerIdentity = {subject:FIXTURE_SUBJECT,generation:0};
+  const a = new AccountBinding(current, () => current);
+  const other = {subject:'00000000-0000-4000-8000-000000000011',generation:1};
+  const b = new AccountBinding(other, () => current);
+  const names: string[] = [];
+  vi.stubGlobal('navigator',{locks:{request:vi.fn(async (name:string,_options:unknown,work:()=>Promise<void>) => {names.push(name); await work();})}});
+  saveJourney(a.storage(localStorage),{...emptyJourney(),practice:{request:sessionRequest(),session:SessionSchema.parse(sample),index:0,draft:{type:'short_answer',text:'A draft'},assisted:true,
+    pending:null,pendingExposure:null,skippedCount:0,evaluation:null,rejected:false,confirmedCount:0,correctCount:0}});
+  const api = fixture(); const ui = render(<LearnerJourney api={api} account={a} />); const view = within(ui.container);
+  fireEvent.click(await view.findByText('Continue practice')); await view.findByLabelText('Your answer');
+  expect(view.getByLabelText('Your answer')).toHaveValue('A draft');
+  current = other; ui.rerender(<LearnerJourney api={api} account={b} />);
+  await waitFor(() => expect(view.getByText('Start short practice')).toBeEnabled());
+  expect(view.queryByText('Continue practice')).toBeNull(); expect(readJourney(b.storage(localStorage)).practice).toBeNull();
+  current = {subject:FIXTURE_SUBJECT,generation:2}; const renewed = new AccountBinding(current, () => current);
+  ui.rerender(<LearnerJourney api={api} account={renewed} />);
+  fireEvent.click(await view.findByText('Continue practice')); await view.findByLabelText('Your answer');
+  expect(view.getByLabelText('Your answer')).toHaveValue('A draft'); expect(api.createSession).not.toHaveBeenCalled();
+  expect(names).toEqual([a.ownerLock,b.ownerLock,renewed.ownerLock]);
+});
 it("waits for an in-flight operation before relinquishing ownership", async () => {
   const owner = new FixtureOwner(); let finish!: () => void;
   const work = owner.run(() => new Promise<void>(resolve => { finish = resolve; }));

@@ -48,10 +48,22 @@
             "description": "Authentication required"
           },
           "409": {
-            "description": "Changed request or insufficient compatible content"
+            "description": "Changed request or insufficient compatible content; captured subject mismatch (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/sessions/{sessionId}/complete": {
       "post": {
@@ -99,21 +111,77 @@
             "description": "Owned session unavailable"
           },
           "409": {
-            "description": "Incomplete full session or completion conflict"
+            "description": "Incomplete full session or completion conflict; captured subject mismatch (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/content-reports": {
       "post": {
         "operationId": "reportContent",
         "description": "Record a category against an owned pinned exercise revision. Same reportId and payload replay identically; changes conflict. New reports limited to ten per learner per rolling hour in the local adapter. No answer text is uploaded and learning evidence is unchanged.",
-        "requestBody": {"required":true,"content":{"application/json":{"schema":{"$ref":"./schema.json#/$defs/ContentReportRequest"}}}},
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schema.json#/$defs/ContentReportRequest"
+              }
+            }
+          }
+        },
         "responses": {
-          "200":{"description":"Recorded or replayed","content":{"application/json":{"schema":{"$ref":"./schema.json#/$defs/ContentReportReceipt"}}}},
-          "400":{"description":"Invalid request"},"401":{"description":"Authentication required"},"404":{"description":"Owned question unavailable"},"409":{"description":"Revision mismatch or report conflict"},"429":{"description":"New-report rate limit; explicit later retry"}
+          "200": {
+            "description": "Recorded or replayed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ContentReportReceipt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "404": {
+            "description": "Owned question unavailable"
+          },
+          "409": {
+            "description": "Revision mismatch or report conflict; captured subject mismatch (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "New-report rate limit; explicit later retry"
+          }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/sessions": {
       "post": {
@@ -178,7 +246,7 @@
             }
           },
           "409": {
-            "description": "Idempotency or capability conflict",
+            "description": "Idempotency or capability conflict; captured subject mismatch (account_changed)",
             "content": {
               "application/json": {
                 "schema": {
@@ -198,7 +266,12 @@
             }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/attempts:batch": {
       "post": {
@@ -256,7 +329,7 @@
             }
           },
           "409": {
-            "description": "Idempotency or capability conflict",
+            "description": "Idempotency or capability conflict; captured subject mismatch (account_changed)",
             "content": {
               "application/json": {
                 "schema": {
@@ -276,7 +349,12 @@
             }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/exposures:batch": {
       "post": {
@@ -334,7 +412,7 @@
             }
           },
           "409": {
-            "description": "Idempotency or capability conflict",
+            "description": "Idempotency or capability conflict; captured subject mismatch (account_changed)",
             "content": {
               "application/json": {
                 "schema": {
@@ -354,7 +432,12 @@
             }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/targets": {
       "get": {
@@ -410,9 +493,24 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Captured subject does not match the authenticated account (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/sync": {
       "get": {
@@ -468,9 +566,24 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Captured subject does not match the authenticated account (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/catalog": {
       "get": {
@@ -492,9 +605,24 @@
           },
           "401": {
             "description": "Authentication required"
+          },
+          "409": {
+            "description": "Captured subject does not match the authenticated account (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     },
     "/v2/profile": {
       "get": {
@@ -507,6 +635,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "./schema.json#/$defs/LearnerProfile"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Captured subject does not match the authenticated account (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
                 }
               }
             }
@@ -541,10 +679,22 @@
             "description": "Invalid preferences or IANA timezone"
           },
           "409": {
-            "description": "Changed replay payload or stale expected revision"
+            "description": "Changed replay payload or stale expected revision; captured subject mismatch (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/ApiError"
+                }
+              }
+            }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     }
   },
   "components": {
@@ -587,6 +737,18 @@
       },
       "Catalog": {
         "$ref": "./schema.json#/$defs/Catalog"
+      }
+    },
+    "parameters": {
+      "LearnerSubject": {
+        "name": "X-Learner-Subject",
+        "in": "header",
+        "required": false,
+        "description": "Captured subject for account-bound clients. If present it must match the verified authenticated subject; mismatch returns 409 account_changed before reads or request body ingestion. This header does not authenticate a caller. Isolated stateless fixture transports may omit it.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
       }
     }
   }

@@ -6,13 +6,15 @@ export interface FoundationApi {
 }
 
 /** Public fixture auth is used only by the isolated loopback development preview. */
-export function localFoundationApi(): FoundationApi {
+export function localFoundationApi(binding?: { subject: string; assertCurrent(): void }): FoundationApi {
   async function post(path: string, input: unknown) {
+    binding?.assertCurrent();
     const response = await fetch(path, { method: "POST", headers: {
       "Content-Type": "application/json", Authorization: "Bearer foundation-local-demo",
+      ...(binding ? { 'X-Learner-Subject': binding.subject } : {}),
     }, body: JSON.stringify(input) });
     if (!response.ok) throw Error("Foundation request failed");
-    return response.json();
+    const result = await response.json(); binding?.assertCurrent(); return result;
   }
   return {
     async createSession(request) { return SessionSchema.parse(await post("/v2/sessions", request)); },
