@@ -66,10 +66,26 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
             finally { cache = repository.state; if(cache.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
         }
     }
-    LaunchedEffect(repository) { run {} }
+    LaunchedEffect(repository) { if (cache.deletion == null && !cache.signedOut) run {} }
     val german = cache.profile?.preferences?.locale == "de"
     fun label(en: String, de: String) = if (german) de else en
     val setup = screen == "setup" || cache.profile?.setupCompleted != true
+    if (cache.deletion != null) {
+        Surface(Modifier.fillMaxSize()) {
+            Column(Modifier.safeDrawingPadding().padding(24.dp).verticalScroll(rememberScrollState())) {
+                NativePrivacyDeletion(repository,german,false) { cache = repository.state }
+            }
+        }
+        return
+    }
+    if(cache.signedOut) {
+        Surface(Modifier.fillMaxSize()) {
+            Column(Modifier.safeDrawingPadding().padding(24.dp).verticalScroll(rememberScrollState())) {
+                NativePrivacySignOut(repository,german,false) { cache = repository.state }
+            }
+        }
+        return
+    }
     Surface(Modifier.fillMaxSize()) {
         Column(Modifier.safeDrawingPadding().imePadding().widthIn(max = 720.dp).fillMaxWidth()
             .verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
@@ -117,6 +133,8 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
                 if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
                 if (screen == "home") {
                     NativePrivacyExport(repository, german, busy) { cache = repository.state }
+                    NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
+                    NativePrivacySignOut(repository, german, busy) { cache = repository.state }
                     Text(label("Needs practice", "Übungsbedarf") + ": ${cache.targets.count { it.state == "needs_practice" }}")
                     Text(label("Retention checks", "Behalten überprüfen") + ": ${cache.targets.count { it.isDue && it.state != "needs_practice" }}")
                     if (cache.targets.isEmpty()) Text(label("Let’s find what to practise.", "Finden wir heraus, was du üben kannst."))

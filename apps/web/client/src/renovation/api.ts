@@ -7,8 +7,10 @@ import { type PreparedPack, type SessionRequest } from '@german-master/contracts
 import { validatePreparedPack } from '@german-master/learning-engine';
 import type { AccountBinding } from './account';
 import { LearnerExportSchema, type LearnerExport } from '@german-master/contracts';
+import { PrivacyDeleteReceiptSchema, type PrivacyDeleteRequest, type PrivacyDeleteReceipt } from '@german-master/contracts';
 
 export interface LearnerApi extends FoundationApi {
+  deleteLearner?(request: PrivacyDeleteRequest): Promise<PrivacyDeleteReceipt>;
   exportLearner?(): Promise<LearnerExport>;
   preparePack?(request: SessionRequest): Promise<PreparedPack>;
   complete?(sessionId: string, request: SessionCompletionRequest): Promise<SessionCompletionReceipt>;
@@ -50,6 +52,13 @@ export function localLearnerApi(account?: AccountBinding): LearnerApi {
     return json(response);
   }
   return { ...localFoundationApi(binding),
+    async deleteLearner(request) {
+      const response = await transportRequest('/v2/me', {method:'DELETE',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      if (!response.ok) throw Error('Deletion unavailable');
+      const receipt = PrivacyDeleteReceiptSchema.parse(await json(response));
+      if (receipt.requestId !== request.requestId || binding && receipt.subject.toLowerCase() !== binding.subject) throw Error('Deletion receipt mismatch');
+      return receipt;
+    },
     async exportLearner() {
       const response = await transportRequest('/v2/me/export', {headers:{Authorization:'Bearer foundation-local-demo'},cache:'no-store'});
       if (!response.ok) throw Error('Export unavailable');

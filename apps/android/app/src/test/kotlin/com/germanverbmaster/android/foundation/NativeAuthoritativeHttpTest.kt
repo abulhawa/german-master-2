@@ -18,6 +18,42 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun durableDeletionReplaysAfterResponseLossAndBlocksAbandonedWrites() = runBlocking {
+        Harness().use { harness ->
+            val directory = Files.createTempDirectory("delete-cache").toFile()
+            val account = LearnerAccount(LearnerIdentity(FIXTURE_SUBJECT,0)) { LearnerIdentity(FIXTURE_SUBJECT,0) }
+            val store = account.store(directory)
+            val requests = mutableListOf<PrivacyDeleteRequest>()
+            var lose = true
+            val transport = object : LearnerApi by harness.api {
+                override suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt {
+                    requests.add(request)
+                    val receipt = harness.api.deleteLearner(request)
+                    if(lose) error("response lost")
+                    return receipt
+                }
+            }
+            try {
+                harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))
+                val repo = LearnerRepository(transport,store,account)
+                repo.refresh(); repo.startPractice(); repo.draft(AnswerShortAnswer("saved draft")); repo.hint()
+                val before = repo.state
+                assertTrue(runCatching { repo.deleteLearner() }.isFailure)
+                assertEquals(before.practice,repo.state.practice); assertNotNull(repo.state.deletion); assertNull(repo.state.deletionReceipt)
+                assertTrue(runCatching { repo.syncSavedWork() }.isFailure)
+                assertTrue(runCatching { repo.draft(AnswerShortAnswer("changed")) }.isFailure)
+                assertTrue(runCatching { repo.refresh() }.isFailure)
+                lose = false
+                val reopened = LearnerRepository(transport,store,account); reopened.deleteLearner()
+                assertEquals(requests[0],requests[1]); assertNotNull(reopened.state.deletionReceipt)
+                assertNull(reopened.state.practice); assertNull(reopened.state.profile); assertTrue(reopened.state.targets.isEmpty())
+                reopened.deleteLearner(); assertEquals(2,requests.size)
+                val terminal = LearnerRepository(transport,store,account)
+                assertTrue(runCatching { terminal.startPractice() }.isFailure)
+                assertTrue(runCatching { harness.api.profile() }.isFailure)
+            } finally { directory.listFiles()?.forEach {it.delete()}; directory.delete() }
+        }
+    }
     @Test fun ownedExportUsesAuthoritativeHttpAndSyncsOnlyOnExplicitChoice() = runBlocking {
         Harness().use { harness ->
             harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))

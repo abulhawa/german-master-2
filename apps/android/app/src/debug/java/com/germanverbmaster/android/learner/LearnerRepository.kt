@@ -19,6 +19,7 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt = error("Deletion unavailable")
     suspend fun exportLearner(): LearnerExport = error("Export unavailable")
     suspend fun preparePack(request: SessionRequest): PreparedPack = error("Prepared packs unavailable")
     suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt = error("Completion unavailable")
@@ -39,6 +40,13 @@ class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh s
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject: String? = null) : LearnerApi {
+    override suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/me", ContractReader.json.encodeToString(request), method = "DELETE"))
+        ContractShape.checkPrivacyDeleteReceipt(raw)
+        return ContractReader.json.decodeFromJsonElement(PrivacyDeleteReceipt.serializer(),raw).also {
+            check(it.requestId == request.requestId && (expectedSubject == null || it.subject.equals(expectedSubject,ignoreCase=true))) { "Deletion receipt mismatch" }
+        }
+    }
     override suspend fun exportLearner(): LearnerExport {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/me/export"))
         ContractShape.checkLearnerExport(raw)
@@ -68,7 +76,7 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
         return ContractReader.json.decodeFromJsonElement(ExposureBatchResponse.serializer(), raw).acknowledgments.single().also { check(it.eventId == event.eventId) }
     }
     init { require(port in 1..65535) }
-    private suspend fun request(path: String, body: String? = null, resetOnInvalidCursor: Boolean = false): String = withContext(Dispatchers.IO) {
+    private suspend fun request(path: String, body: String? = null, resetOnInvalidCursor: Boolean = false, method: String = "POST"): String = withContext(Dispatchers.IO) {
         val connection = URI("http://127.0.0.1:$port$path").toURL().openConnection() as HttpURLConnection
         try {
             connection.connectTimeout = 10000
@@ -77,7 +85,7 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
             expectedSubject?.let { connection.setRequestProperty("X-Learner-Subject", it) }
             connection.setRequestProperty("Cache-Control", "no-store")
             if (body != null) {
-                connection.requestMethod = "POST"
+                connection.requestMethod = method
                 connection.doOutput = true
                 connection.setRequestProperty("Content-Type", "application/json")
                 connection.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
@@ -127,6 +135,11 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
 data class LearnerCache(
     val version: Int = 1,
     val subjectId: String? = null,
+    val deletion: PrivacyDeleteRequest? = null,
+    val deletionReceipt: PrivacyDeleteReceipt? = null,
+    val deletionLocalComplete: Boolean = false,
+    val signedOut: Boolean = false,
+    val localRemovalPending: Boolean = false,
     val profile: LearnerProfile? = null,
     val pending: ProfileRequest? = null,
     val targets: List<ConfirmedTarget> = emptyList(),
@@ -171,12 +184,18 @@ class AtomicLearnerStore(file: File) : LearnerStore {
 }
 
 class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null) {
-    private val api = account?.let { BoundLearnerApi(transport, it) } ?: transport
+    private val deletionApi = account?.let { BoundLearnerApi(transport, it) } ?: transport
+    private val api = ActiveLearnerApi(deletionApi) { check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" } }
     private val mutex = Mutex()
     var state = store.read()
         private set
-    private fun commit(next: LearnerCache) { store.write(next); state = next }
+    private fun commit(next: LearnerCache) { check(state.deletion == null && !state.signedOut); commitPrivacy(next) }
+    private fun commitPrivacy(next: LearnerCache) { store.write(next); state = next }
     init {
+        check(!state.deletionLocalComplete || state.deletionReceipt != null)
+        check(!state.localRemovalPending || state.signedOut)
+        check(state.deletion == null || !state.signedOut)
+        check(state.deletionReceipt == null || state.deletion != null && state.deletionReceipt!!.requestId == state.deletion!!.requestId && state.deletionReceipt!!.subject == state.subjectId) { "Deletion receipt ownership mismatch" }
         account?.let {
             val subject = it.identity.subject
             check(state.subjectId == subject || state.subjectId == null && (state == LearnerCache() || subject == FIXTURE_SUBJECT)) {
@@ -184,6 +203,41 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             }
             if (state.subjectId == null) commit(state.copy(subjectId = subject))
         }
+    }
+    /** Explicit retry only. The mutex drains earlier operations before freezing deletion. */
+    suspend fun deleteLearner() = mutex.withLock {
+        check(!state.signedOut)
+        account?.assertCurrent()
+        val subject = requireNotNull(state.subjectId) { "Deletion requires a bound learner" }
+        val request = state.deletion ?: PrivacyDeleteRequest("v2",UUID.randomUUID().toString(),"delete_owned_data").also {
+            commitPrivacy(state.copy(deletion = it))
+        }
+        val receipt = state.deletionReceipt ?: deletionApi.deleteLearner(request).also {
+            account?.assertCurrent()
+            check(it.subject == subject && it.requestId == request.requestId) { "Deletion receipt mismatch" }
+            commitPrivacy(state.copy(deletionReceipt = it))
+        }
+        account?.assertCurrent()
+        // One atomic replacement removes only this subject's cache; retain a terminal marker.
+        if(!state.deletionLocalComplete) commitPrivacy(LearnerCache(subjectId = subject,deletion = request,deletionReceipt = receipt,deletionLocalComplete = true))
+    }
+    suspend fun signOut(removeLocal: Boolean) = mutex.withLock {
+        check(state.deletion == null)
+        account?.assertCurrent()
+        val subject = requireNotNull(state.subjectId) { "Sign-out requires a bound learner" }
+        if(!state.signedOut) {
+            if(!removeLocal) { syncSavedWorkOwned(); account?.assertCurrent() }
+            commitPrivacy(state.copy(signedOut = true,localRemovalPending = removeLocal))
+        }
+        if(state.localRemovalPending) {
+            account?.assertCurrent()
+            commitPrivacy(LearnerCache(subjectId = subject,signedOut = true))
+        }
+    }
+    suspend fun resumeLocalFixture() = mutex.withLock {
+        account?.assertCurrent()
+        check(state.deletion == null && state.signedOut && !state.localRemovalPending)
+        commitPrivacy(state.copy(signedOut = false))
     }
     suspend fun prepareReserve() = mutex.withLock { prepareReserveOwned() }
     private suspend fun prepareReserveOwned() {
@@ -429,6 +483,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     }
     suspend fun syncSavedWork() = mutex.withLock { syncSavedWorkOwned() }
     private suspend fun syncSavedWorkOwned() {
+        check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" }
         if (state.pending != null) sendPending()
         val online = state.practice?.takeIf { it.offlinePack == null }
         if (online != null) {

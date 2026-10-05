@@ -10,6 +10,29 @@ import { sessionRequest, prepareAttempt } from "../foundation/api";
 import { OwnedLearnerJourney as LearnerJourney } from "./journey";
 import { localLearnerApi, SyncCursorReset, type LearnerApi } from "./api";
 import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } from "./storage";
+import { AccountBinding, FIXTURE_SUBJECT } from './account';
+import { WebReserve } from './reserve';
+
+it('deletion requires confirmation, survives remount and removes only owned local work after a receipt',async()=> {
+  const api=apiFixture();let lose=true;
+  api.deleteLearner=vi.fn(async request=> {if(lose) throw Error('lost');return {apiVersion:'v2',requestId:request.requestId,subject:FIXTURE_SUBJECT,status:'deleted',deletedAt:'2026-10-05T12:00:00Z'};});
+  const db=new WebReserve('deletion-ui');const foreign=new AccountBinding({subject:'00000000-0000-4000-8000-000000000099',generation:0},()=>null).storage(localStorage);
+  foreign.setItem(STORAGE_KEY,'foreign preserved');await db.table('records').put({id:'marker',value:'owned'});
+  const rendered=render(<LearnerJourney api={api} reserve={db}/>);
+  await waitFor(()=>expect(screen.getByText('Delete learner data…')).toBeEnabled());
+  fireEvent.click(screen.getByText('Delete learner data…'));expect(api.deleteLearner).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByText('Keep my data'));expect(api.deleteLearner).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByText('Delete learner data…'));fireEvent.click(screen.getByText('Confirm deletion of learner data'));
+  await screen.findByText('Retry saved deletion');expect(screen.queryByText('Start short practice')).toBeNull();
+  expect(await db.table('records').get('marker')).toBeDefined();
+  const reads=vi.mocked(api.profile).mock.calls.length;rendered.unmount();render(<LearnerJourney api={api} reserve={db}/>);
+  expect(vi.mocked(api.profile).mock.calls).toHaveLength(reads);lose=false;
+  fireEvent.click(screen.getByText('Retry saved deletion'));
+  await waitFor(()=>expect(localStorage.getItem(STORAGE_KEY)).toBe(''));
+  expect(await db.table('records').count()).toBe(0);expect(foreign.getItem(STORAGE_KEY)).toBe('foreign preserved');
+  expect(vi.mocked(api.deleteLearner).mock.calls[0]).toEqual(vi.mocked(api.deleteLearner).mock.calls[1]);
+  cleanup();await db.delete();
+});
 
 const session = SessionSchema.parse(sample);
 const ack = AttemptBatchResponseSchema.parse(acknowledgment).acknowledgments[0];
@@ -19,6 +42,24 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it('sign-out choices require explicit removal and resume retained work only for the same local learner',async()=> {
+  const api=apiFixture();const db=new WebReserve('signout-ui');
+  const rendered=render(<LearnerJourney api={api} reserve={db}/>);
+  await waitFor(()=>expect(screen.getByText('Sync saved work and sign out')).toBeEnabled());
+  fireEvent.click(screen.getByText('Remove local work and sign out…'));
+  fireEvent.click(screen.getByText('Keep my local work'));
+  fireEvent.click(screen.getByText('Sync saved work and sign out'));
+  await screen.findByText('Resume the same local fixture learner');
+  expect(screen.queryByText('Start short practice')).toBeNull();
+  rendered.unmount();const remount=render(<LearnerJourney api={api} reserve={db}/>);
+  fireEvent.click(screen.getByText('Resume the same local fixture learner'));
+  await waitFor(()=>expect(screen.getByText('Remove local work and sign out…')).toBeEnabled());
+  localStorage.setItem(PROFILE_PENDING_KEY,'explicitly removed pending work');
+  fireEvent.click(screen.getByText('Remove local work and sign out…'));fireEvent.click(screen.getByText('Confirm local removal and sign out'));
+  await screen.findByText('Resume the same local fixture learner');
+  expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe('');expect(api.saveProfile).not.toHaveBeenCalled();
+  remount.unmount();await db.delete();
+});
 it("Close preserves assisted drafts; partial completion retries the frozen request after restart", async () => {
   const api = apiFixture();
   api.complete = vi.fn(async (sessionId, request) => ({apiVersion:'v2',requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:0,skippedCount:0,correctCount:0,completedAt:'2026-10-05T10:00:00Z'}));

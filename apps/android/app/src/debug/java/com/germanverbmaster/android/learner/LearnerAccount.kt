@@ -25,6 +25,9 @@ class LearnerAccount(identity: LearnerIdentity, private val current: () -> Learn
 }
 
 internal class BoundLearnerApi(private val api: LearnerApi, private val account: LearnerAccount) : LearnerApi {
+    override suspend fun deleteLearner(request: PrivacyDeleteRequest) = bound { api.deleteLearner(request) }.also {
+        check(it.subject == account.identity.subject && it.requestId == request.requestId) { "Deletion receipt mismatch" }
+    }
     override suspend fun exportLearner() = bound { api.exportLearner() }.also {
         check(it.subject.equals(account.identity.subject,ignoreCase=true)) { "Export account mismatch" }
     }
@@ -43,4 +46,22 @@ internal class BoundLearnerApi(private val api: LearnerApi, private val account:
     override suspend fun targets(cursor: String) = bound { api.targets(cursor) }
     override suspend fun sync(cursor: String) = bound { api.sync(cursor) }
     override suspend fun catalog() = bound { api.catalog() }
+}
+
+/** Every read/write is blocked while the durable deletion marker exists. */
+internal class ActiveLearnerApi(private val api: LearnerApi, private val active: () -> Unit) : LearnerApi {
+    private suspend fun <T> run(work: suspend () -> T): T { active(); val result = work(); active(); return result }
+    override suspend fun exportLearner() = run { api.exportLearner() }
+    override suspend fun preparePack(request: SessionRequest) = run { api.preparePack(request) }
+    override suspend fun complete(sessionId: String, request: SessionCompletionRequest) = run { api.complete(sessionId,request) }
+    override suspend fun report(request: ContentReportRequest) = run { api.report(request) }
+    override suspend fun session(request: FocusedSessionRequest) = run { api.session(request) }
+    override suspend fun session(request: SessionRequest) = run { api.session(request) }
+    override suspend fun submit(attempt: Attempt) = run { api.submit(attempt) }
+    override suspend fun expose(event: ExposureEvent) = run { api.expose(event) }
+    override suspend fun profile() = run { api.profile() }
+    override suspend fun save(request: ProfileRequest) = run { api.save(request) }
+    override suspend fun targets(cursor: String) = run { api.targets(cursor) }
+    override suspend fun sync(cursor: String) = run { api.sync(cursor) }
+    override suspend fun catalog() = run { api.catalog() }
 }
