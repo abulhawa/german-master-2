@@ -2,9 +2,12 @@ import {FoundationStore,ApiFailure} from './store';
 import {createApi,type Authenticate} from './server';
 import {PostgresDatabase} from './postgres';
 import type {RuntimeCatalog} from './runtime-catalog';
+import type {IdentityDeletionService} from './identity-deletion';
+import {identityDeletionHttp} from './identity-deletion-http';
 
 /** Explicit server composition; never reads environment secrets or starts a listener. */
-export async function createNetworkApi(db:PostgresDatabase,authenticate:Authenticate,catalog?:RuntimeCatalog,webOrigin?:string) {
+export async function createNetworkApi(db:PostgresDatabase,authenticate:Authenticate,catalog?:RuntimeCatalog,webOrigin?:string,
+  identityDeletion?:IdentityDeletionService) {
   // Runtime startup is read-only. An absent/unknown baseline refuses startup.
   await new FoundationStore(db).initialize();
   return createApi(subject=>new FoundationStore(db.forSubject(subject),undefined,undefined,undefined,catalog),async request=> {
@@ -14,5 +17,5 @@ export async function createNetworkApi(db:PostgresDatabase,authenticate:Authenti
     // until reauthentication/revocation, retention and recovery are integrated.
     if(request.method==='DELETE') throw new ApiFailure('deletion_not_enabled',403);
     return subject;
-  },webOrigin);
+  },webOrigin,identityDeletion?identityDeletionHttp(identityDeletion,authenticate):undefined);
 }

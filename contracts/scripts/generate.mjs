@@ -19,6 +19,7 @@ const allowed = new Set([
   "const",
   "items",
   "minLength",
+  "maxLength",
   "minimum",
   "maximum",
   "minItems",
@@ -70,6 +71,7 @@ function z(s) {
   if (!v) throw Error("Unsupported schema " + q(s));
   if (s.enum) v = s.type === "integer" ? `z.union([${s.enum.map(x => `z.literal(${x})`).join(", ")}])` : `z.enum(${q(s.enum)})`;
   if (s.minLength !== undefined) v += `.min(${s.minLength})`;
+  if (s.maxLength !== undefined) v += `.max(${s.maxLength})`;
   if (s.minimum !== undefined) v += `.min(${s.minimum})`;
   if (s.maximum !== undefined) v += `.max(${s.maximum})`;
   if (s.minItems !== undefined) v += `.min(${s.minItems})`;
@@ -99,6 +101,7 @@ function checks(k, s) {
   let c = [];
   if ("const" in s) c.push(`${k} == ${q(s.const)}`);
   if (s.minLength !== undefined) c.push(`${k}.length >= ${s.minLength}`);
+  if (s.maxLength !== undefined) c.push(`${k}.length <= ${s.maxLength}`);
   if (s.minimum !== undefined) c.push(`${k} >= ${s.minimum}`);
   if (s.maximum !== undefined) c.push(`${k} <= ${s.maximum}`);
   if (s.enum) c.push(`${k} in setOf(${s.enum.map(q).join(", ")})`);

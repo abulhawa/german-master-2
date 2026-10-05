@@ -1,4 +1,4 @@
-import { createServer, type IncomingMessage } from "node:http";
+import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { randomUUID } from "node:crypto";
 import { ProfileRequestSchema, AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
 import { ApiFailure, FoundationStore } from "./store";
@@ -23,12 +23,13 @@ async function body(request: IncomingMessage): Promise<unknown> {
 }
 
 /** No default authentication. A verified subject must be supplied by the host adapter. */
-export function createApi(source: FoundationStore | ((verifiedSubject: string) => FoundationStore), authenticate: Authenticate, webOrigin?: string) {
+export function createApi(source: FoundationStore | ((verifiedSubject: string) => FoundationStore), authenticate: Authenticate, webOrigin?: string,
+  identityDeletion?: (request:IncomingMessage,response:ServerResponse)=>Promise<boolean>) {
   if(webOrigin) {
     const origin = new URL(webOrigin);
     if(origin.protocol !== 'https:' || origin.origin !== webOrigin || origin.username || origin.password) throw Error('HTTPS web origin required');
   }
-  return createServer(async (request, response) => {
+  return createServer({requestTimeout:15_000,headersTimeout:10_000},async (request, response) => {
     const requestId = randomUUID();
     response.setHeader("Content-Type", "application/json; charset=utf-8");
     response.setHeader("Cache-Control", "no-store");
@@ -43,11 +44,12 @@ export function createApi(source: FoundationStore | ((verifiedSubject: string) =
       }
       const preflight = request.method === 'OPTIONS';
       const method = preflight ? request.headers['access-control-request-method'] : request.method;
+      const identityRoute=!!identityDeletion && method==='POST' && ['/v2/me/identity-deletion:begin','/v2/me/identity-deletion:status'].includes(request.url??'');
       const completion = /^\/v2\/sessions\/([0-9a-f-]+)\/complete$/i.exec(url.pathname);
       const isWrite = method === 'POST' && (['/v2/packs', '/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile', '/v2/content-reports'].includes(request.url ?? '') || (!!completion && !url.search));
       const isRead = method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog', '/v2/profile', '/v2/me/export'].includes(url.pathname);
       const isDelete = method === 'DELETE' && url.pathname === '/v2/me' && !url.search;
-      if (!isWrite && !isRead && !isDelete) throw new ApiFailure('not_found', 404);
+      if (!isWrite && !isRead && !isDelete && !identityRoute) throw new ApiFailure('not_found', 404);
       if(preflight) {
         if(!webOrigin || origin !== webOrigin) throw new ApiFailure('origin_not_allowed',403);
         if(isDelete) throw new ApiFailure('deletion_not_enabled',403);
@@ -58,6 +60,7 @@ export function createApi(source: FoundationStore | ((verifiedSubject: string) =
         response.setHeader('Access-Control-Allow-Headers','Authorization, Content-Type, X-Learner-Subject');
         response.statusCode=204;response.end();return;
       }
+      if(identityRoute && await identityDeletion!(request,response)) return;
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
       const expectedSubject = request.headers['x-learner-subject'];

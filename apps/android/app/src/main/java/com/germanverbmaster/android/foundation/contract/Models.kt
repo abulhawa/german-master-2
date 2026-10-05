@@ -905,6 +905,85 @@ data class LearnerExport(
     }
 }
 
+@Serializable
+data class IdentityDeletionProof(
+    val email: String,
+    val password: String
+) {
+    init {
+        require(email.length >= 3) { "Invalid IdentityDeletionProof.email" }
+        require(email.length <= 320) { "Invalid IdentityDeletionProof.email" }
+        require(password.length >= 1) { "Invalid IdentityDeletionProof.password" }
+        require(password.length <= 4096) { "Invalid IdentityDeletionProof.password" }
+    }
+}
+
+@Serializable
+data class IdentityDeletionBegin(
+    val apiVersion: String,
+    val requestId: String,
+    val recoveryCapability: String,
+    val confirmation: String,
+    val proof: IdentityDeletionProof
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid IdentityDeletionBegin.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid IdentityDeletionBegin.requestId" }
+        require(recoveryCapability.length >= 43) { "Invalid IdentityDeletionBegin.recoveryCapability" }
+        require(recoveryCapability.length <= 43) { "Invalid IdentityDeletionBegin.recoveryCapability" }
+        require(confirmation == "delete_identity") { "Invalid IdentityDeletionBegin.confirmation" }
+    }
+}
+
+@Serializable
+data class IdentityDeletionRecovery(
+    val apiVersion: String,
+    val requestId: String,
+    val recoveryCapability: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid IdentityDeletionRecovery.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid IdentityDeletionRecovery.requestId" }
+        require(recoveryCapability.length >= 43) { "Invalid IdentityDeletionRecovery.recoveryCapability" }
+        require(recoveryCapability.length <= 43) { "Invalid IdentityDeletionRecovery.recoveryCapability" }
+    }
+}
+
+@Serializable
+@SerialName("pending")
+data class IdentityDeletionPending(
+    override val apiVersion: String,
+    override val requestId: String
+) : IdentityDeletionResponse() {
+    init {
+        require(apiVersion == "v2") { "Invalid IdentityDeletionPending.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid IdentityDeletionPending.requestId" }
+    }
+}
+
+@Serializable
+@SerialName("identity_deleted")
+data class IdentityDeletionCompleted(
+    override val apiVersion: String,
+    override val requestId: String,
+    val completedAt: String
+) : IdentityDeletionResponse() {
+    init {
+        require(apiVersion == "v2") { "Invalid IdentityDeletionCompleted.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid IdentityDeletionCompleted.requestId" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(completedAt)) { "Invalid IdentityDeletionCompleted.completedAt" }
+        require(runCatching { java.time.Instant.parse(completedAt).toString() == completedAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid IdentityDeletionCompleted.completedAt" }
+    }
+}
+
+@Serializable
+@OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
+@JsonClassDiscriminator("status")
+sealed class IdentityDeletionResponse {
+    abstract val apiVersion: String
+    abstract val requestId: String
+}
+
 object ContractShape {
     fun checkContentReportRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "sessionQuestionId", "exerciseRevision", "category")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("category") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkContentReportReceipt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "status")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -966,4 +1045,10 @@ object ContractShape {
     fun checkPrivacyDeleteReceipt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "subject", "status", "deletedAt")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("subject") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("deletedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkExportedEvaluation(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("attemptId", "evaluatorVersion", "evaluation", "evaluatedAt")); run { val p = o.getValue("attemptId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("evaluatorVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkEvaluation(o.getValue("evaluation")); run { val p = o.getValue("evaluatedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkLearnerExport(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "schemaVersion", "subject", "generatedAt", "profile", "sessions", "attempts", "evaluations", "exposures", "targets", "reports", "completions")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("schemaVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("subject") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("generatedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLearnerProfile(o.getValue("profile")); run { val a = o.getValue("sessions") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkSession(item) } }; run { val a = o.getValue("attempts") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkAttempt(item) } }; run { val a = o.getValue("evaluations") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkExportedEvaluation(item) } }; run { val a = o.getValue("exposures") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkExposureEvent(item) } }; run { val a = o.getValue("targets") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkConfirmedTarget(item) } }; run { val a = o.getValue("reports") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkContentReportRequest(item) } }; run { val a = o.getValue("completions") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkSessionCompletionReceipt(item) } } } }
+    fun checkIdentityDeletionProof(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("email", "password")); run { val p = o.getValue("email") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("password") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkIdentityDeletionBegin(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "recoveryCapability", "confirmation", "proof")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("recoveryCapability") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("confirmation") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkIdentityDeletionProof(o.getValue("proof")) } }
+    fun checkIdentityDeletionRecovery(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "recoveryCapability")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("recoveryCapability") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkIdentityDeletionPending(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "status")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkIdentityDeletionCompleted(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "status", "completedAt")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("completedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkIdentityDeletionResponse(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["status"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "pending" -> checkIdentityDeletionPending(element); "identity_deleted" -> checkIdentityDeletionCompleted(element); else -> error("Unsupported discriminator") } } }
 }

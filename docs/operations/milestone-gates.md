@@ -5,10 +5,15 @@ Reconciled against blueprint section 23 on 5 October 2026. A local fixture imple
 Identity-deletion continuation now has locally verified durable server jobs,
 fresh-password verification, a concrete hard-delete provider adapter and private
 receipt recovery. Prepared auth-session grants now include the SELECT policy
-required by Supabase auth RLS. Public host routes, durable web/native identity
-deletion markers/UI, actual staging auth/session/storage deletion and retention/
+required by Supabase auth RLS. Opt-in versioned begin/status HTTP routes and
+serialized private worker delivery now pass actual local HTTP/PGlite checks.
+Durable web/native identity deletion markers/UI, explicit host dispatch,
+actual staging auth/session/storage deletion and retention/
 restore acceptance remain open; configured deletion stays disabled. No full
-gate closes from this preparation. See [ADR 031](../adr/031_identity_deletion_continuation.md).
+gate closes from this preparation. Local Chromium keyboard/focus/320px/reflow
+acceptance passes for the existing fixture; manual assistive-technology/design
+acceptance stays open. See [ADR 031](../adr/031_identity_deletion_continuation.md)
+and [web accessibility evidence](web-accessibility-acceptance.md).
 
 | Milestone | Evidence available | Requirements still preventing exit |
 |---|---|---|

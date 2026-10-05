@@ -1836,6 +1836,147 @@
         "reports",
         "completions"
       ]
+    },
+    "IdentityDeletionProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 320
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "IdentityDeletionBegin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "recoveryCapability": {
+          "type": "string",
+          "minLength": 43,
+          "maxLength": 43
+        },
+        "confirmation": {
+          "type": "string",
+          "const": "delete_identity"
+        },
+        "proof": {
+          "$ref": "#/$defs/IdentityDeletionProof"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "recoveryCapability",
+        "confirmation",
+        "proof"
+      ]
+    },
+    "IdentityDeletionRecovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "recoveryCapability": {
+          "type": "string",
+          "minLength": 43,
+          "maxLength": 43
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "recoveryCapability"
+      ]
+    },
+    "IdentityDeletionPending": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "pending"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "status"
+      ]
+    },
+    "IdentityDeletionCompleted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "identity_deleted"
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "status",
+        "completedAt"
+      ]
+    },
+    "IdentityDeletionResponse": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/IdentityDeletionPending"
+        },
+        {
+          "$ref": "#/$defs/IdentityDeletionCompleted"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "status"
+      }
     }
   }
 }

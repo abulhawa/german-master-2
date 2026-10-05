@@ -21,9 +21,35 @@ base64url recovery capability in its durable deletion marker before delivery.
 The server stores only its SHA-256 hash. Different IDs/capabilities conflict
 instead of replacing a job. Capability recovery returns only version, request
 ID, pending/completed status and completion time; it cannot create or run a job.
-The future HTTPS host must carry capabilities in bounded request bodies, avoid
+The HTTPS host must carry capabilities in bounded request bodies, avoid
 logging credentials/capabilities, impose rate limits, enforce origin/subject
-checks and preserve explicit retry semantics. No recovery endpoint exists yet.
+checks and preserve explicit retry semantics.
+
+The opt-in host now accepts versioned POST bodies at
+`/v2/me/identity-deletion:begin` and `/v2/me/identity-deletion:status`.
+Begin requires the existing verified session, a matching `X-Learner-Subject`,
+explicit `delete_identity` confirmation and transient fresh password proof.
+Status needs only the frozen request/capability; it never invokes a worker.
+Both routes reject query parameters, use no-store responses and enforce an 8 KiB
+body bound. Schema limits cap email/password/capability lengths in generated
+TypeScript and Kotlin. Pending responses omit completion time; completed
+responses require an identity-specific completion time.
+
+The host uses a bounded 4096-entry socket-peer limit of ten requests per minute
+(including failed requests), ignoring untrusted forwarded headers, and returns
+429 with Retry-After. A proxy may share a peer and therefore share this limit;
+multi-host operation still requires a shared upstream limit. Server body/header
+timeouts are 15/10 seconds. This is not a provider-operation cancellation or
+distributed worker lease. All unexpected errors return generic messages.
+
+`serializedDeletionWorker` is a separate private callable, never a public HTTP
+route. It serializes explicit deliveries in one process, stops an invocation on
+failure and allows a subsequent explicit continuation. A recovery capability
+cannot enqueue work. The composition host must deliver admitted jobs explicitly;
+there is no automatic scheduler or complete operational dispatcher yet.
+`createNetworkApi` enables the routes only with an explicitly supplied service;
+default composition and legacy owned-data DELETE remain disabled. No client
+control, credential lookup, schema installation or deployment is enabled.
 
 An explicit private worker first commits existing owned learning removal and
 its upload tombstone. It then observes provider identity/session state, uses

@@ -416,3 +416,37 @@ export const LearnerExportSchema = z.strictObject({
   completions: z.array(SessionCompletionReceiptSchema),
 });
 export type LearnerExport = z.infer<typeof LearnerExportSchema>;
+export const IdentityDeletionProofSchema = z.strictObject({
+  email: z.string().min(3).max(320),
+  password: z.string().min(1).max(4096),
+});
+export type IdentityDeletionProof = z.infer<typeof IdentityDeletionProofSchema>;
+export const IdentityDeletionBeginSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  recoveryCapability: z.string().min(43).max(43),
+  confirmation: z.literal("delete_identity"),
+  proof: IdentityDeletionProofSchema,
+});
+export type IdentityDeletionBegin = z.infer<typeof IdentityDeletionBeginSchema>;
+export const IdentityDeletionRecoverySchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  recoveryCapability: z.string().min(43).max(43),
+});
+export type IdentityDeletionRecovery = z.infer<typeof IdentityDeletionRecoverySchema>;
+export const IdentityDeletionPendingSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("pending"),
+});
+export type IdentityDeletionPending = z.infer<typeof IdentityDeletionPendingSchema>;
+export const IdentityDeletionCompletedSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("identity_deleted"),
+  completedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+});
+export type IdentityDeletionCompleted = z.infer<typeof IdentityDeletionCompletedSchema>;
+export const IdentityDeletionResponseSchema = z.discriminatedUnion("status", [IdentityDeletionPendingSchema, IdentityDeletionCompletedSchema]);
+export type IdentityDeletionResponse = z.infer<typeof IdentityDeletionResponseSchema>;

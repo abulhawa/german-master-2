@@ -24,8 +24,8 @@ export interface IdentityDeletionProvider {
 const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const matches=(saved:string|null,value:string)=>saved!==null && timingSafeEqual(Buffer.from(saved,'hex'),Buffer.from(hash(value),'hex'));
 
-/** Durable server orchestration only. No listener, credential lookup or automatic
- * retries. Existing configured-client deletion remains disabled until host wiring. */
+/** Durable server orchestration. The optional HTTP host has no public worker
+ * operation; configured-client deletion remains disabled until complete wiring. */
 export class IdentityDeletionService {
   constructor(private db:SqlDatabase,private learning:(subject:string)=>Pick<FoundationStore,'deleteLearner'>,
     private provider:IdentityDeletionProvider,private reauthenticate:VerifyDeletionReauthentication,
@@ -33,7 +33,7 @@ export class IdentityDeletionService {
 
   private async job(requestId:string) {
     if(!UUID.test(requestId)) throw new ApiFailure('invalid_request',400);
-    return (await this.db.query<Job>('SELECT * FROM gm_privacy.identity_deletion WHERE request_id=$1',[requestId])).rows[0];
+    return (await this.db.query<Job>('SELECT * FROM gm_privacy.identity_deletion WHERE request_id=$1',[requestId.toLowerCase()])).rows[0];
   }
   private receipt(job:Job):IdentityDeletionReceipt {
     return {apiVersion:'v2',requestId:job.request_id,status:job.completed_at?'identity_deleted':'pending',
@@ -78,6 +78,7 @@ export class IdentityDeletionService {
   async continue(requestId:string) {
     const job=await this.job(requestId);
     if(!job) throw new ApiFailure('deletion_not_found',404);
+    requestId=job.request_id;
     if(job.completed_at) return this.receipt(job);
     // Learning tombstone and data removal commit before ANY identity mutation.
     await this.learning(job.subject).deleteLearner(job.subject,{apiVersion:'v2',requestId:job.request_id,confirmation:'delete_owned_data'});
