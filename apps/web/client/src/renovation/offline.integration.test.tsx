@@ -7,6 +7,7 @@ import { PROFILE_PENDING_KEY } from './setup';
 import { REPORT_KEY } from './report';
 import { emptyJourney, readJourney, saveJourney } from './storage';
 import { prepareAttempt } from '../foundation/api';
+import { AccountBinding, type LearnerIdentity } from './account';
 import type { AddressInfo } from 'node:net';
 import { FoundationStore } from '../../../../../services/api/src/store';
 import { createApi } from '../../../../../services/api/src/server';
@@ -100,6 +101,52 @@ it('downloads once, practises all five forms without HTTP across restart, then r
     cleanup(); vi.unstubAllGlobals(); await db.delete();
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
   }
+});
+
+it('isolates subject queues through auth expiry, account switch, stale credentials and explicit reauthentication', async () => {
+  const pg = new PGlite(); const store = new FoundationStore(pg); await store.initialize();
+  const subjectA = randomUUID(); const subjectB = randomUUID();
+  let current: LearnerIdentity | null = {subject:subjectA,generation:0}; let serverSubject = subjectA;
+  const server = createApi(store, async () => serverSubject);
+  await new Promise<void>(resolve => server.listen(0,'127.0.0.1',resolve));
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`; const originalFetch = globalThis.fetch;
+  const posts: string[] = [];
+  vi.stubGlobal('fetch', async (input: string, init?: RequestInit) => {
+    if (init?.method === 'POST') posts.push(input);
+    return originalFetch(new URL(input,base),init);
+  });
+  const a = new AccountBinding(current, () => current); const b = new AccountBinding({subject:subjectB,generation:1}, () => current);
+  const values = new Map<string,string>(); const baseStorage = {getItem:(key:string) => values.get(key) ?? null,setItem:(key:string,value:string) => {values.set(key,value);}};
+  const storageA = a.storage(baseStorage); const storageB = b.storage(baseStorage);
+  const dbA = a.reserve(); const dbB = b.reserve(); const apiA = localLearnerApi(a);
+  try {
+    const profileA = await apiA.profile();
+    const pending = {apiVersion:'v2',requestId:randomUUID(),expectedRevision:profileA.revision,preferences:{...profileA.preferences,locale:'de'}};
+    storageA.setItem(PROFILE_PENDING_KEY,JSON.stringify(pending));
+    await dbA.prepare({...sessionRequest(),questionCount:1},request => apiA.preparePack!(request));
+    const offline = new OfflineRepository(dbA); const id = await offline.start(randomUUID(),new Date()); await offline.skip(id); await offline.end(id);
+    const frozen = (await offline.read(id)).practice;
+    const before = posts.length;
+    current = null; await expect(syncSavedWork(apiA,storageA,dbA)).rejects.toThrow('Sign in'); expect(posts).toHaveLength(before);
+    current = {subject:subjectB,generation:1}; serverSubject = subjectB;
+    await expect(syncSavedWork(apiA,storageA,dbA)).rejects.toThrow('Sign in');
+    await syncSavedWork(localLearnerApi(b),storageB,dbB); expect(posts).toHaveLength(before);
+    expect(await new OfflineRepository(dbB).list()).toEqual([]); expect(storageB.getItem(PROFILE_PENDING_KEY)).toBeNull();
+    // Simulate a transport using stale authentication despite its local identity still being A.
+    current = {subject:subjectA,generation:0};
+    await expect(syncSavedWork(apiA,storageA,dbA)).rejects.toThrow('Profile update unavailable');
+    expect((await store.profile(subjectB)).revision).toBe(0);
+    expect((await offline.read(id)).practice).toEqual(frozen); expect(JSON.parse(storageA.getItem(PROFILE_PENDING_KEY)!)).toEqual(pending);
+    current = {subject:subjectA,generation:2}; serverSubject = subjectA;
+    await expect(syncSavedWork(apiA,storageA,dbA)).rejects.toThrow('Sign in');
+    const refreshed = new AccountBinding(current, () => current); const reopened = refreshed.reserve();
+    try { await syncSavedWork(localLearnerApi(refreshed),refreshed.storage(baseStorage),reopened); }
+    finally { reopened.close(); }
+    expect((await store.profile(subjectA)).preferences.locale).toBe('de'); expect((await store.profile(subjectB)).preferences.locale).toBe('en');
+    expect((await offline.read(id)).practice.events.every(e => e.receipt)).toBe(true);
+    const evidence = (await pg.query<{user_id:string}>('SELECT user_id FROM gm.accepted_evidence')).rows;
+    expect(evidence).toEqual([{user_id:subjectA}]);
+  } finally { vi.unstubAllGlobals(); await dbA.delete(); await dbB.delete(); await new Promise<void>((resolve,reject) => server.close(error => error ? reject(error) : resolve())); await pg.close(); }
 });
 
 it('coordinates profile, online answer, offline Skip/end, report and download over real HTTP after restart', async () => {

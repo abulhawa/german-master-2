@@ -30,7 +30,9 @@ class LearnerPreviewActivity : ComponentActivity() {
         setContent { FoundationTheme {
             val loaded by produceState<Result<LearnerRepository>?>(null) {
                 value = withContext(Dispatchers.IO) { runCatching {
-                    LearnerRepository(LocalLearnerApi(), AtomicLearnerStore(File(filesDir, "german-master-v2-local-learner.json")))
+                    val identity = LearnerIdentity(FIXTURE_SUBJECT, 0)
+                    val account = LearnerAccount(identity) { identity }
+                    LearnerRepository(LocalLearnerApi(expectedSubject = identity.subject), account.store(filesDir), account)
                 } }
             }
             loaded?.fold(onSuccess = { LearnerShell(it) }, onFailure = {
@@ -42,6 +44,11 @@ class LearnerPreviewActivity : ComponentActivity() {
 
 @Composable
 fun LearnerShell(repository: LearnerRepository) {
+    key(repository) { AccountLearnerShell(repository) }
+}
+
+@Composable
+private fun AccountLearnerShell(repository: LearnerRepository) {
     var cache by remember { mutableStateOf(repository.state) }
     var busy by remember { mutableStateOf(false) }
     var failed by remember { mutableStateOf(false) }

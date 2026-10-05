@@ -26,6 +26,7 @@ class LearnerHttpTest {
             calls.add(exchange.requestMethod + " " + exchange.requestURI.toString())
             bodies.add(exchange.requestBody.bufferedReader().use { it.readText() })
             assertEquals("Bearer foundation-local-demo", exchange.requestHeaders.getFirst("Authorization"))
+            assertEquals(com.germanverbmaster.android.learner.FIXTURE_SUBJECT, exchange.requestHeaders.getFirst("X-Learner-Subject"))
             assertEquals("no-store", exchange.requestHeaders.getFirst("Cache-Control"))
             val response = when(exchange.requestURI.path) {
                 "/v2/sessions" -> ContractReader.json.encodeToString(session)
@@ -42,7 +43,7 @@ class LearnerHttpTest {
         }
         server.start()
         try {
-            val api = LocalLearnerApi(server.address.port)
+            val api = LocalLearnerApi(server.address.port, com.germanverbmaster.android.learner.FIXTURE_SUBJECT)
             assertEquals(profile, api.profile())
             assertEquals(profile, api.save(write))
             api.targets(id); api.catalog()

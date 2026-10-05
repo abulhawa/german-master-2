@@ -36,6 +36,9 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
       if (!isWrite && !isRead) throw new ApiFailure('not_found', 404);
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
+      const expectedSubject = request.headers['x-learner-subject'];
+      if (expectedSubject !== undefined && (typeof expectedSubject !== 'string' || !UUID.test(expectedSubject)
+        || expectedSubject.toLowerCase() !== userId.toLowerCase())) throw new ApiFailure('account_changed', 409);
       if (request.method === 'GET') {
         if (url.pathname === '/v2/profile') {
           if (url.search) throw new ApiFailure('invalid_request', 400);

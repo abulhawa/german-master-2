@@ -2,6 +2,7 @@ package com.germanverbmaster.android.foundation
 
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.runtime.mutableStateOf
 import com.germanverbmaster.android.foundation.contract.*
 import com.germanverbmaster.android.learner.*
 import org.junit.Rule
@@ -15,12 +16,12 @@ import org.robolectric.annotation.Config
 class LearnerShellTest {
     @get:Rule val compose = createComposeRule()
     private val id = "00000000-0000-4000-8000-000000000001"
-    private fun repository(completed: Boolean, pending: Boolean = false): LearnerRepository {
+    private fun repository(completed: Boolean, pending: Boolean = false, blockRefresh: Boolean = false): LearnerRepository {
         val prefs = ProfilePreferences("en", "UTC", "B1", 5)
         val profile = LearnerProfile("v2", 0, completed, prefs)
         val targets = listOf(ConfirmedTarget(id, "retained-evidence-v1", "needs_practice", 1, 0, false, 0, 1, emptyList(), true))
         val api = object : LearnerApi {
-            override suspend fun profile() = profile
+            override suspend fun profile() = if (blockRefresh) kotlinx.coroutines.CompletableDeferred<LearnerProfile>().await() else profile
             override suspend fun sync(cursor: String) = SyncPage("v2", emptyList(), cursor, false)
             override suspend fun save(request: ProfileRequest) = error("offline")
             override suspend fun catalog() = Catalog("v2", id, "unpublished_local_draft", emptyList(), emptyList())
@@ -32,6 +33,16 @@ class LearnerShellTest {
             override fun write(value: LearnerCache) { cache = value }
         }
         return LearnerRepository(api, store)
+    }
+    @Test fun replacingAccountClearsPreviousLearnersUiWhileTheNewRefreshIsStillPending() {
+        val a = repository(true,true); val b = repository(true,blockRefresh=true)
+        val active = mutableStateOf(a)
+        compose.setContent { FoundationTheme { LearnerShell(active.value) } }
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Retry saved preferences").fetchSemanticsNodes().isNotEmpty() }
+        compose.runOnIdle { active.value = b }
+        compose.onNodeWithText("Retry saved preferences").assertDoesNotExist()
+        compose.runOnIdle { active.value = a }
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Retry saved preferences").fetchSemanticsNodes().isNotEmpty() }
     }
     @Test fun homeDoesNotDoubleCountDueWeaknessAndProgressUsesServerState() {
         val repo = repository(true)
