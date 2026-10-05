@@ -206,6 +206,18 @@ async function auditView(page, label) {
     const token = name => tokens?.getPropertyValue(name).trim() ?? '';
 
     const rgb = value => {
+      const hex = value.match(/^#([0-9a-f]{6})$/i);
+      if (hex) {
+        return [
+          Number.parseInt(hex[1].slice(0, 2), 16),
+          Number.parseInt(hex[1].slice(2, 4), 16),
+          Number.parseInt(hex[1].slice(4, 6), 16),
+        ];
+      }
+      const shortHex = value.match(/^#([0-9a-f]{3})$/i);
+      if (shortHex) {
+        return [...shortHex[1]].map(part => Number.parseInt(part + part, 16));
+      }
       const match = value.match(/rgba?\(\s*([\d.]+)[, ]+\s*([\d.]+)[, ]+\s*([\d.]+)/i);
       return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : null;
     };
