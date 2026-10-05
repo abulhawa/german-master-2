@@ -80,6 +80,76 @@ class NativeAuthoritativeHttpTest {
             Unit
         }
     }
+    @Test fun offlineReserveConsumesBothSessionsAndReplaysOrderedWritesAfterRestartResponseLossAndSaveFailure() = runBlocking {
+        Harness().use { harness ->
+            val profile = harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))
+            val pendingProfile = ProfileRequest("v2",UUID.randomUUID().toString(),profile.revision,profile.preferences.copy(locale = "de"))
+            val catalog = harness.api.catalog()
+            val memory = object : LearnerStore {
+                var cache = LearnerCache(profile = profile,catalog = catalog)
+                var fail = false
+                override fun read() = cache
+                override fun write(value: LearnerCache) { check(!fail); cache = value }
+            }
+            var connected = true; var lose = false; var failReceipt = false
+            val sent = mutableListOf<Attempt>()
+            val api = object : LearnerApi by harness.api {
+                override suspend fun submit(attempt: Attempt): Acknowledgment {
+                    check(connected); sent.add(attempt); val result = harness.api.submit(attempt)
+                    if(lose) {lose = false; error("Accepted response lost")}
+                    if(failReceipt) {failReceipt = false; memory.fail = true}
+                    return result
+                }
+                override suspend fun expose(event: ExposureEvent): ExposureAcknowledgment {check(connected); return harness.api.expose(event)}
+                override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {check(connected); return harness.api.complete(sessionId,request)}
+            }
+            var repo = LearnerRepository(api,memory); repo.prepareReserve()
+            val pack = requireNotNull(repo.state.preparedPack)
+            connected = false; memory.fail = true
+            assertTrue(runCatching {repo.startOffline(java.time.Instant.parse(pack.issuedAt))}.isFailure)
+            assertNull(repo.state.practice); assertTrue(repo.state.consumedPreparedSessions.isEmpty())
+            memory.fail = false; repo.startOffline(java.time.Instant.parse(pack.issuedAt))
+            val first = requireNotNull(repo.state.practice).session!!.id
+            for(index in 0..4) {
+                val p = requireNotNull(repo.state.practice); val exercise = p.question.exercise
+                val answer = pack.rubrics.single {it.exerciseId == exercise.id && it.exerciseRevision == exercise.revision}.acceptedAnswers.first()
+                repo.draft(answer); if(index == 0) repo.hint(); repo.answer()
+                assertEquals("correct",repo.state.practice!!.evaluation!!.outcome)
+                repo.continuePractice()
+                if(index == 2) repo = LearnerRepository(api,memory)
+            }
+            repo.finishPractice(); repo.discardPractice()
+            assertEquals(6,repo.state.completedOffline.single().outbox.size)
+            repo.startOffline(java.time.Instant.parse(pack.issuedAt).plusMillis(1)); repo.skip()
+            val p = requireNotNull(repo.state.practice)
+            val exercise = p.question.exercise
+            repo.draft(pack.rubrics.single {it.exerciseId == exercise.id}.acceptedAnswers.first()); repo.hint(); repo.finishPractice(); repo.discardPractice()
+            assertEquals(2,repo.state.completedOffline.size)
+            assertEquals(2,repo.state.consumedPreparedSessions.size)
+            assertTrue(runCatching {repo.startOffline(java.time.Instant.parse(pack.expiresAt))}.isFailure)
+            assertTrue(sent.isEmpty())
+            memory.cache = repo.state.copy(pending = pendingProfile); repo = LearnerRepository(api,memory)
+            val frozen = repo.state.completedOffline
+            harness.command("expire-pack"); connected = true; lose = true
+            assertTrue(runCatching {repo.syncOffline(first)}.isFailure)
+            assertEquals(frozen,repo.state.completedOffline); assertEquals(1,sent.size)
+            failReceipt = true; assertTrue(runCatching {repo.syncOffline(first)}.isFailure)
+            assertEquals(frozen,repo.state.completedOffline)
+            memory.fail = false; repo = LearnerRepository(api,memory); repo.syncOffline(first)
+            assertEquals(sent[0],sent[1]); assertEquals(sent[0],sent[2])
+            val confirmed = repo.state.completedOffline.first()
+            assertTrue(confirmed.outbox.all {it.delivered}); assertEquals(5,confirmed.completionReceipt!!.correctCount)
+            val second = frozen.last().session!!.id; repo.syncOffline(second)
+            assertEquals("partial",repo.state.completedOffline.last().completionReceipt!!.mode)
+            assertEquals(frozen.last().draft,repo.state.completedOffline.last().draft)
+            assertEquals(pendingProfile,repo.state.pending)
+            assertEquals(6,harness.command("stats").getValue("evidence").jsonPrimitive.int)
+            val file = java.nio.file.Files.createTempDirectory("gm-offline-cache").resolve("learner.json").toFile()
+            try { AtomicLearnerStore(file).write(repo.state); assertEquals(repo.state,AtomicLearnerStore(file).read()) }
+            finally {file.delete();file.parentFile.delete()}
+            Unit
+        }
+    }
     /** Real TypeScript routes, learning engine and PostgreSQL; no mocked HTTP responses. */
     private class Harness : AutoCloseable {
         private val root = File(requireNotNull(System.getProperty("gm.repoRoot")))

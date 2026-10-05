@@ -3,6 +3,7 @@ package com.germanverbmaster.android.learner
 import android.util.AtomicFile
 import com.germanverbmaster.android.foundation.ContractReader
 import com.germanverbmaster.android.foundation.PreparedPackReader
+import com.germanverbmaster.android.foundation.OfflineGrader
 import com.germanverbmaster.android.foundation.contract.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -126,7 +127,9 @@ data class LearnerCache(
     val contentReport: ContentReportRequest? = null,
     val reportRecorded: Boolean = false,
     val packRequest: SessionRequest? = null,
-    val preparedPack: PreparedPack? = null
+    val preparedPack: PreparedPack? = null,
+    val consumedPreparedSessions: List<String> = emptyList(),
+    val completedOffline: List<NativePractice> = emptyList()
 )
 
 interface LearnerStore {
@@ -143,6 +146,10 @@ class AtomicLearnerStore(file: File) : LearnerStore {
         return ContractReader.json.decodeFromString<LearnerCache>(raw).also {
             require(it.version == 1)
             it.preparedPack?.let { pack -> PreparedPackReader.read(ContractReader.json.encodeToString(pack)) }
+            (it.completedOffline + listOfNotNull(it.practice)).forEach { p -> p.offlinePack?.let { pack ->
+                PreparedPackReader.read(ContractReader.json.encodeToString(pack))
+                require(pack.sessions.any { session -> session == p.session })
+            } }
         }
     }
     override fun write(value: LearnerCache) {
@@ -171,7 +178,62 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         val pack = PreparedPackReader.read(ContractReader.json.encodeToString(response))
         check(pack.packId == request.requestId)
         // Whole validated reserve and acknowledgment together; practice and writes untouched.
-        commit(state.copy(preparedPack = pack,packRequest = null))
+        commit(state.copy(preparedPack = pack,packRequest = null, consumedPreparedSessions = emptyList()))
+    }
+    suspend fun startOffline(now: java.time.Instant = java.time.Instant.now()) = mutex.withLock {
+        check(state.practice == null) { "Resume saved practice first" }
+        val pack = PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(state.preparedPack)))
+        check(PreparedPackReader.canStart(pack,now)) { "Prepared reserve expired" }
+        val session = pack.sessions.firstOrNull { it.id !in state.consumedPreparedSessions } ?: error("Prepared reserve exhausted")
+        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = session.questions.size)
+        // Slot consumption and complete pinned practice commit together before any question is shown.
+        commit(state.copy(practice = NativePractice(request = request,session = session,offlinePack = pack),
+            consumedPreparedSessions = state.consumedPreparedSessions + session.id))
+    }
+    suspend fun syncOffline(sessionId: String) = mutex.withLock {
+        fun current(): NativePractice = state.practice?.takeIf { it.session?.id == sessionId && it.offlinePack != null }
+            ?: state.completedOffline.single { it.session?.id == sessionId }
+        fun save(p: NativePractice) {
+            if (state.practice?.session?.id == sessionId) commit(state.copy(practice = p))
+            else commit(state.copy(completedOffline = state.completedOffline.map { if(it.session?.id == sessionId) p else it }))
+        }
+        PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(current().offlinePack)))
+        while (true) {
+            val p = current()
+            val index = p.outbox.indexOfFirst { !it.delivered }
+            if (index < 0) break
+            val event = p.outbox[index]
+            check((event.attemptReceipt as? AttemptRejection)?.error?.retryable != false &&
+                (event.exposureReceipt as? ExposureRejected)?.error?.retryable != false) { "Rejected event requires review" }
+            val next = when {
+                event.attempt != null -> {
+                    val receipt = api.submit(event.attempt)
+                    check(receipt.attemptId == event.attempt.attemptId)
+                    event.copy(attemptReceipt = receipt)
+                }
+                event.exposure != null -> {
+                    val receipt = api.expose(event.exposure)
+                    check(receipt.eventId == event.exposure.eventId)
+                    event.copy(exposureReceipt = receipt)
+                }
+                else -> {
+                    val request = requireNotNull(event.completion)
+                    val receipt = api.complete(sessionId,request)
+                    val graded = p.outbox.count { it.attempt != null }; val skipped = p.outbox.count { it.exposure != null }
+                    val correct = p.outbox.count { when(val ack = it.attemptReceipt) {
+                        is AttemptAcknowledgment -> ack.evaluation.outcome == "correct"
+                        is AttemptDuplicate -> ack.evaluation.outcome == "correct"
+                        else -> false
+                    } }
+                    check(receipt.requestId == request.requestId && receipt.sessionId == sessionId && receipt.mode == request.mode)
+                    check(receipt.plannedCount == p.session?.questions?.size && receipt.gradedCount == graded && receipt.skippedCount == skipped && receipt.correctCount == correct)
+                    event.copy(completionReceipt = receipt)
+                }
+            }
+            val latest = current(); val outbox = latest.outbox.toMutableList(); outbox[index] = next
+            save(latest.copy(outbox = outbox,completionReceipt = next.completionReceipt ?: latest.completionReceipt))
+            check(next.attemptReceipt !is AttemptRejection && next.exposureReceipt !is ExposureRejected) { "Offline event not accepted" }
+        }
     }
     suspend fun reportProblem(category: String) = mutex.withLock {
         val request = if (state.contentReport != null && !state.reportRecorded) requireNotNull(state.contentReport) else {
@@ -216,6 +278,16 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
             commit(state.copy(practice = p.copy(pending = com.germanverbmaster.android.foundation.foundationAttempt(requireNotNull(p.session), p.index, requireNotNull(p.draft), p.assisted, p.deviceId))))
             p = requireNotNull(state.practice)
         }
+        if (p.offlinePack != null) {
+            val question = p.question
+            val rubric = p.offlinePack.rubrics.single { it.exerciseId == question.exercise.id && it.exerciseRevision == question.exercise.revision }
+            val evaluation = OfflineGrader.grade(question.exercise,rubric,
+                ContractReader.json.encodeToJsonElement(Answer.serializer(), requireNotNull(p.pending).answer),requireNotNull(p.pending).assistance)
+            commit(state.copy(practice = p.copy(evaluation = evaluation,graded = p.graded + 1,
+                correct = p.correct + if(evaluation.outcome == "correct") 1 else 0,
+                outbox = p.outbox + NativeOfflineWrite(attempt = p.pending,provisional = evaluation))))
+            return@withLock
+        }
         val result = api.submit(requireNotNull(p.pending))
         check(result.attemptId == p.pending.attemptId)
         val evaluation = when(result) { is AttemptAcknowledgment -> result.evaluation; is AttemptDuplicate -> result.evaluation; is AttemptRejection -> null }
@@ -229,6 +301,10 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
             commit(state.copy(practice = p.copy(exposure = ExposureEvent(UUID.randomUUID().toString(), p.question.id, p.question.exercise.revision, p.deviceId, "skip", java.time.Instant.now().truncatedTo(java.time.temporal.ChronoUnit.SECONDS).toString()))))
             p = requireNotNull(state.practice)
         }
+        if (p.offlinePack != null) {
+            commit(state.copy(practice = p.next(true,p.outbox + NativeOfflineWrite(exposure = p.exposure))))
+            return@withLock
+        }
         val ack = api.expose(requireNotNull(p.exposure))
         check(ack.eventId == p.exposure.eventId)
         commit(state.copy(practice = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)))
@@ -239,6 +315,13 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         val session = requireNotNull(p.session)
         check((p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected)
         if (p.completionReceipt != null) return@withLock
+        if (p.offlinePack != null) {
+            if (p.completion == null) {
+                val request = SessionCompletionRequest("v2",UUID.randomUUID().toString(),if(p.graded + p.skipped == session.questions.size) "full" else "partial")
+                commit(state.copy(practice = p.copy(completion = request,outbox = p.outbox + NativeOfflineWrite(completion = request))))
+            }
+            return@withLock
+        }
         if (p.completion == null) {
             commit(state.copy(practice = p.copy(completion = SessionCompletionRequest("v2", UUID.randomUUID().toString(), if(p.graded + p.skipped == session.questions.size) "full" else "partial"))))
             p = requireNotNull(state.practice)
@@ -250,7 +333,13 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         check(request.mode != "full" || receipt.gradedCount + receipt.skippedCount == receipt.plannedCount)
         commit(state.copy(practice = p.copy(completionReceipt = receipt)))
     }
-    fun discardPractice() { check(state.practice?.let { it.completion == null || it.completionReceipt != null } != false); commit(state.copy(practice = null)) }
+    fun discardPractice() {
+        val p = state.practice
+        if (p?.offlinePack != null) {
+            check(p.completion != null) { "End the offline session before returning" }
+            commit(state.copy(practice = null,completedOffline = state.completedOffline + p))
+        } else { check(p?.let { it.completion == null || it.completionReceipt != null } != false); commit(state.copy(practice = null)) }
+    }
     suspend fun refresh() = mutex.withLock {
         val profile = api.profile()
         val catalog = api.catalog()

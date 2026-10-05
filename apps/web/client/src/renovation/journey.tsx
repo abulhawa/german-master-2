@@ -9,6 +9,7 @@ import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull,
 import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
 import { FixtureOwner, OWNER_LOCK } from "./ownership";
 import { ContentReport } from './report';
+import { OfflineDesk } from './offline-desk';
 
 const localApi = localLearnerApi();
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage };
@@ -227,6 +228,9 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {confirmed && <p className="gm-meta">{c.stale}</p>}
         </PracticeCard>}
+        {view === 'home' && api.preparePack && <OfflineDesk api={api} locale={state.locale}
+          deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
+          blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
         {view === "practice" && <>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>

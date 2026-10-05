@@ -34,6 +34,7 @@ console.log(JSON.stringify({ port: (server.address() as AddressInfo).port }));
 for await (const line of createInterface({ input: process.stdin })) {
   const command = JSON.parse(line);
   if (command.action === 'expire') { now += 1000; expirePage = true; }
+  else if (command.action === 'expire-pack') { now += 8 * 24 * 60 * 60 * 1000; }
   else if (command.action === 'stats') {
     const evidence = (await db.query('SELECT id FROM gm.accepted_evidence')).rows.length;
     const pages = (await db.query('SELECT id FROM gm.target_page')).rows.length;

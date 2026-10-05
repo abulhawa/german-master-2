@@ -56,7 +56,7 @@ fun LearnerShell(repository: LearnerRepository) {
             try { withContext(Dispatchers.IO) { action(); if (refresh) repository.refresh() }; if(refresh) fresh = true; completed() }
             catch (cancel: kotlinx.coroutines.CancellationException) { throw cancel }
             catch (_: Exception) { failed = true }
-            finally { cache = repository.state; if(cache.practice?.let { it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
+            finally { cache = repository.state; if(cache.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) fresh = !failed; busy = false }
         }
     }
     LaunchedEffect(repository) { run {} }
@@ -75,7 +75,7 @@ fun LearnerShell(repository: LearnerRepository) {
             }
             if (failed) Text(label("Could not refresh or save. Saved work remains available. Retry the saved operation.", "Aktualisieren oder Speichern fehlgeschlagen. Gespeicherte Daten bleiben erhalten. Gespeicherten Vorgang erneut versuchen."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
             if (screen == "practice" && cache.practice != null) {
-                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }) { screen = "home" }
+                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }) { screen = "home" }
             } else {
             if (cache.pending != null) {
                 Text(label("Preferences saved on this device, awaiting confirmation. Progress below is server-confirmed only.", "Einstellungen lokal gespeichert, Bestätigung ausstehend. Fortschritt zeigt nur bestätigte Daten."))
@@ -114,6 +114,22 @@ fun LearnerShell(repository: LearnerRepository) {
                     val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
                     Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available draft questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Entwurfsfragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
                     LearnerButton(label(if(cache.practice == null) "Start practice" else "Continue practice", if(cache.practice == null) "Übung starten" else "Übung fortsetzen"), !busy && (cache.practice != null || (cache.pending == null && (available ?: 0) > 0))) { screen = "practice"; run(false) { repository.startPractice() } }
+                    Text(label("Downloaded practice", "Heruntergeladene Übungen"), Modifier.semantics { heading() })
+                    val pack = cache.preparedPack
+                    val prepared = pack?.sessions?.count { it.id !in cache.consumedPreparedSessions } ?: 0
+                    val valid = pack?.let { com.germanverbmaster.android.foundation.PreparedPackReader.canStart(it,java.time.Instant.now()) } == true
+                    Text(label("Sessions available to start", "Sitzungen zum Starten verfügbar") + ": ${if(valid) prepared else 0}")
+                    LearnerButton(if(cache.packRequest == null) label("Download two sessions", "Zwei Sitzungen herunterladen") else label("Retry saved download", "Gespeicherten Download wiederholen"), !busy && (cache.packRequest != null || cache.pending == null && (available ?: 0) > 0)) { run(false) { repository.prepareReserve() } }
+                    LearnerButton(label("Start downloaded practice", "Heruntergeladene Übungen starten"), !busy && cache.practice == null && valid && prepared > 0) { run(false, {screen = "practice"}) { repository.startOffline() } }
+                    cache.completedOffline.forEachIndexed { index, p ->
+                        Text(label("Saved session", "Gespeicherte Sitzung") + " ${index + 1}: ${p.outbox.count { !it.delivered }} " + label("awaiting confirmation", "Bestätigungen ausstehend"))
+                        LearnerButton(label("Sync saved session", "Gespeicherte Sitzung synchronisieren") + " ${index + 1}", !busy && p.outbox.any { !it.delivered }) { run { repository.syncOffline(requireNotNull(p.session).id) } }
+                        p.outbox.forEach { event ->
+                            val result = when(val receipt = event.attemptReceipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
+                            if(result != null && result.outcome != event.provisional?.outcome) Text(label("Server correction: ", "Serverkorrektur: ") + if(german) result.explanation.de else result.explanation.en)
+                            if(event.attemptReceipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(label("Saved event needs review; sync stopped.", "Gespeichertes Ereignis muss geprüft werden. Synchronisierung angehalten."))
+                        }
+                    }
                 } else if (screen in setOf("topics", "topic", "target")) {
                     NativeTopicsView(cache, screen, detailId, german, busy,
                         open = { destination, id -> screen = destination; detailId = id },
