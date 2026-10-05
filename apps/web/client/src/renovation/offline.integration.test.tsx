@@ -9,6 +9,8 @@ import { localLearnerApi } from './api';
 import { WebReserve } from './reserve';
 import { OfflineRepository } from './offline';
 import { OfflineDesk } from './offline-desk';
+import { snapshot, pull } from './storage';
+import { sessionRequest } from '../foundation/api';
 
 it('downloads once, practises all five forms without HTTP across restart, then reconciles ordered frozen writes after response loss', async () => {
   const pg = new PGlite(); let now = Date.now();
@@ -79,8 +81,9 @@ it('downloads once, practises all five forms without HTTP across restart, then r
     await screen.findByRole('alert');
     expect(sent).toHaveLength(2);
     expect((await repo.read(id)).practice).toEqual(before);
+    await waitFor(() => expect(screen.getByText('Sync saved work (6)')).toBeEnabled());
     fireEvent.click(screen.getByText('Sync saved work (6)'));
-    await waitFor(async () => expect((await repo.read(id)).practice.events.every(e => e.receipt)).toBe(true));
+    await waitFor(async () => expect((await repo.read(id)).practice.events.every(e => e.receipt)).toBe(true), { timeout: 5000 });
     expect(sent[1]).toEqual(sent[2]);
     expect(sent.at(-1)?.path).toBe(`/v2/sessions/${id}/complete`);
     expect((await pg.query('SELECT * FROM gm.accepted_evidence')).rows).toHaveLength(5);
@@ -90,6 +93,83 @@ it('downloads once, practises all five forms without HTTP across restart, then r
     expect(after.feedback).toEqual(before.feedback);
   } finally {
     cleanup(); vi.unstubAllGlobals(); await db.delete();
+    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
+  }
+});
+
+it('converges two device reserves after lost response and expired auth without double-crediting the same day', async () => {
+  const pg = new PGlite(); let now = Date.now();
+  const store = new FoundationStore(pg, () => new Date(now)); await store.initialize();
+  const owner = randomUUID(); let authenticated = true;
+  const server = createApi(store, async () => authenticated ? owner : null);
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  const originalFetch = globalThis.fetch;
+  let offline = false; let loseAnswer = false;
+  const sent: { path: string; body: string }[] = [];
+  vi.stubGlobal('fetch', async (input: string, init?: RequestInit) => {
+    if (offline) throw Error('Device network unavailable');
+    const url = new URL(input, base);
+    if (init?.method === 'POST') sent.push({ path: url.pathname, body: init.body as string });
+    const response = await originalFetch(url, init);
+    if (loseAnswer && url.pathname === '/v2/attempts:batch' && response.ok) {
+      loseAnswer = false; throw Error('Accepted response lost');
+    }
+    return response;
+  });
+  const api = localLearnerApi();
+  let dbA = new WebReserve(`device-a-http-${randomUUID()}`);
+  const dbB = new WebReserve(`device-b-http-${randomUUID()}`);
+  let repoA = new OfflineRepository(dbA); const repoB = new OfflineRepository(dbB);
+  try {
+    let confirmedA = await snapshot(api); let confirmedB = await snapshot(api);
+    for (const db of [dbA, dbB]) await db.prepare({ ...sessionRequest(), questionCount: 1 }, request => api.preparePack!(request));
+    offline = true;
+    const deviceA = randomUUID(); const deviceB = randomUUID();
+    const idA = await repoA.start(deviceA, new Date(now)); const idB = await repoB.start(deviceB, new Date(now));
+    expect(idA).not.toBe(idB);
+    for (const [repo, id] of [[repoA, idA], [repoB, idB]] as const) {
+      const { session, pack } = await repo.read(id); const exercise = session.questions[0].exercise;
+      const answer = pack.rubrics.find(r => r.exerciseId === exercise.id && r.exerciseRevision === exercise.revision)!.acceptedAnswers[0];
+      await repo.answer(id, answer); await repo.next(id); await repo.end(id);
+    }
+    const beforeA = (await repoA.read(idA)).practice; const beforeB = (await repoB.read(idB)).practice;
+    const target = (await repoA.read(idA)).session.questions[0].exercise.targetId;
+    expect((await repoB.read(idB)).session.questions[0].exercise.targetId).toBe(target);
+    expect(beforeA.events[0].request).toMatchObject({ deviceId: deviceA });
+    expect(beforeB.events[0].request).toMatchObject({ deviceId: deviceB });
+    expect(sent.map(s => s.path)).toEqual(['/v2/packs', '/v2/packs']);
+    now = Date.parse((await repoA.read(idA)).pack.expiresAt) + 1;
+    offline = false; loseAnswer = true;
+    await expect(repoA.sync(idA, api)).rejects.toThrow('Accepted response lost');
+    expect((await repoA.read(idA)).practice).toEqual(beforeA);
+    authenticated = false;
+    await expect(repoA.sync(idA, api)).rejects.toThrow();
+    await expect(repoB.sync(idB, api)).rejects.toThrow();
+    expect((await repoA.read(idA)).practice).toEqual(beforeA);
+    expect((await repoB.read(idB)).practice).toEqual(beforeB);
+    expect((await pg.query('SELECT * FROM gm.accepted_evidence')).rows).toHaveLength(1);
+    // Restart device A while its accepted answer still has no saved receipt.
+    dbA.close(); dbA = new WebReserve(dbA.name); repoA = new OfflineRepository(dbA);
+    authenticated = true;
+    await repoB.sync(idB, api); await repoA.sync(idA, api);
+    const afterA = (await repoA.read(idA)).practice; const afterB = (await repoB.read(idB)).practice;
+    expect(afterA.events[0].receipt).toMatchObject({ status: 'duplicate' });
+    expect(afterB.events[0].receipt).toMatchObject({ status: 'accepted' });
+    expect(afterA.events.map(e => e.request)).toEqual(beforeA.events.map(e => e.request));
+    expect(afterB.events.map(e => e.request)).toEqual(beforeB.events.map(e => e.request));
+    expect(afterA.events.every(e => e.receipt)).toBe(true); expect(afterB.events.every(e => e.receipt)).toBe(true);
+    expect((await pg.query('SELECT * FROM gm.accepted_evidence')).rows).toHaveLength(2);
+    const answerWrites = sent.filter(s => s.path === '/v2/attempts:batch').map(s => s.body);
+    expect(answerWrites.filter(body => body === answerWrites[0])).toHaveLength(3); // lost, 401, replay
+    await pull(api, confirmedA, value => { confirmedA = value; });
+    await pull(api, confirmedB, value => { confirmedB = value; });
+    expect(confirmedA.targets).toEqual(confirmedB.targets);
+    expect(confirmedA.targets.find(t => t.targetId === target)).toMatchObject({
+      state: 'learning', qualifyingCheckCount: 1, everMastered: false, lastSequence: 2,
+    });
+  } finally {
+    vi.unstubAllGlobals(); await dbA.delete(); await dbB.delete();
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
   }
 });
