@@ -4,6 +4,7 @@ import { randomUUID, createHash } from "node:crypto";
 import { SessionSchema, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
+import { RuntimeCatalogSchema, runtimeManifestHash, runtimeMembers, type RuntimeCatalog } from './runtime-catalog';
 import metadata from "../../../content/foundation/metadata.json";
 import editorial from "../../../content/foundation/review.json";
 import { TargetPageSchema, SyncPageSchema, type TargetPage, LearnerProfileSchema, ProfileRequestSchema, type ProfileRequest, type LearnerProfile } from "@german-master/contracts";
@@ -36,11 +37,34 @@ type EvidenceDetail = Omit<Extract<AcceptedEvidence, { kind: "assessment" | "rei
 
 /** Local PostgreSQL demonstration. Transactions serialize writes and enforce first submission. */
 export class FoundationStore {
+  private readonly runtimeCatalog?: RuntimeCatalog;
   constructor(public readonly db: SqlDatabase, private readonly clock = () => new Date(),
     private readonly cursorLifetimeMs = 7 * 24 * 60 * 60 * 1000,
-    private readonly pageLifetimeMs = 7 * 24 * 60 * 60 * 1000) {
+    private readonly pageLifetimeMs = 7 * 24 * 60 * 60 * 1000, runtimeCatalog?: RuntimeCatalog) {
     if (!Number.isSafeInteger(cursorLifetimeMs) || cursorLifetimeMs <= 0) throw new Error('Invalid cursor lifetime');
     if (!Number.isSafeInteger(pageLifetimeMs) || pageLifetimeMs <= 0) throw new Error('Invalid page lifetime');
+    this.runtimeCatalog = runtimeCatalog ? RuntimeCatalogSchema.parse(runtimeCatalog) : undefined;
+  }
+
+  private async selectedRelease(tx: Transaction) {
+    if (!this.runtimeCatalog) {
+      if(this.db.baselineOnly) throw new ApiFailure('content_unavailable',409);
+      return foundationCatalog().session.contentReleaseId;
+    }
+    const config = this.runtimeCatalog;
+    const release = await tx.query<{status:string;manifest_hash:string}>(
+      'SELECT status,manifest_hash FROM gm.content_release WHERE id=$1', [config.releaseId]);
+    if(release.rows.length !== 1 || release.rows[0].status !== 'published' || release.rows[0].manifest_hash !== config.manifestHash)
+      throw new ApiFailure('content_unavailable',409);
+    const members = await runtimeMembers(tx,config.releaseId);
+    const count = await tx.query<{count:number}>('SELECT count(*)::int AS count FROM gm.content_release_exercise WHERE release_id=$1',[config.releaseId]);
+    if(count.rows[0].count !== members.length || runtimeManifestHash(config.releaseId, config.targets, members) !== config.manifestHash
+      || !members.length || members.some(row => {
+      const text = config.targets.find(t => t.id === row.target_id);
+      return !text || text.topicId !== row.topic_id || text.level !== row.level || row.status !== 'published' || row.review_status !== 'approved';
+    }) || config.targets.some(t => !members.some(row => row.target_id === t.id)))
+      throw new ApiFailure('content_unavailable',409);
+    return config.releaseId;
   }
 
   async initialize() {
@@ -249,11 +273,15 @@ export class FoundationStore {
       }
       await this.pruneReads(tx, now);
       const generatedAt = now.toISOString();
+      const releaseId = this.runtimeCatalog || this.db.baselineOnly ? await this.selectedRelease(tx) : null;
       const watermark = (await tx.query<{ n: number }>("SELECT COALESCE(max(sequence),0)::int AS n FROM gm.sync_change WHERE user_id=$1", [userId])).rows[0].n;
       const syncCursor = await this.syncCursor(tx, userId, watermark, now);
       const rows = await tx.query<{ id: string; snapshot: TargetSnapshot | null; last_sequence: number }>(
         `SELECT t.id,st.snapshot,COALESCE(st.last_sequence,0)::int AS last_sequence FROM gm.learning_target t
-         LEFT JOIN gm.learner_target_state st ON st.target_id=t.id AND st.user_id=$1 ORDER BY t.id`, [userId]);
+         LEFT JOIN gm.learner_target_state st ON st.target_id=t.id AND st.user_id=$1
+         WHERE $2::uuid IS NULL OR st.user_id IS NOT NULL OR t.id IN (
+           SELECT e.target_id FROM gm.content_release_exercise cr JOIN gm.exercise e ON e.id=cr.exercise_id WHERE cr.release_id=$2
+         ) ORDER BY t.id`, [userId, releaseId]);
       const targets = rows.rows.map(r => confirmedTarget(r.id, r.snapshot, r.last_sequence, generatedAt));
       let nextPageCursor = '';
       let first!: TargetPage;
@@ -482,7 +510,7 @@ export class FoundationStore {
   /** Explicit unpublished fixture metadata; never exposes rubrics or accepted forms. */
   async catalog(userId?: string) {
     const profile = userId ? await this.profile(userId) : null;
-    const releaseId = foundationCatalog().session.contentReleaseId;
+    const releaseId = await this.selectedRelease(this.db);
     const rows = await this.db.query<{ id: string; topic_id: string; title: unknown; level: string; count: number }>(
       `SELECT t.id,s.topic_id,tp.title,t.level,LEAST(1,count(DISTINCT e.id))::int AS count
        FROM gm.learning_target t JOIN gm.skill s ON s.id=t.skill_id JOIN gm.topic tp ON tp.id=s.topic_id
@@ -492,9 +520,9 @@ export class FoundationStore {
        GROUP BY t.id,s.topic_id,tp.title,t.level ORDER BY t.id`, [releaseId]);
     const practisedTargets = new Set(userId ? (await this.db.query<{ target_id: string }>("SELECT target_id FROM gm.learner_target_state WHERE user_id=$1", [userId])).rows.map(r => r.target_id) : []);
     const topics = new Map(rows.rows.map(r => [r.topic_id, { id: r.topic_id, title: r.title }]));
-    return CatalogSchema.parse({ apiVersion: 'v2', contentReleaseId: releaseId, status: 'unpublished_local_draft',
+    return CatalogSchema.parse({ apiVersion: 'v2', contentReleaseId: releaseId, status: this.runtimeCatalog ? 'published' : 'unpublished_local_draft',
       topics: [...topics.values()], targets: rows.rows.map(r => {
-        const text = metadata.targets.find(t => t.id === r.id);
+        const text = (this.runtimeCatalog?.targets ?? metadata.targets).find(t => t.id === r.id);
         if (!text) throw Error('Missing catalog metadata');
         return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && profile.preferences.level !== r.level && !practisedTargets.has(r.id) ? 0 : r.count };
       }) });
@@ -537,13 +565,13 @@ export class FoundationStore {
       const previous = await tx.query<{ id: string; request_payload: unknown; release_id: string }>(
         "SELECT id,request_payload,release_id FROM gm.practice_session WHERE user_id=$1 AND request_id=$2", [userId, request.requestId]);
       let sessionId: string;
-      const catalog = foundationCatalog();
-      let releaseId = catalog.session.contentReleaseId;
+      let releaseId: string;
       if (previous.rows.length) {
         if (canonical(previous.rows[0].request_payload) !== canonical(request)) throw new ApiFailure("session_conflict", 409);
         sessionId = previous.rows[0].id;
         releaseId = previous.rows[0].release_id;
       } else {
+        releaseId = await this.selectedRelease(tx);
         const now = this.clock().toISOString();
         const profile = await this.profileIn(tx, userId);
         const focus = "focus" in request ? request.focus : null;
@@ -561,16 +589,16 @@ export class FoundationStore {
            WHERE cr.release_id=$2 AND t.status<>'retired' AND (t.level=$6 OR st.user_id IS NOT NULL) AND r.type || '@1' = ANY($3::text[])
              AND ($4::text IS NULL OR ($4='target' AND t.id=$5::uuid)
                OR ($4='topic' AND t.skill_id IN (SELECT id FROM gm.skill WHERE topic_id=$5::uuid)))`,
-          [userId, catalog.session.contentReleaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null, profile.preferences.level]);
+          [userId, releaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null, profile.preferences.level]);
         const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);
         sessionId = randomUUID();
         await tx.query("INSERT INTO gm.practice_session (id,user_id,request_id,request_payload,release_id,engine_version,status,issued_at) VALUES ($1,$2,$3,$4,$5,$6,'active',$7)",
-          [sessionId, userId, request.requestId, request, catalog.session.contentReleaseId, SELECTION_POLICY_VERSION, now]);
+          [sessionId, userId, request.requestId, request, releaseId, SELECTION_POLICY_VERSION, now]);
         for (const [position, question] of questions.entries())
           await tx.query("INSERT INTO gm.session_question (id,user_id,session_id,release_id,exercise_id,revision,position,evidence_role) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)",
-            [randomUUID(), userId, sessionId, catalog.session.contentReleaseId, question.exerciseId, question.revision, position, question.role]);
+            [randomUUID(), userId, sessionId, releaseId, question.exerciseId, question.revision, position, question.role]);
       }
       const questions = await tx.query<{ id: string; payload: Exercise }>(
         "SELECT q.id,r.payload FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.session_id=$1 AND q.user_id=$2 ORDER BY q.position", [sessionId, userId]);

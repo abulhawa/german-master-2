@@ -4,6 +4,9 @@ import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {FoundationStore} from './store';
 import type {SqlDatabase,SqlTransaction} from './database';
+import {runtimeManifestHash,runtimeMembers} from './runtime-catalog';
+import metadata from '../../../content/foundation/metadata.json';
+import editorial from '../../../content/foundation/review.json';
 
 it('backend role serves only its verified subject and cannot modify shared content or escape ownership',async()=> {
   const db=new PGlite();const a=randomUUID(),b=randomUUID();
@@ -15,11 +18,20 @@ it('backend role serves only its verified subject and cannot modify shared conte
       await new FoundationStore(fixture).initialize();
       for(const table of ['topic','skill','learning_target','exercise','exercise_revision','content_release','content_release_exercise','revision_evidence_identity']) {
         for(const row of (await fixture.query<Record<string,unknown>>(`SELECT * FROM gm.${table}`)).rows) {
+          // Synthetic role-test approval only; the original fixture remains unpublished.
+          if(table==='learning_target') row.status='published';
+          if(table==='exercise_revision') row.review_status='approved';
+          if(table==='content_release') {row.status='published';row.published_at=new Date();}
           const names=Object.keys(row);
           await db.query(`INSERT INTO gm.${table} (${names.map(n=>`"${n}"`).join(',')}) VALUES (${names.map((_,i)=>`$${i+1}`).join(',')})`,Object.values(row));
         }
       }
     } finally {await fixture.close();}
+    const targets=metadata.targets.map(t=>({...t,topicId:editorial.topics[0].id,level:'B1' as const}));
+    const members=await runtimeMembers(db,editorial.releaseId);
+    const manifestHash=runtimeManifestHash(editorial.releaseId,targets,members);
+    await db.query('UPDATE gm.content_release SET manifest_hash=$2 WHERE id=$1',[editorial.releaseId,manifestHash]);
+    const catalog={releaseId:editorial.releaseId,targets,manifestHash};
     const scoped=(subject:string):SqlDatabase=> {
       const transaction=<T>(work:(tx:SqlTransaction)=>Promise<T>)=>db.transaction(async tx=> {
         await tx.exec('SET LOCAL ROLE gm_backend');
@@ -28,7 +40,7 @@ it('backend role serves only its verified subject and cannot modify shared conte
       });
       return {baselineOnly:true,transaction,query:<T>(sql:string,values?:unknown[])=>transaction(tx=>tx.query<T>(sql,values)),exec:sql=>transaction(tx=>tx.exec(sql))};
     };
-    const owned=scoped(a);const store=new FoundationStore(owned);
+    const owned=scoped(a);const store=new FoundationStore(owned,undefined,undefined,undefined,catalog);
     await store.initialize();await store.profile(a);await new FoundationStore(scoped(b)).profile(b);
     expect((await owned.query('SELECT user_id FROM gm.learner_profile')).rows).toEqual([{user_id:a}]);
     const pack=await store.preparePack(a,{apiVersion:'v2',requestId:randomUUID(),questionCount:5,capabilities:['short_answer@1','choice@1','cloze@1','word_order@1','multi_slot@1']});

@@ -700,7 +700,7 @@ data class Catalog(
     init {
         require(apiVersion == "v2") { "Invalid Catalog.apiVersion" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid Catalog.contentReleaseId" }
-        require(status == "unpublished_local_draft") { "Invalid Catalog.status" }
+        require(status in setOf("unpublished_local_draft", "published")) { "Invalid Catalog.status" }
     }
 }
 

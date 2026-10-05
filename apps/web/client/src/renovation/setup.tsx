@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { ProfileRequestSchema, type LearnerProfile, type ProfileRequest } from "@german-master/contracts";
 import { FoundationButton, PracticeCard } from "../foundation/preview";
-import { learnerCopy } from "./locales";
+import { learnerCopy, accountLearnerCopy } from "./locales";
 import type { LearnerApi } from "./api";
 import type { JourneyStorage } from "./storage";
 import type { FixtureOwner } from "./ownership";
 
 export const PROFILE_PENDING_KEY = "german-master-v2:local-fixture:profile-request-v1";
-export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, onCancel, onPreviewLocale }: {
+export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, onCancel, onPreviewLocale, authenticated=false }: {
+  authenticated?: boolean;
   owner?: FixtureOwner;
   profile: LearnerProfile; api: LearnerApi; storage: JourneyStorage;
   onPreviewLocale: (locale: "en" | "de") => void; onSaved: (profile: LearnerProfile) => void; onReload: () => Promise<LearnerProfile>; onCancel?: () => void;
@@ -56,7 +57,7 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
   }
   return <div lang={preferences.locale}><PracticeCard>
     <h1 ref={heading} tabIndex={-1}>{c.setup}</h1>
-    <p>{c.draftLevel}</p>
+    <p>{authenticated?accountLearnerCopy[preferences.locale].draftLevel:c.draftLevel}</p>
     {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
       <fieldset className="gm-answer-group" disabled={busy || !!pending}>
         <label>{c.language}<select value={preferences.locale} onChange={e => { const locale = e.target.value as "en" | "de"; setPreferences({ ...preferences, locale }); onPreviewLocale(locale); }}><option value="en">English</option><option value="de">Deutsch</option></select></label>

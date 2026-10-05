@@ -27,11 +27,11 @@ export interface LearnerApi extends FoundationApi {
 export class SyncCursorReset extends Error {
   constructor() { super("Sync cursor requires a fresh snapshot"); }
 }
-export function localLearnerApi(account?: AccountBinding): LearnerApi {
+export function localLearnerApi(account?: AccountBinding, transport: typeof fetch = fetch): LearnerApi {
   const binding = account ? { subject: account.identity.subject, assertCurrent: () => account.assertCurrent() } : undefined;
   async function transportRequest(input: string, init: RequestInit) {
     binding?.assertCurrent();
-    const response = await fetch(input, { ...init, headers: { ...init.headers, ...(binding ? { 'X-Learner-Subject': binding.subject } : {}) } });
+    const response = await transport(input, { ...init, headers: { ...init.headers, ...(binding ? { 'X-Learner-Subject': binding.subject } : {}) } });
     binding?.assertCurrent();
     return response;
   }
@@ -51,7 +51,7 @@ export function localLearnerApi(account?: AccountBinding): LearnerApi {
     }
     return json(response);
   }
-  return { ...localFoundationApi(binding),
+  return { ...localFoundationApi(binding, transport),
     async deleteLearner(request) {
       const response = await transportRequest('/v2/me', {method:'DELETE',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if (!response.ok) throw Error('Deletion unavailable');

@@ -39,7 +39,15 @@ interface LearnerApi {
 class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh snapshot")
 
 /** Only the public local fixture; never production authentication. */
-class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject: String? = null) : LearnerApi {
+class LocalLearnerApi(port: Int = 5001, expectedSubject: String? = null) : LearnerApi by HttpLearnerApi(
+    "http://127.0.0.1:$port", expectedSubject, { "foundation-local-demo" }, {}, {}
+) { init { require(port in 1..65535) } }
+
+internal class HttpLearnerApi(
+    private val origin: String, private val expectedSubject: String?,
+    private val credential: suspend () -> String, private val assertCurrent: () -> Unit,
+    private val unauthorized: () -> Unit
+) : LearnerApi {
     override suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/me", ContractReader.json.encodeToString(request), method = "DELETE"))
         ContractShape.checkPrivacyDeleteReceipt(raw)
@@ -75,13 +83,16 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
         ContractShape.checkExposureBatchResponse(raw)
         return ContractReader.json.decodeFromJsonElement(ExposureBatchResponse.serializer(), raw).acknowledgments.single().also { check(it.eventId == event.eventId) }
     }
-    init { require(port in 1..65535) }
     private suspend fun request(path: String, body: String? = null, resetOnInvalidCursor: Boolean = false, method: String = "POST"): String = withContext(Dispatchers.IO) {
-        val connection = URI("http://127.0.0.1:$port$path").toURL().openConnection() as HttpURLConnection
+        assertCurrent()
+        val token = credential()
+        assertCurrent()
+        val connection = URI("$origin$path").toURL().openConnection() as HttpURLConnection
         try {
+            connection.instanceFollowRedirects = false
             connection.connectTimeout = 10000
             connection.readTimeout = 10000
-            connection.setRequestProperty("Authorization", "Bearer foundation-local-demo")
+            connection.setRequestProperty("Authorization", "Bearer $token")
             expectedSubject?.let { connection.setRequestProperty("X-Learner-Subject", it) }
             connection.setRequestProperty("Cache-Control", "no-store")
             if (body != null) {
@@ -91,6 +102,8 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
                 connection.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
             }
             val status = connection.responseCode
+            assertCurrent()
+            if(status == 401) { unauthorized(); error("Sign in before syncing") }
             if (resetOnInvalidCursor && status == 400) {
                 val error = runCatching {
                     val raw = ContractReader.json.parseToJsonElement(connection.errorStream.bufferedReader(Charsets.UTF_8).use { it.readText() })
@@ -100,7 +113,7 @@ class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject:
                 if (error?.code == "invalid_cursor") throw SyncCursorReset()
             }
             check(status == 200) { "Local API request failed ($status)" }
-            connection.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
+            connection.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }.also { assertCurrent() }
         } finally { connection.disconnect() }
     }
     override suspend fun profile(): LearnerProfile {
@@ -140,6 +153,7 @@ data class LearnerCache(
     val deletionLocalComplete: Boolean = false,
     val signedOut: Boolean = false,
     val localRemovalPending: Boolean = false,
+    val authRevocationPending: Boolean = false,
     val profile: LearnerProfile? = null,
     val pending: ProfileRequest? = null,
     val targets: List<ConfirmedTarget> = emptyList(),
@@ -183,7 +197,8 @@ class AtomicLearnerStore(file: File) : LearnerStore {
     }
 }
 
-class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null) {
+class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null, private val revoke: (suspend () -> Unit)? = null) {
+    val authenticatedAccount: Boolean get() = revoke != null
     private val deletionApi = account?.let { BoundLearnerApi(transport, it) } ?: transport
     private val api = ActiveLearnerApi(deletionApi) { check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" } }
     private val mutex = Mutex()
@@ -206,6 +221,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     }
     /** Explicit retry only. The mutex drains earlier operations before freezing deletion. */
     suspend fun deleteLearner() = mutex.withLock {
+        check(!authenticatedAccount) { "Host account deletion is not enabled" }
         check(!state.signedOut)
         account?.assertCurrent()
         val subject = requireNotNull(state.subjectId) { "Deletion requires a bound learner" }
@@ -227,16 +243,20 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         val subject = requireNotNull(state.subjectId) { "Sign-out requires a bound learner" }
         if(!state.signedOut) {
             if(!removeLocal) { syncSavedWorkOwned(); account?.assertCurrent() }
-            commitPrivacy(state.copy(signedOut = true,localRemovalPending = removeLocal))
+            commitPrivacy(state.copy(signedOut = true,localRemovalPending = removeLocal,authRevocationPending = revoke != null))
         }
         if(state.localRemovalPending) {
             account?.assertCurrent()
-            commitPrivacy(LearnerCache(subjectId = subject,signedOut = true))
+            commitPrivacy(LearnerCache(subjectId = subject,signedOut = true,authRevocationPending = state.authRevocationPending))
+        }
+        if(state.authRevocationPending) {
+            requireNotNull(revoke) { "Provider revocation required" }.invoke()
+            commitPrivacy(state.copy(authRevocationPending = false))
         }
     }
     suspend fun resumeLocalFixture() = mutex.withLock {
         account?.assertCurrent()
-        check(state.deletion == null && state.signedOut && !state.localRemovalPending)
+        check(state.deletion == null && state.signedOut && !state.localRemovalPending && !state.authRevocationPending)
         commitPrivacy(state.copy(signedOut = false))
     }
     suspend fun prepareReserve() = mutex.withLock { prepareReserveOwned() }

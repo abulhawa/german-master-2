@@ -12,7 +12,7 @@ export class LearnerSignOut {
     if(value.subject!==this.account.identity.subject) throw Error('Sign-out ownership mismatch');return value;
   }
   assertActive() { if(this.read()) throw Error('Learner signed out'); }
-  async finish(remove:boolean,sync:()=>Promise<void>,cleanup:()=>Promise<void>,frozen:()=>void) {
+  async finish(remove:boolean,sync:()=>Promise<void>,cleanup:()=>Promise<void>,frozen:()=>void,revoke?:()=>Promise<void>) {
     this.account.assertCurrent();let value=this.read();
     if(!value) {
       if(!remove) { await sync();this.account.assertCurrent(); }
@@ -22,6 +22,7 @@ export class LearnerSignOut {
     frozen();
     if(value.complete) return;
     this.account.assertCurrent();if(value.remove) await cleanup();
+    if(revoke) await revoke();
     this.storage.setItem(SIGNOUT_KEY,JSON.stringify({...value,complete:true}));
   }
   resume() {

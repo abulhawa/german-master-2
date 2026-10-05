@@ -23,7 +23,11 @@ async function body(request: IncomingMessage): Promise<unknown> {
 }
 
 /** No default authentication. A verified subject must be supplied by the host adapter. */
-export function createApi(source: FoundationStore | ((verifiedSubject: string) => FoundationStore), authenticate: Authenticate) {
+export function createApi(source: FoundationStore | ((verifiedSubject: string) => FoundationStore), authenticate: Authenticate, webOrigin?: string) {
+  if(webOrigin) {
+    const origin = new URL(webOrigin);
+    if(origin.protocol !== 'https:' || origin.origin !== webOrigin || origin.username || origin.password) throw Error('HTTPS web origin required');
+  }
   return createServer(async (request, response) => {
     const requestId = randomUUID();
     response.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -31,11 +35,29 @@ export function createApi(source: FoundationStore | ((verifiedSubject: string) =
     response.setHeader("X-Content-Type-Options", "nosniff");
     try {
       const url = new URL(request.url ?? '/', 'http://localhost');
+      const origin = request.headers.origin;
+      if(webOrigin && origin !== undefined) {
+        if(origin !== webOrigin) throw new ApiFailure('origin_not_allowed',403);
+        response.setHeader('Access-Control-Allow-Origin',webOrigin);
+        response.setHeader('Vary','Origin');
+      }
+      const preflight = request.method === 'OPTIONS';
+      const method = preflight ? request.headers['access-control-request-method'] : request.method;
       const completion = /^\/v2\/sessions\/([0-9a-f-]+)\/complete$/i.exec(url.pathname);
-      const isWrite = request.method === 'POST' && (['/v2/packs', '/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile', '/v2/content-reports'].includes(request.url ?? '') || (!!completion && !url.search));
-      const isRead = request.method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog', '/v2/profile', '/v2/me/export'].includes(url.pathname);
-      const isDelete = request.method === 'DELETE' && url.pathname === '/v2/me' && !url.search;
+      const isWrite = method === 'POST' && (['/v2/packs', '/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile', '/v2/content-reports'].includes(request.url ?? '') || (!!completion && !url.search));
+      const isRead = method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog', '/v2/profile', '/v2/me/export'].includes(url.pathname);
+      const isDelete = method === 'DELETE' && url.pathname === '/v2/me' && !url.search;
       if (!isWrite && !isRead && !isDelete) throw new ApiFailure('not_found', 404);
+      if(preflight) {
+        if(!webOrigin || origin !== webOrigin) throw new ApiFailure('origin_not_allowed',403);
+        if(isDelete) throw new ApiFailure('deletion_not_enabled',403);
+        const headers = request.headers['access-control-request-headers'];
+        if(typeof headers !== 'string' || headers.split(',').some(h=>!['authorization','content-type','x-learner-subject'].includes(h.trim().toLowerCase())))
+          throw new ApiFailure('invalid_request',400);
+        response.setHeader('Access-Control-Allow-Methods','GET, POST');
+        response.setHeader('Access-Control-Allow-Headers','Authorization, Content-Type, X-Learner-Subject');
+        response.statusCode=204;response.end();return;
+      }
       const userId = await authenticate(request);
       if (!userId || !UUID.test(userId)) throw new ApiFailure("authentication_required", 401);
       const expectedSubject = request.headers['x-learner-subject'];

@@ -315,7 +315,7 @@ export type CatalogTarget = z.infer<typeof CatalogTargetSchema>;
 export const CatalogSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  status: z.literal("unpublished_local_draft"),
+  status: z.enum(["unpublished_local_draft","published"]),
   topics: z.array(CatalogTopicSchema),
   targets: z.array(CatalogTargetSchema),
 });

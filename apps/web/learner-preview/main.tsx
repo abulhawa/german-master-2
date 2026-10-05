@@ -3,6 +3,24 @@ import { createRoot } from 'react-dom/client';
 import { registerSW } from 'virtual:pwa-register';
 import LearnerJourney from '../client/src/renovation/journey';
 import { readJourney, browserStorage } from '../client/src/renovation/storage';
+import { createLearnerProvider } from '../client/src/renovation/provider';
+import { ProviderLearnerJourney } from '../client/src/renovation/provider-journey';
+
+// Explicit public-only configuration. A partial configuration must never select fixture auth.
+const project = import.meta.env.VITE_V2_AUTH_PROJECT;
+const publishableKey = import.meta.env.VITE_V2_AUTH_PUBLISHABLE_KEY;
+const apiOrigin = import.meta.env.VITE_V2_API_ORIGIN;
+let providerHost: ReturnType<typeof createLearnerProvider> | undefined;
+let configurationFailed = false;
+if(project || publishableKey || apiOrigin) {
+  try {
+    if(!project || !publishableKey || !apiOrigin) throw Error('Incomplete learner configuration');
+    const url = new URL(apiOrigin);
+    if(url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) throw Error('Invalid API origin');
+    providerHost = import.meta.hot?.data.providerHost ?? createLearnerProvider(project,publishableKey);
+    if(import.meta.hot) import.meta.hot.data.providerHost = providerHost;
+  } catch { configurationFailed = true; }
+}
 
 const shellCopy = {
   en: { pending: 'Saving the local preview for offline launch…', ready: 'Local preview saved for offline launch.',
@@ -42,9 +60,14 @@ function Preview() {
     });
     return () => { alive = false; };
   }, []);
+  if(configurationFailed) return <main className="gm-foundation"><p role="alert">German Master account configuration is unavailable. / Die Kontokonfiguration von German Master ist nicht verfügbar.</p></main>;
+  if(providerHost) return <ProviderLearnerJourney host={providerHost} origin={apiOrigin!} />;
   return <><div className="gm-foundation" lang={locale}><p role="status" className="gm-column">{shellCopy[locale][status]}</p></div><LearnerJourney /></>;
 }
 
 const root = document.getElementById('root');
 if (!root) throw Error('Missing preview root');
-createRoot(root).render(<StrictMode><Preview /></StrictMode>);
+const app = import.meta.hot?.data.app ?? createRoot(root);
+if(import.meta.hot) import.meta.hot.data.app = app;
+app.render(<StrictMode><Preview /></StrictMode>);
+import.meta.hot?.dispose(()=> { providerHost?.provider.invalidate(); });

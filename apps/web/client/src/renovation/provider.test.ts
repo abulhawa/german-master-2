@@ -1,0 +1,62 @@
+import { expect, it, vi } from 'vitest';
+import type { SupabaseClient } from '@supabase/supabase-js';
+import { VerifiedLearnerProvider } from './provider';
+import { LearnerSignOut } from './signout';
+const project = 'zgmyrpzwgtydwlzponih';
+const subject = '00000000-0000-4000-8000-000000000020';
+const other = '00000000-0000-4000-8000-000000000021';
+function fixture() {
+  let now = 1000;
+  let user = subject;
+  let rejected = false;
+  const token = () => `e30.${btoa(JSON.stringify({ iss: `https://${project}.supabase.co/auth/v1`, aud: 'authenticated', role: 'authenticated', sub: user, session_id: subject, exp: 10 })).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
+  const auth = {
+    getSession: vi.fn(async () => ({ data: { session: { user: { id: user }, access_token: token(), expires_at: 10 } }, error: null })),
+    getUser: vi.fn(async () => ({ data: { user: { id: user, is_anonymous: false } }, error: rejected ? Error('rejected') : null })),
+    signOut: vi.fn(async () => ({ error: rejected ? Error('offline') : null })),
+  };
+  const provider = new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'], project, () => now);
+  return { provider, auth, token, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
+}
+it('uses verified credentials for reads and frozen submissions; never sends fixture authorization', async () => {
+  const f = fixture(); const account = await f.provider.bind();
+  const request = { apiVersion: 'v2' as const, requestId: subject, questionCount: 1, capabilities: ['short_answer@1'] };
+  const send = vi.fn(async (input, init) => {
+    expect(input.toString()).toBe('https://api.example/v2/sessions');
+    expect(new Headers(init.headers).get('Authorization')).toBe(`Bearer ${f.token()}`);
+    expect(new Headers(init.headers).get('X-Learner-Subject')).toBe(subject);
+    expect(init.redirect).toBe('error'); expect(init.credentials).toBe('omit');
+    expect(JSON.parse(init.body)).toEqual(request);
+    return new Response('', { status: 503 });
+  });
+  const api = f.provider.api(account, 'https://api.example', send);
+  await expect(api.createSession(request)).rejects.toThrow();
+  await expect(api.createFocusedSession(request)).rejects.toThrow();
+  expect(send).toHaveBeenCalledTimes(2);
+  expect(f.auth.getUser).toHaveBeenCalledTimes(3);
+  f.switch(); await expect(api.profile()).rejects.toThrow('Account changed');
+  expect(send).toHaveBeenCalledTimes(2);
+});
+it('rejects expiry, stale body results, auth rejection and old same-subject generations', async () => {
+  const f = fixture(); const account = await f.provider.bind();
+  const api = f.provider.api(account, 'https://api.example', vi.fn(async () => ({ ok: true, json: async () => {
+    f.provider.invalidate(); return {};
+  } }) as Response));
+  await expect(api.profile()).rejects.toThrow('Sign in');
+  const renewed = await f.provider.bind(); expect(() => account.assertCurrent()).toThrow();
+  f.expire(); expect(() => renewed.assertCurrent()).toThrow();
+  await expect(f.provider.bind()).rejects.toThrow('Sign in');
+  const g = fixture(); g.reject(true); await expect(g.provider.bind()).rejects.toThrow('verification');
+});
+it('leaves sign-out retryable after failed revocation and preserves synced drafts', async () => {
+  const f = fixture(); const account = await f.provider.bind(); const values = new Map<string,string>();
+  const storage = { getItem: (key: string) => values.get(key) ?? null, setItem: (key: string, value: string) => { values.set(key, value); } };
+  storage.setItem('draft', 'saved'); const signout = new LearnerSignOut(account, storage);
+  const sync = vi.fn(async () => {}); const cleanup = vi.fn(async () => {});
+  const revoke = async () => { f.reject(false); f.auth.signOut.mockResolvedValueOnce({ error: Error('offline') }); await f.provider.revoke(account); };
+  await expect(signout.finish(false, sync, cleanup, () => {}, revoke)).rejects.toThrow('revocation');
+  expect(signout.read()?.complete).toBe(false); expect(storage.getItem('draft')).toBe('saved');
+  await signout.finish(false, sync, cleanup, () => {}, () => f.provider.revoke(account));
+  expect(signout.read()?.complete).toBe(true); expect(sync).toHaveBeenCalledOnce(); expect(cleanup).not.toHaveBeenCalled();
+  expect(f.auth.signOut).toHaveBeenLastCalledWith({ scope: 'local' }); expect(() => account.assertCurrent()).toThrow();
+});

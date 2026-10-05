@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.foundation.FoundationTheme
+import com.germanverbmaster.android.BuildConfig
 import com.germanverbmaster.android.foundation.contract.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,6 +29,10 @@ class LearnerPreviewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent { FoundationTheme {
+            if(BuildConfig.V2_AUTH_PROJECT.isNotEmpty()) {
+                NativeProviderHost(BuildConfig.V2_AUTH_PROJECT,BuildConfig.V2_AUTH_PUBLISHABLE_KEY,BuildConfig.V2_API_ORIGIN,filesDir)
+                return@FoundationTheme
+            }
             val loaded by produceState<Result<LearnerRepository>?>(null) {
                 value = withContext(Dispatchers.IO) { runCatching {
                     val identity = LearnerIdentity(FIXTURE_SUBJECT, 0)
@@ -89,8 +94,8 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
     Surface(Modifier.fillMaxSize()) {
         Column(Modifier.safeDrawingPadding().imePadding().widthIn(max = 720.dp).fillMaxWidth()
             .verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            Text(label("Local learner preview", "Lokale Lernvorschau"))
-            Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
+            Text(if(repository.authenticatedAccount) "German Master 2.0" else label("Local learner preview", "Lokale Lernvorschau"))
+            if(!repository.authenticatedAccount) Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
             if (busy) Text(label("Loading…", "Wird geladen…"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
             if (cache.contentReport != null && !cache.reportRecorded) {
                 Text(label("Exercise report saved; awaiting confirmation.", "Übungsmeldung gespeichert; Bestätigung ausstehend."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
@@ -133,13 +138,13 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
                 if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
                 if (screen == "home") {
                     NativePrivacyExport(repository, german, busy) { cache = repository.state }
-                    NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
+                    if(!repository.authenticatedAccount) NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
                     NativePrivacySignOut(repository, german, busy) { cache = repository.state }
                     Text(label("Needs practice", "Übungsbedarf") + ": ${cache.targets.count { it.state == "needs_practice" }}")
                     Text(label("Retention checks", "Behalten überprüfen") + ": ${cache.targets.count { it.isDue && it.state != "needs_practice" }}")
                     if (cache.targets.isEmpty()) Text(label("Let’s find what to practise.", "Finden wir heraus, was du üben kannst."))
                     val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
-                    Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available draft questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Entwurfsfragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
+                    Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Fragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
                     LearnerButton(label(if(cache.practice == null) "Start practice" else "Continue practice", if(cache.practice == null) "Übung starten" else "Übung fortsetzen"), !busy && (cache.practice != null || (cache.pending == null && (available ?: 0) > 0))) { screen = "practice"; run(false) { repository.startPractice() } }
                     Text(label("Downloaded practice", "Heruntergeladene Übungen"), Modifier.semantics { heading() })
                     val pack = cache.preparedPack

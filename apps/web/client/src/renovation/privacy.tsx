@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import type { LearnerExport } from '@german-master/contracts';
 import { FoundationButton, PracticeCard } from '../foundation/preview';
 import { privacyCopy } from './privacy-locales';
-import { deletionCopy, signoutCopy } from './privacy-locales';
+import { deletionCopy, signoutCopy, accountSignoutCopy } from './privacy-locales';
 
 function usePrivacyFocus(confirm:boolean,terminal:boolean) {
   const heading=useRef<HTMLHeadingElement>(null);const begin=useRef<HTMLButtonElement>(null);const prior=useRef(false);
@@ -13,8 +13,8 @@ function usePrivacyFocus(confirm:boolean,terminal:boolean) {
   return {heading,begin};
 }
 
-export function PrivacySignOut({locale,blocked,signedOut,complete,leave,resume}:{locale:'en'|'de';blocked:boolean;signedOut:boolean;complete:boolean;leave:(remove:boolean)=>Promise<void>;resume:()=>void}) {
-  const c=signoutCopy[locale];const locked=useRef(false);
+export function PrivacySignOut({locale,blocked,signedOut,complete,leave,resume,authenticated=false}:{locale:'en'|'de';blocked:boolean;signedOut:boolean;complete:boolean;leave:(remove:boolean)=>Promise<void>;resume:()=>void;authenticated?:boolean}) {
+  const c=(authenticated?accountSignoutCopy:signoutCopy)[locale];const locked=useRef(false);
   const [confirm,setConfirm]=useState(false);const [busy,setBusy]=useState(false);const [error,setError]=useState(false);
   const {heading,begin}=usePrivacyFocus(confirm,signedOut);
   async function run(remove:boolean) {

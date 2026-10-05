@@ -20,11 +20,11 @@ Use the new project's supported token verification (`getClaims` or online `getUs
 
 For sensitive writes/deletion, verify the token's `session_id` against the current owned auth session; JWT signature/expiry alone does not prove that a session still exists after sign-out. Implement and verify reauthentication, revocation and owned auth-identity deletion separately from learner-data tombstones. Do not enable real deletion until retention, backup/log handling and recovery have been reviewed. [Supabase session lifecycle](https://supabase.com/docs/guides/auth/sessions).
 
-The network PostgreSQL adapter, scoped role policies and server auth verifier are now implemented locally. Next independent implementation: both clients' verified auth provider bindings and reviewed-catalog runtime routing. Real account lifecycle acceptance and deployment remain gated by the new environment and the separate approvals above. The current fixture resume buttons explicitly resume the same public local learner and do not claim production sign-in.
+The network PostgreSQL adapter, scoped policies, server verifier, both configured preview provider hosts and published runtime catalog routing are implemented locally. See ADR 029. Configured provider cold launch while offline/expired, release-host routing and real lifecycle acceptance remain open. Credentials/schema/deployment retain separate approval boundaries. Unconfigured fixture resume controls still refer only to the public local learner.
 
 ## Prepared backend integration — 5 October 2026
 
-Network adapter, request-scoped server composition, scoped learning SQL and online server auth verification are now implemented. See [ADR 028](../adr/028_network_backend_and_verified_auth.md). The adapter requires verified TLS and an existing baseline; it cannot initialize fixtures. Both clients remain unchanged public fixtures, and reviewed-catalog runtime selection is not yet integrated.
+Network adapter, request-scoped composition, scoped learning SQL and server verification are implemented. See [ADR 028](../adr/028_network_backend_and_verified_auth.md). The adapter requires verified TLS and an existing baseline; it cannot initialize fixtures. The configured preview hosts and runtime catalog routing are now prepared; no actual provider credentials or independently reviewed catalog have been installed.
 
 Concrete external operations still requiring separate approval:
 
@@ -33,3 +33,5 @@ Concrete external operations still requiring separate approval:
 3. Run advisors and actual independent-connection ownership/content denial, concurrent write/replay, rollback/expiry and representative load acceptance. Isolated PGlite and adapter mocks are not substitutes for these checks. Deployment remains a separate operation.
 
 `createSupabaseAuthenticate` uses the publishable key and a mandatory `currentAuthSession` callback using the separate auth-verifier database. `createNetworkApi` obtains a fresh subject-scoped learning store after authentication, exports no credential-bearing configuration and starts no listener. Real learner deletion is intentionally disabled there pending host-auth revocation/deletion, reauthentication and retention/recovery integration. No external operation above was executed.
+
+`createNetworkApi` additionally accepts an explicit RuntimeCatalog and optional normalized HTTPS web origin. Without a published/hash-matching reviewed catalog, new network practice is unavailable. Cross-origin web hosting requires that exact configured origin; same-origin proxy hosting needs no CORS option. Preview public configuration names and evidence limits are recorded in ADR 029. Do not use the synthetic build-check APK or key strings for staging sign-in. Native cold-launch/auth refresh and Keystore acceptance still require device evidence.

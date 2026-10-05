@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
-import { learnerCopy } from "./locales";
+import { learnerCopy, accountLearnerCopy } from "./locales";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
 
@@ -22,7 +22,7 @@ import { REPORT_KEY } from './report';
 import { STORAGE_KEY } from './storage';
 
 const localApi = localLearnerApi(fixtureAccount);
-type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve };
+type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authenticated?: boolean };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
   return <AccountLearnerJourney key={`${account.identity.subject}:${account.identity.generation}`} {...props} account={account} />;
@@ -52,7 +52,7 @@ function AccountLearnerJourney(props: JourneyProps & { account: AccountBinding }
   </PracticeCard></div></main>;
 }
 
-export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner }: JourneyProps & { owner?: FixtureOwner }) {
+export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke }: JourneyProps & { owner?: FixtureOwner }) {
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
   useEffect(()=>()=>{
@@ -84,14 +84,14 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
     finally { refresh(v=>v+1); }
   }
   async function leave(removeLocal:boolean) {
-    const work=()=>{deletion.assertActive();return signout.finish(removeLocal,()=>syncSavedWork(api,activeStorage,db),cleanup,()=>refresh(v=>v+1));};
+    const work=()=>{deletion.assertActive();return signout.finish(removeLocal,()=>syncSavedWork(api,activeStorage,db),cleanup,()=>refresh(v=>v+1),revoke);};
     try { await(owner?owner.run(work):work()); } finally { refresh(v=>v+1); }
   }
   if (saved || damaged) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacyDeletion locale={locale} pending={!!saved} confirmed={!!saved?.receipt} complete={!!saved?.complete} blocked={damaged} remove={remove} /></div></main>;
-  if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{signout.resume();refresh(v=>v+1);}} /></div></main>;
-  return <ActiveLearnerJourney api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
+  if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut authenticated={!!revoke} locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{signout.resume();refresh(v=>v+1);}} /></div></main>;
+  return <ActiveLearnerJourney authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
 }
-function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void> }) {
+function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void> }) {
   const api = useMemo(() => suppliedApi ?? (account === fixtureAccount ? localApi : localLearnerApi(account)), [suppliedApi, account]);
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
@@ -116,7 +116,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const feedback = useRef<HTMLDivElement>(null);
-  const c = learnerCopy[state.locale];
+  const c = {...learnerCopy[state.locale],...(authenticated?accountLearnerCopy[state.locale]:{})};
   const p = state.practice;
   const exercise = p?.session?.questions[p.index]?.exercise;
   const setup = editingSetup || (!!profile && !profile.setupCompleted);
@@ -280,7 +280,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
       {!profile && !profileFailed && <p role="status">{c.profileLoading}</p>}
       {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={`${profile.revision}:${syncRevision}`} profile={profile} api={api} storage={storage}
-        owner={owner}
+        owner={owner} authenticated={authenticated}
         onPreviewLocale={locale => preference({ locale })}
         onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); setView("home"); void loadCatalog(); }}
         onReload={async () => { const value = await api.profile(); setProfile(value); preference({ locale: value.preferences.locale }); return value; }}
@@ -300,7 +300,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
         {view === 'home' && api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
-        {view === 'home' && <PrivacySignOut locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
+        {view === 'home' && <PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
         {view === 'home' && api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
           if (lock.current) throw Error('Learner operation in progress');
           lock.current=true;setBusy(true);

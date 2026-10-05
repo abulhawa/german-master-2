@@ -1,4 +1,8 @@
 import { backendCopy } from "../foundation/locales";
+export const accountLearnerCopy = {
+  en: {subtitle:'2.0 practice',notice:'Progress is confirmed by the server. Downloaded sessions can be practised offline; feedback stays provisional until synced.',draftLevel:'Practice uses the available reviewed catalog for your preferences.',noContent:'No questions are available for these preferences. Try another level or refresh the catalog.',focusedShort:'Focused practice uses the available questions. Extra practice does not count as a retention check before it is due.'},
+  de: {subtitle:'Üben mit 2.0',notice:'Der Server bestätigt den Lernstand. Heruntergeladene Sitzungen können offline geübt werden; Rückmeldungen bleiben bis zur Synchronisierung vorläufig.',draftLevel:'Die Übung nutzt den verfügbaren geprüften Katalog für deine Einstellungen.',noContent:'Für diese Einstellungen sind keine Aufgaben verfügbar. Probiere ein anderes Niveau oder aktualisiere den Katalog.',focusedShort:'Gezielte Übung nutzt die verfügbaren Aufgaben. Zusätzliche Übung zählt vor dem Fälligkeitsdatum nicht als Behaltensprüfung.'},
+};
 export const learnerCopy = {
   en: { ...backendCopy.en,
     syncAll: 'Sync all saved work',
