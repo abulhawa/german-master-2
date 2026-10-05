@@ -38,11 +38,6 @@ interface LearnerApi {
 /** Only an owned sync read can request full snapshot recovery. */
 class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh snapshot")
 
-/** Only the public local fixture; never production authentication. */
-class LocalLearnerApi(port: Int = 5001, expectedSubject: String? = null) : LearnerApi by HttpLearnerApi(
-    "http://127.0.0.1:$port", expectedSubject, { "foundation-local-demo" }, {}, {}
-) { init { require(port in 1..65535) } }
-
 internal class HttpLearnerApi(
     private val origin: String, private val expectedSubject: String?,
     private val credential: suspend () -> String, private val assertCurrent: () -> Unit,
@@ -198,13 +193,15 @@ class AtomicLearnerStore(file: File) : LearnerStore {
 }
 
 class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, private val account: LearnerAccount? = null, private val revoke: (suspend () -> Unit)? = null) {
+    var authorizeResume: (suspend () -> Unit)? = null
+        internal set
     val authenticatedAccount: Boolean get() = revoke != null
     private val deletionApi = account?.let { BoundLearnerApi(transport, it) } ?: transport
     private val api = ActiveLearnerApi(deletionApi) { check(state.deletion == null && !state.signedOut) { "Learner deletion pending or completed, or signed out" } }
     private val mutex = Mutex()
     var state = store.read()
         private set
-    private fun commit(next: LearnerCache) { check(state.deletion == null && !state.signedOut); commitPrivacy(next) }
+    private fun commit(next: LearnerCache) { account?.assertCurrent(); check(state.deletion == null && !state.signedOut); commitPrivacy(next) }
     private fun commitPrivacy(next: LearnerCache) { store.write(next); state = next }
     init {
         check(!state.deletionLocalComplete || state.deletionReceipt != null)
@@ -255,6 +252,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         }
     }
     suspend fun resumeLocalFixture() = mutex.withLock {
+        authorizeResume?.invoke()
         account?.assertCurrent()
         check(state.deletion == null && state.signedOut && !state.localRemovalPending && !state.authRevocationPending)
         commitPrivacy(state.copy(signedOut = false))

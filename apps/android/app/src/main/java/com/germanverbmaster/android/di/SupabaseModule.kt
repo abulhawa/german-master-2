@@ -24,6 +24,7 @@ object SupabaseModule {
     @Provides
     @Singleton
     fun provideSupabaseClient(@ApplicationContext context: Context): SupabaseClient {
+        check(!BuildConfig.V2_ENABLED) { "Legacy provider disabled in v2 builds" }
         return createSupabaseClient(
             supabaseUrl = BuildConfig.SUPABASE_URL,
             supabaseKey = BuildConfig.SUPABASE_ANON_KEY,

@@ -21,6 +21,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        if(BuildConfig.V2_ENABLED) {
+            setContent { com.germanverbmaster.android.foundation.FoundationTheme {
+                com.germanverbmaster.android.learner.NativeProviderHost(BuildConfig.V2_AUTH_PROJECT,BuildConfig.V2_AUTH_PUBLISHABLE_KEY,BuildConfig.V2_API_ORIGIN,noBackupFilesDir)
+            } }
+            return
+        }
         setContent {
             val themeMode by themeViewModel.themeMode.collectAsState()
             val darkTheme = when (themeMode) {

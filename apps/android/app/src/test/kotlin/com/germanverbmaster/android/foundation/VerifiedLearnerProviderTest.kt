@@ -30,8 +30,29 @@ class VerifiedLearnerProviderTest {
         assertTrue(runCatching { first.assertCurrent() }.isFailure)
         val renewed = provider.bind(); assertTrue(runCatching { first.assertCurrent() }.isFailure)
         renewed.assertCurrent(); time = 10000L
-        assertTrue(runCatching { renewed.assertCurrent() }.isFailure)
+        renewed.assertCurrent() // Expiry blocks delivery, not saved local practice.
+        assertTrue(runCatching { provider.api(renewed,"https://api.example").profile() }.isFailure)
         assertTrue(runCatching { provider.bind() }.isFailure)
+    }
+    @Test fun coldLocalBindingRequiresPriorVerificationAndCannotDeliverOrResumeSignOut() = runBlocking {
+        val auth=Auth()
+        val saved=object : VerifiedSubjectStore {
+            var subject: String?=null
+            override fun read()=subject
+            override fun write(subject: String) { this.subject=subject }
+        }
+        val provider=VerifiedLearnerProvider(auth,project,saved) {1000L}
+        assertNull(provider.localBinding())
+        provider.bind();assertEquals(owner,saved.subject)
+        auth.offline=true
+        val restarted=VerifiedLearnerProvider(auth,project,saved) {10000L}
+        val local=requireNotNull(restarted.localBinding());local.assertCurrent()
+        assertTrue(runCatching { restarted.api(local,"https://api.example").profile() }.isFailure)
+        assertEquals(owner,local.identity.subject)
+        restarted.invalidate();assertTrue(runCatching {local.assertCurrent()}.isFailure)
+        auth.offline=false
+        val renewed=VerifiedLearnerProvider(auth,project,saved) {1000L}
+        val active=renewed.bind();renewed.revoke(active);assertEquals("",saved.subject)
     }
     @Test fun onlineFailureAndRevocationFailureNeverClaimSuccess() = runBlocking {
         val auth = Auth(); val provider = VerifiedLearnerProvider(auth,project) { 1000L }

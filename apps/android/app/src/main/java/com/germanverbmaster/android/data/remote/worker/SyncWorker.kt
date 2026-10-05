@@ -21,6 +21,7 @@ class SyncWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
+        if(com.germanverbmaster.android.BuildConfig.V2_ENABLED) return Result.success()
         return try {
             // Sync lexemes and task specs from Supabase
             syncDataUseCase()

@@ -16,6 +16,22 @@ interface LearnerAuth {
     suspend fun revoke()
 }
 
+interface VerifiedSubjectStore {
+    fun read(): String?
+    fun write(subject: String)
+}
+
+class AtomicVerifiedSubjectStore(file: java.io.File) : VerifiedSubjectStore {
+    private val atomic = android.util.AtomicFile(file)
+    override fun read(): String? = try { atomic.openRead().bufferedReader().use { it.readText() }.takeIf { it.isNotEmpty() } }
+        catch(e: java.io.FileNotFoundException) { if(atomic.baseFile.exists()) throw e; null }
+    override fun write(subject: String) {
+        val stream = atomic.startWrite()
+        try { stream.write(subject.toByteArray(Charsets.UTF_8)); atomic.finishWrite(stream) }
+        catch(e: Exception) { atomic.failWrite(stream); throw e }
+    }
+}
+
 /** An explicitly supplied dedicated v2 SDK client; no legacy singleton or credential file. */
 class SupabaseLearnerAuth(private val client: SupabaseClient) : LearnerAuth {
     override suspend fun awaitReady() { client.auth.awaitInitialization() }
@@ -30,15 +46,23 @@ class SupabaseLearnerAuth(private val client: SupabaseClient) : LearnerAuth {
 
 /** JWT parsing is a precondition, never signature verification or learning authority. */
 class VerifiedLearnerProvider(private val auth: LearnerAuth, private val projectRef: String,
-    private val now: () -> Long = System::currentTimeMillis) {
+    private val saved: VerifiedSubjectStore? = null, private val now: () -> Long = System::currentTimeMillis) {
     @Volatile private var active: LearnerIdentity? = null
     @Volatile private var sessionId: String? = null
     private var generation = 0L
     private var operation = 0L
+    @Volatile private var online = false
     init { require(Regex("[a-z]{20}").matches(projectRef)) }
     private data class Credential(val token: String, val subject: String, val sessionId: String, val expiresAt: Long)
-    @Synchronized fun invalidate() { operation++; active = null; sessionId = null }
-    private fun credential(): Credential {
+    @Synchronized fun invalidate() { operation++; active = null; sessionId = null; online = false }
+    @Synchronized fun localBinding(): LearnerAccount? {
+        val subject = saved?.read() ?: return null
+        check(UUID.fromString(subject).toString() == subject)
+        invalidate()
+        val identity = LearnerIdentity(subject, ++generation).also { active = it }
+        return LearnerAccount(identity) { active }
+    }
+    private fun credential(allowExpired: Boolean = false): Credential {
         val token = requireNotNull(auth.accessToken()) { "Sign in before syncing" }
         check(token.length <= 16384 && token.split('.').size == 3)
         val claims = ContractReader.json.parseToJsonElement(String(Base64.getUrlDecoder().decode(token.split('.')[1]), Charsets.UTF_8)).jsonObject
@@ -47,7 +71,7 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
         val subject = text("sub"); val session = text("session_id")
         check(UUID.fromString(subject).toString() == subject && UUID.fromString(session).toString() == session)
         val expiry = Math.multiplyExact(requireNotNull(claims["exp"]).jsonPrimitive.long, 1000)
-        check(expiry > now()) { "Sign in before syncing" }
+        check(allowExpired || expiry > now()) { "Sign in before syncing" }
         return Credential(token,subject,session,expiry)
     }
     private suspend fun verified(): Credential {
@@ -64,10 +88,11 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
         val value = verified()
         val identity = synchronized(this) {
             check(ticket == operation) { "Sign-in changed" }
-            LearnerIdentity(value.subject, ++generation).also { active = it; sessionId = value.sessionId }
+            saved?.write(value.subject)
+            LearnerIdentity(value.subject, ++generation).also { active = it; sessionId = value.sessionId; online = true }
         }
         return LearnerAccount(identity) {
-            val current = runCatching { credential() }.getOrNull()
+            val current = runCatching { credential(true) }.getOrNull()
             active?.takeIf { current?.subject == it.subject && current.sessionId == sessionId }
         }
     }
@@ -76,19 +101,24 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
         require(url.scheme == "https" && url.host != null && url.rawUserInfo == null && url.rawQuery == null && url.rawFragment == null && url.path in listOf("", "/"))
         return HttpLearnerApi(origin.trimEnd('/'), account.identity.subject, {
             account.assertCurrent()
+            check(online) { "Sign in before syncing" }
             val value = verified()
             account.assertCurrent()
             check(value.subject == account.identity.subject)
             value.token
-        }, { account.assertCurrent() }, { invalidate() })
+        }, { account.assertCurrent() }, { online = false })
     }
     suspend fun revoke(account: LearnerAccount) {
-        account.assertCurrent(); verified(); account.assertCurrent()
+        account.assertCurrent(); val value=verified(); account.assertCurrent()
+        check(value.subject==account.identity.subject) { "Account changed" }
         auth.revoke() // Failures propagate; never claim a failed revocation succeeded.
+        saved?.write("")
         invalidate()
     }
-    suspend fun repository(directory: java.io.File, origin: String): LearnerRepository {
-        val account = bind()
-        return LearnerRepository(api(account,origin),account.store(directory),account) { revoke(account) }
+    suspend fun repository(directory: java.io.File, origin: String, localOnly: Boolean = false): LearnerRepository {
+        val account = if(localOnly) requireNotNull(localBinding()) { "No verified saved account" } else bind()
+        return LearnerRepository(api(account,origin),account.store(directory),account) { revoke(account) }.also {
+            it.authorizeResume = { check(online); account.assertCurrent(); val value=verified(); account.assertCurrent();check(value.subject==account.identity.subject) }
+        }
     }
 }

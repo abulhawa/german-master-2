@@ -21,11 +21,12 @@ class MainApplication : Application(), Configuration.Provider {
 
     override val workManagerConfiguration: Configuration
         get() = Configuration.Builder()
-            .setWorkerFactory(workerFactory)
+            .setWorkerFactory(if(BuildConfig.V2_ENABLED) com.germanverbmaster.android.learner.PausedLegacySyncFactory() else workerFactory)
             .build()
 
     override fun onCreate() {
         super.onCreate()
+        if(BuildConfig.V2_ENABLED) return
         triggerImmediateSync()
         scheduleSync()
     }

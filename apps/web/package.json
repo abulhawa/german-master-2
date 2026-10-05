@@ -11,6 +11,7 @@
     "dev": "cross-env USE_DEV_DB_MOCK=1 NODE_ENV=development tsx server/index.ts",
     "dev:client": "vite dev --host 127.0.0.1 --port 5000",
     "build:learner-preview": "vite build --config vite.learner-preview.config.ts",
+    "build:learner-product": "vite build --config vite.learner-product.config.ts",
     "preview:learner": "vite preview --config vite.learner-preview.config.ts",
     "test:offline-shell": "node scripts/verify-offline-shell.mjs",
     "build": "npm run validate:env && vite build && node scripts/build-server.js",

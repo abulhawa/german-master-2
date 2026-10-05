@@ -21,19 +21,26 @@ import java.io.File
 fun NativeProviderHost(project: String, publishableKey: String, origin: String, directory: File) {
     val context = LocalContext.current
     val client = remember(project,publishableKey) { createLearnerAuthClient(context,project,publishableKey) }
-    val provider = remember(client) { VerifiedLearnerProvider(SupabaseLearnerAuth(client),project) }
+    val subjectStore = remember(project) { AtomicVerifiedSubjectStore(File(context.noBackupFilesDir,"gm-v2-last-verified-$project")) }
+    val provider = remember(client) { VerifiedLearnerProvider(SupabaseLearnerAuth(client),project,subjectStore) }
     val status by client.auth.sessionStatus.collectAsState()
     val scope = rememberCoroutineScope()
     DisposableEffect(client) { onDispose { provider.invalidate();CoroutineScope(Dispatchers.IO).launch { client.close() } } }
-    if(status is SessionStatus.Authenticated) {
+    var showLogin by remember { mutableStateOf(false) }
+    var german by remember { mutableStateOf(false) }
+    var localOnly by remember { mutableStateOf(runCatching { subjectStore.read() != null }.getOrDefault(false)) }
+    LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false } }
+    if(!showLogin && (localOnly || status is SessionStatus.Authenticated)) {
         // Each provider session-state replacement keys a new bound learner tree.
-        key(status) { ProviderLearnerShell(provider,origin,directory,0) }
+        key(status,localOnly) { ProviderLearnerShell(provider,origin,directory,0,localOnly,
+            locale=if(german) "de" else "en",
+            onLocal=if(!localOnly && runCatching { subjectStore.read()!=null }.getOrDefault(false)) ({localOnly=true}) else null,
+            onSignIn={ showLogin=true }) }
         return
     }
     LaunchedEffect(status) { provider.invalidate() }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var german by remember { mutableStateOf(false) }
     var busy by remember { mutableStateOf(false) }
     var failed by remember { mutableStateOf(false) }
     fun label(en: String,de: String) = if(german) de else en
@@ -41,6 +48,9 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
         Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
             Text(label("Sign in to German Master","Bei German Master anmelden"),Modifier.semantics { heading() },style=MaterialTheme.typography.headlineMedium)
             LearnerButton("English / Deutsch",!busy) { german=!german }
+            if(runCatching { subjectStore.read() != null }.getOrDefault(false)) {
+                LearnerButton(label("Continue saved practice","Gespeicherte Übungen fortsetzen"),!busy) { localOnly=true;showLogin=false }
+            }
             OutlinedTextField(email,{email=it},label={Text(label("Email","E-Mail"))},singleLine=true,enabled=!busy,modifier=Modifier.fillMaxWidth())
             OutlinedTextField(password,{password=it},label={Text(label("Password","Passwort"))},visualTransformation=PasswordVisualTransformation(),singleLine=true,enabled=!busy,modifier=Modifier.fillMaxWidth())
             LearnerButton(label("Sign in","Anmelden"),!busy&&email.isNotBlank()&&password.isNotEmpty()) {

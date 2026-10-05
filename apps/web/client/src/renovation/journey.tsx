@@ -22,7 +22,7 @@ import { REPORT_KEY } from './report';
 import { STORAGE_KEY } from './storage';
 
 const localApi = localLearnerApi(fixtureAccount);
-type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authenticated?: boolean };
+type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
   return <AccountLearnerJourney key={`${account.identity.subject}:${account.identity.generation}`} {...props} account={account} />;
@@ -52,7 +52,7 @@ function AccountLearnerJourney(props: JourneyProps & { account: AccountBinding }
   </PracticeCard></div></main>;
 }
 
-export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke }: JourneyProps & { owner?: FixtureOwner }) {
+export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke, authorizeResume }: JourneyProps & { owner?: FixtureOwner }) {
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
   useEffect(()=>()=>{
@@ -62,7 +62,7 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
   const rawApi = useMemo(() => suppliedApi ?? localLearnerApi(account), [suppliedApi,account]);
   const deletion = useMemo(() => new LearnerDeletion(account,storage), [account,storage]);
   const signout = useMemo(()=>new LearnerSignOut(account,storage),[account,storage]);
-  const barrier = useMemo(()=>({assertActive:()=>{deletion.assertActive();signout.assertActive();}}),[deletion,signout]);
+  const barrier = useMemo(()=>({assertActive:()=>{account.assertCurrent();deletion.assertActive();signout.assertActive();}}),[account,deletion,signout]);
   const api = useMemo(() => deletionGuard(rawApi,barrier), [rawApi,barrier]);
   const activeOwner = useMemo(() => owner ? new Proxy(owner,{get(target,key) {
     if(key === 'run') return <T,>(work:()=>Promise<T>)=>target.run(async()=>{barrier.assertActive();const result=await work();barrier.assertActive();return result;});
@@ -88,7 +88,7 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
     try { await(owner?owner.run(work):work()); } finally { refresh(v=>v+1); }
   }
   if (saved || damaged) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacyDeletion locale={locale} pending={!!saved} confirmed={!!saved?.receipt} complete={!!saved?.complete} blocked={damaged} remove={remove} /></div></main>;
-  if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut authenticated={!!revoke} locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{signout.resume();refresh(v=>v+1);}} /></div></main>;
+  if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut authenticated={!!revoke} locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{authorizeResume?.();signout.resume();refresh(v=>v+1);}} /></div></main>;
   return <ActiveLearnerJourney authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
 }
 function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void> }) {

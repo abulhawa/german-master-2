@@ -17,6 +17,54 @@ import { OfflineRepository } from './offline';
 import { OfflineDesk } from './offline-desk';
 import { snapshot, pull } from './storage';
 import { sessionRequest } from '../foundation/api';
+import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
+import { ProviderLearnerJourney } from './provider-journey';
+import type { SupabaseClient } from '@supabase/supabase-js';
+
+it('configured cold host reopens an owned pack, saves provisional work and preserves it through reauthentication',async()=> {
+  const pg=new PGlite();const store=new FoundationStore(pg);await store.initialize();
+  const subject=randomUUID(),project='zgmyrpzwgtydwlzponih';
+  const request=sessionRequest();const pack=await store.preparePack(subject,request);
+  let expired=false;let online=true;let callback:(event:string)=>void=()=>{};
+  const expiry=()=>expired?1:9999999999;
+  const token=()=>`e30.${btoa(JSON.stringify({iss:`https://${project}.supabase.co/auth/v1`,aud:'authenticated',role:'authenticated',sub:subject,session_id:subject,exp:expiry()})).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
+  const auth={
+    getSession:vi.fn(async()=>({data:{session:{user:{id:subject},access_token:token(),expires_at:expiry()}},error:null})),
+    getUser:vi.fn(async()=>({data:{user:{id:subject}},error:online?null:Error('offline')})),
+    signOut:vi.fn(async()=>({error:null})),
+    signInWithPassword:vi.fn(async()=>{expired=false;online=true;callback('SIGNED_IN');return {error:null};}),
+    onAuthStateChange:(listener:(event:string)=>void)=>{callback=listener;queueMicrotask(()=>listener('INITIAL_SESSION'));return {data:{subscription:{unsubscribe:()=>{}}}};},
+  };
+  const provider=new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project);
+  const account=await provider.bind();const db=account.reserve();
+  await db.freeze(request);await db.accept(request,pack);db.close();await db.open();provider.invalidate();expired=true;online=false;
+  const send=vi.fn(async()=>{throw Error('No network permitted');});vi.stubGlobal('fetch',send);
+  vi.stubGlobal('navigator',{locks:{request:vi.fn(async(_name:string,options:{signal:AbortSignal},work:()=>Promise<void>)=>{if(!options.signal.aborted)await work();})}});
+  const makeHost=()=>({client:{auth},provider:new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project)}) as unknown as ReturnType<typeof createLearnerProvider>;
+  let ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
+  try {
+    await waitFor(()=>expect(screen.getByText('Start downloaded practice')).toBeEnabled());
+    fireEvent.click(screen.getByText('Start downloaded practice'));
+    await screen.findByText('Question 1 / 5');
+    const repo=new OfflineRepository(db);const [id]=await repo.list();const {session}=await repo.read(id);
+    expect(session.questions[0].exercise.type).toBe('short_answer');
+    fireEvent.change(screen.getByLabelText('Your answer'),{target:{value:'saved offline draft'}});
+    await waitFor(async()=>expect((await repo.read(id)).practice.draft).toEqual({type:'short_answer',text:'saved offline draft'}));
+    ui.unmount();ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
+    fireEvent.click(await screen.findByText('Open saved session 1'));
+    await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
+    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite');
+    const before=await repo.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByText('Sign in or verify account'));
+    fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
+    fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-password'}});
+    fireEvent.submit(screen.getByRole('button',{name:'Sign in',exact:true}).closest('form')!);
+    await screen.findByText('Downloaded practice');
+    expect((await repo.read(id)).practice).toEqual(before.practice); // Reauthentication never delivers saved events automatically.
+    expect(send.mock.calls.length).toBeGreaterThan(0); // Fresh verified binding may read; all sends still fail locally.
+    expect(before.practice.events[0].receipt).toBeNull();
+  } finally {cleanup();localStorage.clear();vi.unstubAllGlobals();await db.delete();await pg.close();}
+});
 
 it('downloads once, practises all five forms without HTTP across restart, then reconciles ordered frozen writes after response loss', async () => {
   const pg = new PGlite(); let now = Date.now();

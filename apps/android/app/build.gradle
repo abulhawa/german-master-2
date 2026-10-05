@@ -17,6 +17,14 @@ if (localPropsFile.exists()) {
     localPropsFile.withInputStream { localProps.load(it) }
 }
 
+def v2Release = System.getenv("GM_V2_RELEASE") == "1"
+def releaseProject = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
+def releaseKey = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
+def releaseOrigin = System.getenv("GM_V2_API_ORIGIN") ?: ""
+if (v2Release && (releaseProject != "zgmyrpzwgtydwlzponih" || !(releaseKey ==~ /sb_publishable_[A-Za-z0-9_-]+/) || !(releaseOrigin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/))) {
+    throw new GradleException("Complete dedicated v2 staging public configuration required")
+}
+
 android {
     namespace = "com.germanverbmaster.android"
     compileSdk = 37
@@ -28,6 +36,7 @@ android {
         targetSdk = 37
         versionCode = 29
         versionName = "0.2.08"
+        buildConfigField("boolean", "V2_ENABLED", "false")
         buildConfigField("String", "V2_AUTH_PROJECT", '""')
         buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", '""')
         buildConfigField("String", "V2_API_ORIGIN", '""')
@@ -60,6 +69,7 @@ android {
             applicationIdSuffix = ".preview"
             versionNameSuffix = "-preview"
             matchingFallbacks = ["debug"]
+            buildConfigField("boolean", "V2_ENABLED", "true")
             // Explicit public-only configuration; never reads legacy local.properties credentials.
             def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
             def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
@@ -74,6 +84,12 @@ android {
             }
         }
         release {
+            if(v2Release) {
+                buildConfigField("boolean", "V2_ENABLED", "true")
+                buildConfigField("String", "V2_AUTH_PROJECT", groovy.json.JsonOutput.toJson(releaseProject))
+                buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", groovy.json.JsonOutput.toJson(releaseKey))
+                buildConfigField("String", "V2_API_ORIGIN", groovy.json.JsonOutput.toJson(releaseOrigin))
+            }
             signingConfig = signingConfigs.getByName("release")
             minifyEnabled = true
             shrinkResources = true

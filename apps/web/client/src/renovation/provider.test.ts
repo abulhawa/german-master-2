@@ -1,4 +1,4 @@
-import { expect, it, vi } from 'vitest';
+import { afterEach, expect, it, vi } from 'vitest';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { VerifiedLearnerProvider } from './provider';
 import { LearnerSignOut } from './signout';
@@ -18,6 +18,7 @@ function fixture() {
   const provider = new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'], project, () => now);
   return { provider, auth, token, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
 }
+afterEach(()=>localStorage.clear());
 it('uses verified credentials for reads and frozen submissions; never sends fixture authorization', async () => {
   const f = fixture(); const account = await f.provider.bind();
   const request = { apiVersion: 'v2' as const, requestId: subject, questionCount: 1, capabilities: ['short_answer@1'] };
@@ -44,9 +45,26 @@ it('rejects expiry, stale body results, auth rejection and old same-subject gene
   } }) as Response));
   await expect(api.profile()).rejects.toThrow('Sign in');
   const renewed = await f.provider.bind(); expect(() => account.assertCurrent()).toThrow();
-  f.expire(); expect(() => renewed.assertCurrent()).toThrow();
+  f.expire(); expect(() => renewed.assertCurrent()).not.toThrow();
+  expect(()=>f.provider.assertVerified(renewed)).toThrow('Sign in');
+  const send=vi.fn();await expect(f.provider.api(renewed,'https://api.example',send).profile()).rejects.toThrow('Sign in');
+  expect(send).not.toHaveBeenCalled();
   await expect(f.provider.bind()).rejects.toThrow('Sign in');
   const g = fixture(); g.reject(true); await expect(g.provider.bind()).rejects.toThrow('verification');
+});
+it('cold local binding uses only the saved verified subject and blocks delivery before provider reads',async()=> {
+  const f=fixture();expect(f.provider.localBinding()).toBeNull();
+  const first=await f.provider.bind();
+  const store=first.storage({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});
+  store.setItem('frozen','original request');
+  f.expire();f.reject(true);
+  const restarted=fixture();restarted.reject(true);
+  const local=restarted.provider.localBinding()!;expect(local.identity.subject).toBe(subject);
+  const send=vi.fn();await expect(restarted.provider.api(local,'https://api.example',send).profile()).rejects.toThrow('Sign in');
+  expect(restarted.auth.getSession).not.toHaveBeenCalled();expect(send).not.toHaveBeenCalled();
+  expect(local.storage({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)}).getItem('frozen')).toBe('original request');
+  restarted.reject(false);const verified=await restarted.provider.bind();expect(()=>local.assertCurrent()).toThrow();verified.assertCurrent();
+  restarted.provider.invalidate();expect(()=>verified.assertCurrent()).toThrow();
 });
 it('leaves sign-out retryable after failed revocation and preserves synced drafts', async () => {
   const f = fixture(); const account = await f.provider.bind(); const values = new Map<string,string>();

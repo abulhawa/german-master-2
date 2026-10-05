@@ -1,0 +1,4 @@
+export const providerCopy = {
+  en: {title:'Sign in to German Master',email:'Email',password:'Password',signIn:'Sign in',retry:'Retry account verification',checking:'Verifying your account…',failed:'Sign-in or account verification could not finish. Saved learner work remains on this device.',local:'Saved practice remains available. Sign in to verify your account before syncing.',reauth:'Sign in or verify account',resume:'Continue saved practice'},
+  de: {title:'Bei German Master anmelden',email:'E-Mail',password:'Passwort',signIn:'Anmelden',retry:'Kontoprüfung erneut versuchen',checking:'Dein Konto wird geprüft…',failed:'Anmeldung oder Kontoprüfung nicht abgeschlossen. Gespeicherte Lerndaten bleiben auf diesem Gerät.',local:'Gespeicherte Übungen bleiben verfügbar. Melde dich vor der Synchronisierung zur Kontoprüfung an.',reauth:'Anmelden oder Konto prüfen',resume:'Gespeicherte Übungen fortsetzen'},
+};

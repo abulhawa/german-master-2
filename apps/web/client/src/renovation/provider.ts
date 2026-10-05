@@ -1,6 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { AccountBinding, type LearnerIdentity } from './account';
 import { localLearnerApi } from './api';
+import { browserStorage, type JourneyStorage } from './storage';
 
 type Auth = Pick<SupabaseClient['auth'], 'getSession' | 'getUser' | 'signOut'>;
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -11,21 +12,40 @@ export class VerifiedLearnerProvider {
   private active: LearnerIdentity | null = null;
   private generation = 0;
   private operation = 0;
-  private expiresAt = 0;
-  constructor(private readonly auth: Auth, private readonly projectRef: string, private readonly now = () => Date.now()) {
+  private online = false;
+  private verifiedExpiry = 0;
+  constructor(private readonly auth: Auth, private readonly projectRef: string, private readonly now = () => Date.now(), private readonly saved: JourneyStorage = browserStorage) {
     if (!/^[a-z]{20}$/.test(projectRef)) throw Error('Invalid auth project reference');
   }
 
-  invalidate() { this.operation++; this.active = null; }
+  invalidate() { this.operation++; this.active = null; this.online = false; }
+
+  private get savedKey() { return `gm-v2-last-verified-${this.projectRef}`; }
+  hasSavedAccount() {
+    try {const subject=this.saved.getItem(this.savedKey);return !!subject&&uuid.test(subject);} catch {return false;}
+  }
+  assertVerified(account: AccountBinding) {
+    account.assertCurrent();
+    if(!this.online || this.verifiedExpiry <= this.now()) throw Error('Sign in before syncing');
+  }
+  localBinding() {
+    const subject = this.saved.getItem(this.savedKey);
+    if (!subject || !uuid.test(subject)) return null;
+    this.invalidate();
+    this.active = { subject: subject.toLowerCase(), generation: ++this.generation };
+    return new AccountBinding(this.active, () => this.active);
+  }
 
   async bind() {
-    this.invalidate();
-    const operation = this.operation;
+    const operation = ++this.operation;
+    this.online = false;
     const credential = await this.credential();
     if (operation !== this.operation) throw Error('Sign-in changed');
+    this.saved.setItem(this.savedKey, credential.subject);
     this.active = { subject: credential.subject, generation: ++this.generation };
-    this.expiresAt = credential.expiresAt;
-    return new AccountBinding(this.active, () => this.expiresAt > this.now() ? this.active : null);
+    this.online = true;
+    this.verifiedExpiry = credential.expiresAt;
+    return new AccountBinding(this.active, () => this.active);
   }
 
   private async credential() {
@@ -54,17 +74,17 @@ export class VerifiedLearnerProvider {
       throw Error('HTTPS API origin required');
     const transport: typeof fetch = async (input, init) => {
       account.assertCurrent();
+      if (!this.online) throw Error('Sign in before syncing');
       const credential = await this.credential();
       account.assertCurrent();
       if (credential.subject !== account.identity.subject) { this.invalidate(); throw Error('Account changed'); }
-      this.expiresAt = credential.expiresAt;
       if (typeof input !== 'string' || !input.startsWith('/v2/') || input.startsWith('//')) throw Error('Invalid learner route');
       const headers = new Headers(init?.headers);
       headers.set('Authorization', `Bearer ${credential.token}`);
       headers.set('X-Learner-Subject', account.identity.subject);
       const response = await send(new URL(input, url), { ...init, headers, cache: 'no-store', credentials: 'omit', redirect: 'error' });
       account.assertCurrent();
-      if (response.status === 401) { this.invalidate(); throw Error('Sign in before syncing'); }
+      if (response.status === 401) { this.online = false; throw Error('Sign in before syncing'); }
       return response;
     };
     const api = localLearnerApi(account, transport);
@@ -80,6 +100,7 @@ export class VerifiedLearnerProvider {
     if (credential.subject !== account.identity.subject) { this.invalidate(); throw Error('Account changed'); }
     const { error } = await this.auth.signOut({ scope: 'local' });
     if (error) throw Error('Sign-out revocation unavailable');
+    this.saved.setItem(this.savedKey, '');
     this.invalidate();
   }
 }

@@ -18,6 +18,48 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun configuredColdRepositoryPractisesSavedPackWithExpiredAuthAndKeepsRevocationBlocked() = runBlocking {
+        Harness().use { harness ->
+            val directory=Files.createTempDirectory("configured-cold").toFile()
+            try {
+                val project="zgmyrpzwgtydwlzponih"
+                var expired=false;var verifications=0
+                val auth=object : LearnerAuth {
+                    override fun accessToken()="e30."+java.util.Base64.getUrlEncoder().withoutPadding().encodeToString(
+                        """{"iss":"https://$project.supabase.co/auth/v1","aud":"authenticated","role":"authenticated","sub":"$FIXTURE_SUBJECT","session_id":"$FIXTURE_SUBJECT","exp":${if(expired) 1 else 9999999999}}""".toByteArray())+".c2ln"
+                    override suspend fun verifiedSubject(token: String): String { verifications++;check(!expired);return FIXTURE_SUBJECT }
+                    override suspend fun revoke() { error("offline") }
+                }
+                val subjects=AtomicVerifiedSubjectStore(File(directory,"last-verified"))
+                val provider=VerifiedLearnerProvider(auth,project,subjects)
+                val account=provider.bind()
+                val profile=harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))
+                val pack=harness.api.preparePack(foundationSessionRequest().copy(questionCount=5))
+                val pending=ProfileRequest("v2",UUID.randomUUID().toString(),profile.revision,profile.preferences.copy(locale="de"))
+                account.store(directory).write(LearnerCache(subjectId=FIXTURE_SUBJECT,profile=profile,catalog=harness.api.catalog(),preparedPack=pack,pending=pending))
+                provider.invalidate();expired=true
+                fun cold()=VerifiedLearnerProvider(auth,project,AtomicVerifiedSubjectStore(File(directory,"last-verified")))
+                var repo=cold().repository(directory,"https://api.example",true)
+                repo.startOffline(java.time.Instant.parse(pack.issuedAt))
+                val q=repo.state.practice!!.question
+                val answer=pack.rubrics.single {it.exerciseId==q.exercise.id}.acceptedAnswers.first()
+                repo.draft(answer);repo.hint()
+                val draft=repo.state
+                repo=cold().repository(directory,"https://api.example",true)
+                assertEquals(draft,repo.state);repo.answer()
+                assertEquals("correct",repo.state.practice!!.evaluation!!.outcome)
+                assertEquals(pending,repo.state.pending);assertEquals(1,verifications)
+                val frozen=repo.state
+                assertTrue(runCatching {repo.syncSavedWork()}.isFailure);assertEquals(frozen,repo.state);assertEquals(1,verifications)
+                val local= requireNotNull(cold().localBinding())
+                local.store(directory).write(frozen.copy(signedOut=true,authRevocationPending=true))
+                repo=cold().repository(directory,"https://api.example",true)
+                assertTrue(runCatching {repo.resumeLocalFixture()}.isFailure)
+                assertTrue(runCatching {repo.answer()}.isFailure)
+                assertTrue(repo.state.authRevocationPending);assertEquals(pending,repo.state.pending)
+            } finally { directory.listFiles()?.forEach {it.delete()};directory.delete() }
+        }
+    }
     @Test fun durableDeletionReplaysAfterResponseLossAndBlocksAbandonedWrites() = runBlocking {
         Harness().use { harness ->
             val directory = Files.createTempDirectory("delete-cache").toFile()
