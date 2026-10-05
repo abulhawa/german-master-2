@@ -60,7 +60,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This continuation started clean on main at `dd2489f`, after the hosted CI repair. Current changes add full/partial completion and prepared reserve groundwork. See the newest checkpoint above for exact verification and commit state.
+- This continuation started clean on main at `fa30875`, with all three hosted workflows passing. Current changes add web reserve caching and local offline practice/delivery on both clients. See the newest checkpoint above for exact verification and local commit state.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
