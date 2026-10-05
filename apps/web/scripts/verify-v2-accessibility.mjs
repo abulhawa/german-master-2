@@ -106,6 +106,15 @@ async function tabToTextInput(page, limit = 80) {
 async function assertHeadingFocus(page, name) {
   const heading = page.getByRole('heading', { name, level: 1 });
   await heading.waitFor();
+  await page.waitForFunction(
+    expected => {
+      const active = document.activeElement;
+      return active instanceof HTMLHeadingElement &&
+        active.tagName === 'H1' &&
+        (active.textContent ?? '').replace(/\\s+/g, ' ').trim() === expected;
+    },
+    name,
+  );
   assert.equal(
     await heading.evaluate(element => document.activeElement === element),
     true,
