@@ -114,6 +114,8 @@ it('consumes sessions atomically across tabs, rolls back failed starts and prese
   const other = new OfflineRepository(cache(db.name));
   const starts = await Promise.all([repo.start(randomUUID(), new Date(pack.issuedAt)), other.start(randomUUID(), new Date(pack.issuedAt))]);
   expect(new Set(starts).size).toBe(2);
+  expect(await repo.list()).toEqual(starts);
+  expect((await repo.read(starts[0])).practice.deliveryOrder).toBeLessThan((await repo.read(starts[1])).practice.deliveryOrder);
   await expect(repo.start(randomUUID(), new Date(pack.issuedAt))).rejects.toThrow('exhausted');
   const fresh = sessionRequest(); await db.prepare(fresh, async () => packFor(fresh.requestId));
   expect((await repo.read(starts[0])).pack).toEqual(pack);

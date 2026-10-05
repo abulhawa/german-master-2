@@ -83,6 +83,7 @@ fun LearnerShell(repository: LearnerRepository) {
                 LearnerButton(label("Reload current preferences", "Aktuelle Einstellungen laden"), !busy) { run { repository.reloadProfile() } }
             }
             LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
+            LearnerButton(label("Sync all saved work", "Alle gespeicherten Vorgänge synchronisieren"), !busy) { run { repository.syncSavedWork() } }
             val profile = cache.profile
             if (profile != null && setup) {
                 Text(label("Setup and preferences", "Einrichtung und Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
@@ -123,7 +124,7 @@ fun LearnerShell(repository: LearnerRepository) {
                     LearnerButton(label("Start downloaded practice", "Heruntergeladene Übungen starten"), !busy && cache.practice == null && valid && prepared > 0) { run(false, {screen = "practice"}) { repository.startOffline() } }
                     cache.completedOffline.forEachIndexed { index, p ->
                         Text(label("Saved session", "Gespeicherte Sitzung") + " ${index + 1}: ${p.outbox.count { !it.delivered }} " + label("awaiting confirmation", "Bestätigungen ausstehend"))
-                        LearnerButton(label("Sync saved session", "Gespeicherte Sitzung synchronisieren") + " ${index + 1}", !busy && p.outbox.any { !it.delivered }) { run { repository.syncOffline(requireNotNull(p.session).id) } }
+                        LearnerButton(label("Sync saved session", "Gespeicherte Sitzung synchronisieren") + " ${index + 1}", !busy && p.outbox.any { !it.delivered }) { run { repository.syncSavedWork() } }
                         p.outbox.forEach { event ->
                             val result = when(val receipt = event.attemptReceipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
                             if(result != null && result.outcome != event.provisional?.outcome) Text(label("Server correction: ", "Serverkorrektur: ") + if(german) result.explanation.de else result.explanation.en)

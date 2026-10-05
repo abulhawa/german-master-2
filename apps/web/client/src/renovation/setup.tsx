@@ -24,10 +24,14 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
   const heading = useRef<HTMLHeadingElement>(null);
   const c = learnerCopy[preferences.locale];
   useEffect(() => { heading.current?.focus(); }, []);
-  function save() { return owner ? owner.run(saveOwned) : saveOwned(); }
-  async function saveOwned() {
+  async function save() {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true); setError(false);
+    try { await (owner ? owner.run(saveOwned) : saveOwned()); }
+    catch { setError(true); }
+    finally { lock.current = false; setBusy(false); }
+  }
+  async function saveOwned() {
     try {
       const request = pending ?? { apiVersion: "v2", requestId: crypto.randomUUID(), expectedRevision: profile.revision, preferences };
       storage.setItem(PROFILE_PENDING_KEY, JSON.stringify(ProfileRequestSchema.parse(request)));
@@ -38,15 +42,17 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
       storage.setItem(PROFILE_PENDING_KEY, "");
       onSaved(current);
     } catch { setError(true); }
-    finally { lock.current = false; setBusy(false); }
   }
-  function reload() { return owner ? owner.run(reloadOwned) : reloadOwned(); }
-  async function reloadOwned() {
+  async function reload() {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true);
-    try { const value = await onReload(); storage.setItem(PROFILE_PENDING_KEY, ""); setPending(null); setPreferences(value.preferences); setError(false); }
+    try { await (owner ? owner.run(reloadOwned) : reloadOwned()); }
     catch { setError(true); }
     finally { lock.current = false; setBusy(false); }
+  }
+  async function reloadOwned() {
+    try { const value = await onReload(); storage.setItem(PROFILE_PENDING_KEY, ""); setPending(null); setPreferences(value.preferences); setError(false); }
+    catch { setError(true); }
   }
   return <div lang={preferences.locale}><PracticeCard>
     <h1 ref={heading} tabIndex={-1}>{c.setup}</h1>

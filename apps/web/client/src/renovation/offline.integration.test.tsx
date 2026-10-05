@@ -2,6 +2,11 @@ import { expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { PGlite } from '@electric-sql/pglite';
 import { randomUUID } from 'node:crypto';
+import { syncSavedWork } from './sync';
+import { PROFILE_PENDING_KEY } from './setup';
+import { REPORT_KEY } from './report';
+import { emptyJourney, readJourney, saveJourney } from './storage';
+import { prepareAttempt } from '../foundation/api';
 import type { AddressInfo } from 'node:net';
 import { FoundationStore } from '../../../../../services/api/src/store';
 import { createApi } from '../../../../../services/api/src/server';
@@ -94,6 +99,73 @@ it('downloads once, practises all five forms without HTTP across restart, then r
   } finally {
     cleanup(); vi.unstubAllGlobals(); await db.delete();
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
+  }
+});
+
+it('coordinates profile, online answer, offline Skip/end, report and download over real HTTP after restart', async () => {
+  const pg = new PGlite(); const store = new FoundationStore(pg); await store.initialize();
+  const subject = randomUUID(); const server = createApi(store, async () => subject);
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  const originalFetch = globalThis.fetch; const writes: {path: string; body: string}[] = [];
+  let lose = false;
+  vi.stubGlobal('fetch', async (input: string, init?: RequestInit) => {
+    const url = new URL(input, base);
+    if (init?.method === 'POST') writes.push({path: url.pathname, body: init.body as string});
+    const response = await originalFetch(url, init);
+    if (lose && url.pathname === '/v2/attempts:batch' && response.ok) { lose = false; throw Error('Accepted response lost'); }
+    return response;
+  });
+  let db = new WebReserve(`coordinator-http-${randomUUID()}`);
+  const data = new Map<string,string>(); let failReceipt = false;
+  const storage = {getItem: (key: string) => data.get(key) ?? null, setItem: (key: string, value: string) => {
+    if (failReceipt && key === PROFILE_PENDING_KEY && value === '') throw Error('Receipt disk full');
+    data.set(key,value);
+  }};
+  const api = localLearnerApi();
+  try {
+    const profile = await api.profile();
+    const preferences = {...profile.preferences, sessionQuestionCount: 5 as const};
+    const pendingProfile = {apiVersion:'v2',requestId:randomUUID(),expectedRevision:profile.revision,preferences};
+    await db.prepare({...sessionRequest(),questionCount:1}, request => api.preparePack!(request));
+    const offline = new OfflineRepository(db); const offlineId = await offline.start(randomUUID(),new Date());
+    await offline.skip(offlineId); await offline.end(offlineId);
+    const beforeOffline = (await offline.read(offlineId)).practice;
+    const request = {...sessionRequest(),questionCount:1}; const session = await api.createSession(request);
+    const exercise = session.questions[0].exercise;
+    const pack = (await db.read()).pack!;
+    const answer = pack.rubrics.find(r => r.exerciseId === exercise.id)!.acceptedAnswers[0];
+    const pending = prepareAttempt(session,0,answer,true,randomUUID());
+    saveJourney(storage,{...emptyJourney(),practice:{request,session,index:0,draft:answer,assisted:true,pending,pendingExposure:null,
+      evaluation:null,rejected:false,confirmedCount:0,correctCount:0,skippedCount:0}});
+    storage.setItem(PROFILE_PENDING_KEY,JSON.stringify(pendingProfile));
+    const report = {apiVersion:'v2',reportId:randomUUID(),sessionQuestionId:session.questions[0].id,exerciseRevision:exercise.revision,category:'other'};
+    storage.setItem(REPORT_KEY,JSON.stringify({version:1,request:report,recorded:false}));
+    const download = {...sessionRequest(),questionCount:1}; await db.freeze(download);
+    writes.length = 0; failReceipt = true;
+    await expect(syncSavedWork(api,storage,db)).rejects.toThrow('Receipt disk full');
+    expect(writes.map(w => w.path)).toEqual(['/v2/profile']);
+    expect(JSON.parse(storage.getItem(PROFILE_PENDING_KEY)!)).toEqual(pendingProfile);
+    failReceipt = false; lose = true;
+    await expect(syncSavedWork(api,storage,db)).rejects.toThrow('Accepted response lost');
+    expect(writes.map(w => w.path)).toEqual(['/v2/profile','/v2/profile','/v2/attempts:batch']);
+    expect(readJourney(storage).practice!.pending).toEqual(pending);
+    expect((await offline.read(offlineId)).practice).toEqual(beforeOffline);
+    expect(JSON.parse(storage.getItem(REPORT_KEY)!).recorded).toBe(false);
+    expect((await db.read()).pending).toEqual(download);
+    db.close(); db = new WebReserve(db.name);
+    await syncSavedWork(api,storage,db);
+    expect(writes.slice(3).map(w => w.path)).toEqual(['/v2/attempts:batch','/v2/exposures:batch',`/v2/sessions/${offlineId}/complete`,'/v2/content-reports','/v2/packs']);
+    const attempts = writes.filter(w => w.path === '/v2/attempts:batch'); expect(attempts[0].body).toBe(attempts[1].body);
+    expect(readJourney(storage).practice).toMatchObject({pending,assisted:true,draft:answer,confirmedCount:1});
+    expect((await new OfflineRepository(db).read(offlineId)).practice.events.every(e => e.receipt)).toBe(true);
+    expect(JSON.parse(storage.getItem(REPORT_KEY)!)).toEqual({version:1,request:report,recorded:true});
+    expect((await db.read()).pending).toBeNull(); expect((await db.read()).pack!.packId).toBe(download.requestId);
+    expect((await pg.query('SELECT * FROM gm.accepted_evidence')).rows).toHaveLength(2);
+    const count = writes.length; await syncSavedWork(api,storage,db); expect(writes).toHaveLength(count);
+  } finally {
+    vi.unstubAllGlobals(); await db.delete();
+    await new Promise<void>((resolve,reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
   }
 });
 

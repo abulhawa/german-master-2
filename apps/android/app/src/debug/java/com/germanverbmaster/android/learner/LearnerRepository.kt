@@ -165,7 +165,8 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
-    suspend fun prepareReserve() = mutex.withLock {
+    suspend fun prepareReserve() = mutex.withLock { prepareReserveOwned() }
+    private suspend fun prepareReserveOwned() {
         val request = state.packRequest ?: run {
             check(state.pending == null && state.profile?.setupCompleted == true)
             val available = requireNotNull(state.catalog).targets.sumOf { it.availableQuestionCount }
@@ -190,7 +191,8 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         commit(state.copy(practice = NativePractice(request = request,session = session,offlinePack = pack),
             consumedPreparedSessions = state.consumedPreparedSessions + session.id))
     }
-    suspend fun syncOffline(sessionId: String) = mutex.withLock {
+    suspend fun syncOffline(sessionId: String) = mutex.withLock { syncOfflineOwned(sessionId) }
+    private suspend fun syncOfflineOwned(sessionId: String) {
         fun current(): NativePractice = state.practice?.takeIf { it.session?.id == sessionId && it.offlinePack != null }
             ?: state.completedOffline.single { it.session?.id == sessionId }
         fun save(p: NativePractice) {
@@ -245,10 +247,11 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         check(receipt.reportId == request.reportId && receipt.status == "recorded")
         commit(state.copy(reportRecorded = true))
     }
-    suspend fun startPractice(focus: PracticeFocus? = null) = mutex.withLock {
+    suspend fun startPractice(focus: PracticeFocus? = null) = mutex.withLock { startPracticeOwned(focus) }
+    private suspend fun startPracticeOwned(focus: PracticeFocus? = null) {
         // A saved request always wins, including a request awaiting its first response.
         check(focus == null || state.practice == null) { "Resume or discard saved practice first" }
-        if(state.practice?.session != null) return@withLock
+        if(state.practice?.session != null) return
         check(state.pending == null && state.profile?.setupCompleted == true)
         if (state.practice == null) {
             val catalog = requireNotNull(state.catalog) { "Refresh question availability before starting" }
@@ -270,7 +273,8 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     fun draft(answer: Answer?) { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(draft = answer))) }
     fun order(ids: List<String>) { val p = requireNotNull(state.practice); check(p.editable); val exercise = p.question.exercise as ExerciseWordOrder; check(ids.distinct() == ids && ids.all { id -> exercise.tokens.any { it.id == id } }); commit(state.copy(practice = p.copy(order = ids, draft = if(ids.size >= 2) AnswerWordOrder(ids) else null))) }
     fun hint() { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(assisted = true))) }
-    suspend fun answer() = mutex.withLock {
+    suspend fun answer() = mutex.withLock { answerOwned() }
+    private suspend fun answerOwned() {
         var p = requireNotNull(state.practice)
         check(p.completion == null && p.exposure == null && p.evaluation == null && !p.rejected)
         if (p.pending == null) {
@@ -286,7 +290,7 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
             commit(state.copy(practice = p.copy(evaluation = evaluation,graded = p.graded + 1,
                 correct = p.correct + if(evaluation.outcome == "correct") 1 else 0,
                 outbox = p.outbox + NativeOfflineWrite(attempt = p.pending,provisional = evaluation))))
-            return@withLock
+            return
         }
         val result = api.submit(requireNotNull(p.pending))
         check(result.attemptId == p.pending.attemptId)
@@ -294,7 +298,8 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         commit(state.copy(practice = p.copy(evaluation = evaluation, rejected = evaluation == null,
             graded = p.graded + if(evaluation != null) 1 else 0, correct = p.correct + if(evaluation?.outcome == "correct") 1 else 0)))
     }
-    suspend fun skip() = mutex.withLock {
+    suspend fun skip() = mutex.withLock { skipOwned() }
+    private suspend fun skipOwned() {
         var p = requireNotNull(state.practice)
         check(p.completion == null && p.pending == null && p.evaluation == null && !p.rejected)
         if(p.exposure == null) {
@@ -303,24 +308,25 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         }
         if (p.offlinePack != null) {
             commit(state.copy(practice = p.next(true,p.outbox + NativeOfflineWrite(exposure = p.exposure))))
-            return@withLock
+            return
         }
         val ack = api.expose(requireNotNull(p.exposure))
         check(ack.eventId == p.exposure.eventId)
         commit(state.copy(practice = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)))
     }
     fun continuePractice() { val p = requireNotNull(state.practice); check(p.completion == null && p.evaluation != null); commit(state.copy(practice = p.next())) }
-    suspend fun finishPractice() = mutex.withLock {
+    suspend fun finishPractice() = mutex.withLock { finishPracticeOwned() }
+    private suspend fun finishPracticeOwned() {
         var p = requireNotNull(state.practice)
         val session = requireNotNull(p.session)
         check((p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected)
-        if (p.completionReceipt != null) return@withLock
+        if (p.completionReceipt != null) return
         if (p.offlinePack != null) {
             if (p.completion == null) {
                 val request = SessionCompletionRequest("v2",UUID.randomUUID().toString(),if(p.graded + p.skipped == session.questions.size) "full" else "partial")
                 commit(state.copy(practice = p.copy(completion = request,outbox = p.outbox + NativeOfflineWrite(completion = request))))
             }
-            return@withLock
+            return
         }
         if (p.completion == null) {
             commit(state.copy(practice = p.copy(completion = SessionCompletionRequest("v2", UUID.randomUUID().toString(), if(p.graded + p.skipped == session.questions.size) "full" else "partial"))))
@@ -395,6 +401,30 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         sendPending()
     }
     suspend fun retry() = mutex.withLock { sendPending() }
+    /** One explicit, dependency-ordered pass. Each helper commits before the next write.
+     * No new answer, completion, session or download is invented during reconciliation. */
+    suspend fun syncSavedWork() = mutex.withLock {
+        if (state.pending != null) sendPending()
+        val online = state.practice?.takeIf { it.offlinePack == null }
+        if (online != null) {
+            check(!online.rejected) { "Rejected event requires review" }
+            if (online.session == null) startPracticeOwned()
+            if (online.pending != null && online.evaluation == null) answerOwned()
+            if (online.exposure != null) skipOwned()
+            check(state.practice?.rejected != true) { "Saved event not accepted" }
+            if (online.completion != null && online.completionReceipt == null) finishPracticeOwned()
+        }
+        // Archive order is durable; active practice comes after archived sessions.
+        val offline = state.completedOffline + listOfNotNull(state.practice?.takeIf { it.offlinePack != null })
+        offline.forEach { syncOfflineOwned(requireNotNull(it.session).id) }
+        val report = state.contentReport
+        if (report != null && !state.reportRecorded) {
+            val receipt = api.report(report)
+            check(receipt.reportId == report.reportId && receipt.status == "recorded")
+            commit(state.copy(reportRecorded = true))
+        }
+        if (state.packRequest != null) prepareReserveOwned()
+    }
     private suspend fun sendPending() {
         val request = requireNotNull(state.pending)
         api.save(request)

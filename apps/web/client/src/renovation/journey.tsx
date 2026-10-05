@@ -10,6 +10,8 @@ import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
 import { FixtureOwner, OWNER_LOCK } from "./ownership";
 import { ContentReport } from './report';
 import { OfflineDesk } from './offline-desk';
+import { syncSavedWork } from './sync';
+import { browserReserve } from './reserve';
 
 const localApi = localLearnerApi();
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage };
@@ -51,6 +53,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [syncRevision, setSyncRevision] = useState(0);
   const lock = useRef(false);
   const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -93,6 +96,12 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
     // This background read must not dismiss an error from concurrent progress refresh.
     try { const work = async () => { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }, false); setProfile(value); }; await (owner ? owner.run(work) : work()); }
     catch { setProfileFailed(true); }
+  }
+  async function syncAllOwned() {
+    try { await syncSavedWork(api, storage, browserReserve); }
+    finally { const saved = readJourney(storage); current.current = saved; setState(saved); setSyncRevision(v => v + 1); }
+    const value = await api.profile(); setProfile(value); setEditingSetup(false); await loadCatalog();
+    const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
   useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
@@ -197,7 +206,8 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   return <main className="gm-foundation" data-theme={state.theme} lang={state.locale}>
     <div className="gm-column">
       <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
-      {!loaded.damaged && <ContentReport question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report ? request => owner ? owner.run(() => api.report!(request)) : api.report!(request) : undefined} />}
+      {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
+      {!loaded.damaged && view !== 'practice' && <FoundationButton disabled={busy} onClick={() => void run(syncAllOwned, 'connectionError')}>{c.syncAll}</FoundationButton>}
       {view !== "practice" && !setup && <div className="gm-settings">
         <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey["locale"] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey["theme"] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
@@ -211,7 +221,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
       {view !== "practice" && !setup && <FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>}
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
       {!profile && !profileFailed && <p role="status">{c.profileLoading}</p>}
-      {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={profile.revision} profile={profile} api={api} storage={storage}
+      {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={`${profile.revision}:${syncRevision}`} profile={profile} api={api} storage={storage}
         owner={owner}
         onPreviewLocale={locale => preference({ locale })}
         onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); setView("home"); void loadCatalog(); }}
@@ -228,7 +238,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {confirmed && <p className="gm-meta">{c.stale}</p>}
         </PracticeCard>}
-        {view === 'home' && api.preparePack && <OfflineDesk api={api} locale={state.locale}
+        {view === 'home' && api.preparePack && <OfflineDesk refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
         {view === "practice" && <>

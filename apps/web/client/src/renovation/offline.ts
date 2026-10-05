@@ -14,6 +14,7 @@ const EventSchema = z.discriminatedUnion('kind', [
 ]);
 const PracticeSchema = z.object({
   version: z.literal(1).default(1),
+  deliveryOrder: z.number().int().min(0).default(0),
   id: z.string().uuid(), deviceId: z.string().uuid(), pack: z.unknown(), index: z.number().int().min(0),
   draft: z.union([AnswerSchema, z.object({ type: z.literal('word_order'), tokenIds: z.array(z.string()) })]).nullable(),
   assisted: z.boolean(), feedback: EvaluationSchema.nullable(), events: z.array(EventSchema).max(51), ended: z.boolean(),
@@ -57,7 +58,10 @@ export class OfflineRepository {
     }
     return { practice, pack, session };
   }
-  async list(): Promise<string[]> { return this.db.table('practices').toCollection().primaryKeys() as Promise<string[]>; }
+  async list(): Promise<string[]> {
+    const rows = await this.db.table('practices').toArray();
+    return rows.map(raw => PracticeSchema.parse(raw)).sort((a, b) => a.deliveryOrder - b.deliveryOrder || a.id.localeCompare(b.id)).map(p => p.id);
+  }
   async start(deviceId: string, now: Date): Promise<string> {
     const { pack } = await this.db.read();
     if (!pack || !canStartPreparedPack(pack, now)) throw Error('No valid prepared session');
@@ -67,7 +71,9 @@ export class OfflineRepository {
       const consumed: string[] = record.consumed ?? [];
       const session = pack.sessions.find(s => !consumed.includes(s.id));
       if (!session) throw Error('Reserve exhausted');
-      const practice = PracticeSchema.parse({ version: 1, id: session.id, deviceId, pack, index: 0, draft: null,
+      const rows = await this.db.table('practices').toArray();
+      const deliveryOrder = Math.max(0, ...rows.map(raw => PracticeSchema.parse(raw).deliveryOrder)) + 1;
+      const practice = PracticeSchema.parse({ version: 1, deliveryOrder, id: session.id, deviceId, pack, index: 0, draft: null,
         assisted: false, feedback: null, events: [], ended: false });
       await this.db.table('practices').add(practice);
       await this.db.table('records').put({ ...record, consumed: [...consumed, session.id] });

@@ -4,10 +4,11 @@ import { FoundationButton } from '../foundation/preview';
 import type { LearnerApi } from './api';
 import type { JourneyStorage } from './storage';
 import { reportCopy } from './report-locales';
+import type { FixtureOwner } from './ownership';
 
 export const REPORT_KEY = 'german-master-v2-fixture-content-report';
 type Record = {request: ContentReportRequest; recorded: boolean};
-export function ContentReport({question,locale,storage,send}: {question?: Session['questions'][number];locale:'en'|'de';storage:JourneyStorage;send: LearnerApi['report']}) {
+export function ContentReport({question,locale,storage,send,owner}: {question?: Session['questions'][number];locale:'en'|'de';storage:JourneyStorage;send: LearnerApi['report'];owner?: FixtureOwner}) {
   const [loaded] = useState(() => {
     try { const raw=storage.getItem(REPORT_KEY); if (!raw) return {record:null,failed:false};
       const parsed=JSON.parse(raw); if (parsed.version !== 1 || typeof parsed.recorded !== 'boolean') throw Error();
@@ -26,14 +27,18 @@ export function ContentReport({question,locale,storage,send}: {question?: Sessio
   async function submit() {
     if (lock.current || !send || loaded.failed) return;
     lock.current=true; setBusy(true); setFailed(false);
+    try { await (owner ? owner.run(submitOwned) : submitOwned()); }
+    catch { setFailed(true); } finally {lock.current=false;setBusy(false);}
+  }
+  async function submitOwned() {
     try {
       const request=pending ? record.request : question ? {apiVersion:'v2' as const,reportId:crypto.randomUUID(),sessionQuestionId:question.id,exerciseRevision:question.exercise.revision,category} : null;
       if (!request) return;
       save({request,recorded:false});
-      const receipt=ContentReportReceiptSchema.parse(await send(request));
+      const receipt=ContentReportReceiptSchema.parse(await send!(request));
       if (receipt.reportId !== request.reportId) throw Error('Report receipt mismatch');
       save({request,recorded:true});
-    } catch { setFailed(true); } finally {lock.current=false;setBusy(false);}
+    } catch { setFailed(true); }
   }
   if (!question && !pending && !failed) return null;
   return <details open={!!pending || failed}><summary>{c.title}</summary>

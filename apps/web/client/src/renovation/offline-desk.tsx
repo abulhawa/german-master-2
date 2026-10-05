@@ -37,9 +37,10 @@ const copy = {
   },
 };
 
-export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, owner, onSynced, catalog, db = browserReserve }: {
+export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, owner, onSynced, catalog, db = browserReserve, syncAll, refreshRevision }: {
   api: LearnerApi; locale: 'en' | 'de'; deviceId: string; questionCount: number; blocked: boolean;
   owner?: FixtureOwner; onSynced?: () => void; catalog?: Catalog | null; db?: WebReserve;
+  syncAll?: () => Promise<void>; refreshRevision?: number;
 }) {
   const [repo] = useState(() => new OfflineRepository(db));
   const [reserve, setReserve] = useState<Awaited<ReturnType<WebReserve['status']>> | null>(null);
@@ -63,6 +64,11 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
     const list = await repo.list(); if (alive) { setReserve(value); setIds(list); }
   }).catch(() => { if (alive) setError(true); }); return () => { alive = false; }; }, [db, repo]);
   useEffect(() => {
+    if (refreshRevision === undefined) return;
+    // Re-read receipts without replacing the active session or its provisional prompt.
+    void reload(active?.practice.id).catch(() => setError(true));
+  }, [refreshRevision]);
+  useEffect(() => {
     if (active?.practice.feedback && !closing) feedbackRegion.current?.focus(); else heading.current?.focus();
   }, [active?.practice.id, active?.practice.index, active?.practice.feedback, closing]);
   async function run(work: () => Promise<void>) {
@@ -77,12 +83,12 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
     const id = active.practice.id;
     // Serialize rapid keystrokes. A failed save rolls the input back to committed state.
     setSavingDraft(v => v + 1);
-    const work = draftWrites.current.then(async () => {
+    const save = async () => {
       try { await repo.draft(id, answer); setActive(await repo.read(id)); }
       catch { setError(true); setInputKey(v => v + 1); }
       finally { setSavingDraft(v => v - 1); }
-    });
-    draftWrites.current = owner ? owner.run(() => work) : work;
+    };
+    draftWrites.current = draftWrites.current.then(() => owner ? owner.run(save) : save());
   }
   const practice = active?.practice;
   const question = active?.session.questions[practice?.index ?? 0];
@@ -155,7 +161,7 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
         <FoundationButton disabled={busy} onClick={() => setClosing(true)}>{c.close}</FoundationButton>
       </>}
       <FoundationButton disabled={busy || pending === 0} onClick={() => void run(async () => {
-        try { await repo.sync(practice!.id, api); onSynced?.(); }
+        try { if (syncAll) await syncAll(); else { await repo.sync(practice!.id, api); onSynced?.(); } }
         finally { await reload(practice!.id); }
       })}>{c.sync} ({pending})</FoundationButton>
       {practice!.events.map((event, i) => event.kind === 'attempt' && event.receipt && event.receipt.status !== 'rejected'

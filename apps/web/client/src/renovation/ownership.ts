@@ -7,11 +7,14 @@ export class FixtureOwner {
   private closing = false;
   private release!: () => void;
   readonly closed = new Promise<void>(resolve => { this.release = resolve; });
+  private tail: Promise<unknown> = Promise.resolve();
 
   async run<T>(work: () => Promise<T>): Promise<T> {
     if (this.closing) throw Error("Fixture owner closed");
     this.active++;
-    try { return await work(); }
+    const result = this.tail.then(work);
+    this.tail = result.catch(() => {});
+    try { return await result; }
     finally { this.active--; this.finish(); }
   }
   close() { this.closing = true; this.finish(); }
