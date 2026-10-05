@@ -84,7 +84,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     var closing by remember { mutableStateOf(false) }
     if (p.offlinePack != null) {
         Text(text("Saved on this device. Feedback is provisional until synced.", "Auf diesem Gerät gespeichert. Rückmeldungen sind bis zur Synchronisierung vorläufig."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-        button(text("Sync saved work", "Gespeicherte Arbeit synchronisieren"), !busy && p.outbox.any { !it.delivered }) { action { repository.syncOffline(requireNotNull(p.session).id); repository.refresh() } }
+        button(text("Sync saved work", "Gespeicherte Arbeit synchronisieren"), !busy && p.outbox.any { !it.delivered }) { action { repository.syncSavedWork(); repository.refresh() } }
         p.outbox.forEach { event ->
             val receipt = event.attemptReceipt
             val confirmed = when(receipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }

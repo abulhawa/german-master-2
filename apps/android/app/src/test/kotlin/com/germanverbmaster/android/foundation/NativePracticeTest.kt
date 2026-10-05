@@ -50,6 +50,23 @@ class NativePracticeTest {
     }
     private val catalog = ContractReader.json.decodeFromString<Catalog>(requireNotNull(javaClass.classLoader?.getResource("catalog.json")).readText())
     private suspend fun cache(api: Api) = LearnerCache(profile = api.profile(), catalog = catalog)
+    @Test fun wholeClientSyncCommitsOnlineAnswerBeforeReportAndStopsOnReceiptSaveFailure() = runBlocking {
+        val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api,store)
+        repo.startPractice(); repo.draft(answers[0].answer); repo.hint()
+        api.lose = true; assertTrue(runCatching {repo.answer()}.isFailure)
+        val pending = repo.state.practice!!.pending
+        val report = ContentReportRequest("v2",java.util.UUID.randomUUID().toString(),session.questions[0].id,session.questions[0].exercise.revision,"other")
+        store.cache = repo.state.copy(contentReport = report); repo = LearnerRepository(api,store)
+        api.after = {store.fail = true}
+        assertTrue(runCatching {repo.syncSavedWork()}.isFailure)
+        assertTrue(api.reports.isEmpty()); assertNull(repo.state.practice!!.evaluation)
+        store.fail = false; api.after = {}; repo = LearnerRepository(api,store)
+        repo.syncSavedWork()
+        assertEquals(listOf(pending,pending,pending),api.attempts)
+        assertEquals(listOf(report),api.reports); assertTrue(repo.state.reportRecorded)
+        assertEquals(1,repo.state.practice!!.graded); assertTrue(repo.state.practice!!.assisted)
+        repo.syncSavedWork(); assertEquals(3,api.attempts.size); assertEquals(1,api.reports.size)
+    }
     @Test fun partialCompletionPreservesDraftAndFrozenRetryAcrossRestartAndSaveFailure() = runBlocking {
         val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api,store)
         repo.startPractice(); repo.draft(answers[0].answer); repo.hint()

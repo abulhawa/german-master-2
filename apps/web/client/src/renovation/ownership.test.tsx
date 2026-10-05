@@ -39,6 +39,15 @@ it("waits for an in-flight operation before relinquishing ownership", async () =
   await expect(owner.run(async () => {})).rejects.toThrow("closed");
   finish(); await work; await owner.closed; expect(released).toHaveBeenCalledOnce();
 });
+it('serializes receipt commits and continues only on a later explicit operation after failure', async () => {
+  const owner = new FixtureOwner(); const events: string[] = []; let finish!: () => void;
+  const first = owner.run(async () => { events.push('write'); await new Promise<void>(resolve => { finish = resolve; }); events.push('commit'); throw Error('storage'); });
+  await Promise.resolve();
+  const second = owner.run(async () => { events.push('explicit retry'); });
+  await Promise.resolve(); expect(events).toEqual(['write']);
+  finish(); await expect(first).rejects.toThrow('storage'); await second;
+  expect(events).toEqual(['write','commit','explicit retry']); owner.close(); await owner.closed;
+});
 it("blocks a second tab offline and reloads the exact frozen skip after acknowledgment-save failure", async () => {
   vi.stubGlobal("navigator", { locks: locks() });
   const api = fixture(); let fail = false; let answer!: () => void;

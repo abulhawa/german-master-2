@@ -3,8 +3,21 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { SessionSchema, type ContentReportRequest } from '@german-master/contracts';
 import sample from '@german-master/contracts/examples/session.json';
 import { ContentReport, REPORT_KEY } from './report';
+import { FixtureOwner } from './ownership';
 const question=SessionSchema.parse(sample).questions[0];
 afterEach(()=>{cleanup();localStorage.clear();});
+it('freezes only one report while waiting behind a coordinated write', async () => {
+  const owner = new FixtureOwner(); let finish!: () => void;
+  const earlier = owner.run(() => new Promise<void>(resolve => { finish = resolve; }));
+  await Promise.resolve();
+  const send = vi.fn(async (request: ContentReportRequest) => ({apiVersion:'v2' as const,reportId:request.reportId,status:'recorded' as const}));
+  render(<ContentReport question={question} locale="en" storage={localStorage} send={send} owner={owner} />);
+  fireEvent.click(screen.getByText('Send report')); fireEvent.click(screen.getByText('Send report'));
+  expect(send).not.toHaveBeenCalled(); expect(localStorage.getItem(REPORT_KEY)).toBeNull();
+  finish(); await earlier;
+  await screen.findByText('Report recorded for this exercise revision. Your learning result is unchanged.');
+  expect(send).toHaveBeenCalledTimes(1); owner.close(); await owner.closed;
+});
 it('freezes reports across response loss, remount and leaving practice without affecting the answer', async()=>{
   const requests: ContentReportRequest[]=[];
   const send=vi.fn(async(request:ContentReportRequest)=>{requests.push(request);if(requests.length===1)throw Error('lost');return {apiVersion:'v2' as const,reportId:request.reportId,status:'recorded' as const};});

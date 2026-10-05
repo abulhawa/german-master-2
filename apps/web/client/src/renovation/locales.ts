@@ -1,6 +1,7 @@
 import { backendCopy } from "../foundation/locales";
 export const learnerCopy = {
   en: { ...backendCopy.en,
+    syncAll: 'Sync all saved work',
     saveAndLeave: "Save and return Home",
     endQuestion: "End this session?", endNote: "Confirmed answers remain in Progress. Your partial session and draft stay saved on this device.", resolvePending: "Retry the pending answer or Skip before ending this session.", endSession: "End session", keepPractising: "Keep practising", partialSummary: "Partial session summary", completionPending: "Session completion awaiting confirmation.", completionConfirmed: "Session end confirmed by the server.", confirmCompletion: "Confirm session completion", retryCompletion: "Retry saved completion",
     coveredTargets: "Targets covered", shorterSession: "Shorter session: available questions",
@@ -15,6 +16,7 @@ export const learnerCopy = {
     due: "Review due", later: "Next review", unknown: "Practice target", checks: "Qualifying checks", explanation: "Targets become reliable through spaced, unassisted checks across different contexts.",
   },
   de: { ...backendCopy.de,
+    syncAll: 'Alle gespeicherten Vorgänge synchronisieren',
     saveAndLeave: "Speichern und zur Startseite",
     endQuestion: "Diese Übung beenden?", endNote: "Bestätigte Antworten bleiben im Lernstand. Die Teilübung und Ihr Entwurf bleiben auf diesem Gerät gespeichert.", resolvePending: "Senden Sie die ausstehende Antwort oder Überspring-Anfrage erneut, bevor Sie die Übung beenden.", endSession: "Übung beenden", keepPractising: "Weiter üben", partialSummary: "Zusammenfassung der Teilübung", completionPending: "Bestätigung des Übungsendes ausstehend.", completionConfirmed: "Übungsende vom Server bestätigt.", confirmCompletion: "Übungsende bestätigen", retryCompletion: "Gespeichertes Übungsende erneut senden",
     coveredTargets: "Behandelte Lernziele", shorterSession: "Kürzere Sitzung: verfügbare Aufgaben",
