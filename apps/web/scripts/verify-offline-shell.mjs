@@ -1,6 +1,6 @@
 // Run against the explicit isolated build + fresh local API, never production.
 import assert from 'node:assert/strict';
-import { mkdtemp } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -17,6 +17,8 @@ const errors = [];
 let context;
 let previewServer;
 let apiProcess;
+const workerPath = new URL('../dist/learner-preview/sw.js', import.meta.url);
+let originalWorker;
 async function assertUnused(port) {
   await new Promise((resolve, reject) => {
     const socket = createConnection({ host: '127.0.0.1', port });
@@ -60,6 +62,9 @@ try {
     localStorage.setItem('unrelated-shell-test', 'preserve');
     const cache = await caches.open('unrelated-shell-test');
     await cache.put('/sentinel', new Response('preserve'));
+    // Workbox's broad cleanup would wrongly delete this non-owned precache.
+    const other = await caches.open(`unrelated-precache-${location.origin}/learner-preview/`);
+    await other.put('/precache-sentinel', new Response('preserve'));
   });
   // Entire browser closes before going offline: no live document/module cache.
   await context.close();
@@ -98,6 +103,17 @@ try {
   }
   await button(page, 'End session').click();
   await button(page, 'Sync saved work (6)').waitFor();
+  await context.setOffline(false);
+  originalWorker = await readFile(workerPath, 'utf8');
+  await writeFile(workerPath, originalWorker + '\n// Isolated acceptance update\n');
+  await page.evaluate(async () => { await (await navigator.serviceWorker.getRegistration()).update(); });
+  await page.waitForFunction(async () => !!(await navigator.serviceWorker.getRegistration()).waiting);
+  // Installing a new worker must not reload or change the current summary.
+  await button(page, 'Sync saved work (6)').waitFor();
+  await context.close();
+  page = await launch(true);
+  await button(page, 'Open saved session 1').click();
+  await button(page, 'Sync saved work (6)').waitFor();
   const before = await page.evaluate(async () => {
     const keys = await caches.keys();
     const entries = [];
@@ -105,12 +121,14 @@ try {
       for (const request of await (await caches.open(key)).keys()) entries.push(new URL(request.url).pathname);
     }
     return { keys, entries, sentinel: await (await (await caches.open('unrelated-shell-test')).match('/sentinel')).text(),
+      precacheSentinel: await (await (await caches.open(`unrelated-precache-${location.origin}/learner-preview/`)).match('/precache-sentinel')).text(),
       localSentinel: localStorage.getItem('unrelated-shell-test'),
       scope: (await navigator.serviceWorker.getRegistration()).scope,
       overflow: document.documentElement.scrollWidth > innerWidth };
   });
   assert.equal(before.scope, url);
   assert.equal(before.sentinel, 'preserve'); assert.equal(before.localSentinel, 'preserve');
+  assert.equal(before.precacheSentinel, 'preserve');
   assert.equal(before.overflow, false);
   assert.ok(before.entries.length >= 4);
   assert.ok(before.entries.every(path => path.startsWith('/learner-preview/') && !path.includes('/v2/')));
@@ -124,9 +142,11 @@ try {
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ result: 'passed', browser: await context.browser().version(),
     evidence: ['browser restart offline', 'assisted draft retained', 'feedback retained on reload',
-      'offline completion and late sync', 'scoped asset-only cache', 'unrelated storage retained', '320px reflow'], ...before }, null, 2));
+      'offline completion and late sync', 'waiting update without reload', 'scoped asset-only cache',
+      'unrelated precache/storage retained across activation', '320px reflow'], ...before }, null, 2));
 } finally {
   await context?.close();
+  if (originalWorker !== undefined) await writeFile(workerPath, originalWorker);
   await new Promise(resolve => previewServer ? previewServer.httpServer.close(resolve) : resolve());
   apiProcess?.kill();
 }

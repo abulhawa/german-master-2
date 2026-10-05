@@ -20,7 +20,9 @@ export default defineConfig({
       globPatterns: ['**/*.{js,css,html}'],
       navigateFallback: '/learner-preview/index.html',
       navigateFallbackAllowlist: [/^\/learner-preview\/(?:index\.html)?$/],
-      cleanupOutdatedCaches: true,
+      // Workbox's incompatible-cache cleanup matches scope, not our namespace.
+      // Normal precache activation already prunes obsolete entries in our cache.
+      cleanupOutdatedCaches: false,
       // No API/runtime caching. Owned packs belong in validated IndexedDB.
       runtimeCaching: [],
       skipWaiting: false,
