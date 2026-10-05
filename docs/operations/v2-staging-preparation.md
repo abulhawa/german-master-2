@@ -1,10 +1,10 @@
 # Dedicated German Master v2 staging preparation
 
-The owner selected the new project **german-master-v2-staging**, **ali's Org** (`qyivvafnnfycqnbexhfq`), **Frankfurt / eu-central-1**. On 5 October 2026 the read-only Supabase cost quote was **0 per month**. Nothing has been created or deployed. [Prepared configuration](v2-staging-plan.json) contains no credentials and deliberately has no project reference.
+The owner selected the new project **german-master-v2-staging**, **ali's Org** (`qyivvafnnfycqnbexhfq`), **Frankfurt / eu-central-1**. On 5 October 2026 the read-only Supabase cost quote was **0 per month**. After explicit owner approval, this project was created on 5 October 2026 and returned ACTIVE_HEALTHY with project reference `zgmyrpzwgtydwlzponih`. [Prepared configuration](v2-staging-plan.json) contains only non-secret identifiers. No credentials were retrieved, schema applied or application deployed.
 
 ## Concrete approval boundaries
 
-The next external action is creation of this one new project. Organization and region selection is not creation approval. Obtain explicit creation/cost approval, then use Supabase cost confirmation and creation tools. Verify the returned project name, organization, region and ready status before saving its non-secret reference. Never link the legacy project, branch from it, copy its keys or read/mutate its learner data.
+Project creation/cost approval was granted and executed using Supabase cost confirmation and creation tools. The returned name, organization, Frankfurt region and healthy status matched the approved operation. Further external operations require their separate approvals. Never link the legacy project, branch from it, copy its keys or read/mutate its learner data.
 
 Project creation does not authorize schema application, credential provisioning, deployment, content publication or production cutover. Prepare and separately review each concrete operation. Keep secrets in the approved environment/credential channel, never chat, source, Git or logs. Publishable client keys and server-only database/service secrets have different scopes; never embed elevated keys in either client.
 
