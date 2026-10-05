@@ -23,7 +23,7 @@ async function body(request: IncomingMessage): Promise<unknown> {
 }
 
 /** No default authentication. A verified subject must be supplied by the host adapter. */
-export function createApi(store: FoundationStore, authenticate: Authenticate) {
+export function createApi(source: FoundationStore | ((verifiedSubject: string) => FoundationStore), authenticate: Authenticate) {
   return createServer(async (request, response) => {
     const requestId = randomUUID();
     response.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -41,6 +41,7 @@ export function createApi(store: FoundationStore, authenticate: Authenticate) {
       const expectedSubject = request.headers['x-learner-subject'];
       if (expectedSubject !== undefined && (typeof expectedSubject !== 'string' || !UUID.test(expectedSubject)
         || expectedSubject.toLowerCase() !== userId.toLowerCase())) throw new ApiFailure('account_changed', 409);
+      const store = typeof source === 'function' ? source(userId) : source;
       if (request.method === 'GET') {
         if (url.pathname === '/v2/me/export') {
           if (url.search) throw new ApiFailure('invalid_request',400);

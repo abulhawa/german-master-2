@@ -1,4 +1,4 @@
-import { PGlite, type Transaction } from "@electric-sql/pglite";
+import type { SqlDatabase, SqlTransaction as Transaction } from "./database";
 import { readFile } from "node:fs/promises";
 import { randomUUID, createHash } from "node:crypto";
 import { SessionSchema, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
@@ -36,7 +36,7 @@ type EvidenceDetail = Omit<Extract<AcceptedEvidence, { kind: "assessment" | "rei
 
 /** Local PostgreSQL demonstration. Transactions serialize writes and enforce first submission. */
 export class FoundationStore {
-  constructor(public readonly db: PGlite, private readonly clock = () => new Date(),
+  constructor(public readonly db: SqlDatabase, private readonly clock = () => new Date(),
     private readonly cursorLifetimeMs = 7 * 24 * 60 * 60 * 1000,
     private readonly pageLifetimeMs = 7 * 24 * 60 * 60 * 1000) {
     if (!Number.isSafeInteger(cursorLifetimeMs) || cursorLifetimeMs <= 0) throw new Error('Invalid cursor lifetime');
@@ -45,6 +45,11 @@ export class FoundationStore {
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
+    if (this.db.baselineOnly) {
+      const baseline = await this.db.query<{version:number}>("SELECT version FROM gm.schema_baseline");
+      if (baseline.rows.length !== 1 || baseline.rows[0].version !== 1) throw Error("Unsupported v2 schema baseline");
+      return;
+    }
     if (exists.rows[0].present) {
       const baseline = await this.db.query<{present:boolean}>("SELECT to_regclass('gm.schema_baseline') IS NOT NULL AS present");
       if(baseline.rows[0].present) {
