@@ -376,11 +376,20 @@ try {
   for (let attempt = 0; attempt < 5; attempt += 1) {
     const questionHeading = page.locator('main h1[lang="de"]');
     await questionHeading.waitFor();
-    assert.equal(
-      await questionHeading.evaluate(element => document.activeElement === element),
-      true,
-      'Practice question heading should receive focus',
-    );
+    try {
+      await page.waitForFunction(
+        () => document.activeElement instanceof HTMLHeadingElement &&
+          document.activeElement.matches('main h1[lang="de"]'),
+        undefined,
+        { timeout: 5000 },
+      );
+    } catch (error) {
+      const active = await activeDescriptor(page);
+      throw new Error(
+        `Practice question heading should receive focus, active element was ${JSON.stringify(active)}`,
+        { cause: error },
+      );
+    }
     textInputs = await page.locator('fieldset.gm-answer-group input').evaluateAll(
       elements => elements.filter(element => element instanceof HTMLInputElement && element.type === 'text').length,
     );
