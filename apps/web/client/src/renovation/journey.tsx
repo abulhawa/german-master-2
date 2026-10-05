@@ -61,9 +61,9 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   const complete = !!p?.session && p.index === p.session.questions.length;
   const canPractice = !!p && !complete || !!profile?.setupCompleted && !setup && availableCount > 0;
 
-  function commit(next: Journey) {
+  function commit(next: Journey, clearError = true) {
     try { saveJourney(storage, next); } catch { setError("storageError"); throw Error("Storage unavailable"); }
-    current.current = next; setState(next); setError(null);
+    current.current = next; setState(next); if (clearError) setError(null);
   }
   function editPractice(update: Partial<NonNullable<Journey["practice"]>>) {
     if (current.current.practice) commit({ ...current.current, practice: { ...current.current.practice, ...update } });
@@ -88,7 +88,8 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   }
   async function loadProfile() {
     setProfileFailed(false);
-    try { const work = async () => { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }); setProfile(value); }; await (owner ? owner.run(work) : work()); }
+    // This background read must not dismiss an error from concurrent progress refresh.
+    try { const work = async () => { const value = await api.profile(); commit({ ...current.current, locale: value.preferences.locale }, false); setProfile(value); }; await (owner ? owner.run(work) : work()); }
     catch { setProfileFailed(true); }
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);

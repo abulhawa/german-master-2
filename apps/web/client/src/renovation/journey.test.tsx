@@ -19,6 +19,22 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it("keeps a failed refresh visible when background profile loading finishes later", async () => {
+  const api = apiFixture();
+  const profile = await api.profile();
+  let finishProfile!: (value: typeof profile) => void;
+  api.profile = vi.fn(() => new Promise(resolve => { finishProfile = resolve; }));
+  vi.mocked(api.targets).mockRejectedValueOnce(Error("Unavailable snapshot"));
+  render(<LearnerJourney api={api} />);
+  const message = "Could not refresh confirmed progress. Previously confirmed data stays available.";
+  await screen.findByText(message);
+  finishProfile(profile);
+  await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
+  expect(screen.getByText(message)).toBeVisible();
+  fireEvent.click(screen.getByText("Refresh confirmed progress"));
+  await waitFor(() => expect(readJourney(localStorage).confirmed).not.toBeNull());
+  expect(screen.queryByText(message)).toBeNull();
+});
 it("Enter checks typed answers once, ignores composition and keeps feedback for explicit continuation", async () => {
   const api = apiFixture();
   render(<LearnerJourney api={api} />);

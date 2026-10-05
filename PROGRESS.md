@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## CI repair — 5 October 2026
+
+- Inspected hosted Web failure [37238601219](https://github.com/abulhawa/german-master-2/actions/runs/37238601219) at `00fb521`: three response-loss recovery cases failed because background profile completion cleared the concurrent refresh error. Android and repository safety passed at that commit.
+- Profile loading now persists locale without dismissing another operation's error. Successful explicit refresh still clears the error. Added a deterministic delayed-profile regression, proven to fail with the original behavior and pass with the fix. Existing localized accessible error and retry controls are preserved; no layout/design changes.
+- Local offline npm ci, root npm run check, npm test (backend 11 files / 84 tests, web 81 files / 343 tests, HTTP 1 file / 6 tests), npm run build and whitespace checks passed. Local bundled Node 24.19.0/npm 11.6.0 emitted the expected Node 22 engine warning; hosted CI retains pinned Node 22.23.3. Android code is unchanged; native checks were not repeated. No AI/Groq calls or production operations.
+- Hosted repair verification pending at commit creation; inspect the new Web run after push. Product milestone status is unchanged. Exact next product action remains frozen retry-safe full/partial completion and Close → End session / Keep practising on both clients as recorded below.
+
 Last updated: 4 October 2026, resumed at the owner's request. This is the current handoff; update it after every implementation slice. Git history and actual working files take precedence over stale checkpoint claims.
 
 ## Resume instruction
