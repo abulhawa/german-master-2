@@ -381,7 +381,9 @@ try {
       true,
       'Practice question heading should receive focus',
     );
-    textInputs = await page.locator('fieldset.gm-answer-group input[type="text"]').count();
+    textInputs = await page.locator('fieldset.gm-answer-group input').evaluateAll(
+      elements => elements.filter(element => element instanceof HTMLInputElement && element.type === 'text').length,
+    );
     if (textInputs > 0) break;
     await tabToButton(page, 'Skip');
     await page.keyboard.press('Enter');
