@@ -11,6 +11,7 @@ import { confirmedTarget } from "./reads";
 import { ContentReportRequestSchema, ContentReportReceiptSchema, type ContentReportRequest } from '@german-master/contracts';
 import { SessionCompletionRequestSchema, SessionCompletionReceiptSchema, type SessionCompletionRequest, type SessionCompletionReceipt } from '@german-master/contracts';
 import { SessionRequestSchema, PreparedPackSchema, type PreparedPack, type OfflineRubric } from '@german-master/contracts';
+import { LearnerExportSchema, PrivacyDeleteRequestSchema, PrivacyDeleteReceiptSchema, type PrivacyDeleteRequest } from '@german-master/contracts';
 
 export class ApiFailure extends Error {
   constructor(public readonly code: string, public readonly status: number) { super(code); }
@@ -96,6 +97,8 @@ export class FoundationStore {
       if (!completions.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/008_session_completion.sql', import.meta.url), 'utf8'));
       const packs = await tx.query('SELECT version FROM gm.schema_migration WHERE version=9');
       if (!packs.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/009_prepared_packs.sql', import.meta.url), 'utf8'));
+      const privacy = await tx.query('SELECT version FROM gm.schema_migration WHERE version=10');
+      if (!privacy.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/010_owned_privacy.sql', import.meta.url), 'utf8'));
     });
   }
 
@@ -136,12 +139,15 @@ export class FoundationStore {
   async report(userId: string, input: ContentReportRequest) {
     const request = ContentReportRequestSchema.parse(input);
     return this.db.transaction(async tx => {
+      await this.assertActive(tx,userId);
       const previous = await tx.query<{payload: unknown}>('SELECT payload FROM gm.content_report WHERE user_id=$1 AND id=$2', [userId,request.reportId]);
       if (previous.rows.length) {
+        await this.lockLearner(tx,userId);
         if (canonical(previous.rows[0].payload) !== canonical(request)) throw new ApiFailure('report_conflict',409);
       } else {
         const question = await tx.query<{exercise_id:string; revision:number}>('SELECT exercise_id,revision FROM gm.session_question WHERE user_id=$1 AND id=$2', [userId,request.sessionQuestionId]);
         if (!question.rows.length) throw new ApiFailure('question_unavailable',404);
+        await this.lockLearner(tx,userId);
         if (question.rows[0].revision !== request.exerciseRevision) throw new ApiFailure('revision_mismatch',409);
         const count = await tx.query<{n:number}>('SELECT count(*)::int AS n FROM gm.content_report WHERE user_id=$1 AND received_at>$2',[userId,new Date(this.clock().getTime()-3600000)]);
         if (count.rows[0].n >= 10) throw new ApiFailure('report_rate_limited',429);
@@ -191,6 +197,7 @@ export class FoundationStore {
   }
 
   private async readOwner(tx: Transaction, userId: string) {
+    await this.assertActive(tx, userId);
     await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
     await this.lockLearner(tx, userId);
   }
@@ -274,10 +281,61 @@ export class FoundationStore {
   }
 
   private async lockLearner(tx: Transaction, userId: string) {
+    await this.assertActive(tx, userId);
     // Serialize receipt ordering and projection updates for one learner. Network adapter
     // must retain this lock and prove behavior with independent connections.
     const profile = await tx.query("SELECT user_id FROM gm.learner_profile WHERE user_id=$1 FOR UPDATE", [userId]);
     if (!profile.rows.length) throw new ApiFailure("question_unavailable", 403);
+  }
+
+  private async assertActive(tx: Transaction, userId: string) {
+    if ((await tx.query('SELECT user_id FROM gm.deleted_learner WHERE user_id=$1', [userId])).rows.length)
+      throw new ApiFailure('account_deleted', 410);
+  }
+
+  async exportLearner(userId: string) {
+    return this.db.transaction(async tx => {
+      await this.readOwner(tx, userId);
+      const generatedAt = this.clock().toISOString();
+      const payloads = async (table: string, column = 'payload') =>
+        (await tx.query<{payload: unknown}>(`SELECT ${column} AS payload FROM gm.${table} WHERE user_id=$1 ORDER BY id`, [userId])).rows.map(r => r.payload);
+      const sessions = [];
+      for (const s of (await tx.query<{id:string; release_id:string}>('SELECT id,release_id FROM gm.practice_session WHERE user_id=$1 ORDER BY id',[userId])).rows) {
+        const questions = await tx.query<{id:string; payload:Exercise}>(`SELECT q.id,r.payload FROM gm.session_question q JOIN gm.exercise_revision r
+          ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.user_id=$1 AND q.session_id=$2 ORDER BY q.position`,[userId,s.id]);
+        sessions.push({apiVersion:'v2',id:s.id,contentReleaseId:s.release_id,questions:questions.rows.map(q=>({id:q.id,exercise:q.payload}))});
+      }
+      const evaluations = (await tx.query<{attempt_id:string;evaluator_version:string;evaluation:unknown;evaluated_at:Date}>(
+        'SELECT * FROM gm.attempt_evaluation WHERE user_id=$1 ORDER BY attempt_id,evaluator_version',[userId])).rows
+        .map(r=>({attemptId:r.attempt_id,evaluatorVersion:r.evaluator_version,evaluation:r.evaluation,evaluatedAt:new Date(r.evaluated_at).toISOString()}));
+      const targets = (await tx.query<{target_id:string;snapshot:TargetSnapshot;last_sequence:number}>(
+        'SELECT * FROM gm.learner_target_state WHERE user_id=$1 ORDER BY target_id',[userId])).rows
+        .map(r=>confirmedTarget(r.target_id,r.snapshot,r.last_sequence,generatedAt));
+      return LearnerExportSchema.parse({apiVersion:'v2',schemaVersion:'learner-export-v1',subject:userId,generatedAt,
+        profile:await this.profileIn(tx,userId),sessions,attempts:await payloads('attempt'),evaluations,
+        exposures:await payloads('exposure_event'),targets,reports:await payloads('content_report'),completions:await payloads('session_completion','receipt')});
+    });
+  }
+
+  async deleteLearner(userId: string, input: PrivacyDeleteRequest) {
+    const request = PrivacyDeleteRequestSchema.parse(input);
+    return this.db.transaction(async tx => {
+      const prior = (await tx.query<{request_id:string;deleted_at:Date}>('SELECT * FROM gm.deleted_learner WHERE user_id=$1',[userId])).rows[0];
+      if (prior) {
+        if (prior.request_id !== request.requestId) throw new ApiFailure('deletion_conflict',409);
+        return PrivacyDeleteReceiptSchema.parse({apiVersion:'v2',subject:userId,requestId:request.requestId,status:'deleted',deletedAt:new Date(prior.deleted_at).toISOString()});
+      }
+      await this.readOwner(tx,userId);
+      const deletedAt = this.clock().toISOString();
+      await tx.query('INSERT INTO gm.deleted_learner VALUES ($1,$2,$3)',[userId,request.requestId,deletedAt]);
+      await tx.query("SELECT set_config('gm.privacy_subject',$1,true)",[userId]);
+      // Foreign-key dependency order. Shared catalog/revisions are never touched.
+      for (const table of ['target_page','sync_cursor','prepared_pack_session','prepared_pack','content_report','session_completion',
+        'sync_change','review_schedule','learner_target_state','accepted_evidence','attempt_evaluation','attempt','exposure_event',
+        'session_question','practice_session','profile_request','device','learner_profile'])
+        await tx.query(`DELETE FROM gm.${table} WHERE user_id=$1`,[userId]);
+      return PrivacyDeleteReceiptSchema.parse({apiVersion:'v2',subject:userId,requestId:request.requestId,status:'deleted',deletedAt});
+    });
   }
 
   private async pinnedQuestion(tx: Transaction, userId: string, questionId: string, revision: number) {

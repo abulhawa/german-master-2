@@ -380,3 +380,39 @@ export const PreparedPackSchema = z.strictObject({
   contentHash: z.string().min(64),
 });
 export type PreparedPack = z.infer<typeof PreparedPackSchema>;
+export const PrivacyDeleteRequestSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  confirmation: z.literal("delete_owned_data"),
+});
+export type PrivacyDeleteRequest = z.infer<typeof PrivacyDeleteRequestSchema>;
+export const PrivacyDeleteReceiptSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  subject: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  status: z.literal("deleted"),
+  deletedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+});
+export type PrivacyDeleteReceipt = z.infer<typeof PrivacyDeleteReceiptSchema>;
+export const ExportedEvaluationSchema = z.strictObject({
+  attemptId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  evaluatorVersion: z.string().min(1),
+  evaluation: EvaluationSchema,
+  evaluatedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+});
+export type ExportedEvaluation = z.infer<typeof ExportedEvaluationSchema>;
+export const LearnerExportSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  schemaVersion: z.literal("learner-export-v1"),
+  subject: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  generatedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  profile: LearnerProfileSchema,
+  sessions: z.array(SessionSchema),
+  attempts: z.array(AttemptSchema),
+  evaluations: z.array(ExportedEvaluationSchema),
+  exposures: z.array(ExposureEventSchema),
+  targets: z.array(ConfirmedTargetSchema),
+  reports: z.array(ContentReportRequestSchema),
+  completions: z.array(SessionCompletionReceiptSchema),
+});
+export type LearnerExport = z.infer<typeof LearnerExportSchema>;

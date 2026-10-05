@@ -14,6 +14,7 @@ import { syncSavedWork } from './sync';
 import { browserReserve } from './reserve';
 import { fixtureAccount, type AccountBinding } from './account';
 import type { WebReserve } from './reserve';
+import { PrivacyExport } from './privacy';
 
 const localApi = localLearnerApi(fixtureAccount);
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve };
@@ -254,6 +255,14 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
         {view === 'home' && api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
+        {view === 'home' && api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
+          if (lock.current) throw Error('Learner operation in progress');
+          lock.current=true;setBusy(true);
+          try {
+            const work=async()=>{ account.assertCurrent(); if(sync) await syncAllOwned(); const data=await api.exportLearner!(); account.assertCurrent(); return data; };
+            return await (owner ? owner.run(work) : work());
+          } finally { lock.current=false;setBusy(false); }
+        }} />}
         {view === "practice" && <>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>

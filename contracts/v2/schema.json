@@ -1672,7 +1672,170 @@
         "rubrics",
         "contentHash"
       ]
+    },
+    "PrivacyDeleteRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "const": "v2",
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "confirmation": {
+          "const": "delete_owned_data",
+          "type": "string"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "confirmation"
+      ]
+    },
+    "PrivacyDeleteReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "const": "v2",
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "subject": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "const": "deleted",
+          "type": "string"
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "subject",
+        "status",
+        "deletedAt"
+      ]
+    },
+    "ExportedEvaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "evaluatorVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation": {
+          "$ref": "#/$defs/Evaluation"
+        },
+        "evaluatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "attemptId",
+        "evaluatorVersion",
+        "evaluation",
+        "evaluatedAt"
+      ]
+    },
+    "LearnerExport": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "const": "v2",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": "learner-export-v1",
+          "type": "string"
+        },
+        "subject": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "profile": {
+          "$ref": "#/$defs/LearnerProfile"
+        },
+        "sessions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Session"
+          }
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Attempt"
+          }
+        },
+        "evaluations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExportedEvaluation"
+          }
+        },
+        "exposures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExposureEvent"
+          }
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConfirmedTarget"
+          }
+        },
+        "reports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentReportRequest"
+          }
+        },
+        "completions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SessionCompletionReceipt"
+          }
+        }
+      },
+      "required": [
+        "apiVersion",
+        "schemaVersion",
+        "subject",
+        "generatedAt",
+        "profile",
+        "sessions",
+        "attempts",
+        "evaluations",
+        "exposures",
+        "targets",
+        "reports",
+        "completions"
+      ]
     }
-  },
-  "$ref": "#/$defs/Session"
+  }
 }

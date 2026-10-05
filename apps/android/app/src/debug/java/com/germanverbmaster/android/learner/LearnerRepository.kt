@@ -19,6 +19,7 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun exportLearner(): LearnerExport = error("Export unavailable")
     suspend fun preparePack(request: SessionRequest): PreparedPack = error("Prepared packs unavailable")
     suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt = error("Completion unavailable")
     suspend fun report(request: ContentReportRequest): ContentReportReceipt = error("Reporting unavailable")
@@ -38,6 +39,13 @@ class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh s
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001, private val expectedSubject: String? = null) : LearnerApi {
+    override suspend fun exportLearner(): LearnerExport {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/me/export"))
+        ContractShape.checkLearnerExport(raw)
+        return ContractReader.json.decodeFromJsonElement(LearnerExport.serializer(),raw).also {
+            check(expectedSubject == null || it.subject.equals(expectedSubject,ignoreCase=true)) { "Export account mismatch" }
+        }
+    }
     override suspend fun preparePack(request: SessionRequest): PreparedPack = PreparedPackReader.read(request("/v2/packs", ContractReader.json.encodeToString(request))).also { check(it.packId == request.requestId) }
     override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/sessions/$sessionId/complete", ContractReader.json.encodeToString(request)))
@@ -415,7 +423,12 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     suspend fun retry() = mutex.withLock { sendPending() }
     /** One explicit, dependency-ordered pass. Each helper commits before the next write.
      * No new answer, completion, session or download is invented during reconciliation. */
-    suspend fun syncSavedWork() = mutex.withLock {
+    suspend fun exportLearner(syncFirst: Boolean): LearnerExport = mutex.withLock {
+        if (syncFirst) syncSavedWorkOwned()
+        api.exportLearner()
+    }
+    suspend fun syncSavedWork() = mutex.withLock { syncSavedWorkOwned() }
+    private suspend fun syncSavedWorkOwned() {
         if (state.pending != null) sendPending()
         val online = state.practice?.takeIf { it.offlinePack == null }
         if (online != null) {

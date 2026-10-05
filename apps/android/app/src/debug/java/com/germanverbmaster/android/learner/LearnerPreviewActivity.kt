@@ -116,6 +116,7 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
                 Text(label("Confirmed snapshot", "Bestätigter Datenstand") + ": " + (cache.generatedAt ?: "—"))
                 if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
                 if (screen == "home") {
+                    NativePrivacyExport(repository, german, busy) { cache = repository.state }
                     Text(label("Needs practice", "Übungsbedarf") + ": ${cache.targets.count { it.state == "needs_practice" }}")
                     Text(label("Retention checks", "Behalten überprüfen") + ": ${cache.targets.count { it.isDue && it.state != "needs_practice" }}")
                     if (cache.targets.isEmpty()) Text(label("Let’s find what to practise.", "Finden wir heraus, was du üben kannst."))
@@ -167,6 +168,6 @@ private fun AccountLearnerShell(repository: LearnerRepository) {
 }
 
 @Composable
-private fun LearnerButton(text: String, enabled: Boolean, action: () -> Unit) {
+internal fun LearnerButton(text: String, enabled: Boolean, action: () -> Unit) {
     OutlinedButton(onClick = action, enabled = enabled, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(text) }
 }

@@ -25,6 +25,9 @@ class LearnerAccount(identity: LearnerIdentity, private val current: () -> Learn
 }
 
 internal class BoundLearnerApi(private val api: LearnerApi, private val account: LearnerAccount) : LearnerApi {
+    override suspend fun exportLearner() = bound { api.exportLearner() }.also {
+        check(it.subject.equals(account.identity.subject,ignoreCase=true)) { "Export account mismatch" }
+    }
     private suspend fun <T> bound(work: suspend () -> T): T {
         account.assertCurrent(); val result = work(); account.assertCurrent(); return result
     }

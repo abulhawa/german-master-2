@@ -18,6 +18,32 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun ownedExportUsesAuthoritativeHttpAndSyncsOnlyOnExplicitChoice() = runBlocking {
+        Harness().use { harness ->
+            harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))
+            val file = File(Files.createTempDirectory("export-cache").toFile(),"cache.json")
+            try {
+                val account = LearnerAccount(LearnerIdentity(FIXTURE_SUBJECT,0)) { LearnerIdentity(FIXTURE_SUBJECT,0) }
+                val repo = LearnerRepository(harness.api, AtomicLearnerStore(file),account)
+                repo.refresh(); repo.startPractice(); repo.draft(AnswerShortAnswer("saved draft")); repo.hint()
+                val before = repo.state
+                val confirmed = repo.exportLearner(false)
+                assertEquals(FIXTURE_SUBJECT,confirmed.subject); assertEquals("learner-export-v1",confirmed.schemaVersion)
+                assertEquals(before,repo.state); assertTrue(confirmed.attempts.isEmpty())
+                assertTrue(confirmed.sessions.any { it.id == repo.state.practice?.session?.id })
+                val request = ProfileRequest("v2",UUID.randomUUID().toString(),requireNotNull(repo.state.profile).revision,
+                    requireNotNull(repo.state.profile).preferences.copy(locale="de"))
+                AtomicLearnerStore(file).write(repo.state.copy(pending=request))
+                val reopened = LearnerRepository(harness.api,AtomicLearnerStore(file),account)
+                assertEquals("en",reopened.exportLearner(false).profile.preferences.locale)
+                assertEquals(request,reopened.state.pending)
+                val synced = reopened.exportLearner(true)
+                assertEquals("de",synced.profile.preferences.locale); assertNull(reopened.state.pending)
+                assertEquals(before.practice,reopened.state.practice)
+                assertTrue(runCatching { LocalLearnerApi(harness.port,UUID.randomUUID().toString()).exportLearner() }.isFailure)
+            } finally { file.delete(); file.parentFile.delete() }
+        }
+    }
     @Test fun capturedSubjectMismatchCannotReadOrChangeTheAuthoritativeFixture() = runBlocking {
         Harness().use { harness ->
             val original = harness.api.profile()

@@ -695,6 +695,74 @@
           "$ref": "#/components/parameters/LearnerSubject"
         }
       ]
+    },
+    "/v2/me/export": {
+      "get": {
+        "operationId": "exportLearner",
+        "description": "Owned confirmed server data only. Unsynced local work is excluded; sync explicitly before export. No shared catalog rubrics or credentials.",
+        "responses": {
+          "200": {
+            "description": "LearnerExport",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/LearnerExport"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "410": {
+            "description": "Learner deleted"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
+    },
+    "/v2/me": {
+      "delete": {
+        "operationId": "deleteLearner",
+        "description": "Explicit owned-data deletion in the disposable local adapter. Frozen requestId retries after response loss return the original receipt. Retains only a subject/request/timestamp tombstone to refuse abandoned uploads. Does not delete host-auth identity; production requires reauthentication, auth revocation and reviewed retention policy before enabling.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schema.json#/$defs/PrivacyDeleteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PrivacyDeleteReceipt",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/PrivacyDeleteReceipt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "409": {
+            "description": "Deletion request conflict"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
     }
   },
   "components": {
