@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
@@ -162,7 +162,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
-  useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
+  useLayoutEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
   useEffect(() => { if (view === 'practice') heading.current?.focus(); }, [closing, p?.completion, view]);
 
