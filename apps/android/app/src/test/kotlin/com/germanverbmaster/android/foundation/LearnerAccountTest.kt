@@ -14,6 +14,39 @@ import java.util.UUID
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class LearnerAccountTest {
+    @Test fun signOutSyncFailurePreservesDraftAndExplicitRemovalStaysSubjectBound() = runBlocking {
+        val a = UUID.randomUUID().toString(); val b = UUID.randomUUID().toString()
+        var current: LearnerIdentity? = LearnerIdentity(a,0)
+        val account = LearnerAccount(requireNotNull(current)) {current}
+        val directory = Files.createTempDirectory("sign-out").toFile()
+        val store = account.store(directory)
+        val foreign = LearnerAccount(LearnerIdentity(b,0)) {current}.store(directory)
+        val prefs = ProfilePreferences("en","UTC","B1",5)
+        val profile = LearnerProfile("v2",0,true,prefs)
+        val request = ProfileRequest("v2",UUID.randomUUID().toString(),0,prefs.copy(locale="de"))
+        val session = ContractReader.session(requireNotNull(javaClass.classLoader?.getResource("session.json")).readText())
+        val frozen = LearnerCache(subjectId=a,profile=profile,pending=request,practice=NativePractice(foundationSessionRequest(),session=session,draft=AnswerShortAnswer("saved draft"),assisted=true))
+        var fail = true;var calls = 0
+        val api = object : LearnerApi {
+            override suspend fun save(request: ProfileRequest): LearnerProfile {calls++;if(fail) error("offline");return profile.copy(revision=1,preferences=request.preferences)}
+            override suspend fun profile() = profile.copy(revision=1,preferences=request.preferences)
+            override suspend fun catalog() = error("unused")
+            override suspend fun targets(cursor:String) = error("unused")
+            override suspend fun sync(cursor:String) = error("unused")
+        }
+        try {
+            store.write(frozen);foreign.write(LearnerCache(subjectId=b,profile=profile))
+            val repo=LearnerRepository(api,store,account)
+            assertTrue(runCatching {repo.signOut(false)}.isFailure);assertEquals(frozen,repo.state)
+            fail=false;repo.signOut(false);assertTrue(repo.state.signedOut);assertNull(repo.state.pending);assertEquals(frozen.practice,repo.state.practice)
+            assertTrue(runCatching {repo.syncSavedWork()}.isFailure);assertEquals(2,calls)
+            val reopened=LearnerRepository(api,store,account);current=LearnerIdentity(b,0)
+            assertTrue(runCatching {reopened.resumeLocalFixture()}.isFailure)
+            current=LearnerIdentity(a,0);reopened.resumeLocalFixture();assertEquals(frozen.practice,reopened.state.practice)
+            reopened.signOut(true);assertTrue(reopened.state.signedOut);assertNull(reopened.state.practice);assertNull(reopened.state.profile)
+            assertEquals(profile,foreign.read().profile);assertEquals(2,calls)
+        } finally {directory.listFiles()?.forEach {it.delete()};directory.delete()}
+    }
     @Test fun expirySwitchAndStaleReceiptKeepEachSubjectsQueueAndDraftUntilExplicitReauthentication() = runBlocking {
         val a = UUID.randomUUID().toString(); val b = UUID.randomUUID().toString()
         var current: LearnerIdentity? = LearnerIdentity(a,0)

@@ -45,7 +45,15 @@ export class FoundationStore {
 
   async initialize() {
     const exists = await this.db.query<{ present: boolean }>("SELECT EXISTS (SELECT 1 FROM information_schema.schemata WHERE schema_name = 'gm') AS present");
-    if (exists.rows[0].present) { await this.upgradeEvidence(); await this.upgradeReads(); await this.upgradeProfile(); return; }
+    if (exists.rows[0].present) {
+      const baseline = await this.db.query<{present:boolean}>("SELECT to_regclass('gm.schema_baseline') IS NOT NULL AS present");
+      if(baseline.rows[0].present) {
+        const versions=await this.db.query<{version:number}>('SELECT version FROM gm.schema_baseline');
+        if(versions.rows.length!==1 || versions.rows[0].version!==1) throw Error('Unsupported v2 schema baseline');
+        return; // A real baseline never runs fixture backfills or imports draft content.
+      }
+      await this.upgradeEvidence(); await this.upgradeReads(); await this.upgradeProfile(); return;
+    }
     const migration = await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8");
     const catalog = foundationCatalog();
     await this.db.transaction(async tx => {

@@ -1,7 +1,60 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { LearnerExport } from '@german-master/contracts';
 import { FoundationButton, PracticeCard } from '../foundation/preview';
 import { privacyCopy } from './privacy-locales';
+import { deletionCopy, signoutCopy } from './privacy-locales';
+
+function usePrivacyFocus(confirm:boolean,terminal:boolean) {
+  const heading=useRef<HTMLHeadingElement>(null);const begin=useRef<HTMLButtonElement>(null);const prior=useRef(false);
+  useEffect(()=> {
+    if(confirm||terminal) heading.current?.focus();else if(prior.current) begin.current?.focus();
+    prior.current=confirm;
+  },[confirm,terminal]);
+  return {heading,begin};
+}
+
+export function PrivacySignOut({locale,blocked,signedOut,complete,leave,resume}:{locale:'en'|'de';blocked:boolean;signedOut:boolean;complete:boolean;leave:(remove:boolean)=>Promise<void>;resume:()=>void}) {
+  const c=signoutCopy[locale];const locked=useRef(false);
+  const [confirm,setConfirm]=useState(false);const [busy,setBusy]=useState(false);const [error,setError]=useState(false);
+  const {heading,begin}=usePrivacyFocus(confirm,signedOut);
+  async function run(remove:boolean) {
+    if(locked.current||blocked) return;locked.current=true;setBusy(true);setError(false);
+    try {await leave(remove);} catch {setError(true);} finally {locked.current=false;setBusy(false);}
+  }
+  return <PracticeCard><h2 ref={heading} tabIndex={-1}>{c.title}</h2><p>{signedOut?c.signedOut:c.help}</p>
+    {signedOut ? complete ? <FoundationButton disabled={busy} onClick={()=>{try {resume();} catch {setError(true);}}}>{c.resume}</FoundationButton> : <FoundationButton disabled={busy} onClick={()=>void run(true)}>{c.retry}</FoundationButton> : <>
+      <FoundationButton disabled={busy||blocked} onClick={()=>void run(false)}>{c.sync}</FoundationButton>
+      {!confirm ? <button ref={begin} className="gm-button" disabled={busy||blocked} onClick={()=>setConfirm(true)}>{c.remove}</button> : <>
+        <p>{c.confirm}</p><FoundationButton disabled={busy||blocked} onClick={()=>void run(true)}>{c.confirmRemove}</FoundationButton>
+        <FoundationButton disabled={busy} onClick={()=>setConfirm(false)}>{c.cancel}</FoundationButton>
+      </>}
+    </>}
+    {error&&<p role="alert">{c.error}</p>}
+  </PracticeCard>;
+}
+
+export function PrivacyDeletion({locale,pending,confirmed,complete=false,blocked,remove}:{locale:'en'|'de';pending:boolean;confirmed:boolean;complete?:boolean;blocked:boolean;remove:()=>Promise<void>}) {
+  const c=deletionCopy[locale];
+  const [confirm,setConfirm]=useState(false); const [busy,setBusy]=useState(false); const [error,setError]=useState(false);
+  const {heading,begin}=usePrivacyFocus(confirm,pending||blocked);
+  const locked=useRef(false);
+  async function run() {
+    if(locked.current||blocked) return;
+    locked.current=true;setBusy(true);setError(false);
+    try { await remove(); } catch { setError(true); }
+    finally { locked.current=false;setBusy(false); }
+  }
+  return <PracticeCard><h2 ref={heading} tabIndex={-1}>{c.title}</h2><p>{complete?c.completed:confirmed?c.confirmed:pending?c.pending:c.help}</p>
+    {blocked&&<p role="alert">{c.damaged}</p>}
+    {pending ? !complete && <FoundationButton disabled={busy||blocked} onClick={()=>void run()}>{confirmed?c.cleanup:c.retry}</FoundationButton> : <>
+      {!confirm ? <button ref={begin} className="gm-button" disabled={busy||blocked} onClick={()=>setConfirm(true)}>{c.begin}</button> : <>
+        <p>{c.confirm}</p><FoundationButton disabled={busy||blocked} onClick={()=>void run()}>{c.delete}</FoundationButton>
+        <FoundationButton disabled={busy} onClick={()=>setConfirm(false)}>{c.cancel}</FoundationButton>
+      </>}
+    </>}
+    {error&&<p role="alert">{c.error}</p>}
+  </PracticeCard>;
+}
 
 export function downloadLearnerExport(data: LearnerExport) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'}));

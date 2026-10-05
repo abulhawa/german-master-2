@@ -14,6 +14,25 @@ import java.nio.file.Files
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class LearnerRepositoryTest {
+    @Test fun deletionFreezeAndReceiptSaveFailuresPreserveWorkAndFrozenReplay() = runBlocking {
+        val identity=LearnerIdentity(FIXTURE_SUBJECT,0)
+        val account=LearnerAccount(identity) {identity}
+        val base=Api();val store=Store(LearnerCache(subjectId=FIXTURE_SUBJECT,profile=base.current))
+        val requests=mutableListOf<PrivacyDeleteRequest>()
+        var failReceipt=true
+        val api=object : LearnerApi by base {
+            override suspend fun deleteLearner(request:PrivacyDeleteRequest):PrivacyDeleteReceipt {
+                requests.add(request);store.fail=failReceipt
+                return PrivacyDeleteReceipt("v2",request.requestId,FIXTURE_SUBJECT,"deleted","2026-10-05T12:00:00Z")
+            }
+        }
+        val repo=LearnerRepository(api,store,account)
+        store.fail=true;assertTrue(runCatching {repo.deleteLearner()}.isFailure);assertTrue(requests.isEmpty());assertNull(repo.state.deletion)
+        store.fail=false;assertTrue(runCatching {repo.deleteLearner()}.isFailure);assertNotNull(repo.state.profile);assertNotNull(repo.state.deletion);assertNull(repo.state.deletionReceipt)
+        store.fail=false;failReceipt=false
+        val reopened=LearnerRepository(api,store,account);reopened.deleteLearner()
+        assertEquals(requests[0],requests[1]);assertNull(reopened.state.profile);assertNotNull(reopened.state.deletionReceipt)
+    }
     private val prefs = ProfilePreferences("en", "Europe/Berlin", "B1", 5)
     private val id = "00000000-0000-4000-8000-000000000001"
     private val page = TargetPage("v2", "2026-10-04T10:00:00Z", emptyList(), "", id)
