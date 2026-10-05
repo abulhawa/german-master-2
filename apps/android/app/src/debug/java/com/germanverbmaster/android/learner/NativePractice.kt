@@ -27,11 +27,15 @@ data class NativePractice(
     val graded: Int = 0,
     val skipped: Int = 0,
     val correct: Int = 0,
-    val focus: PracticeFocus? = null
+    val focus: PracticeFocus? = null,
+    val completion: SessionCompletionRequest? = null,
+    val completionReceipt: SessionCompletionReceipt? = null
 ) {
     init {
         require(index >= 0 && graded >= 0 && skipped >= 0 && correct in 0..graded)
         require(pending == null || exposure == null)
+        require(completion == null || session != null)
+        require(completionReceipt == null || (completion != null && completionReceipt.requestId == completion.requestId && completionReceipt.sessionId == session?.id && completionReceipt.mode == completion.mode))
         require(session != null || (index == 0 && pending == null && exposure == null && evaluation == null))
         session?.let {
             require(index <= it.questions.size && it.questions.size <= request.questionCount)
@@ -42,7 +46,7 @@ data class NativePractice(
         }
     }
     val question get() = requireNotNull(session).questions[index]
-    val editable get() = pending == null && exposure == null && evaluation == null && !rejected
+    val editable get() = completion == null && pending == null && exposure == null && evaluation == null && !rejected
     fun next(skip: Boolean = false) = copy(index = index + 1, skipped = skipped + if(skip) 1 else 0, draft = null, assisted = false, order = emptyList(), pending = null, exposure = null, evaluation = null, rejected = false)
 }
 
@@ -61,21 +65,35 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     @Composable fun button(label: String, enabled: Boolean = !busy, block: () -> Unit) {
         OutlinedButton(onClick = block, enabled = enabled, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(label) }
     }
-    button(text("Close practice", "Übung schließen"), block = close)
+    var closing by remember { mutableStateOf(false) }
+    button(text("Close practice", "Übung schließen")) { if(p.session == null || p.completion != null || p.index == p.session.questions.size) close() else closing = true }
+    if (closing) {
+        AlertDialog(onDismissRequest = { closing = false }, title = { Text(text("End this session?", "Diese Übung beenden?")) },
+            text = { Column { Text(text("Confirmed answers remain. Your partial session and draft stay saved. Retry any pending answer or Skip before ending.", "Bestätigte Antworten bleiben erhalten. Teilübung und Entwurf bleiben gespeichert. Senden Sie ausstehende Antworten oder Überspring-Anfragen zuerst erneut."))
+                TextButton(enabled = !busy, onClick = { closing = false; close() }) { Text(text("Save and return Home", "Speichern und zur Startseite")) }
+            } },
+            confirmButton = { TextButton(enabled = !busy && (p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected, onClick = { closing = false; action { repository.finishPractice() } }) { Text(text("End session", "Übung beenden")) } },
+            dismissButton = { TextButton(onClick = { closing = false }) { Text(text("Keep practising", "Weiter üben")) } })
+    }
     val session = p.session
     if(session == null) {
         button(text("Retry session", "Sitzung erneut laden")) { action { repository.startPractice() } }
-    } else if(p.index == session.questions.size) {
-        Text(text("Confirmed summary", "Bestätigte Zusammenfassung"), Modifier.semantics { heading(); liveRegion = LiveRegionMode.Polite })
-        Text(text("Graded: ${p.graded} · Skipped: ${p.skipped} · Correct: ${p.correct}", "Bewertet: ${p.graded} · Übersprungen: ${p.skipped} · Richtig: ${p.correct}"))
+    } else if(p.index == session.questions.size || p.completion != null) {
+        Text(if(p.completion?.mode == "partial") text("Partial session summary", "Zusammenfassung der Teilübung") else text("Confirmed summary", "Bestätigte Zusammenfassung"), Modifier.semantics { heading(); liveRegion = LiveRegionMode.Polite })
+        Text(if(p.completionReceipt != null) text("Session end confirmed by the server.", "Übungsende vom Server bestätigt.") else text("Session completion awaiting confirmation.", "Bestätigung des Übungsendes ausstehend."))
+        if(p.completionReceipt == null) button(if(p.completion == null) text("Confirm session completion", "Übungsende bestätigen") else text("Retry saved completion", "Gespeichertes Übungsende erneut senden")) { action { repository.finishPractice() } }
+        val graded = p.completionReceipt?.gradedCount ?: p.graded
+        val skipped = p.completionReceipt?.skippedCount ?: p.skipped
+        val correct = p.completionReceipt?.correctCount ?: p.correct
+        Text(text("Graded: $graded · Skipped: $skipped · Correct: $correct", "Bewertet: $graded · Übersprungen: $skipped · Richtig: $correct"))
         Text(text("A correct answer is a first step. Retained improvement needs later unassisted checks.", "Eine richtige Antwort ist ein erster Schritt. Nachhaltiger Fortschritt braucht spätere Prüfungen ohne Hilfe."))
         Text(text("Targets covered", "Behandelte Lernziele"), Modifier.semantics { heading() })
-        session.questions.distinctBy { it.exercise.targetId }.forEach { question ->
+        session.questions.take(p.index + if(p.evaluation != null) 1 else 0).distinctBy { it.exercise.targetId }.forEach { question ->
             val title = repository.state.catalog?.targets?.find { it.id == question.exercise.targetId }?.title
             Text(title?.let { if (german) it.de else it.en } ?: question.exercise.prompt)
         }
         button(text("View Progress", "Fortschritt ansehen"), block = openProgress)
-        button(text("Finish", "Abschließen")) { action { repository.discardPractice() }; close() }
+        button(text("Finish", "Abschließen"), enabled = !busy && p.completionReceipt != null) { edit { repository.discardPractice() }; close() }
     } else {
         val exercise = p.question.exercise
         Text("${p.index + 1} / ${session.questions.size}")

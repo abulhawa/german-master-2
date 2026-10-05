@@ -9,6 +9,8 @@ import editorial from "../../../content/foundation/review.json";
 import { TargetPageSchema, SyncPageSchema, type TargetPage, LearnerProfileSchema, ProfileRequestSchema, type ProfileRequest, type LearnerProfile } from "@german-master/contracts";
 import { confirmedTarget } from "./reads";
 import { ContentReportRequestSchema, ContentReportReceiptSchema, type ContentReportRequest } from '@german-master/contracts';
+import { SessionCompletionRequestSchema, SessionCompletionReceiptSchema, type SessionCompletionRequest, type SessionCompletionReceipt } from '@german-master/contracts';
+import { SessionRequestSchema, PreparedPackSchema, type PreparedPack, type OfflineRubric } from '@german-master/contracts';
 
 export class ApiFailure extends Error {
   constructor(public readonly code: string, public readonly status: number) { super(code); }
@@ -90,6 +92,44 @@ export class FoundationStore {
       if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/004_owned_profile.sql", import.meta.url), "utf8"));
       const reports = await tx.query('SELECT version FROM gm.schema_migration WHERE version=7');
       if (!reports.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/007_content_reports.sql', import.meta.url), 'utf8'));
+      const completions = await tx.query('SELECT version FROM gm.schema_migration WHERE version=8');
+      if (!completions.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/008_session_completion.sql', import.meta.url), 'utf8'));
+      const packs = await tx.query('SELECT version FROM gm.schema_migration WHERE version=9');
+      if (!packs.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/009_prepared_packs.sql', import.meta.url), 'utf8'));
+    });
+  }
+
+  async complete(userId: string, sessionId: string, input: SessionCompletionRequest): Promise<SessionCompletionReceipt> {
+    const request = SessionCompletionRequestSchema.parse(input);
+    return this.db.transaction(async tx => {
+      const owned = await tx.query('SELECT id FROM gm.practice_session WHERE user_id=$1 AND id=$2', [userId, sessionId]);
+      if (!owned.rows.length) throw new ApiFailure('session_unavailable', 404);
+      await this.lockLearner(tx, userId);
+      const prior = await tx.query<{id: string; session_id: string; payload: unknown; receipt: unknown}>(
+        'SELECT * FROM gm.session_completion WHERE user_id=$1 AND (id=$2 OR session_id=$3)', [userId, request.requestId, sessionId]);
+      if (prior.rows.length) {
+        const row = prior.rows[0];
+        if (row.id !== request.requestId || row.session_id !== sessionId || canonical(row.payload) !== canonical(request))
+          throw new ApiFailure('completion_conflict', 409);
+        return SessionCompletionReceiptSchema.parse(row.receipt);
+      }
+      const counts = await tx.query<{planned: number; graded: number; skipped: number; correct: number}>(`
+        SELECT count(*)::int AS planned,
+          count(a.id)::int AS graded, count(x.id)::int AS skipped,
+          count(a.id) FILTER (WHERE e.evaluation->>'outcome'='correct')::int AS correct
+        FROM gm.session_question q
+        LEFT JOIN gm.attempt a ON a.user_id=q.user_id AND a.question_id=q.id
+        LEFT JOIN gm.attempt_evaluation e ON e.user_id=a.user_id AND e.attempt_id=a.id
+        LEFT JOIN gm.exposure_event x ON x.user_id=q.user_id AND x.question_id=q.id AND x.disposition='skip'
+        WHERE q.user_id=$1 AND q.session_id=$2`, [userId, sessionId]);
+      const c = counts.rows[0];
+      if (request.mode === 'full' && c.graded + c.skipped !== c.planned) throw new ApiFailure('session_incomplete', 409);
+      const receipt = SessionCompletionReceiptSchema.parse({apiVersion:'v2', requestId:request.requestId, sessionId,
+        mode:request.mode, plannedCount:c.planned, gradedCount:c.graded, skippedCount:c.skipped, correctCount:c.correct,
+        completedAt:this.clock().toISOString()});
+      await tx.query('INSERT INTO gm.session_completion VALUES ($1,$2,$3,$4,$5)', [userId,request.requestId,sessionId,request,receipt]);
+      await tx.query('UPDATE gm.practice_session SET status=$3 WHERE user_id=$1 AND id=$2', [userId,sessionId,request.mode === 'full' ? 'completed' : 'ended']);
+      return receipt;
     });
   }
 
@@ -258,6 +298,9 @@ export class FoundationStore {
     const answered = await tx.query(`SELECT id FROM gm.attempt WHERE user_id=$1 AND question_id=$2
       UNION ALL SELECT id FROM gm.exposure_event WHERE user_id=$1 AND question_id=$2 AND disposition='skip'`, [userId, questionId]);
     if (answered.rows.length) throw new ApiFailure("question_already_answered", 409);
+    const ended = await tx.query(`SELECT c.id FROM gm.session_completion c JOIN gm.session_question q
+      ON q.user_id=c.user_id AND q.session_id=c.session_id WHERE q.user_id=$1 AND q.id=$2`, [userId, questionId]);
+    if (ended.rows.length) throw new ApiFailure('session_ended', 409);
   }
 
   private async completeSession(tx: Transaction, userId: string, questionId: string) {
@@ -387,7 +430,37 @@ export class FoundationStore {
   }
 
   async createSession(userId: string, request: SessionRequest | FocusedSessionRequest): Promise<Session> {
+    return this.db.transaction(tx => this.createSessionIn(tx,userId,request));
+  }
+
+  /** Allocate both sessions, rubrics and the replay record in one transaction. */
+  async preparePack(userId: string, input: SessionRequest): Promise<PreparedPack> {
+    const request = SessionRequestSchema.parse(input);
     return this.db.transaction(async tx => {
+      await this.readOwner(tx,userId);
+      const prior = await tx.query<{payload:unknown;response:unknown}>('SELECT payload,response FROM gm.prepared_pack WHERE user_id=$1 AND id=$2',[userId,request.requestId]);
+      if (prior.rows.length) {
+        if(canonical(prior.rows[0].payload) !== canonical(request)) throw new ApiFailure('pack_conflict',409);
+        return PreparedPackSchema.parse(prior.rows[0].response);
+      }
+      const sessions = [];
+      for(let i=0;i<2;i++) sessions.push(await this.createSessionIn(tx,userId,{...request,requestId:randomUUID()}));
+      const rows = await tx.query<{exercise_id:string;revision:number;rubric:Rubric}>(`SELECT DISTINCT r.exercise_id,r.revision,r.rubric
+        FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision
+        WHERE q.user_id=$1 AND q.session_id=ANY($2::uuid[]) ORDER BY r.exercise_id,r.revision`,[userId,sessions.map(s=>s.id)]);
+      const rubrics: OfflineRubric[] = rows.rows.map(r=>({exerciseId:r.exercise_id,exerciseRevision:r.revision,...r.rubric}));
+      const now = this.clock();
+      const payload = {apiVersion:'v2' as const,packId:request.requestId,contentReleaseId:sessions[0].contentReleaseId,
+        evaluatorVersion:EVALUATOR_VERSION,normalizationVersion:'de-nfc-trim-v1' as const,
+        issuedAt:now.toISOString(),expiresAt:new Date(now.getTime()+7*24*60*60*1000).toISOString(),sessions,rubrics};
+      const response = PreparedPackSchema.parse({...payload,contentHash:createHash('sha256').update(canonical(payload)).digest('hex')});
+      await tx.query('INSERT INTO gm.prepared_pack VALUES ($1,$2,$3,$4)',[userId,request.requestId,request,response]);
+      for(const session of sessions) await tx.query('INSERT INTO gm.prepared_pack_session VALUES ($1,$2,$3)',[userId,request.requestId,session.id]);
+      return response;
+    });
+  }
+
+  private async createSessionIn(tx: Transaction, userId: string, request: SessionRequest | FocusedSessionRequest): Promise<Session> {
       await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
       await this.lockLearner(tx, userId);
       const previous = await tx.query<{ id: string; request_payload: unknown; release_id: string }>(
@@ -432,7 +505,6 @@ export class FoundationStore {
         "SELECT q.id,r.payload FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.session_id=$1 AND q.user_id=$2 ORDER BY q.position", [sessionId, userId]);
       return SessionSchema.parse({ apiVersion: "v2", id: sessionId, contentReleaseId: releaseId,
         questions: questions.rows.map(q => ({ id: q.id, exercise: q.payload })) });
-    });
   }
 
   async submit(userId: string, attempt: Attempt, requestId: string): Promise<Acknowledgment> {

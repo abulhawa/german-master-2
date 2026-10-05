@@ -29,6 +29,11 @@ class NativePracticeTest {
         override suspend fun report(request: ContentReportRequest): ContentReportReceipt { reports.add(request); after(); if(lose) {lose = false; error("response lost")}; return ContentReportReceipt("v2",request.reportId,"recorded") }
         val exposures = mutableListOf<ExposureEvent>()
         val requests = mutableListOf<SessionRequest>()
+        val completions = mutableListOf<SessionCompletionRequest>()
+        override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {
+            completions.add(request); after(); if(lose) { lose = false; error("response lost") }
+            return SessionCompletionReceipt("v2",request.requestId,sessionId,request.mode,5,0,0,0,"2026-10-05T10:00:00Z")
+        }
         var lose = false
         var after: () -> Unit = {}
         override suspend fun session(request: SessionRequest): Session { requests.add(request); if(lose) { lose = false; error("response lost") }; return session.copy(questions = session.questions.take(request.questionCount)) }
@@ -45,6 +50,24 @@ class NativePracticeTest {
     }
     private val catalog = ContractReader.json.decodeFromString<Catalog>(requireNotNull(javaClass.classLoader?.getResource("catalog.json")).readText())
     private suspend fun cache(api: Api) = LearnerCache(profile = api.profile(), catalog = catalog)
+    @Test fun partialCompletionPreservesDraftAndFrozenRetryAcrossRestartAndSaveFailure() = runBlocking {
+        val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api,store)
+        repo.startPractice(); repo.draft(answers[0].answer); repo.hint()
+        val draft = repo.state.practice!!.draft
+        api.lose = true; assertTrue(runCatching {repo.finishPractice()}.isFailure)
+        val frozen = repo.state.practice!!.completion!!
+        assertEquals("partial",frozen.mode)
+        assertTrue(runCatching {repo.discardPractice()}.isFailure)
+        assertTrue(runCatching {repo.answer()}.isFailure)
+        repo = LearnerRepository(api,store)
+        api.after = {store.fail = true}; assertTrue(runCatching {repo.finishPractice()}.isFailure)
+        assertNull(repo.state.practice!!.completionReceipt)
+        store.fail = false; api.after = {}; repo = LearnerRepository(api,store); repo.finishPractice()
+        assertEquals(listOf(frozen,frozen,frozen),api.completions)
+        assertNotNull(repo.state.practice!!.completionReceipt)
+        assertEquals(draft,repo.state.practice!!.draft); assertTrue(repo.state.practice!!.assisted)
+        repo.finishPractice(); assertEquals(3,api.completions.size)
+    }
     @Test fun reportRetrySurvivesRestartAndAcknowledgmentSaveFailureWithoutChangingPractice() = runBlocking {
         val api = Api(); val file = File(Files.createTempDirectory("report").toFile(), "cache.json")
         val store = AtomicLearnerStore(file); store.write(cache(api))

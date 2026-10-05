@@ -86,6 +86,63 @@ describe("isolated PostgreSQL-backed HTTP session", () => {
     expect(JSON.stringify(foreign)).not.toContain("evaluation");
     expect(canonical({ b: 1, a: 2 })).toBe(canonical({ a: 2, b: 1 }));
   });
+  it("freezes full completion counts and replays after reinitialization without learning credit", async () => {
+    const request = {apiVersion:'v2' as const, requestId:randomUUID(), mode:'full' as const};
+    const before = await db.query('SELECT * FROM gm.accepted_evidence ORDER BY received_sequence');
+    const result = await post(`/v2/sessions/${session.id}/complete`, request);
+    expect(result.status).toBe(200);
+    expect(result.body).toMatchObject({requestId:request.requestId,sessionId:session.id,mode:'full',plannedCount:5,gradedCount:5,skippedCount:0,correctCount:5});
+    await store.initialize();
+    expect(await post(`/v2/sessions/${session.id}/complete`,request)).toEqual(result);
+    expect((await post(`/v2/sessions/${session.id}/complete`,{...request,mode:'partial'})).body.code).toBe('completion_conflict');
+    expect((await post(`/v2/sessions/${session.id}/complete`,request,other)).status).toBe(404);
+    expect((await db.query('SELECT * FROM gm.accepted_evidence ORDER BY received_sequence')).rows).toEqual(before.rows);
+  });
+  it("rejects premature full completion and freezes honest partial counts including Skip", async () => {
+    const fresh = await store.createSession(user, request());
+    const completion = {apiVersion:'v2' as const,requestId:randomUUID(),mode:'full' as const};
+    const path = `/v2/sessions/${fresh.id}/complete`;
+    expect((await post(path,completion)).body.code).toBe('session_incomplete');
+    const answer = attemptFor(fresh);
+    await store.submit(user,answer,randomUUID());
+    const question = fresh.questions.find(q=>q.id !== answer.sessionQuestionId)!;
+    await store.expose(user,{eventId:randomUUID(),sessionQuestionId:question.id,exerciseRevision:question.exercise.revision,deviceId:answer.deviceId,disposition:'skip',occurredAt:'2026-10-03T12:00:00Z'},randomUUID());
+    const result = await post(path,{...completion,mode:'partial'});
+    expect(result.body).toMatchObject({plannedCount:5,gradedCount:1,skippedCount:1,correctCount:1});
+    const remaining = fresh.questions.find(q=>q.id !== question.id && q.id !== answer.sessionQuestionId)!;
+    const late = await store.submit(user,{...answer,attemptId:randomUUID(),sessionQuestionId:remaining.id,exerciseRevision:remaining.exercise.revision},randomUUID());
+    expect(late.status === 'rejected' && late.error.code).toBe('session_ended');
+    expect((await store.submit(user,answer,randomUUID())).status).toBe('duplicate');
+    expect((await post(path,{...completion,mode:'partial'})).body).toEqual(result.body);
+    expect((await post(path,{...completion,requestId:randomUUID(),mode:'partial'})).status).toBe(409);
+    const next = await store.createSession(user,request());
+    expect((await post(`/v2/sessions/${next.id}/complete`,{...completion,mode:'partial'})).status).toBe(409);
+    expect((await post(path,{...completion,gradedCount:99})).status).toBe(400);
+  });
+  it("rolls back completion receipt with a failed session status update, then serializes retries", async () => {
+    const fresh = await store.createSession(user,request());
+    const input = {apiVersion:'v2' as const,requestId:randomUUID(),mode:'partial' as const};
+    await db.exec(`CREATE TRIGGER test_completion_failure BEFORE UPDATE ON gm.practice_session FOR EACH ROW EXECUTE FUNCTION gm.reject_mutation()`);
+    try { await expect(store.complete(user,fresh.id,input)).rejects.toThrow(); }
+    finally { await db.exec('DROP TRIGGER test_completion_failure ON gm.practice_session'); }
+    expect((await db.query('SELECT id FROM gm.session_completion WHERE session_id=$1',[fresh.id])).rows).toHaveLength(0);
+    const result = await Promise.all([store.complete(user,fresh.id,input),store.complete(user,fresh.id,input)]);
+    expect(result[0]).toEqual(result[1]);
+    expect((await db.query('SELECT status FROM gm.practice_session WHERE id=$1',[fresh.id])).rows[0]).toEqual({status:'ended'});
+    expect((await db.query('SELECT id FROM gm.session_completion WHERE session_id=$1',[fresh.id])).rows).toHaveLength(1);
+  });
+  it("serves authenticated immutable packs while ordinary sessions remain solution-free", async () => {
+    const input=request();
+    expect((await post('/v2/packs',input,'invalid')).status).toBe(401);
+    const result=await post('/v2/packs',input);
+    expect(result.status).toBe(200); expect(result.body.sessions).toHaveLength(2);
+    expect(result.body.rubrics).toHaveLength(5);
+    expect(await post('/v2/packs',input)).toEqual(result);
+    expect((await post('/v2/packs',{...input,questionCount:4})).body.code).toBe('pack_conflict');
+    expect((await post('/v2/packs',{...input,evaluatorVersion:'other'})).status).toBe(400);
+    const normal=await post('/v2/sessions',request());
+    expect(JSON.stringify(normal.body)).not.toContain('acceptedAnswers');
+  });
   it("authenticates subjects and rejects client grades, malformed JSON and unbounded requests", async () => {
     expect((await post("/v2/sessions", request(), "invalid")).status).toBe(401);
     expect((await post("/v2/attempts:batch", { apiVersion: "v2", attempts: [{ ...fullAttempts[0], correct: true }] })).status).toBe(400);

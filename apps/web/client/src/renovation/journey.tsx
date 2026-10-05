@@ -49,6 +49,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   const [catalogFailed, setCatalogFailed] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [closing, setClosing] = useState(false);
   const lock = useRef(false);
   const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -58,7 +59,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   const exercise = p?.session?.questions[p.index]?.exercise;
   const setup = editingSetup || (!!profile && !profile.setupCompleted);
   const availableCount = catalog?.targets.filter(t => t.availableQuestionCount > 0).length ?? 0;
-  const complete = !!p?.session && p.index === p.session.questions.length;
+  const complete = !!p?.session && (p.index === p.session.questions.length || !!p.completion);
   const canPractice = !!p && !complete || !!profile?.setupCompleted && !setup && availableCount > 0;
 
   function commit(next: Journey, clearError = true) {
@@ -95,13 +96,15 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
   useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
+  useEffect(() => { if (view === 'practice') heading.current?.focus(); }, [closing, p?.completion, view]);
 
   async function start(focus?: PracticeFocus) {
     if (!canPractice) return;
     setView("practice");
     await run(async () => {
       let practice = current.current.practice;
-      if (!practice || (practice.session && practice.index === practice.session.questions.length)) {
+      if (practice?.completion && !practice.completionReceipt) return;
+      if (!practice || practice.completionReceipt) {
         const base = { ...sessionRequest(), questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount) };
         const available = focus?.type === "target" ? catalog?.targets.find(t => t.id === focus.id)?.availableQuestionCount
           : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : availableCount;
@@ -116,10 +119,27 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
       }
     }, "connectionError");
   }
+  async function finish() {
+    await run(async () => {
+      const practice = current.current.practice;
+      if (!practice?.session || (practice.pending && !practice.evaluation) || practice.pendingExposure || practice.rejected) return;
+      if (practice.completionReceipt) return;
+      const request = practice.completion ?? {apiVersion:'v2' as const, requestId:crypto.randomUUID(),
+        mode: practice.confirmedCount + practice.skippedCount === practice.session.questions.length ? 'full' as const : 'partial' as const};
+      editPractice({completion:request});
+      setClosing(false);
+      if (!api.complete) throw Error('Completion unavailable');
+      const receipt = await api.complete(practice.session.id, request);
+      if (receipt.sessionId !== practice.session.id || receipt.requestId !== request.requestId || receipt.mode !== request.mode || receipt.plannedCount !== practice.session.questions.length
+        || receipt.gradedCount + receipt.skippedCount > receipt.plannedCount || receipt.correctCount > receipt.gradedCount
+        || request.mode === 'full' && receipt.gradedCount + receipt.skippedCount !== receipt.plannedCount) throw Error('Completion mismatch');
+      editPractice({completionReceipt:receipt});
+    }, 'connectionError');
+  }
   async function submit() {
     await run(async () => {
       const practice = current.current.practice;
-      if (!practice?.session || practice.rejected || practice.evaluation || practice.pendingExposure) return;
+      if (!practice?.session || practice.completion || practice.rejected || practice.evaluation || practice.pendingExposure) return;
       const question = practice.session.questions[practice.index];
       const answer = readyAnswer(question.exercise, practice.draft as Answer | null);
       if (!answer && !practice.pending) return;
@@ -135,7 +155,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
     let completed = false;
     await run(async () => {
       const practice = current.current.practice;
-      if (!practice?.session || practice.pending || practice.evaluation || practice.rejected) return;
+      if (!practice?.session || practice.completion || practice.pending || practice.evaluation || practice.rejected) return;
       const question = practice.session.questions[practice.index];
       if (!question) return;
       const event = practice.pendingExposure ?? { eventId: crypto.randomUUID(), sessionQuestionId: question.id,
@@ -208,13 +228,20 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
           {confirmed && <p className="gm-meta">{c.stale}</p>}
         </PracticeCard>}
         {view === "practice" && <>
-          <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.close}</FoundationButton>
-          <PracticeCard>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
+          {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>
+            {((p?.pending && !p.evaluation) || p?.pendingExposure || p?.rejected) && <p role="status">{c.resolvePending}</p>}
+            <FoundationButton disabled={busy || !!(p?.pending && !p.evaluation) || !!p?.pendingExposure || !!p?.rejected} onClick={() => void finish()}>{c.endSession}</FoundationButton>
+            <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); heading.current?.focus(); }}>{c.keepPractising}</FoundationButton>
+            <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); setView('home'); }}>{c.saveAndLeave}</FoundationButton>
+          </PracticeCard> : <PracticeCard>
             {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
-              <h1 ref={heading} tabIndex={-1}>{c.complete}</h1><p role="status">{c.summary}: {p.confirmedCount} / {p.session.questions.length}</p>
-              <p>{c.skippedCount}: {p.skippedCount}</p><p>{c.correctCount}: {p.correctCount}</p><p>{c.retentionNote}</p>
+              <h1 ref={heading} tabIndex={-1}>{p.completion?.mode === 'partial' ? c.partialSummary : c.complete}</h1><p role="status">{c.summary}: {p.completionReceipt?.gradedCount ?? p.confirmedCount} / {p.session.questions.length}</p>
+              <p>{p.completionReceipt ? c.completionConfirmed : c.completionPending}</p>
+              {!p.completionReceipt && <FoundationButton disabled={busy} onClick={() => void finish()}>{p.completion ? c.retryCompletion : c.confirmCompletion}</FoundationButton>}
+              <p>{c.skippedCount}: {p.completionReceipt?.skippedCount ?? p.skippedCount}</p><p>{c.correctCount}: {p.completionReceipt?.correctCount ?? p.correctCount}</p><p>{c.retentionNote}</p>
               <h2>{c.coveredTargets}</h2>
-              <ul>{p.session.questions.filter((question, index, questions) => questions.findIndex(q => q.exercise.targetId === question.exercise.targetId) === index).map(question =>
+              <ul>{p.session.questions.slice(0, p.index + (p.evaluation ? 1 : 0)).filter((question, index, questions) => questions.findIndex(q => q.exercise.targetId === question.exercise.targetId) === index).map(question =>
                 <li key={question.exercise.targetId}>{catalog?.targets.find(t => t.id === question.exercise.targetId)?.title[state.locale] ?? question.exercise.prompt}</li>)}</ul>
               <FoundationButton onClick={() => { setView("progress"); void refresh(); }}>{c.progress}</FoundationButton>
             </> : exercise ? <>
@@ -242,7 +269,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
                 <p>{p.evaluation.explanation[state.locale]}</p><FoundationButton onClick={next}>{c.next}</FoundationButton>
               </div>}
             </> : null}
-          </PracticeCard>
+          </PracticeCard>}
         </>}
         {view === "progress" && !setup && <PracticeCard>
           <h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p>
@@ -278,7 +305,7 @@ export function OwnedLearnerJourney({ api = localApi, storage = browserStorage, 
           </>}
           {view !== "topics" && <FoundationButton className="gm-secondary" onClick={() => setView("topics")}>{c.back}</FoundationButton>}
         </PracticeCard>}
-        {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy} onClick={() => { preference({ practice: null }); setView("home"); }}>{c.discard}</FoundationButton></details>}
+        {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy || !!p.completion && !p.completionReceipt} onClick={() => { preference({ practice: null }); setView("home"); }}>{c.discard}</FoundationButton></details>}
       </>}
     </div>
   </main>;

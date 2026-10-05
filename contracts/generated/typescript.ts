@@ -341,3 +341,42 @@ export const ProfileRequestSchema = z.strictObject({
   preferences: ProfilePreferencesSchema,
 });
 export type ProfileRequest = z.infer<typeof ProfileRequestSchema>;
+export const SessionCompletionRequestSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  mode: z.enum(["full","partial"]),
+});
+export type SessionCompletionRequest = z.infer<typeof SessionCompletionRequestSchema>;
+export const SessionCompletionReceiptSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  sessionId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  mode: z.enum(["full","partial"]),
+  plannedCount: z.number().int().min(0),
+  gradedCount: z.number().int().min(0),
+  skippedCount: z.number().int().min(0),
+  correctCount: z.number().int().min(0),
+  completedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+});
+export type SessionCompletionReceipt = z.infer<typeof SessionCompletionReceiptSchema>;
+export const OfflineRubricSchema = z.strictObject({
+  exerciseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  exerciseRevision: z.number().int().min(1),
+  normalizationVersion: z.literal("de-nfc-trim-v1"),
+  acceptedAnswers: z.array(AnswerSchema).min(1).max(20),
+  explanation: LocalizedTextSchema,
+});
+export type OfflineRubric = z.infer<typeof OfflineRubricSchema>;
+export const PreparedPackSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  packId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  evaluatorVersion: z.literal("deterministic-v1"),
+  normalizationVersion: z.literal("de-nfc-trim-v1"),
+  issuedAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  expiresAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  sessions: z.array(SessionSchema).min(2).max(2),
+  rubrics: z.array(OfflineRubricSchema).min(1).max(100),
+  contentHash: z.string().min(64),
+});
+export type PreparedPack = z.infer<typeof PreparedPackSchema>;

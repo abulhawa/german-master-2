@@ -18,6 +18,68 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    @Test fun preparedPackUsesActualOwnedHttpAndValidatesWholePayloadBeforeReady() = runBlocking {
+        Harness().use { harness ->
+            val request = foundationSessionRequest().copy(questionCount = 5)
+            val pack = harness.api.preparePack(request)
+            assertEquals(2,pack.sessions.size); assertEquals(5,pack.rubrics.size)
+            assertEquals(10,pack.sessions.flatMap { it.questions }.map { it.id }.distinct().size)
+            assertEquals(pack,harness.api.preparePack(request))
+            assertTrue(PreparedPackReader.canStart(pack,java.time.Instant.parse(pack.issuedAt)))
+            assertFalse(PreparedPackReader.canStart(pack,java.time.Instant.parse(pack.expiresAt)))
+            val raw = ContractReader.json.encodeToString(PreparedPack.serializer(),pack)
+            assertEquals(pack,PreparedPackReader.read(raw))
+            assertTrue(runCatching {PreparedPackReader.read(raw.replace(pack.contentHash,"0".repeat(64)))}.isFailure)
+            assertTrue(runCatching {PreparedPackReader.read(raw.replace("deterministic-v1","unknown"))}.isFailure)
+            assertEquals(0,harness.command("stats").getValue("evidence").jsonPrimitive.int)
+            harness.api.save(ProfileRequest("v2",UUID.randomUUID().toString(),0,ProfilePreferences("en","UTC","B1",5)))
+            val memory = object : LearnerStore {
+                var cache = LearnerCache()
+                var fail = false
+                override fun read() = cache
+                override fun write(value: LearnerCache) { check(!fail); cache = value }
+            }
+            var lose = true
+            var failReceipt = false
+            val requests = mutableListOf<SessionRequest>()
+            val lossy = object : LearnerApi by harness.api {
+                override suspend fun preparePack(request: SessionRequest): PreparedPack {
+                    requests.add(request)
+                    val result = harness.api.preparePack(request)
+                    if(lose) { lose = false; error("accepted response lost") }
+                    if(failReceipt) {failReceipt = false; memory.fail = true}
+                    return result
+                }
+            }
+            var repo = LearnerRepository(lossy,memory); repo.refresh(); repo.startPractice(); repo.draft(AnswerShortAnswer("saved")); repo.hint()
+            val before = repo.state.practice
+            assertTrue(runCatching {repo.prepareReserve()}.isFailure)
+            val frozen = requireNotNull(repo.state.packRequest)
+            assertNull(repo.state.preparedPack)
+            repo = LearnerRepository(lossy,memory); repo.prepareReserve()
+            assertEquals(listOf(frozen,frozen),requests)
+            assertNull(repo.state.packRequest); assertEquals(before,repo.state.practice)
+            assertEquals(frozen.requestId,repo.state.preparedPack!!.packId)
+            assertEquals(repo.state,memory.read())
+            val firstPack = repo.state.preparedPack
+            failReceipt = true
+            assertTrue(runCatching {repo.prepareReserve()}.isFailure)
+            assertEquals(firstPack,repo.state.preparedPack)
+            val secondFrozen = requireNotNull(repo.state.packRequest)
+            memory.fail = false; repo = LearnerRepository(lossy,memory); repo.prepareReserve()
+            assertEquals(secondFrozen,requests.last()); assertNull(repo.state.packRequest)
+            assertEquals(before,repo.state.practice)
+            val file = File(Files.createTempDirectory("pack-cache").toFile(),"cache.json")
+            AtomicLearnerStore(file).write(repo.state)
+            assertEquals(repo.state,AtomicLearnerStore(file).read())
+            val stored = file.readText(Charsets.UTF_8)
+            file.writeText(stored.replace(requireNotNull(repo.state.preparedPack).contentHash,"0".repeat(64)),Charsets.UTF_8)
+            assertTrue(runCatching {AtomicLearnerStore(file).read()}.isFailure)
+            assertTrue(file.exists())
+            file.delete(); file.parentFile.delete()
+            Unit
+        }
+    }
     /** Real TypeScript routes, learning engine and PostgreSQL; no mocked HTTP responses. */
     private class Harness : AutoCloseable {
         private val root = File(requireNotNull(System.getProperty("gm.repoRoot")))
@@ -142,6 +204,12 @@ class NativeAuthoritativeHttpTest {
                 val summary = LearnerRepository(api, store).state.practice!!
                 assertEquals(5, summary.index); assertEquals(5, summary.graded); assertEquals(5, summary.correct)
                 assertEquals(0, summary.skipped)
+                repo.finishPractice()
+                val receipt = requireNotNull(repo.state.practice!!.completionReceipt)
+                assertEquals("full",receipt.mode); assertEquals(5,receipt.gradedCount); assertEquals(5,receipt.correctCount)
+                assertEquals(receipt,api.complete(requireNotNull(summary.session).id,requireNotNull(repo.state.practice!!.completion)))
+                repo = LearnerRepository(api,store)
+                repo.finishPractice(); assertEquals(receipt,repo.state.practice!!.completionReceipt)
                 repo.refresh()
                 assertEquals(5, repo.state.targets.sumOf { it.exposureCount })
                 assertTrue(repo.state.targets.none { it.state == "mastered" })

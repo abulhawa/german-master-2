@@ -49,6 +49,7 @@ class NativeTopicsUiTest {
         assertEquals(TargetFocus(target), requests.single().focus)
         compose.onNodeWithText("Answer", substring = false).performTextInput("saved draft")
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
+        compose.onNodeWithText("Save and return Home").performClick()
         compose.onNodeWithText("Topics", substring = false).performScrollTo().performClick()
         compose.onNodeWithText("Grammar").performScrollTo().performClick()
         compose.onNodeWithText("Practise this (1)").assertIsNotEnabled()

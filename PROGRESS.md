@@ -1,5 +1,25 @@
 # German Master 2.0 renovation checkpoint
 
+## Prepared reserve continuation — 5 October 2026
+
+- Continued beyond completion into required M5 work: generated versioned pack/rubric contracts, owned POST /v2/packs and migration 009 atomically allocate two pinned sessions, with deduplicated rubrics/explanations, whole-payload SHA-256 and seven-day new-start deadline. Replay preserves the original deadline; rollback preserves all-or-nothing allocation; expiry does not block already-started late uploads. Ordinary sessions remain solution-free.
+- Both client transports verify hash, versions and complete linkage. Native prepareReserve freezes download requests and atomically saves the validated reserve while preserving practice/writes; cached pack integrity is checked on AtomicFile reads. No offline learner UI, web IndexedDB cache, Kotlin provisional grading or coordinated multi-event outbox is claimed.
+- Root check/test/build passed (backend 12 files/91 tests, web 81/346, HTTP 1/6) before final additions; final backend API+pack 17 and web journey 37 tests passed. Full offline Android before cache refinements passed 35 suites/138 tests, both assemblies and blocking lint (0 errors, 16/17 warnings). Final full offline Android checks passed: 35 suites/138 tests, zero failures/errors/skips, debug and learnerPreview assemblies and blocking lint (0 errors, 16/17 warnings). A Kotlin test-runner return-type failure was corrected; no checks suppressed.
+- Closed local engineering requirements: M3/M4 retry-safe full/partial end, M5 pack issuance/manifest validation and native fixture reserve persistence. No full M0–M6 milestone closes. Device/full accessibility, reviewed content, production account/network/least privilege, web offline cache/start/grading/outboxes/privacy/recovery and pilot acceptance remain open.
+- Owner-dependent resources remain an independent German reviewer/design acceptance, private off-machine backup/full restore tooling, Play published-version/signing custody records and an identified isolated staging/auth environment (later pilot participants). No production/release approval boundary crossed; zero AI/Groq calls. Changes are committed locally with this checkpoint as `feat: add durable session completion and prepared reserves`; no push/new hosted result claimed. Staged whitespace and Gitleaks checks passed.
+- Decision/evidence: docs/adr/021_prepared_packs.md and docs/operations/prepared-packs.md. Exact next action: add atomic web IndexedDB reserve cache with frozen download requests, then actual offline start/consumption/expiry and cross-client provisional grading/outbox delivery. Preserve pending session/answer/Skip/profile/report/completion writes throughout.
+
+
+## Session completion continuation — 5 October 2026
+
+- Reconciled clean main dd2489f with hosted CI: Web repair/repository safety pass; preceding Android 00fb521 passes. Current CI blocker is resolved.
+- Added generated full/partial v2 completion contracts, owned transactional HTTP and immutable receipts (migration 008). Counts derive from accepted attempts/Skips; incomplete full end rejects; changed requests conflict. Accepted writes replay after end, new writes reject; no learning credit is added.
+- Both local clients now offer Close → End session / Keep practising and Save and return Home. Frozen requests/receipts survive response loss, restart and receipt-save failure. Partial drafts/assistance remain saved; untouched targets are excluded. Pending answers/Skips must resolve before end; coordinated queued delivery remains M5.
+- Offline npm ci, root check/test/build passed: backend 11/86, web 81/344, HTTP 1/6. Full offline Android 35 suites/137 tests, both assemblies/blocking lint passed (16/17 existing warnings). Final targeted backend 12 and web journey 37 passed after rollback/concurrency/storage refinements. Final native completion targeted checks passed before prepared-pack work. Real browser verified partial 1/5 end, focus, no console errors and 320px reflow.
+- Local M3/M4 completion engineering requirements closed; no full milestone closed. Production routing/auth, device/accessibility, independent content review, M0 recovery and full M5/M6 remain open. No push/new hosted CI claimed; no AI/Groq, production mutation, deployment, publication or store/signing action.
+- Decision/evidence: docs/adr/020_session_completion.md and docs/operations/session-completion.md. Exact next required slice: two owned prepared sessions with pinned rubrics, manifest hash and seven-day new-start expiry, then atomic cache/coordinated outboxes.
+
+
 ## CI repair — 5 October 2026
 
 - Inspected hosted Web failure [37238601219](https://github.com/abulhawa/german-master-2/actions/runs/37238601219) at `00fb521`: three response-loss recovery cases failed because background profile completion cleared the concurrent refresh error. Android and repository safety passed at that commit.
@@ -7,7 +27,7 @@
 - Local offline npm ci, root npm run check, npm test (backend 11 files / 84 tests, web 81 files / 343 tests, HTTP 1 file / 6 tests), npm run build and whitespace checks passed. Local bundled Node 24.19.0/npm 11.6.0 emitted the expected Node 22 engine warning; hosted CI retains pinned Node 22.23.3. Android code is unchanged; native checks were not repeated. No AI/Groq calls or production operations.
 - Repair committed and pushed as `9007878`. Hosted [Web checks 37273711681](https://github.com/abulhawa/german-master-2/actions/runs/37273711681) passed installation, type checks, all tests and build on pinned Node 22.23.3. [Repository safety 37273711682](https://github.com/abulhawa/german-master-2/actions/runs/37273711682) passed; local repair-commit Gitleaks scan also found zero leaks. Android workflow correctly did not run for this web-only repair; its preceding run at `00fb521` passed. Product milestone status is unchanged. Exact next product action remains frozen retry-safe full/partial completion and Close → End session / Keep practising on both clients as recorded below.
 
-Last updated: 4 October 2026, resumed at the owner's request. This is the current handoff; update it after every implementation slice. Git history and actual working files take precedence over stale checkpoint claims.
+Last updated: 5 October 2026, resumed at the owner's request. This is the current handoff; update it after every implementation slice. Git history and actual working files take precedence over stale checkpoint claims.
 
 ## Resume instruction
 
@@ -27,7 +47,7 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 - Local root: `C:/Projects/german-master-2`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
-- This continuation resumes preserved learner interaction, native authoritative HTTP and isolated device-preview changes after `2110efb` on main. It adds the editorial content workspace and revision-linked reporting in the handoff commit. No push or new hosted CI result is claimed.
+- This continuation started clean on main at `dd2489f`, after the hosted CI repair. Current changes add full/partial completion and prepared reserve groundwork. See the newest checkpoint above for exact verification and commit state.
 - Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
 
 ## Completed and verified
@@ -101,8 +121,8 @@ The monorepo bootstrap, shared foundation and backend session demonstration are 
 
 **Resumed continuation overrides the historical paused and numbered next actions below.** Read [milestone acceptance reconciliation](docs/operations/milestone-gates.md) and [content/reporting evidence](docs/operations/content-review-and-reporting.md). No full milestone closed. The original pending device retry and summary/Progress smoke are now complete; do not repeat successful native cursor or report HTTP integration without a concrete regression.
 
-1. Implement required partial session end/completion across the generated API, server and both clients: Close offers End session or Keep practising, retains partial work, saves a frozen retry-safe completion request, and never substitutes completion for accepted answers. Summaries must distinguish worked targets, graded/Skip counts, pending writes and confirmed outcomes. Preserve pending answer/Skip/profile/report records and keep the original five-target fixture immutable.
-2. Then implement prepared pack manifests, cache/start expiry and provisional grading conformance, followed by coordinated multi-event outboxes and explicit account reconciliation. These remain required M5 work, not optional expansion.
+1. Full/partial completion, owned prepared-pack issuance and native fixture reserve caching are now implemented (5 October). Next implement atomic web IndexedDB reserve caching with frozen download requests, then actual offline start/consumption/expiry and provisional feedback. Preserve pending writes and the immutable five-target fixture.
+2. Complete Kotlin/TypeScript provisional grading conformance, coordinated answer/Skip/completion outboxes and account reconciliation. Prepared-pack manifests/owned issuance are implemented; the full offline learner journey remains required M5 work.
 3. The 30-target/60-variant editorial workspace and revision-linked category reporting are implemented locally. Independent German review, documented design/accessibility acceptance and publication remain separate. Use content/drafts/REVIEW.md; do not call agent-authored drafts reviewed content or load them into a release automatically.
 4. Inspect current device/API processes before replacing them. The device is at confirmed Progress after the original session; its installed preview APK predates report controls. The API remained in-memory at 5001 and was not reset; web preview was stopped temporarily for dependency-lock recovery. Follow the final checkpoint below for process/build status. Production account/staging provisioning, M0 full restore/backup/signing records and deployment/store actions remain dependent gates.
 

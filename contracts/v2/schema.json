@@ -1487,6 +1487,192 @@
         "preferences"
       ]
     }
+,
+    "SessionCompletionRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "full",
+            "partial"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "mode"
+      ]
+    },
+    "SessionCompletionReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sessionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "full",
+            "partial"
+          ]
+        },
+        "plannedCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gradedCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "skippedCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "correctCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "sessionId",
+        "mode",
+        "plannedCount",
+        "gradedCount",
+        "skippedCount",
+        "correctCount",
+        "completedAt"
+      ]
+    }
+,
+    "OfflineRubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exerciseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "normalizationVersion": {
+          "type": "string",
+          "const": "de-nfc-trim-v1"
+        },
+        "acceptedAnswers": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "$ref": "#/$defs/Answer"
+          }
+        },
+        "explanation": {
+          "$ref": "#/$defs/LocalizedText"
+        }
+      },
+      "required": [
+        "exerciseId",
+        "exerciseRevision",
+        "normalizationVersion",
+        "acceptedAnswers",
+        "explanation"
+      ]
+    },
+    "PreparedPack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "packId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentReleaseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "evaluatorVersion": {
+          "type": "string",
+          "const": "deterministic-v1"
+        },
+        "normalizationVersion": {
+          "type": "string",
+          "const": "de-nfc-trim-v1"
+        },
+        "issuedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sessions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/$defs/Session"
+          }
+        },
+        "rubrics": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "$ref": "#/$defs/OfflineRubric"
+          }
+        },
+        "contentHash": {
+          "type": "string",
+          "minLength": 64
+        }
+      },
+      "required": [
+        "apiVersion",
+        "packId",
+        "contentReleaseId",
+        "evaluatorVersion",
+        "normalizationVersion",
+        "issuedAt",
+        "expiresAt",
+        "sessions",
+        "rubrics",
+        "contentHash"
+      ]
+    }
   },
   "$ref": "#/$defs/Session"
 }

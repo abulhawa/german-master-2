@@ -2,8 +2,13 @@ import { LearnerProfileSchema, type LearnerProfile, type ProfileRequest, Catalog
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
 import { ExposureBatchResponseSchema, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { ContentReportReceiptSchema, type ContentReportRequest, type ContentReportReceipt } from '@german-master/contracts';
+import { SessionCompletionReceiptSchema, type SessionCompletionRequest, type SessionCompletionReceipt } from '@german-master/contracts';
+import { type PreparedPack, type SessionRequest } from '@german-master/contracts';
+import { validatePreparedPack } from '@german-master/learning-engine';
 
 export interface LearnerApi extends FoundationApi {
+  preparePack?(request: SessionRequest): Promise<PreparedPack>;
+  complete?(sessionId: string, request: SessionCompletionRequest): Promise<SessionCompletionReceipt>;
   report?(request: ContentReportRequest): Promise<ContentReportReceipt>;
   expose(event: ExposureEvent): Promise<ExposureAcknowledgment>;
   profile(): Promise<LearnerProfile>;
@@ -32,6 +37,20 @@ export function localLearnerApi(): LearnerApi {
     return response.json();
   }
   return { ...localFoundationApi(),
+    async preparePack(request) {
+      const response = await fetch('/v2/packs', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      if(!response.ok) throw Error('Pack unavailable');
+      const pack = await validatePreparedPack(await response.json());
+      if(pack.packId !== request.requestId) throw Error('Pack request mismatch');
+      return pack;
+    },
+    async complete(sessionId, request) {
+      const response = await fetch(`/v2/sessions/${encodeURIComponent(sessionId)}/complete`, {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      if (!response.ok) throw Error('Completion unavailable');
+      const receipt = SessionCompletionReceiptSchema.parse(await response.json());
+      if (receipt.sessionId !== sessionId || receipt.requestId !== request.requestId || receipt.mode !== request.mode) throw Error('Completion receipt mismatch');
+      return receipt;
+    },
     async report(request) {
       const response = await fetch('/v2/content-reports', {method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if (!response.ok) throw Error('Report unavailable');

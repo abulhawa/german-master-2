@@ -1,6 +1,7 @@
 import { AnswerSchema, EvaluationSchema, type Answer, type Evaluation, type Exercise, type LocalizedText } from "@german-master/contracts";
 export * from "./evidence";
 export * from "./selection";
+export * from "./offline-pack";
 
 export const NORMALIZATION_VERSION = "de-nfc-trim-v1";
 export const EVALUATOR_VERSION = "deterministic-v1";

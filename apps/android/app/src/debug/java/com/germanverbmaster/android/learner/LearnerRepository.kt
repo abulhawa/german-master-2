@@ -2,6 +2,7 @@ package com.germanverbmaster.android.learner
 
 import android.util.AtomicFile
 import com.germanverbmaster.android.foundation.ContractReader
+import com.germanverbmaster.android.foundation.PreparedPackReader
 import com.germanverbmaster.android.foundation.contract.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,6 +18,8 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun preparePack(request: SessionRequest): PreparedPack = error("Prepared packs unavailable")
+    suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt = error("Completion unavailable")
     suspend fun report(request: ContentReportRequest): ContentReportReceipt = error("Reporting unavailable")
     suspend fun session(request: FocusedSessionRequest): Session = error("Focused practice unavailable")
     suspend fun session(request: SessionRequest): Session = error("Practice unavailable")
@@ -34,6 +37,14 @@ class SyncCursorReset : IllegalStateException("Local sync cursor needs a fresh s
 
 /** Only the public local fixture; never production authentication. */
 class LocalLearnerApi(private val port: Int = 5001) : LearnerApi {
+    override suspend fun preparePack(request: SessionRequest): PreparedPack = PreparedPackReader.read(request("/v2/packs", ContractReader.json.encodeToString(request))).also { check(it.packId == request.requestId) }
+    override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {
+        val raw = ContractReader.json.parseToJsonElement(request("/v2/sessions/$sessionId/complete", ContractReader.json.encodeToString(request)))
+        ContractShape.checkSessionCompletionReceipt(raw)
+        return ContractReader.json.decodeFromJsonElement(SessionCompletionReceipt.serializer(), raw).also {
+            check(it.sessionId == sessionId && it.requestId == request.requestId && it.mode == request.mode)
+        }
+    }
     override suspend fun report(request: ContentReportRequest): ContentReportReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/content-reports", ContractReader.json.encodeToString(request)))
         ContractShape.checkContentReportReceipt(raw)
@@ -113,7 +124,9 @@ data class LearnerCache(
     val practice: NativePractice? = null,
     val syncCursor: String? = null,
     val contentReport: ContentReportRequest? = null,
-    val reportRecorded: Boolean = false
+    val reportRecorded: Boolean = false,
+    val packRequest: SessionRequest? = null,
+    val preparedPack: PreparedPack? = null
 )
 
 interface LearnerStore {
@@ -127,7 +140,10 @@ class AtomicLearnerStore(file: File) : LearnerStore {
     override fun read(): LearnerCache {
         val raw = try { atomic.openRead().bufferedReader(Charsets.UTF_8).use { it.readText() } }
         catch (e: java.io.FileNotFoundException) { if (atomic.baseFile.exists()) throw e; return LearnerCache() }
-        return ContractReader.json.decodeFromString<LearnerCache>(raw).also { require(it.version == 1) }
+        return ContractReader.json.decodeFromString<LearnerCache>(raw).also {
+            require(it.version == 1)
+            it.preparedPack?.let { pack -> PreparedPackReader.read(ContractReader.json.encodeToString(pack)) }
+        }
     }
     override fun write(value: LearnerCache) {
         val bytes = ContractReader.json.encodeToString(value).toByteArray(Charsets.UTF_8)
@@ -142,6 +158,21 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     var state = store.read()
         private set
     private fun commit(next: LearnerCache) { store.write(next); state = next }
+    suspend fun prepareReserve() = mutex.withLock {
+        val request = state.packRequest ?: run {
+            check(state.pending == null && state.profile?.setupCompleted == true)
+            val available = requireNotNull(state.catalog).targets.sumOf { it.availableQuestionCount }
+            check(available > 0)
+            val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = minOf(requireNotNull(state.profile).preferences.sessionQuestionCount,available))
+            commit(state.copy(packRequest = request))
+            request
+        }
+        val response = api.preparePack(request)
+        val pack = PreparedPackReader.read(ContractReader.json.encodeToString(response))
+        check(pack.packId == request.requestId)
+        // Whole validated reserve and acknowledgment together; practice and writes untouched.
+        commit(state.copy(preparedPack = pack,packRequest = null))
+    }
     suspend fun reportProblem(category: String) = mutex.withLock {
         val request = if (state.contentReport != null && !state.reportRecorded) requireNotNull(state.contentReport) else {
             val question = requireNotNull(state.practice).question
@@ -179,7 +210,7 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     fun hint() { val p = requireNotNull(state.practice); check(p.editable); commit(state.copy(practice = p.copy(assisted = true))) }
     suspend fun answer() = mutex.withLock {
         var p = requireNotNull(state.practice)
-        check(p.exposure == null && p.evaluation == null && !p.rejected)
+        check(p.completion == null && p.exposure == null && p.evaluation == null && !p.rejected)
         if (p.pending == null) {
             check(nativeAnswerReady(p.question.exercise, p.draft))
             commit(state.copy(practice = p.copy(pending = com.germanverbmaster.android.foundation.foundationAttempt(requireNotNull(p.session), p.index, requireNotNull(p.draft), p.assisted, p.deviceId))))
@@ -193,7 +224,7 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
     }
     suspend fun skip() = mutex.withLock {
         var p = requireNotNull(state.practice)
-        check(p.pending == null && p.evaluation == null && !p.rejected)
+        check(p.completion == null && p.pending == null && p.evaluation == null && !p.rejected)
         if(p.exposure == null) {
             commit(state.copy(practice = p.copy(exposure = ExposureEvent(UUID.randomUUID().toString(), p.question.id, p.question.exercise.revision, p.deviceId, "skip", java.time.Instant.now().truncatedTo(java.time.temporal.ChronoUnit.SECONDS).toString()))))
             p = requireNotNull(state.practice)
@@ -202,8 +233,24 @@ class LearnerRepository(private val api: LearnerApi, private val store: LearnerS
         check(ack.eventId == p.exposure.eventId)
         commit(state.copy(practice = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)))
     }
-    fun continuePractice() { val p = requireNotNull(state.practice); check(p.evaluation != null); commit(state.copy(practice = p.next())) }
-    fun discardPractice() { commit(state.copy(practice = null)) }
+    fun continuePractice() { val p = requireNotNull(state.practice); check(p.completion == null && p.evaluation != null); commit(state.copy(practice = p.next())) }
+    suspend fun finishPractice() = mutex.withLock {
+        var p = requireNotNull(state.practice)
+        val session = requireNotNull(p.session)
+        check((p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected)
+        if (p.completionReceipt != null) return@withLock
+        if (p.completion == null) {
+            commit(state.copy(practice = p.copy(completion = SessionCompletionRequest("v2", UUID.randomUUID().toString(), if(p.graded + p.skipped == session.questions.size) "full" else "partial"))))
+            p = requireNotNull(state.practice)
+        }
+        val request = requireNotNull(p.completion)
+        val receipt = api.complete(session.id, request)
+        check(receipt.sessionId == session.id && receipt.requestId == request.requestId && receipt.mode == request.mode)
+        check(receipt.plannedCount == session.questions.size && receipt.gradedCount + receipt.skippedCount <= receipt.plannedCount && receipt.correctCount <= receipt.gradedCount)
+        check(request.mode != "full" || receipt.gradedCount + receipt.skippedCount == receipt.plannedCount)
+        commit(state.copy(practice = p.copy(completionReceipt = receipt)))
+    }
+    fun discardPractice() { check(state.practice?.let { it.completion == null || it.completionReceipt != null } != false); commit(state.copy(practice = null)) }
     suspend fun refresh() = mutex.withLock {
         val profile = api.profile()
         val catalog = api.catalog()

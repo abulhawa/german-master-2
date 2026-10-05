@@ -748,6 +748,93 @@ data class ProfileRequest(
     }
 }
 
+@Serializable
+data class SessionCompletionRequest(
+    val apiVersion: String,
+    val requestId: String,
+    val mode: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid SessionCompletionRequest.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid SessionCompletionRequest.requestId" }
+        require(mode in setOf("full", "partial")) { "Invalid SessionCompletionRequest.mode" }
+    }
+}
+
+@Serializable
+data class SessionCompletionReceipt(
+    val apiVersion: String,
+    val requestId: String,
+    val sessionId: String,
+    val mode: String,
+    val plannedCount: Int,
+    val gradedCount: Int,
+    val skippedCount: Int,
+    val correctCount: Int,
+    val completedAt: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid SessionCompletionReceipt.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid SessionCompletionReceipt.requestId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(sessionId)) { "Invalid SessionCompletionReceipt.sessionId" }
+        require(mode in setOf("full", "partial")) { "Invalid SessionCompletionReceipt.mode" }
+        require(plannedCount >= 0) { "Invalid SessionCompletionReceipt.plannedCount" }
+        require(gradedCount >= 0) { "Invalid SessionCompletionReceipt.gradedCount" }
+        require(skippedCount >= 0) { "Invalid SessionCompletionReceipt.skippedCount" }
+        require(correctCount >= 0) { "Invalid SessionCompletionReceipt.correctCount" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(completedAt)) { "Invalid SessionCompletionReceipt.completedAt" }
+        require(runCatching { java.time.Instant.parse(completedAt).toString() == completedAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid SessionCompletionReceipt.completedAt" }
+    }
+}
+
+@Serializable
+data class OfflineRubric(
+    val exerciseId: String,
+    val exerciseRevision: Int,
+    val normalizationVersion: String,
+    val acceptedAnswers: List<Answer>,
+    val explanation: LocalizedText
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(exerciseId)) { "Invalid OfflineRubric.exerciseId" }
+        require(exerciseRevision >= 1) { "Invalid OfflineRubric.exerciseRevision" }
+        require(normalizationVersion == "de-nfc-trim-v1") { "Invalid OfflineRubric.normalizationVersion" }
+        require(acceptedAnswers.size >= 1) { "Invalid OfflineRubric.acceptedAnswers" }
+        require(acceptedAnswers.size <= 20) { "Invalid OfflineRubric.acceptedAnswers" }
+    }
+}
+
+@Serializable
+data class PreparedPack(
+    val apiVersion: String,
+    val packId: String,
+    val contentReleaseId: String,
+    val evaluatorVersion: String,
+    val normalizationVersion: String,
+    val issuedAt: String,
+    val expiresAt: String,
+    val sessions: List<Session>,
+    val rubrics: List<OfflineRubric>,
+    val contentHash: String
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid PreparedPack.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(packId)) { "Invalid PreparedPack.packId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid PreparedPack.contentReleaseId" }
+        require(evaluatorVersion == "deterministic-v1") { "Invalid PreparedPack.evaluatorVersion" }
+        require(normalizationVersion == "de-nfc-trim-v1") { "Invalid PreparedPack.normalizationVersion" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(issuedAt)) { "Invalid PreparedPack.issuedAt" }
+        require(runCatching { java.time.Instant.parse(issuedAt).toString() == issuedAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid PreparedPack.issuedAt" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(expiresAt)) { "Invalid PreparedPack.expiresAt" }
+        require(runCatching { java.time.Instant.parse(expiresAt).toString() == expiresAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid PreparedPack.expiresAt" }
+        require(sessions.size >= 2) { "Invalid PreparedPack.sessions" }
+        require(sessions.size <= 2) { "Invalid PreparedPack.sessions" }
+        require(rubrics.size >= 1) { "Invalid PreparedPack.rubrics" }
+        require(rubrics.size <= 100) { "Invalid PreparedPack.rubrics" }
+        require(contentHash.length >= 64) { "Invalid PreparedPack.contentHash" }
+    }
+}
+
 object ContractShape {
     fun checkContentReportRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "sessionQuestionId", "exerciseRevision", "category")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("category") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
     fun checkContentReportReceipt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "reportId", "status")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("reportId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("status") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
@@ -801,4 +888,8 @@ object ContractShape {
     fun checkProfilePreferences(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("locale", "timezone", "level", "sessionQuestionCount")); run { val p = o.getValue("locale") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("timezone") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("level") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
     fun checkLearnerProfile(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "revision", "setupCompleted", "preferences")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("revision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("setupCompleted") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) }; checkProfilePreferences(o.getValue("preferences")) } }
     fun checkProfileRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "expectedRevision", "preferences")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("expectedRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; checkProfilePreferences(o.getValue("preferences")) } }
+    fun checkSessionCompletionRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "mode")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("mode") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkSessionCompletionReceipt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "sessionId", "mode", "plannedCount", "gradedCount", "skippedCount", "correctCount", "completedAt")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("mode") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("plannedCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("gradedCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("skippedCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("correctCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("completedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkOfflineRubric(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("exerciseId", "exerciseRevision", "normalizationVersion", "acceptedAnswers", "explanation")); run { val p = o.getValue("exerciseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("normalizationVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("acceptedAnswers") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkAnswer(item) } }; checkLocalizedText(o.getValue("explanation")) } }
+    fun checkPreparedPack(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "packId", "contentReleaseId", "evaluatorVersion", "normalizationVersion", "issuedAt", "expiresAt", "sessions", "rubrics", "contentHash")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("packId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("evaluatorVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("normalizationVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("issuedAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("expiresAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("sessions") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkSession(item) } }; run { val a = o.getValue("rubrics") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkOfflineRubric(item) } }; run { val p = o.getValue("contentHash") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
 }

@@ -16,6 +16,94 @@
     }
   ],
   "paths": {
+    "/v2/packs": {
+      "post": {
+        "operationId": "preparePack",
+        "description": "Atomically allocate a reserve of two owned pinned sessions with offline rubrics. requestId replays the whole pack without renewing the seven-day new-start expiry. SHA-256 covers canonical JSON excluding contentHash. Late uploads from started sessions remain accepted; preparation grants no learning evidence. Unpublished local fixture only.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schema.json#/$defs/SessionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Complete immutable pack or replay",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/PreparedPack"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "409": {
+            "description": "Changed request or insufficient compatible content"
+          }
+        }
+      }
+    },
+    "/v2/sessions/{sessionId}/complete": {
+      "post": {
+        "operationId": "completeSession",
+        "description": "Freeze an owned full or partial completion receipt. Full requires an accepted answer or Skip for every question. Partial ends new submissions; accepted writes still replay. Counts come from server evidence; completion never grants learning credit. Same requestId, session and payload replay identically; changes conflict.",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schema.json#/$defs/SessionCompletionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Frozen receipt or replay",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schema.json#/$defs/SessionCompletionReceipt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request"
+          },
+          "401": {
+            "description": "Authentication required"
+          },
+          "404": {
+            "description": "Owned session unavailable"
+          },
+          "409": {
+            "description": "Incomplete full session or completion conflict"
+          }
+        }
+      }
+    },
     "/v2/content-reports": {
       "post": {
         "operationId": "reportContent",

@@ -19,6 +19,35 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it("Close preserves assisted drafts; partial completion retries the frozen request after restart", async () => {
+  const api = apiFixture();
+  api.complete = vi.fn(async (sessionId, request) => ({apiVersion:'v2',requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:0,skippedCount:0,correctCount:0,completedAt:'2026-10-05T10:00:00Z'}));
+  vi.mocked(api.complete).mockRejectedValueOnce(Error('response lost'));
+  const rendered = render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByText('Start short practice')).toBeEnabled());
+  fireEvent.click(screen.getByText('Start short practice'));
+  fireEvent.change(await screen.findByLabelText('Your answer'), {target:{value:'saved draft'}});
+  fireEvent.click(screen.getByText('Hint'));
+  const before = readJourney(localStorage).practice!;
+  fireEvent.click(screen.getByText('Close practice'));
+  expect(await screen.findByText('Keep practising')).toBeVisible();
+  fireEvent.click(screen.getByText('Keep practising'));
+  expect(await screen.findByLabelText('Your answer')).toHaveValue('saved draft');
+  expect(api.complete).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByText('Close practice')); fireEvent.click(screen.getByText('End session'));
+  await screen.findByText('Retry saved completion');
+  const frozen = readJourney(localStorage).practice!.completion!;
+  expect(frozen.mode).toBe('partial');
+  expect(readJourney(localStorage).practice).toMatchObject({draft:before.draft,assisted:before.assisted});
+  rendered.unmount(); render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByText('Start short practice')).toBeEnabled());
+  fireEvent.click(screen.getByText('Start short practice'));
+  fireEvent.click(await screen.findByText('Retry saved completion'));
+  await screen.findByText('Session end confirmed by the server.');
+  expect(api.complete).toHaveBeenLastCalledWith(session.id,frozen);
+  expect(readJourney(localStorage).practice!.draft).toEqual(before.draft);
+  expect(api.submit).not.toHaveBeenCalled(); expect(api.expose).not.toHaveBeenCalled();
+});
 it("keeps a failed refresh visible when background profile loading finishes later", async () => {
   const api = apiFixture();
   const profile = await api.profile();
@@ -34,6 +63,32 @@ it("keeps a failed refresh visible when background profile loading finishes late
   fireEvent.click(screen.getByText("Refresh confirmed progress"));
   await waitFor(() => expect(readJourney(localStorage).confirmed).not.toBeNull());
   expect(screen.queryByText(message)).toBeNull();
+});
+it.each(['freeze','receipt'])("completion %s save failure preserves practice and retries explicitly", async failure => {
+  const api = apiFixture();
+  let fail = false;
+  const storage = {getItem:(key:string)=>localStorage.getItem(key),setItem:(key:string,value:string)=>{if(fail) throw Error('disk full'); localStorage.setItem(key,value);}};
+  api.complete = vi.fn(async (sessionId,request)=>{
+    if(failure === 'receipt') fail = true;
+    return {apiVersion:'v2',requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:0,skippedCount:0,correctCount:0,completedAt:'2026-10-05T10:00:00Z'};
+  });
+  render(<LearnerJourney api={api} storage={storage} />);
+  await waitFor(()=>expect(screen.getByText('Start short practice')).toBeEnabled());
+  fireEvent.click(screen.getByText('Start short practice')); await screen.findByLabelText('Your answer');
+  fireEvent.click(screen.getByText('Close practice'));
+  if(failure === 'freeze') fail = true;
+  fireEvent.click(screen.getByText('End session'));
+  await screen.findByText(/Could not save practice on this device/);
+  expect(api.complete).toHaveBeenCalledTimes(failure === 'freeze' ? 0 : 1);
+  expect(readJourney(localStorage).practice!.completionReceipt).toBeUndefined();
+  fail = false;
+  if(failure === 'receipt') {
+    const frozen = readJourney(localStorage).practice!.completion;
+    api.complete = vi.fn(async (sessionId,request)=>({apiVersion:'v2',requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:0,skippedCount:0,correctCount:0,completedAt:'2026-10-05T10:00:00Z'}));
+    fireEvent.click(screen.getByText('Retry saved completion'));
+    await screen.findByText('Session end confirmed by the server.');
+    expect(api.complete).toHaveBeenCalledWith(session.id,frozen);
+  }
 });
 it("Enter checks typed answers once, ignores composition and keeps feedback for explicit continuation", async () => {
   const api = apiFixture();
@@ -317,7 +372,7 @@ describe("isolated learner journey", () => {
     await screen.findByLabelText("Your answer");
     expect(api.createFocusedSession).toHaveBeenCalledWith(expect.objectContaining({ questionCount: 5, focus: { type: "topic", id: catalog.topics[0].id } }));
     const saved = readJourney(localStorage).practice!.request;
-    fireEvent.click(screen.getByText("Close practice"));
+    fireEvent.click(screen.getByText("Close practice")); fireEvent.click(screen.getByText("Save and return Home"));
     fireEvent.click(screen.getByRole("button", { name: "Topics" }));
     fireEvent.click(screen.getByRole("button", { name: "German in everyday work" }));
     fireEvent.click(screen.getByRole("button", { name: "Dative after mit" }));
@@ -441,7 +496,7 @@ describe("isolated learner journey", () => {
     fireEvent.click(screen.getByText("Check answer"));
     await screen.findByRole("alert"); expect(screen.queryByText("Continue")).not.toBeInTheDocument();
     api.targets = vi.fn().mockRejectedValue(Error("offline"));
-    fireEvent.click(screen.getByText("Close practice")); fireEvent.click(screen.getByText("Progress"));
+    fireEvent.click(screen.getByText("Close practice")); fireEvent.click(screen.getByText("Save and return Home")); fireEvent.click(screen.getByText("Progress"));
     await screen.findByRole("alert"); expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
   });
 });
