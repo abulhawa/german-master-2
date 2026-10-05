@@ -17,6 +17,8 @@ const requiredFiles = {
   baseline: "db/baseline/v2.sql",
   backendAccess: "db/baseline/backend-access.sql",
   authAccess: "db/baseline/auth-session-access.sql",
+  identityDeletion: "db/baseline/identity-deletion.sql",
+  identityVerifier: "db/baseline/identity-verifier-access.sql",
   gitignore: ".gitignore",
 };
 
@@ -123,6 +125,8 @@ for (const [name, path] of Object.entries({
   cleanBaseline: requiredFiles.baseline,
   backendRolePolicy: requiredFiles.backendAccess,
   authVerifierPolicy: requiredFiles.authAccess,
+  identityDeletionPolicy: requiredFiles.identityDeletion,
+  identityVerifierPolicy: requiredFiles.identityVerifier,
   stagingPlan: requiredFiles.stagingPlan,
 })) {
   hashes[name] = { path, sha256: await sha256(path) };

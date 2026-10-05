@@ -2,6 +2,14 @@
 
 Reconciled against blueprint section 23 on 5 October 2026. A local fixture implementation, a passing build, a deployed product and learner acceptance are distinct evidence. No full product milestone closes in this continuation. The monorepo bootstrap is complete.
 
+Identity-deletion continuation now has locally verified durable server jobs,
+fresh-password verification, a concrete hard-delete provider adapter and private
+receipt recovery. Prepared auth-session grants now include the SELECT policy
+required by Supabase auth RLS. Public host routes, durable web/native identity
+deletion markers/UI, actual staging auth/session/storage deletion and retention/
+restore acceptance remain open; configured deletion stays disabled. No full
+gate closes from this preparation. See [ADR 031](../adr/031_identity_deletion_continuation.md).
+
 | Milestone | Evidence available | Requirements still preventing exit |
 |---|---|---|
 | M0 Preserve and baseline | Source/history restores, deployed-source bundle, exact public-row recovery, local/earlier hosted builds | Full PostgreSQL/functions/grants/auth/storage restore, private off-machine recovery, live environment/API parity, Play published maximum and signing/key recovery |

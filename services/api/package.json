@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx src/local.ts",
-    "build": "esbuild src/local.ts --bundle --platform=node --external:@electric-sql/pglite --external:zod --format=esm --outfile=dist/local.js && esbuild src/network-api.ts src/supabase-auth.ts --bundle --platform=node --external:pg --external:@supabase/supabase-js --external:zod --format=esm --outdir=dist"
+    "build": "esbuild src/local.ts --bundle --platform=node --external:@electric-sql/pglite --external:zod --format=esm --outfile=dist/local.js && esbuild src/network-api.ts src/supabase-auth.ts src/identity-deletion.ts src/deletion-reauthentication.ts src/supabase-identity-deletion.ts --bundle --platform=node --external:pg --external:@supabase/supabase-js --external:zod --format=esm --outdir=dist"
   },
   "dependencies": {
     "@german-master/contracts": "*",

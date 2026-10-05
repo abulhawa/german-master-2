@@ -34,4 +34,16 @@ Concrete external operations still requiring separate approval:
 
 `createSupabaseAuthenticate` uses the publishable key and a mandatory `currentAuthSession` callback using the separate auth-verifier database. `createNetworkApi` obtains a fresh subject-scoped learning store after authentication, exports no credential-bearing configuration and starts no listener. Real learner deletion is intentionally disabled there pending host-auth revocation/deletion, reauthentication and retention/recovery integration. No external operation above was executed.
 
+The auth-session role setup includes its server-only SELECT policy because
+Supabase auth tables have RLS enabled. Column grants alone are insufficient.
+Optional identity-deletion setup is prepared separately in
+`db/baseline/identity-deletion.sql` and `identity-verifier-access.sql`, with no
+client/Data API grants and no auth SQL writes. Review these clean initial files
+with the baseline before any approved installation; do not apply development
+migrations. The concrete admin adapter requires an explicitly supplied dedicated
+staging server secret and authoritative identity/session visibility. Missing or
+restrictive RLS fails closed. Live hard-delete/session/refresh-token cascades,
+storage-owned object handling and public retention/restore policy still need
+approved acceptance. No schema, credential or admin operation was executed.
+
 `createNetworkApi` additionally accepts an explicit RuntimeCatalog and optional normalized HTTPS web origin. Without a published/hash-matching reviewed catalog, new network practice is unavailable. Cross-origin web hosting requires that exact configured origin; same-origin proxy hosting needs no CORS option. Preview public configuration names and evidence limits are recorded in ADR 029. Do not use the synthetic build-check APK or key strings for staging sign-in. Native cold-launch/auth refresh and Keystore acceptance still require device evidence.

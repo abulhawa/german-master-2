@@ -35,6 +35,7 @@ it('session verifier reads only current owned session identifiers and cannot rea
   try {
     // Minimal isolated auth-session shape; not a claim of Supabase schema parity.
     await db.exec('CREATE SCHEMA auth; CREATE TABLE auth.sessions(id uuid PRIMARY KEY,user_id uuid,not_after timestamptz,refresh_secret text)');
+    await db.exec('ALTER TABLE auth.sessions ENABLE ROW LEVEL SECURITY');
     await db.exec(await readFile(new URL('../../../db/baseline/auth-session-access.sql',import.meta.url),'utf8'));
     await db.query('INSERT INTO auth.sessions VALUES($1,$2,NULL,$3)',[session,subject,'synthetic-test-only']);
     const scoped={query:<T>(sql:string,values?:unknown[])=>db.transaction(async tx=> {

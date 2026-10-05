@@ -11,7 +11,7 @@ The `Release readiness` workflow runs `tools/release/readiness.mjs` on relevant 
 - The dedicated staging project remains `german-master-v2-staging` / `zgmyrpzwgtydwlzponih` in Frankfurt `eu-central-1`.
 - The staging plan still forbids legacy-data import, Data API exposure of the learning schema, and implicit production cutover.
 - Common secret-bearing files remain ignored.
-- SHA-256 fingerprints are recorded for the clean v2 database baseline and both reviewed server-role policy files.
+- SHA-256 fingerprints are recorded for the clean v2 database baseline, both reviewed server-role policy files and the optional private identity-deletion subsystem setup.
 - The current web auto-deploy setting is recorded as evidence, not interpreted as v2 release approval.
 
 The workflow uploads only the generated JSON manifest as a short-lived GitHub Actions artifact. The manifest contains repository identifiers, hashes and release metadata only. It intentionally contains no credentials.
