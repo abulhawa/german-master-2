@@ -6,7 +6,7 @@
   "regions": ["fra1"],
   "functions": { "api/v2.mjs": { "maxDuration": 60, "includeFiles": "services/api/supabase-ca.pem" } },
   "rewrites": [
-    { "source": "/v2/:path*", "destination": "/api/v2?gm_path=:path*" },
+    { "source": "/v2/:gm_path*", "destination": "/api/v2?gm_path=:gm_path*" },
     { "source": "/((?!api/|assets/|sw.js|workbox-).*)", "destination": "/index.html" }
   ],
   "headers": [{ "source": "/v2/:path*", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }]
