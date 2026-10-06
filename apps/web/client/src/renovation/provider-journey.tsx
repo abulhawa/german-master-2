@@ -66,7 +66,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     try {
       setConfirmation(false);
       if(register) {
-        const {data,error}=await host.client.auth.signUp({email,password});
+        const {data,error}=await host.client.auth.signUp({email,password,options:{emailRedirectTo:origin}});
         if(error) throw Error('Registration failed');
         if(!data.session) {setConfirmation(true);setRegister(false);}
       } else {
