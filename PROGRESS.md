@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Product completion work split — 6 October 2026
+
+- Owner asked to prioritize product completion, keep verification focused on finished changes and defer broad checks/polish until the product is implemented. Saved the ChatGPT/Codex work split in [docs/product/plan-of-work.md](docs/product/plan-of-work.md): ChatGPT prepares existing content drafts, screen specifications and bilingual copy; Codex implements guest practice and integrates designs/content into web, Android and backend.
+- This handoff changes documentation only. No feature implementation, new chat/delegation, content publication or deployment occurred. Existing release boundaries and independent review requirements remain applicable; bootstrap is complete and the product reset remains unfinished.
+- Exact next implementation action: implement guest starter practice and explicit authenticated saving against the established blueprint. ChatGPT content/design preparation can proceed separately from the existing 30-target/60-variant draft. SMTP/delivered-email confirmation and deployment of the pushed dependency fixes remain outstanding release work, without blocking guest implementation.
+- Proposed commit: `docs: save product completion work split`.
+
 ## Dependency audit remediation and confirmed-user acceptance — 6 October 2026
 
 - Owner requested all npm audit findings fixed, committed and pushed, followed by the full confirmed-user lifecycle. Reconciled the clean checkout at `7a0d255`; fetched and fast-forwarded the owner's domain/signup updates through `52d2511` while preserving the dependency changes. Public GM2 domain is now `https://germanmaster.qortxai.com`.
