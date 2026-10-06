@@ -2,10 +2,10 @@ name: Web checks
 
 on:
   pull_request:
-    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**', 'services/**', 'db/**', 'tsconfig.backend.json', 'vitest.backend.config.ts', 'vitest.web-http.config.ts']
+    paths: ['api/**', 'vercel.json', 'apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**', 'services/**', 'db/**', 'tsconfig.backend.json', 'vitest.backend.config.ts', 'vitest.web-http.config.ts']
   push:
     branches: [main]
-    paths: ['apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**', 'services/**', 'db/**', 'tsconfig.backend.json', 'vitest.backend.config.ts', 'vitest.web-http.config.ts']
+    paths: ['api/**', 'vercel.json', 'apps/web/**', 'package.json', 'package-lock.json', '.github/workflows/web.yml', 'contracts/**', 'design/**', 'packages/**', 'content/**', 'services/**', 'db/**', 'tsconfig.backend.json', 'vitest.backend.config.ts', 'vitest.web-http.config.ts']
   workflow_dispatch:
 
 permissions:
