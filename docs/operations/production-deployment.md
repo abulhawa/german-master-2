@@ -79,16 +79,22 @@ Custom SMTP is unconfigured and email confirmation is enabled. Obtain SMTP/Resen
 protected channel, never chat. Configure production URL/redirects, verify
 delivery to disposable authorized inboxes and complete ordinary registration.
 Administrator-generated confirmation is useful engineering acceptance but
-does not close public email delivery/registration. Custom-domain transfer is
-conditional on the complete minimum acceptance and has not happened.
+does not close public email delivery/registration. The owner has now completed
+the custom-domain cutover before that acceptance finished; this is recorded as
+an intentional production-first risk, not as evidence that email delivery passed.
 
 ## Cutover and rollback
 
-Before transfer, record the READY v2 deployment/commit and legacy production
-deployment `dpl_AuPHoBMVHU6M6bQZ2qE4Xce67K2M` in legacy project
-`prj_sr2SF6UGsRB6U8dpwukQEuJsPBaY`. Reassign `germanmaster.qortxai.com` and the
-`gvm.qortxai.com` redirect deliberately using Vercel; do not delete DNS first.
-Keep legacy deployed on its Vercel URL. Verify the custom-domain web/Auth/API
-journey after transfer. Rollback is a reverse domain assignment to the retained
-legacy project, not deletion of either database or application. No domain move
-may be inferred from a successful build or an owner-approved future cutover.
+Cutover is complete. `germanmaster.qortxai.com` is verified on
+`german-master-v2`; `gvm.qortxai.com` is a verified 307 redirect to the primary
+domain. Deployment `dpl_GyZaLwy2pEio4zvkXKdVj4QZyfFt` from commit `6d692ca`
+is READY and serves the public domain. The legacy Vercel project retains no
+custom domains and remains available only through its Vercel-provided URLs.
+
+The public HTML no longer carries the pre-release `noindex,nofollow` directive,
+and signup confirmation now requests a redirect to the configured current app
+origin. HTTPS and primary/secondary domain routing were verified after cutover.
+Public SMTP delivery and a full self-service confirmation journey remain open.
+
+Rollback is a reverse domain assignment to the retained legacy project, not
+deletion of either database or application.
