@@ -85,7 +85,7 @@ CREATE TABLE gm.attempt_evaluation (
 );
 
 -- Frozen revision definitions and evidence are append-only, including draft session fixtures.
-CREATE FUNCTION gm.reject_mutation() RETURNS trigger LANGUAGE plpgsql AS $$
+CREATE FUNCTION gm.reject_mutation() RETURNS trigger LANGUAGE plpgsql SET search_path = '' AS $$
 BEGIN
   IF TG_OP = 'DELETE' AND TG_TABLE_NAME IN (
     'practice_session','session_question','attempt','attempt_evaluation',

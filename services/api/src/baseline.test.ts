@@ -35,10 +35,24 @@ it('clean baseline matches current product columns, constraints and triggers wit
   } finally {await clean.close();await development.close();}
 });
 
-it('baseline supports owned pack, Skip, completion, export and deletion while keeping shared revisions immutable',async()=> {
+it.each(['fresh baseline','installed baseline remediation'])('%s supports owned pack, Skip, completion, export and deletion while keeping shared revisions immutable',async(mode)=> {
   const clean=new PGlite();const development=new PGlite();
   try {
-    await clean.exec(await readFile(baselineUrl,'utf8'));await new FoundationStore(development).initialize();
+    const baseline=await readFile(baselineUrl,'utf8');
+    await clean.exec(mode==='fresh baseline' ? baseline : baseline.replace(" SET search_path = ''",''));
+    const definition=await clean.query('SELECT prosrc,proowner,proacl FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure');
+    if(mode==='installed baseline remediation') {
+      expect((await clean.query('SELECT proconfig FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).rows).toEqual([{proconfig:null}]);
+      await clean.exec(await readFile(new URL('../../../db/remediation/reject-mutation-search-path.sql',import.meta.url),'utf8'));
+      expect(await clean.query('SELECT prosrc,proowner,proacl FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).toEqual(definition);
+    }
+    expect((await clean.query('SELECT proconfig,prosecdef FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).rows).toEqual([{proconfig:['search_path=""'],prosecdef:false}]);
+    // A caller-controlled path must not replace the built-ins used by the privacy trigger.
+    await clean.exec(`CREATE SCHEMA hostile;
+      CREATE FUNCTION hostile.current_setting(text,boolean) RETURNS text LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'shadow function invoked'; END $$;
+      CREATE FUNCTION hostile.to_jsonb(anyelement) RETURNS jsonb LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'shadow function invoked'; END $$;
+      SET search_path = hostile, gm, pg_catalog;`);
+    await new FoundationStore(development).initialize();
     // Fixture rows are loaded by this isolated test only; the baseline contains no catalog.
     for(const table of ['topic','skill','learning_target','exercise','exercise_revision','content_release','content_release_exercise','revision_evidence_identity']) {
       for(const row of (await development.query<Record<string,unknown>>(`SELECT * FROM gm.${table}`)).rows) {

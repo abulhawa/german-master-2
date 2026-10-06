@@ -1,5 +1,20 @@
 # Renovation acceptance gates
 
+## 6 October follow-up evidence
+
+Hosted Web/Android/accessibility/safety/CodeQL pass for product commit
+`3c147367`; safety/CodeQL pass for inventory merge `f019309a`. The earlier
+runner-allocation blocker is resolved. The merged live release inventory remains
+the authoritative legacy production routing record.
+
+The single-function search-path correction is locally verified and awaiting
+explicit staging approval; actual security advisor still reports the warning.
+No device is attached and the saved fixture listener is absent on this host;
+the saved Pixel session remains untouched, with remaining core/accessibility
+acceptance blocked. See [correction review](staging-advisor-remediation.md) and
+[prepared account/device acceptance](staging-account-acceptance.md).
+These resolve hosted evidence and prepare live work; no full milestone closes.
+
 Reconciled against blueprint section 23 on 5 October 2026. A local fixture implementation, a passing build, a deployed product and learner acceptance are distinct evidence. No full product milestone closes in this continuation. The monorepo bootstrap is complete.
 
 Identity-deletion continuation now has locally verified durable server jobs,
