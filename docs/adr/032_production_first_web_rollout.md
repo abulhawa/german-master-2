@@ -35,6 +35,14 @@ transaction advisory lock on the request UUID. No public worker endpoint,
 fixture bearer, disposable-email authorization exception, RLS bypass or
 disabled TLS verification is introduced.
 
+Actual connection acceptance found the managed auth schema USAGE grant was
+silently ineffective under the connector's non-owner postgres role. Use private
+SECURITY INVOKER views under `gm_auth`; PostgreSQL checks the caller's existing
+base column grants and RLS, while schema lookup requires only the private view
+schema. No SECURITY DEFINER function, auth-owner connection or RLS bypass is
+introduced. Observer code refuses altered invoker options or filtered base
+policies. See `db/baseline/auth-verifier-views.sql` and PostgreSQL 17 CREATE VIEW.
+
 Production self-service email registration must retain email confirmation.
 The default Supabase sender's organization-only delivery is insufficient for
 public signup. A safely configured SMTP provider and delivery acceptance are

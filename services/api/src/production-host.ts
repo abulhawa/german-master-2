@@ -31,7 +31,8 @@ async function compose() {
   const runtimeCatalog = RuntimeCatalogSchema.parse(catalog);
   const learning = connect('GM_DATABASE_URL');
   const verifier = connect('GM_AUTH_DATABASE_URL');
-  const authenticate = createSupabaseAuthenticate(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), currentAuthSession(verifier));
+  const sessionExists = currentAuthSession(verifier, true);
+  const authenticate = createSupabaseAuthenticate(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), sessionExists);
   // Provider removal is separate from owned learning deletion and requires
   // freshly verified password proof plus authoritative identity/session absence.
   let deletion: IdentityDeletionService | undefined;
@@ -40,8 +41,8 @@ async function compose() {
     const worker = connect('GM_PRIVACY_DATABASE_URL');
     const workerLock = connect('GM_PRIVACY_DATABASE_URL');
     const observer = connect('GM_IDENTITY_DATABASE_URL');
-    const provider = createSupabaseIdentityDeletionProvider(project, required('GM_SUPABASE_SECRET_KEY'), observer);
-    const reauthenticate = createPasswordDeletionReauthentication(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), currentAuthSession(verifier));
+    const provider = createSupabaseIdentityDeletionProvider(project, required('GM_SUPABASE_SECRET_KEY'), observer, true);
+    const reauthenticate = createPasswordDeletionReauthentication(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), sessionExists);
     deletion = new IdentityDeletionService(worker,
       subject => new FoundationStore(learning.forSubject(subject), undefined, undefined, undefined, runtimeCatalog), provider, reauthenticate);
     const service = deletion;

@@ -19,6 +19,13 @@ historical staging evidence remains valid for the named project at that time.
 - Pooler endpoint comes from this project's dashboard. TLS verifies the
   official Supabase CA in `services/api/supabase-ca.pem`; the certificate is
   public trust material, not a private signing key or API credential.
+- Managed `auth` schema ownership prevents the connector's `postgres` role
+  from delegating schema USAGE: the GRANT reports success but the ACL remains
+  unchanged. Private `gm_auth` SECURITY INVOKER views expose only the already
+  granted session/identity columns, enforce the caller's existing Auth RLS and
+  have no client, learning-role or worker grants. Runtime observers verify
+  invoker options and unfiltered base-table policies before crediting absence.
+  Actual restricted connection reads pass without broad auth schema access.
 - Only the publishable Auth key enters the browser. Database URLs and provider
   admin capability are sensitive Vercel server environment variables. No
   credential is stored in source, Git, client caches or public evidence.
@@ -66,8 +73,9 @@ only the intended parent role, INHERIT TRUE/SET FALSE, with no elevated flags.
 Security advisor returns no findings. Runtime row isolation and hosted learner
 journey acceptance are pending and must be appended with exact results.
 
-Self-service registration is currently blocked by unconfigured custom SMTP;
-email confirmation is enabled. Obtain SMTP/Resend credentials through a
+Ordinary signup actually creates an unconfirmed disposable identity; email
+delivery and a complete self-service confirmation journey are not yet proven.
+Custom SMTP is unconfigured and email confirmation is enabled. Obtain SMTP/Resend credentials through a
 protected channel, never chat. Configure production URL/redirects, verify
 delivery to disposable authorized inboxes and complete ordinary registration.
 Administrator-generated confirmation is useful engineering acceptance but

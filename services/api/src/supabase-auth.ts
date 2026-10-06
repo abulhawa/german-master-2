@@ -9,12 +9,14 @@ export interface AuthVerifier {
 }
 
 /** Use a separate gm_auth_verifier connection, never the learning role. */
-export function currentAuthSession(db:Pick<SqlTransaction,'query'>) {
+export function currentAuthSession(db:Pick<SqlTransaction,'query'>, privateView=false) {
   return async(subject:string,sessionId:string):Promise<boolean>=> {
     if(!uuid.test(subject) || !uuid.test(sessionId)) return false;
     const result=await db.query<{active:boolean}>(`SELECT EXISTS (
-      SELECT 1 FROM auth.sessions WHERE id=$1 AND user_id=$2
+      SELECT 1 FROM ${privateView?'gm_auth.session_identity':'auth.sessions'} WHERE id=$1 AND user_id=$2
       AND (not_after IS NULL OR not_after>statement_timestamp())
+      ${privateView?`AND EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+        WHERE n.nspname='gm_auth' AND c.relname='session_identity' AND c.reloptions @> ARRAY['security_invoker=true'])`:''}
     ) AS active`,[sessionId,subject]);
     return result.rows.length===1 && result.rows[0].active===true;
   };

@@ -10,24 +10,27 @@ type Admin={deleteUser(subject:string,softDelete:boolean):Promise<{error:unknown
 // true SELECT policy guarantees visibility and no restrictive policy filters it.
 // Policy catalog checks use no user data; missing/changed setup fails closed.
 function visible(relation:'auth.users'|'auth.sessions') {
+  const oid=`(SELECT c.oid FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='auth' AND c.relname='${relation.split('.')[1]}')`;
   const applicable=`(0=ANY(p.polroles) OR EXISTS(SELECT 1 FROM unnest(p.polroles) role_id WHERE role_id<>0 AND pg_has_role(current_user,role_id,'member')))`;
-  return `(NOT row_security_active('${relation}'::regclass) OR (
-    EXISTS(SELECT 1 FROM pg_policy p WHERE p.polrelid='${relation}'::regclass
+  return `(NOT row_security_active(${oid}) OR (
+    EXISTS(SELECT 1 FROM pg_policy p WHERE p.polrelid=${oid}
       AND p.polpermissive AND p.polcmd IN ('r','*') AND pg_get_expr(p.polqual,p.polrelid)='true' AND ${applicable})
-    AND NOT EXISTS(SELECT 1 FROM pg_policy p WHERE p.polrelid='${relation}'::regclass
+    AND NOT EXISTS(SELECT 1 FROM pg_policy p WHERE p.polrelid=${oid}
       AND NOT p.polpermissive AND p.polcmd IN ('r','*') AND ${applicable})
   ))`;
 }
 
 /** Dedicated read-only gm_identity_verifier connection. Do not infer absence
  * from getUserById error strings/statuses; an outage must remain pending. */
-export function identityPresence(db:Pick<SqlTransaction,'query'>) {
+export function identityPresence(db:Pick<SqlTransaction,'query'>, privateViews=false) {
   return async(subject:string)=>{
     if(!UUID.test(subject)) throw new ApiFailure('invalid_request',400);
     const result=await db.query<{exists:boolean;active_sessions:boolean;unfiltered:boolean}>(`SELECT
-      ${visible('auth.users')} AND ${visible('auth.sessions')} AS unfiltered,
-      EXISTS(SELECT 1 FROM auth.users WHERE id=$1) AS exists,
-      EXISTS(SELECT 1 FROM auth.sessions WHERE user_id=$1) AS active_sessions`,[subject]);
+      ${visible('auth.users')} AND ${visible('auth.sessions')}
+      ${privateViews?`AND (SELECT count(*)=2 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+        WHERE n.nspname='gm_auth' AND c.relname IN ('identity_subject','identity_session') AND c.reloptions @> ARRAY['security_invoker=true'])`:''} AS unfiltered,
+      EXISTS(SELECT 1 FROM ${privateViews?'gm_auth.identity_subject':'auth.users'} WHERE id=$1) AS exists,
+      EXISTS(SELECT 1 FROM ${privateViews?'gm_auth.identity_session':'auth.sessions'} WHERE user_id=$1) AS active_sessions`,[subject]);
     const row=result.rows[0];
     if(result.rows.length!==1 || row?.unfiltered!==true || typeof row.exists!=='boolean' || typeof row.active_sessions!=='boolean')
       throw new ApiFailure('identity_provider_unavailable',503);
@@ -60,12 +63,12 @@ export function supabaseIdentityDeletionProvider(admin:Admin,
 /** Explicit dedicated v2 composition only; never retrieves a credential,
  * starts a worker/listener, exposes the secret to clients or changes auth. */
 export function createSupabaseIdentityDeletionProvider(projectRef:string,secretKey:string,
-  db:Pick<SqlTransaction,'query'>):IdentityDeletionProvider {
+  db:Pick<SqlTransaction,'query'>, privateViews=false):IdentityDeletionProvider {
   if(projectRef!=='zgmyrpzwgtydwlzponih' || !secretKey.startsWith('sb_secret_'))
     throw Error('Dedicated v2 project and server secret key required');
   const client=createClient(`https://${projectRef}.supabase.co`,secretKey,{
     auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},
     global:{fetch:(url,options)=>fetch(url,{...options,signal:AbortSignal.timeout(10000),redirect:'error'})},
   });
-  return supabaseIdentityDeletionProvider(client.auth.admin,identityPresence(db));
+  return supabaseIdentityDeletionProvider(client.auth.admin,identityPresence(db,privateViews));
 }
