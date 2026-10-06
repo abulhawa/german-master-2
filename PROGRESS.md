@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Dependency audit remediation and confirmed-user acceptance — 6 October 2026
+
+- Owner requested all npm audit findings fixed, committed and pushed, followed by the full confirmed-user lifecycle. Reconciled the clean checkout at `7a0d255`; fetched and fast-forwarded the owner's domain/signup updates through `52d2511` while preserving the dependency changes. Public GM2 domain is now `https://germanmaster.qortxai.com`.
+- Root audit initially reported 16 affected packages (one critical, seven high, eight moderate). Updated direct CSV/nanoid/Vitest dependencies and affected transitives, with a narrowly scoped typography selector-parser override. Final full `npm audit` reports zero vulnerabilities. See `docs/operations/dependency-audit-2026-10-06.md`. No advisory suppression or live AI calls.
+- npm 10's internal `edgesOut` resolver error required an isolated ignored npm 11 resolver; the project remains on Node 22.23.3. npm 10 clean install, generated/web/backend checks, web/API build and dedicated product build pass. Full backend 26 files/163 tests, web 90 files/381 tests and real web HTTP four files/13 tests pass. Staged whitespace and redacted secret scans pass. Stopped only the verified locked esbuild helper, preserving the acceptance process and disposable credentials in memory.
+- Saved engineering acceptance artifacts exceed the previous checkpoint: administrator-assisted confirmations for accounts A/B, completed mixed practice/export and account A's authoritative deletion are recorded locally. These do not prove delivered-email/self-service confirmation. Account B's credentials remain in the surviving memory process; the public domain renders its expected sign-in page. No replacement accounts or data reset are needed.
+- Exact next action after the dependency commit/push: sign in account B on the public domain, complete/verify confirmed practice and persistent Progress, logout/login and compare recovered state, then finish deletion through the actual product protocol and verify authoritative identity/session/owned-row absence. Email delivery remains open; no full milestone exit is claimed.
+- Proposed commit: `fix: resolve all npm audit dependency findings`.
+
 ## Production-first preparation in progress - 6 October 2026
 
 - Owner superseded the separate staging rollout with direct production preparation and deployment. Custom-domain transfer is authorized only after the explicit minimum live acceptance passes; independent German/design review, exhaustive accessibility, Android publication and complete milestone exits are documented follow-ups unless they demonstrate a release blocker. See ADR 032 and `docs/operations/production-deployment.md`.
