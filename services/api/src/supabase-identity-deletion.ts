@@ -57,12 +57,12 @@ export function supabaseIdentityDeletionProvider(admin:Admin,
   };
 }
 
-/** Explicit dedicated staging composition only; never retrieves a credential,
+/** Explicit dedicated v2 composition only; never retrieves a credential,
  * starts a worker/listener, exposes the secret to clients or changes auth. */
 export function createSupabaseIdentityDeletionProvider(projectRef:string,secretKey:string,
   db:Pick<SqlTransaction,'query'>):IdentityDeletionProvider {
   if(projectRef!=='zgmyrpzwgtydwlzponih' || !secretKey.startsWith('sb_secret_'))
-    throw Error('Dedicated staging project and server secret key required');
+    throw Error('Dedicated v2 project and server secret key required');
   const client=createClient(`https://${projectRef}.supabase.co`,secretKey,{
     auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},
     global:{fetch:(url,options)=>fetch(url,{...options,signal:AbortSignal.timeout(10000),redirect:'error'})},

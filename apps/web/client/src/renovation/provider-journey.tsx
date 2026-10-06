@@ -19,6 +19,8 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const loginLock=useRef(false);
   const [locale,setLocale] = useState<'en'|'de'>('en');
   const [email,setEmail] = useState(''); const [password,setPassword] = useState('');
+  const [register,setRegister] = useState(false);
+  const [confirmation,setConfirmation] = useState(false);
   const c=copy[locale];
   useEffect(()=> {
     const observer=new MutationObserver(()=> {
@@ -61,7 +63,16 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const identityDeletion=useMemo(()=>account&&deletionEnabled?host.provider.identityDeletion(account,origin):undefined,[host,account,origin,deletionEnabled]);
   async function signIn() {
     if(busy||loginLock.current) return;loginLock.current=true;setBusy(true);setFailed(false);
-    try {const {error}=await host.client.auth.signInWithPassword({email,password});if(error)throw Error('Sign-in failed');}
+    try {
+      setConfirmation(false);
+      if(register) {
+        const {data,error}=await host.client.auth.signUp({email,password});
+        if(error) throw Error('Registration failed');
+        if(!data.session) {setConfirmation(true);setRegister(false);}
+      } else {
+        const {error}=await host.client.auth.signInWithPassword({email,password});if(error)throw Error('Sign-in failed');
+      }
+    }
     catch {setFailed(true);}
     finally {loginLock.current=false;setPassword('');setBusy(false);}
   }
@@ -73,13 +84,15 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     {local&&<p role="status">{c.local}</p>}<FoundationButton onClick={()=>setShowLogin(true)}>{c.reauth}</FoundationButton>
   </div></div><LearnerJourney account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} /></>;
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
-    <h1>{c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
+    <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
       <label className="gm-field" htmlFor="v2-email">{c.email}<input id="v2-email" type="email" autoComplete="username" required value={email} disabled={busy} onChange={event=>setEmail(event.target.value)} /></label>
-      <label className="gm-field" htmlFor="v2-password">{c.password}<input id="v2-password" type="password" autoComplete="current-password" required value={password} disabled={busy} onChange={event=>setPassword(event.target.value)} /></label>
-      <button className="gm-button" type="submit" disabled={busy}>{c.signIn}</button>
+      <label className="gm-field" htmlFor="v2-password">{c.password}<input id="v2-password" type="password" autoComplete={register?'new-password':'current-password'} required minLength={register?8:undefined} value={password} disabled={busy} onChange={event=>setPassword(event.target.value)} /></label>
+      <button className="gm-button" type="submit" disabled={busy}>{register?c.register:c.signIn}</button>
     </form>
+    <FoundationButton disabled={busy} onClick={()=>{setRegister(value=>!value);setPassword('');setConfirmation(false);setFailed(false);}}>{register?c.backToSignIn:c.createAccount}</FoundationButton>
+    {confirmation&&<p role="status">{c.confirmation}</p>}
     {busy&&<p role="status">{c.checking}</p>}{failed&&<><p role="alert">{c.failed}</p><FoundationButton disabled={busy} onClick={()=>setRetry(v=>v+1)}>{c.retry}</FoundationButton></>}
   </PracticeCard></div></main>;
 }

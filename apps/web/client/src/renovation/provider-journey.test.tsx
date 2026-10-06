@@ -13,6 +13,7 @@ function fixture() {
     getUser:vi.fn(async()=>({data:{user:{id:subject,is_anonymous:false}},error:null})),
     signOut:vi.fn(async()=>{signedIn=false;callback('SIGNED_OUT');return {error:null};}),
     signInWithPassword:vi.fn(async()=>{signedIn=true;callback('SIGNED_IN');return {error:null};}),
+    signUp:vi.fn(async()=>({data:{session:null},error:null})),
     onAuthStateChange:(listener:(event:string)=>void)=>{callback=listener;queueMicrotask(()=>listener('INITIAL_SESSION'));return {data:{subscription:{unsubscribe:vi.fn()}}};},
   };
   const provider=new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project);
@@ -20,6 +21,18 @@ function fixture() {
   return {auth,host,emit:(event:string)=>callback(event)};
 }
 afterEach(()=>{cleanup();localStorage.clear();});
+it('registers without binding an unconfirmed identity or retaining its password',async()=> {
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Create account'})).toBeEnabled());
+  fireEvent.click(screen.getByRole('button',{name:'Create account'}));
+  fireEvent.change(screen.getByLabelText('Email'),{target:{value:'disposable@example.test'}});
+  fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
+  fireEvent.submit(screen.getByRole('button',{name:'Register'}).closest('form')!);
+  await screen.findByText('Check your email to confirm your account, then sign in.');
+  expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password'});
+  expect(screen.queryByText(/Bound learner/)).toBeNull();
+  expect(screen.getByLabelText('Password')).toHaveValue('');
+});
 it('mounts learner only after online verification and removes it on provider sign-out',async()=> {
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
   await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());

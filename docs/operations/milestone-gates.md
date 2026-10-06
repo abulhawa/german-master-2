@@ -1,5 +1,25 @@
 # Renovation acceptance gates
 
+## Production-first release policy - 6 October 2026
+
+The owner now authorizes direct production rollout using the renamed existing
+v2 Supabase resource and a separate v2 Vercel production project. Domain
+transfer remains conditional on ordinary registration, verified login/current
+session, mixed practice with persistence/confirmed Progress, logout/login
+recovery, owned export, complete learner/Auth deletion and basic runtime
+role/RLS checks. These are concrete cutover gates, separate from full milestone
+exits. Independent German approval, exhaustive accessibility and Android
+publication are follow-up work unless they demonstrate a release blocker.
+
+Production reclassification, restricted login membership inspection and four
+independent verified-TLS network connections are actual provider evidence.
+The five-target engineering catalog is retired and excluded from the distinct
+product starter release. No hosted deployment or real learner lifecycle gate
+is credited yet. Custom SMTP is unconfigured while email confirmation stays
+enabled; public registration is an actual release blocker. See
+[production deployment](production-deployment.md) and ADR 032. No full
+M0-M6 milestone closes from preparation or from the changed release policy.
+
 ## 6 October follow-up evidence
 
 Owner subsequently approved the single-function correction; it was applied as

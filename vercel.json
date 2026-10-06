@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build:learner-product",
+  "installCommand": "npm ci",
+  "outputDirectory": "apps/web/dist/learner-product",
+  "framework": null,
+  "regions": ["fra1"],
+  "functions": { "api/v2.ts": { "maxDuration": 60, "includeFiles": "services/api/supabase-ca.pem" } },
+  "rewrites": [
+    { "source": "/v2/:path*", "destination": "/api/v2?gm_path=:path*" },
+    { "source": "/((?!api/|assets/|sw.js|workbox-).*)", "destination": "/index.html" }
+  ],
+  "headers": [{ "source": "/v2/:path*", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }]
+}

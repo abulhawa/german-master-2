@@ -7,7 +7,7 @@ import {identityDeletionHttp,serializedDeletionWorker} from './identity-deletion
 
 /** Explicit server composition; never reads environment secrets or starts a listener. */
 export async function createNetworkApi(db:PostgresDatabase,authenticate:Authenticate,catalog?:RuntimeCatalog,webOrigin?:string,
-  identityDeletion?:IdentityDeletionService) {
+  identityDeletion?:IdentityDeletionService, deliverAdmitted?:(requestId:string)=>Promise<unknown>) {
   // Runtime startup is read-only. An absent/unknown baseline refuses startup.
   await new FoundationStore(db).initialize();
   return createApi(subject=>new FoundationStore(db.forSubject(subject),undefined,undefined,undefined,catalog),async request=> {
@@ -17,5 +17,5 @@ export async function createNetworkApi(db:PostgresDatabase,authenticate:Authenti
     // until reauthentication/revocation, retention and recovery are integrated.
     if(request.method==='DELETE') throw new ApiFailure('deletion_not_enabled',403);
     return subject;
-  },webOrigin,identityDeletion?identityDeletionHttp(identityDeletion,authenticate,undefined,serializedDeletionWorker(identityDeletion)):undefined);
+  },webOrigin,identityDeletion?identityDeletionHttp(identityDeletion,authenticate,undefined,deliverAdmitted??serializedDeletionWorker(identityDeletion)):undefined);
 }
