@@ -14,11 +14,16 @@ Hosted Web/Android/accessibility/safety/CodeQL pass for product commit
 runner-allocation blocker is resolved. The merged live release inventory remains
 the authoritative legacy production routing record.
 
-The single-function search-path correction is locally verified and awaiting
-explicit staging approval; actual security advisor still reports the warning.
-No device is attached and the saved fixture listener is absent on this host;
-the saved Pixel session remains untouched, with remaining core/accessibility
-acceptance blocked. See [correction review](staging-advisor-remediation.md) and
+The single-function search-path correction has actual approved staging
+verification. Correction commit `82958ec` passed hosted Web/Android/accessibility/
+safety/CodeQL; documentation checkpoint `a073075` passed safety/CodeQL.
+The original fixture listener now responds with the saved session, three
+attempts/evaluations, one report and no completion. No device is attached;
+remaining core/accessibility acceptance awaits the original Pixel.
+Actual role metadata/column-grant inspection passes, but read-only SET ROLE
+fails because administrative membership has SET FALSE. Runtime scoped
+connection/ownership/contention/load acceptance remains open. See
+[role evidence](staging-role-evidence.md), [correction review](staging-advisor-remediation.md) and
 [prepared account/device acceptance](staging-account-acceptance.md).
 These resolve hosted evidence and prepare live work; no full milestone closes.
 
