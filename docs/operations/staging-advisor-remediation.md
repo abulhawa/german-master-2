@@ -1,7 +1,24 @@
 # Staging advisor correction review
 
 6 October 2026. Target only `german-master-v2-staging`,
-`zgmyrpzwgtydwlzponih`. Prepared locally; **not applied**.
+`zgmyrpzwgtydwlzponih`. Owner approved and applied on 6 October 2026 as
+`v2_reject_mutation_fixed_search_path`.
+
+## Actual approved application evidence
+
+Reconfirmed the dedicated staging project name, ID, Frankfurt region,
+ACTIVE_HEALTHY status and PostgreSQL 17.11 before execution. Installed function
+body matched the reviewed baseline; configuration was null. Applied exactly the
+transaction below through the migration connector, which returned success.
+Post-application metadata confirms `search_path=""`, SECURITY INVOKER,
+unchanged function body, owner OID 16388, ACL `{postgres=X/postgres}` and
+19 trigger bindings. Security advisor now returns zero findings. Performance
+advisor remains at 19 initplan WARNs, eight unindexed-FK INFOs and 16
+unused-index INFOs. No live learner/auth fixture or credential was used.
+
+This closes the real staging search-path security subrequirement. It does not
+close M2 load/contention/catalog/identity acceptance or any full milestone.
+The following review records the approved operation and prior warning.
 
 Read-only inspection confirms `gm.reject_mutation()` is PL/pgSQL,
 SECURITY INVOKER, with null `proconfig`. Security advisor still reports one

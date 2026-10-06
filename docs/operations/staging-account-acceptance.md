@@ -6,8 +6,9 @@ routing documented in `live-release-inventory.md`.
 
 ## Prerequisites and approvals
 
-1. Approve the separately reviewed single-function advisor correction. Confirm
-   live metadata and advisors afterward.
+1. Completed: owner-approved single-function advisor correction, with actual
+   metadata verification and zero security advisor findings on 6 October 2026.
+   Performance/load findings remain open.
 2. Separately authorize scoped credential retrieval/provisioning through a
    protected secret channel: backend, session-verifier and identity-verifier
    connections, publishable client key and, only for approved deletion tests,

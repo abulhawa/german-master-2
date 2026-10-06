@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Approved staging search-path correction — 6 October 2026
+
+- Owner explicitly approved the reviewed single-function staging correction and advisor verification. Reconfirmed `german-master-v2-staging` / `zgmyrpzwgtydwlzponih`, Frankfurt, ACTIVE_HEALTHY and PostgreSQL 17.11; the installed invoker function body matched the reviewed baseline, with null configuration and 19 triggers.
+- Applied exactly transaction-wrapped `ALTER FUNCTION gm.reject_mutation() SET search_path = ''` through the migration connector as `v2_reject_mutation_fixed_search_path`; execution succeeded. Actual post-change metadata confirms the fixed empty path, unchanged body/owner/ACL and all 19 trigger bindings, still SECURITY INVOKER. Security advisor returns zero findings. Performance advisor still reports 19 initplan WARNs, eight unindexed-FK INFOs and 16 unused-index INFOs. Evidence: `docs/operations/staging-advisor-remediation.md`.
+- **Closed:** real staging mutable-search-path security subrequirement. **No full milestone closes.** Local ten-test/typecheck evidence remains separate from this actual staging metadata/advisor result; no live learner lifecycle, load/contention or device result is claimed.
+- No credential retrieval, login/account creation, identity deletion, catalog publication, deployment, production routing or device reset occurred. Those operations remain separately approved actions. Pixel/5001 absence from the prior inventory still blocks the preserved device continuation.
+- Changes remain local/uncommitted. Proposed commit: `fix: pin immutable trigger search path and record staging verification`.
+- **Single best next action:** reconnect the original Pixel and locate its surviving original loopback fixture/session, then complete the saved word-order/multi-slot/full-completion/Progress and practical accessibility journey without resetting data. If the fixture is lost, report that before preparing a replacement run. Real staging account lifecycle next requires separate scoped credential/account approvals described in `docs/operations/staging-account-acceptance.md`.
+
 ## Hosted CI reconciliation and minimal advisor preparation — 6 October 2026
 
 - Fetched `origin/main`; local main already matches `f019309a717e20aad6cee43a081a11a8f26300cc`, including merged live release inventory. Started clean; preserved existing implementation and inventory. Read root instructions, continuation, milestone gates, blueprint operations/account requirements and ADRs 002/027/028/031. Production routing remains the deliberate legacy `abulhawa/german-master` deployment; no Vercel inventory was repeated or routing changed.

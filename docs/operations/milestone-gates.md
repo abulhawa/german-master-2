@@ -2,6 +2,13 @@
 
 ## 6 October follow-up evidence
 
+Owner subsequently approved the single-function correction; it was applied as
+`v2_reject_mutation_fixed_search_path`. Actual metadata confirms the empty path
+with unchanged body/owner/ACL/19 triggers; security advisor now reports zero
+findings. The staging search-path security subrequirement closes. Performance
+findings and M2 identity/catalog/contention/load remain open; no full milestone
+closes. The awaiting-approval description below is superseded by this result.
+
 Hosted Web/Android/accessibility/safety/CodeQL pass for product commit
 `3c147367`; safety/CodeQL pass for inventory merge `f019309a`. The earlier
 runner-allocation blocker is resolved. The merged live release inventory remains
