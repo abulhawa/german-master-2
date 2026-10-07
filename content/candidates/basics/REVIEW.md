@@ -12,11 +12,11 @@ Check naturalness, requested form, alternatives, hint leakage, explanation, leve
 
 Target: 10000000-0000-4000-8000-000000000000; category: plural; review: pending.
 
-Content hash: 1bcd4b9847a8201d376a131a7b16d56e70b7ad477ac3a66263a38b8e6603ef78
+Content hash: b66c8328feeb029f9daa541256e22d9715c46ec0e4136a7ff6e03994cd255f27
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-0-0** — Schreibe den Plural von „der Antrag“ ohne Artikel.
+**v-0-0** — Was ist der Plural von „der Antrag“?
 
 Accepted: `[{"type":"choice","optionId":"Anträge"}]`
 
@@ -40,11 +40,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000001; category: plural; review: pending.
 
-Content hash: 2d5952dbb87be8a5d392c31ed4127b4421c116443bcfff2e99d0a86f771b85a2
+Content hash: 68b5735b38d5eaaa896dbeeee1c2b66a110efa842e062a748c089f62a17a30c9
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-1-0** — Schreibe den Plural von „die Rechnung“ ohne Artikel.
+**v-1-0** — Was ist der Plural von „die Rechnung“?
 
 Accepted: `[{"type":"choice","optionId":"Rechnungen"}]`
 
@@ -68,11 +68,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000002; category: plural; review: pending.
 
-Content hash: 062fb604ae64f47905282176214beff48572d4a2644914ff46430880729efb1d
+Content hash: ca5c36de90da2277d003d8729987d3f7f747ef93ba855b0038966361fa707747
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-2-0** — Schreibe den Plural von „der Termin“ ohne Artikel.
+**v-2-0** — Was ist der Plural von „der Termin“?
 
 Accepted: `[{"type":"choice","optionId":"Termine"}]`
 
@@ -96,11 +96,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000003; category: plural; review: pending.
 
-Content hash: 04f78374063a42f2c806d71ad634650bc00a4199bc91bca3913cfc117f98ff32
+Content hash: f860ffe97fd3c58d8886ed713fc5f744bc9edc62107e725f0a85c80e60ddebfd
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-3-0** — Schreibe den Plural von „das Gespräch“ ohne Artikel.
+**v-3-0** — Was ist der Plural von „das Gespräch“?
 
 Accepted: `[{"type":"choice","optionId":"Gespräche"}]`
 
@@ -124,11 +124,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000004; category: plural; review: pending.
 
-Content hash: 4c4251c7b59b0608d7ba1691010f3cf5470497c8291b01b26e98ab7710825420
+Content hash: 27d50a05c9927634d8a7c6b535659d2c5e0be39bad57f15def0cc79823d60896
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-4-0** — Schreibe den Plural von „der Vertrag“ ohne Artikel.
+**v-4-0** — Was ist der Plural von „der Vertrag“?
 
 Accepted: `[{"type":"choice","optionId":"Verträge"}]`
 
@@ -152,11 +152,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000005; category: plural; review: pending.
 
-Content hash: 2adff9e8b3281615e11833cb5e4bb4ff521357549b4f9f419360631f2e56ba24
+Content hash: 00622719b7ca46ffb8fb42a667f44617b7f46bb9e57f1303715c7c1b895aadd3
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-5-0** — Schreibe den Plural von „die Erfahrung“ ohne Artikel.
+**v-5-0** — Was ist der Plural von „die Erfahrung“?
 
 Accepted: `[{"type":"choice","optionId":"Erfahrungen"}]`
 
@@ -180,11 +180,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000006; category: plural; review: pending.
 
-Content hash: 67e5fe84436ece14ee3dcfd8f7af8ce07648b844d65b30d65062a9316c5e5eea
+Content hash: 5f6854ec49be76d947e413bd67f44450e98a16fdae570b98d1943f12458ceb71
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-6-0** — Schreibe den Plural von „das Angebot“ ohne Artikel.
+**v-6-0** — Was ist der Plural von „das Angebot“?
 
 Accepted: `[{"type":"choice","optionId":"Angebote"}]`
 
@@ -208,11 +208,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000007; category: plural; review: pending.
 
-Content hash: 02f302b81980ab5d0692b4d2a94ecba842d27980ab70f9157ebcafa5b208ba64
+Content hash: c98d5f9d521243baf0284b1a718ba8cda0e2db57fe1ebad1244fbdc1b48dbb23
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-7-0** — Schreibe den Plural von „die Entscheidung“ ohne Artikel.
+**v-7-0** — Was ist der Plural von „die Entscheidung“?
 
 Accepted: `[{"type":"choice","optionId":"Entscheidungen"}]`
 
@@ -236,11 +236,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000008; category: plural; review: pending.
 
-Content hash: bb1289961e9542fc52851865964451edab7a8e77fd3e8f4e695450a57feeebdc
+Content hash: f7838e0e47a6baa32161fa61de88802ac9fbf445be0d3c6825efd95fe6965280
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-8-0** — Schreibe den Plural von „die Voraussetzung“ ohne Artikel.
+**v-8-0** — Was ist der Plural von „die Voraussetzung“?
 
 Accepted: `[{"type":"choice","optionId":"Voraussetzungen"}]`
 
@@ -264,11 +264,11 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000009; category: plural; review: pending.
 
-Content hash: 84f0fa33ed8794c7494a68b738900b88097870ac6423d3a16c64274b6d88c312
+Content hash: fe3c4e11387aa4dcd4ef1c296533233f4cd52e9bd34256492bd16603a132a02a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
-**v-9-0** — Schreibe den Plural von „der Vorschlag“ ohne Artikel.
+**v-9-0** — Was ist der Plural von „der Vorschlag“?
 
 Accepted: `[{"type":"choice","optionId":"Vorschläge"}]`
 

@@ -72,4 +72,4 @@ engineering evidence, not content publication or independent German approval.
 
 ## Low-typing candidate refresh — 7 October 2026
 
-The unpublished candidate now includes 20 converted B1 targets at revision 2: 10 plural targets as `choice` MCQs and five adjective-ending plus five irregular present-tense targets as `gap_choice` exercises (40 variants total). The prior published basic release is not modified. Candidate manifest: `43024a4cfa3f214a421c6c29a82246693626f67331480d7fc6a3b095c17ae915`. Independent German review remains pending.
+The unpublished candidate now includes 20 converted B1 targets at revision 2: 10 plural targets as `choice` MCQs and five adjective-ending plus five irregular present-tense targets as `gap_choice` exercises (40 variants total). The prior published basic release is not modified. Candidate manifest: `2417bd644424ce5ac84aadd15b473ff723e0c801d7cf69d4e783fd51f30456f7`. Independent German review remains pending.
