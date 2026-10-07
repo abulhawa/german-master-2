@@ -12,281 +12,281 @@ Check naturalness, requested form, alternatives, hint leakage, explanation, leve
 
 Target: 10000000-0000-4000-8000-000000000000; category: plural; review: pending.
 
-Content hash: 92c842f99ba9140c68825f4e1a9d4aea5972aff5ce1c94d6b05320efbd21db47
+Content hash: 1bcd4b9847a8201d376a131a7b16d56e70b7ad477ac3a66263a38b8e6603ef78
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-0-0** — Schreibe den Plural von „der Antrag“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Anträge"}]`
+Accepted: `[{"type":"choice","optionId":"Anträge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Anträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-0-1** — Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Anträge"}]}]`
+Accepted: `[{"type":"choice","optionId":"Anträge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Anträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: die Rechnung
 
 Target: 10000000-0000-4000-8000-000000000001; category: plural; review: pending.
 
-Content hash: d74bf7813f2b1960467cf47981356f6e8b8c1db6210d7d19a04d50c0765488d7
+Content hash: 2d5952dbb87be8a5d392c31ed4127b4421c116443bcfff2e99d0a86f771b85a2
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-1-0** — Schreibe den Plural von „die Rechnung“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Rechnungen"}]`
+Accepted: `[{"type":"choice","optionId":"Rechnungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Rechnungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-1-1** — Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Rechnungen"}]}]`
+Accepted: `[{"type":"choice","optionId":"Rechnungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Rechnungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: der Termin
 
 Target: 10000000-0000-4000-8000-000000000002; category: plural; review: pending.
 
-Content hash: 290ba4da43757d85b5df351b01c45fe807f2cfaa7ea741fdbc7fe4ebcdd88ab1
+Content hash: 062fb604ae64f47905282176214beff48572d4a2644914ff46430880729efb1d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-2-0** — Schreibe den Plural von „der Termin“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Termine"}]`
+Accepted: `[{"type":"choice","optionId":"Termine"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Termine ist der Standardplural. Der Plural bekommt die Endung -e.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-2-1** — Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Termine"}]}]`
+Accepted: `[{"type":"choice","optionId":"Termine"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Termine ist der Standardplural. Der Plural bekommt die Endung -e.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: das Gespräch
 
 Target: 10000000-0000-4000-8000-000000000003; category: plural; review: pending.
 
-Content hash: 8aa837b84188bbdf460dab3badcf196724a31c4976f0c6abebba07d31386b418
+Content hash: 04f78374063a42f2c806d71ad634650bc00a4199bc91bca3913cfc117f98ff32
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-3-0** — Schreibe den Plural von „das Gespräch“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Gespräche"}]`
+Accepted: `[{"type":"choice","optionId":"Gespräche"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Gespräche ist der Standardplural. Der Plural bekommt -e; der Stammvokal bleibt ä.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-3-1** — Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Gespräche"}]}]`
+Accepted: `[{"type":"choice","optionId":"Gespräche"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Gespräche ist der Standardplural. Der Plural bekommt -e; der Stammvokal bleibt ä.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: der Vertrag
 
 Target: 10000000-0000-4000-8000-000000000004; category: plural; review: pending.
 
-Content hash: ae9eb450ac908d2c90a1cf3a011834249a968b17c9f1e8b793c4f9de64188d96
+Content hash: 4c4251c7b59b0608d7ba1691010f3cf5470497c8291b01b26e98ab7710825420
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-4-0** — Schreibe den Plural von „der Vertrag“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Verträge"}]`
+Accepted: `[{"type":"choice","optionId":"Verträge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Verträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-4-1** — Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Verträge"}]}]`
+Accepted: `[{"type":"choice","optionId":"Verträge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Verträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: die Erfahrung
 
 Target: 10000000-0000-4000-8000-000000000005; category: plural; review: pending.
 
-Content hash: 7978f2366fbbc87810c12c45e09551a84f74b8f389a24e9cd579f0b5eff56d96
+Content hash: 2adff9e8b3281615e11833cb5e4bb4ff521357549b4f9f419360631f2e56ba24
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-5-0** — Schreibe den Plural von „die Erfahrung“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Erfahrungen"}]`
+Accepted: `[{"type":"choice","optionId":"Erfahrungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Erfahrungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-5-1** — Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Erfahrungen"}]}]`
+Accepted: `[{"type":"choice","optionId":"Erfahrungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Erfahrungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: das Angebot
 
 Target: 10000000-0000-4000-8000-000000000006; category: plural; review: pending.
 
-Content hash: c808e339cb2b20d8ea27db1e3b6bf4895e3170ff7e402a738deb8161323dd2aa
+Content hash: 67e5fe84436ece14ee3dcfd8f7af8ce07648b844d65b30d65062a9316c5e5eea
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-6-0** — Schreibe den Plural von „das Angebot“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Angebote"}]`
+Accepted: `[{"type":"choice","optionId":"Angebote"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Angebote ist der Standardplural. Der Plural bekommt die Endung -e.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-6-1** — Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Angebote"}]}]`
+Accepted: `[{"type":"choice","optionId":"Angebote"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Angebote ist der Standardplural. Der Plural bekommt die Endung -e.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: die Entscheidung
 
 Target: 10000000-0000-4000-8000-000000000007; category: plural; review: pending.
 
-Content hash: 2fad98a9ec409d2fc0ee0024c3659b9a5261879c2348377c38c31097abf97531
+Content hash: 02f302b81980ab5d0692b4d2a94ecba842d27980ab70f9157ebcafa5b208ba64
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-7-0** — Schreibe den Plural von „die Entscheidung“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Entscheidungen"}]`
+Accepted: `[{"type":"choice","optionId":"Entscheidungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Entscheidungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-7-1** — Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Entscheidungen"}]}]`
+Accepted: `[{"type":"choice","optionId":"Entscheidungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Entscheidungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: die Voraussetzung
 
 Target: 10000000-0000-4000-8000-000000000008; category: plural; review: pending.
 
-Content hash: 852d4a43f5027d736d839183cf4ac4da46b8a750465aa1fb0ce763442976f327
+Content hash: bb1289961e9542fc52851865964451edab7a8e77fd3e8f4e695450a57feeebdc
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-8-0** — Schreibe den Plural von „die Voraussetzung“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Voraussetzungen"}]`
+Accepted: `[{"type":"choice","optionId":"Voraussetzungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Voraussetzungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-8-1** — Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Voraussetzungen"}]}]`
+Accepted: `[{"type":"choice","optionId":"Voraussetzungen"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Voraussetzungen ist der Standardplural. Der Plural bekommt die Endung -en.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Plural: der Vorschlag
 
 Target: 10000000-0000-4000-8000-000000000009; category: plural; review: pending.
 
-Content hash: 23a94e6072ef5fc4dae8d51e7e81e04beee36efe1c8babc7ac9f58d2053479ae
+Content hash: 84f0fa33ed8794c7494a68b738900b88097870ac6423d3a16c64274b6d88c312
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-9-0** — Schreibe den Plural von „der Vorschlag“ ohne Artikel.
 
-Accepted: `[{"type":"short_answer","text":"Vorschläge"}]`
+Accepted: `[{"type":"choice","optionId":"Vorschläge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Vorschläge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma and requested number are explicit. Accept only the standard plural noun form without an article.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 **v-9-1** — Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)
 
-Accepted: `[{"type":"cloze","values":[{"slotId":"plural","text":"Vorschläge"}]}]`
+Accepted: `[{"type":"choice","optionId":"Vorschläge"}]`
 
 Hint: Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert.
 
 Explanation: Vorschläge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä.
 
-The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank.
+The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production.
 
 ### B1: Dativartikel nach „mit“
 

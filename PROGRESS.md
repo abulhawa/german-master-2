@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## Low-typing plural conversion — 8 October 2026
+
+- Converted all 10 B1 plural targets (20 variants) from typed `short_answer` / `cloze` revision 1 exercises to revision 2 `choice` MCQs. Every item has four options: the correct standard plural plus realistic learner-error forms, including missing umlaut, singular carry-over, wrong ending, dative-plural `-n`, or `-s` overgeneralization where appropriate. Correct positions vary across all four option positions.
+- Updated the editorial validator so the B1 draft intentionally requires the current low-typing format mix (`choice`, `gap_choice`, `word_order`) instead of obsolete typing formats. Added regression coverage for all 20 plural revision-2 choices and their distractor identities.
+- Regenerated candidate SQL/catalog and both review workbooks. The unpublished basic candidate still has 65 targets / 125 exercises, now with 40 converted B1 revision-2 exercises: 20 plural `choice` and 20 adjective/verb `gap_choice`. Production revision 1 content remains untouched.
+- Candidate manifest: `43024a4cfa3f214a421c6c29a82246693626f67331480d7fc6a3b095c17ae915`. Basic-content acceptance now checks the 40-row revision-2 split and target-focused runtime allocation for plural, adjective and verb conversions; the generator synchronization guard remains active.
+- Exact next action: complete hosted CI, then perform client-level preview/acceptance of the three converted families before expanding low-typing conversion into other topics.
+
 ## Low-typing verb conversion — 7 October 2026
 
 - Converted the complete five-target B1 irregular present-tense topic (10 variants: fahren, lesen, geben, nehmen, sprechen) from typed `multi_slot` to two-slot `gap_choice` revision 2 exercises. Distractors are plausible competing finite forms and authored positions vary across slots/variants. Objective and ambiguity wording now describes controlled recognition rather than unrestricted production.
