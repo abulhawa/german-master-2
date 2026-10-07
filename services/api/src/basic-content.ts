@@ -36,7 +36,7 @@ function insert(table:string,columns:string[],values:unknown[]) {
   return `INSERT INTO gm.${table} (${columns.join(',')}) VALUES (${values.map(literal).join(',')});`;
 }
 
-/** Builds an additive, unpublished candidate. No connection or publication side effects.
+/** Builds an additive draft or content-authorized release, with no connection side effects.
  * Existing revisions and release membership are referenced, never replaced. */
 export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, previousMembers:RuntimeMember[], publication?:BasicPublicationAuthorization) {
   const {catalog, targets:targetCount, variants} = validateDraftCatalog(input);

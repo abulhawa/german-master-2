@@ -49,3 +49,22 @@ sessions, record answers and duplicate receipts, and replay old pinned sessions.
 Independent German review remains open; B2 pack selection is not a proficiency
 certification. Publication does not close product milestones or Android release
 gates. Deployment and integrated-browser acceptance are recorded in PROGRESS.md.
+
+The content commit `17686ff` automatically deployed as
+`dpl_6mosqevefzxdhQS2QLCHA4nurPym`. Integrated-browser acceptance on the same
+production artifact's isolated `german-master-v2.vercel.app` origin confirms
+B2 practice is enabled, an actual 15-question session loads and its hint renders.
+The custom-domain origin had an existing cross-tab practice lock; the user's
+tab was left untouched. No test answers or preference changes were submitted.
+
+Hosted verification exposed a pre-existing timestamp truncation defect in the
+web client. Commit `f2d1419` preserves milliseconds so a quick answer cannot be
+mistaken for a pre-session answer solely because its timestamp was rounded
+down. The real HTTP regression now answers at the exact subsecond issuance
+instant and checks one qualifying success after lost-response/duplicate replay.
+No evidence policy, server grader or existing frozen request is changed.
+Its automatic deployment `dpl_ApE99jb6zL4PNxKXBgQ8y5fAwUsY` is READY.
+Hosted [Web checks](https://github.com/abulhawa/german-master-2/actions/runs/37678733138)
+pass at this code commit, including all tests, normal/preview/product builds and
+offline cold-launch/late-sync acceptance. Web accessibility and repository
+safety also pass. Independent German review remains a separate open gate.
