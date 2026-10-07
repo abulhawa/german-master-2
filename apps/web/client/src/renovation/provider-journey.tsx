@@ -5,6 +5,7 @@ import { createLearnerProvider } from './provider';
 import { FoundationButton, PracticeCard } from '../foundation/preview';
 import { LearnerSignOut } from './signout';
 import { browserStorage } from './storage';
+import { GuestStarterJourney, guestAttemptCount } from './guest-starter';
 
 import { providerCopy as copy } from './provider-locales';
 
@@ -51,7 +52,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     }
     const {data}=host.client.auth.onAuthStateChange(event=> {
       if(!alive) return;
-      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');}
+      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
       else if(event==='INITIAL_SESSION'||event==='SIGNED_IN'||event==='USER_UPDATED'||event==='TOKEN_REFRESHED') {
         // SDK callbacks hold the auth lock; schedule provider reads after callback return.
         host.provider.invalidate();setAccount(null);queueMicrotask(()=> {if(alive)verify(event==='INITIAL_SESSION',event==='SIGNED_IN');});
@@ -80,11 +81,18 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);setShowLogin(false);}}
     catch {setFailed(true);}
   }
+  function openAuth(mode:'sign-in'|'register') {
+    setRegister(mode==='register');setConfirmation(false);setFailed(false);setShowLogin(true);
+  }
   if(account&&!showLogin) return <><div className="gm-foundation" lang={locale}><div className="gm-column">
     {local&&<p role="status">{c.local}</p>}<FoundationButton onClick={()=>setShowLogin(true)}>{c.reauth}</FoundationButton>
   </div></div><LearnerJourney account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} /></>;
+  if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
+  const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
+    {guestAttempts>0&&<p role="status">{locale==='de'?`Deine Gastübungen bleiben auf diesem Gerät, während du dich anmeldest. ${guestAttempts} geeignete Versuche werden nicht automatisch übernommen.`:`Your guest practice stays on this device while you sign in. ${guestAttempts} eligible attempts will not be attached automatically.`}</p>}
+    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{locale==='de'?'Zurück zur Gastübung':'Back to guest practice'}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
       <label className="gm-field" htmlFor="v2-email">{c.email}<input id="v2-email" type="email" autoComplete="username" required value={email} disabled={busy} onChange={event=>setEmail(event.target.value)} /></label>
