@@ -38,9 +38,12 @@ account setup use protected channels; never include secrets in handoff files.
 
 ## Immediate work streams
 
-1. **ChatGPT: content and learner design.** Refine the existing 30-target,
-   60-variant draft and prepare concrete learner-screen designs based on the
-   blueprint. Return usable files, screen specifications and copy.
+1. **ChatGPT: content and learner design.** The implementation-ready
+   learner-screen specification is now in
+   [learner-screens-ux.md](learner-screens-ux.md), complementing the existing
+   guest-practice handoff and visual concepts. Next, refine the existing
+   30-target/60-variant draft for editorial review, preserving target/revision
+   identifiers and independent-review gates.
 2. **Codex: guest practice.** Implement "Try German Master" without the current
    sign-in wall. Keep guest evidence local/provisional. Offer explicit saving
    after sign-in, with server revision validation, ownership isolation and
