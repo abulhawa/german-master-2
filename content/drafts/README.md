@@ -23,3 +23,7 @@ Revision 1 remains the published historical content and is not changed by this w
 ## Low-typing verb pilot — 7 October 2026
 
 The five B1 irregular present-tense targets (`fahren`, `lesen`, `geben`, `nehmen`, `sprechen`) are now prepared as immutable revision 2 `gap_choice` exercises instead of typed `multi_slot` answers. All 10 variants retain two explicit subject slots, use plausible finite-form distractors in varied authored orders, and preserve the bilingual rule explanations. The objective wording now reflects choosing the correct forms rather than unrestricted production. Revision 1 remains historical published content; revision 2 remains pending independent review and unpublished.
+
+## Low-typing plural conversion — 8 October 2026
+
+All 10 B1 plural targets are prepared as immutable revision 2 `choice` exercises (20 variants). Each question uses four noun-form options built from the correct plural plus realistic learner errors such as missing umlaut, wrong plural ending, dative-plural `-n`, singular carry-over or `-s` overgeneralization where appropriate. Correct-answer positions vary in authored order because clients do not shuffle at runtime. The objective now explicitly measures choosing the standard plural rather than unrestricted written production. Revision 1 remains historical published content; revision 2 remains unpublished and pending independent German review.

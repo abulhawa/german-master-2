@@ -3,7 +3,7 @@ import draft from '../../../content/drafts/initial-30.json';
 import { validateDraftCatalog } from './content-review';
 
 describe('initial editorial workspace', () => {
-  it('validates 30 original targets, 60 variants and all initial forms without approving content', () => {
+  it('validates 30 original targets, 60 variants and the intended low-typing forms without approving content', () => {
     const result = validateDraftCatalog(draft);
     expect([result.targets,result.variants,result.independentlyApproved]).toEqual([30,60,0]);
     expect(result.catalog.publicationApproved).toBe(false);
@@ -20,6 +20,19 @@ describe('initial editorial workspace', () => {
     if (mode === 'publication') data.publicationApproved = true;
     if (mode === 'solution') Object.assign(variant.exercise,{acceptedAnswer:'leaked'});
     expect(() => validateDraftCatalog(data)).toThrow();
+  });
+  it('converts plural recognition to revision-2 choices with realistic distinct distractors', () => {
+    const result = validateDraftCatalog(draft);
+    const plurals = result.catalog.targets.filter(item => item.category === 'plural');
+    expect(plurals).toHaveLength(10);
+    const variants = plurals.flatMap(item => item.variants);
+    expect(variants).toHaveLength(20);
+    expect(variants.every(item => item.exercise.type === 'choice' && item.exercise.revision === 2)).toBe(true);
+    for (const item of variants) {
+      if (item.exercise.type !== 'choice' || item.rubric.acceptedAnswers[0].type !== 'choice') throw Error('unexpected plural shape');
+      expect(new Set(item.exercise.options.map(option => option.id)).size).toBe(4);
+      expect(item.exercise.options.some(option => option.id === item.rubric.acceptedAnswers[0].optionId)).toBe(true);
+    }
   });
   it('validates identities inside low-typing inputs', () => {
     const data = structuredClone(draft);

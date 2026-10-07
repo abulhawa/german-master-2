@@ -9,7 +9,7 @@
         "en": "Plural: der Antrag",
         "de": "Plural: der Antrag"
       },
-      "objective": "Recall and produce the standard plural of der Antrag.",
+      "objective": "Choose the standard plural of der Antrag.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -17,7 +17,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -28,25 +28,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001000",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000000",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „der Antrag“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „der Antrag“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Antrage",
+                "text": "Antrage"
+              },
+              {
+                "id": "Anträge",
+                "text": "Anträge"
+              },
+              {
+                "id": "Antrags",
+                "text": "Antrags"
+              },
+              {
+                "id": "Anträgen",
+                "text": "Anträgen"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Anträge"
+                "type": "choice",
+                "optionId": "Anträge"
               }
             ],
             "explanation": {
@@ -54,7 +72,7 @@
               "de": "Anträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-0-1",
@@ -63,22 +81,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001001",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000000",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Anträgen",
+                "text": "Anträgen"
+              },
+              {
+                "id": "Antrags",
+                "text": "Antrags"
+              },
+              {
+                "id": "Anträge",
+                "text": "Anträge"
+              },
+              {
+                "id": "Antrage",
+                "text": "Antrage"
               }
             ]
           },
@@ -86,13 +116,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Anträge"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Anträge"
               }
             ],
             "explanation": {
@@ -100,7 +125,7 @@
               "de": "Anträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -110,7 +135,7 @@
         "en": "Plural: die Rechnung",
         "de": "Plural: die Rechnung"
       },
-      "objective": "Recall and produce the standard plural of die Rechnung.",
+      "objective": "Choose the standard plural of die Rechnung.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -118,7 +143,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -129,25 +154,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001002",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000001",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „die Rechnung“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „die Rechnung“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Rechnungen",
+                "text": "Rechnungen"
+              },
+              {
+                "id": "Rechnunge",
+                "text": "Rechnunge"
+              },
+              {
+                "id": "Rechnung",
+                "text": "Rechnung"
+              },
+              {
+                "id": "Rechnungs",
+                "text": "Rechnungs"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Rechnungen"
+                "type": "choice",
+                "optionId": "Rechnungen"
               }
             ],
             "explanation": {
@@ -155,7 +198,7 @@
               "de": "Rechnungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-1-1",
@@ -164,22 +207,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001003",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000001",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Rechnungs",
+                "text": "Rechnungs"
+              },
+              {
+                "id": "Rechnung",
+                "text": "Rechnung"
+              },
+              {
+                "id": "Rechnunge",
+                "text": "Rechnunge"
+              },
+              {
+                "id": "Rechnungen",
+                "text": "Rechnungen"
               }
             ]
           },
@@ -187,13 +242,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Rechnungen"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Rechnungen"
               }
             ],
             "explanation": {
@@ -201,7 +251,7 @@
               "de": "Rechnungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -211,7 +261,7 @@
         "en": "Plural: der Termin",
         "de": "Plural: der Termin"
       },
-      "objective": "Recall and produce the standard plural of der Termin.",
+      "objective": "Choose the standard plural of der Termin.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -219,7 +269,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -230,25 +280,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001004",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000002",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „der Termin“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „der Termin“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Terminen",
+                "text": "Terminen"
+              },
+              {
+                "id": "Termine",
+                "text": "Termine"
+              },
+              {
+                "id": "Termins",
+                "text": "Termins"
+              },
+              {
+                "id": "Termin",
+                "text": "Termin"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Termine"
+                "type": "choice",
+                "optionId": "Termine"
               }
             ],
             "explanation": {
@@ -256,7 +324,7 @@
               "de": "Termine ist der Standardplural. Der Plural bekommt die Endung -e."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-2-1",
@@ -265,22 +333,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001005",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000002",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Termin",
+                "text": "Termin"
+              },
+              {
+                "id": "Termins",
+                "text": "Termins"
+              },
+              {
+                "id": "Terminen",
+                "text": "Terminen"
+              },
+              {
+                "id": "Termine",
+                "text": "Termine"
               }
             ]
           },
@@ -288,13 +368,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Termine"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Termine"
               }
             ],
             "explanation": {
@@ -302,7 +377,7 @@
               "de": "Termine ist der Standardplural. Der Plural bekommt die Endung -e."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -312,7 +387,7 @@
         "en": "Plural: das Gespräch",
         "de": "Plural: das Gespräch"
       },
-      "objective": "Recall and produce the standard plural of das Gespräch.",
+      "objective": "Choose the standard plural of das Gespräch.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -320,7 +395,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -331,25 +406,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001006",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000003",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „das Gespräch“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „das Gespräch“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Gesprächs",
+                "text": "Gesprächs"
+              },
+              {
+                "id": "Gesprächen",
+                "text": "Gesprächen"
+              },
+              {
+                "id": "Gespräche",
+                "text": "Gespräche"
+              },
+              {
+                "id": "Gespräch",
+                "text": "Gespräch"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Gespräche"
+                "type": "choice",
+                "optionId": "Gespräche"
               }
             ],
             "explanation": {
@@ -357,7 +450,7 @@
               "de": "Gespräche ist der Standardplural. Der Plural bekommt -e; der Stammvokal bleibt ä."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-3-1",
@@ -366,22 +459,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001007",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000003",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Gespräche",
+                "text": "Gespräche"
+              },
+              {
+                "id": "Gesprächs",
+                "text": "Gesprächs"
+              },
+              {
+                "id": "Gespräch",
+                "text": "Gespräch"
+              },
+              {
+                "id": "Gesprächen",
+                "text": "Gesprächen"
               }
             ]
           },
@@ -389,13 +494,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Gespräche"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Gespräche"
               }
             ],
             "explanation": {
@@ -403,7 +503,7 @@
               "de": "Gespräche ist der Standardplural. Der Plural bekommt -e; der Stammvokal bleibt ä."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -413,7 +513,7 @@
         "en": "Plural: der Vertrag",
         "de": "Plural: der Vertrag"
       },
-      "objective": "Recall and produce the standard plural of der Vertrag.",
+      "objective": "Choose the standard plural of der Vertrag.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -421,7 +521,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -432,25 +532,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001008",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000004",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „der Vertrag“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „der Vertrag“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Verträgen",
+                "text": "Verträgen"
+              },
+              {
+                "id": "Vertrage",
+                "text": "Vertrage"
+              },
+              {
+                "id": "Verträge",
+                "text": "Verträge"
+              },
+              {
+                "id": "Vertrags",
+                "text": "Vertrags"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Verträge"
+                "type": "choice",
+                "optionId": "Verträge"
               }
             ],
             "explanation": {
@@ -458,7 +576,7 @@
               "de": "Verträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-4-1",
@@ -467,22 +585,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001009",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000004",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Vertrags",
+                "text": "Vertrags"
+              },
+              {
+                "id": "Verträge",
+                "text": "Verträge"
+              },
+              {
+                "id": "Verträgen",
+                "text": "Verträgen"
+              },
+              {
+                "id": "Vertrage",
+                "text": "Vertrage"
               }
             ]
           },
@@ -490,13 +620,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Verträge"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Verträge"
               }
             ],
             "explanation": {
@@ -504,7 +629,7 @@
               "de": "Verträge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -514,7 +639,7 @@
         "en": "Plural: die Erfahrung",
         "de": "Plural: die Erfahrung"
       },
-      "objective": "Recall and produce the standard plural of die Erfahrung.",
+      "objective": "Choose the standard plural of die Erfahrung.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -522,7 +647,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -533,25 +658,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001010",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000005",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „die Erfahrung“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „die Erfahrung“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Erfahrung",
+                "text": "Erfahrung"
+              },
+              {
+                "id": "Erfahrunge",
+                "text": "Erfahrunge"
+              },
+              {
+                "id": "Erfahrungs",
+                "text": "Erfahrungs"
+              },
+              {
+                "id": "Erfahrungen",
+                "text": "Erfahrungen"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Erfahrungen"
+                "type": "choice",
+                "optionId": "Erfahrungen"
               }
             ],
             "explanation": {
@@ -559,7 +702,7 @@
               "de": "Erfahrungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-5-1",
@@ -568,22 +711,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001011",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000005",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Erfahrungen",
+                "text": "Erfahrungen"
+              },
+              {
+                "id": "Erfahrung",
+                "text": "Erfahrung"
+              },
+              {
+                "id": "Erfahrungs",
+                "text": "Erfahrungs"
+              },
+              {
+                "id": "Erfahrunge",
+                "text": "Erfahrunge"
               }
             ]
           },
@@ -591,13 +746,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Erfahrungen"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Erfahrungen"
               }
             ],
             "explanation": {
@@ -605,7 +755,7 @@
               "de": "Erfahrungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -615,7 +765,7 @@
         "en": "Plural: das Angebot",
         "de": "Plural: das Angebot"
       },
-      "objective": "Recall and produce the standard plural of das Angebot.",
+      "objective": "Choose the standard plural of das Angebot.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -623,7 +773,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -634,25 +784,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001012",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000006",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „das Angebot“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „das Angebot“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Angebots",
+                "text": "Angebots"
+              },
+              {
+                "id": "Angebot",
+                "text": "Angebot"
+              },
+              {
+                "id": "Angebote",
+                "text": "Angebote"
+              },
+              {
+                "id": "Angeboten",
+                "text": "Angeboten"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Angebote"
+                "type": "choice",
+                "optionId": "Angebote"
               }
             ],
             "explanation": {
@@ -660,7 +828,7 @@
               "de": "Angebote ist der Standardplural. Der Plural bekommt die Endung -e."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-6-1",
@@ -669,22 +837,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001013",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000006",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Angeboten",
+                "text": "Angeboten"
+              },
+              {
+                "id": "Angebote",
+                "text": "Angebote"
+              },
+              {
+                "id": "Angebot",
+                "text": "Angebot"
+              },
+              {
+                "id": "Angebots",
+                "text": "Angebots"
               }
             ]
           },
@@ -692,13 +872,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Angebote"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Angebote"
               }
             ],
             "explanation": {
@@ -706,7 +881,7 @@
               "de": "Angebote ist der Standardplural. Der Plural bekommt die Endung -e."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -716,7 +891,7 @@
         "en": "Plural: die Entscheidung",
         "de": "Plural: die Entscheidung"
       },
-      "objective": "Recall and produce the standard plural of die Entscheidung.",
+      "objective": "Choose the standard plural of die Entscheidung.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -724,7 +899,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -735,25 +910,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001014",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000007",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „die Entscheidung“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „die Entscheidung“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Entscheidung",
+                "text": "Entscheidung"
+              },
+              {
+                "id": "Entscheidungs",
+                "text": "Entscheidungs"
+              },
+              {
+                "id": "Entscheidungen",
+                "text": "Entscheidungen"
+              },
+              {
+                "id": "Entscheidunge",
+                "text": "Entscheidunge"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Entscheidungen"
+                "type": "choice",
+                "optionId": "Entscheidungen"
               }
             ],
             "explanation": {
@@ -761,7 +954,7 @@
               "de": "Entscheidungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-7-1",
@@ -770,22 +963,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001015",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000007",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Entscheidungen",
+                "text": "Entscheidungen"
+              },
+              {
+                "id": "Entscheidunge",
+                "text": "Entscheidunge"
+              },
+              {
+                "id": "Entscheidungs",
+                "text": "Entscheidungs"
+              },
+              {
+                "id": "Entscheidung",
+                "text": "Entscheidung"
               }
             ]
           },
@@ -793,13 +998,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Entscheidungen"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Entscheidungen"
               }
             ],
             "explanation": {
@@ -807,7 +1007,7 @@
               "de": "Entscheidungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -817,7 +1017,7 @@
         "en": "Plural: die Voraussetzung",
         "de": "Plural: die Voraussetzung"
       },
-      "objective": "Recall and produce the standard plural of die Voraussetzung.",
+      "objective": "Choose the standard plural of die Voraussetzung.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -825,7 +1025,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -836,25 +1036,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001016",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000008",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „die Voraussetzung“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „die Voraussetzung“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Voraussetzunge",
+                "text": "Voraussetzunge"
+              },
+              {
+                "id": "Voraussetzung",
+                "text": "Voraussetzung"
+              },
+              {
+                "id": "Voraussetzungs",
+                "text": "Voraussetzungs"
+              },
+              {
+                "id": "Voraussetzungen",
+                "text": "Voraussetzungen"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Voraussetzungen"
+                "type": "choice",
+                "optionId": "Voraussetzungen"
               }
             ],
             "explanation": {
@@ -862,7 +1080,7 @@
               "de": "Voraussetzungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-8-1",
@@ -871,22 +1089,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001017",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000008",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Voraussetzungs",
+                "text": "Voraussetzungs"
+              },
+              {
+                "id": "Voraussetzungen",
+                "text": "Voraussetzungen"
+              },
+              {
+                "id": "Voraussetzung",
+                "text": "Voraussetzung"
+              },
+              {
+                "id": "Voraussetzunge",
+                "text": "Voraussetzunge"
               }
             ]
           },
@@ -894,13 +1124,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Voraussetzungen"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Voraussetzungen"
               }
             ],
             "explanation": {
@@ -908,7 +1133,7 @@
               "de": "Voraussetzungen ist der Standardplural. Der Plural bekommt die Endung -en."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },
@@ -918,7 +1143,7 @@
         "en": "Plural: der Vorschlag",
         "de": "Plural: der Vorschlag"
       },
-      "objective": "Recall and produce the standard plural of der Vorschlag.",
+      "objective": "Choose the standard plural of der Vorschlag.",
       "category": "plural",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -926,7 +1151,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-08 with realistic learner-error distractors; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -937,25 +1162,43 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001018",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000009",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "short_answer",
-            "prompt": "Schreibe den Plural von „der Vorschlag“ ohne Artikel."
+            "type": "choice",
+            "prompt": "Schreibe den Plural von „der Vorschlag“ ohne Artikel.",
+            "options": [
+              {
+                "id": "Vorschlage",
+                "text": "Vorschlage"
+              },
+              {
+                "id": "Vorschläge",
+                "text": "Vorschläge"
+              },
+              {
+                "id": "Vorschlägen",
+                "text": "Vorschlägen"
+              },
+              {
+                "id": "Vorschlags",
+                "text": "Vorschlags"
+              }
+            ]
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "short_answer",
-                "text": "Vorschläge"
+                "type": "choice",
+                "optionId": "Vorschläge"
               }
             ],
             "explanation": {
@@ -963,7 +1206,7 @@
               "de": "Vorschläge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma and requested number are explicit. Accept only the standard plural noun form without an article."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         },
         {
           "variantKey": "v-9-1",
@@ -972,22 +1215,34 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001019",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000009",
             "hint": {
               "en": "Think about the plural ending and whether the stem vowel changes.",
               "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
             },
             "instruction": {
-              "en": "Write only the requested plural form. Keep German noun capitalization.",
-              "de": "Schreibe nur die verlangte Pluralform. Achte auf die Großschreibung des Nomens."
+              "en": "Choose the standard plural form. Watch the ending and any umlaut.",
+              "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
             },
-            "type": "cloze",
+            "type": "choice",
             "prompt": "Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)",
-            "slots": [
+            "options": [
               {
-                "id": "plural",
-                "label": "Plural"
+                "id": "Vorschläge",
+                "text": "Vorschläge"
+              },
+              {
+                "id": "Vorschlags",
+                "text": "Vorschlags"
+              },
+              {
+                "id": "Vorschlägen",
+                "text": "Vorschlägen"
+              },
+              {
+                "id": "Vorschlage",
+                "text": "Vorschlage"
               }
             ]
           },
@@ -995,13 +1250,8 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
-                  {
-                    "slotId": "plural",
-                    "text": "Vorschläge"
-                  }
-                ]
+                "type": "choice",
+                "optionId": "Vorschläge"
               }
             ],
             "explanation": {
@@ -1009,7 +1259,7 @@
               "de": "Vorschläge ist der Standardplural. Der Plural bekommt -e; dabei wird a zu ä."
             }
           },
-          "ambiguityNotes": "The lemma is stated in the prompt and the sentence requires its plural form; no article belongs in the blank."
+          "ambiguityNotes": "The singular lemma and requested plural are explicit. Distractors model common learner errors such as a missing umlaut, a wrong plural ending, a dative-plural form, or an -s overgeneralization. This revision measures recognition rather than unrestricted written production."
         }
       ]
     },

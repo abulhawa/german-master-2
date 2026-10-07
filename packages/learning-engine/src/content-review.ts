@@ -58,8 +58,8 @@ export function validateDraftCatalog(input: unknown) {
         if (grade(e, variant.rubric, answer, []).outcome !== 'correct') throw new Error('rubric conformance failed');
     }
   }
-  for (const form of ['short_answer','choice','cloze','word_order','multi_slot'])
-    if (!forms.has(form)) throw new Error(`missing initial form: ${form}`);
+  for (const form of ['choice','gap_choice','word_order'])
+    if (!forms.has(form)) throw new Error(`missing intended draft form: ${form}`);
   return { catalog, targetHashes, targets: targetIds.size, variants: exerciseIds.size,
     independentlyApproved: catalog.targets.filter(t => t.review.status === 'approved').length };
 }
