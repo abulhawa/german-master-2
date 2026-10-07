@@ -38,14 +38,17 @@ account setup use protected channels; never include secrets in handoff files.
 
 ## Immediate work streams
 
-1. **ChatGPT: content and learner design.** The implementation-ready
+1. **ChatGPT: content, design and product copy.** The implementation-ready
    learner-screen specification is in
-   [learner-screens-ux.md](learner-screens-ux.md). The first editorial pass of
-   the existing 30-target/60-variant draft is also complete in
-   [../../content/drafts/initial-30.json](../../content/drafts/initial-30.json),
-   with the reviewer workbook regenerated. All content remains pending
-   independent German review and unpublished; reviewer corrections are the
-   next content step rather than self-approval.
+   [learner-screens-ux.md](learner-screens-ux.md), account/auth/privacy wording
+   and flows are in [account-auth-ux.md](account-auth-ux.md), and the remaining
+   onboarding/help/system copy is in [help-copy.md](help-copy.md). The first
+   editorial pass of the existing 30-target/60-variant draft is complete in
+   [../../content/drafts/initial-30.json](../../content/drafts/initial-30.json)
+   with the reviewer workbook regenerated. ChatGPT's planned preparation work
+   is therefore complete until implementation feedback or independent-review
+   corrections arrive. All exercise content remains pending independent German
+   review and unpublished; ChatGPT must not self-approve that gate.
 2. **Codex: guest practice.** Implement "Try German Master" without the current
    sign-in wall. Keep guest evidence local/provisional. Offer explicit saving
    after sign-in, with server revision validation, ownership isolation and

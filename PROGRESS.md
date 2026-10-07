@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## ChatGPT product-copy handoff complete — 7 October 2026
+
+- Completed the remaining ChatGPT-owned preparation from `docs/product/plan-of-work.md`. Added implementation-ready account/auth/privacy flows in `docs/product/account-auth-ux.md` covering signup, delivered-email confirmation/resend, sign-in, password recovery, session expiry, safe sign-out, export, sync wording and fresh-password identity deletion. Added `docs/product/help-copy.md` for onboarding guidance, Progress terminology, offline/cross-device explanations, report-a-problem copy, empty states and a compact bilingual help glossary.
+- The handoffs explicitly distinguish guest/local work, confirmed server progress, sign-out/local removal, learner-data export and actual identity deletion. They preserve guest-first use and do not authorize SMTP configuration, deletion enablement, deployment or release.
+- ChatGPT preparation is now complete until Codex implementation feedback, design/accessibility review feedback or independent German exercise-review corrections arrive. The 30-target/60-variant exercise catalog remains agent-authored draft content with all reviews pending and publication disabled; ChatGPT does not self-approve that gate.
+- Exact next product work remains Codex implementation/integration: guest attachment contract and confirmation UI, Android guest parity, integration of learner/account/help copy, password-recovery/provider flows, offline/client completion and focused verification. Independent German review and external release gates remain separate.
+
 ## Guest-first web starter practice — 7 October 2026
 
 - Removed the production web sign-in wall for first use. Signed-out learners can now choose interface language, B1/B2/unsure and a 10/15/20-question preference, then enter a durable local five-question starter session without authentication. Guest drafts, feedback, counters and graded attempts persist in a dedicated local namespace; damaged saved state is not overwritten without an explicit reset.
