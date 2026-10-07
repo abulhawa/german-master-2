@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Guest attachment and accessibility CI reconciliation — 7 October 2026
+
+- Inspected clean main at `28d835a`, matching the local origin/main reference. Guest attachment implementation `4d810551` is present, including explicit web consent, account-specific tracking, server revision validation/regrading, replay handling, bilingual copy and generated contracts. Earlier next-action entries below predate this implementation.
+- Accessibility acceptance failed on its Home heading assertion after the Home copy changed. Existing follow-up commits `ba832889`, `3ba86b81` and `28d835a` align the expected heading and correctly escape the literal question mark in the regular expression. No additional code repair was needed in this reconciliation.
+- Verified hosted accessibility run [37603292961](https://github.com/abulhawa/german-master-2/actions/runs/37603292961) passes at `28d835a`, including keyboard, reflow and semantic acceptance. Web checks run `37603292942` and repository safety run `37603292971` also pass at that commit. These are hosted fixture checks, not exhaustive accessibility or production guest-attachment acceptance. No local test rerun was needed for this documentation-only update.
+- Bootstrap remains complete and product reset exit gates remain open. Exact next action: implement Android guest-first practice and explicit attachment parity against the existing v2 contract, then remaining learner/account/help integrations. No deployment, publication, production mutation or live AI call occurred during this reconciliation. Proposed checkpoint commit: `docs: reconcile guest attachment and passing accessibility CI`.
+
 ## Web Home learner-screen integration — 7 October 2026
 
 - Reconciled ChatGPT's commits through `067e73d`: learner-screen specifications, the editorial 30-target/60-variant draft, account/auth flows and bilingual help copy are prepared. Preserved all independent-review/publication gates. Implementation was isolated on `codex/learner-home` while ChatGPT committed to main; after the owner's sync request, main was fast-forwarded to include the verified implementation commit `864dc46` with all ChatGPT handoffs intact.
