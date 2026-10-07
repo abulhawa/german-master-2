@@ -72,4 +72,4 @@ engineering evidence, not content publication or independent German approval.
 
 ## Low-typing candidate refresh — 7 October 2026
 
-The unpublished candidate now includes the five B1 adjective-ending targets as revision 2 `gap_choice` exercises (10 variants). The prior published basic release is not modified. Candidate manifest: `00378aa5e9caccadf148cefdde7148c52bf0c5b250cbc3dcfc9c6749a99f13de`. Independent German review remains pending.
+The unpublished candidate now includes 10 B1 low-typing targets as revision 2 `gap_choice` exercises: five adjective-ending targets and five irregular present-tense verb targets (20 variants total). The prior published basic release is not modified. Candidate manifest: `2d13318c15966d0ccfb74eb102201c777c89f4f5ec33718ad219a14e0bf475eb`. Independent German review remains pending.

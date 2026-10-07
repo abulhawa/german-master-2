@@ -572,141 +572,141 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000020; category: verb; review: pending.
 
-Content hash: 92ede20c10b4a693bcffc92dbce93fafc25e7a42130ccaf75716c67ee3f696aa
+Content hash: dce83cf7b569f48f83da54c24176b6aa2d7bc68709ac2764e4011eb35b039513
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-20-0** — Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"fährst"},{"slotId":"er","text":"fährt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"fährst"},{"slotId":"er","optionId":"fährt"}]}]`
 
 Hint: Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä.
 
 Explanation: Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 **v-20-1** — Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"fährst"},{"slotId":"er","text":"fährt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"fährst"},{"slotId":"er","optionId":"fährt"}]}]`
 
 Hint: Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä.
 
 Explanation: Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### B1: Präsens: lesen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000021; category: verb; review: pending.
 
-Content hash: fb350e3f8ee5ada81969042c60d379e565d2e42cf718d9f9524d58604e1c3858
+Content hash: 21f69d106b31d2f45edafd53b34dfabda362b9939d558a11b514044b0e280685
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-21-0** — Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"liest"},{"slotId":"er","text":"liest"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"liest"},{"slotId":"er","optionId":"liest"}]}]`
 
 Hint: Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie.
 
 Explanation: Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 **v-21-1** — Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"liest"},{"slotId":"er","text":"liest"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"liest"},{"slotId":"er","optionId":"liest"}]}]`
 
 Hint: Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie.
 
 Explanation: Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### B1: Präsens: geben (du/er)
 
 Target: 10000000-0000-4000-8000-000000000022; category: verb; review: pending.
 
-Content hash: b6707349a80f62b8abeabc4031aedf549aa13166642423c8b138cd09f53bde3b
+Content hash: 780efb24a230d975f496303a75ccd71f9272c6b6d728e4d292b82ce935b3e59d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-22-0** — Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"gibst"},{"slotId":"er","text":"gibt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"gibst"},{"slotId":"er","optionId":"gibt"}]}]`
 
 Hint: Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 **v-22-1** — Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"gibst"},{"slotId":"er","text":"gibt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"gibst"},{"slotId":"er","optionId":"gibt"}]}]`
 
 Hint: Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### B1: Präsens: nehmen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000023; category: verb; review: pending.
 
-Content hash: 865d2d3b4ca7594a001ece0a645878d98d0b6f0d174786acc51cf77d9d213de8
+Content hash: 91f6b05b5e1b5e6d8043c1cd53189e4ae451369fdc99c9f69bd40e0a86ca415c
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-23-0** — Du ___ morgens den Bus. Er ___ lieber das Fahrrad.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"nimmst"},{"slotId":"er","text":"nimmt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"nimmst"},{"slotId":"er","optionId":"nimmt"}]}]`
 
 Hint: Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“.
 
 Explanation: Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 **v-23-1** — Du ___ noch einen Kaffee. Er ___ die letzte Tablette.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"nimmst"},{"slotId":"er","text":"nimmt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"nimmst"},{"slotId":"er","optionId":"nimmt"}]}]`
 
 Hint: Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“.
 
 Explanation: Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### B1: Präsens: sprechen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000024; category: verb; review: pending.
 
-Content hash: 68dd8cd1dc3009ab356b1024bed17e7f5a62c16745a0e70e11a6e587e441074b
+Content hash: cdee8598243fb3f7f13c8f64d1e64759b3e9bcf386c85837a14ea09bdf644f63
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 **v-24-0** — Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"sprichst"},{"slotId":"er","text":"spricht"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"sprichst"},{"slotId":"er","optionId":"spricht"}]}]`
 
 Hint: Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 **v-24-1** — Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.
 
-Accepted: `[{"type":"multi_slot","values":[{"slotId":"du","text":"sprichst"},{"slotId":"er","text":"spricht"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"sprichst"},{"slotId":"er","optionId":"spricht"}]}]`
 
 Hint: Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### B1: Nebensatz mit „weil“
 
