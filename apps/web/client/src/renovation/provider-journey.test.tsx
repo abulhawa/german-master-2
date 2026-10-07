@@ -21,8 +21,13 @@ function fixture() {
   return {auth,host,emit:(event:string)=>callback(event)};
 }
 afterEach(()=>{cleanup();localStorage.clear();});
+async function openAuth() {
+  fireEvent.click(await screen.findByRole('button',{name:'I already have an account'}));
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
+}
 it('registers without binding an unconfirmed identity or retaining its password',async()=> {
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await openAuth();
   await waitFor(()=>expect(screen.getByRole('button',{name:'Create account'})).toBeEnabled());
   fireEvent.click(screen.getByRole('button',{name:'Create account'}));
   fireEvent.change(screen.getByLabelText('Email'),{target:{value:'disposable@example.test'}});
@@ -35,7 +40,8 @@ it('registers without binding an unconfirmed identity or retaining its password'
 });
 it('mounts learner only after online verification and removes it on provider sign-out',async()=> {
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
-  await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
+  expect(await screen.findByRole('button',{name:'Try German Master'})).toBeEnabled();
+  await openAuth();
   expect(screen.queryByText(/Bound learner/)).toBeNull();
   fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
   fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
@@ -44,14 +50,14 @@ it('mounts learner only after online verification and removes it on provider sig
   expect(f.auth.signInWithPassword).toHaveBeenCalledWith({email:'learner@example.test',password:'synthetic-test-password'});
   expect(f.auth.getUser).toHaveBeenCalledOnce();
   fireEvent.click(screen.getByRole('button',{name:'Revoke session'}));
-  await screen.findByLabelText('Password');
-  expect(screen.queryByText(/Bound learner/)).toBeNull();expect(screen.getByLabelText('Password')).toHaveValue('');
+  await screen.findByRole('button',{name:'Try German Master'});
+  expect(screen.queryByText(/Bound learner/)).toBeNull();expect(screen.queryByLabelText('Password')).toBeNull();
 });
 it('does not mount a stale verified response after an intervening sign-out',async()=> {
   const f=fixture();let complete!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
   f.auth.getUser.mockImplementation(()=>new Promise(resolve=>{complete=resolve;}));
   render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
-  await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
+  await openAuth();
   fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
   await waitFor(()=>expect(complete).toBeTypeOf('function'));
   f.emit('SIGNED_OUT');complete({data:{user:{id:subject,is_anonymous:false}},error:null});
