@@ -14,7 +14,7 @@ it("starts real guest practice without authentication and restores the saved dra
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
   expect(screen.getByRole("status")).toHaveTextContent("Guest practice · saved on this device");
   expect(screen.getByText("Shorter session: 5 reviewed questions are available.")).toBeInTheDocument();
-  fireEvent.change(screen.getByLabelText("Answer"), { target: { value: "Berufe" } });
+  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
   expect(screen.queryByText(/server-confirmed|confirmed mastery/i)).not.toBeInTheDocument();
@@ -32,7 +32,7 @@ it("offers account creation only after useful guest practice and never attaches 
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
-  fireEvent.change(screen.getByLabelText("Answer"), { target: { value: "Berufe" } });
+  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
   for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
