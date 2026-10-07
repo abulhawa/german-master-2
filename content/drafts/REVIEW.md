@@ -14,7 +14,7 @@ Choose the standard plural of der Antrag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 1bcd4b9847a8201d376a131a7b16d56e70b7ad477ac3a66263a38b8e6603ef78
+Content SHA-256 for sign-off: b66c8328feeb029f9daa541256e22d9715c46ec0e4136a7ff6e03994cd255f27
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -22,7 +22,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001000@2; context: context-0-0; transfer: none
 
-Schreibe den Plural von „der Antrag“ ohne Artikel.
+Was ist der Plural von „der Antrag“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -41,7 +41,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „der Antrag“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „der Antrag“?",
   "options": [
     {
       "id": "Antrage",
@@ -146,7 +146,7 @@ Choose the standard plural of die Rechnung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 2d5952dbb87be8a5d392c31ed4127b4421c116443bcfff2e99d0a86f771b85a2
+Content SHA-256 for sign-off: 68b5735b38d5eaaa896dbeeee1c2b66a110efa842e062a748c089f62a17a30c9
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -154,7 +154,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001002@2; context: context-1-0; transfer: none
 
-Schreibe den Plural von „die Rechnung“ ohne Artikel.
+Was ist der Plural von „die Rechnung“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -173,7 +173,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „die Rechnung“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „die Rechnung“?",
   "options": [
     {
       "id": "Rechnungen",
@@ -278,7 +278,7 @@ Choose the standard plural of der Termin.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 062fb604ae64f47905282176214beff48572d4a2644914ff46430880729efb1d
+Content SHA-256 for sign-off: ca5c36de90da2277d003d8729987d3f7f747ef93ba855b0038966361fa707747
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -286,7 +286,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001004@2; context: context-2-0; transfer: none
 
-Schreibe den Plural von „der Termin“ ohne Artikel.
+Was ist der Plural von „der Termin“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -305,7 +305,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „der Termin“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „der Termin“?",
   "options": [
     {
       "id": "Terminen",
@@ -410,7 +410,7 @@ Choose the standard plural of das Gespräch.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 04f78374063a42f2c806d71ad634650bc00a4199bc91bca3913cfc117f98ff32
+Content SHA-256 for sign-off: f860ffe97fd3c58d8886ed713fc5f744bc9edc62107e725f0a85c80e60ddebfd
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -418,7 +418,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001006@2; context: context-3-0; transfer: none
 
-Schreibe den Plural von „das Gespräch“ ohne Artikel.
+Was ist der Plural von „das Gespräch“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -437,7 +437,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „das Gespräch“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „das Gespräch“?",
   "options": [
     {
       "id": "Gesprächs",
@@ -542,7 +542,7 @@ Choose the standard plural of der Vertrag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 4c4251c7b59b0608d7ba1691010f3cf5470497c8291b01b26e98ab7710825420
+Content SHA-256 for sign-off: 27d50a05c9927634d8a7c6b535659d2c5e0be39bad57f15def0cc79823d60896
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -550,7 +550,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001008@2; context: context-4-0; transfer: none
 
-Schreibe den Plural von „der Vertrag“ ohne Artikel.
+Was ist der Plural von „der Vertrag“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -569,7 +569,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „der Vertrag“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „der Vertrag“?",
   "options": [
     {
       "id": "Verträgen",
@@ -674,7 +674,7 @@ Choose the standard plural of die Erfahrung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 2adff9e8b3281615e11833cb5e4bb4ff521357549b4f9f419360631f2e56ba24
+Content SHA-256 for sign-off: 00622719b7ca46ffb8fb42a667f44617b7f46bb9e57f1303715c7c1b895aadd3
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -682,7 +682,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001010@2; context: context-5-0; transfer: none
 
-Schreibe den Plural von „die Erfahrung“ ohne Artikel.
+Was ist der Plural von „die Erfahrung“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -701,7 +701,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „die Erfahrung“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „die Erfahrung“?",
   "options": [
     {
       "id": "Erfahrung",
@@ -806,7 +806,7 @@ Choose the standard plural of das Angebot.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 67e5fe84436ece14ee3dcfd8f7af8ce07648b844d65b30d65062a9316c5e5eea
+Content SHA-256 for sign-off: 5f6854ec49be76d947e413bd67f44450e98a16fdae570b98d1943f12458ceb71
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -814,7 +814,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001012@2; context: context-6-0; transfer: none
 
-Schreibe den Plural von „das Angebot“ ohne Artikel.
+Was ist der Plural von „das Angebot“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -833,7 +833,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „das Angebot“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „das Angebot“?",
   "options": [
     {
       "id": "Angebots",
@@ -938,7 +938,7 @@ Choose the standard plural of die Entscheidung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 02f302b81980ab5d0692b4d2a94ecba842d27980ab70f9157ebcafa5b208ba64
+Content SHA-256 for sign-off: c98d5f9d521243baf0284b1a718ba8cda0e2db57fe1ebad1244fbdc1b48dbb23
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -946,7 +946,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001014@2; context: context-7-0; transfer: none
 
-Schreibe den Plural von „die Entscheidung“ ohne Artikel.
+Was ist der Plural von „die Entscheidung“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -965,7 +965,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „die Entscheidung“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „die Entscheidung“?",
   "options": [
     {
       "id": "Entscheidung",
@@ -1070,7 +1070,7 @@ Choose the standard plural of die Voraussetzung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: bb1289961e9542fc52851865964451edab7a8e77fd3e8f4e695450a57feeebdc
+Content SHA-256 for sign-off: f7838e0e47a6baa32161fa61de88802ac9fbf445be0d3c6825efd95fe6965280
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1078,7 +1078,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001016@2; context: context-8-0; transfer: none
 
-Schreibe den Plural von „die Voraussetzung“ ohne Artikel.
+Was ist der Plural von „die Voraussetzung“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -1097,7 +1097,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „die Voraussetzung“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „die Voraussetzung“?",
   "options": [
     {
       "id": "Voraussetzunge",
@@ -1202,7 +1202,7 @@ Choose the standard plural of der Vorschlag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 84f0fa33ed8794c7494a68b738900b88097870ac6423d3a16c64274b6d88c312
+Content SHA-256 for sign-off: fe3c4e11387aa4dcd4ef1c296533233f4cd52e9bd34256492bd16603a132a02a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1210,7 +1210,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Revision: 10000000-0000-4000-8000-000000001018@2; context: context-9-0; transfer: none
 
-Schreibe den Plural von „der Vorschlag“ ohne Artikel.
+Was ist der Plural von „der Vorschlag“?
 
 Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
@@ -1229,7 +1229,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
   "type": "choice",
-  "prompt": "Schreibe den Plural von „der Vorschlag“ ohne Artikel.",
+  "prompt": "Was ist der Plural von „der Vorschlag“?",
   "options": [
     {
       "id": "Vorschlage",
