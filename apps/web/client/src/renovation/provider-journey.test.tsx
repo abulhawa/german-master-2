@@ -61,6 +61,6 @@ it('does not mount a stale verified response after an intervening sign-out',asyn
   fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
   await waitFor(()=>expect(complete).toBeTypeOf('function'));
   f.emit('SIGNED_OUT');complete({data:{user:{id:subject,is_anonymous:false}},error:null});
-  await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Try German Master'})).toBeEnabled());
   expect(screen.queryByText(/Bound learner/)).toBeNull();
 });
