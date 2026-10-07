@@ -49,11 +49,13 @@ account setup use protected channels; never include secrets in handoff files.
    is therefore complete until implementation feedback or independent-review
    corrections arrive. All exercise content remains pending independent German
    review and unpublished; ChatGPT must not self-approve that gate.
-2. **Codex: guest practice.** Implement "Try German Master" without the current
-   sign-in wall. Keep guest evidence local/provisional. Offer explicit saving
-   after sign-in, with server revision validation, ownership isolation and
-   replay-safe attachment. Do not create client-owned confirmed mastery.
-3. **Codex: integration.** Integrate the prepared learner designs and content,
+2. **Codex: guest practice.** Web guest starter practice is implemented with
+   local/provisional evidence. Next, offer explicit saving after sign-in, with
+   server revision validation, ownership isolation and replay-safe attachment,
+   then bring guest practice to Android. Do not create client-owned confirmed mastery.
+3. **Codex: integration.** Web Home discovery/due/no-due states and improving
+   target links are integrated; the full responsive shell and other screens
+   remain. Integrate the remaining prepared learner designs and content,
    then finish remaining account and offline/client features within the
    established scope. Track the actual remaining work in PROGRESS.md.
 4. **Completion pass.** Once the product features are implemented, perform
@@ -87,5 +89,5 @@ responsive behavior, English/German copy and relevant empty/error/loading
 states. Identify material departures from the blueprint explicitly.
 
 No new chat, delegation, deployment or publication is created by saving this
-plan. The next implementation slice is guest practice; progress and exact
+plan. The next guest implementation slice is authenticated attachment; progress and exact
 handoff actions belong in PROGRESS.md.

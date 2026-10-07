@@ -3,6 +3,7 @@ import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-mas
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
 import { learnerCopy, accountLearnerCopy } from "./locales";
+import { homeCopy } from "./home-locales";
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
 
@@ -259,6 +260,9 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const needs = confirmed?.targets.filter(t => t.state === "needs_practice").length ?? 0;
   const due = confirmed?.targets.filter(t => t.isDue && t.state !== "needs_practice").length ?? 0;
   const hasEvidence = confirmed?.targets.some(t => t.lastSequence > 0);
+  const h = homeCopy[state.locale];
+  const nothingDue = !!confirmed && !!hasEvidence && needs + due === 0;
+  const improving = confirmed?.targets.filter(t => t.state === 'improving') ?? [];
   function preference(update: Partial<Journey>) { try { commit({ ...current.current, ...update }); } catch { /* Preserve prior state. */ } }
   function navigate(nextView: typeof view) {
     setView(nextView);
@@ -281,7 +285,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     <div className="gm-column">
       <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
       {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
-      {!loaded.damaged && view !== 'practice' && <FoundationButton disabled={busy} onClick={() => void run(syncAllOwned, 'connectionError')}>{c.syncAll}</FoundationButton>}
+      {!loaded.damaged && view !== 'practice' && (view !== 'home' || setup) && <FoundationButton disabled={busy} onClick={() => void run(syncAllOwned, 'connectionError')}>{c.syncAll}</FoundationButton>}
       {view !== "practice" && !setup && <div className="gm-settings">
         <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey["locale"] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey["theme"] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
@@ -305,12 +309,25 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
         {error && <p role="alert">{c[error]}</p>}
         {view === "home" && !setup && <PracticeCard>
-          <h1 ref={heading} tabIndex={-1}>{hasEvidence ? c.priorities : c.welcome}</h1>
-          {confirmed && <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
-          <p>{c.draftLevel}</p><p>{c.requested}: {profile?.preferences.sessionQuestionCount ?? 15} · {c.available}: {availableCount}</p>{availableCount === 0 && <p>{c.noContent}</p>}
-          <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{p && !complete ? c.resume : c.start}</FoundationButton>
-          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
+          <h1 ref={heading} tabIndex={-1}>{h.heading}</h1>
+          <p>{h.introduction}</p>
+          <h2>{!confirmed ? c.priorities : !hasEvidence ? h.discover : nothingDue ? h.quiet : h.attention}</h2>
+          {!confirmed ? <p>{h.snapshotUnavailable}</p> : !hasEvidence ? <p>{h.discoverBody}</p> : nothingDue ? <p>{h.quietBody}</p> : <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
+          <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{p && !complete ? c.resume : nothingDue ? c.fresh : c.start}</FoundationButton>
+          {nothingDue && <FoundationButton className="gm-secondary" onClick={() => navigate('topics')}>{h.chooseTopic}</FoundationButton>}
+          {catalogFailed ? <><p role="alert">{c.catalogUnavailable}</p><FoundationButton className="gm-secondary" disabled={busy} onClick={() => void loadCatalog()}>{c.retryCatalog}</FoundationButton></> : catalog && availableCount === 0 && <p>{c.noContent}</p>}
+          <details><summary>{h.settings}</summary><p>{c.draftLevel}</p><p>{c.requested}: {profile?.preferences.sessionQuestionCount ?? 15} · {c.available}: {availableCount}</p></details>
           {confirmed && <p className="gm-meta">{c.stale}</p>}
+        </PracticeCard>}
+        {view === 'home' && !setup && improving.length > 0 && <PracticeCard>
+          <h2>{h.improving}</h2><p>{h.improvingNote}</p>
+          <ul className="gm-targets">{improving.slice(0, 3).map(target => <li key={target.targetId}>
+            <FoundationButton className="gm-secondary" onClick={() => showTarget(target.targetId)}>{catalog?.targets.find(t => t.id === target.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton>
+          </li>)}</ul>
+        </PracticeCard>}
+        {view === 'home' && !setup && <PracticeCard>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void run(syncAllOwned, 'connectionError')}>{c.syncAll}</FoundationButton>
         </PracticeCard>}
         {view === 'home' && api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}

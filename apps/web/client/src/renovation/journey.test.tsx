@@ -42,6 +42,55 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+describe('Home screen handoff', () => {
+  it('offers discovery without presenting new targets as confirmed evidence', async () => {
+    const api = apiFixture();
+    api.targets = vi.fn(async () => ({ ...page, targets: [] }));
+    render(<LearnerJourney api={api} />);
+    await screen.findByRole('heading', { name: 'Let’s find what to practise' });
+    expect(screen.getByRole('button', { name: 'Start short practice' })).toBeEnabled();
+    expect(screen.queryByText(/Needs practice: 0/)).toBeNull();
+  });
+  it('counts overlapping due and needs-practice targets once', async () => {
+    const api = apiFixture();
+    api.targets = vi.fn(async () => ({ ...page, targets: [
+      { ...page.targets[0], isDue: true },
+      { ...page.targets[0], targetId: '00000000-0000-4000-8000-000000000201', state: 'improving' as const, isDue: true },
+    ] }));
+    render(<LearnerJourney api={api} />);
+    await screen.findByText('Needs practice: 1 · Retention checks: 1');
+    expect(screen.getByRole('heading', { name: 'Practice what needs attention' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Improving targets' })).toBeInTheDocument();
+  });
+  it('offers voluntary practice and topic navigation when confirmed work is not due', async () => {
+    const api = apiFixture();
+    api.targets = vi.fn(async () => ({ ...page, targets: [{ ...page.targets[0], state: 'improving' as const, isDue: false }] }));
+    render(<LearnerJourney api={api} />);
+    await screen.findByRole('heading', { name: 'Nothing urgent right now' });
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Try something new' })).toBeEnabled());
+    fireEvent.click(screen.getByRole('button', { name: 'Choose a topic' }));
+    await screen.findByRole('heading', { name: 'Topics' });
+    expect(api.createSession).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Home', exact: true }));
+    fireEvent.click(screen.getByRole('button', { name: 'Try something new' }));
+    await screen.findByLabelText('Your answer');
+    fireEvent.click(screen.getByRole('button', { name: 'Close practice' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Save and return Home' }));
+    expect(screen.getByRole('button', { name: 'Continue practice' })).toBeEnabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Continue practice' }));
+    await screen.findByLabelText('Your answer');
+    expect(api.createSession).toHaveBeenCalledTimes(1);
+  });
+  it('does not claim no due work when the confirmed snapshot is unavailable', async () => {
+    const api = apiFixture();
+    api.targets = vi.fn(async () => { throw Error('offline'); });
+    render(<LearnerJourney api={api} />);
+    await screen.findByText('Confirmed progress is unavailable. Refresh to check what needs practice.');
+    expect(screen.queryByText('Nothing urgent right now')).toBeNull();
+    expect(screen.queryByText('Let’s find what to practise')).toBeNull();
+    expect(screen.getByRole('button', { name: 'Refresh confirmed progress' })).toBeEnabled();
+  });
+});
 it('sign-out choices require explicit removal and resume retained work only for the same local learner',async()=> {
   const api=apiFixture();const db=new WebReserve('signout-ui');
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
@@ -351,7 +400,7 @@ it("retries frozen setup payload after lost response and reload without overwrit
   await screen.findByText("Retry");
   expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
   fireEvent.click(screen.getByText("Retry"));
-  await screen.findByRole("heading", { name: /Your next practice|find what to practise/ });
+  await screen.findByRole("heading", { name: 'Ready to practise?' });
   expect(api.saveProfile).toHaveBeenLastCalledWith(request);
   expect(readJourney(localStorage).practice).toEqual(saved.practice);
   expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
