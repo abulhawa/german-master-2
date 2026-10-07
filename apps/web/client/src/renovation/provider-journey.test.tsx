@@ -3,6 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { ProviderLearnerJourney } from './provider-journey';
 import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
+import { guestAttemptCount } from './guest-starter';
 vi.mock('./journey',()=>({default:({account,revoke}:{account:{identity:{subject:string}};revoke:()=>Promise<void>})=><><p>Bound learner {account.identity.subject}</p><button onClick={()=>void revoke()}>Revoke session</button></>}));
 const project='zgmyrpzwgtydwlzponih', subject='00000000-0000-4000-8000-000000000020';
 function fixture() {
@@ -52,6 +53,22 @@ it('mounts learner only after online verification and removes it on provider sig
   fireEvent.click(screen.getByRole('button',{name:'Revoke session'}));
   await screen.findByRole('button',{name:'Try German Master'});
   expect(screen.queryByText(/Bound learner/)).toBeNull();expect(screen.queryByLabelText('Password')).toBeNull();
+});
+it('preserves guest evidence when authentication succeeds instead of attaching it silently',async()=> {
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  fireEvent.click(await screen.findByRole('button',{name:'Try German Master'}));
+  fireEvent.change(screen.getByLabelText('Your answer'),{target:{value:'Berufe'}});
+  fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
+  expect(guestAttemptCount()).toBe(1);
+  fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
+  fireEvent.click(screen.getByRole('button',{name:'Save and return Home'}));
+  fireEvent.click(screen.getByRole('button',{name:'Sign in'}));
+  fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
+  fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
+  fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
+  await screen.findByText(`Bound learner ${subject}`);
+  expect(guestAttemptCount()).toBe(1);
+  expect(f.auth.signInWithPassword).toHaveBeenCalledOnce();
 });
 it('does not mount a stale verified response after an intervening sign-out',async()=> {
   const f=fixture();let complete!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
