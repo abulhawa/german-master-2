@@ -1,3 +1,4 @@
+import { answerReady } from "@german-master/learning-engine";
 import { z } from "zod";
 import { AnswerSchema, AttemptSchema, EvaluationSchema, ExposureEventSchema, SessionRequestSchema, FocusedSessionRequestSchema, SessionSchema, ConfirmedTargetSchema, type Answer, type Exercise } from "@german-master/contracts";
 import { SyncCursorReset, type LearnerApi } from "./api";
@@ -34,14 +35,9 @@ export function saveJourney(storage: JourneyStorage, state: Journey) {
   storage.setItem(STORAGE_KEY, JSON.stringify(JourneySchema.parse(state)));
 }
 export function readyAnswer(exercise: Exercise, draft: Answer | null): Answer | null {
-  if (!draft || draft.type !== exercise.type) return null;
-  switch (draft.type) {
-    case "short_answer": return draft.text.trim() ? draft : null;
-    case "choice": return exercise.type === "choice" && exercise.options.some(o => o.id === draft.optionId) ? draft : null;
-    case "word_order": return exercise.type === "word_order" && draft.tokenIds.length === exercise.tokens.length ? draft : null;
-    default: return (exercise.type === "cloze" || exercise.type === "multi_slot") && exercise.slots.every(s => draft.values.some(v => v.slotId === s.id && v.text.trim())) ? draft : null;
-  }
+  return answerReady(exercise, draft);
 }
+
 export async function snapshot(api: LearnerApi): Promise<NonNullable<Journey["confirmed"]>> {
   let page = await api.targets();
   const { syncCursor: cursor, generatedAt } = page;

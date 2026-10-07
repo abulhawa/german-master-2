@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Answer, Attempt, Evaluation, Session } from "@german-master/contracts";
-import { ExerciseInput, FoundationButton, PracticeCard } from "./preview";
+import { ExerciseInput } from "./exercise-input";
+import { FoundationButton, PracticeCard } from "./controls";
 import { localFoundationApi, sessionRequest, prepareAttempt, answerText, type FoundationApi } from "./api";
 import { backendCopy, type Locale } from "./locales";
 

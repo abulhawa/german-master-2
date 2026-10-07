@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
-import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
+import { ExerciseInput } from "../foundation/exercise-input";
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
 import { learnerCopy, accountLearnerCopy } from "./locales";
 import { homeCopy } from "./home-locales";

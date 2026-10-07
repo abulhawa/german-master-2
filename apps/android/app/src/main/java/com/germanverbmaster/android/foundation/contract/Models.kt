@@ -249,6 +249,117 @@ data class AnswerMultiSlot(
 }
 
 @Serializable
+data class GapChoiceSlot(
+    val id: String,
+    val label: String,
+    val options: List<Option>
+) {
+    init {
+        require(id.length >= 1) { "Invalid GapChoiceSlot.id" }
+        require(label.length >= 1) { "Invalid GapChoiceSlot.label" }
+        require(options.size >= 2) { "Invalid GapChoiceSlot.options" }
+        require(options.size <= 6) { "Invalid GapChoiceSlot.options" }
+    }
+}
+
+@Serializable
+data class GapSelection(
+    val slotId: String,
+    val optionId: String
+) {
+    init {
+        require(slotId.length >= 1) { "Invalid GapSelection.slotId" }
+        require(optionId.length >= 1) { "Invalid GapSelection.optionId" }
+    }
+}
+
+@Serializable
+data class MatchPair(
+    val leftId: String,
+    val rightId: String
+) {
+    init {
+        require(leftId.length >= 1) { "Invalid MatchPair.leftId" }
+        require(rightId.length >= 1) { "Invalid MatchPair.rightId" }
+    }
+}
+
+@Serializable
+@SerialName("gap_choice")
+data class ExerciseGapChoice(
+    override val schemaVersion: Int,
+    override val id: String,
+    override val revision: Int,
+    override val targetId: String,
+    override val prompt: String,
+    override val instruction: LocalizedText,
+    override val hint: LocalizedText,
+    val slots: List<GapChoiceSlot>
+) : Exercise() {
+    init {
+        require(schemaVersion == 1) { "Invalid ExerciseGapChoice.schemaVersion" }
+        require(schemaVersion <= 2147483647) { "Invalid ExerciseGapChoice.schemaVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid ExerciseGapChoice.id" }
+        require(revision >= 1) { "Invalid ExerciseGapChoice.revision" }
+        require(revision <= 2147483647) { "Invalid ExerciseGapChoice.revision" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(targetId)) { "Invalid ExerciseGapChoice.targetId" }
+        require(prompt.length >= 1) { "Invalid ExerciseGapChoice.prompt" }
+        require(slots.size >= 1) { "Invalid ExerciseGapChoice.slots" }
+        require(slots.size <= 6) { "Invalid ExerciseGapChoice.slots" }
+    }
+}
+
+@Serializable
+@SerialName("matching")
+data class ExerciseMatching(
+    override val schemaVersion: Int,
+    override val id: String,
+    override val revision: Int,
+    override val targetId: String,
+    override val prompt: String,
+    override val instruction: LocalizedText,
+    override val hint: LocalizedText,
+    val left: List<Option>,
+    val right: List<Option>
+) : Exercise() {
+    init {
+        require(schemaVersion == 1) { "Invalid ExerciseMatching.schemaVersion" }
+        require(schemaVersion <= 2147483647) { "Invalid ExerciseMatching.schemaVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid ExerciseMatching.id" }
+        require(revision >= 1) { "Invalid ExerciseMatching.revision" }
+        require(revision <= 2147483647) { "Invalid ExerciseMatching.revision" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(targetId)) { "Invalid ExerciseMatching.targetId" }
+        require(prompt.length >= 1) { "Invalid ExerciseMatching.prompt" }
+        require(left.size >= 2) { "Invalid ExerciseMatching.left" }
+        require(left.size <= 8) { "Invalid ExerciseMatching.left" }
+        require(right.size >= 2) { "Invalid ExerciseMatching.right" }
+        require(right.size <= 8) { "Invalid ExerciseMatching.right" }
+    }
+}
+
+@Serializable
+@SerialName("gap_choice")
+data class AnswerGapChoice(
+    val selections: List<GapSelection>
+) : Answer() {
+    init {
+        require(selections.size >= 0) { "Invalid AnswerGapChoice.selections" }
+        require(selections.size <= 6) { "Invalid AnswerGapChoice.selections" }
+    }
+}
+
+@Serializable
+@SerialName("matching")
+data class AnswerMatching(
+    val pairs: List<MatchPair>
+) : Answer() {
+    init {
+        require(pairs.size >= 0) { "Invalid AnswerMatching.pairs" }
+        require(pairs.size <= 8) { "Invalid AnswerMatching.pairs" }
+    }
+}
+
+@Serializable
 @OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
 @JsonClassDiscriminator("type")
 sealed class Exercise {
@@ -400,7 +511,7 @@ data class SessionRequest(
         require(questionCount <= 50) { "Invalid SessionRequest.questionCount" }
         require(capabilities.size >= 1) { "Invalid SessionRequest.capabilities" }
         require(capabilities.distinct().size == capabilities.size) { "Invalid SessionRequest.capabilities" }
-        require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1") }) { "Invalid SessionRequest.capabilities" }
+        require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1", "gap_choice@1", "matching@1") }) { "Invalid SessionRequest.capabilities" }
     }
 }
 
@@ -698,7 +809,7 @@ data class FocusedSessionRequest(
         require(questionCount <= 50) { "Invalid FocusedSessionRequest.questionCount" }
         require(capabilities.size >= 1) { "Invalid FocusedSessionRequest.capabilities" }
         require(capabilities.distinct().size == capabilities.size) { "Invalid FocusedSessionRequest.capabilities" }
-        require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1") }) { "Invalid FocusedSessionRequest.capabilities" }
+        require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1", "gap_choice@1", "matching@1") }) { "Invalid FocusedSessionRequest.capabilities" }
     }
 }
 
@@ -1042,8 +1153,15 @@ object ContractShape {
     fun checkAnswerCloze(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "values")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("values") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkSlotValue(item) } } } }
     fun checkAnswerWordOrder(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "tokenIds")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("tokenIds") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } } } }
     fun checkAnswerMultiSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "values")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("values") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkSlotValue(item) } } } }
-    fun checkExercise(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["type"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "short_answer" -> checkExerciseShortAnswer(element); "choice" -> checkExerciseChoice(element); "cloze" -> checkExerciseCloze(element); "word_order" -> checkExerciseWordOrder(element); "multi_slot" -> checkExerciseMultiSlot(element); else -> error("Unsupported discriminator") } } }
-    fun checkAnswer(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["type"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "short_answer" -> checkAnswerShortAnswer(element); "choice" -> checkAnswerChoice(element); "cloze" -> checkAnswerCloze(element); "word_order" -> checkAnswerWordOrder(element); "multi_slot" -> checkAnswerMultiSlot(element); else -> error("Unsupported discriminator") } } }
+    fun checkGapChoiceSlot(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "label", "options")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("label") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("options") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkOption(item) } } } }
+    fun checkGapSelection(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("slotId", "optionId")); run { val p = o.getValue("slotId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("optionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkMatchPair(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("leftId", "rightId")); run { val p = o.getValue("leftId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("rightId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }
+    fun checkExerciseGapChoice(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "schemaVersion", "id", "revision", "targetId", "prompt", "instruction", "hint", "slots")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("schemaVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("revision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("targetId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("prompt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("instruction")); checkLocalizedText(o.getValue("hint")); run { val a = o.getValue("slots") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkGapChoiceSlot(item) } } } }
+    fun checkExerciseMatching(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "schemaVersion", "id", "revision", "targetId", "prompt", "instruction", "hint", "left", "right")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("schemaVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("revision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("targetId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("prompt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("instruction")); checkLocalizedText(o.getValue("hint")); run { val a = o.getValue("left") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkOption(item) } }; run { val a = o.getValue("right") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkOption(item) } } } }
+    fun checkAnswerGapChoice(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "selections")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("selections") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkGapSelection(item) } } } }
+    fun checkAnswerMatching(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("type", "pairs")); run { val p = o.getValue("type") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("pairs") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkMatchPair(item) } } } }
+    fun checkExercise(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["type"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "short_answer" -> checkExerciseShortAnswer(element); "choice" -> checkExerciseChoice(element); "cloze" -> checkExerciseCloze(element); "word_order" -> checkExerciseWordOrder(element); "multi_slot" -> checkExerciseMultiSlot(element); "gap_choice" -> checkExerciseGapChoice(element); "matching" -> checkExerciseMatching(element); else -> error("Unsupported discriminator") } } }
+    fun checkAnswer(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); val tag=o["type"] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { "short_answer" -> checkAnswerShortAnswer(element); "choice" -> checkAnswerChoice(element); "cloze" -> checkAnswerCloze(element); "word_order" -> checkAnswerWordOrder(element); "multi_slot" -> checkAnswerMultiSlot(element); "gap_choice" -> checkAnswerGapChoice(element); "matching" -> checkAnswerMatching(element); else -> error("Unsupported discriminator") } } }
     fun checkQuestion(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("id", "exercise")); run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkExercise(o.getValue("exercise")) } }
     fun checkSession(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "id", "contentReleaseId", "questions")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("questions") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkQuestion(item) } } } }
     fun checkAttempt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("attemptId", "sessionQuestionId", "exerciseRevision", "deviceId", "answer", "assistance", "answeredAt", "clientSequence")); run { val p = o.getValue("attemptId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("deviceId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkAnswer(o.getValue("answer")); run { val a = o.getValue("assistance") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }; run { val p = o.getValue("answeredAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("clientSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }

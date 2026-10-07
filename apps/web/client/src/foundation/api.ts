@@ -29,7 +29,7 @@ export function localFoundationApi(binding?: { subject: string; assertCurrent():
 
 export function sessionRequest(): SessionRequest {
   return { apiVersion: "v2", requestId: crypto.randomUUID(), questionCount: 5,
-    capabilities: ["short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1"] };
+    capabilities: ["short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1", "gap_choice@1", "matching@1"] };
 }
 export function prepareAttempt(session: Session, index: number, answer: Answer, assisted: boolean, deviceId: string): Attempt {
   return { attemptId: crypto.randomUUID(), sessionQuestionId: session.questions[index].id,
@@ -43,6 +43,12 @@ export function answerText(answer: Answer, session: Session, index: number): str
     case "short_answer": return answer.text;
     case "choice": return exercise.type === "choice" ? exercise.options.find(o => o.id === answer.optionId)?.text ?? answer.optionId : "";
     case "word_order": return exercise.type === "word_order" ? answer.tokenIds.map(id => exercise.tokens.find(t => t.id === id)?.text).join(" ") : "";
+    case "gap_choice": return exercise.type === "gap_choice" ? answer.selections.map(v => {
+      const slot = exercise.slots.find(s => s.id === v.slotId);
+      return `${slot?.label}: ${slot?.options.find(o => o.id === v.optionId)?.text}`;
+    }).join(" · ") : "";
+    case "matching": return exercise.type === "matching" ? answer.pairs.map(p =>
+      `${exercise.left.find(o => o.id === p.leftId)?.text} → ${exercise.right.find(o => o.id === p.rightId)?.text}`).join(" · ") : "";
     default: return answer.values.map(v => {
       const label = exercise.type === "cloze" || exercise.type === "multi_slot"
         ? exercise.slots.find(s => s.id === v.slotId)?.label ?? v.slotId : v.slotId;

@@ -16,7 +16,7 @@ class FoundationPreviewActivity : ComponentActivity() {
             setContent { FoundationTheme { FoundationBackendPreview(api) } }
             return
         }
-        val result = runCatching { assets.open("session.json").bufferedReader().use { ContractReader.session(it.readText()) } }
+        val result = runCatching { assets.open(if(intent.getBooleanExtra("formats", false)) "practice-formats-session.json" else "session.json").bufferedReader().use { ContractReader.session(it.readText()) } }
         setContent { FoundationTheme {
             result.fold(onSuccess={ FoundationPreview(it) }, onFailure={ Text(getString(com.germanverbmaster.android.R.string.foundation_unsupported)) })
         } }

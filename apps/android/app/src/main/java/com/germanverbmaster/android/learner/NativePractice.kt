@@ -72,6 +72,13 @@ fun nativeAnswerReady(exercise: Exercise, answer: Answer?): Boolean = when {
     exercise is ExerciseWordOrder && answer is AnswerWordOrder -> answer.tokenIds.toSet() == exercise.tokens.map { it.id }.toSet() && answer.tokenIds.size == exercise.tokens.size
     exercise is ExerciseCloze && answer is AnswerCloze -> answer.values.map { it.slotId } == exercise.slots.map { it.id } && answer.values.all { it.text.isNotBlank() }
     exercise is ExerciseMultiSlot && answer is AnswerMultiSlot -> answer.values.map { it.slotId } == exercise.slots.map { it.id } && answer.values.all { it.text.isNotBlank() }
+    exercise is ExerciseGapChoice && answer is AnswerGapChoice ->
+        answer.selections.size == exercise.slots.size && answer.selections.map { it.slotId }.distinct().size == exercise.slots.size &&
+        answer.selections.all { v -> exercise.slots.any { s -> s.id == v.slotId && s.options.any { it.id == v.optionId } } }
+    exercise is ExerciseMatching && answer is AnswerMatching ->
+        answer.pairs.size == exercise.left.size && exercise.left.size == exercise.right.size &&
+        answer.pairs.map { it.leftId }.toSet() == exercise.left.map { it.id }.toSet() &&
+        answer.pairs.map { it.rightId }.toSet() == exercise.right.map { it.id }.toSet()
     else -> false
 }
 
@@ -135,28 +142,9 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             }
             when(exercise) {
                 is ExerciseShortAnswer -> AnswerField(text("Answer", "Antwort"), (p.draft as? AnswerShortAnswer)?.text.orEmpty(), onCheck = ::checkAnswer) { draft(AnswerShortAnswer(it)) }
-                is ExerciseChoice -> exercise.options.forEach { option -> button((if((p.draft as? AnswerChoice)?.optionId == option.id) "✓ " else "") + option.text) { draft(AnswerChoice(option.id)) } }
-                is ExerciseWordOrder -> {
-                    val order = p.order
-                    Text(order.joinToString(" ") { id -> exercise.tokens.first { it.id == id }.text }, Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-                    order.forEachIndexed { index, id ->
-                        key(id) {
-                            val word = exercise.tokens.first { it.id == id }.text
-                            fun move(direction: Int) {
-                                val next = order.toMutableList()
-                                val destination = index + direction
-                                if (destination in next.indices) {
-                                    next[index] = next[destination]; next[destination] = id
-                                    edit { repository.order(next) }
-                                }
-                            }
-                            button(text("Move left: $word (${index + 1})", "Nach links: $word (${index + 1})"), index > 0) { move(-1) }
-                            button(text("Move right: $word (${index + 1})", "Nach rechts: $word (${index + 1})"), index < order.lastIndex) { move(1) }
-                        }
-                    }
-                    exercise.tokens.filter { it.id !in order }.forEach { token -> button(token.text) { edit { repository.order(order + token.id) } } }
-                    button(text("Reset order", "Reihenfolge zurücksetzen")) { edit { repository.order(emptyList()) } }
-                }
+                is ExerciseChoice, is ExerciseWordOrder, is ExerciseGapChoice, is ExerciseMatching ->
+                    LowTypingInput(exercise, p.draft, p.order, german = german, onDraft = ::draft,
+                        onOrder = { next -> edit { repository.order(next) } })
                 is ExerciseCloze, is ExerciseMultiSlot -> {
                     val slots = if(exercise is ExerciseCloze) exercise.slots else (exercise as ExerciseMultiSlot).slots
                     val values = when(val answer = p.draft) { is AnswerCloze -> answer.values; is AnswerMultiSlot -> answer.values; else -> emptyList() }

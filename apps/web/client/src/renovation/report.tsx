@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { ContentReportRequestSchema, ContentReportReceiptSchema, type ContentReportRequest, type Session } from '@german-master/contracts';
-import { FoundationButton } from '../foundation/preview';
+import { FoundationButton } from "../foundation/controls";
 import type { LearnerApi } from './api';
 import type { JourneyStorage } from './storage';
 import { reportCopy } from './report-locales';

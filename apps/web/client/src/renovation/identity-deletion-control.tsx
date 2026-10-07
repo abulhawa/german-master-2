@@ -1,6 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import type {IdentityDeletionProof} from '@german-master/contracts';
-import {FoundationButton,PracticeCard} from '../foundation/preview';
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import {identityDeletionCopy} from './identity-deletion-locales';
 import type {IdentityDeletionMarker} from './identity-deletion';
 export function IdentityDeletionControl({locale,marker,blocked,deliver}:{locale:'en'|'de';marker:IdentityDeletionMarker|null;blocked:boolean;deliver:(proof?:IdentityDeletionProof)=>Promise<void>}) {

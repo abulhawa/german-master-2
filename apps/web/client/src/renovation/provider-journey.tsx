@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import LearnerJourney from './journey';
 import type { AccountBinding } from './account';
 import { createLearnerProvider } from './provider';
-import { FoundationButton, PracticeCard } from '../foundation/preview';
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { LearnerSignOut } from './signout';
 import { browserStorage } from './storage';
 import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from './guest-starter';

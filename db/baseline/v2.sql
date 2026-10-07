@@ -22,7 +22,7 @@ CREATE TABLE gm.exercise (id uuid PRIMARY KEY, target_id uuid NOT NULL REFERENCE
 CREATE INDEX exercise_target_idx ON gm.exercise(target_id);
 CREATE TABLE gm.exercise_revision (
   exercise_id uuid NOT NULL REFERENCES gm.exercise(id), revision integer NOT NULL CHECK (revision > 0),
-  type text NOT NULL CHECK (type IN ('short_answer','choice','cloze','word_order','multi_slot')),
+  type text NOT NULL CHECK (type IN ('short_answer','choice','cloze','word_order','multi_slot','gap_choice','matching')),
   payload jsonb NOT NULL, rubric jsonb NOT NULL, normalization_version text NOT NULL,
   provenance text NOT NULL, review_status text NOT NULL,
   PRIMARY KEY (exercise_id, revision)

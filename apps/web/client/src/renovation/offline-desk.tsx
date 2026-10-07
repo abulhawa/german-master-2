@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { type Answer, type Catalog } from '@german-master/contracts';
-import { ExerciseInput, FoundationButton, PracticeCard } from '../foundation/preview';
+import { ExerciseInput } from "../foundation/exercise-input";
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { sessionRequest, answerText } from '../foundation/api';
 import { browserReserve, type WebReserve } from './reserve';
 import { OfflineRepository } from './offline';

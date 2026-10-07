@@ -2550,6 +2550,1366 @@
           "text": "Büro"
         }
       }
+    },
+    {
+      "name": "low typing 0 accepted 0",
+      "exercise": {
+        "type": "choice",
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000001",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000201",
+        "prompt": "Ich spreche mit ___ neuen Kollegen. (Ein Kollege.)",
+        "instruction": {
+          "en": "Choose the singular dative article.",
+          "de": "Wählen Sie den Artikel im Dativ Singular."
+        },
+        "hint": {
+          "en": "„Mit“ takes the dative.",
+          "de": "„Mit“ verlangt den Dativ."
+        },
+        "options": [
+          {
+            "id": "der",
+            "text": "der"
+          },
+          {
+            "id": "den",
+            "text": "den"
+          },
+          {
+            "id": "dem",
+            "text": "dem"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000001",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "choice",
+            "optionId": "dem"
+          }
+        ],
+        "explanation": {
+          "en": "Mit takes the dative: dem neuen Kollegen.",
+          "de": "Mit verlangt den Dativ: dem neuen Kollegen."
+        }
+      },
+      "answer": {
+        "type": "choice",
+        "optionId": "dem"
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "Mit takes the dative: dem neuen Kollegen.",
+          "de": "Mit verlangt den Dativ: dem neuen Kollegen."
+        },
+        "acceptedAnswer": {
+          "type": "choice",
+          "optionId": "dem"
+        }
+      }
+    },
+    {
+      "name": "low typing 1 accepted 0",
+      "exercise": {
+        "type": "word_order",
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000002",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000203",
+        "prompt": "Bilde einen Satz. Beginne mit „Ich“.",
+        "instruction": {
+          "en": "Build the sentence. Tap words to add them; move or remove them to revise.",
+          "de": "Bilde den Satz. Tippe Wörter an; verschiebe oder entferne sie zum Korrigieren."
+        },
+        "hint": {
+          "en": "The conjugated verb comes last.",
+          "de": "Das konjugierte Verb steht am Ende."
+        },
+        "tokens": [
+          {
+            "id": "0",
+            "text": "kennt."
+          },
+          {
+            "id": "1",
+            "text": "sie"
+          },
+          {
+            "id": "2",
+            "text": "Ich"
+          },
+          {
+            "id": "3",
+            "text": "dass"
+          },
+          {
+            "id": "4",
+            "text": "weiß,"
+          },
+          {
+            "id": "5",
+            "text": "sie"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000002",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "word_order",
+            "tokenIds": [
+              "2",
+              "4",
+              "3",
+              "1",
+              "5",
+              "0"
+            ]
+          },
+          {
+            "type": "word_order",
+            "tokenIds": [
+              "2",
+              "4",
+              "3",
+              "5",
+              "1",
+              "0"
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The verb follows the two pronouns at the end of the dass clause.",
+          "de": "Das Verb steht nach den beiden Pronomen am Ende des dass-Satzes."
+        }
+      },
+      "answer": {
+        "type": "word_order",
+        "tokenIds": [
+          "2",
+          "4",
+          "3",
+          "1",
+          "5",
+          "0"
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "The verb follows the two pronouns at the end of the dass clause.",
+          "de": "Das Verb steht nach den beiden Pronomen am Ende des dass-Satzes."
+        },
+        "acceptedAnswer": {
+          "type": "word_order",
+          "tokenIds": [
+            "2",
+            "4",
+            "3",
+            "1",
+            "5",
+            "0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "low typing 1 accepted 1",
+      "exercise": {
+        "type": "word_order",
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000002",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000203",
+        "prompt": "Bilde einen Satz. Beginne mit „Ich“.",
+        "instruction": {
+          "en": "Build the sentence. Tap words to add them; move or remove them to revise.",
+          "de": "Bilde den Satz. Tippe Wörter an; verschiebe oder entferne sie zum Korrigieren."
+        },
+        "hint": {
+          "en": "The conjugated verb comes last.",
+          "de": "Das konjugierte Verb steht am Ende."
+        },
+        "tokens": [
+          {
+            "id": "0",
+            "text": "kennt."
+          },
+          {
+            "id": "1",
+            "text": "sie"
+          },
+          {
+            "id": "2",
+            "text": "Ich"
+          },
+          {
+            "id": "3",
+            "text": "dass"
+          },
+          {
+            "id": "4",
+            "text": "weiß,"
+          },
+          {
+            "id": "5",
+            "text": "sie"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000002",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "word_order",
+            "tokenIds": [
+              "2",
+              "4",
+              "3",
+              "1",
+              "5",
+              "0"
+            ]
+          },
+          {
+            "type": "word_order",
+            "tokenIds": [
+              "2",
+              "4",
+              "3",
+              "5",
+              "1",
+              "0"
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The verb follows the two pronouns at the end of the dass clause.",
+          "de": "Das Verb steht nach den beiden Pronomen am Ende des dass-Satzes."
+        }
+      },
+      "answer": {
+        "type": "word_order",
+        "tokenIds": [
+          "2",
+          "4",
+          "3",
+          "5",
+          "1",
+          "0"
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "The verb follows the two pronouns at the end of the dass clause.",
+          "de": "Das Verb steht nach den beiden Pronomen am Ende des dass-Satzes."
+        },
+        "acceptedAnswer": {
+          "type": "word_order",
+          "tokenIds": [
+            "2",
+            "4",
+            "3",
+            "1",
+            "5",
+            "0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "low typing 2 accepted 0",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000202",
+        "prompt": "Wir ___ heute länger, weil du morgen früher ___.",
+        "instruction": {
+          "en": "Choose the correct word for each gap.",
+          "de": "Wähle das richtige Wort für jede Lücke."
+        },
+        "hint": {
+          "en": "Check the subject of each verb.",
+          "de": "Achte auf das Subjekt jedes Verbs."
+        },
+        "type": "gap_choice",
+        "slots": [
+          {
+            "id": "wir",
+            "label": "Wir ___ heute länger",
+            "options": [
+              {
+                "id": "a",
+                "text": "arbeitet"
+              },
+              {
+                "id": "b",
+                "text": "arbeiten"
+              },
+              {
+                "id": "c",
+                "text": "arbeitest"
+              }
+            ]
+          },
+          {
+            "id": "du",
+            "label": "weil du morgen früher ___",
+            "options": [
+              {
+                "id": "a",
+                "text": "geht"
+              },
+              {
+                "id": "b",
+                "text": "gehe"
+              },
+              {
+                "id": "c",
+                "text": "gehst"
+              }
+            ]
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000003",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "gap_choice",
+            "selections": [
+              {
+                "slotId": "wir",
+                "optionId": "b"
+              },
+              {
+                "slotId": "du",
+                "optionId": "c"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        }
+      },
+      "answer": {
+        "type": "gap_choice",
+        "selections": [
+          {
+            "slotId": "wir",
+            "optionId": "b"
+          },
+          {
+            "slotId": "du",
+            "optionId": "c"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        },
+        "acceptedAnswer": {
+          "type": "gap_choice",
+          "selections": [
+            {
+              "slotId": "wir",
+              "optionId": "b"
+            },
+            {
+              "slotId": "du",
+              "optionId": "c"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "low typing 3 accepted 0",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000004",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000204",
+        "prompt": "Ordne die passenden Verben zu.",
+        "instruction": {
+          "en": "Match each expression to its verb.",
+          "de": "Ordne jedem Ausdruck das passende Verb zu."
+        },
+        "hint": {
+          "en": "Think of common noun–verb combinations.",
+          "de": "Denke an häufige Nomen-Verb-Verbindungen."
+        },
+        "type": "matching",
+        "left": [
+          {
+            "id": "decision",
+            "text": "eine Entscheidung"
+          },
+          {
+            "id": "question",
+            "text": "eine Frage"
+          },
+          {
+            "id": "responsibility",
+            "text": "Verantwortung"
+          }
+        ],
+        "right": [
+          {
+            "id": "take",
+            "text": "übernehmen"
+          },
+          {
+            "id": "make",
+            "text": "treffen"
+          },
+          {
+            "id": "ask",
+            "text": "stellen"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000004",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "matching",
+            "pairs": [
+              {
+                "leftId": "decision",
+                "rightId": "make"
+              },
+              {
+                "leftId": "question",
+                "rightId": "ask"
+              },
+              {
+                "leftId": "responsibility",
+                "rightId": "take"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        }
+      },
+      "answer": {
+        "type": "matching",
+        "pairs": [
+          {
+            "leftId": "decision",
+            "rightId": "make"
+          },
+          {
+            "leftId": "question",
+            "rightId": "ask"
+          },
+          {
+            "leftId": "responsibility",
+            "rightId": "take"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        },
+        "acceptedAnswer": {
+          "type": "matching",
+          "pairs": [
+            {
+              "leftId": "decision",
+              "rightId": "make"
+            },
+            {
+              "leftId": "question",
+              "rightId": "ask"
+            },
+            {
+              "leftId": "responsibility",
+              "rightId": "take"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "gap choices reversed slots",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000202",
+        "prompt": "Wir ___ heute länger, weil du morgen früher ___.",
+        "instruction": {
+          "en": "Choose the correct word for each gap.",
+          "de": "Wähle das richtige Wort für jede Lücke."
+        },
+        "hint": {
+          "en": "Check the subject of each verb.",
+          "de": "Achte auf das Subjekt jedes Verbs."
+        },
+        "type": "gap_choice",
+        "slots": [
+          {
+            "id": "wir",
+            "label": "Wir ___ heute länger",
+            "options": [
+              {
+                "id": "a",
+                "text": "arbeitet"
+              },
+              {
+                "id": "b",
+                "text": "arbeiten"
+              },
+              {
+                "id": "c",
+                "text": "arbeitest"
+              }
+            ]
+          },
+          {
+            "id": "du",
+            "label": "weil du morgen früher ___",
+            "options": [
+              {
+                "id": "a",
+                "text": "geht"
+              },
+              {
+                "id": "b",
+                "text": "gehe"
+              },
+              {
+                "id": "c",
+                "text": "gehst"
+              }
+            ]
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000003",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "gap_choice",
+            "selections": [
+              {
+                "slotId": "wir",
+                "optionId": "b"
+              },
+              {
+                "slotId": "du",
+                "optionId": "c"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        }
+      },
+      "answer": {
+        "type": "gap_choice",
+        "selections": [
+          {
+            "slotId": "du",
+            "optionId": "c"
+          },
+          {
+            "slotId": "wir",
+            "optionId": "b"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        },
+        "acceptedAnswer": {
+          "type": "gap_choice",
+          "selections": [
+            {
+              "slotId": "wir",
+              "optionId": "b"
+            },
+            {
+              "slotId": "du",
+              "optionId": "c"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "gap choices incomplete",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000202",
+        "prompt": "Wir ___ heute länger, weil du morgen früher ___.",
+        "instruction": {
+          "en": "Choose the correct word for each gap.",
+          "de": "Wähle das richtige Wort für jede Lücke."
+        },
+        "hint": {
+          "en": "Check the subject of each verb.",
+          "de": "Achte auf das Subjekt jedes Verbs."
+        },
+        "type": "gap_choice",
+        "slots": [
+          {
+            "id": "wir",
+            "label": "Wir ___ heute länger",
+            "options": [
+              {
+                "id": "a",
+                "text": "arbeitet"
+              },
+              {
+                "id": "b",
+                "text": "arbeiten"
+              },
+              {
+                "id": "c",
+                "text": "arbeitest"
+              }
+            ]
+          },
+          {
+            "id": "du",
+            "label": "weil du morgen früher ___",
+            "options": [
+              {
+                "id": "a",
+                "text": "geht"
+              },
+              {
+                "id": "b",
+                "text": "gehe"
+              },
+              {
+                "id": "c",
+                "text": "gehst"
+              }
+            ]
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000003",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "gap_choice",
+            "selections": [
+              {
+                "slotId": "wir",
+                "optionId": "b"
+              },
+              {
+                "slotId": "du",
+                "optionId": "c"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        }
+      },
+      "answer": {
+        "type": "gap_choice",
+        "selections": []
+      },
+      "assistance": [],
+      "expected": {
+        "error": "invalid_slots"
+      }
+    },
+    {
+      "name": "gap choices foreign option",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000202",
+        "prompt": "Wir ___ heute länger, weil du morgen früher ___.",
+        "instruction": {
+          "en": "Choose the correct word for each gap.",
+          "de": "Wähle das richtige Wort für jede Lücke."
+        },
+        "hint": {
+          "en": "Check the subject of each verb.",
+          "de": "Achte auf das Subjekt jedes Verbs."
+        },
+        "type": "gap_choice",
+        "slots": [
+          {
+            "id": "wir",
+            "label": "Wir ___ heute länger",
+            "options": [
+              {
+                "id": "a",
+                "text": "arbeitet"
+              },
+              {
+                "id": "b",
+                "text": "arbeiten"
+              },
+              {
+                "id": "c",
+                "text": "arbeitest"
+              }
+            ]
+          },
+          {
+            "id": "du",
+            "label": "weil du morgen früher ___",
+            "options": [
+              {
+                "id": "a",
+                "text": "geht"
+              },
+              {
+                "id": "b",
+                "text": "gehe"
+              },
+              {
+                "id": "c",
+                "text": "gehst"
+              }
+            ]
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000003",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "gap_choice",
+            "selections": [
+              {
+                "slotId": "wir",
+                "optionId": "b"
+              },
+              {
+                "slotId": "du",
+                "optionId": "c"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        }
+      },
+      "answer": {
+        "type": "gap_choice",
+        "selections": [
+          {
+            "slotId": "wir",
+            "optionId": "foreign"
+          },
+          {
+            "slotId": "du",
+            "optionId": "c"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "error": "unknown_option"
+      }
+    },
+    {
+      "name": "gap choices valid incorrect",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000003",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000202",
+        "prompt": "Wir ___ heute länger, weil du morgen früher ___.",
+        "instruction": {
+          "en": "Choose the correct word for each gap.",
+          "de": "Wähle das richtige Wort für jede Lücke."
+        },
+        "hint": {
+          "en": "Check the subject of each verb.",
+          "de": "Achte auf das Subjekt jedes Verbs."
+        },
+        "type": "gap_choice",
+        "slots": [
+          {
+            "id": "wir",
+            "label": "Wir ___ heute länger",
+            "options": [
+              {
+                "id": "a",
+                "text": "arbeitet"
+              },
+              {
+                "id": "b",
+                "text": "arbeiten"
+              },
+              {
+                "id": "c",
+                "text": "arbeitest"
+              }
+            ]
+          },
+          {
+            "id": "du",
+            "label": "weil du morgen früher ___",
+            "options": [
+              {
+                "id": "a",
+                "text": "geht"
+              },
+              {
+                "id": "b",
+                "text": "gehe"
+              },
+              {
+                "id": "c",
+                "text": "gehst"
+              }
+            ]
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000003",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "gap_choice",
+            "selections": [
+              {
+                "slotId": "wir",
+                "optionId": "b"
+              },
+              {
+                "slotId": "du",
+                "optionId": "c"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        }
+      },
+      "answer": {
+        "type": "gap_choice",
+        "selections": [
+          {
+            "slotId": "wir",
+            "optionId": "a"
+          },
+          {
+            "slotId": "du",
+            "optionId": "c"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "incorrect",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "Wir takes arbeiten; du takes gehst.",
+          "de": "Zu wir gehört arbeiten; zu du gehört gehst."
+        },
+        "acceptedAnswer": {
+          "type": "gap_choice",
+          "selections": [
+            {
+              "slotId": "wir",
+              "optionId": "b"
+            },
+            {
+              "slotId": "du",
+              "optionId": "c"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "matching reverse order",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000004",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000204",
+        "prompt": "Ordne die passenden Verben zu.",
+        "instruction": {
+          "en": "Match each expression to its verb.",
+          "de": "Ordne jedem Ausdruck das passende Verb zu."
+        },
+        "hint": {
+          "en": "Think of common noun–verb combinations.",
+          "de": "Denke an häufige Nomen-Verb-Verbindungen."
+        },
+        "type": "matching",
+        "left": [
+          {
+            "id": "decision",
+            "text": "eine Entscheidung"
+          },
+          {
+            "id": "question",
+            "text": "eine Frage"
+          },
+          {
+            "id": "responsibility",
+            "text": "Verantwortung"
+          }
+        ],
+        "right": [
+          {
+            "id": "take",
+            "text": "übernehmen"
+          },
+          {
+            "id": "make",
+            "text": "treffen"
+          },
+          {
+            "id": "ask",
+            "text": "stellen"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000004",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "matching",
+            "pairs": [
+              {
+                "leftId": "decision",
+                "rightId": "make"
+              },
+              {
+                "leftId": "question",
+                "rightId": "ask"
+              },
+              {
+                "leftId": "responsibility",
+                "rightId": "take"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        }
+      },
+      "answer": {
+        "type": "matching",
+        "pairs": [
+          {
+            "leftId": "responsibility",
+            "rightId": "take"
+          },
+          {
+            "leftId": "question",
+            "rightId": "ask"
+          },
+          {
+            "leftId": "decision",
+            "rightId": "make"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "correct",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        },
+        "acceptedAnswer": {
+          "type": "matching",
+          "pairs": [
+            {
+              "leftId": "decision",
+              "rightId": "make"
+            },
+            {
+              "leftId": "question",
+              "rightId": "ask"
+            },
+            {
+              "leftId": "responsibility",
+              "rightId": "take"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "matching incomplete",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000004",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000204",
+        "prompt": "Ordne die passenden Verben zu.",
+        "instruction": {
+          "en": "Match each expression to its verb.",
+          "de": "Ordne jedem Ausdruck das passende Verb zu."
+        },
+        "hint": {
+          "en": "Think of common noun–verb combinations.",
+          "de": "Denke an häufige Nomen-Verb-Verbindungen."
+        },
+        "type": "matching",
+        "left": [
+          {
+            "id": "decision",
+            "text": "eine Entscheidung"
+          },
+          {
+            "id": "question",
+            "text": "eine Frage"
+          },
+          {
+            "id": "responsibility",
+            "text": "Verantwortung"
+          }
+        ],
+        "right": [
+          {
+            "id": "take",
+            "text": "übernehmen"
+          },
+          {
+            "id": "make",
+            "text": "treffen"
+          },
+          {
+            "id": "ask",
+            "text": "stellen"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000004",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "matching",
+            "pairs": [
+              {
+                "leftId": "decision",
+                "rightId": "make"
+              },
+              {
+                "leftId": "question",
+                "rightId": "ask"
+              },
+              {
+                "leftId": "responsibility",
+                "rightId": "take"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        }
+      },
+      "answer": {
+        "type": "matching",
+        "pairs": []
+      },
+      "assistance": [],
+      "expected": {
+        "error": "invalid_pairs"
+      }
+    },
+    {
+      "name": "matching reused right",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000004",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000204",
+        "prompt": "Ordne die passenden Verben zu.",
+        "instruction": {
+          "en": "Match each expression to its verb.",
+          "de": "Ordne jedem Ausdruck das passende Verb zu."
+        },
+        "hint": {
+          "en": "Think of common noun–verb combinations.",
+          "de": "Denke an häufige Nomen-Verb-Verbindungen."
+        },
+        "type": "matching",
+        "left": [
+          {
+            "id": "decision",
+            "text": "eine Entscheidung"
+          },
+          {
+            "id": "question",
+            "text": "eine Frage"
+          },
+          {
+            "id": "responsibility",
+            "text": "Verantwortung"
+          }
+        ],
+        "right": [
+          {
+            "id": "take",
+            "text": "übernehmen"
+          },
+          {
+            "id": "make",
+            "text": "treffen"
+          },
+          {
+            "id": "ask",
+            "text": "stellen"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000004",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "matching",
+            "pairs": [
+              {
+                "leftId": "decision",
+                "rightId": "make"
+              },
+              {
+                "leftId": "question",
+                "rightId": "ask"
+              },
+              {
+                "leftId": "responsibility",
+                "rightId": "take"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        }
+      },
+      "answer": {
+        "type": "matching",
+        "pairs": [
+          {
+            "leftId": "decision",
+            "rightId": "ask"
+          },
+          {
+            "leftId": "question",
+            "rightId": "ask"
+          },
+          {
+            "leftId": "responsibility",
+            "rightId": "ask"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "error": "invalid_pairs"
+      }
+    },
+    {
+      "name": "matching valid incorrect",
+      "exercise": {
+        "schemaVersion": 1,
+        "id": "b1000000-0000-4000-8000-000000000004",
+        "revision": 1,
+        "targetId": "00000000-0000-4000-8000-000000000204",
+        "prompt": "Ordne die passenden Verben zu.",
+        "instruction": {
+          "en": "Match each expression to its verb.",
+          "de": "Ordne jedem Ausdruck das passende Verb zu."
+        },
+        "hint": {
+          "en": "Think of common noun–verb combinations.",
+          "de": "Denke an häufige Nomen-Verb-Verbindungen."
+        },
+        "type": "matching",
+        "left": [
+          {
+            "id": "decision",
+            "text": "eine Entscheidung"
+          },
+          {
+            "id": "question",
+            "text": "eine Frage"
+          },
+          {
+            "id": "responsibility",
+            "text": "Verantwortung"
+          }
+        ],
+        "right": [
+          {
+            "id": "take",
+            "text": "übernehmen"
+          },
+          {
+            "id": "make",
+            "text": "treffen"
+          },
+          {
+            "id": "ask",
+            "text": "stellen"
+          }
+        ]
+      },
+      "rubric": {
+        "exerciseId": "b1000000-0000-4000-8000-000000000004",
+        "exerciseRevision": 1,
+        "normalizationVersion": "de-nfc-trim-v1",
+        "acceptedAnswers": [
+          {
+            "type": "matching",
+            "pairs": [
+              {
+                "leftId": "decision",
+                "rightId": "make"
+              },
+              {
+                "leftId": "question",
+                "rightId": "ask"
+              },
+              {
+                "leftId": "responsibility",
+                "rightId": "take"
+              }
+            ]
+          }
+        ],
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        }
+      },
+      "answer": {
+        "type": "matching",
+        "pairs": [
+          {
+            "leftId": "decision",
+            "rightId": "ask"
+          },
+          {
+            "leftId": "question",
+            "rightId": "make"
+          },
+          {
+            "leftId": "responsibility",
+            "rightId": "take"
+          }
+        ]
+      },
+      "assistance": [],
+      "expected": {
+        "outcome": "incorrect",
+        "policyVersion": "deterministic-v1/de-nfc-trim-v1",
+        "assisted": false,
+        "explanation": {
+          "en": "The combinations are eine Entscheidung treffen, eine Frage stellen and Verantwortung übernehmen.",
+          "de": "Die Verbindungen lauten eine Entscheidung treffen, eine Frage stellen und Verantwortung übernehmen."
+        },
+        "acceptedAnswer": {
+          "type": "matching",
+          "pairs": [
+            {
+              "leftId": "decision",
+              "rightId": "make"
+            },
+            {
+              "leftId": "question",
+              "rightId": "ask"
+            },
+            {
+              "leftId": "responsibility",
+              "rightId": "take"
+            }
+          ]
+        }
+      }
     }
   ]
 }

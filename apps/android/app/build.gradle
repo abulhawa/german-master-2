@@ -29,6 +29,12 @@ android {
     namespace = "com.germanverbmaster.android"
     compileSdk = 37
     ndkVersion = "29.0.14206865"
+    // Practice can switch EN/DE independently of the device language, including offline.
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
 
     defaultConfig {
         applicationId = "com.germanverbmaster.android"
@@ -242,7 +248,7 @@ dependencies {
 
 // The preview packages only the solution-free session. Test fixtures stay in test resources.
 def foundationAssets = tasks.register("prepareFoundationAssets", Sync) {
-    from(rootProject.file("../../contracts/v2/examples")) { include("session.json") }
+    from(rootProject.file("../../contracts/v2/examples")) { include("session.json", "practice-formats-session.json") }
     into(layout.buildDirectory.dir("generated/foundationAssets"))
 }
 android.sourceSets.main.assets.srcDir(layout.buildDirectory.dir("generated/foundationAssets").get().asFile)

@@ -118,9 +118,60 @@ export const AnswerMultiSlotSchema = z.strictObject({
   values: z.array(SlotValueSchema).min(2),
 });
 export type AnswerMultiSlot = z.infer<typeof AnswerMultiSlotSchema>;
-export const ExerciseSchema = z.discriminatedUnion("type", [ExerciseShortAnswerSchema, ExerciseChoiceSchema, ExerciseClozeSchema, ExerciseWordOrderSchema, ExerciseMultiSlotSchema]);
+export const GapChoiceSlotSchema = z.strictObject({
+  id: z.string().min(1),
+  label: z.string().min(1),
+  options: z.array(OptionSchema).min(2).max(6),
+});
+export type GapChoiceSlot = z.infer<typeof GapChoiceSlotSchema>;
+export const GapSelectionSchema = z.strictObject({
+  slotId: z.string().min(1),
+  optionId: z.string().min(1),
+});
+export type GapSelection = z.infer<typeof GapSelectionSchema>;
+export const MatchPairSchema = z.strictObject({
+  leftId: z.string().min(1),
+  rightId: z.string().min(1),
+});
+export type MatchPair = z.infer<typeof MatchPairSchema>;
+export const ExerciseGapChoiceSchema = z.strictObject({
+  type: z.literal("gap_choice"),
+  schemaVersion: z.literal(1),
+  id: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  revision: z.number().int().min(1).max(2147483647),
+  targetId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  prompt: z.string().min(1),
+  instruction: LocalizedTextSchema,
+  hint: LocalizedTextSchema,
+  slots: z.array(GapChoiceSlotSchema).min(1).max(6),
+});
+export type ExerciseGapChoice = z.infer<typeof ExerciseGapChoiceSchema>;
+export const ExerciseMatchingSchema = z.strictObject({
+  type: z.literal("matching"),
+  schemaVersion: z.literal(1),
+  id: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  revision: z.number().int().min(1).max(2147483647),
+  targetId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  prompt: z.string().min(1),
+  instruction: LocalizedTextSchema,
+  hint: LocalizedTextSchema,
+  left: z.array(OptionSchema).min(2).max(8),
+  right: z.array(OptionSchema).min(2).max(8),
+});
+export type ExerciseMatching = z.infer<typeof ExerciseMatchingSchema>;
+export const AnswerGapChoiceSchema = z.strictObject({
+  type: z.literal("gap_choice"),
+  selections: z.array(GapSelectionSchema).min(0).max(6),
+});
+export type AnswerGapChoice = z.infer<typeof AnswerGapChoiceSchema>;
+export const AnswerMatchingSchema = z.strictObject({
+  type: z.literal("matching"),
+  pairs: z.array(MatchPairSchema).min(0).max(8),
+});
+export type AnswerMatching = z.infer<typeof AnswerMatchingSchema>;
+export const ExerciseSchema = z.discriminatedUnion("type", [ExerciseShortAnswerSchema, ExerciseChoiceSchema, ExerciseClozeSchema, ExerciseWordOrderSchema, ExerciseMultiSlotSchema, ExerciseGapChoiceSchema, ExerciseMatchingSchema]);
 export type Exercise = z.infer<typeof ExerciseSchema>;
-export const AnswerSchema = z.discriminatedUnion("type", [AnswerShortAnswerSchema, AnswerChoiceSchema, AnswerClozeSchema, AnswerWordOrderSchema, AnswerMultiSlotSchema]);
+export const AnswerSchema = z.discriminatedUnion("type", [AnswerShortAnswerSchema, AnswerChoiceSchema, AnswerClozeSchema, AnswerWordOrderSchema, AnswerMultiSlotSchema, AnswerGapChoiceSchema, AnswerMatchingSchema]);
 export type Answer = z.infer<typeof AnswerSchema>;
 export const QuestionSchema = z.strictObject({
   id: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
@@ -179,7 +230,7 @@ export const SessionRequestSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   questionCount: z.number().int().min(1).max(50),
-  capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
+  capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
 });
 export type SessionRequest = z.infer<typeof SessionRequestSchema>;
 export const EvaluationSchema = z.strictObject({
@@ -312,7 +363,7 @@ export const FocusedSessionRequestSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   questionCount: z.number().int().min(1).max(50),
-  capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
+  capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
   focus: PracticeFocusSchema,
 });
 export type FocusedSessionRequest = z.infer<typeof FocusedSessionRequestSchema>;

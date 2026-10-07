@@ -121,6 +121,7 @@
   gap: var(--gm-space-8);
 }
 .gm-choices label {
+  font: inherit;
   display: flex;
   align-items: center;
   gap: var(--gm-space-12);
@@ -156,7 +157,8 @@
   padding-left: var(--gm-space-24);
 }
 .gm-order li { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
-.gm-order li .gm-button { display: block; margin-top: var(--gm-space-8); }
+.gm-order li > span { display: block; margin-bottom: var(--gm-space-8); }
+.gm-order li .gm-button { display: inline-flex; min-width: var(--gm-control-min); padding-inline: var(--gm-space-8); margin-inline-end: var(--gm-space-4); }
 .gm-feedback {
   border: 1px solid var(--gm-border);
   padding: var(--gm-space-16);
@@ -193,3 +195,23 @@
 .gm-foundation .gm-column > .gm-card { margin: var(--gm-space-16) 0; }
 .gm-foundation .gm-offline-answer { border: 0; padding: 0; margin: 0; min-width: 0; }
 .gm-foundation .gm-offline-answer > .gm-button { display: block; width: 100%; margin-top: var(--gm-space-8); }
+
+/* Low-typing controls share practice tokens across previews, guests and account sessions. */
+.gm-gap-choices, .gm-matching { display: grid; gap: var(--gm-space-16); }
+.gm-matching-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gm-space-12); }
+.gm-matching-columns > div { display: grid; align-content: start; gap: var(--gm-space-8); }
+.gm-matching .gm-button { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+.gm-matching ul { padding-left: var(--gm-space-24); }
+.gm-matching li { overflow-wrap: anywhere; margin-bottom: var(--gm-space-12); }
+.gm-matching li .gm-button { display: block; margin-top: var(--gm-space-8); }
+.gm-matching .gm-button[aria-pressed="true"], .gm-choices label:has(input:checked) {
+  background: var(--gm-surface); border: 2px solid var(--gm-primary);
+}
+
+.gm-format-large-text { font-size: 32px; }
+@media (max-width: 479px) {
+  .gm-matching-columns { grid-template-columns: minmax(0, 1fr); }
+}
+
+.gm-choices legend { font: inherit; }
+.gm-format-large-text .gm-card h1 { font-size: 3rem; }

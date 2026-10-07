@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import type { LearnerExport } from '@german-master/contracts';
-import { FoundationButton, PracticeCard } from '../foundation/preview';
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { privacyCopy } from './privacy-locales';
 import { deletionCopy, signoutCopy, accountSignoutCopy } from './privacy-locales';
 

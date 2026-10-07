@@ -31,14 +31,7 @@ object PreparedPackReader {
         questions.forEach { question ->
             val exercise = question.exercise
             requireNotNull(rubrics[exercise.id to exercise.revision]).acceptedAnswers.forEach { answer ->
-                require(when {
-                    exercise is ExerciseShortAnswer && answer is AnswerShortAnswer -> true
-                    exercise is ExerciseChoice && answer is AnswerChoice -> exercise.options.any { it.id == answer.optionId }
-                    exercise is ExerciseWordOrder && answer is AnswerWordOrder -> answer.tokenIds.toSet() == exercise.tokens.map { it.id }.toSet() && answer.tokenIds.size == exercise.tokens.size
-                    exercise is ExerciseCloze && answer is AnswerCloze -> answer.values.map { it.slotId }.toSet() == exercise.slots.map { it.id }.toSet() && answer.values.size == exercise.slots.size && answer.values.map { it.slotId }.distinct().size == answer.values.size
-                    exercise is ExerciseMultiSlot && answer is AnswerMultiSlot -> answer.values.map { it.slotId }.toSet() == exercise.slots.map { it.id }.toSet() && answer.values.size == exercise.slots.size && answer.values.map { it.slotId }.distinct().size == answer.values.size
-                    else -> false
-                }) { "Pack answer linkage mismatch" }
+                OfflineGrader.validate(exercise, answer)
             }
         }
         return pack

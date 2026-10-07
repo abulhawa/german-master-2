@@ -14,7 +14,8 @@ import {
   type GuestAttachmentRequest,
 } from "@german-master/contracts";
 import { answerText } from "../foundation/api";
-import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
+import { ExerciseInput } from "../foundation/exercise-input";
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { readyAnswer } from "./storage";
 import { grade, NORMALIZATION_VERSION, type Rubric } from "@german-master/learning-engine";
 

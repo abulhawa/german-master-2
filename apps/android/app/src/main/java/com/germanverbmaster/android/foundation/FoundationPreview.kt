@@ -52,21 +52,19 @@ fun AnswerField(label: String, value: String, onCheck: (() -> Unit)? = null, onC
 }
 
 @Composable
-fun ExerciseInput(exercise: Exercise, onAnswer: (Answer?) -> Unit) {
+fun ExerciseInput(exercise: Exercise, german: Boolean = false, onAnswer: (Answer?) -> Unit) {
     var text by remember { mutableStateOf("") }
     var values by remember { mutableStateOf(mapOf<String,String>()) }
     var order by remember { mutableStateOf(listOf<String>()) }
+    var draft by remember(exercise.id) { mutableStateOf<Answer?>(null) }
+    if (exercise is ExerciseChoice || exercise is ExerciseWordOrder || exercise is ExerciseGapChoice || exercise is ExerciseMatching) {
+        LowTypingInput(exercise, draft, order, german = german,
+            onDraft = { draft = it; onAnswer(if(com.germanverbmaster.android.learner.nativeAnswerReady(exercise, it)) it else null) },
+            onOrder = { order = it; onAnswer(if(it.size == (exercise as ExerciseWordOrder).tokens.size) AnswerWordOrder(it) else null) })
+        return
+    }
     when(exercise) {
         is ExerciseShortAnswer -> AnswerField(stringResource(R.string.foundation_answer), text) { text=it; onAnswer(if(it.isBlank()) null else AnswerShortAnswer(it)) }
-        is ExerciseChoice -> {
-            Text(stringResource(R.string.foundation_answer))
-            exercise.options.forEach { option ->
-                OutlinedButton(onClick={text=option.id;onAnswer(AnswerChoice(option.id))}, modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) {
-                    RadioButton(selected=text==option.id,onClick=null)
-                    Text(option.text)
-                }
-            }
-        }
         is ExerciseCloze, is ExerciseMultiSlot -> {
             val slots = when(exercise) { is ExerciseCloze -> exercise.slots; is ExerciseMultiSlot -> exercise.slots; else -> error("Unreachable") }
             slots.forEach { slot -> AnswerField(slot.label,values[slot.id].orEmpty()) { v ->
@@ -75,14 +73,7 @@ fun ExerciseInput(exercise: Exercise, onAnswer: (Answer?) -> Unit) {
                 onAnswer(if(answer.any { it.text.isBlank() }) null else if(exercise is ExerciseCloze) AnswerCloze(answer) else AnswerMultiSlot(answer))
             } }
         }
-        is ExerciseWordOrder -> {
-            Text(stringResource(R.string.foundation_answer))
-            Text(order.mapIndexed { i,id -> "${i+1}. ${exercise.tokens.first { it.id==id }.text}" }.joinToString("  "))
-            exercise.tokens.filter { it.id !in order }.forEach { token ->
-                OutlinedButton(onClick={order=order+token.id;onAnswer(if(order.size==exercise.tokens.size) AnswerWordOrder(order) else null)},modifier=Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp)) { Text(token.text) }
-            }
-            OutlinedButton(onClick={order=emptyList();onAnswer(null)},enabled=order.isNotEmpty()) { Text(stringResource(R.string.foundation_reset)) }
-        }
+        else -> error("Expected a typed exercise")
     }
 }
 
@@ -103,7 +94,7 @@ fun FoundationPreview(session: Session) {
                 Text(exercise.prompt,style=MaterialTheme.typography.headlineSmall,modifier=Modifier.semantics { heading() })
                 Text(if(german) exercise.instruction.de else exercise.instruction.en)
                 key(exercise.id) {
-                    ExerciseInput(exercise) { answer=it;inspected=false }
+                    ExerciseInput(exercise, german) { answer=it;inspected=false }
                     var hint by remember { mutableStateOf(false) }
                     TextButton(onClick={hint=!hint}) { Text(stringResource(R.string.foundation_hint)) }
                     if(hint) Text(if(german) exercise.hint.de else exercise.hint.en)

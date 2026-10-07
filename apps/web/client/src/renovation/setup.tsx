@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ProfileRequestSchema, type LearnerProfile, type ProfileRequest } from "@german-master/contracts";
-import { FoundationButton, PracticeCard } from "../foundation/preview";
+import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { learnerCopy, accountLearnerCopy } from "./locales";
 import type { LearnerApi } from "./api";
 import type { JourneyStorage } from "./storage";
