@@ -11,6 +11,7 @@ import {
 import { answerText } from "../foundation/api";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
 import { readyAnswer } from "./storage";
+import { grade, NORMALIZATION_VERSION, type Rubric } from "@german-master/learning-engine";
 
 export const GUEST_STORAGE_KEY = "german-master-v2:guest-starter-v1";
 type Locale = "en" | "de";
@@ -170,56 +171,41 @@ export function guestAttemptCount(): number {
   }
 }
 
-function normalized(value: string) {
-  return value.normalize("NFC").trim();
-}
-
-function acceptedAnswer(exercise: Exercise): Answer {
-  switch (exercise.id) {
-    case "30000000-0000-4000-8000-000000000100": return { type: "short_answer", text: "Berufe" };
-    case "30000000-0000-4000-8000-000000000101": return { type: "choice", optionId: "dem" };
-    case "30000000-0000-4000-8000-000000000102": return { type: "cloze", values: [{ slotId: "preposition", text: "ins" }] };
-    case "30000000-0000-4000-8000-000000000103": return { type: "word_order", tokenIds: ["1", "3", "2", "4", "0", "5"] };
-    case "30000000-0000-4000-8000-000000000104": return { type: "multi_slot", values: [{ slotId: "du", text: "arbeitest" }, { slotId: "ihr", text: "arbeitet" }] };
-    default: throw Error("Unknown guest exercise");
-  }
-}
-
-function correctAnswer(exercise: Exercise, answer: Answer): boolean {
-  if (exercise.id === "30000000-0000-4000-8000-000000000100")
-    return answer.type === "short_answer" && normalized(answer.text) === "Berufe";
-  if (exercise.id === "30000000-0000-4000-8000-000000000101")
-    return answer.type === "choice" && answer.optionId === "dem";
-  if (exercise.id === "30000000-0000-4000-8000-000000000102") {
-    if (answer.type !== "cloze") return false;
-    const value = answer.values.find(v => v.slotId === "preposition")?.text ?? "";
-    return ["ins", "in das"].includes(normalized(value));
-  }
-  if (exercise.id === "30000000-0000-4000-8000-000000000103")
-    return answer.type === "word_order" && answer.tokenIds.join(",") === "1,3,2,4,0,5";
-  if (exercise.id === "30000000-0000-4000-8000-000000000104") {
-    if (answer.type !== "multi_slot") return false;
-    const values = Object.fromEntries(answer.values.map(v => [v.slotId, normalized(v.text)]));
-    return values.du === "arbeitest" && values.ihr === "arbeitet";
-  }
-  return false;
-}
+const starterRubrics = new Map<string, Rubric>([
+  ["30000000-0000-4000-8000-000000000100@1", {
+    normalizationVersion: NORMALIZATION_VERSION,
+    acceptedAnswers: [{ type: "short_answer", text: "Berufe" }],
+    explanation: { en: "The plural is „Berufe“; nouns retain capitalization.", de: "Der Plural lautet „Berufe“; Nomen werden großgeschrieben." },
+  }],
+  ["30000000-0000-4000-8000-000000000101@1", {
+    normalizationVersion: NORMALIZATION_VERSION,
+    acceptedAnswers: [{ type: "choice", optionId: "dem" }],
+    explanation: { en: "„Mit“ takes the dative. For one colleague, use „dem neuen Kollegen“.", de: "„Mit“ verlangt den Dativ. Bei einem Kollegen heißt es „dem neuen Kollegen“." },
+  }],
+  ["30000000-0000-4000-8000-000000000102@1", {
+    normalizationVersion: NORMALIZATION_VERSION,
+    acceptedAnswers: [
+      { type: "cloze", values: [{ slotId: "preposition", text: "ins" }] },
+      { type: "cloze", values: [{ slotId: "preposition", text: "in das" }] },
+    ],
+    explanation: { en: "A destination with „das Büro“ uses „in das“, usually „ins“.", de: "Ein Ziel mit „das Büro“ verlangt „in das“, meist verkürzt zu „ins“." },
+  }],
+  ["30000000-0000-4000-8000-000000000103@1", {
+    normalizationVersion: NORMALIZATION_VERSION,
+    acceptedAnswers: [{ type: "word_order", tokenIds: ["1", "3", "2", "4", "0", "5"] }],
+    explanation: { en: "After „weil“, the conjugated verb goes to the end.", de: "Nach „weil“ steht das konjugierte Verb am Ende." },
+  }],
+  ["30000000-0000-4000-8000-000000000104@1", {
+    normalizationVersion: NORMALIZATION_VERSION,
+    acceptedAnswers: [{ type: "multi_slot", values: [{ slotId: "du", text: "arbeitest" }, { slotId: "ihr", text: "arbeitet" }] }],
+    explanation: { en: "„Arbeiten“ adds an e before -st and -t: arbeitest, arbeitet.", de: "Bei „arbeiten“ steht vor -st und -t ein e: arbeitest, arbeitet." },
+  }],
+]);
 
 function localEvaluation(exercise: Exercise, answer: Answer, assisted: boolean): Evaluation {
-  const explanations: Record<string, { en: string; de: string }> = {
-    "30000000-0000-4000-8000-000000000100": { en: "The plural is „Berufe“; nouns retain capitalization.", de: "Der Plural lautet „Berufe“; Nomen werden großgeschrieben." },
-    "30000000-0000-4000-8000-000000000101": { en: "„Mit“ takes the dative. For one colleague, use „dem neuen Kollegen“.", de: "„Mit“ verlangt den Dativ. Bei einem Kollegen heißt es „dem neuen Kollegen“." },
-    "30000000-0000-4000-8000-000000000102": { en: "A destination with „das Büro“ uses „in das“, usually „ins“.", de: "Ein Ziel mit „das Büro“ verlangt „in das“, meist verkürzt zu „ins“." },
-    "30000000-0000-4000-8000-000000000103": { en: "After „weil“, the conjugated verb goes to the end.", de: "Nach „weil“ steht das konjugierte Verb am Ende." },
-    "30000000-0000-4000-8000-000000000104": { en: "„Arbeiten“ adds an e before -st and -t: arbeitest, arbeitet.", de: "Bei „arbeiten“ steht vor -st und -t ein e: arbeitest, arbeitet." },
-  };
-  return {
-    outcome: correctAnswer(exercise, answer) ? "correct" : "incorrect",
-    policyVersion: "guest-local-v1",
-    explanation: explanations[exercise.id],
-    acceptedAnswer: acceptedAnswer(exercise),
-    assisted,
-  };
+  const rubric = starterRubrics.get(`${exercise.id}@${exercise.revision}`);
+  if (!rubric) throw Error("Missing guest starter rubric");
+  return grade(exercise, rubric, answer, assisted ? ["hint"] : []);
 }
 
 const copy = {
