@@ -1689,7 +1689,7 @@
         "en": "Adjective ending: masculine nominative after der",
         "de": "Adjektivendung: Maskulinum im Nominativ nach „der“"
       },
-      "objective": "Supply the weak adjective ending after der in masculine nominative.",
+      "objective": "Choose the weak adjective ending after der in masculine nominative.",
       "category": "adjective",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -1697,7 +1697,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-07; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1708,22 +1708,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001030",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000015",
             "hint": {
               "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der neu___ Kollege beginnt heute.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -1731,11 +1753,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -1745,7 +1767,7 @@
               "de": "Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         },
         {
           "variantKey": "v-15-1",
@@ -1754,22 +1776,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001031",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000015",
             "hint": {
               "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der freundlich___ Kunde wartet am Empfang.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -1777,11 +1821,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -1791,7 +1835,7 @@
               "de": "Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         }
       ]
     },
@@ -1801,7 +1845,7 @@
         "en": "Adjective ending: feminine nominative after die",
         "de": "Adjektivendung: Femininum im Nominativ nach „die“"
       },
-      "objective": "Supply the weak adjective ending after die in feminine nominative.",
+      "objective": "Choose the weak adjective ending after die in feminine nominative.",
       "category": "adjective",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -1809,7 +1853,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-07; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1820,22 +1864,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001032",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000016",
             "hint": {
               "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die neu___ Kollegin arbeitet im Vertrieb.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -1843,11 +1909,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -1857,7 +1923,7 @@
               "de": "Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         },
         {
           "variantKey": "v-16-1",
@@ -1866,22 +1932,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001033",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000016",
             "hint": {
               "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die wichtig___ Frage bleibt offen.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -1889,11 +1977,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -1903,7 +1991,7 @@
               "de": "Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         }
       ]
     },
@@ -1913,7 +2001,7 @@
         "en": "Adjective ending: neuter nominative after das",
         "de": "Adjektivendung: Neutrum im Nominativ nach „das“"
       },
-      "objective": "Supply the weak adjective ending after das in neuter nominative.",
+      "objective": "Choose the weak adjective ending after das in neuter nominative.",
       "category": "adjective",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -1921,7 +2009,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-07; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1932,22 +2020,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001034",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000017",
             "hint": {
               "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Das klein___ Büro ist frei.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -1955,11 +2065,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -1969,7 +2079,7 @@
               "de": "Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         },
         {
           "variantKey": "v-17-1",
@@ -1978,22 +2088,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001035",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000017",
             "hint": {
               "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
               "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Das neu___ Gerät funktioniert gut.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -2001,11 +2133,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "e"
+                    "optionId": "e"
                   }
                 ]
               }
@@ -2015,7 +2147,7 @@
               "de": "Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         }
       ]
     },
@@ -2025,7 +2157,7 @@
         "en": "Adjective ending: masculine accusative after den",
         "de": "Adjektivendung: Maskulinum im Akkusativ nach „den“"
       },
-      "objective": "Supply the weak adjective ending after den in masculine accusative.",
+      "objective": "Choose the weak adjective ending after den in masculine accusative.",
       "category": "adjective",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -2033,7 +2165,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-07; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2044,22 +2176,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001036",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000018",
             "hint": {
               "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
               "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich sehe den neu___ Kollegen.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -2067,11 +2221,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "en"
+                    "optionId": "en"
                   }
                 ]
               }
@@ -2081,7 +2235,7 @@
               "de": "Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         },
         {
           "variantKey": "v-18-1",
@@ -2090,22 +2244,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001037",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000018",
             "hint": {
               "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
               "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wir begrüßen den wichtig___ Kunden.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -2113,11 +2289,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "en"
+                    "optionId": "en"
                   }
                 ]
               }
@@ -2127,7 +2303,7 @@
               "de": "Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         }
       ]
     },
@@ -2137,7 +2313,7 @@
         "en": "Adjective ending: dative after a definite article",
         "de": "Adjektivendung: Dativ nach bestimmtem Artikel"
       },
-      "objective": "Supply the weak adjective ending after a definite article in the dative.",
+      "objective": "Choose the weak adjective ending after a definite article in the dative.",
       "category": "adjective",
       "level": "B1",
       "provenance": "Original agent-authored examples for German Master 2.0; no imported dataset.",
@@ -2145,7 +2321,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Low-typing revision 2 prepared on 2026-10-07; independent German review remains pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2156,22 +2332,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001038",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000019",
             "hint": {
               "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
               "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich spreche mit dem nett___ Kollegen.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -2179,11 +2377,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "en"
+                    "optionId": "en"
                   }
                 ]
               }
@@ -2193,7 +2391,7 @@
               "de": "Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         },
         {
           "variantKey": "v-19-1",
@@ -2202,22 +2400,44 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "10000000-0000-4000-8000-000000001039",
-            "revision": 1,
+            "revision": 2,
             "targetId": "10000000-0000-4000-8000-000000000019",
             "hint": {
               "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
               "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
             },
             "instruction": {
-              "en": "Type only the missing adjective ending.",
-              "de": "Schreibe nur die fehlende Adjektivendung."
+              "en": "Choose the missing adjective ending.",
+              "de": "Wähle die fehlende Adjektivendung."
             },
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie arbeitet mit der erfahren___ Ärztin.",
             "slots": [
               {
                 "id": "ending",
-                "label": "Endung"
+                "label": "Adjektivendung",
+                "options": [
+                  {
+                    "id": "e",
+                    "text": "-e"
+                  },
+                  {
+                    "id": "en",
+                    "text": "-en"
+                  },
+                  {
+                    "id": "er",
+                    "text": "-er"
+                  },
+                  {
+                    "id": "es",
+                    "text": "-es"
+                  },
+                  {
+                    "id": "em",
+                    "text": "-em"
+                  }
+                ]
               }
             ]
           },
@@ -2225,11 +2445,11 @@
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "ending",
-                    "text": "en"
+                    "optionId": "en"
                   }
                 ]
               }
@@ -2239,7 +2459,7 @@
               "de": "Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en."
             }
           },
-          "ambiguityNotes": "The article, noun and sentence role make the case/gender reading explicit; the blank asks only for the adjective ending."
+          "ambiguityNotes": "This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production."
         }
       ]
     },

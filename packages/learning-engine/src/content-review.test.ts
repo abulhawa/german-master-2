@@ -21,6 +21,15 @@ describe('initial editorial workspace', () => {
     if (mode === 'solution') Object.assign(variant.exercise,{acceptedAnswer:'leaked'});
     expect(() => validateDraftCatalog(data)).toThrow();
   });
+  it('validates identities inside low-typing inputs', () => {
+    const data = structuredClone(draft);
+    const target = data.targets.find(item => item.category === 'adjective');
+    expect(target).toBeDefined();
+    const exercise = target!.variants[0].exercise as any;
+    expect(exercise.type).toBe('gap_choice');
+    exercise.slots[0].options[1].id = exercise.slots[0].options[0].id;
+    expect(() => validateDraftCatalog(data)).toThrow('duplicate input identity');
+  });
   it('invalidates sign-off after content changes', () => {
     const data=structuredClone(draft);
     const result=validateDraftCatalog(data);

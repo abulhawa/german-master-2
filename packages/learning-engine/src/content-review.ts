@@ -42,9 +42,18 @@ export function validateDraftCatalog(input: unknown) {
       exerciseIds.add(e.id); variantKeys.add(variant.variantKey); forms.add(e.type);
       if (contexts.has(variant.contextKey) || prompts.has(e.prompt.normalize('NFC').trim())) throw new Error('variants require distinct contexts and prompts');
       contexts.add(variant.contextKey); prompts.add(e.prompt.normalize('NFC').trim());
-      const linked = e.type === 'choice' ? e.options : e.type === 'word_order' ? e.tokens :
-        e.type === 'cloze' || e.type === 'multi_slot' ? e.slots : [];
-      if (new Set(linked.map(item => item.id)).size !== linked.length) throw new Error('duplicate input identity');
+      if (e.type === 'choice' || e.type === 'word_order' || e.type === 'cloze' || e.type === 'multi_slot') {
+        const linked = e.type === 'choice' ? e.options : e.type === 'word_order' ? e.tokens : e.slots;
+        if (new Set(linked.map(item => item.id)).size !== linked.length) throw new Error('duplicate input identity');
+      } else if (e.type === 'gap_choice') {
+        if (new Set(e.slots.map(slot => slot.id)).size !== e.slots.length) throw new Error('duplicate input identity');
+        for (const slot of e.slots)
+          if (new Set(slot.options.map(option => option.id)).size !== slot.options.length) throw new Error('duplicate input identity');
+      } else if (e.type === 'matching') {
+        if (new Set(e.left.map(item => item.id)).size !== e.left.length ||
+            new Set(e.right.map(item => item.id)).size !== e.right.length)
+          throw new Error('duplicate input identity');
+      }
       for (const answer of variant.rubric.acceptedAnswers)
         if (grade(e, variant.rubric, answer, []).outcome !== 'correct') throw new Error('rubric conformance failed');
     }

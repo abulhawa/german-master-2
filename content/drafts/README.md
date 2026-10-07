@@ -13,3 +13,9 @@ The independent reviewer edits each target's review record in `initial-30.json`:
 ChatGPT completed the first editorial refinement of all 30 targets / 60 variants. The pass replaces template-like prompts with more natural B1 contexts, uses learner-facing target names, makes hints and explanations rule-specific, and strengthens variation across the two contexts for each target. Target IDs, exercise IDs, revision numbers, grading forms and publication boundaries are preserved. Accepted answers were rechecked while editing; the word-order variants now use more natural clauses while retaining a single explicitly instructed ordering.
 
 This is still agent-authored draft content. All 30 review records remain pending, zero targets are independently approved, and `publicationApproved` remains false. `REVIEW.md` has been regenerated from the refined catalog with fresh content hashes. An independent German reviewer must still check grammar, naturalness, level, ambiguity, alternatives, distractors, hint leakage and explanations before any approval or publication.
+
+## Low-typing adjective pilot — 7 October 2026
+
+The five B1 adjective-ending targets are now prepared as immutable revision 2 exercises using `gap_choice` instead of typed cloze answers. Each of the 10 variants offers authored weak-ending distractors (`-e`, `-en`, `-er`, `-es`, `-em`), preserves the existing target and exercise identity, and keeps the original bilingual rule explanation and context. The learning objective now explicitly measures choosing the ending rather than unrestricted written production.
+
+Revision 1 remains the published historical content and is not changed by this workspace edit. The new revisions remain agent-authored, pending independent German review and unpublished. `REVIEW.md` is regenerated from the revision 2 source so reviewer hashes and displayed rubrics match the draft.

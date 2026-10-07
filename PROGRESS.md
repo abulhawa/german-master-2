@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## Low-typing content pilot — B1 adjective endings — 7 October 2026
+
+- Converted the complete five-target B1 adjective-ending topic (10 variants) from typed cloze to `gap_choice` in the canonical draft workspace. The same exercise identities now carry revision 2; published revision 1 content is untouched. Each gap uses authored `-e/-en/-er/-es/-em` distractors, explicit recognition wording and the existing bilingual grammar feedback.
+- Regenerated `content/drafts/REVIEW.md` from the revised source with fresh SHA-256 sign-off hashes. All five targets remain pending independent German review; `publicationApproved` stays false. No candidate SQL, production release, database change or deployment was produced.
+- Hardened editorial validation for low-typing content: gap-choice slot/option IDs and matching-side IDs now receive duplicate-identity checks, with focused regression coverage.
+- Local execution was unavailable in this ChatGPT environment because the repository cannot be cloned from the container network. Hosted CI on the pushed commit is the verification source; do not promote the topic to reviewed/published status from structural checks alone.
+- Exact next action: inspect hosted checks, then regenerate the unpublished basic candidate from this source and preview the adjective topic on web and Android. After UI/editorial corrections, use this topic as the pattern for the remaining catalog. Real-device TalkBack/system-magnification and independent German review remain separate open gates.
+
 ## Roadmap/checkpoint alignment — 7 October 2026
 
 - Owner requested alignment and a prompt commit/push before parallel ChatGPT work. Started clean at `59d7b0d`, the pushed low-typing foundation commit. Reconciled recorded production lifecycle, basic-content publication, foundation verification and remaining native/editorial gates; no fresh hosted/provider/device acceptance is claimed.
