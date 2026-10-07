@@ -38,7 +38,7 @@ it('installs an additive draft with an exact manifest, retains old revisions and
     expect(rows.filter(r=>r.level==='B2')).toHaveLength(60);
     expect(rows.filter(r=>r.review_status==='pending')).toHaveLength(120);
     const lowTyping=rows.filter(r=>(r.payload as Exercise).type==='gap_choice');
-    expect(lowTyping).toHaveLength(10);
+    expect(lowTyping).toHaveLength(20);
     expect(lowTyping.every(r=>r.revision===2 && r.level==='B1')).toBe(true);
     await expect(new FoundationStore(db,undefined,undefined,undefined,candidate.config).createSession(randomUUID(),request()))
       .rejects.toMatchObject({code:'content_unavailable'});
@@ -98,6 +98,11 @@ it('locally simulates activation: B1 and B2 allocate distinct targets, grade and
         expect(focused.questions).toHaveLength(1);
         expect(focused.questions[0].exercise.type).toBe('gap_choice');
         expect(focused.questions[0].exercise.revision).toBe(2);
+        const verbFocused=await store.createSession(learner,{...request(),questionCount:1,
+          focus:{type:'target',id:'10000000-0000-4000-8000-000000000020'}});
+        expect(verbFocused.questions).toHaveLength(1);
+        expect(verbFocused.questions[0].exercise.type).toBe('gap_choice');
+        expect(verbFocused.questions[0].exercise.revision).toBe(2);
       }
       const evidence=(await db.query('SELECT * FROM gm.accepted_evidence WHERE user_id=$1',[learner])).rows;
       expect(evidence).toHaveLength(15);

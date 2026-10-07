@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Low-typing verb conversion — 7 October 2026
+
+- Converted the complete five-target B1 irregular present-tense topic (10 variants: fahren, lesen, geben, nehmen, sprechen) from typed `multi_slot` to two-slot `gap_choice` revision 2 exercises. Distractors are plausible competing finite forms and authored positions vary across slots/variants. Objective and ambiguity wording now describes controlled recognition rather than unrestricted production.
+- Regenerated the draft and candidate review workbooks, candidate SQL and catalog manifest. The unpublished candidate now contains 20 revision-2 B1 gap-choice members across adjective endings and irregular verbs; all remain pending independent German review. Production content remains unchanged.
+- Basic-content acceptance now expects 20 low-typing revision-2 rows and target-focused runtime allocation for both an adjective target and a verb target. The committed candidate SQL/catalog synchronization guard remains in place.
+- Candidate manifest: `2d13318c15966d0ccfb74eb102201c777c89f4f5ec33718ad219a14e0bf475eb`. Exact next action: preview these converted topics through web/Android local candidate delivery, then convert plural production prompts selectively rather than turning every recall objective into recognition.
+
 ## Unpublished low-typing candidate integration — 7 October 2026
 
 - Regenerated the committed unpublished basic candidate around the adjective revision-2 source: 65 targets / 125 revisions total, with 10 B1 `gap_choice` members at revision 2. Candidate SQL, runtime catalog manifest and editorial workbook are synchronized; production catalog/SQL/configuration are unchanged.
