@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## Guest-first web starter practice — 7 October 2026
+
+- Removed the production web sign-in wall for first use. Signed-out learners can now choose interface language, B1/B2/unsure and a 10/15/20-question preference, then enter a durable local five-question starter session without authentication. Guest drafts, feedback, counters and graded attempts persist in a dedicated local namespace; damaged saved state is not overwritten without an explicit reset.
+- Guest practice uses the existing exercise renderer and the shared `@german-master/learning-engine` deterministic grader with the pinned production starter revisions/rubrics. Results are labelled local/provisional and do not create confirmed mastery. Close/resume and post-session account prompts preserve local work.
+- Authentication remains optional before first practice. Successful sign-in mounts the existing verified learner journey but does not silently attach, delete or reinterpret guest evidence. An integration test proves guest evidence remains local after successful authentication. The current backend has no revision-validating guest-attachment contract, so this slice deliberately does not replay guest answers through ordinary authenticated session APIs.
+- PR #9 was squash-merged to main as `e56bb3d` after all hosted checks passed. Web verification: 91 files / 386 tests, real HTTP 4 files / 13 tests, type check, normal build, learner-preview build, production learner build and offline-shell cold-launch acceptance all passed. Web accessibility, Android checks, repository safety and CodeQL also passed.
+- Exact next implementation action: add an explicit authenticated guest-attachment API contract that validates pinned exercise revisions, assigns ownership only after learner confirmation, is idempotent on replay, and reports partial validation without losing local evidence. Then wire the web confirmation UI and bring the guest-first flow to Android parity. Content publication, SMTP/self-service email confirmation and remaining production/release gates stay separate.
+
 ## Product completion work split — 6 October 2026
 
 - Owner asked to prioritize product completion, keep verification focused on finished changes and defer broad checks/polish until the product is implemented. Saved the ChatGPT/Codex work split in [docs/product/plan-of-work.md](docs/product/plan-of-work.md): ChatGPT prepares existing content drafts, screen specifications and bilingual copy; Codex implements guest practice and integrates designs/content into web, Android and backend.
