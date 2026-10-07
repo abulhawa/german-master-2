@@ -50,6 +50,14 @@ it('installs an additive draft with an exact manifest, retains old revisions and
       authorizedAt:'2026-10-07T12:00:00Z',authorization:'Local test only.',independentReview:'pending'})).toThrow('does not match content');
   } finally {await db.close();}
 });
+it('keeps the committed unpublished candidate synchronized with the generator',async()=> {
+  const db=new PGlite();
+  try {
+    const candidate=await prepare(db);
+    expect(JSON.parse(read('../../../content/candidates/basics/catalog.json'))).toEqual(candidate.config);
+    expect(read('../../../content/candidates/basics/seed.sql')).toBe(candidate.sql);
+  } finally {await db.close();}
+});
 it('locally simulates activation: B1 and B2 allocate distinct targets, grade and replay; old sessions stay pinned',async()=> {
   const db=new PGlite();
   try {
