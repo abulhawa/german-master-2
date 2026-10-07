@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Infinity as Loop } from 'lucide-react';
+import './workspace.css';
 import { z } from "zod";
 import {
   AnswerSchema,
@@ -454,10 +456,10 @@ export function GuestStarterJourney({
     <FoundationButton onClick={resetDamaged}>{c.reset}</FoundationButton>
   </PracticeCard></div></main>;
 
-  if (!state.setupCompleted) return <main className="gm-foundation" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
+  if (!state.setupCompleted) return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
+    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
+    <div className="gm-page-heading"><h1>{c.title}</h1><p>{c.intro}</p></div>
     <PracticeCard>
-      <h1>{c.title}</h1><p>{c.intro}</p>
       <div className="gm-settings">
         <label>{c.language}<select aria-label={c.language} value={state.locale} onChange={e => commit({ ...state, locale: e.target.value as Locale })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.level}<select aria-label={c.level} value={state.level} onChange={e => commit({ ...state, level: e.target.value as GuestState["level"] })}><option value="B1">B1</option><option value="B2">B2</option><option value="unsure">{c.unsure}</option></select></label>
@@ -472,8 +474,8 @@ export function GuestStarterJourney({
     </PracticeCard>
   </div></main>;
 
-  if (view === "home") return <main className="gm-foundation" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
+  if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
+    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
     <PracticeCard>
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
@@ -487,7 +489,7 @@ export function GuestStarterJourney({
     {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
   </div></main>;
 
-  return <main className="gm-foundation" lang={state.locale}><div className="gm-column">
+  return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
     <p role="status" className="gm-notice">{c.localStatus}</p>
     <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>

@@ -56,6 +56,7 @@ try {
   let page = await launch(false);
   await page.getByText('Local preview saved for offline launch.', { exact: true }).waitFor();
   await button(page, 'Save preferences').click();
+  await button(page, 'Account').click();
   await button(page, 'Download two sessions').click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
   await page.evaluate(async () => {
@@ -69,6 +70,7 @@ try {
   // Entire browser closes before going offline: no live document/module cache.
   await context.close();
   page = await launch(true);
+  await button(page, 'Account').click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
   await button(page, 'Start downloaded practice').click();
   await button(page, 'Hint').click();
@@ -89,12 +91,14 @@ try {
   });
   await context.close();
   page = await launch(true);
+  await button(page, 'Account').click();
   await button(page, 'Open saved session 1').click();
   await page.locator('.gm-offline-answer input').first().waitFor();
   assert.equal(await page.locator('.gm-offline-answer input').first().inputValue(), 'Berufe');
   await button(page, 'Check answer').click();
   await button(page, 'Continue').waitFor();
   await page.reload();
+  await button(page, 'Account').click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Continue').click();
   for (let i = 0; i < 4; i++) {
@@ -112,6 +116,7 @@ try {
   await button(page, 'Sync saved work (6)').waitFor();
   await context.close();
   page = await launch(true);
+  await button(page, 'Account').click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Sync saved work (6)').waitFor();
   const before = await page.evaluate(async () => {

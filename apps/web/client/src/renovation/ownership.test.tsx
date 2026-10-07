@@ -136,6 +136,7 @@ it("preserves the frozen profile request when an offline owner hands over to ano
   vi.stubGlobal("navigator", { locks: locks() });
   const api = fixture(); api.saveProfile = vi.fn().mockRejectedValue(Error("offline"));
   const first = render(<LearnerJourney api={api} />); const a = within(first.container);
+  fireEvent.click(await a.findByRole("button", { name: "Account", exact: true }));
   await waitFor(() => expect(a.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(a.getByText("Practice preferences"));
   await a.findByText("Save preferences");

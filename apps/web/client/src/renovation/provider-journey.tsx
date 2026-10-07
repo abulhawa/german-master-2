@@ -117,9 +117,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       </>}
     </PracticeCard></div></main>;
   }
-  if(account&&!showLogin) return <><div className="gm-foundation" lang={locale}><div className="gm-column">
-    {local&&<p role="status">{c.local}</p>}<FoundationButton onClick={()=>setShowLogin(true)}>{c.reauth}</FoundationButton>
-  </div></div><LearnerJourney account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} /></>;
+  if(account&&!showLogin) return <LearnerJourney onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>

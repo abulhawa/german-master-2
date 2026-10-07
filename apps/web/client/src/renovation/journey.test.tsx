@@ -19,6 +19,7 @@ it('deletion requires confirmation, survives remount and removes only owned loca
   const db=new WebReserve('deletion-ui');const foreign=new AccountBinding({subject:'00000000-0000-4000-8000-000000000099',generation:0},()=>null).storage(localStorage);
   foreign.setItem(STORAGE_KEY,'foreign preserved');await db.table('records').put({id:'marker',value:'owned'});
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
+  fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
   await waitFor(()=>expect(screen.getByText('Delete learner data…')).toBeEnabled());
   fireEvent.click(screen.getByText('Delete learner data…'));expect(api.deleteLearner).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText('Keep my data'));expect(api.deleteLearner).not.toHaveBeenCalled();
@@ -43,6 +44,26 @@ function apiFixture(): LearnerApi {
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
 describe('Home screen handoff', () => {
+  it('keeps account controls behind Account and preserves a draft across navigation', async () => {
+    const api = apiFixture();
+    render(<LearnerJourney api={api} />);
+    await waitFor(() => expect(screen.getByRole('button', {name:'Start short practice'})).toBeEnabled());
+    expect(screen.queryByText('Sync saved work and sign out')).toBeNull();
+    expect(screen.queryByLabelText('Theme')).toBeNull();
+    fireEvent.click(screen.getByRole('button', {name:'Start short practice'}));
+    fireEvent.change(await screen.findByLabelText('Your answer'), {target:{value:'preserved draft'}});
+    expect(screen.queryByRole('navigation')).toBeNull();
+    fireEvent.click(screen.getByRole('button', {name:'Close practice'}));
+    fireEvent.click(screen.getByRole('button', {name:'Save and return Home'}));
+    fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
+    expect(await screen.findByRole('heading', {name:'Account', exact:true})).toHaveFocus();
+    expect(screen.getByLabelText('Theme')).toBeInTheDocument();
+    expect(screen.getByText('Sync saved work and sign out')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', {name:'Home', exact:true}));
+    fireEvent.click(screen.getByRole('button', {name:'Continue practice'}));
+    expect(await screen.findByLabelText('Your answer')).toHaveValue('preserved draft');
+    expect(api.createSession).toHaveBeenCalledTimes(1);
+  });
   it('offers discovery without presenting new targets as confirmed evidence', async () => {
     const api = apiFixture();
     api.targets = vi.fn(async () => ({ ...page, targets: [] }));
@@ -94,6 +115,7 @@ describe('Home screen handoff', () => {
 it('sign-out choices require explicit removal and resume retained work only for the same local learner',async()=> {
   const api=apiFixture();const db=new WebReserve('signout-ui');
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
+  fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
   await waitFor(()=>expect(screen.getByText('Sync saved work and sign out')).toBeEnabled());
   fireEvent.click(screen.getByText('Remove local work and sign out…'));
   fireEvent.click(screen.getByText('Keep my local work'));
@@ -102,6 +124,7 @@ it('sign-out choices require explicit removal and resume retained work only for 
   expect(screen.queryByText('Start short practice')).toBeNull();
   rendered.unmount();const remount=render(<LearnerJourney api={api} reserve={db}/>);
   fireEvent.click(screen.getByText('Resume the same local fixture learner'));
+  fireEvent.click(await screen.findByRole('button', {name:'Account', exact:true}));
   await waitFor(()=>expect(screen.getByText('Remove local work and sign out…')).toBeEnabled());
   localStorage.setItem(PROFILE_PENDING_KEY,'explicitly removed pending work');
   fireEvent.click(screen.getByText('Remove local work and sign out…'));fireEvent.click(screen.getByText('Confirm local removal and sign out'));
@@ -370,7 +393,7 @@ it("requires setup, confirms preferences and reports unavailable B2 drafts", asy
   fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
   fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "UTC" } });
   fireEvent.click(screen.getByText("Save preferences"));
-  await screen.findByText(/No new questions are available/);
+  await screen.findByText(/No questions are available at your selected level/);
   expect(screen.getByText("Start short practice")).toBeDisabled();
   expect(api.createSession).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText("Practice preferences"));
@@ -390,6 +413,7 @@ it("retries frozen setup payload after lost response and reload without overwrit
     profile = { ...profile, revision: 2, preferences: input.preferences }; return profile;
   });
   render(<LearnerJourney api={api} />);
+  fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
   await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(screen.getByText("Practice preferences"));
   fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "Asia/Tokyo" } });
@@ -400,7 +424,7 @@ it("retries frozen setup payload after lost response and reload without overwrit
   await screen.findByText("Retry");
   expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
   fireEvent.click(screen.getByText("Retry"));
-  await screen.findByRole("heading", { name: 'Ready to practise?' });
+  await screen.findByRole("heading", { name: 'A little practice. Lasting progress.' });
   expect(api.saveProfile).toHaveBeenLastCalledWith(request);
   expect(readJourney(localStorage).practice).toEqual(saved.practice);
   expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
@@ -478,7 +502,9 @@ describe("isolated learner journey", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("Topic information is unavailable");
     fireEvent.click(screen.getByRole("button", { name: "Reload topics" }));
     await screen.findByRole("button", { name: "German in everyday work" });
+    fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
     fireEvent.change(screen.getByLabelText("Interface language"), { target: { value: "de" } });
+    fireEvent.click(screen.getByRole("button", { name: "Themen", exact: true }));
     expect(screen.getByRole("button", { name: "Deutsch im Arbeitsalltag" })).toBeInTheDocument();
   });
   it("reuses a saved session request after an ambiguous creation failure and reload", async () => {

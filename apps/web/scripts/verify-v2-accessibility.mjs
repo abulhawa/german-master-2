@@ -354,11 +354,11 @@ try {
   await tabToButton(page, 'Save preferences');
   await page.keyboard.press('Enter');
 
-  await assertHeadingFocus(page, 'Ready to practise?');
+  await assertHeadingFocus(page, 'A little practice. Lasting progress.');
   const home = await auditView(page, 'home');
   const homeAria = await page.locator('main').ariaSnapshot();
   assert.match(homeAria, /navigation/);
-  assert.match(homeAria, /heading "Ready to practise\?"/);
+  assert.match(homeAria, /heading "A little practice\. Lasting progress\."/);
   await assertTwoHundredPercentText(page, 'home');
 
   await tabToButton(page, 'Topics');
@@ -368,7 +368,7 @@ try {
 
   await tabToButton(page, 'Home');
   await page.keyboard.press('Enter');
-  await assertHeadingFocus(page, 'Ready to practise?');
+  await assertHeadingFocus(page, 'A little practice. Lasting progress.');
   await tabToButton(page, 'Start short practice');
   await page.keyboard.press('Enter');
 

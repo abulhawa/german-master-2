@@ -62,7 +62,7 @@ function Preview() {
   }, []);
   if(configurationFailed) return <main className="gm-foundation"><p role="alert">German Master account configuration is unavailable. / Die Kontokonfiguration von German Master ist nicht verfügbar.</p></main>;
   if(providerHost) return <ProviderLearnerJourney host={providerHost} origin={apiOrigin!} />;
-  return <><div className="gm-foundation" lang={locale}><p role="status" className="gm-column">{shellCopy[locale][status]}</p></div><LearnerJourney /></>;
+  return <><div className="gm-foundation gm-preview-status" lang={locale}><p role="status" className="gm-column">{shellCopy[locale][status]}</p></div><LearnerJourney /></>;
 }
 
 const root = document.getElementById('root');
