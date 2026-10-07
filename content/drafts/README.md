@@ -16,6 +16,6 @@ This is still agent-authored draft content. All 30 review records remain pending
 
 ## Low-typing adjective pilot — 7 October 2026
 
-The five B1 adjective-ending targets are now prepared as immutable revision 2 exercises using `gap_choice` instead of typed cloze answers. Each of the 10 variants offers authored weak-ending distractors (`-e`, `-en`, `-er`, `-es`, `-em`), preserves the existing target and exercise identity, and keeps the original bilingual rule explanation and context. The learning objective now explicitly measures choosing the ending rather than unrestricted written production.
+The five B1 adjective-ending targets are now prepared as immutable revision 2 exercises using `gap_choice` instead of typed cloze answers. Each of the 10 variants offers authored weak-ending distractors (`-e`, `-en`, `-er`, `-es`, `-em`) in deliberately varied authored orders, preserves the existing target and exercise identity, and keeps the original bilingual rule explanation and context. The learning objective now explicitly measures choosing the ending rather than unrestricted written production.
 
 Revision 1 remains the published historical content and is not changed by this workspace edit. The new revisions remain agent-authored, pending independent German review and unpublished. `REVIEW.md` is regenerated from the revision 2 source so reviewer hashes and displayed rubrics match the draft.

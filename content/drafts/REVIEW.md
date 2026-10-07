@@ -1784,7 +1784,7 @@ Choose the weak adjective ending after der in masculine nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 6f94969faba7b03c2942913b17a82300a885ded63d5aa7ef9560431110684962
+Content SHA-256 for sign-off: c20c8689427c94627f3d1cdc19460394693a0bbce35d19c7c99537b5389baa86
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1818,16 +1818,16 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
+          "id": "er",
+          "text": "-er"
+        },
+        {
           "id": "e",
           "text": "-e"
         },
         {
           "id": "en",
           "text": "-en"
-        },
-        {
-          "id": "er",
-          "text": "-er"
         },
         {
           "id": "es",
@@ -1893,16 +1893,8 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
-        },
-        {
           "id": "en",
           "text": "-en"
-        },
-        {
-          "id": "er",
-          "text": "-er"
         },
         {
           "id": "es",
@@ -1911,6 +1903,14 @@ Wähle die fehlende Adjektivendung.
         {
           "id": "em",
           "text": "-em"
+        },
+        {
+          "id": "e",
+          "text": "-e"
+        },
+        {
+          "id": "er",
+          "text": "-er"
         }
       ]
     }
@@ -1946,7 +1946,7 @@ Choose the weak adjective ending after die in feminine nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 8371eb4f317bd2367a9c7678110770f4a8f9c225874f0f25b4aeaf0171612bbf
+Content SHA-256 for sign-off: d5ced07c05c428df1edab88802ee5413a13b9e04915a4a7477a13228dba314da
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1984,20 +1984,20 @@ Wähle die fehlende Adjektivendung.
           "text": "-e"
         },
         {
-          "id": "en",
-          "text": "-en"
+          "id": "em",
+          "text": "-em"
         },
         {
           "id": "er",
           "text": "-er"
         },
         {
-          "id": "es",
-          "text": "-es"
+          "id": "en",
+          "text": "-en"
         },
         {
-          "id": "em",
-          "text": "-em"
+          "id": "es",
+          "text": "-es"
         }
       ]
     }
@@ -2055,20 +2055,20 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
+          "id": "es",
+          "text": "-es"
         },
         {
           "id": "en",
           "text": "-en"
         },
         {
-          "id": "er",
-          "text": "-er"
+          "id": "e",
+          "text": "-e"
         },
         {
-          "id": "es",
-          "text": "-es"
+          "id": "er",
+          "text": "-er"
         },
         {
           "id": "em",
@@ -2108,7 +2108,7 @@ Choose the weak adjective ending after das in neuter nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: de799a072675c8862d2f9af503804bf8bf8f3c8cd0a3cd53856f5bb3745523a8
+Content SHA-256 for sign-off: eab8205faa06d9dcb3b115b50c502901ccc016143ab416a01a9c0d00ac78e0df
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2142,12 +2142,8 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
-        },
-        {
-          "id": "en",
-          "text": "-en"
+          "id": "em",
+          "text": "-em"
         },
         {
           "id": "er",
@@ -2158,8 +2154,12 @@ Wähle die fehlende Adjektivendung.
           "text": "-es"
         },
         {
-          "id": "em",
-          "text": "-em"
+          "id": "en",
+          "text": "-en"
+        },
+        {
+          "id": "e",
+          "text": "-e"
         }
       ]
     }
@@ -2217,24 +2217,24 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
-        },
-        {
           "id": "en",
           "text": "-en"
         },
         {
-          "id": "er",
-          "text": "-er"
+          "id": "e",
+          "text": "-e"
+        },
+        {
+          "id": "em",
+          "text": "-em"
         },
         {
           "id": "es",
           "text": "-es"
         },
         {
-          "id": "em",
-          "text": "-em"
+          "id": "er",
+          "text": "-er"
         }
       ]
     }
@@ -2270,7 +2270,7 @@ Choose the weak adjective ending after den in masculine accusative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: abbce309344a8736be00e54e59851535d0fd3dfa849692f510aa210de6b62353
+Content SHA-256 for sign-off: 358b7486d216002893d6f99c30dc19f2e76041adc3fe256b42fe576bcfbe95ae
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2304,8 +2304,8 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
+          "id": "es",
+          "text": "-es"
         },
         {
           "id": "en",
@@ -2316,8 +2316,8 @@ Wähle die fehlende Adjektivendung.
           "text": "-er"
         },
         {
-          "id": "es",
-          "text": "-es"
+          "id": "e",
+          "text": "-e"
         },
         {
           "id": "em",
@@ -2379,24 +2379,24 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
-        },
-        {
-          "id": "en",
-          "text": "-en"
+          "id": "em",
+          "text": "-em"
         },
         {
           "id": "er",
           "text": "-er"
         },
         {
+          "id": "e",
+          "text": "-e"
+        },
+        {
           "id": "es",
           "text": "-es"
         },
         {
-          "id": "em",
-          "text": "-em"
+          "id": "en",
+          "text": "-en"
         }
       ]
     }
@@ -2432,7 +2432,7 @@ Choose the weak adjective ending after a definite article in the dative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 9ea1348a88d28fe4f46ddc3e039cd54688f9e8094905fc10176661c65d6b98fc
+Content SHA-256 for sign-off: a46529d476bcb94f3c32700af9c8d49bf86d570a4c337cb96d555d6e2bd3fc5a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2466,16 +2466,8 @@ Wähle die fehlende Adjektivendung.
       "label": "Adjektivendung",
       "options": [
         {
-          "id": "e",
-          "text": "-e"
-        },
-        {
           "id": "en",
           "text": "-en"
-        },
-        {
-          "id": "er",
-          "text": "-er"
         },
         {
           "id": "es",
@@ -2484,6 +2476,14 @@ Wähle die fehlende Adjektivendung.
         {
           "id": "em",
           "text": "-em"
+        },
+        {
+          "id": "er",
+          "text": "-er"
+        },
+        {
+          "id": "e",
+          "text": "-e"
         }
       ]
     }
@@ -2545,20 +2545,20 @@ Wähle die fehlende Adjektivendung.
           "text": "-e"
         },
         {
-          "id": "en",
-          "text": "-en"
-        },
-        {
           "id": "er",
           "text": "-er"
         },
         {
-          "id": "es",
-          "text": "-es"
+          "id": "en",
+          "text": "-en"
         },
         {
           "id": "em",
           "text": "-em"
+        },
+        {
+          "id": "es",
+          "text": "-es"
         }
       ]
     }

@@ -2,7 +2,7 @@
 
 ## Low-typing content pilot — B1 adjective endings — 7 October 2026
 
-- Converted the complete five-target B1 adjective-ending topic (10 variants) from typed cloze to `gap_choice` in the canonical draft workspace. The same exercise identities now carry revision 2; published revision 1 content is untouched. Each gap uses authored `-e/-en/-er/-es/-em` distractors, explicit recognition wording and the existing bilingual grammar feedback.
+- Converted the complete five-target B1 adjective-ending topic (10 variants) from typed cloze to `gap_choice` in the canonical draft workspace. The same exercise identities now carry revision 2; published revision 1 content is untouched. Each gap uses authored `-e/-en/-er/-es/-em` distractors in varied authored orders to avoid answer-position cueing, explicit recognition wording and the existing bilingual grammar feedback.
 - Regenerated `content/drafts/REVIEW.md` from the revised source with fresh SHA-256 sign-off hashes. All five targets remain pending independent German review; `publicationApproved` stays false. No candidate SQL, production release, database change or deployment was produced.
 - Hardened editorial validation for low-typing content: gap-choice slot/option IDs and matching-side IDs now receive duplicate-identity checks, with focused regression coverage.
 - Local execution was unavailable in this ChatGPT environment because the repository cannot be cloned from the container network. Hosted CI on the pushed commit is the verification source; do not promote the topic to reviewed/published status from structural checks alone.
