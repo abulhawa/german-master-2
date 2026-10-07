@@ -34,7 +34,7 @@ export function sessionRequest(): SessionRequest {
 export function prepareAttempt(session: Session, index: number, answer: Answer, assisted: boolean, deviceId: string): Attempt {
   return { attemptId: crypto.randomUUID(), sessionQuestionId: session.questions[index].id,
     exerciseRevision: session.questions[index].exercise.revision, deviceId, answer,
-    assistance: assisted ? ["hint"] : [], answeredAt: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"), clientSequence: index };
+    assistance: assisted ? ["hint"] : [], answeredAt: new Date().toISOString(), clientSequence: index };
 }
 
 export function answerText(answer: Answer, session: Session, index: number): string {

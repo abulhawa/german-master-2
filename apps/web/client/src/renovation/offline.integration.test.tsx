@@ -266,7 +266,11 @@ it('coordinates profile, online answer, offline Skip/end, report and download ov
 });
 
 it('converges two device reserves after lost response and expired auth without double-crediting the same day', async () => {
-  const pg = new PGlite(); let now = Date.now();
+  // Answer at the exact issuance instant, including subsecond precision.
+  // Date-only mocking keeps real HTTP/IndexedDB timers running.
+  let now = Date.parse('2026-10-07T12:00:00.250Z');
+  vi.useFakeTimers({toFake:['Date']}); vi.setSystemTime(now);
+  const pg = new PGlite();
   const store = new FoundationStore(pg, () => new Date(now)); await store.initialize();
   const owner = randomUUID(); let authenticated = true;
   const server = createApi(store, async () => authenticated ? owner : null);
@@ -305,6 +309,7 @@ it('converges two device reserves after lost response and expired auth without d
     const target = (await repoA.read(idA)).session.questions[0].exercise.targetId;
     expect((await repoB.read(idB)).session.questions[0].exercise.targetId).toBe(target);
     expect(beforeA.events[0].request).toMatchObject({ deviceId: deviceA });
+    expect(beforeA.events[0].request).toMatchObject({answeredAt:'2026-10-07T12:00:00.250Z'});
     expect(beforeB.events[0].request).toMatchObject({ deviceId: deviceB });
     expect(sent.map(s => s.path)).toEqual(['/v2/packs', '/v2/packs']);
     now = Date.parse((await repoA.read(idA)).pack.expiresAt) + 1;
@@ -337,7 +342,7 @@ it('converges two device reserves after lost response and expired auth without d
       state: 'learning', qualifyingCheckCount: 1, everMastered: false, lastSequence: 2,
     });
   } finally {
-    vi.unstubAllGlobals(); await dbA.delete(); await dbB.delete();
+    vi.useRealTimers(); vi.unstubAllGlobals(); await dbA.delete(); await dbB.delete();
     await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())); await pg.close();
   }
 });
