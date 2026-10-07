@@ -19,3 +19,7 @@ This is still agent-authored draft content. All 30 review records remain pending
 The five B1 adjective-ending targets are now prepared as immutable revision 2 exercises using `gap_choice` instead of typed cloze answers. Each of the 10 variants offers authored weak-ending distractors (`-e`, `-en`, `-er`, `-es`, `-em`) in deliberately varied authored orders, preserves the existing target and exercise identity, and keeps the original bilingual rule explanation and context. The learning objective now explicitly measures choosing the ending rather than unrestricted written production.
 
 Revision 1 remains the published historical content and is not changed by this workspace edit. The new revisions remain agent-authored, pending independent German review and unpublished. `REVIEW.md` is regenerated from the revision 2 source so reviewer hashes and displayed rubrics match the draft.
+
+## Low-typing verb pilot — 7 October 2026
+
+The five B1 irregular present-tense targets (`fahren`, `lesen`, `geben`, `nehmen`, `sprechen`) are now prepared as immutable revision 2 `gap_choice` exercises instead of typed `multi_slot` answers. All 10 variants retain two explicit subject slots, use plausible finite-form distractors in varied authored orders, and preserve the bilingual rule explanations. The objective wording now reflects choosing the correct forms rather than unrestricted production. Revision 1 remains historical published content; revision 2 remains pending independent review and unpublished.

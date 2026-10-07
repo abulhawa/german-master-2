@@ -2590,46 +2590,82 @@ Ambiguity: This revision measures recognition of the weak adjective ending in an
 
 Target: 10000000-0000-4000-8000-000000000020 · B1 · verb
 
-Conjugate fahren in the second- and third-person singular present.
+Choose the second- and third-person singular present forms of fahren.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 92ede20c10b4a693bcffc92dbce93fafc25e7a42130ccaf75716c67ee3f696aa
+Content SHA-256 for sign-off: dce83cf7b569f48f83da54c24176b6aa2d7bc68709ac2764e4011eb35b039513
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-20-0
 
-Revision: 10000000-0000-4000-8000-000000001040@1; context: context-20-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001040@2; context: context-20-0; transfer: none
 
 Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.
 
-Ergänze beide Formen von „fahren“ im Präsens.
+Wähle beide Präsensformen von „fahren“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001040",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000020",
   "hint": {
     "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
     "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of fahren.",
-    "de": "Ergänze beide Formen von „fahren“ im Präsens."
+    "en": "Choose both present-tense forms of fahren.",
+    "de": "Wähle beide Präsensformen von „fahren“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "fährt",
+          "text": "fährt"
+        },
+        {
+          "id": "fährst",
+          "text": "fährst"
+        },
+        {
+          "id": "fahren",
+          "text": "fahren"
+        },
+        {
+          "id": "fahre",
+          "text": "fahre"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "fahre",
+          "text": "fahre"
+        },
+        {
+          "id": "fahren",
+          "text": "fahren"
+        },
+        {
+          "id": "fährt",
+          "text": "fährt"
+        },
+        {
+          "id": "fährst",
+          "text": "fährst"
+        }
+      ]
     }
   ]
 }
@@ -2640,15 +2676,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "fährst"
+        "optionId": "fährst"
       },
       {
         "slotId": "er",
-        "text": "fährt"
+        "optionId": "fährt"
       }
     ]
   }
@@ -2657,40 +2693,76 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### v-20-1
 
-Revision: 10000000-0000-4000-8000-000000001041@1; context: context-20-1; transfer: transfer-20
+Revision: 10000000-0000-4000-8000-000000001041@2; context: context-20-1; transfer: transfer-20
 
 Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.
 
-Ergänze beide Formen von „fahren“ im Präsens.
+Wähle beide Präsensformen von „fahren“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001041",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000020",
   "hint": {
     "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
     "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of fahren.",
-    "de": "Ergänze beide Formen von „fahren“ im Präsens."
+    "en": "Choose both present-tense forms of fahren.",
+    "de": "Wähle beide Präsensformen von „fahren“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "fährst",
+          "text": "fährst"
+        },
+        {
+          "id": "fahre",
+          "text": "fahre"
+        },
+        {
+          "id": "fährt",
+          "text": "fährt"
+        },
+        {
+          "id": "fahren",
+          "text": "fahren"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "fahren",
+          "text": "fahren"
+        },
+        {
+          "id": "fährst",
+          "text": "fährst"
+        },
+        {
+          "id": "fahre",
+          "text": "fahre"
+        },
+        {
+          "id": "fährt",
+          "text": "fährt"
+        }
+      ]
     }
   ]
 }
@@ -2701,15 +2773,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "fährst"
+        "optionId": "fährst"
       },
       {
         "slotId": "er",
-        "text": "fährt"
+        "optionId": "fährt"
       }
     ]
   }
@@ -2718,52 +2790,88 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ## Präsens: lesen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000021 · B1 · verb
 
-Conjugate lesen in the second- and third-person singular present.
+Choose the second- and third-person singular present forms of lesen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: fb350e3f8ee5ada81969042c60d379e565d2e42cf718d9f9524d58604e1c3858
+Content SHA-256 for sign-off: 21f69d106b31d2f45edafd53b34dfabda362b9939d558a11b514044b0e280685
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-21-0
 
-Revision: 10000000-0000-4000-8000-000000001042@1; context: context-21-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001042@2; context: context-21-0; transfer: none
 
 Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.
 
-Ergänze beide Formen von „lesen“ im Präsens.
+Wähle beide Präsensformen von „lesen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001042",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000021",
   "hint": {
     "en": "In the du and er forms of lesen, e changes to ie.",
     "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of lesen.",
-    "de": "Ergänze beide Formen von „lesen“ im Präsens."
+    "en": "Choose both present-tense forms of lesen.",
+    "de": "Wähle beide Präsensformen von „lesen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "lesen",
+          "text": "lesen"
+        },
+        {
+          "id": "liest",
+          "text": "liest"
+        },
+        {
+          "id": "lest",
+          "text": "lest"
+        },
+        {
+          "id": "lese",
+          "text": "lese"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "lese",
+          "text": "lese"
+        },
+        {
+          "id": "lest",
+          "text": "lest"
+        },
+        {
+          "id": "lesen",
+          "text": "lesen"
+        },
+        {
+          "id": "liest",
+          "text": "liest"
+        }
+      ]
     }
   ]
 }
@@ -2774,15 +2882,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "liest"
+        "optionId": "liest"
       },
       {
         "slotId": "er",
-        "text": "liest"
+        "optionId": "liest"
       }
     ]
   }
@@ -2791,40 +2899,76 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### v-21-1
 
-Revision: 10000000-0000-4000-8000-000000001043@1; context: context-21-1; transfer: transfer-21
+Revision: 10000000-0000-4000-8000-000000001043@2; context: context-21-1; transfer: transfer-21
 
 Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.
 
-Ergänze beide Formen von „lesen“ im Präsens.
+Wähle beide Präsensformen von „lesen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001043",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000021",
   "hint": {
     "en": "In the du and er forms of lesen, e changes to ie.",
     "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of lesen.",
-    "de": "Ergänze beide Formen von „lesen“ im Präsens."
+    "en": "Choose both present-tense forms of lesen.",
+    "de": "Wähle beide Präsensformen von „lesen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "lest",
+          "text": "lest"
+        },
+        {
+          "id": "lesen",
+          "text": "lesen"
+        },
+        {
+          "id": "liest",
+          "text": "liest"
+        },
+        {
+          "id": "lese",
+          "text": "lese"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "liest",
+          "text": "liest"
+        },
+        {
+          "id": "lest",
+          "text": "lest"
+        },
+        {
+          "id": "lese",
+          "text": "lese"
+        },
+        {
+          "id": "lesen",
+          "text": "lesen"
+        }
+      ]
     }
   ]
 }
@@ -2835,15 +2979,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "liest"
+        "optionId": "liest"
       },
       {
         "slotId": "er",
-        "text": "liest"
+        "optionId": "liest"
       }
     ]
   }
@@ -2852,52 +2996,88 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ## Präsens: geben (du/er)
 
 Target: 10000000-0000-4000-8000-000000000022 · B1 · verb
 
-Conjugate geben in the second- and third-person singular present.
+Choose the second- and third-person singular present forms of geben.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: b6707349a80f62b8abeabc4031aedf549aa13166642423c8b138cd09f53bde3b
+Content SHA-256 for sign-off: 780efb24a230d975f496303a75ccd71f9272c6b6d728e4d292b82ce935b3e59d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-22-0
 
-Revision: 10000000-0000-4000-8000-000000001044@1; context: context-22-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001044@2; context: context-22-0; transfer: none
 
 Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.
 
-Ergänze beide Formen von „geben“ im Präsens.
+Wähle beide Präsensformen von „geben“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001044",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000022",
   "hint": {
     "en": "In the du and er forms of geben, e changes to i.",
     "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of geben.",
-    "de": "Ergänze beide Formen von „geben“ im Präsens."
+    "en": "Choose both present-tense forms of geben.",
+    "de": "Wähle beide Präsensformen von „geben“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "gebe",
+          "text": "gebe"
+        },
+        {
+          "id": "gibt",
+          "text": "gibt"
+        },
+        {
+          "id": "gibst",
+          "text": "gibst"
+        },
+        {
+          "id": "geben",
+          "text": "geben"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "geben",
+          "text": "geben"
+        },
+        {
+          "id": "gibt",
+          "text": "gibt"
+        },
+        {
+          "id": "gebe",
+          "text": "gebe"
+        },
+        {
+          "id": "gibst",
+          "text": "gibst"
+        }
+      ]
     }
   ]
 }
@@ -2908,15 +3088,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "gibst"
+        "optionId": "gibst"
       },
       {
         "slotId": "er",
-        "text": "gibt"
+        "optionId": "gibt"
       }
     ]
   }
@@ -2925,40 +3105,76 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### v-22-1
 
-Revision: 10000000-0000-4000-8000-000000001045@1; context: context-22-1; transfer: transfer-22
+Revision: 10000000-0000-4000-8000-000000001045@2; context: context-22-1; transfer: transfer-22
 
 Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.
 
-Ergänze beide Formen von „geben“ im Präsens.
+Wähle beide Präsensformen von „geben“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001045",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000022",
   "hint": {
     "en": "In the du and er forms of geben, e changes to i.",
     "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of geben.",
-    "de": "Ergänze beide Formen von „geben“ im Präsens."
+    "en": "Choose both present-tense forms of geben.",
+    "de": "Wähle beide Präsensformen von „geben“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "gibt",
+          "text": "gibt"
+        },
+        {
+          "id": "gebe",
+          "text": "gebe"
+        },
+        {
+          "id": "geben",
+          "text": "geben"
+        },
+        {
+          "id": "gibst",
+          "text": "gibst"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "gibt",
+          "text": "gibt"
+        },
+        {
+          "id": "gibst",
+          "text": "gibst"
+        },
+        {
+          "id": "geben",
+          "text": "geben"
+        },
+        {
+          "id": "gebe",
+          "text": "gebe"
+        }
+      ]
     }
   ]
 }
@@ -2969,15 +3185,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "gibst"
+        "optionId": "gibst"
       },
       {
         "slotId": "er",
-        "text": "gibt"
+        "optionId": "gibt"
       }
     ]
   }
@@ -2986,52 +3202,88 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ## Präsens: nehmen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000023 · B1 · verb
 
-Conjugate nehmen in the second- and third-person singular present.
+Choose the second- and third-person singular present forms of nehmen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 865d2d3b4ca7594a001ece0a645878d98d0b6f0d174786acc51cf77d9d213de8
+Content SHA-256 for sign-off: 91f6b05b5e1b5e6d8043c1cd53189e4ae451369fdc99c9f69bd40e0a86ca415c
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-23-0
 
-Revision: 10000000-0000-4000-8000-000000001046@1; context: context-23-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001046@2; context: context-23-0; transfer: none
 
 Du ___ morgens den Bus. Er ___ lieber das Fahrrad.
 
-Ergänze beide Formen von „nehmen“ im Präsens.
+Wähle beide Präsensformen von „nehmen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001046",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000023",
   "hint": {
     "en": "The du and er forms use the irregular stem nimm-.",
     "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of nehmen.",
-    "de": "Ergänze beide Formen von „nehmen“ im Präsens."
+    "en": "Choose both present-tense forms of nehmen.",
+    "de": "Wähle beide Präsensformen von „nehmen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ morgens den Bus. Er ___ lieber das Fahrrad.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "nehmen",
+          "text": "nehmen"
+        },
+        {
+          "id": "nimmt",
+          "text": "nimmt"
+        },
+        {
+          "id": "nimmst",
+          "text": "nimmst"
+        },
+        {
+          "id": "nehme",
+          "text": "nehme"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "nehme",
+          "text": "nehme"
+        },
+        {
+          "id": "nimmt",
+          "text": "nimmt"
+        },
+        {
+          "id": "nimmst",
+          "text": "nimmst"
+        },
+        {
+          "id": "nehmen",
+          "text": "nehmen"
+        }
+      ]
     }
   ]
 }
@@ -3042,15 +3294,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "nimmst"
+        "optionId": "nimmst"
       },
       {
         "slotId": "er",
-        "text": "nimmt"
+        "optionId": "nimmt"
       }
     ]
   }
@@ -3059,40 +3311,76 @@ Accepted answers (editorial only):
 
 Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### v-23-1
 
-Revision: 10000000-0000-4000-8000-000000001047@1; context: context-23-1; transfer: transfer-23
+Revision: 10000000-0000-4000-8000-000000001047@2; context: context-23-1; transfer: transfer-23
 
 Du ___ noch einen Kaffee. Er ___ die letzte Tablette.
 
-Ergänze beide Formen von „nehmen“ im Präsens.
+Wähle beide Präsensformen von „nehmen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001047",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000023",
   "hint": {
     "en": "The du and er forms use the irregular stem nimm-.",
     "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of nehmen.",
-    "de": "Ergänze beide Formen von „nehmen“ im Präsens."
+    "en": "Choose both present-tense forms of nehmen.",
+    "de": "Wähle beide Präsensformen von „nehmen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ noch einen Kaffee. Er ___ die letzte Tablette.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "nimmt",
+          "text": "nimmt"
+        },
+        {
+          "id": "nehmen",
+          "text": "nehmen"
+        },
+        {
+          "id": "nimmst",
+          "text": "nimmst"
+        },
+        {
+          "id": "nehme",
+          "text": "nehme"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "nimmt",
+          "text": "nimmt"
+        },
+        {
+          "id": "nehme",
+          "text": "nehme"
+        },
+        {
+          "id": "nehmen",
+          "text": "nehmen"
+        },
+        {
+          "id": "nimmst",
+          "text": "nimmst"
+        }
+      ]
     }
   ]
 }
@@ -3103,15 +3391,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "nimmst"
+        "optionId": "nimmst"
       },
       {
         "slotId": "er",
-        "text": "nimmt"
+        "optionId": "nimmt"
       }
     ]
   }
@@ -3120,52 +3408,88 @@ Accepted answers (editorial only):
 
 Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ## Präsens: sprechen (du/er)
 
 Target: 10000000-0000-4000-8000-000000000024 · B1 · verb
 
-Conjugate sprechen in the second- and third-person singular present.
+Choose the second- and third-person singular present forms of sprechen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 68dd8cd1dc3009ab356b1024bed17e7f5a62c16745a0e70e11a6e587e441074b
+Content SHA-256 for sign-off: cdee8598243fb3f7f13c8f64d1e64759b3e9bcf386c85837a14ea09bdf644f63
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-24-0
 
-Revision: 10000000-0000-4000-8000-000000001048@1; context: context-24-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001048@2; context: context-24-0; transfer: none
 
 Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.
 
-Ergänze beide Formen von „sprechen“ im Präsens.
+Wähle beide Präsensformen von „sprechen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001048",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000024",
   "hint": {
     "en": "In the du and er forms of sprechen, e changes to i.",
     "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of sprechen.",
-    "de": "Ergänze beide Formen von „sprechen“ im Präsens."
+    "en": "Choose both present-tense forms of sprechen.",
+    "de": "Wähle beide Präsensformen von „sprechen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "spreche",
+          "text": "spreche"
+        },
+        {
+          "id": "spricht",
+          "text": "spricht"
+        },
+        {
+          "id": "sprechen",
+          "text": "sprechen"
+        },
+        {
+          "id": "sprichst",
+          "text": "sprichst"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "sprechen",
+          "text": "sprechen"
+        },
+        {
+          "id": "spricht",
+          "text": "spricht"
+        },
+        {
+          "id": "sprichst",
+          "text": "sprichst"
+        },
+        {
+          "id": "spreche",
+          "text": "spreche"
+        }
+      ]
     }
   ]
 }
@@ -3176,15 +3500,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "sprichst"
+        "optionId": "sprichst"
       },
       {
         "slotId": "er",
-        "text": "spricht"
+        "optionId": "spricht"
       }
     ]
   }
@@ -3193,40 +3517,76 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ### v-24-1
 
-Revision: 10000000-0000-4000-8000-000000001049@1; context: context-24-1; transfer: transfer-24
+Revision: 10000000-0000-4000-8000-000000001049@2; context: context-24-1; transfer: transfer-24
 
 Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.
 
-Ergänze beide Formen von „sprechen“ im Präsens.
+Wähle beide Präsensformen von „sprechen“.
 
 ```json
 {
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001049",
-  "revision": 1,
+  "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000024",
   "hint": {
     "en": "In the du and er forms of sprechen, e changes to i.",
     "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
   },
   "instruction": {
-    "en": "Complete both present-tense forms of sprechen.",
-    "de": "Ergänze beide Formen von „sprechen“ im Präsens."
+    "en": "Choose both present-tense forms of sprechen.",
+    "de": "Wähle beide Präsensformen von „sprechen“."
   },
-  "type": "multi_slot",
+  "type": "gap_choice",
   "prompt": "Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.",
   "slots": [
     {
       "id": "du",
-      "label": "du"
+      "label": "Du ___",
+      "options": [
+        {
+          "id": "spricht",
+          "text": "spricht"
+        },
+        {
+          "id": "sprichst",
+          "text": "sprichst"
+        },
+        {
+          "id": "spreche",
+          "text": "spreche"
+        },
+        {
+          "id": "sprechen",
+          "text": "sprechen"
+        }
+      ]
     },
     {
       "id": "er",
-      "label": "er"
+      "label": "Er ___",
+      "options": [
+        {
+          "id": "spricht",
+          "text": "spricht"
+        },
+        {
+          "id": "sprechen",
+          "text": "sprechen"
+        },
+        {
+          "id": "spreche",
+          "text": "spreche"
+        },
+        {
+          "id": "sprichst",
+          "text": "sprichst"
+        }
+      ]
     }
   ]
 }
@@ -3237,15 +3597,15 @@ Accepted answers (editorial only):
 ```json
 [
   {
-    "type": "multi_slot",
-    "values": [
+    "type": "gap_choice",
+    "selections": [
       {
         "slotId": "du",
-        "text": "sprichst"
+        "optionId": "sprichst"
       },
       {
         "slotId": "er",
-        "text": "spricht"
+        "optionId": "spricht"
       }
     ]
   }
@@ -3254,7 +3614,7 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Ambiguity: Both subjects are explicit, and each slot asks only for the finite present-tense form of the named infinitive.
+Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
 
 ## Nebensatz mit „weil“
 
