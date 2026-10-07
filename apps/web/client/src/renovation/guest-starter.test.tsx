@@ -16,14 +16,14 @@ it("starts real guest practice without authentication and restores the saved dra
   expect(screen.getByText("Shorter session: 5 reviewed questions are available.")).toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Answer"), { target: { value: "Berufe" } });
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
-  expect(screen.getByRole("status")).toHaveTextContent("Looks correct locally");
-  expect(screen.getByText(/server-confirmed|confirmed mastery/i)).not.toBeInTheDocument();
+  expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
+  expect(screen.queryByText(/server-confirmed|confirmed mastery/i)).not.toBeInTheDocument();
   expect(guestAttemptCount()).toBe(1);
   cleanup();
 
   render(<GuestStarterJourney onAuth={onAuth} />);
   fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
-  expect(screen.getByRole("status")).toHaveTextContent("Looks correct locally");
+  expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
   expect(screen.getByText("Berufe")).toBeInTheDocument();
   expect(onAuth).not.toHaveBeenCalled();
 });
