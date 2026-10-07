@@ -24,7 +24,7 @@ it("starts real guest practice without authentication and restores the saved dra
   render(<GuestStarterJourney onAuth={onAuth} />);
   fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
   expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
-  expect(screen.getByText("Berufe")).toBeInTheDocument();
+  expect(screen.getByLabelText("Your answer")).toHaveValue("Berufe");
   expect(onAuth).not.toHaveBeenCalled();
 });
 
