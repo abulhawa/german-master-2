@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Learning-first visual redesign and simplified entry — 7 October 2026
+
+- Owner rejected the first shell as insufficiently modern and requested fewer settings, integrated-browser-only testing, and commit/push when finished. Reconciled clean main `f1ff40f`. The earlier shell is already deployed at `dpl_29A1wQSbVzpbo54SGdQ9kRNuZR2S`; its public JS/CSS was verified. The owner connected `abulhawa/german-master-2` to Vercel after the previously disconnected-project finding.
+- Added a distinctive blue session panel, typographic letter-study artwork, refined typography/navigation and actual topic tiles. Guest entry is one click into practice, with no level/session setup form; login has the same visual language. Home no longer exposes session-settings details or preferred/available question counters. Account retains basic appearance/language and an optional level/preferences flow; offline/privacy tools and timezone/session-length controls are collapsed. Existing durable drafts, grading, selection, guest attachment, ownership and deletion safeguards remain unchanged. Design departures and verification are documented in `docs/design/study-workspace.md`.
+- Verification passes: offline npm ci (zero audit findings); root generated/type checks; full web/API build and both learner builds; backend 26 files/164 tests, web 91 files/392 tests, actual HTTP 4 files/13 tests. Keyboard/semantic acceptance passes 320px plus 200% learner text. Offline restart/draft/feedback/completion/late-sync and cache preservation pass after the script waits for setup confirmation before navigating. The React review found no conditional hooks or new dependencies.
+- Integrated browser alone inspected desktop light and German dark at 320px (no horizontal overflow; observed controls >=48px), authoritative local Correct feedback and partial-session exit. Screenshots live under `.local/study-redesign/`. No user browser was used after the owner's restriction. Existing production bundle-size advisory remains; missing B2 content, independent German review and exhaustive design/accessibility gates remain open. No AI/Groq calls, content publication, Android release or production learner-data changes during implementation.
+- Exact next action: commit and push `feat: redesign learning workspace and simplify practice entry`; verify Vercel's automatic deployment and public guest/authenticated UI, then record the actual deployment result. Bootstrap is complete; the product reset is not complete.
+
+
 ## Renovated web workspace — 7 October 2026
 
 - Owner requested the actual renovated design within 30 minutes after inspecting the scaffold on the public domain. Started from clean main `bd46286`; implemented the existing October 3 visual concept and October 7 learner-screen handoff as the shared web workspace, rather than claiming the old live UI was final.

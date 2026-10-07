@@ -11,6 +11,8 @@ it("starts real guest practice without authentication and restores the saved dra
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
   expect(screen.getByRole("heading", { name: "Practise what needs attention." })).toBeInTheDocument();
+  expect(screen.queryByLabelText("Your current German level")).toBeNull();
+  expect(screen.queryByLabelText("Usual session")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
   expect(screen.getByRole("status")).toHaveTextContent("Guest practice · saved on this device");
   expect(screen.getByText("Shorter session: 5 reviewed questions are available.")).toBeInTheDocument();

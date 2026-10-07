@@ -7,6 +7,7 @@ import { homeCopy } from "./home-locales";
 import { shellCopy } from './shell-locales';
 import { providerCopy } from './provider-locales';
 import './workspace.css';
+import { StudyArt } from './study-art';
 import { Home, ChartNoAxesColumn, BookOpen, UserRound, Infinity as Loop, ArrowRight, RefreshCw } from 'lucide-react';
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
@@ -288,14 +289,14 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
 
   return <main className={`gm-foundation gm-workspace ${view === 'practice' ? 'gm-focused' : ''}`} data-theme={state.theme} lang={state.locale}>
     {view !== 'practice' && <aside className="gm-rail">
-      <div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master</strong></div>
+      <div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master<span>.</span></strong></div>
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
       <FoundationButton className="gm-nav-item gm-account-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><UserRound aria-hidden="true"/>{s.account}</FoundationButton>
     </aside>}
     <div className="gm-column gm-workspace-content">
-      <header className="gm-workspace-header"><span>{s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>
+      <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>
       {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
@@ -305,7 +306,6 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         </div><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>
         {onReauthenticate && !localAccess && <FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton>}
         </PracticeCard>
-        <PracticeCard><h2>{s.saved}</h2><p className="gm-notice">{c.notice}</p><FoundationButton disabled={busy} onClick={()=>void run(syncAllOwned,'connectionError')}>{c.syncAll}</FoundationButton></PracticeCard>
       </>}
       {localAccess && onReauthenticate && <div className="gm-connection-note"><p role="status">{providerCopy[state.locale].local}</p><FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton></div>}
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
@@ -320,17 +320,19 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
         {error && <p role="alert">{c[error]}</p>}
         {view === "home" && !setup && <>
-          <div className="gm-page-heading"><p className="gm-eyebrow">{h.heading}</p><h1 ref={heading} tabIndex={-1}>{s.tagline}</h1><p>{h.introduction}</p></div>
-          <div className="gm-primary-card"><PracticeCard>
-          <h2>{!confirmed ? c.priorities : !hasEvidence ? h.discover : nothingDue ? h.quiet : h.attention}</h2>
-          {!confirmed ? <p>{h.snapshotUnavailable}</p> : !hasEvidence ? <p>{h.discoverBody}</p> : nothingDue ? <p>{h.quietBody}</p> : <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
-          <div className="gm-practice-summary"><span>{c.requested}: {profile?.preferences.sessionQuestionCount ?? 15}</span><span>{c.available}: {availableCount}</span></div>
-          <FoundationButton className="gm-start-action" disabled={busy || !canPractice} onClick={() => void start()}>{p && !complete ? c.resume : nothingDue ? c.fresh : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
-          {nothingDue && <FoundationButton className="gm-secondary" onClick={() => navigate('topics')}>{h.chooseTopic}</FoundationButton>}
-          {catalogFailed ? <><p role="alert">{c.catalogUnavailable}</p><FoundationButton className="gm-secondary" disabled={busy} onClick={() => void loadCatalog()}>{c.retryCatalog}</FoundationButton></> : catalog && availableCount === 0 && <div className="gm-empty-content"><p>{s.noQuestions}</p><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={()=>setEditingSetup(true)}>{c.editSetup}</FoundationButton></div>}
-          <details><summary>{h.settings}</summary><p>{c.draftLevel}</p><p>{c.requested}: {profile?.preferences.sessionQuestionCount ?? 15} · {c.available}: {availableCount}</p></details>
-          {confirmed && <p className="gm-meta">{c.stale}</p>}
-        </PracticeCard></div></>}
+          <div className="gm-page-heading gm-home-heading"><p className="gm-eyebrow">{h.heading}</p><h1 ref={heading} tabIndex={-1}>{s.tagline}</h1></div>
+          <div className="gm-session-hero"><div className="gm-session-copy">
+            <p className="gm-kicker">{s.learn} · {profile?.preferences.level ?? 'B1'}</p>
+            <h2>{!confirmed ? c.priorities : !hasEvidence ? h.discover : nothingDue ? h.quiet : h.attention}</h2>
+            {!confirmed ? <p>{h.snapshotUnavailable}</p> : !hasEvidence ? <p>{h.discoverBody}</p> : nothingDue ? <p>{h.quietBody}</p> : <p>{c.needs}: {needs} · {c.retention}: {due}</p>}
+            <FoundationButton className="gm-start-action" disabled={busy || !canPractice} onClick={()=>void start()}>{p && !complete ? c.resume : nothingDue ? c.fresh : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
+            {catalogFailed && <><p role="alert">{c.catalogUnavailable}</p><FoundationButton className="gm-secondary" disabled={busy} onClick={()=>void loadCatalog()}>{c.retryCatalog}</FoundationButton></>}
+            {!catalogFailed && catalog && availableCount === 0 && <div className="gm-empty-content"><p>{s.noQuestions}</p><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={()=>setEditingSetup(true)}>{c.editSetup}</FoundationButton></div>}
+          </div><StudyArt/></div>
+          {catalog && catalog.topics.length > 0 && <section className="gm-explore-section"><div className="gm-section-heading"><div><h2>{s.explore}</h2><p>{s.exploreNote}</p></div><FoundationButton className="gm-text-button gm-secondary" onClick={()=>navigate('topics')}>{nothingDue ? h.chooseTopic : s.browseTopics}<ArrowRight aria-hidden="true"/></FoundationButton></div>
+            <div className="gm-topic-grid">{catalog.topics.map((topic,index)=><FoundationButton key={topic.id} className="gm-topic-tile gm-secondary" onClick={()=>{setSelectedId(topic.id);navigate('topic');}}><span className="gm-tile-number">{String(index+1).padStart(2,'0')}</span><BookOpen aria-hidden="true"/><span className="gm-tile-title">{topic.title[state.locale]}</span><span className="gm-tile-note">{catalog.targets.filter(t=>t.topicId===topic.id).length} {s.targetCount}</span><ArrowRight className="gm-tile-arrow" aria-hidden="true"/></FoundationButton>)}</div>
+          </section>}
+        </>}
         {view === 'home' && !setup && confirmed && confirmed.targets.some(t => t.state === 'needs_practice' || t.isDue) && <PracticeCard>
           <h2>{s.nextFocus}</h2><p className="gm-meta">{s.nextFocusNote}</p>
           <ul className="gm-targets">{confirmed.targets.filter(t => t.state === 'needs_practice' || t.isDue).slice(0, 3).map(target => <li key={target.targetId}>
@@ -344,14 +346,17 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <FoundationButton className="gm-secondary" onClick={() => showTarget(target.targetId)}>{catalog?.targets.find(t => t.id === target.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton>
           </li>)}</ul>
         </PracticeCard>}
-        {view === 'home' && !setup && <div className="gm-home-footer"><FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}><RefreshCw aria-hidden="true"/>{c.refresh}</FoundationButton><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={()=>setEditingSetup(true)}>{s.review}</FoundationButton></div>}
-        {view === 'account' && api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
+        {view === 'home' && !setup && <div className="gm-home-footer"><FoundationButton className="gm-text-button gm-secondary" disabled={busy} onClick={()=>void refresh()}><RefreshCw aria-hidden="true"/>{c.refresh}</FoundationButton></div>}
+        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.offlineTools}</summary><PracticeCard><p className="gm-notice">{c.notice}</p><FoundationButton disabled={busy} onClick={()=>void run(syncAllOwned,'connectionError')}>{c.syncAll}</FoundationButton></PracticeCard>
+        { api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
-        {view === 'account' && api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
-        {view === 'account' && <PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
-        {view === 'account' && identityControl?.(state.locale,busy||loaded.damaged)}
-        {view === 'account' && api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
+</details>}
+        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.accountTools}</summary>
+        { api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
+        { <PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
+        { identityControl?.(state.locale,busy||loaded.damaged)}
+        { api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
           if (lock.current) throw Error('Learner operation in progress');
           lock.current=true;setBusy(true);
           try {
@@ -359,6 +364,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             return await (owner ? owner.run(work) : work());
           } finally { lock.current=false;setBusy(false); }
         }} />}
+</details>}
         {view === "practice" && <>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>
@@ -408,7 +414,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           <PracticeCard>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p><ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
-            <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p>{c.states[t.state]}</p>
+            <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p className="gm-state-badge" data-state={t.state}>{c.states[t.state]}</p>
             {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
             <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
           </li>)}</ul></>}

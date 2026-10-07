@@ -58,7 +58,9 @@ describe('Home screen handoff', () => {
     fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
     expect(await screen.findByRole('heading', {name:'Account', exact:true})).toHaveFocus();
     expect(screen.getByLabelText('Theme')).toBeInTheDocument();
-    expect(screen.getByText('Sync saved work and sign out')).toBeInTheDocument();
+    expect(screen.getByText('Sync saved work and sign out')).not.toBeVisible();
+    fireEvent.click(screen.getByText('Account and privacy'));
+    expect(screen.getByText('Sync saved work and sign out')).toBeVisible();
     fireEvent.click(screen.getByRole('button', {name:'Home', exact:true}));
     fireEvent.click(screen.getByRole('button', {name:'Continue practice'}));
     expect(await screen.findByLabelText('Your answer')).toHaveValue('preserved draft');

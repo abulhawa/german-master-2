@@ -8,6 +8,8 @@ import { browserStorage } from './storage';
 import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from './guest-starter';
 
 import { providerCopy as copy } from './provider-locales';
+import { StudyArt } from './study-art';
+import { shellCopy } from './shell-locales';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
@@ -120,7 +122,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   if(account&&!showLogin) return <LearnerJourney onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
-  return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
+  return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
     <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{c.backGuest}</FoundationButton>

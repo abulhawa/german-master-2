@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Infinity as Loop } from 'lucide-react';
 import './workspace.css';
+import { StudyArt } from './study-art';
+import { shellCopy } from './shell-locales';
 import { z } from "zod";
 import {
   AnswerSchema,
@@ -457,21 +459,18 @@ export function GuestStarterJourney({
   </PracticeCard></div></main>;
 
   if (!state.setupCompleted) return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
-    <div className="gm-page-heading"><h1>{c.title}</h1><p>{c.intro}</p></div>
-    <PracticeCard>
-      <div className="gm-settings">
-        <label>{c.language}<select aria-label={c.language} value={state.locale} onChange={e => commit({ ...state, locale: e.target.value as Locale })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
-        <label>{c.level}<select aria-label={c.level} value={state.level} onChange={e => commit({ ...state, level: e.target.value as GuestState["level"] })}><option value="B1">B1</option><option value="B2">B2</option><option value="unsure">{c.unsure}</option></select></label>
-        <label>{c.length}<select aria-label={c.length} value={state.questionCount} onChange={e => commit({ ...state, questionCount: Number(e.target.value) as GuestState["questionCount"] })}><option value={10}>{c.q10}</option><option value={15}>{c.q15}</option><option value={20}>{c.q20}</option></select></label>
-      </div>
-      <p className="gm-meta">{c.languageHelp}</p><p className="gm-meta">{c.levelHelp}</p><p className="gm-meta">{c.lengthHelp}</p>
-      {state.level === "B2" && <p className="gm-notice">{c.b2Note}</p>}
+    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master<span>.</span></strong></div>
+      <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+    </header>
+    <div className="gm-welcome-layout"><div className="gm-welcome-copy">
+      <p className="gm-kicker">{shellCopy[state.locale].guestLabel}</p>
+      <h1>{c.title}</h1><p className="gm-welcome-intro">{c.intro}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
-      <FoundationButton disabled={storageError} onClick={begin}>{c.try}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.existing}</FoundationButton>
+      <FoundationButton className="gm-welcome-start" disabled={storageError} onClick={begin}>{c.try}<span aria-hidden="true">↗</span></FoundationButton>
+      <p className="gm-meta">{shellCopy[state.locale].guestNote}</p>
+      <FoundationButton className="gm-text-button gm-secondary" onClick={()=>onAuth('sign-in')}>{c.existing}</FoundationButton>
       {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
-    </PracticeCard>
+    </div><div className="gm-welcome-visual"><StudyArt/><div className="gm-visual-caption"><span>01 / Deutsch</span><p>{shellCopy[state.locale].session}</p></div></div></div>
   </div></main>;
 
   if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">

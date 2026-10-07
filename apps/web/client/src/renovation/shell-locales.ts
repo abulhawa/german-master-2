@@ -1,5 +1,11 @@
 export const shellCopy = {
   en: {
+    learn: 'Learn German', homeLabel: 'Your learning space', session: 'A small step, every day.',
+    learningNote: 'A focused session. Clear feedback. German that stays with you.',
+    explore: 'Find your focus', exploreNote: 'Choose what you want to work on.', browseTopics: 'Browse topics',
+    guestLabel: 'YOUR NEXT CHAPTER', guestNote: 'Five questions. No account needed.',
+    accountTools: 'Account and privacy', offlineTools: 'Offline practice', advanced: 'Additional preferences',
+    appearanceShort: 'Make yourself at home', targetCount: 'learning targets', questionCount: 'questions', practiceLevel: 'Practice level',
     account: 'Account', workspace: 'Your German practice', tagline: 'A little practice. Lasting progress.',
     accountIntro: 'Your preferences, saved practice and account controls, all in one place.',
     nextFocus: 'Your next focus', nextFocusNote: 'Choose a target to understand what to practise next.',
@@ -10,6 +16,12 @@ export const shellCopy = {
     appearance: 'Language and appearance', saved: 'Sync and offline practice', privacy: 'Privacy and account',
   },
   de: {
+    learn: 'Deutsch lernen', homeLabel: 'Dein Lernraum', session: 'Jeden Tag einen kleinen Schritt.',
+    learningNote: 'Eine konzentrierte Übung. Klare Rückmeldung. Deutsch, das bleibt.',
+    explore: 'Finde deinen Schwerpunkt', exploreNote: 'Wähle, woran du arbeiten möchtest.', browseTopics: 'Themen entdecken',
+    guestLabel: 'DEIN NÄCHSTES KAPITEL', guestNote: 'Fünf Aufgaben. Kein Konto nötig.',
+    accountTools: 'Konto und Datenschutz', offlineTools: 'Offline üben', advanced: 'Weitere Einstellungen',
+    appearanceShort: 'Mach es dir bequem', targetCount: 'Lernziele', questionCount: 'Aufgaben', practiceLevel: 'Übungsniveau',
     account: 'Konto', workspace: 'Deine Deutschübung', tagline: 'Ein wenig üben. Nachhaltig weiterkommen.',
     accountIntro: 'Deine Einstellungen, gespeicherten Übungen und Kontofunktionen an einem Ort.',
     nextFocus: 'Dein nächster Schwerpunkt', nextFocusNote: 'Wähle ein Lernziel, um deinen nächsten Übungsschritt zu verstehen.',

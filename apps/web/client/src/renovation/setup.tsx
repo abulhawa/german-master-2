@@ -5,6 +5,7 @@ import { learnerCopy, accountLearnerCopy } from "./locales";
 import type { LearnerApi } from "./api";
 import type { JourneyStorage } from "./storage";
 import type { FixtureOwner } from "./ownership";
+import { shellCopy } from './shell-locales';
 
 export const PROFILE_PENDING_KEY = "german-master-v2:local-fixture:profile-request-v1";
 export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, onCancel, onPreviewLocale, authenticated=false }: {
@@ -62,9 +63,11 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
       <fieldset className="gm-answer-group" disabled={busy || !!pending}>
         <label>{c.language}<select value={preferences.locale} onChange={e => { const locale = e.target.value as "en" | "de"; setPreferences({ ...preferences, locale }); onPreviewLocale(locale); }}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.level}<select value={preferences.level} onChange={e => setPreferences({ ...preferences, level: e.target.value as "B1" | "B2" })}><option>B1</option><option>B2</option></select></label>
+        <details className="gm-advanced"><summary>{shellCopy[preferences.locale].advanced}</summary>
         <label className="gm-field">{c.timezone}<input value={preferences.timezone} onChange={e => setPreferences({ ...preferences, timezone: e.target.value })} aria-describedby="timezone-help" /></label>
         <p id="timezone-help">{c.timezoneNote}</p>
         <label>{c.length}<select value={preferences.sessionQuestionCount} onChange={e => setPreferences({ ...preferences, sessionQuestionCount: Number(e.target.value) as 5 | 15 })}><option value={5}>{c.short}</option><option value={15}>{c.standard}</option></select></label>
+        </details>
       </fieldset>
       {error && <p role="alert">{c.setupError}</p>}
       <FoundationButton disabled={busy || !preferences.timezone.trim()} onClick={() => void save()}>{pending ? c.retry : c.saveSetup}</FoundationButton>
