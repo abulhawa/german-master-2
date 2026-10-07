@@ -12,6 +12,14 @@ If the chat starts outside the repo, use:
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
+## Current shared priority — 7 October 2026
+
+The low-typing foundation is implemented and pushed as `59d7b0d`. Continue with one complete topic: author MCQ distractors, gap choices, accepted token orders or matching pairs and bilingual feedback; integrate/preview both clients and prepare it for German review without publishing. Extend the validated pattern across the catalog afterward. Android production/guest parity, real-device accessibility and remaining account/operations gates follow the [current milestone table](milestone-gates.md).
+
+This is a hard reset with no existing learners to migrate. Do not recreate legacy-user migration work. Preserve identity/signing, provenance, immutable revisions and operational recovery. ChatGPT content preparation and Codex integration share this priority and [authoring guide](../content/practice-formats.md); check the latest checkout before editing shared files.
+
+The blueprint defines the product/exit criteria, milestone-gates.md summarizes current status, and the newest PROGRESS.md checkpoint supplies the exact next slice. Older entries are historical evidence. Update all affected current summaries when priorities or acceptance change; do not promote local tests to hosted/device/pilot acceptance.
+
 ## Agent workflow
 
 1. Read root `AGENTS.md` and `PROGRESS.md`; inspect scoped instructions for the files to change.

@@ -509,22 +509,24 @@ During the no-user stage, fixtures prove correctness, not user value. In the pil
 
 ## 23 Roadmap Milestones and Exit Gates
 
-Indicative plan for a small team or one developer with part-time design/content review: roughly 13–19 weeks, with content review and offline reliability likely on the critical path. These are planning ranges, not promised dates. Re-estimate after M0; do not trade exit gates for a calendar target. The pilot range includes the delayed-retention follow-up.
+The milestone sequence below defines deliverables and exit criteria, not current completion status. The authoritative current status is [renovation acceptance gates](../operations/milestone-gates.md); the latest root `PROGRESS.md` checkpoint defines the next implementation slice. Owner direction on 7 October 2026 prioritizes one-topic low-typing content conversion, then reviewed catalog conversion and Android parity/device acceptance. There are no existing learners to migrate.
+
+Original indicative plan for a small team or one developer with part-time design/content review: roughly 13–19 weeks, with content review and offline reliability likely on the critical path. These are planning ranges, not promised dates. Re-estimate after M0; do not trade exit gates for a calendar target. The pilot range includes the delayed-retention follow-up.
 
 | Milestone | Planning range | Deliverables | Exit gate |
 |---|---|---|---|
 | M0 Preserve and establish baseline | 3–5 working days | Tags/bundles, content/DB export, deployment inventory, builds, repo decision | Restore rehearsal works; inspected and deployed versions distinguished |
-| M1 Contracts design and content foundation | 1–2 weeks | Monorepo skeleton, tokens, journeys, API schemas, initial DB, 30 reviewed targets | Both clients parse all initial variants; documented design approved; content validation passes |
+| M1 Contracts design and content foundation | 1–2 weeks | Shared tokens/journeys/API schemas, clean DB baseline, four low-typing formats and an initial reviewed topic/catalog | Both clients handle MCQ/ordering/gap choices/matching; documented design and independent content review accepted; validation passes |
 | M2 Authoritative learning engine | 2–3 weeks | Grading, evidence reducer, sessions, attempt API, deterministic fixtures | Different learner histories yield appropriate different queues; idempotency and replay pass |
 | M3 Complete web vertical slice | 2–3 weeks | Onboarding, Home, Practice, summary, Progress, Topics, auth | A learner completes and resumes a mixed session with correct confirmed progress |
-| M4 Android parity | 2–3 weeks | Native screens, API replacement, Room/outbox, token bindings | Same fixture history produces same confirmed outcomes; accessibility core journey passes |
+| M4 Android parity | 2–3 weeks | Native screens, production/guest parity, shared API/outbox integration, token bindings | Same fixture history produces same confirmed outcomes; accessibility core journey passes |
 | M5 Offline cross-device and operations | 2–3 weeks | Prepared packs, reconciliation, privacy actions, CI/release runbooks | Airplane-mode/restart/two-device/expired-auth scenarios lose no attempts |
 | M6 Pilot and public readiness | 3–4 weeks | About 120 reviewed targets, learner pilot and follow-up, reliability fixes, store/release assets | No unresolved critical defects; feedback and delayed-retention evidence reviewed |
 | M7 Targeted expansion | After usefulness gate | Add/import material, broader contexts, better calibration | Each expansion demonstrates usefulness without weakening the core loop |
 
 Dependencies: stable exercise schemas precede renderers; target/content quality precedes meaningful engine evaluation; backend vertical slice precedes production Android API integration; offline semantics precede release. Android shell/token work can overlap web, but not at the cost of implementing a competing engine. Content review begins at M1 and runs throughout.
 
-MVP delivery includes both clients and the verified offline subset. M3 is an internal web reference release, not permission to leave Android behind. Do not add import, speech or full writing before M6 exit.
+MVP delivery includes both clients and the verified offline subset. The owner-authorized production-first web rollout is already recorded; it does not close full M3 acceptance or permit leaving Android behind. Do not add import, speech or full writing before M6 exit.
 
 ## 24 Epics and Starter Backlog
 

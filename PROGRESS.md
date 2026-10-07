@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Roadmap/checkpoint alignment — 7 October 2026
+
+- Owner requested alignment and a prompt commit/push before parallel ChatGPT work. Started clean at `59d7b0d`, the pushed low-typing foundation commit. Reconciled recorded production lifecycle, basic-content publication, foundation verification and remaining native/editorial gates; no fresh hosted/provider/device acceptance is claimed.
+- Replaced the stale milestone summary with a current M0–M7 status table; preserved prior dated snapshots in `docs/operations/milestone-gates-history.md` explicitly as historical evidence. Recorded the renovated web routing and confirmed-account acceptance, the owner-authorized 65-target/125-exercise catalog with independent review pending, four-format local implementation, simulated native large-text evidence and remaining full milestone exits.
+- Blueprint section 23 now points to the current gate table, names the four-format content foundation and Android production/guest parity, and separates its original planning ranges from actual completion. Continuation guidance and the gate table share the same source-of-truth order and next-work sequence. Removed migration/legacy-user compatibility from current requirements while preserving application identity/signing, provenance and operational recovery. Historical evidence was not erased or promoted to current acceptance.
+- Documentation-only validation: local links/current-priority consistency and Git whitespace checked; no runtime checks repeated because no implementation changed. No deployment, publication, database/provider mutation, store upload, external messages or AI/Groq calls. This checkpoint accompanies the owner-authorized documentation commit/push; the foundation's hosted CI/automatic deployment remains unverified here.
+- Exact next action: convert one complete existing topic into authored low-typing questions with bilingual feedback, validate/preview both clients and prepare a reviewable draft without publishing. Then extend the verified pattern across the catalog; Android production/guest parity and real-device accessibility remain open parallel gates. ChatGPT prepares content against `docs/content/practice-formats.md`; Codex integrates it against the current checkout.
+- Commit message: `docs: align renovation roadmap and current milestones`.
+
 ## Low-typing practice foundations — 7 October 2026
 
 - Owner requested reusable MCQ, sentence ordering, gap choices and matching before question-by-question content conversion, on both web and Android. Confirmed this is a hard reset with no existing learners or learner-data migration requirement. Started clean at `3eb09ca`. Owner subsequently authorized commit and push to `main`; this checkpoint accompanies the foundation commit. Automatic Git delivery may follow the push; hosted CI/deployment completion is not yet claimed. The live basic B1/B2 catalog is unchanged.
