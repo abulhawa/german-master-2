@@ -109,6 +109,10 @@
   outline: 2px solid var(--gm-primary);
   outline-offset: 3px;
 }
+/* Static headings receive focus for page announcements, not keyboard input. */
+.gm-foundation h1[tabindex="-1"]:focus-visible {
+  outline: none;
+}
 .gm-choices {
   border: 0;
   padding: 0;

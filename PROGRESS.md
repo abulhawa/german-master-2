@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Hide the automatic static-heading outline — 7 October 2026
+
+- Owner requested that the rectangle around the Home headline not remain visible after reload. Started clean at `39e97ce`. Added a narrowly scoped foundation CSS exception for `h1[tabindex="-1"]:focus-visible`. Programmatic heading focus/page announcements remain; interactive control focus styling and feedback focus remain unchanged. No learning/account/storage behavior changed.
+- Offline install (zero audit findings), generated/type checks and both learner builds pass. Existing keyboard/semantic acceptance passes 320px/200% text, heading and feedback focus management, and visible keyboard focus on controls. The required root unit/integration run is in progress; results and production verification will be reconciled before handoff. No new low-impact implementation-mirroring tests were added.
+- Exact next action: commit/push `fix: hide outlines on automatically focused page headings`, verify automatic deployment and inspect the focused heading plus keyboard button outline in the integrated browser. Product reset exit gates and content availability are unchanged.
+
+
 ## Matching app icons and cached-shell delivery fix — 7 October 2026
 
 - Owner requested new website/Android icons, then supplied a screenshot of the old full-screen sign-in wrapper still rendering. Preserved the already completed redesign and investigated cached delivery rather than claiming the screenshot was the current artifact. Started clean at `f42a139`.
