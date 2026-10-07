@@ -69,3 +69,7 @@ guards and draft refusal. A separately labelled local activation simulation
 checks both levels' 15-question sessions, distinct targets, server answer
 recording, duplicate receipts and pinned old-session replay. It is local
 engineering evidence, not content publication or independent German approval.
+
+## Low-typing candidate refresh — 7 October 2026
+
+The unpublished candidate now includes the five B1 adjective-ending targets as revision 2 `gap_choice` exercises (10 variants). The prior published basic release is not modified. Candidate manifest: `00378aa5e9caccadf148cefdde7148c52bf0c5b250cbc3dcfc9c6749a99f13de`. Independent German review remains pending.

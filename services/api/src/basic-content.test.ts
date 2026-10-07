@@ -16,7 +16,7 @@ const input={...b1,targets:[...b1.targets,...b2.targets]};
 const previous=RuntimeCatalogSchema.parse(previousJson);
 const read=(path:string)=>readFileSync(new URL(path,import.meta.url),'utf8');
 const request=():SessionRequest=>({apiVersion:'v2',requestId:randomUUID(),questionCount:15,
-  capabilities:['short_answer@1','choice@1','cloze@1','multi_slot@1','word_order@1']});
+  capabilities:['short_answer@1','choice@1','cloze@1','multi_slot@1','word_order@1','gap_choice@1','matching@1']});
 async function prepare(db:PGlite, publish=false) {
   await new FoundationStore(db).initialize();
   await db.exec(read('../../../db/seed/production-starter.sql'));
@@ -37,6 +37,9 @@ it('installs an additive draft with an exact manifest, retains old revisions and
     expect(await runtimeMembers(db,previous.releaseId)).toEqual(old);
     expect(rows.filter(r=>r.level==='B2')).toHaveLength(60);
     expect(rows.filter(r=>r.review_status==='pending')).toHaveLength(120);
+    const lowTyping=rows.filter(r=>(r.payload as Exercise).type==='gap_choice');
+    expect(lowTyping).toHaveLength(10);
+    expect(lowTyping.every(r=>r.revision===2 && r.level==='B1')).toBe(true);
     await expect(new FoundationStore(db,undefined,undefined,undefined,candidate.config).createSession(randomUUID(),request()))
       .rejects.toMatchObject({code:'content_unavailable'});
     expect((await db.query('SELECT * FROM gm.practice_session')).rows).toHaveLength(0);
@@ -81,6 +84,13 @@ it('locally simulates activation: B1 and B2 allocate distinct targets, grade and
         expect((await store.submit(learner,attempt,randomUUID())).status).toBe('duplicate');
       }
       expect(await store.createSession(learner,sessionInput)).toEqual(session);
+      if(level==='B1') {
+        const focused=await store.createSession(learner,{...request(),questionCount:1,
+          focus:{type:'target',id:'10000000-0000-4000-8000-000000000015'}});
+        expect(focused.questions).toHaveLength(1);
+        expect(focused.questions[0].exercise.type).toBe('gap_choice');
+        expect(focused.questions[0].exercise.revision).toBe(2);
+      }
       const evidence=(await db.query('SELECT * FROM gm.accepted_evidence WHERE user_id=$1',[learner])).rows;
       expect(evidence).toHaveLength(15);
     }

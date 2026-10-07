@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Unpublished low-typing candidate integration — 7 October 2026
+
+- Regenerated the committed unpublished basic candidate around the adjective revision-2 source: 65 targets / 125 revisions total, with 10 B1 `gap_choice` members at revision 2. Candidate SQL, runtime catalog manifest and editorial workbook are synchronized; production catalog/SQL/configuration are unchanged.
+- Basic-content acceptance now advertises all seven supported capabilities and explicitly checks that the 10 converted members are B1 revision 2 gap choices. The activated local simulation also requests target-focused practice for the converted adjective target and requires a revision-2 `gap_choice` question.
+- Candidate manifest is `00378aa5e9caccadf148cefdde7148c52bf0c5b250cbc3dcfc9c6749a99f13de`. Independent German review remains pending and no publication/database/deployment operation is authorized by this candidate refresh.
+- Exact next action: preview this converted topic end to end on both clients against an unpublished/local catalog, then apply the same immutable-revision pattern to the remaining high-value typed topics.
+
 ## Low-typing content pilot — B1 adjective endings — 7 October 2026
 
 - Converted the complete five-target B1 adjective-ending topic (10 variants) from typed cloze to `gap_choice` in the canonical draft workspace. The same exercise identities now carry revision 2; published revision 1 content is untouched. Each gap uses authored `-e/-en/-er/-es/-em` distractors in varied authored orders to avoid answer-position cueing, explicit recognition wording and the existing bilingual grammar feedback.
