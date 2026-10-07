@@ -91,7 +91,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
-    {guestAttempts>0&&<p role="status">{locale==='de'?\`Deine Gastübungen bleiben auf diesem Gerät, während du dich anmeldest. \${guestAttempts} geeignete Versuche werden nicht automatisch übernommen.\`:\`Your guest practice stays on this device while you sign in. \${guestAttempts} eligible attempts will not be attached automatically.\`}</p>}
+    {guestAttempts>0&&<p role="status">{locale==='de'?`Deine Gastübungen bleiben auf diesem Gerät, während du dich anmeldest. ${guestAttempts} geeignete Versuche werden nicht automatisch übernommen.`:`Your guest practice stays on this device while you sign in. ${guestAttempts} eligible attempts will not be attached automatically.`}</p>}
     <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{locale==='de'?'Zurück zur Gastübung':'Back to guest practice'}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
