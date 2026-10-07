@@ -1,4 +1,4 @@
-import { LearnerProfileSchema, type LearnerProfile, type ProfileRequest, CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
+import { LearnerProfileSchema, GuestAttachmentRequestSchema, AttemptBatchResponseSchema, type GuestAttachmentRequest, type AttemptBatchResponse, type LearnerProfile, type ProfileRequest, CatalogSchema, SessionSchema, type Catalog, type FocusedSessionRequest, type Session, TargetPageSchema, SyncPageSchema, type TargetPage, type SyncPage } from "@german-master/contracts";
 import { localFoundationApi, type FoundationApi } from "../foundation/api";
 import { ExposureBatchResponseSchema, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { ContentReportReceiptSchema, type ContentReportRequest, type ContentReportReceipt } from '@german-master/contracts';
@@ -10,6 +10,7 @@ import { LearnerExportSchema, type LearnerExport } from '@german-master/contract
 import { PrivacyDeleteReceiptSchema, type PrivacyDeleteRequest, type PrivacyDeleteReceipt } from '@german-master/contracts';
 
 export interface LearnerApi extends FoundationApi {
+  attachGuest?(request: GuestAttachmentRequest): Promise<AttemptBatchResponse>;
   deleteLearner?(request: PrivacyDeleteRequest): Promise<PrivacyDeleteReceipt>;
   exportLearner?(): Promise<LearnerExport>;
   preparePack?(request: SessionRequest): Promise<PreparedPack>;
@@ -52,6 +53,16 @@ export function localLearnerApi(account?: AccountBinding, transport: typeof fetc
     return json(response);
   }
   return { ...localFoundationApi(binding, transport),
+    async attachGuest(input) {
+      const request = GuestAttachmentRequestSchema.parse(input);
+      const response = await transportRequest("/v2/guest-attempts:attach", {method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer foundation-local-demo"},body:JSON.stringify(request)});
+      if (!response.ok) throw Error("Guest attachment unavailable");
+      const parsed = AttemptBatchResponseSchema.parse(await json(response));
+      if (parsed.acknowledgments.length !== request.attempts.length
+        || parsed.acknowledgments.some((ack,index)=>ack.attemptId !== request.attempts[index].attemptId))
+        throw Error("Guest attachment acknowledgment mismatch");
+      return parsed;
+    },
     async deleteLearner(request) {
       const response = await transportRequest('/v2/me', {method:'DELETE',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
       if (!response.ok) throw Error('Deletion unavailable');

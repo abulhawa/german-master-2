@@ -1,7 +1,7 @@
 import type { SqlDatabase, SqlTransaction as Transaction } from "./database";
 import { readFile } from "node:fs/promises";
 import { randomUUID, createHash } from "node:crypto";
-import { SessionSchema, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
+import { SessionSchema, GuestAttachmentRequestSchema, type GuestAttachmentRequest, type GuestAttempt, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
 import { RuntimeCatalogSchema, runtimeManifestHash, runtimeMembers, type RuntimeCatalog } from './runtime-catalog';
@@ -604,6 +604,83 @@ export class FoundationStore {
         "SELECT q.id,r.payload FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision WHERE q.session_id=$1 AND q.user_id=$2 ORDER BY q.position", [sessionId, userId]);
       return SessionSchema.parse({ apiVersion: "v2", id: sessionId, contentReleaseId: releaseId,
         questions: questions.rows.map(q => ({ id: q.id, exercise: q.payload })) });
+  }
+
+  async attachGuest(userId: string, input: GuestAttachmentRequest): Promise<Acknowledgment[]> {
+    const request = GuestAttachmentRequestSchema.parse(input);
+    const acknowledgments: Acknowledgment[] = [];
+    for (const guest of request.attempts)
+      acknowledgments.push(await this.attachGuestAttempt(userId, request.deviceId, guest, request.requestId));
+    return acknowledgments;
+  }
+
+  private async attachGuestAttempt(userId: string, deviceId: string, guest: GuestAttempt, requestId: string): Promise<Acknowledgment> {
+    try {
+      return await this.db.transaction(async tx => {
+        await this.assertActive(tx, userId);
+        const prior = await tx.query<{payload:Attempt;received_sequence:number;evaluation:AttemptAcknowledgment["evaluation"];
+          release_id:string;exercise_id:string;revision:number}>(`
+          SELECT a.payload,a.received_sequence,e.evaluation,q.release_id,q.exercise_id,q.revision
+          FROM gm.attempt a JOIN gm.attempt_evaluation e ON e.user_id=a.user_id AND e.attempt_id=a.id
+          JOIN gm.session_question q ON q.user_id=a.user_id AND q.id=a.question_id
+          WHERE a.user_id=$1 AND a.id=$2 ORDER BY e.evaluated_at LIMIT 1`, [userId, guest.attemptId]);
+        if (prior.rows.length) {
+          const row = prior.rows[0];
+          const same = row.release_id === guest.contentReleaseId && row.exercise_id === guest.exerciseId && row.revision === guest.exerciseRevision
+            && canonical({deviceId:row.payload.deviceId,answer:row.payload.answer,assistance:row.payload.assistance,
+              answeredAt:row.payload.answeredAt,clientSequence:row.payload.clientSequence})
+              === canonical({deviceId,answer:guest.answer,assistance:guest.assistance,answeredAt:guest.answeredAt,clientSequence:guest.clientSequence});
+          if (!same) throw new ApiFailure("attempt_conflict", 409);
+          return {attemptId:guest.attemptId,status:"duplicate",evaluation:row.evaluation,serverSequence:row.received_sequence};
+        }
+        const valid = await tx.query(`
+          SELECT 1 FROM gm.content_release_exercise cr
+          JOIN gm.content_release c ON c.id=cr.release_id
+          JOIN gm.exercise_revision r ON r.exercise_id=cr.exercise_id AND r.revision=cr.revision
+          JOIN gm.revision_evidence_identity i ON i.exercise_id=r.exercise_id AND i.revision=r.revision
+          WHERE cr.release_id=$1 AND cr.exercise_id=$2 AND cr.revision=$3
+            AND c.status IN ('published','retired') AND c.published_at IS NOT NULL`,
+          [guest.contentReleaseId, guest.exerciseId, guest.exerciseRevision]);
+        if (!valid.rows.length) throw new ApiFailure("revision_unavailable", 409);
+
+        await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING", [userId]);
+        await this.lockLearner(tx, userId);
+        const sessionId = randomUUID(), questionId = randomUUID();
+        const requestPayload = {apiVersion:"v2",kind:"guest_attachment",guestAttemptId:guest.attemptId};
+        await tx.query(`INSERT INTO gm.practice_session
+          (id,user_id,request_id,request_payload,release_id,engine_version,status,issued_at)
+          VALUES ($1,$2,$3,$4,$5,'guest-attachment-v1','active',$6)`,
+          [sessionId,userId,randomUUID(),requestPayload,guest.contentReleaseId,guest.answeredAt]);
+        await tx.query(`INSERT INTO gm.session_question
+          (id,user_id,session_id,release_id,exercise_id,revision,position,evidence_role)
+          VALUES ($1,$2,$3,$4,$5,$6,0,'assessment')`,
+          [questionId,userId,sessionId,guest.contentReleaseId,guest.exerciseId,guest.exerciseRevision]);
+        const attempt: Attempt = {attemptId:guest.attemptId,sessionQuestionId:questionId,exerciseRevision:guest.exerciseRevision,
+          deviceId,answer:guest.answer,assistance:guest.assistance,answeredAt:guest.answeredAt,clientSequence:guest.clientSequence};
+        const pinned = await this.pinnedQuestion(tx,userId,questionId,guest.exerciseRevision);
+        const evaluation = grade(pinned.payload,pinned.rubric,attempt.answer,attempt.assistance);
+        await tx.query("INSERT INTO gm.device VALUES ($1,$2) ON CONFLICT DO NOTHING", [userId,deviceId]);
+        const now = this.clock().toISOString();
+        const inserted = await tx.query<{received_sequence:number}>(`
+          INSERT INTO gm.attempt (user_id,id,question_id,device_id,payload,received_at)
+          VALUES ($1,$2,$3,$4,$5,$6) RETURNING received_sequence`,
+          [userId,guest.attemptId,questionId,deviceId,attempt,now]);
+        await tx.query("INSERT INTO gm.attempt_evaluation VALUES ($1,$2,$3,$4,$5)",
+          [userId,guest.attemptId,EVALUATOR_VERSION,evaluation,now]);
+        await this.saveEvidence(tx,userId,guest.attemptId,pinned,now,{
+          kind:pinned.evidence_role,outcome:evaluation.outcome as "correct"|"incorrect",assisted:evaluation.assisted,
+          evaluationVersion:evaluation.policyVersion,variantKey:pinned.variant_key,contextKey:pinned.context_key,
+          ...(pinned.transfer_key?{transferKey:pinned.transfer_key}:{}),answeredAt:guest.answeredAt,
+        },"attempt");
+        await this.completeSession(tx,userId,questionId);
+        return {attemptId:guest.attemptId,status:"accepted",evaluation,serverSequence:inserted.rows[0].received_sequence};
+      });
+    } catch (error) {
+      if (!(error instanceof ApiFailure) && !(error instanceof GradingError)) throw error;
+      return {attemptId:guest.attemptId,status:"rejected",error:{
+        code:error.code,message:"This guest attempt could not be attached.",requestId,retryable:false,
+      }};
+    }
   }
 
   async submit(userId: string, attempt: Attempt, requestId: string): Promise<Acknowledgment> {

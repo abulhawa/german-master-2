@@ -5,7 +5,7 @@ import { createLearnerProvider } from './provider';
 import { FoundationButton, PracticeCard } from '../foundation/preview';
 import { LearnerSignOut } from './signout';
 import { browserStorage } from './storage';
-import { GuestStarterJourney, guestAttemptCount } from './guest-starter';
+import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from './guest-starter';
 
 import { providerCopy as copy } from './provider-locales';
 
@@ -22,6 +22,10 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [email,setEmail] = useState(''); const [password,setPassword] = useState('');
   const [register,setRegister] = useState(false);
   const [confirmation,setConfirmation] = useState(false);
+  const [attachDismissed,setAttachDismissed] = useState(false);
+  const [attachBusy,setAttachBusy] = useState(false);
+  const [attachFailed,setAttachFailed] = useState(false);
+  const [attachResult,setAttachResult] = useState<{saved:number;remaining:number;validationOnly:boolean}|null>(null);
   const c=copy[locale];
   useEffect(()=> {
     const observer=new MutationObserver(()=> {
@@ -44,7 +48,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
         // A fresh, verified same-subject sign-in can resume a completed sign-out.
         const saved=new LearnerSignOut(binding,binding.storage(browserStorage));
         if(resume && saved.read()?.complete) saved.resume();
-        setAccount(binding);setLocal(false);setShowLogin(false);
+        setAttachDismissed(false);setAttachResult(null);setAttachFailed(false);setAccount(binding);setLocal(false);setShowLogin(false);
       }).catch(error=> {if(alive&&current===ticket){
         setFailed(!(error instanceof Error && error.message==='Sign in before syncing'));
       }})
@@ -77,12 +81,41 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     catch {setFailed(true);}
     finally {loginLock.current=false;setPassword('');setBusy(false);}
   }
+  async function attachGuest() {
+    if(!api?.attachGuest || !account || local || attachBusy) return;
+    const request=buildGuestAttachmentRequest(account.identity.subject);if(!request){setAttachDismissed(true);return;}
+    setAttachBusy(true);setAttachFailed(false);
+    try {
+      const result=await api.attachGuest(request);
+      const saved=result.acknowledgments.filter(item=>item.status==='accepted'||item.status==='duplicate').map(item=>item.attemptId);
+      const validationOnly=result.acknowledgments.every(item=>item.status!=='rejected'||item.error.code==='revision_unavailable');
+      markGuestAttemptsAttached(account.identity.subject,saved);
+      setAttachResult({saved:saved.length,remaining:guestUnattachedAttemptCount(account.identity.subject),validationOnly});
+    } catch { setAttachFailed(true); } finally { setAttachBusy(false); }
+  }
   function continueSaved() {
     try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);setShowLogin(false);}}
     catch {setFailed(true);}
   }
   function openAuth(mode:'sign-in'|'register') {
     setRegister(mode==='register');setConfirmation(false);setFailed(false);setShowLogin(true);
+  }
+  const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
+  if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
+    const remaining=attachResult?.remaining ?? accountGuestAttempts;
+    return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
+      {attachResult ? <>
+        <h1>{remaining===0?c.attachSavedTitle:c.attachPartialTitle}</h1>
+        <p role="status">{remaining===0?c.attachSaved(attachResult.saved):
+          (attachResult.validationOnly?c.attachPartial(attachResult.saved,remaining):c.attachPartialOther(attachResult.saved,remaining))}</p>
+        <FoundationButton onClick={()=>setAttachDismissed(true)}>{c.continue}</FoundationButton>
+      </> : <>
+        <h1>{c.attachTitle}</h1><p>{c.attachCount(accountGuestAttempts)}</p><p className="gm-notice">{c.attachWarning}</p>
+        {attachFailed&&<p role="alert"><strong>{c.attachFailedTitle}</strong> {c.attachFailed}</p>}
+        <FoundationButton disabled={attachBusy||!api?.attachGuest} onClick={()=>void attachGuest()}>{c.attachAction(accountGuestAttempts)}</FoundationButton>
+        <FoundationButton className="gm-secondary" disabled={attachBusy} onClick={()=>setAttachDismissed(true)}>{c.notNow}</FoundationButton>
+      </>}
+    </PracticeCard></div></main>;
   }
   if(account&&!showLogin) return <><div className="gm-foundation" lang={locale}><div className="gm-column">
     {local&&<p role="status">{c.local}</p>}<FoundationButton onClick={()=>setShowLogin(true)}>{c.reauth}</FoundationButton>
@@ -91,8 +124,8 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
-    {guestAttempts>0&&<p role="status">{locale==='de'?`Deine Gastübungen bleiben auf diesem Gerät, während du dich anmeldest. ${guestAttempts} geeignete Versuche werden nicht automatisch übernommen.`:`Your guest practice stays on this device while you sign in. ${guestAttempts} eligible attempts will not be attached automatically.`}</p>}
-    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{locale==='de'?'Zurück zur Gastübung':'Back to guest practice'}</FoundationButton>
+    {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
+    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{c.backGuest}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
       <label className="gm-field" htmlFor="v2-email">{c.email}<input id="v2-email" type="email" autoComplete="username" required value={email} disabled={busy} onChange={event=>setEmail(event.target.value)} /></label>

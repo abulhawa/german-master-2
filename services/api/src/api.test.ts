@@ -5,7 +5,7 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import type { AddressInfo } from "node:net";
-import { AttemptBatchResponseSchema, SessionSchema, type Session, type Attempt, type SessionRequest } from "@german-master/contracts";
+import { AttemptBatchResponseSchema, SessionSchema, type Session, type Attempt, type GuestAttachmentRequest, type SessionRequest } from "@german-master/contracts";
 import answers from "../../../contracts/v2/examples/attempt-batch.json";
 import { FoundationStore, canonical } from "./store";
 import { createApi } from "./server";
@@ -154,6 +154,33 @@ describe("isolated PostgreSQL-backed HTTP session", () => {
     expect((await post('/v2/packs',{...input,evaluatorVersion:'other'})).status).toBe(400);
     const normal=await post('/v2/sessions',request());
     expect(JSON.stringify(normal.body)).not.toContain('acceptedAnswers');
+  });
+  it("attaches guest attempts only after published revision validation and replays safely", async () => {
+    const release=(await db.query<{id:string}>("SELECT id FROM gm.content_release LIMIT 1")).rows[0].id;
+    await db.query("UPDATE gm.content_release SET status='published',published_at=$1 WHERE id=$2",["2026-10-03T10:00:00Z",release]);
+    const source=await store.createSession(user,request());
+    const first=source.questions.find(q=>q.exercise.type==="short_answer")!,second=source.questions.find(q=>q.exercise.type==="choice")!;
+    const deviceId=randomUUID();
+    const guest:GuestAttachmentRequest={apiVersion:"v2",requestId:randomUUID(),deviceId,attempts:[
+      {attemptId:randomUUID(),contentReleaseId:release,exerciseId:first.exercise.id,exerciseRevision:first.exercise.revision,
+        answer:{type:"short_answer",text:"Berufe"},assistance:[],answeredAt:"2026-10-03T11:00:00Z",clientSequence:0},
+      {attemptId:randomUUID(),contentReleaseId:release,exerciseId:second.exercise.id,exerciseRevision:second.exercise.revision,
+        answer:{type:"choice",optionId:"dem"},assistance:["hint"],answeredAt:"2026-10-03T11:01:00Z",clientSequence:1},
+    ]};
+    const attached=await post("/v2/guest-attempts:attach",guest);
+    expect(attached.status).toBe(200);
+    const parsed=AttemptBatchResponseSchema.parse(attached.body);
+    expect(parsed.acknowledgments.map(a=>a.status)).toEqual(["accepted","accepted"]);
+    expect(parsed.acknowledgments.map(a=>a.status!=="rejected"&&a.evaluation.outcome)).toEqual(["correct","correct"]);
+    const evidence=(await db.query<{n:number}>("SELECT count(*)::int AS n FROM gm.accepted_evidence WHERE user_id=$1",[user])).rows[0].n;
+    const replay=AttemptBatchResponseSchema.parse((await post("/v2/guest-attempts:attach",{...guest,requestId:randomUUID()})).body);
+    expect(replay.acknowledgments.map(a=>a.status)).toEqual(["duplicate","duplicate"]);
+    expect((await db.query<{n:number}>("SELECT count(*)::int AS n FROM gm.accepted_evidence WHERE user_id=$1",[user])).rows[0].n).toBe(evidence);
+    const changed={...guest,requestId:randomUUID(),attempts:[{...guest.attempts[0],answer:{type:"short_answer" as const,text:"changed"}}]};
+    expect((await post("/v2/guest-attempts:attach",changed)).body.acknowledgments[0].error.code).toBe("attempt_conflict");
+    const stale={...guest,requestId:randomUUID(),attempts:[{...guest.attempts[0],attemptId:randomUUID(),exerciseRevision:99}]};
+    expect((await post("/v2/guest-attempts:attach",stale)).body.acknowledgments[0].error.code).toBe("revision_unavailable");
+    expect((await post("/v2/guest-attempts:attach",{...guest,evaluation:{outcome:"correct"}})).status).toBe(400);
   });
   it("authenticates subjects and rejects client grades, malformed JSON and unbounded requests", async () => {
     expect((await post("/v2/sessions", request(), "invalid")).status).toBe(401);

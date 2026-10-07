@@ -150,6 +150,24 @@ export const AttemptBatchSchema = z.strictObject({
   attempts: z.array(AttemptSchema).min(1).max(50),
 });
 export type AttemptBatch = z.infer<typeof AttemptBatchSchema>;
+export const GuestAttemptSchema = z.strictObject({
+  attemptId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  exerciseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  exerciseRevision: z.number().int().min(1).max(2147483647),
+  answer: AnswerSchema,
+  assistance: z.array(z.enum(["hint","reveal"])),
+  answeredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+  clientSequence: z.number().int().min(0).max(2147483647),
+});
+export type GuestAttempt = z.infer<typeof GuestAttemptSchema>;
+export const GuestAttachmentRequestSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  attempts: z.array(GuestAttemptSchema).min(1).max(50),
+});
+export type GuestAttachmentRequest = z.infer<typeof GuestAttachmentRequestSchema>;
 export const ApiErrorSchema = z.strictObject({
   code: z.string().min(1),
   message: z.string().min(1),

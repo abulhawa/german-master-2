@@ -1,6 +1,6 @@
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { randomUUID } from "node:crypto";
-import { ProfileRequestSchema, AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
+import { ProfileRequestSchema, GuestAttachmentRequestSchema, AttemptBatchSchema, AttemptBatchResponseSchema, SessionRequestSchema, FocusedSessionRequestSchema, ExposureBatchSchema, ExposureBatchResponseSchema, type ApiError } from "@german-master/contracts";
 import { ApiFailure, FoundationStore } from "./store";
 import { ContentReportRequestSchema } from '@german-master/contracts';
 import { SessionCompletionRequestSchema } from '@german-master/contracts';
@@ -46,7 +46,7 @@ export function createApi(source: FoundationStore | ((verifiedSubject: string) =
       const method = preflight ? request.headers['access-control-request-method'] : request.method;
       const identityRoute=!!identityDeletion && method==='POST' && ['/v2/me/identity-deletion:begin','/v2/me/identity-deletion:status'].includes(request.url??'');
       const completion = /^\/v2\/sessions\/([0-9a-f-]+)\/complete$/i.exec(url.pathname);
-      const isWrite = method === 'POST' && (['/v2/packs', '/v2/sessions', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile', '/v2/content-reports'].includes(request.url ?? '') || (!!completion && !url.search));
+      const isWrite = method === 'POST' && (['/v2/packs', '/v2/sessions', '/v2/guest-attempts:attach', '/v2/attempts:batch', '/v2/exposures:batch', '/v2/profile', '/v2/content-reports'].includes(request.url ?? '') || (!!completion && !url.search));
       const isRead = method === 'GET' && ['/v2/targets', '/v2/sync', '/v2/catalog', '/v2/profile', '/v2/me/export'].includes(url.pathname);
       const isDelete = method === 'DELETE' && url.pathname === '/v2/me' && !url.search;
       if (!isWrite && !isRead && !isDelete && !identityRoute) throw new ApiFailure('not_found', 404);
@@ -120,6 +120,10 @@ export function createApi(source: FoundationStore | ((verifiedSubject: string) =
         const parsed = (input && typeof input === "object" && "focus" in input ? FocusedSessionRequestSchema : SessionRequestSchema).safeParse(input);
         if (!parsed.success) throw new ApiFailure("invalid_request", 400);
         response.end(JSON.stringify(await store.createSession(userId, parsed.data)));
+      } else if (request.url === "/v2/guest-attempts:attach") {
+        const parsed = GuestAttachmentRequestSchema.safeParse(input);
+        if (!parsed.success) throw new ApiFailure("invalid_request", 400);
+        response.end(JSON.stringify(AttemptBatchResponseSchema.parse({apiVersion:"v2",acknowledgments:await store.attachGuest(userId,parsed.data)})));
       } else if (request.url === "/v2/exposures:batch") {
         const parsed = ExposureBatchSchema.safeParse(input);
         if (!parsed.success) throw new ApiFailure("invalid_request", 400);

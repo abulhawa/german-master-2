@@ -7,6 +7,7 @@ import {
   type Answer,
   type Evaluation,
   type Exercise,
+  type GuestAttachmentRequest,
 } from "@german-master/contracts";
 import { answerText } from "../foundation/api";
 import { ExerciseInput, FoundationButton, PracticeCard } from "../foundation/preview";
@@ -14,6 +15,8 @@ import { readyAnswer } from "./storage";
 import { grade, NORMALIZATION_VERSION, type Rubric } from "@german-master/learning-engine";
 
 export const GUEST_STORAGE_KEY = "german-master-v2:guest-starter-v1";
+export const GUEST_ATTACHED_KEY = "german-master-v2:guest-attached-v1";
+export const GUEST_DEVICE_KEY = "german-master-v2:guest-device-v1";
 type Locale = "en" | "de";
 type AuthMode = "sign-in" | "register";
 
@@ -171,6 +174,60 @@ export function guestAttemptCount(): number {
   }
 }
 
+function attachedGuestAttempts(): Record<string, string[]> {
+  try {
+    const raw=window.localStorage.getItem(GUEST_ATTACHED_KEY);
+    if(!raw) return {};
+    const value=JSON.parse(raw) as unknown;
+    if(!value || typeof value!=="object" || Array.isArray(value)) return {};
+    const result:Record<string,string[]>={};
+    for(const [subject,ids] of Object.entries(value)) {
+      if(!z.string().uuid().safeParse(subject).success || !Array.isArray(ids)) continue;
+      const valid=ids.filter((id):id is string=>typeof id==="string"&&z.string().uuid().safeParse(id).success);
+      result[subject]=[...new Set(valid)];
+    }
+    return result;
+  } catch { return {}; }
+}
+function attachedGuestAttemptIds(subject?:string): Set<string> {
+  const markers=attachedGuestAttempts();
+  if(subject) return new Set(markers[subject]??[]);
+  return new Set(Object.values(markers).flat());
+}
+function guestDeviceId(): string {
+  const saved=window.localStorage.getItem(GUEST_DEVICE_KEY);
+  if(saved&&z.string().uuid().safeParse(saved).success) return saved;
+  const created=crypto.randomUUID();window.localStorage.setItem(GUEST_DEVICE_KEY,created);return created;
+}
+export function guestUnattachedAttemptCount(subject?:string): number {
+  try {
+    const raw=window.localStorage.getItem(GUEST_STORAGE_KEY);if(!raw)return 0;
+    const parsed=GuestStateSchema.safeParse(JSON.parse(raw));if(!parsed.success)return 0;
+    const attached=attachedGuestAttemptIds(subject);
+    return parsed.data.attempts.filter(attempt=>!attached.has(attempt.attemptId)).length;
+  } catch { return 0; }
+}
+export function buildGuestAttachmentRequest(subject:string): GuestAttachmentRequest|null {
+  if(!z.string().uuid().safeParse(subject).success) throw Error("Invalid guest attachment subject");
+  const raw=window.localStorage.getItem(GUEST_STORAGE_KEY);if(!raw)return null;
+  const parsed=GuestStateSchema.safeParse(JSON.parse(raw));if(!parsed.success||!parsed.data.session)return null;
+  const attached=attachedGuestAttemptIds(subject);
+  const attempts=parsed.data.attempts.filter(attempt=>!attached.has(attempt.attemptId)).map((attempt,index)=>({
+    attemptId:attempt.attemptId,contentReleaseId:parsed.data.session!.contentReleaseId,exerciseId:attempt.exerciseId,
+    exerciseRevision:attempt.exerciseRevision,answer:attempt.answer,assistance:attempt.evaluation.assisted?["hint" as const]:[],
+    answeredAt:attempt.answeredAt,clientSequence:index,
+  }));
+  if(!attempts.length)return null;
+  return {apiVersion:"v2",requestId:crypto.randomUUID(),deviceId:guestDeviceId(),attempts};
+}
+export function markGuestAttemptsAttached(subject:string,attemptIds:string[]):void {
+  if(!z.string().uuid().safeParse(subject).success) throw Error("Invalid guest attachment subject");
+  const markers=attachedGuestAttempts(),next=new Set(markers[subject]??[]);
+  for(const id of attemptIds)next.add(id);
+  markers[subject]=[...next];
+  window.localStorage.setItem(GUEST_ATTACHED_KEY,JSON.stringify(markers));
+}
+
 const starterRubrics = new Map<string, Rubric>([
   ["30000000-0000-4000-8000-000000000100@1", {
     normalizationVersion: NORMALIZATION_VERSION,
@@ -309,6 +366,7 @@ export function GuestStarterJourney({
   const [view, setView] = useState<"home" | "practice">("home");
   const [closing, setClosing] = useState(false);
   const c = copy[state.locale];
+  const unattachedCount = guestUnattachedAttemptCount();
   const complete = !!state.session && state.index >= state.session.questions.length;
   const active = !!state.session && !complete;
   const question = active ? state.session!.questions[state.index] : null;
@@ -422,7 +480,7 @@ export function GuestStarterJourney({
       <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : c.start}</FoundationButton>
       <FoundationButton className="gm-secondary" disabled={active} onClick={() => commit({ ...state, setupCompleted: false, session: null, index: 0, draft: null, assisted: false, feedback: null })}>{c.setupAgain}</FoundationButton>
     </PracticeCard>
-    {state.attempts.length > 0 && <PracticeCard><h2>{c.saveAcross}</h2><p>{c.saveAcrossBody}</p>
+    {unattachedCount > 0 && <PracticeCard><h2>{c.saveAcross}</h2><p>{c.saveAcrossBody}</p>
       <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
       <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
     </PracticeCard>}
@@ -441,7 +499,7 @@ export function GuestStarterJourney({
       <h1>{state.index >= starterSession.questions.length ? c.complete : c.saved}</h1>
       <p role="status">{state.graded} {c.answered} · {state.skipped} {c.skipped}</p>
       <p>{state.correct} {c.lookCorrect}</p><p>{c.retention}</p>
-      {state.attempts.length > 0 && !state.savePromptDismissed && <div className="gm-feedback">
+      {unattachedCount > 0 && !state.savePromptDismissed && <div className="gm-feedback">
         <h2>{c.keepProgress}</h2><p>{c.keepProgressBody}</p>
         <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
         <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>

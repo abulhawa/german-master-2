@@ -3,24 +3,64 @@
   "$id": "https://german-master.invalid/contracts/v2/schema.json",
   "$defs": {
     "ContentReportRequest": {
-      "type": "object", "additionalProperties": false,
+      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "apiVersion": {"type":"string","const":"v2"},
-        "reportId": {"type":"string","format":"uuid"},
-        "sessionQuestionId": {"type":"string","format":"uuid"},
-        "exerciseRevision": {"type":"integer","minimum":1},
-        "category": {"type":"string","enum":["incorrect_answer","ambiguous_prompt","other"]}
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "reportId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "sessionQuestionId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "incorrect_answer",
+            "ambiguous_prompt",
+            "other"
+          ]
+        }
       },
-      "required": ["apiVersion","reportId","sessionQuestionId","exerciseRevision","category"]
+      "required": [
+        "apiVersion",
+        "reportId",
+        "sessionQuestionId",
+        "exerciseRevision",
+        "category"
+      ]
     },
     "ContentReportReceipt": {
-      "type": "object", "additionalProperties": false,
+      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "apiVersion": {"type":"string","const":"v2"},
-        "reportId": {"type":"string","format":"uuid"},
-        "status": {"type":"string","const":"recorded"}
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "reportId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "const": "recorded"
+        }
       },
-      "required": ["apiVersion","reportId","status"]
+      "required": [
+        "apiVersion",
+        "reportId",
+        "status"
+      ]
     },
     "Option": {
       "type": "object",
@@ -632,6 +672,93 @@
       },
       "required": [
         "apiVersion",
+        "attempts"
+      ]
+    },
+    "GuestAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentReleaseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "answer": {
+          "$ref": "#/$defs/Answer"
+        },
+        "assistance": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hint",
+              "reveal"
+            ]
+          }
+        },
+        "answeredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "clientSequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "attemptId",
+        "contentReleaseId",
+        "exerciseId",
+        "exerciseRevision",
+        "answer",
+        "assistance",
+        "answeredAt",
+        "clientSequence"
+      ]
+    },
+    "GuestAttachmentRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "deviceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GuestAttempt"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "deviceId",
         "attempts"
       ]
     },
@@ -1372,7 +1499,10 @@
         },
         "status": {
           "type": "string",
-          "enum": ["unpublished_local_draft", "published"]
+          "enum": [
+            "unpublished_local_draft",
+            "published"
+          ]
         },
         "topics": {
           "type": "array",
@@ -1486,8 +1616,7 @@
         "expectedRevision",
         "preferences"
       ]
-    }
-,
+    },
     "SessionCompletionRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -1569,8 +1698,7 @@
         "correctCount",
         "completedAt"
       ]
-    }
-,
+    },
     "OfflineRubric": {
       "type": "object",
       "additionalProperties": false,

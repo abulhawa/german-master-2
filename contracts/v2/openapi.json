@@ -273,6 +273,89 @@
         }
       ]
     },
+    "/v2/guest-attempts:attach": {
+      "post": {
+        "operationId": "attachGuestAttempts",
+        "description": "Explicitly attach local guest attempts after authentication. The server validates published immutable release/exercise revisions, creates owned questions only for valid items, grades again server-side, and uses attemptId for replay safety. Invalid or stale revisions are returned as item-level rejections and remain local.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuestAttachmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttemptBatchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Ownership failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Idempotency or capability conflict; captured subject mismatch (account_changed)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/LearnerSubject"
+        }
+      ]
+    },
     "/v2/attempts:batch": {
       "post": {
         "operationId": "submitAttempts",
@@ -805,6 +888,9 @@
       },
       "Catalog": {
         "$ref": "./schema.json#/$defs/Catalog"
+      },
+      "GuestAttachmentRequest": {
+        "$ref": "./schema.json#/$defs/GuestAttachmentRequest"
       }
     },
     "parameters": {

@@ -332,6 +332,47 @@ data class AttemptBatch(
 }
 
 @Serializable
+data class GuestAttempt(
+    val attemptId: String,
+    val contentReleaseId: String,
+    val exerciseId: String,
+    val exerciseRevision: Int,
+    val answer: Answer,
+    val assistance: List<String>,
+    val answeredAt: String,
+    val clientSequence: Int
+) {
+    init {
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(attemptId)) { "Invalid GuestAttempt.attemptId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid GuestAttempt.contentReleaseId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(exerciseId)) { "Invalid GuestAttempt.exerciseId" }
+        require(exerciseRevision >= 1) { "Invalid GuestAttempt.exerciseRevision" }
+        require(exerciseRevision <= 2147483647) { "Invalid GuestAttempt.exerciseRevision" }
+        require(assistance.all { it in setOf("hint", "reveal") }) { "Invalid GuestAttempt.assistance" }
+        require(Regex("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$").matches(answeredAt)) { "Invalid GuestAttempt.answeredAt" }
+        require(runCatching { java.time.Instant.parse(answeredAt).toString() == answeredAt.replace(".000Z", "Z") }.getOrDefault(false)) { "Invalid GuestAttempt.answeredAt" }
+        require(clientSequence >= 0) { "Invalid GuestAttempt.clientSequence" }
+        require(clientSequence <= 2147483647) { "Invalid GuestAttempt.clientSequence" }
+    }
+}
+
+@Serializable
+data class GuestAttachmentRequest(
+    val apiVersion: String,
+    val requestId: String,
+    val deviceId: String,
+    val attempts: List<GuestAttempt>
+) {
+    init {
+        require(apiVersion == "v2") { "Invalid GuestAttachmentRequest.apiVersion" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid GuestAttachmentRequest.requestId" }
+        require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid GuestAttachmentRequest.deviceId" }
+        require(attempts.size >= 1) { "Invalid GuestAttachmentRequest.attempts" }
+        require(attempts.size <= 50) { "Invalid GuestAttachmentRequest.attempts" }
+    }
+}
+
+@Serializable
 data class ApiError(
     val code: String,
     val message: String,
@@ -1007,6 +1048,8 @@ object ContractShape {
     fun checkSession(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "id", "contentReleaseId", "questions")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("id") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("questions") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkQuestion(item) } } } }
     fun checkAttempt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("attemptId", "sessionQuestionId", "exerciseRevision", "deviceId", "answer", "assistance", "answeredAt", "clientSequence")); run { val p = o.getValue("attemptId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("sessionQuestionId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val p = o.getValue("deviceId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkAnswer(o.getValue("answer")); run { val a = o.getValue("assistance") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }; run { val p = o.getValue("answeredAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("clientSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
     fun checkAttemptBatch(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "attempts")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("attempts") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkAttempt(item) } } } }
+    fun checkGuestAttempt(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("attemptId", "contentReleaseId", "exerciseId", "exerciseRevision", "answer", "assistance", "answeredAt", "clientSequence")); run { val p = o.getValue("attemptId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("contentReleaseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("exerciseRevision") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; checkAnswer(o.getValue("answer")); run { val a = o.getValue("assistance") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } }; run { val p = o.getValue("answeredAt") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("clientSequence") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) } } }
+    fun checkGuestAttachmentRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "deviceId", "attempts")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("deviceId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val a = o.getValue("attempts") as? JsonArray ?: error("Expected array"); a.forEach { item -> checkGuestAttempt(item) } } } }
     fun checkApiError(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("code", "message", "requestId", "retryable")); run { val p = o.getValue("code") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("message") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("retryable") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) } } }
     fun checkSessionRequest(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("apiVersion", "requestId", "questionCount", "capabilities")); run { val p = o.getValue("apiVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("requestId") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("questionCount") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.intOrNull != null) }; run { val a = o.getValue("capabilities") as? JsonArray ?: error("Expected array"); a.forEach { item -> run { val p = item as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) } } } } }
     fun checkEvaluation(element: JsonElement): Unit { run { val o = element as? JsonObject ?: error("Expected object"); require(o.keys == setOf("outcome", "policyVersion", "explanation", "acceptedAnswer", "assisted")); run { val p = o.getValue("outcome") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; run { val p = o.getValue("policyVersion") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && p.isString) }; checkLocalizedText(o.getValue("explanation")); checkAnswer(o.getValue("acceptedAnswer")); run { val p = o.getValue("assisted") as? JsonPrimitive ?: error("Expected primitive"); require(p !is JsonNull && !p.isString && p.booleanOrNull != null) } } }

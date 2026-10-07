@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { GuestStarterJourney, GUEST_STORAGE_KEY, guestAttemptCount } from "./guest-starter";
+import { GuestStarterJourney, GUEST_STORAGE_KEY, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from "./guest-starter";
 
 afterEach(() => {
   cleanup();
@@ -51,6 +51,24 @@ it("keeps sign-in optional before the first exercise", () => {
   fireEvent.click(screen.getByRole("button", { name: "I already have an account" }));
   expect(onAuth).toHaveBeenCalledWith("sign-in");
   expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBeNull();
+});
+
+it("builds account-scoped replay-safe attachment data without trusting the local evaluation", () => {
+  const subject="00000000-0000-4000-8000-000000000020";
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("button", { name: "Hint" }));
+  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  const request=buildGuestAttachmentRequest(subject);
+  expect(request?.attempts).toHaveLength(1);
+  expect(request?.attempts[0]).toMatchObject({exerciseRevision:1,answer:{type:"short_answer",text:"Berufe"},assistance:["hint"]});
+  expect(request?.attempts[0]).not.toHaveProperty("evaluation");
+  expect(guestUnattachedAttemptCount(subject)).toBe(1);
+  markGuestAttemptsAttached(subject,[request!.attempts[0].attemptId]);
+  expect(guestUnattachedAttemptCount(subject)).toBe(0);
+  expect(guestUnattachedAttemptCount("00000000-0000-4000-8000-000000000021")).toBe(1);
+  expect(buildGuestAttachmentRequest(subject)).toBeNull();
 });
 
 it("preserves a damaged guest record until the learner explicitly resets it", () => {
