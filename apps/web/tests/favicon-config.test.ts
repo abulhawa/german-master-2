@@ -8,12 +8,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 describe("favicon configuration", () => {
-  it("wires a browser tab icon in client/index.html", () => {
-    const indexPath = path.resolve(__dirname, "..", "client", "index.html");
+  it.each(['client', 'learner-product'])("wires usable browser icons in %s/index.html", (entry) => {
+    const indexPath = path.resolve(__dirname, "..", entry, "index.html");
     const indexHtml = readFileSync(indexPath, "utf8");
 
     expect(indexHtml).toContain('rel="icon"');
-    expect(indexHtml).toContain('href="/favicon.png"');
+    expect(indexHtml).toMatch(/href="\/favicon\.png(?:\?[^\"]*)?"/);
+    expect(indexHtml).toMatch(/href="\/favicon\.svg(?:\?[^\"]*)?"/);
+    expect(existsSync(path.resolve(__dirname, '..', entry, 'public', 'favicon.svg'))).toBe(true);
+  });
+
+  it('ships the production install icons at their declared dimensions', () => {
+    const base=path.resolve(__dirname, '..', 'learner-product', 'public');
+    const manifest=JSON.parse(readFileSync(path.join(base,'manifest.webmanifest'),'utf8'));
+    expect(manifest.id).toBe('/');
+    expect(manifest.icons.some((icon:{purpose:string})=>icon.purpose==='maskable')).toBe(true);
+    for(const icon of manifest.icons) {
+      const bytes=readFileSync(path.join(base,icon.src));
+      expect(bytes.subarray(1,4).toString()).toBe('PNG');
+      expect(`${bytes.readUInt32BE(16)}x${bytes.readUInt32BE(20)}`).toBe(icon.sizes);
+    }
   });
 
   it("ships the favicon asset in public/", () => {

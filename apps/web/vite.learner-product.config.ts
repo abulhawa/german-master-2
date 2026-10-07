@@ -6,11 +6,10 @@ import { fileURLToPath } from 'node:url';
 const fromHere=(relative:string)=>fileURLToPath(new URL(relative,import.meta.url));
 // Separate artifact; deployment selection and cutover still require authorization.
 export default defineConfig({
-  root:fromHere('./learner-product'),base:'/',publicDir:false,
+  root:fromHere('./learner-product'),base:'/',publicDir:fromHere('./learner-product/public'),
   plugins:[react(),VitePWA({scope:'/',registerType:'prompt',injectRegister:false,manifest:false,
-    workbox:{cacheId:'german-master-v2-product-shell',globPatterns:['**/*.{js,css,html}'],
-      navigateFallback:'/index.html',navigateFallbackDenylist:[/^\/v2(?:\/|$)/,/^\/api(?:\/|$)/],
-      cleanupOutdatedCaches:false,runtimeCaching:[],skipWaiting:false,clientsClaim:false}})],
+    strategies:'injectManifest',srcDir:'.',filename:'sw.ts',
+    injectManifest:{globPatterns:['**/*.{js,css,html,svg,png,webmanifest}']}})],
   resolve:{alias:{'@':fromHere('./client/src')}},
   build:{outDir:fromHere('./dist/learner-product'),emptyOutDir:true},
   preview:{host:'127.0.0.1',port:5012,strictPort:true},

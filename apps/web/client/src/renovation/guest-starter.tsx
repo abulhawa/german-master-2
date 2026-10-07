@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Infinity as Loop } from 'lucide-react';
+import { AppMark } from './app-mark';
 import './workspace.css';
 import { StudyArt } from './study-art';
 import { shellCopy } from './shell-locales';
@@ -459,7 +459,7 @@ export function GuestStarterJourney({
   </PracticeCard></div></main>;
 
   if (!state.setupCompleted) return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master<span>.</span></strong></div>
+    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
       <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
     </header>
     <div className="gm-welcome-layout"><div className="gm-welcome-copy">
@@ -474,7 +474,7 @@ export function GuestStarterJourney({
   </div></main>;
 
   if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
+    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
     <PracticeCard>
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}

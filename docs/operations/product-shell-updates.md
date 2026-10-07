@@ -1,0 +1,11 @@
+# Production app shell updates
+
+An existing browser could keep rendering the historical full-viewport sign-in wrapper even while Vercel served the new design. The previous product worker used a precached navigation fallback and left new workers waiting, while the application had no update prompt. Closing every site tab activated the waiting worker, but normal refresh could still show the old shell beforehand.
+
+The product now uses an explicit Workbox worker. Its navigation route is registered before the precache route and uses NetworkFirst with a three-second network timeout. Online refresh obtains current HTML; disconnected navigation falls back to its owned navigation cache or precached `/index.html`. API paths (`/v2`, `/api`) are excluded. Hashed assets, icons and the manifest are precached.
+
+The worker requests activation on install. It neither calls `clients.claim()` nor navigates/reloads documents, so an open exercise is not forcibly replaced. It does not delete IndexedDB, localStorage, account bindings, drafts, outboxes or unrelated caches. The next navigation uses the active worker. Production root/index HTML revalidate; `/sw.js` is served with no-cache/no-store headers. The isolated fixture preview retains its existing waiting-update behavior.
+
+Local integrated-browser runtime evidence: loaded the production artifact without production configuration; reloaded to establish worker control; changed only the ignored built HTML title; another reload displayed the changed title rather than the precached one. After stopping the local HTTP server, reload still displayed the updated cached HTML and icon link. Restored the ignored artifact afterward. The fail-closed configuration message was expected in this shell-only check; it is not authenticated offline acceptance. Full existing fixture offline acceptance remains separate.
+
+This corrects update delivery; it cannot rewrite JavaScript already executing in an old page. Existing users may need to refresh after the new worker has installed. No saved-work reset is required.

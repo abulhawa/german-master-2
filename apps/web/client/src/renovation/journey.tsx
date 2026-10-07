@@ -8,7 +8,8 @@ import { shellCopy } from './shell-locales';
 import { providerCopy } from './provider-locales';
 import './workspace.css';
 import { StudyArt } from './study-art';
-import { Home, ChartNoAxesColumn, BookOpen, UserRound, Infinity as Loop, ArrowRight, RefreshCw } from 'lucide-react';
+import { AppMark } from './app-mark';
+import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, RefreshCw } from 'lucide-react';
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
 
@@ -289,7 +290,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
 
   return <main className={`gm-foundation gm-workspace ${view === 'practice' ? 'gm-focused' : ''}`} data-theme={state.theme} lang={state.locale}>
     {view !== 'practice' && <aside className="gm-rail">
-      <div className="gm-wordmark"><Loop aria-hidden="true"/><strong>German Master<span>.</span></strong></div>
+      <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
