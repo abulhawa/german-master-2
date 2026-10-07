@@ -358,7 +358,7 @@ try {
   const home = await auditView(page, 'home');
   const homeAria = await page.locator('main').ariaSnapshot();
   assert.match(homeAria, /navigation/);
-  assert.match(homeAria, /heading "Ready to practise?"/);
+  assert.match(homeAria, /heading "Ready to practise\\?"/);
   await assertTwoHundredPercentText(page, 'home');
 
   await tabToButton(page, 'Topics');
