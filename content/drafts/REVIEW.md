@@ -14,7 +14,7 @@ Choose the standard plural of der Antrag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: b66c8328feeb029f9daa541256e22d9715c46ec0e4136a7ff6e03994cd255f27
+Content SHA-256 for sign-off: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -28,20 +28,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001000",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000000",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „der Antrag“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „der Antrag“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Antrage",
@@ -88,20 +88,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001001",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000000",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Anträgen",
@@ -146,7 +146,7 @@ Choose the standard plural of die Rechnung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 68b5735b38d5eaaa896dbeeee1c2b66a110efa842e062a748c089f62a17a30c9
+Content SHA-256 for sign-off: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -160,20 +160,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001002",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000001",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „die Rechnung“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „die Rechnung“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Rechnungen",
@@ -220,20 +220,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001003",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000001",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Rechnungs",
@@ -278,7 +278,7 @@ Choose the standard plural of der Termin.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: ca5c36de90da2277d003d8729987d3f7f747ef93ba855b0038966361fa707747
+Content SHA-256 for sign-off: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -292,20 +292,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001004",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000002",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „der Termin“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „der Termin“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Terminen",
@@ -352,20 +352,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001005",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000002",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Termin",
@@ -410,7 +410,7 @@ Choose the standard plural of das Gespräch.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: f860ffe97fd3c58d8886ed713fc5f744bc9edc62107e725f0a85c80e60ddebfd
+Content SHA-256 for sign-off: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -424,20 +424,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001006",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000003",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „das Gespräch“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „das Gespräch“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Gesprächs",
@@ -484,20 +484,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001007",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000003",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Gespräche",
@@ -542,7 +542,7 @@ Choose the standard plural of der Vertrag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 27d50a05c9927634d8a7c6b535659d2c5e0be39bad57f15def0cc79823d60896
+Content SHA-256 for sign-off: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -556,20 +556,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001008",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000004",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „der Vertrag“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „der Vertrag“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Verträgen",
@@ -616,20 +616,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001009",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000004",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Vertrags",
@@ -674,7 +674,7 @@ Choose the standard plural of die Erfahrung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 00622719b7ca46ffb8fb42a667f44617b7f46bb9e57f1303715c7c1b895aadd3
+Content SHA-256 for sign-off: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -688,20 +688,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001010",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000005",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „die Erfahrung“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „die Erfahrung“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Erfahrung",
@@ -748,20 +748,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001011",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000005",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Erfahrungen",
@@ -806,7 +806,7 @@ Choose the standard plural of das Angebot.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 5f6854ec49be76d947e413bd67f44450e98a16fdae570b98d1943f12458ceb71
+Content SHA-256 for sign-off: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -820,20 +820,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001012",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000006",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „das Angebot“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „das Angebot“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Angebots",
@@ -880,20 +880,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001013",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000006",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Angeboten",
@@ -938,7 +938,7 @@ Choose the standard plural of die Entscheidung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: c98d5f9d521243baf0284b1a718ba8cda0e2db57fe1ebad1244fbdc1b48dbb23
+Content SHA-256 for sign-off: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -952,20 +952,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001014",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000007",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „die Entscheidung“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „die Entscheidung“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Entscheidung",
@@ -1012,20 +1012,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001015",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000007",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Entscheidungen",
@@ -1070,7 +1070,7 @@ Choose the standard plural of die Voraussetzung.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: f7838e0e47a6baa32161fa61de88802ac9fbf445be0d3c6825efd95fe6965280
+Content SHA-256 for sign-off: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1084,20 +1084,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001016",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000008",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „die Voraussetzung“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „die Voraussetzung“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Voraussetzunge",
@@ -1144,20 +1144,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001017",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000008",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Voraussetzungs",
@@ -1202,7 +1202,7 @@ Choose the standard plural of der Vorschlag.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: fe3c4e11387aa4dcd4ef1c296533233f4cd52e9bd34256492bd16603a132a02a
+Content SHA-256 for sign-off: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1216,20 +1216,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001018",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000009",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Was ist der Plural von „der Vorschlag“?",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Was ist der Plural von „der Vorschlag“?",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Vorschlage",
@@ -1276,20 +1276,20 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001019",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000009",
-  "hint": {
-    "en": "Think about the plural ending and whether the stem vowel changes.",
-    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
-  },
+  "prompt": "Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)",
   "instruction": {
     "en": "Choose the standard plural form. Watch the ending and any umlaut.",
     "de": "Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut."
   },
-  "type": "choice",
-  "prompt": "Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)",
+  "hint": {
+    "en": "Think about the plural ending and whether the stem vowel changes.",
+    "de": "Überlege, welche Pluralendung das Nomen bekommt und ob sich der Stammvokal ändert."
+  },
   "options": [
     {
       "id": "Vorschläge",
@@ -1334,7 +1334,7 @@ Choose the definite singular article after mit, using the dative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: d3c18ccc496dbb4dddea2fb1a8e9dc8dd6abf89a1c9f19ea60d61158bc900ee5
+Content SHA-256 for sign-off: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1348,20 +1348,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001020",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000010",
-  "hint": {
-    "en": "mit always takes the dative. Match the article to the noun’s gender.",
-    "de": "„mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Ich bespreche die Ergebnisse mit ___ Arzt. (der Arzt)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “mit”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Ich bespreche die Ergebnisse mit ___ Arzt. (der Arzt)",
+  "hint": {
+    "en": "mit always takes the dative. Match the article to the noun’s gender.",
+    "de": "„mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1412,20 +1412,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001021",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000010",
-  "hint": {
-    "en": "mit always takes the dative. Match the article to the noun’s gender.",
-    "de": "„mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Morgen fahre ich mit ___ Zug nach Hamburg. (der Zug)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “mit”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Morgen fahre ich mit ___ Zug nach Hamburg. (der Zug)",
+  "hint": {
+    "en": "mit always takes the dative. Match the article to the noun’s gender.",
+    "de": "„mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1474,7 +1474,7 @@ Choose the definite singular article after bei, using the dative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: c751edccde68df60c5deb2c90359f807e2c9684c74d9ea90173d613d0b98bd73
+Content SHA-256 for sign-off: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1488,20 +1488,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001022",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000011",
-  "hint": {
-    "en": "bei always takes the dative. Match the article to the noun’s gender.",
-    "de": "„bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Wegen der Schmerzen bin ich heute bei ___ Ärztin. (die Ärztin)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “bei”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Wegen der Schmerzen bin ich heute bei ___ Ärztin. (die Ärztin)",
+  "hint": {
+    "en": "bei always takes the dative. Match the article to the noun’s gender.",
+    "de": "„bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1552,20 +1552,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001023",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000011",
-  "hint": {
-    "en": "bei always takes the dative. Match the article to the noun’s gender.",
-    "de": "„bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Wir brauchen Hilfe bei ___ Vorbereitung der Präsentation. (die Vorbereitung)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “bei”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Wir brauchen Hilfe bei ___ Vorbereitung der Präsentation. (die Vorbereitung)",
+  "hint": {
+    "en": "bei always takes the dative. Match the article to the noun’s gender.",
+    "de": "„bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1614,7 +1614,7 @@ Choose the definite singular article after für, using the accusative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 6a867f0e7b0d7718cd484180e2a4989bfe2c48489277f7f268d187864a9dd5b9
+Content SHA-256 for sign-off: d0818e9e9d5ec193a64d73552165a6d2aa179256bf95e95ab8cdcaf16253b614
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1628,20 +1628,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001024",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000012",
-  "hint": {
-    "en": "für always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Dieses Formular ist für ___ Kunden am Schalter. (der Kunde, Singular)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “für”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Dieses Formular ist für ___ Kunden am Schalter. (der Kunde, Singular)",
+  "hint": {
+    "en": "für always takes the accusative. Match the article to the noun’s gender.",
+    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1692,20 +1692,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001025",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000012",
-  "hint": {
-    "en": "für always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Ich buche den Raum für ___ Kurs am Abend. (der Kurs)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “für”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Ich buche den Raum für ___ Kurs am Abend. (der Kurs)",
+  "hint": {
+    "en": "für always takes the accusative. Match the article to the noun’s gender.",
+    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1754,7 +1754,7 @@ Choose the definite singular article after ohne, using the accusative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 9e82809c18ea93e006b26a4d45d380e3b2966517290230014cf720969d9d779e
+Content SHA-256 for sign-off: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1768,20 +1768,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen pas
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001026",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000013",
-  "hint": {
-    "en": "ohne always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Sie geht nie ohne ___ Tasche aus dem Haus. (die Tasche)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “ohne”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Sie geht nie ohne ___ Tasche aus dem Haus. (die Tasche)",
+  "hint": {
+    "en": "ohne always takes the accusative. Match the article to the noun’s gender.",
+    "de": "„ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1832,20 +1832,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen pas
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001027",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000013",
-  "hint": {
-    "en": "ohne always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Wir dürfen das nicht ohne ___ Zustimmung veröffentlichen. (die Zustimmung)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “ohne”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Wir dürfen das nicht ohne ___ Zustimmung veröffentlichen. (die Zustimmung)",
+  "hint": {
+    "en": "ohne always takes the accusative. Match the article to the noun’s gender.",
+    "de": "„ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1894,7 +1894,7 @@ Choose the definite singular article after aus, using the dative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 54f52cd7c725d35435cc4381922153e76489140a099d5803f9323d99e765e439
+Content SHA-256 for sign-off: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1908,20 +1908,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001028",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000014",
-  "hint": {
-    "en": "aus always takes the dative. Match the article to the noun’s gender.",
-    "de": "„aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Die Unterlagen kommen aus ___ Büro im Erdgeschoss. (das Büro)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “aus”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Die Unterlagen kommen aus ___ Büro im Erdgeschoss. (das Büro)",
+  "hint": {
+    "en": "aus always takes the dative. Match the article to the noun’s gender.",
+    "de": "„aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -1972,20 +1972,20 @@ Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen pass
 
 ```json
 {
+  "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001029",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000014",
-  "hint": {
-    "en": "aus always takes the dative. Match the article to the noun’s gender.",
-    "de": "„aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
-  },
+  "prompt": "Wir hören Musik aus ___ Haus nebenan. (das Haus)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “aus”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen passt."
   },
-  "type": "choice",
-  "prompt": "Wir hören Musik aus ___ Haus nebenan. (das Haus)",
+  "hint": {
+    "en": "aus always takes the dative. Match the article to the noun’s gender.",
+    "de": "„aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nomens an."
+  },
   "options": [
     {
       "id": "der",
@@ -2034,7 +2034,7 @@ Choose the weak adjective ending after der in masculine nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: c20c8689427c94627f3d1cdc19460394693a0bbce35d19c7c99537b5389baa86
+Content SHA-256 for sign-off: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2048,20 +2048,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001030",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000015",
-  "hint": {
-    "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Der neu___ Kollege beginnt heute.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Der neu___ Kollege beginnt heute.",
+  "hint": {
+    "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2123,20 +2123,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001031",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000015",
-  "hint": {
-    "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Der freundlich___ Kunde wartet am Empfang.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Der freundlich___ Kunde wartet am Empfang.",
+  "hint": {
+    "en": "The definite article already marks masculine nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2196,7 +2196,7 @@ Choose the weak adjective ending after die in feminine nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: d5ced07c05c428df1edab88802ee5413a13b9e04915a4a7477a13228dba314da
+Content SHA-256 for sign-off: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2210,20 +2210,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001032",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000016",
-  "hint": {
-    "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Die neu___ Kollegin arbeitet im Vertrieb.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Die neu___ Kollegin arbeitet im Vertrieb.",
+  "hint": {
+    "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2285,20 +2285,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001033",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000016",
-  "hint": {
-    "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Die wichtig___ Frage bleibt offen.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Die wichtig___ Frage bleibt offen.",
+  "hint": {
+    "en": "The definite article already marks feminine nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2358,7 +2358,7 @@ Choose the weak adjective ending after das in neuter nominative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: eab8205faa06d9dcb3b115b50c502901ccc016143ab416a01a9c0d00ac78e0df
+Content SHA-256 for sign-off: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2372,20 +2372,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001034",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000017",
-  "hint": {
-    "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Das klein___ Büro ist frei.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Das klein___ Büro ist frei.",
+  "hint": {
+    "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2447,20 +2447,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001035",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000017",
-  "hint": {
-    "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
-    "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
-  },
+  "prompt": "Das neu___ Gerät funktioniert gut.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Das neu___ Gerät funktioniert gut.",
+  "hint": {
+    "en": "The definite article already marks neuter nominative, so the adjective uses the weak pattern.",
+    "de": "Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv folgt deshalb der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2520,7 +2520,7 @@ Choose the weak adjective ending after den in masculine accusative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 358b7486d216002893d6f99c30dc19f2e76041adc3fe256b42fe576bcfbe95ae
+Content SHA-256 for sign-off: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2534,20 +2534,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001036",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000018",
-  "hint": {
-    "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
-    "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
-  },
+  "prompt": "Ich sehe den neu___ Kollegen.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Ich sehe den neu___ Kollegen.",
+  "hint": {
+    "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
+    "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2609,20 +2609,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001037",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000018",
-  "hint": {
-    "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
-    "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
-  },
+  "prompt": "Wir begrüßen den wichtig___ Kunden.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Wir begrüßen den wichtig___ Kunden.",
+  "hint": {
+    "en": "After a definite article in masculine accusative, use the weak adjective pattern.",
+    "de": "Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv der schwachen Deklination."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2682,7 +2682,7 @@ Choose the weak adjective ending after a definite article in the dative.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: a46529d476bcb94f3c32700af9c8d49bf86d570a4c337cb96d555d6e2bd3fc5a
+Content SHA-256 for sign-off: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2696,20 +2696,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001038",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000019",
-  "hint": {
-    "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
-    "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
-  },
+  "prompt": "Ich spreche mit dem nett___ Kollegen.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Ich spreche mit dem nett___ Kollegen.",
+  "hint": {
+    "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
+    "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2771,20 +2771,20 @@ Wähle die fehlende Adjektivendung.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001039",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000019",
-  "hint": {
-    "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
-    "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
-  },
+  "prompt": "Sie arbeitet mit der erfahren___ Ärztin.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
   },
-  "type": "gap_choice",
-  "prompt": "Sie arbeitet mit der erfahren___ Ärztin.",
+  "hint": {
+    "en": "After a definite article in the dative, weak adjectives use the same ending across these genders.",
+    "de": "Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive in diesen Genera dieselbe Endung."
+  },
   "slots": [
     {
       "id": "ending",
@@ -2844,7 +2844,7 @@ Choose the second- and third-person singular present forms of fahren.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: dce83cf7b569f48f83da54c24176b6aa2d7bc68709ac2764e4011eb35b039513
+Content SHA-256 for sign-off: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -2858,20 +2858,20 @@ Wähle beide Präsensformen von „fahren“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001040",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000020",
-  "hint": {
-    "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
-    "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
-  },
+  "prompt": "Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.",
   "instruction": {
     "en": "Choose both present-tense forms of fahren.",
     "de": "Wähle beide Präsensformen von „fahren“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.",
+  "hint": {
+    "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
+    "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
+  },
   "slots": [
     {
       "id": "du",
@@ -2955,20 +2955,20 @@ Wähle beide Präsensformen von „fahren“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001041",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000020",
-  "hint": {
-    "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
-    "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
-  },
+  "prompt": "Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.",
   "instruction": {
     "en": "Choose both present-tense forms of fahren.",
     "de": "Wähle beide Präsensformen von „fahren“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.",
+  "hint": {
+    "en": "In the du and er forms of fahren, the stem vowel a changes to ä.",
+    "de": "Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvokal a zu ä."
+  },
   "slots": [
     {
       "id": "du",
@@ -3050,7 +3050,7 @@ Choose the second- and third-person singular present forms of lesen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 21f69d106b31d2f45edafd53b34dfabda362b9939d558a11b514044b0e280685
+Content SHA-256 for sign-off: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -3064,20 +3064,20 @@ Wähle beide Präsensformen von „lesen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001042",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000021",
-  "hint": {
-    "en": "In the du and er forms of lesen, e changes to ie.",
-    "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
-  },
+  "prompt": "Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.",
   "instruction": {
     "en": "Choose both present-tense forms of lesen.",
     "de": "Wähle beide Präsensformen von „lesen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.",
+  "hint": {
+    "en": "In the du and er forms of lesen, e changes to ie.",
+    "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
+  },
   "slots": [
     {
       "id": "du",
@@ -3161,20 +3161,20 @@ Wähle beide Präsensformen von „lesen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001043",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000021",
-  "hint": {
-    "en": "In the du and er forms of lesen, e changes to ie.",
-    "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
-  },
+  "prompt": "Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.",
   "instruction": {
     "en": "Choose both present-tense forms of lesen.",
     "de": "Wähle beide Präsensformen von „lesen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.",
+  "hint": {
+    "en": "In the du and er forms of lesen, e changes to ie.",
+    "de": "Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie."
+  },
   "slots": [
     {
       "id": "du",
@@ -3256,7 +3256,7 @@ Choose the second- and third-person singular present forms of geben.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 780efb24a230d975f496303a75ccd71f9272c6b6d728e4d292b82ce935b3e59d
+Content SHA-256 for sign-off: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -3270,20 +3270,20 @@ Wähle beide Präsensformen von „geben“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001044",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000022",
-  "hint": {
-    "en": "In the du and er forms of geben, e changes to i.",
-    "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
-  },
+  "prompt": "Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.",
   "instruction": {
     "en": "Choose both present-tense forms of geben.",
     "de": "Wähle beide Präsensformen von „geben“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.",
+  "hint": {
+    "en": "In the du and er forms of geben, e changes to i.",
+    "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
+  },
   "slots": [
     {
       "id": "du",
@@ -3367,20 +3367,20 @@ Wähle beide Präsensformen von „geben“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001045",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000022",
-  "hint": {
-    "en": "In the du and er forms of geben, e changes to i.",
-    "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
-  },
+  "prompt": "Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.",
   "instruction": {
     "en": "Choose both present-tense forms of geben.",
     "de": "Wähle beide Präsensformen von „geben“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.",
+  "hint": {
+    "en": "In the du and er forms of geben, e changes to i.",
+    "de": "Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i."
+  },
   "slots": [
     {
       "id": "du",
@@ -3462,7 +3462,7 @@ Choose the second- and third-person singular present forms of nehmen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 91f6b05b5e1b5e6d8043c1cd53189e4ae451369fdc99c9f69bd40e0a86ca415c
+Content SHA-256 for sign-off: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -3476,20 +3476,20 @@ Wähle beide Präsensformen von „nehmen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001046",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000023",
-  "hint": {
-    "en": "The du and er forms use the irregular stem nimm-.",
-    "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
-  },
+  "prompt": "Du ___ morgens den Bus. Er ___ lieber das Fahrrad.",
   "instruction": {
     "en": "Choose both present-tense forms of nehmen.",
     "de": "Wähle beide Präsensformen von „nehmen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ morgens den Bus. Er ___ lieber das Fahrrad.",
+  "hint": {
+    "en": "The du and er forms use the irregular stem nimm-.",
+    "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
+  },
   "slots": [
     {
       "id": "du",
@@ -3573,20 +3573,20 @@ Wähle beide Präsensformen von „nehmen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001047",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000023",
-  "hint": {
-    "en": "The du and er forms use the irregular stem nimm-.",
-    "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
-  },
+  "prompt": "Du ___ noch einen Kaffee. Er ___ die letzte Tablette.",
   "instruction": {
     "en": "Choose both present-tense forms of nehmen.",
     "de": "Wähle beide Präsensformen von „nehmen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ noch einen Kaffee. Er ___ die letzte Tablette.",
+  "hint": {
+    "en": "The du and er forms use the irregular stem nimm-.",
+    "de": "Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm „nimm-“."
+  },
   "slots": [
     {
       "id": "du",
@@ -3668,7 +3668,7 @@ Choose the second- and third-person singular present forms of sprechen.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: cdee8598243fb3f7f13c8f64d1e64759b3e9bcf386c85837a14ea09bdf644f63
+Content SHA-256 for sign-off: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -3682,20 +3682,20 @@ Wähle beide Präsensformen von „sprechen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001048",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000024",
-  "hint": {
-    "en": "In the du and er forms of sprechen, e changes to i.",
-    "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
-  },
+  "prompt": "Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.",
   "instruction": {
     "en": "Choose both present-tense forms of sprechen.",
     "de": "Wähle beide Präsensformen von „sprechen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.",
+  "hint": {
+    "en": "In the du and er forms of sprechen, e changes to i.",
+    "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
+  },
   "slots": [
     {
       "id": "du",
@@ -3779,20 +3779,20 @@ Wähle beide Präsensformen von „sprechen“.
 
 ```json
 {
+  "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001049",
   "revision": 2,
   "targetId": "10000000-0000-4000-8000-000000000024",
-  "hint": {
-    "en": "In the du and er forms of sprechen, e changes to i.",
-    "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
-  },
+  "prompt": "Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.",
   "instruction": {
     "en": "Choose both present-tense forms of sprechen.",
     "de": "Wähle beide Präsensformen von „sprechen“."
   },
-  "type": "gap_choice",
-  "prompt": "Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.",
+  "hint": {
+    "en": "In the du and er forms of sprechen, e changes to i.",
+    "de": "Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i."
+  },
   "slots": [
     {
       "id": "du",
@@ -3874,7 +3874,7 @@ Place the finite verb at the end of a subordinate clause introduced by weil.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 1834e08db5914e8c8fe246107f8df7b71d1242671dc6612aa464245bd4d0c5d9
+Content SHA-256 for sign-off: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -3888,20 +3888,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001050",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000025",
-  "hint": {
-    "en": "After weil, the finite verb belongs at the end of the clause.",
-    "de": "Nach „weil“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "arbeite / weil / heute / ich",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "arbeite / weil / heute / ich",
+  "hint": {
+    "en": "After weil, the finite verb belongs at the end of the clause.",
+    "de": "Nach „weil“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -3953,20 +3953,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001051",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000025",
-  "hint": {
-    "en": "After weil, the finite verb belongs at the end of the clause.",
-    "de": "Nach „weil“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "braucht / weil / Hilfe / sie",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "braucht / weil / Hilfe / sie",
+  "hint": {
+    "en": "After weil, the finite verb belongs at the end of the clause.",
+    "de": "Nach „weil“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4016,7 +4016,7 @@ Place the finite verb at the end of a subordinate clause introduced by dass.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 0ddfd6e956d4fc0d92a181e9b45950f0a5d3b10b7ef216dc56ebd27400632d1c
+Content SHA-256 for sign-off: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -4030,20 +4030,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001052",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000026",
-  "hint": {
-    "en": "After dass, the finite verb belongs at the end of the clause.",
-    "de": "Nach „dass“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "starten / dass / morgen / wir",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "starten / dass / morgen / wir",
+  "hint": {
+    "en": "After dass, the finite verb belongs at the end of the clause.",
+    "de": "Nach „dass“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4095,20 +4095,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001053",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000026",
-  "hint": {
-    "en": "After dass, the finite verb belongs at the end of the clause.",
-    "de": "Nach „dass“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "bestätigt / dass / den Termin / er",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "bestätigt / dass / den Termin / er",
+  "hint": {
+    "en": "After dass, the finite verb belongs at the end of the clause.",
+    "de": "Nach „dass“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4158,7 +4158,7 @@ Place the finite verb at the end of a subordinate clause introduced by obwohl.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: d8564ece61977e3997c40c9075aec3b4700136f8153b9894203fc8d291c91f12
+Content SHA-256 for sign-off: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -4172,20 +4172,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001054",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000027",
-  "hint": {
-    "en": "After obwohl, the finite verb belongs at the end of the clause.",
-    "de": "Nach „obwohl“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "bin / obwohl / müde / ich",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "bin / obwohl / müde / ich",
+  "hint": {
+    "en": "After obwohl, the finite verb belongs at the end of the clause.",
+    "de": "Nach „obwohl“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4237,20 +4237,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001055",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000027",
-  "hint": {
-    "en": "After obwohl, the finite verb belongs at the end of the clause.",
-    "de": "Nach „obwohl“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "hat / obwohl / wenig Zeit / sie",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "hat / obwohl / wenig Zeit / sie",
+  "hint": {
+    "en": "After obwohl, the finite verb belongs at the end of the clause.",
+    "de": "Nach „obwohl“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4300,7 +4300,7 @@ Place the finite verb at the end of a subordinate clause introduced by wenn.
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: ad503af2dec670ce068c5cdd3eb8a49542485fb2b5b0a76391bbdd5d339ee835
+Content SHA-256 for sign-off: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -4314,20 +4314,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001056",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000028",
-  "hint": {
-    "en": "After wenn, the finite verb belongs at the end of the clause.",
-    "de": "Nach „wenn“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "habe / wenn / Zeit / ich",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "habe / wenn / Zeit / ich",
+  "hint": {
+    "en": "After wenn, the finite verb belongs at the end of the clause.",
+    "de": "Nach „wenn“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4379,20 +4379,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001057",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000028",
-  "hint": {
-    "en": "After wenn, the finite verb belongs at the end of the clause.",
-    "de": "Nach „wenn“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "kommt / wenn / pünktlich / der Zug",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "kommt / wenn / pünktlich / der Zug",
+  "hint": {
+    "en": "After wenn, the finite verb belongs at the end of the clause.",
+    "de": "Nach „wenn“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4442,7 +4442,7 @@ Place the finite verb at the end of an indirect yes/no question introduced by ob
 
 Review: pending; reviewer: pending
 
-Content SHA-256 for sign-off: 0af6c33a7138c9747c77889520396a9592a1f49e43f4451ffe9609b78b3f2f65
+Content SHA-256 for sign-off: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -4456,20 +4456,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001058",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000029",
-  "hint": {
-    "en": "After ob, the finite verb belongs at the end of the clause.",
-    "de": "Nach „ob“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "kommst / ob / morgen / du",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "kommst / ob / morgen / du",
+  "hint": {
+    "en": "After ob, the finite verb belongs at the end of the clause.",
+    "de": "Nach „ob“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",
@@ -4521,20 +4521,20 @@ Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, f
 
 ```json
 {
+  "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001059",
   "revision": 1,
   "targetId": "10000000-0000-4000-8000-000000000029",
-  "hint": {
-    "en": "After ob, the finite verb belongs at the end of the clause.",
-    "de": "Nach „ob“ steht das finite Verb am Ende des Satzes."
-  },
+  "prompt": "hat / ob / genug Zeit / sie",
   "instruction": {
     "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
     "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
   },
-  "type": "word_order",
-  "prompt": "hat / ob / genug Zeit / sie",
+  "hint": {
+    "en": "After ob, the finite verb belongs at the end of the clause.",
+    "de": "Nach „ob“ steht das finite Verb am Ende des Satzes."
+  },
   "tokens": [
     {
       "id": "0",

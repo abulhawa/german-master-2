@@ -29,9 +29,10 @@ describe('initial editorial workspace', () => {
     expect(variants).toHaveLength(20);
     expect(variants.every(item => item.exercise.type === 'choice' && item.exercise.revision === 2)).toBe(true);
     for (const item of variants) {
-      if (item.exercise.type !== 'choice' || item.rubric.acceptedAnswers[0].type !== 'choice') throw Error('unexpected plural shape');
+      const answer = item.rubric.acceptedAnswers[0];
+      if (item.exercise.type !== 'choice' || answer.type !== 'choice') throw Error('unexpected plural shape');
       expect(new Set(item.exercise.options.map(option => option.id)).size).toBe(4);
-      expect(item.exercise.options.some(option => option.id === item.rubric.acceptedAnswers[0].optionId)).toBe(true);
+      expect(item.exercise.options.some(option => option.id === answer.optionId)).toBe(true);
     }
   });
   it('validates identities inside low-typing inputs', () => {

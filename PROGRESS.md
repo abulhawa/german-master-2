@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Repair ChatGPT low-typing verification — 8 October 2026
+
+- Owner requested fixes after review of ChatGPT's 14 commits through `5442d84`. Fast-forwarded the clean local main checkout from `ab96843`; preserved the converted draft content and publication boundaries.
+- Fixed the plural regression test's TypeScript narrowing by binding the accepted answer before the callback. Regenerated the unpublished candidate with `content:prepare-basics` and both editorial workbooks with the actual validator/generator. Candidate SQL now uses schema-parsed JSON property order; sign-off hashes match validator output. No authored questions, rubrics, revision identities or review approvals changed. Candidate manifest remains `2417bd644424ce5ac84aadd15b473ff723e0c801d7cf69d4e783fd51f30456f7`.
+- Verification with local Node 22.23.3: offline root `npm ci --ignore-scripts --no-audit --no-fund`, root generated/type checks, full root tests (backend 29 files / 191 tests; web 93 files / 398 tests; actual HTTP four files / 13 tests), and root web/API build pass. The previously failing SQL synchronization regression passes. Git whitespace check passes. Existing dependency deprecation notices remain. Android source is unchanged and native checks were not repeated.
+- Owner subsequently requested always committing completed work; recorded that preference in root AGENTS.md. This checkpoint accompanies the local repair commit; no push or fresh hosted CI result is claimed. Zero AI/Groq calls, production database/configuration changes, publication, deployment, external messages or store releases. Bootstrap remains complete; product reset and independent review/device gates remain open.
+- Exact next action: push the verified repair when authorized, confirm hosted checks, then preview all three converted families on web and Android against the unpublished local candidate before expanding conversion. Independent German review and real-device accessibility remain separate gates.
+- Proposed commit message: `fix: repair low-typing content verification and generated artifacts`.
+
 ## Low-typing plural conversion — 8 October 2026
 
 - Converted all 10 B1 plural targets (20 variants) from typed `short_answer` / `cloze` revision 1 exercises to revision 2 `choice` MCQs. Direct prompts now use the choice-appropriate wording “Was ist der Plural von …?” rather than the old typing instruction. Every item has four options: the correct standard plural plus realistic learner-error forms, including missing umlaut, singular carry-over, wrong ending, dative-plural `-n`, or `-s` overgeneralization where appropriate. Correct positions vary across all four option positions.

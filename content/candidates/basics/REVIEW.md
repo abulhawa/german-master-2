@@ -12,7 +12,7 @@ Check naturalness, requested form, alternatives, hint leakage, explanation, leve
 
 Target: 10000000-0000-4000-8000-000000000000; category: plural; review: pending.
 
-Content hash: b66c8328feeb029f9daa541256e22d9715c46ec0e4136a7ff6e03994cd255f27
+Content hash: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -40,7 +40,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000001; category: plural; review: pending.
 
-Content hash: 68b5735b38d5eaaa896dbeeee1c2b66a110efa842e062a748c089f62a17a30c9
+Content hash: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -68,7 +68,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000002; category: plural; review: pending.
 
-Content hash: ca5c36de90da2277d003d8729987d3f7f747ef93ba855b0038966361fa707747
+Content hash: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -96,7 +96,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000003; category: plural; review: pending.
 
-Content hash: f860ffe97fd3c58d8886ed713fc5f744bc9edc62107e725f0a85c80e60ddebfd
+Content hash: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -124,7 +124,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000004; category: plural; review: pending.
 
-Content hash: 27d50a05c9927634d8a7c6b535659d2c5e0be39bad57f15def0cc79823d60896
+Content hash: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -152,7 +152,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000005; category: plural; review: pending.
 
-Content hash: 00622719b7ca46ffb8fb42a667f44617b7f46bb9e57f1303715c7c1b895aadd3
+Content hash: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -180,7 +180,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000006; category: plural; review: pending.
 
-Content hash: 5f6854ec49be76d947e413bd67f44450e98a16fdae570b98d1943f12458ceb71
+Content hash: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -208,7 +208,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000007; category: plural; review: pending.
 
-Content hash: c98d5f9d521243baf0284b1a718ba8cda0e2db57fe1ebad1244fbdc1b48dbb23
+Content hash: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -236,7 +236,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000008; category: plural; review: pending.
 
-Content hash: f7838e0e47a6baa32161fa61de88802ac9fbf445be0d3c6825efd95fe6965280
+Content hash: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -264,7 +264,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000009; category: plural; review: pending.
 
-Content hash: fe3c4e11387aa4dcd4ef1c296533233f4cd52e9bd34256492bd16603a132a02a
+Content hash: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -292,7 +292,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 Target: 10000000-0000-4000-8000-000000000010; category: preposition; review: pending.
 
-Content hash: d3c18ccc496dbb4dddea2fb1a8e9dc8dd6abf89a1c9f19ea60d61158bc900ee5
+Content hash: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -320,7 +320,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Target: 10000000-0000-4000-8000-000000000011; category: preposition; review: pending.
 
-Content hash: c751edccde68df60c5deb2c90359f807e2c9684c74d9ea90173d613d0b98bd73
+Content hash: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -348,7 +348,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Target: 10000000-0000-4000-8000-000000000012; category: preposition; review: pending.
 
-Content hash: 6a867f0e7b0d7718cd484180e2a4989bfe2c48489277f7f268d187864a9dd5b9
+Content hash: d0818e9e9d5ec193a64d73552165a6d2aa179256bf95e95ab8cdcaf16253b614
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -376,7 +376,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Target: 10000000-0000-4000-8000-000000000013; category: preposition; review: pending.
 
-Content hash: 9e82809c18ea93e006b26a4d45d380e3b2966517290230014cf720969d9d779e
+Content hash: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -404,7 +404,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Target: 10000000-0000-4000-8000-000000000014; category: preposition; review: pending.
 
-Content hash: 54f52cd7c725d35435cc4381922153e76489140a099d5803f9323d99e765e439
+Content hash: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -432,7 +432,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Target: 10000000-0000-4000-8000-000000000015; category: adjective; review: pending.
 
-Content hash: c20c8689427c94627f3d1cdc19460394693a0bbce35d19c7c99537b5389baa86
+Content hash: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -460,7 +460,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000016; category: adjective; review: pending.
 
-Content hash: d5ced07c05c428df1edab88802ee5413a13b9e04915a4a7477a13228dba314da
+Content hash: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -488,7 +488,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000017; category: adjective; review: pending.
 
-Content hash: eab8205faa06d9dcb3b115b50c502901ccc016143ab416a01a9c0d00ac78e0df
+Content hash: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -516,7 +516,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000018; category: adjective; review: pending.
 
-Content hash: 358b7486d216002893d6f99c30dc19f2e76041adc3fe256b42fe576bcfbe95ae
+Content hash: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -544,7 +544,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000019; category: adjective; review: pending.
 
-Content hash: a46529d476bcb94f3c32700af9c8d49bf86d570a4c337cb96d555d6e2bd3fc5a
+Content hash: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -572,7 +572,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 Target: 10000000-0000-4000-8000-000000000020; category: verb; review: pending.
 
-Content hash: dce83cf7b569f48f83da54c24176b6aa2d7bc68709ac2764e4011eb35b039513
+Content hash: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -600,7 +600,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 Target: 10000000-0000-4000-8000-000000000021; category: verb; review: pending.
 
-Content hash: 21f69d106b31d2f45edafd53b34dfabda362b9939d558a11b514044b0e280685
+Content hash: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -628,7 +628,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 Target: 10000000-0000-4000-8000-000000000022; category: verb; review: pending.
 
-Content hash: 780efb24a230d975f496303a75ccd71f9272c6b6d728e4d292b82ce935b3e59d
+Content hash: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -656,7 +656,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 Target: 10000000-0000-4000-8000-000000000023; category: verb; review: pending.
 
-Content hash: 91f6b05b5e1b5e6d8043c1cd53189e4ae451369fdc99c9f69bd40e0a86ca415c
+Content hash: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -684,7 +684,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 Target: 10000000-0000-4000-8000-000000000024; category: verb; review: pending.
 
-Content hash: cdee8598243fb3f7f13c8f64d1e64759b3e9bcf386c85837a14ea09bdf644f63
+Content hash: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -712,7 +712,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 Target: 10000000-0000-4000-8000-000000000025; category: word-order; review: pending.
 
-Content hash: 1834e08db5914e8c8fe246107f8df7b71d1242671dc6612aa464245bd4d0c5d9
+Content hash: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -740,7 +740,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 10000000-0000-4000-8000-000000000026; category: word-order; review: pending.
 
-Content hash: 0ddfd6e956d4fc0d92a181e9b45950f0a5d3b10b7ef216dc56ebd27400632d1c
+Content hash: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -768,7 +768,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 10000000-0000-4000-8000-000000000027; category: word-order; review: pending.
 
-Content hash: d8564ece61977e3997c40c9075aec3b4700136f8153b9894203fc8d291c91f12
+Content hash: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -796,7 +796,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 10000000-0000-4000-8000-000000000028; category: word-order; review: pending.
 
-Content hash: ad503af2dec670ce068c5cdd3eb8a49542485fb2b5b0a76391bbdd5d339ee835
+Content hash: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -824,7 +824,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 10000000-0000-4000-8000-000000000029; category: word-order; review: pending.
 
-Content hash: 0af6c33a7138c9747c77889520396a9592a1f49e43f4451ffe9609b78b3f2f65
+Content hash: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -852,7 +852,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 40000000-0000-4000-8000-000000000000; category: passive; review: pending.
 
-Content hash: 00abff0ea81eeaf7323d0a2767f7bd1f594e4606f9dc98b8fdfbda9d184bec66
+Content hash: b7fda3cb3308ca7f0185d01bf451f6173dd57389506ee7c7daabc1f83f0f6b7c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -880,7 +880,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000001; category: passive; review: pending.
 
-Content hash: 643449622a4e481bacaecbb9f5cb5502fff7f3798b0a757c48c6e99868223d23
+Content hash: 41fd62d17073a0442b91a2187ae42d8a96e51f0b0b86939ae838aaef66691589
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -908,7 +908,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000002; category: passive; review: pending.
 
-Content hash: ab4fe599725642815d55180104b60cbaa8a1a388ced9c8a09c732cf0025cd450
+Content hash: e8b2bbea9eecabbc767288b454198d208656b6cbca11f621319534b627c78e11
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -936,7 +936,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000003; category: passive; review: pending.
 
-Content hash: 7c610e3a3f294c76beda91ebeee3c596b20a38f26890fefa2172fbf8cb3b10d6
+Content hash: 7ef7b7b547dbc625725e9e41fa9cae60b21c8e9ce32e8b94d53cb44ff28659b4
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -964,7 +964,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: pending.
 
-Content hash: 9581ae18f9604e4df873a907d70db0da3e417f9581364e6387725ef460a5f866
+Content hash: 943e74c1551344716ca51f043ad98f9061a42f17f61c3ad1d17d20f0faafb267
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -992,7 +992,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: pending.
 
-Content hash: 21ea51cd4353102b281a7601c53e9059ad7a16044fd9c3dca89fc11feb183d76
+Content hash: 0e0478bcc3d437dd8bac153289ccd67946cc0c839d608399d94ff2fd01363a87
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1020,7 +1020,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: pending.
 
-Content hash: 4af9293ce3be858da78556eb074227ae8eec37495da225f8d54ac80a3951f592
+Content hash: 315d1b675f71b44327af1e73346208d6715038a6f490434c31a4c2f5cec6f4f1
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1048,7 +1048,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: pending.
 
-Content hash: 25066a38ec3e936f9935aeff64eca46c0effdd5ca9a9db25c2863cf251125147
+Content hash: 25e113024fedfe27dfe66a10b65b352d072d6c83a617fe5f69cf6a667fd6da37
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1076,7 +1076,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: pending.
 
-Content hash: 836a447dcd5258e0ec5cddcca5e94dd705449578545668c7ad0dfa6cbf43a3ef
+Content hash: 7048d045ce905759f55875eb2aeb0af63ee329c806e3fdd4c40005599fe0c09b
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1104,7 +1104,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: pending.
 
-Content hash: aced03098e1ebc75719717afe2fb5bd128e8232da8cc760f7e29f2cef35537fd
+Content hash: 0802063e8c19d84ffb3e719ffb2af29ebb984f0d9da11be134de38d8659e9883
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1132,7 +1132,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: pending.
 
-Content hash: fef77f22b646b3ca6e3d739406a9c61d34d866e1f15159758ed6d0ccd2bce3ef
+Content hash: 888ef201db3bcf028ece3ad3a46cfb04c70e1ed41e4387e7c0635200b2856658
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1160,7 +1160,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: pending.
 
-Content hash: 85ff74a1e57b941706373d2535f57477361da6b125e659e22238430da12f3202
+Content hash: ca2d98fd45b5cf50007cf42971a3d16eeaedf1fb0429b621c79bb50627c1d28a
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1188,7 +1188,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: pending.
 
-Content hash: 02911632bc2fae0c9374954ebc7cb14a5f7f925461618022a1c6d4e49e9bada3
+Content hash: 24b2c8f572b6ca3ed22c3d3020f8d89e98016dae77d3d98c6737a5c6fc131968
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1216,7 +1216,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000013; category: relative; review: pending.
 
-Content hash: f6a9f56865bd20710e1c85cf11fd153fe72677688aacf6eaad62d8bc455c2672
+Content hash: 99470528f50516b03f0daac43d49b44a6f96c8e4df35a8f5fb437163a6333d5d
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1244,7 +1244,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000014; category: relative; review: pending.
 
-Content hash: 7bdb074cb987c47a6227333773f84a9d3f2fc33a5c2b2c3e4518499a48518fdd
+Content hash: dfb66035a4ffa146cbd1b27dcdd6076bcab0f282b724e7a920159aa59a744373
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1272,7 +1272,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000015; category: relative; review: pending.
 
-Content hash: f458e66a96635a21ecb51ac63a68ce5c24031cd06280c02d10a759b36ff59fb1
+Content hash: 420b79181af8afb7c3ab805fb4639117cb8fc2dd3c06cb5657a50fe4aae7db29
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1300,7 +1300,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000016; category: cases; review: pending.
 
-Content hash: 2b8ec2e7ddaf9888af673f9b5934bf2eb08fe897b8ea5301fcf13b0f68af2750
+Content hash: c1b2049142ec071e94612960e1198476bd21aceac89e8c0579f8753365b3beec
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1328,7 +1328,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000017; category: cases; review: pending.
 
-Content hash: 66d95b6a2f045b70fe4fc23e5870e3f0ae863cb3e4cc422be3b7aa4e7e5df1b9
+Content hash: e9c5ef5b2c0bb247828a31bc689863f2045fb789a6ce996fc3fbf7d2e0ba7f3a
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1356,7 +1356,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: pending.
 
-Content hash: 5277de98837a187c9fe57bd2ffad4acf65bc7c813ef6db429383951a2911748a
+Content hash: dad60dbe8475eae43053a95e8adbb9dca12a3ebb800670b61a629599415e93bd
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1384,7 +1384,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: pending.
 
-Content hash: a18c34a16d835894ab881421e47dca48e329e02981bffdc31f98efd6a8af5769
+Content hash: d6fff5940a3e5dccc5826a9c37d31d42e8c6e8742cdc562777d8db421824fe8e
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1412,7 +1412,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: pending.
 
-Content hash: 8678cde71f87a59fb973cf75d640ec3402c4618fce1a57b6a6dd21a2546a6afe
+Content hash: efad173e6a5190e3e80e344c2d256e29c957efc95325d295c084c3bc41b901f5
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1440,7 +1440,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: pending.
 
-Content hash: 3670d40589dcf7daeab6cf968d210c3048c2cfbc25d31b591dd4eee01354f6f2
+Content hash: 649ff0c08e6059ece40aebb0f32a4f80d0118ab65dab388ffd1857ac23abe18d
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1468,7 +1468,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: pending.
 
-Content hash: 755119d6489d741875b410764aea1f056c98c0bacab40b1da0454e0e1792ff1d
+Content hash: bec283a532e219ddcd09ecc4ddbc69e136bc2f3268a64653d5ba955e413aa606
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1496,7 +1496,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: pending.
 
-Content hash: 83c3c49592c5ca95f696c715086fd1f97d562d24cd1b1da1d9c401519ea939e1
+Content hash: 4b7329d1318705fa3cea665e2ff0bd90c50a81777beefd25ab626ea71b33803f
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1524,7 +1524,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: pending.
 
-Content hash: 7d234513f00efb1a053d40b376025edb2a731bb9438b36f38df5cbf3112982c8
+Content hash: 1dfb7c91f6274bc38982885cc48122f9c66b60148aec1e52931f1d2d50068aa2
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1552,7 +1552,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: pending.
 
-Content hash: aa7f029e0fb561265d9db8e8306db35a4693aa833ed861a654dd0b0615cab64c
+Content hash: edf507059193f2163b79266992dcb3fee09dc088bcb8477d3f0e677824553fbe
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1580,7 +1580,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: pending.
 
-Content hash: 1af5e2432e5dbf901ed43f905f66bc9fb3c9f0edf53084bd6acc42593c551bf0
+Content hash: 08eb91007d0baf6397014ab05f36c870f8f28807e8cc5ac9d85ea7c7c11f40ab
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1608,7 +1608,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: pending.
 
-Content hash: a9e85d566f2994eb8d9d4be61cc46fe18d2264e3e7257650dbbc519a981248aa
+Content hash: 2e2031c9e2b54f43c5eb77d52cc32a2be6a1a8c5ccb1b2eecc2b72589e670a03
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1636,7 +1636,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: pending.
 
-Content hash: 8630777759d8db9629f4842711999eabe1e8cfa2430b13d1172ea9b46b0f988b
+Content hash: 616e5d022d205d23e3561a7b6ec4588864c05b1d852f9e4acaff7df76bcbd709
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1664,7 +1664,7 @@ The parenthetical cue specifies the required lemma or construction. Evaluate tha
 
 Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: pending.
 
-Content hash: a3d3f8b7e40e4708052ea2cd5fc27ac465284afed16c2b7cc0eb891293e9c460
+Content hash: 8e23c9649547b35a2fa858073b1011ec15c5335e1a41631e85f28eb0a0667000
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 

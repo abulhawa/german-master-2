@@ -16,6 +16,8 @@
 
 ## Continuing the renovation
 
+- Owner preference (8 October 2026): always commit completed, verified work before handoff. This authorizes local commits by default; push, deployment, publication and release boundaries remain governed by the owner's applicable authorization.
+
 When the user says "continue", "pick up where we stopped", or otherwise asks to resume German Master 2.0, treat it as an implementation request. Read root `PROGRESS.md`, then `docs/operations/continuation.md`. Inspect the actual checkout and relevant recent commits, reconcile the checkpoint, and carry out the next unfinished implementation slice. Do not restart the product analysis, ask the user to repeat the roadmap, or stop after proposing a plan.
 
 Preserve ongoing work and complete the current slice before starting unrelated features. Update `PROGRESS.md` with changes, evidence, blockers and the exact next action before every handoff. Use the repo files as durable context; prior chat history is optional. Only advance milestone status when its exit gates are met. Keep production cutover, database resets and store releases within their separately authorized scope.
