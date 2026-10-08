@@ -14,15 +14,15 @@ The repository contains the durable state. A new chat need not have access to th
 
 ## Current shared priority — 8 October 2026
 
-Owner decision: close M0–M6 one by one. M0 is the only active milestone; M1–M5 are queued with partial implementation preserved, and M6 is not started. Do not open another milestone merely because M0 has an external blocker. Exit requirements and release authorization boundaries remain unchanged.
+Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
 
-Owner-approved recovery destination: `the private laptop recovery directory`. A dated source/data recovery set is saved and verified; full database recovery remains open. Live Supabase inventory confirms separate legacy and v2 production projects; do not create another project.
+Exact next action: convert the five B2 verb/preposition targets (10 typed cloze variants) into authored gap choices with plausible distractors and bilingual feedback. Preserve immutable revisions, regenerate the unpublished candidate/workbooks and reuse the verified web/native controls and authoritative HTTP/restart/retry/completion checks. Then complete remaining conversion, independent German review and design/accessibility acceptance before closing M1.
 
-Exact next action: reconcile [M0 preservation inventory](m0-inventory.md) against current available tooling and access, then obtain and verify full private laptop backup/recovery, isolated PostgreSQL/Auth/Storage restore evidence and preserve the sister-project version baseline (29 / 0.2.08). The owner holds signing keys and signs in Android Studio; agent custody/certificate inspection is outside scope. The owner verifies the live Play maximum before release. Record missing resources precisely and request only what blocks M0. Never put credentials, private keys or backup contents into public evidence.
+The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. Independent German review and physical-device acceptance remain open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
 
-The completed B1 low-typing candidate preview at `f6b4087` remains valid local evidence: 20 targets/40 revision-2 exercises, all variants exercised through both clients and real local HTTP. Independent German review and physical-device acceptance remain open. B2 conversion is queued for M1 after M0 closes; do not resume it as the default next slice. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
+The owner accepts laptop backups and personally holds/signs Android keys in Android Studio. Source identity/version is `com.germanverbmaster.android`, 29 / 0.2.08; the owner checks the live Play maximum before release. Exact recovery locations and machine paths stay in ignored/private manifests. The existing legacy and renovated Supabase projects remain separate and unchanged; no third project is needed.
 
-This is a hard reset with no existing learners to migrate. Preserve identity/signing, provenance, immutable revisions and operational recovery. The blueprint defines exit criteria, milestone-gates.md records the owner-selected sequence, and the newest PROGRESS.md entry records current evidence and the exact next action. Older entries are historical.
+This is a hard reset with no existing learners to migrate. Preserve identity/signing, provenance, immutable revisions and operational recovery. The blueprint defines exit criteria; the current gate table and newest PROGRESS.md checkpoint define the active work. Older entries are historical. Release, publication and production mutation boundaries remain unchanged.
 
 ## Agent workflow
 

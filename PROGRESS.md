@@ -1,5 +1,18 @@
 # German Master 2.0 renovation checkpoint
 
+## M0 closed — verified private preservation and recovery — 8 October 2026
+
+- Completed the owner's requested M0 closure under the clarified laptop-backup and owner-managed Android signing scope. M0 is complete; M1 is the sole active milestone. M2–M5 remain queued with partial implementation preserved; M6 has not started.
+- Fresh bare restores/full integrity checks pass for legacy web, Android and deployed-source bundles; original baseline trees and all 21 tracked content hashes match. Original repositories remain clean and unchanged. A fresh renovation source bundle and private manifest accompany the closure commit.
+- Full legacy native PostgreSQL export uses an exported repeatable-read read-only snapshot. Renovated schema/catalog/table data is captured through the read-only connector, restored, exported as a native archive and independently restored again. Final native archive restores match all 48 legacy and 68 renovated table row counts/data fingerprints and recorded schemas, role attributes/memberships, ownership, table/column grants, RLS/policies, functions, constraints/indexes/triggers, sequence state and publications. Both include Auth data (four legacy users; one renovated user).
+- All 25 legacy Storage objects (50,016,080 bytes) are backed up, source-verified and recovered into a fresh local destination with matching SHA-256 values. Renovated Storage is empty. Both local clusters have networking disabled and no published ports. Source privilege/ownership overlays account for Supabase platform bootstrap differences; detailed evidence and recovery scripts remain private. Database role passwords, Vercel secrets and signing keys are not copied.
+- Evidence: [M0 closure](docs/operations/m0-closure.md). Private locations, account/object records and machine paths are excluded from tracked evidence; precise locations are in ignored/private manifests. Backup directory access is restricted to owner/SYSTEM/administrators. Temporary proxy/transfer processes and local recovery containers are stopped after checks.
+- Read-only deployment inventory distinguishes source from production: latest READY v2 deployment is at `f6b4087`; canonical web HTTP 200 and unauthenticated catalog HTTP 401 pass. Existing application build/test evidence at that commit remains applicable to unchanged application code; no new learner/account/accessibility acceptance is claimed. Both hosted databases remain separate and unchanged.
+- Exact next action: close M1 by converting the five B2 verb/preposition targets (10 variants) to authored gap choices, regenerating the unpublished candidate/workbooks and reusing local client acceptance; then finish remaining conversion, independent German review and design/accessibility acceptance. Publication remains separately authorized.
+- Verification: full isolated database/catalog/data comparisons, native archive replay, source Git restore/integrity, Storage recovery, documentation links/privacy and Git whitespace checks. Application runtime suites are not repeated for documentation-only tracked changes. No push, production write/restore, deployment, publication, store upload, billing change, external message or AI/Groq call.
+- Commit message: `docs: close M0 with verified private preservation and restore evidence`.
+
+
 ## Public evidence privacy correction — 8 October 2026
 
 - Removed personal machine paths and private recovery locations from tracked documentation, including older toolchain references. Public evidence uses repository-relative references or generic placeholders; exact backup locations remain in private manifests.

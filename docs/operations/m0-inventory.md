@@ -1,5 +1,7 @@
 # M0 environment and preservation inventory
 
+**Current status: complete, 8 October 2026.** [Closure and restore evidence](m0-closure.md) supersedes the earlier blockers and next actions below. Laptop backups and owner-managed Android signing are accepted owner decisions; M1 is now the sole active milestone.
+
 Checked 3 October 2026 during the first foundation slice. No deployment, database reset, content publication, billing change or store release was performed. Original repositories remain preserved.
 
 ## Legacy deployment

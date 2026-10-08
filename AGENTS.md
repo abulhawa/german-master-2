@@ -25,7 +25,7 @@
 - Owner clarification (8 October 2026): Android signing keys remain owner-held and builds are signed by the owner in Android Studio. Agent work concerns application identity and versionCode/versionName using the preserved sister project as reference; do not request or inspect signing keys or require agent certificate/custody verification to close M0. Source version numbers are not proof of a live Play maximum.
 
 
-- Owner preference (8 October 2026): close M0–M6 sequentially. Keep only one milestone active, starting with M0. Preserve partial work in later milestones as queued; do not advance them or weaken exit gates when the active milestone is blocked. Reconcile current summaries and report exact missing resources.
+- Owner preference (8 October 2026): close M0–M6 sequentially. Keep only one milestone active; use the latest checkpoint for the current milestone. Preserve partial work in later milestones as queued; do not advance them or weaken exit gates when the active milestone is blocked. Reconcile current summaries and report exact missing resources.
 
 
 - Owner preference (8 October 2026): always commit completed, verified work before handoff. This authorizes local commits by default; push, deployment, publication and release boundaries remain governed by the owner's applicable authorization.
