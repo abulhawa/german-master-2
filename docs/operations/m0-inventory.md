@@ -37,3 +37,33 @@ No local properties or Play service-account file was present in either Android c
 ## Remaining M0 exit gates
 
 Deployment source identity and accessible public-row preservation now have evidence. M0 stays in progress until live deployment/API settings, full private database/content recovery and published Android signing/store records have been verified. Continue independent foundation work in isolated environments; never establish a baseline with a reset or an unauthorized production cutover.
+
+## Recheck — 8 October 2026
+
+M0 is the sole active milestone under the owner's sequential closure decision. Local read-only checks at `31f310f` establish:
+
+- All three recovery bundles (`.local/legacy-web.bundle`, `.local/legacy-android.bundle`, `.local/backups/legacy-deployment.bundle`) pass `git bundle verify`. This is fresh bundle verification; the full clone/fsck restore rehearsal remains the historical 3 October evidence.
+- All 21 current tracked content/Play metadata files match the private source-content manifest hashes. The private public-row snapshot SHA-256 matches its saved evidence. No row contents or credentials were printed.
+- `pg_dump`, `pg_restore`, `psql` and Docker are absent from PATH; the standard `C:/Program Files/PostgreSQL` location was not found. This is a bounded tool check, not a claim that no executable exists anywhere on the machine.
+- The known `.local/backups` folder contains the public-row JSON snapshot/evidence, source-content manifest and deployed-source Git bundle; no full PostgreSQL backup is present there. No off-machine destination has been identified in this check.
+- Release local.properties is absent at the checked monorepo root/app and original Android root paths. No authoritative Play records were available to this local check. Source version 29 is not proof of the maximum published code.
+
+Full isolated database/Auth/Storage recovery, protected off-machine recovery and Play signing/version custody remain open. Asked the owner for the private backup destination and Play records/access route; credentials and private keys must not be supplied in chat. Next: resolve those resources and provision local isolated restore tooling, then perform the full recovery rehearsal. No live provider access, production mutation, upload or release occurred in this recheck. Stay within M0 while blocked.
+
+## Owner signing clarification — 8 October 2026
+
+The owner confirms holding the signing keys and signing builds personally in Android Studio. Agent certificate/key-custody inspection is removed from the M0 task scope; the owner retains signing continuity and release responsibility. No signing secret is needed in this repository or chat.
+
+Read-only inspection of `<preserved-android-repository>/app/build.gradle.kts` confirms application ID `com.germanverbmaster.android`, versionCode `29`, versionName `0.2.08`. The original checkout is clean and was not changed. These are source numbers, not a fresh Play Console maximum-version check. Future release code must exceed the then-current Play maximum, checked by the owner before upload.
+
+Remaining M0 task: complete protected source/content/database preservation and isolated recovery verification, with a private off-machine copy. Backup covers original source histories, authored content, relevant database state and the renovation source snapshot; signing keys remain under the owner's existing process. No learner-history migration is being added.
+
+## Laptop backup and project separation — 8 October 2026
+
+Owner accepts backups on this laptop; off-machine storage is no longer an M0 exit requirement. Signing remains owner-managed. Full database recovery verification is still required.
+
+Saved `the private laptop recovery directory` outside the checkout: three legacy recovery bundles, existing private public-row snapshot/evidence, content manifest and a fresh all-ref renovation bundle at `dc73f5d`. Seven recovery files plus a private SHA-256 manifest. All copied-file hashes match; all four bundles verify. The renovation bundle was cloned into a new bare repository, passed full fsck and restored the exact main commit. This set does not contain a full PostgreSQL dump, Auth/Storage export or signing keys. Private snapshot contents were not printed or committed. Later commits require a new dated snapshot.
+
+Read-only Supabase inventory confirms both `Ali's Project` (`kagsgjzijfgvtvkylczl`, legacy) and `german-master-v2-production` (`zgmyrpzwgtydwlzponih`, renovation) are ACTIVE_HEALTHY in the same organization. No third project is needed or created. [Current pricing](https://supabase.com/pricing) allows two active Free projects, with 500 MB database size per project and no automatic backups. Inventory does not establish the actual organization billing plan.
+
+Next: obtain full database exports for legacy and v2 without production writes and verify isolated PostgreSQL recovery, including applicable Auth/Storage scope. Keep the two live databases separate and unchanged. Local restore tooling availability remains the previously recorded blocker; project separation is verified, not a database restore.

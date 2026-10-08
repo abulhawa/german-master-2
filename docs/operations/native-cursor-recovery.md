@@ -13,9 +13,9 @@ Multi-page deltas add new targets while retaining newer evidence when an older t
 Reproduce from the repository root with the installed Java 21 and Android SDK paths:
 
 ```powershell
-$env:JAVA_HOME='C:/Users/ali_a/.gradle/jdks/eclipse_adoptium-21-amd64-windows.2'
-$env:ANDROID_HOME='C:/Users/ali_a/AppData/Local/Android/Sdk'
-$env:GRADLE_USER_HOME='C:/Users/ali_a/.gradle'
+$env:JAVA_HOME='<local-toolchain-path>
+$env:ANDROID_HOME='<local-toolchain-path>
+$env:GRADLE_USER_HOME='<local-toolchain-path>
 apps/android/gradlew.bat -p apps/android :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --offline --console=plain
 ```
 

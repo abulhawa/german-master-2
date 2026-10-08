@@ -30,8 +30,8 @@ Deliver in gated phases: preserve and audit; define contracts and content; prove
 
 | Repository | Local path | Inspected revision | Inspection state |
 |---|---|---|---|
-| Web and backend | `C:/Projects/german-master` | `f1ccc88113d6f636b080117b11af0e24c5fb9a87` | Existing checkout; clean at inspection |
-| Native Android | `C:/Projects/GermanVerbMaster-Android` | `3d09b26b1becf5cba6d3b06788e4b72c1623a265` | Cloned for this analysis; source preserved |
+| Web and backend | `<preserved-web-repository>` | `f1ccc88113d6f636b080117b11af0e24c5fb9a87` | Existing checkout; clean at inspection |
+| Native Android | `<preserved-android-repository>` | `3d09b26b1becf5cba6d3b06788e4b72c1623a265` | Cloned for this analysis; source preserved |
 
 Remote repositories: [web](https://github.com/abulhawa/german-master) and [Android](https://github.com/abulhawa/GermanVerbMaster-Android).
 
@@ -597,7 +597,7 @@ The no-user constraint removes historical learner migration work, not the need t
 
 ### Build the target without disturbing originals
 
-4. Create a sibling staging checkout, for example `C:/Projects/german-master-2`, rather than moving folders inside the current checkout immediately.
+4. Create a sibling staging checkout, for example `<repository>`, rather than moving folders inside the current checkout immediately.
 5. Start from the web repository history and import Android under `apps/android` with a history-preserving subtree merge. First rehearse on temporary clones; verify authors/commits and path mapping. Keep the full originals and bundles regardless of history strategy.
 6. Move web, server, shared utilities and tooling into the target layout in dedicated mechanical commits. Adjust build paths and imports before changing product behavior. Keep one TS lockfile/workspace and the Android wrapper/version catalog.
 7. Replace instructions with explicit ownership, checks and secrets rules. Add README/bootstrap and CI. Legacy docs move into an archive folder in the target repo; mark this blueprint as the active baseline once adopted. Do not overwrite synced ChatGPT `sources/` files.

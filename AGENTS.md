@@ -16,6 +16,18 @@
 
 ## Continuing the renovation
 
+- Never put personal machine paths or private backup locations in tracked files, commits, or public reports. Keep those details in ignored/private recovery manifests; public evidence uses repository-relative paths or generic placeholders.
+
+
+- Owner clarification (8 October 2026): backups may remain on this laptop; an off-machine destination is not an M0 completion requirement. Store private recovery artifacts outside the public checkout. Keep the existing legacy and v2 Supabase projects separate; no paid plan or third project is requested. Full recovery verification remains required.
+
+
+- Owner clarification (8 October 2026): Android signing keys remain owner-held and builds are signed by the owner in Android Studio. Agent work concerns application identity and versionCode/versionName using the preserved sister project as reference; do not request or inspect signing keys or require agent certificate/custody verification to close M0. Source version numbers are not proof of a live Play maximum.
+
+
+- Owner preference (8 October 2026): close M0–M6 sequentially. Keep only one milestone active, starting with M0. Preserve partial work in later milestones as queued; do not advance them or weaken exit gates when the active milestone is blocked. Reconcile current summaries and report exact missing resources.
+
+
 - Owner preference (8 October 2026): always commit completed, verified work before handoff. This authorizes local commits by default; push, deployment, publication and release boundaries remain governed by the owner's applicable authorization.
 
 When the user says "continue", "pick up where we stopped", or otherwise asks to resume German Master 2.0, treat it as an implementation request. Read root `PROGRESS.md`, then `docs/operations/continuation.md`. Inspect the actual checkout and relevant recent commits, reconcile the checkpoint, and carry out the next unfinished implementation slice. Do not restart the product analysis, ask the user to repeat the roadmap, or stop after proposing a plan.

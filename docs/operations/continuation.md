@@ -2,23 +2,27 @@
 
 ## Owner workflow
 
-Open `C:/Projects/german-master-2` in a new Codex chat and say:
+Open `<repository>` in a new Codex chat and say:
 
 > Continue the German Master renovation from where we stopped.
 
 If the chat starts outside the repo, use:
 
-> Continue German Master 2.0 in C:\Projects\german-master-2. Read AGENTS.md and PROGRESS.md, then implement the next unfinished slice.
+> Continue German Master 2.0 in <repository>. Read AGENTS.md and PROGRESS.md, then implement the next unfinished slice.
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
 ## Current shared priority — 8 October 2026
 
-The low-typing foundation is implemented and pushed as `59d7b0d`. B1 adjective endings, irregular present-tense verbs and plurals are now converted in the unpublished candidate (20 targets/40 revision-2 exercises). Repair `e95363b` is committed locally with passing root generated/type checks, full tests and web/API build. Local candidate preview is now implemented and verified: all 40 variants through web/native controls, real client HTTP/restart/retry/completion, and browser acceptance of all three families. Native controls were tested with simulated large text; physical-device acceptance remains open. B1 prepositions already use MCQs and B1 sentence ordering already uses word tokens. Next, convert the five B2 verb/preposition targets (10 typed cloze variants) into authored gap choices, regenerate the unpublished candidate/workbooks and run the same client checks before extending conversion across the remaining B2 catalog. Independent German review remains pending. See [candidate preview evidence](low-typing-candidate-preview.md). Push the verified repair/documentation when authorized and verify hosted checks separately. Android production/guest parity, real-device accessibility and remaining account/operations gates follow the [current milestone table](milestone-gates.md).
+Owner decision: close M0–M6 one by one. M0 is the only active milestone; M1–M5 are queued with partial implementation preserved, and M6 is not started. Do not open another milestone merely because M0 has an external blocker. Exit requirements and release authorization boundaries remain unchanged.
 
-This is a hard reset with no existing learners to migrate. Do not recreate legacy-user migration work. Preserve identity/signing, provenance, immutable revisions and operational recovery. ChatGPT content preparation and Codex integration share this priority and [authoring guide](../content/practice-formats.md); check the latest checkout before editing shared files.
+Owner-approved recovery destination: `the private laptop recovery directory`. A dated source/data recovery set is saved and verified; full database recovery remains open. Live Supabase inventory confirms separate legacy and v2 production projects; do not create another project.
 
-The blueprint defines the product/exit criteria, milestone-gates.md summarizes current status, and the newest PROGRESS.md checkpoint supplies the exact next slice. Older entries are historical evidence. Update all affected current summaries when priorities or acceptance change; do not promote local tests to hosted/device/pilot acceptance.
+Exact next action: reconcile [M0 preservation inventory](m0-inventory.md) against current available tooling and access, then obtain and verify full private laptop backup/recovery, isolated PostgreSQL/Auth/Storage restore evidence and preserve the sister-project version baseline (29 / 0.2.08). The owner holds signing keys and signs in Android Studio; agent custody/certificate inspection is outside scope. The owner verifies the live Play maximum before release. Record missing resources precisely and request only what blocks M0. Never put credentials, private keys or backup contents into public evidence.
+
+The completed B1 low-typing candidate preview at `f6b4087` remains valid local evidence: 20 targets/40 revision-2 exercises, all variants exercised through both clients and real local HTTP. Independent German review and physical-device acceptance remain open. B2 conversion is queued for M1 after M0 closes; do not resume it as the default next slice. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
+
+This is a hard reset with no existing learners to migrate. Preserve identity/signing, provenance, immutable revisions and operational recovery. The blueprint defines exit criteria, milestone-gates.md records the owner-selected sequence, and the newest PROGRESS.md entry records current evidence and the exact next action. Older entries are historical.
 
 ## Agent workflow
 

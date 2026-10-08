@@ -4,7 +4,7 @@ Status: Accepted for repository creation on 3 October 2026 following the project
 
 ## Decision
 
-Create `abulhawa/german-master-2` as a separate repository, with local checkout `C:/Projects/german-master-2`. Import both original histories without squashing, under `apps/web` and `apps/android`. Preserve the original repos and remote branches. It was created privately first, then made public on 3 October 2026 at the owner's explicit request. This publishes the imported Android source and history; the original Android repo remains private.
+Create `abulhawa/german-master-2` as a separate repository, with local checkout `<repository>`. Import both original histories without squashing, under `apps/web` and `apps/android`. Preserve the original repos and remote branches. It was created privately first, then made public on 3 October 2026 at the owner's explicit request. This publishes the imported Android source and history; the original Android repo remains private.
 
 This supersedes the blueprint's eventual recommendation to reuse the web remote. The owner requested a new repo and explicitly selected public visibility. The rest of the product and architecture recommendations remain the planning baseline.
 

@@ -1,5 +1,53 @@
 # German Master 2.0 renovation checkpoint
 
+## Public evidence privacy correction — 8 October 2026
+
+- Removed personal machine paths and private recovery locations from tracked documentation, including older toolchain references. Public evidence uses repository-relative references or generic placeholders; exact backup locations remain in private manifests.
+- Remote main remains at `f6b4087`; the four documentation commits created in this chat were unpushed. Replaced that local-only sequence with a sanitized commit, preserving all decisions and work. Earlier public history is not rewritten or force-pushed.
+- M0 continues: official Supabase PostgreSQL image is available through WSL Docker; legacy Auth/Storage are included in the required backup scope. Full backup/restore gate remains open. Signing remains owner-managed and laptop backups are accepted.
+- Verification: tracked documentation machine-path and Git whitespace checks. No push or production mutation.
+
+
+## M0 laptop backup and existing database separation — 8 October 2026
+
+- Owner accepts laptop-only backups; removed off-machine storage from current M0 requirements. Private recovery destination is `the private laptop recovery directory` outside the public checkout. Android signing remains owner-managed.
+- Saved seven source/data recovery files under `2026-10-08-dc73f5d`: existing legacy bundles/snapshot/evidence/content manifest and fresh all-ref renovation bundle. Copied hashes match, four bundle verifications pass; fresh renovation bare clone/fsck passes and restored main equals `dc73f5d`. Private manifest saved alongside artifacts. This is not a full PostgreSQL/Auth/Storage backup or restore; later commits need a fresh dated snapshot.
+- Live read-only Supabase inventory confirms the legacy and `german-master-v2-production` projects both healthy. Separation already exists; no project creation, billing or production configuration change. Official pricing currently allows two active Free projects; actual organization billing plan was not queried.
+- Updated instructions/current gates/continuation and [M0 inventory](docs/operations/m0-inventory.md). Exact next action: provision isolated restore tooling, obtain full legacy/v2 exports without production writes and verify PostgreSQL plus applicable Auth/Storage recovery. M0 stays active; later milestones queued.
+- Verification: backup hash/bundle/clone/fsck checks and Git whitespace; no application suites repeated, production writes, deployment, content publication, store release or AI/Groq calls. Local commit only.
+- Commit message: `docs: record verified laptop backups and existing database isolation`.
+
+
+## M0 Android ownership clarification — 8 October 2026
+
+- Owner confirms holding Android signing keys and signing builds in Android Studio; agent scope is identity/version numbers using the sister project. This supersedes earlier requests for certificate/key-custody inspection. Signing continuity remains owner-managed; no key transfer is needed.
+- Read-only sister-project inspection confirms application ID `com.germanverbmaster.android`, versionCode 29 and versionName 0.2.08. Original checkout is clean and unchanged. Source numbers do not establish the live Play maximum; owner checks it before release.
+- Updated instructions, M0 inventory, gate table and continuation scope. Explained backup scope: original source histories, authored content, relevant database state and renovation snapshot; no learner migration or signing-key collection.
+- Exact next action: complete full private backup/isolated restore and identify a private off-machine recovery destination. M0 remains active; later milestones queued.
+- Documentation diff/whitespace checks; no application tests repeated or production access, uploads, releases or AI/Groq calls. Committed locally.
+- Commit message: `docs: record owner-managed Android signing and version baseline`.
+
+
+## M0 local preservation recheck — 8 October 2026
+
+- Started clean at `31f310f`. All three recovery bundles pass `git bundle verify`; all 21 content-manifest hashes match; private public-row snapshot digest matches saved evidence. This is not full PostgreSQL recovery or a fresh clone/fsck rehearsal.
+- Bounded tool check: pg_dump/pg_restore/psql/Docker absent from PATH; standard PostgreSQL installation directory absent. Known backup folder has no full database dump. Release local.properties absent at checked Android paths. Off-machine destination and authoritative Play version/signing custody records remain unidentified.
+- Evidence: [M0 inventory recheck](docs/operations/m0-inventory.md). Asked owner for private backup destination and Play access/records, without requesting secrets. M0 alone stays active; no milestone exit closes.
+- Exact next action: resolve private backup destination and Play records/access, provision isolated restore tooling and verify full PostgreSQL plus applicable Auth/Storage recovery and signing custody. M1 conversion remains queued.
+- Verification: artifact digests, bundle verification, documentation link and Git whitespace checks. No application tests repeated, live provider calls, production writes, deployments, publication, store uploads or AI/Groq calls. Committed locally.
+- Commit message: `docs: record M0 preservation recheck and access blockers`.
+
+
+## Sequential milestone closure — 8 October 2026
+
+- Owner requested closing milestones one by one. M0 is now the only active milestone; M1–M5 are queued with existing partial work preserved, M6 is not started and M7 remains deferred. No completion gate has been waived or milestone declared complete.
+- Reconciled clean checkout at `f6b4087`, current gates, blueprint section 23 and the preservation inventory. Updated AGENTS.md, continuation instructions and the current milestone table/order. This supersedes the B2 conversion next action in historical entries below.
+- M0 remaining evidence: full private/off-machine backup and isolated PostgreSQL restore (schema/functions/extensions/grants/policies and applicable Auth/Storage), plus authoritative Play maximum published versionCode, certificate identities and signing/key custody recovery records. The 3 October inventory records unavailable tooling/access; it is historical, not a fresh availability check.
+- Exact next action: inspect current M0 tooling/access and private preservation artifacts, reconcile the inventory, perform authorized isolated recovery verification where possible and request the precise missing backup destination/Play records if blocked. Stay within M0 until its gates close; B2 conversion resumes under M1 afterward.
+- Verification: documentation sequencing/status consistency, relative links and Git whitespace checks. Documentation-only change; no runtime tests repeated. Local commit only; no push, deployment, production mutation, publication, store upload or AI/Groq calls.
+- Commit message: `docs: focus renovation on sequential milestone closure`.
+
+
 ## Converted B1 client preview completed — 8 October 2026
 
 - Implemented the next unfinished slice from the checkpoint at clean `5390e34`: local client acceptance of the three converted B1 families. Added `content:preview-basics`, a loopback-only in-memory candidate host that first checks committed candidate SQL/catalog against the generator. Synthetic activation exists only inside its disposable database; no production configuration, content file, publication approval or credential is changed.
@@ -463,11 +511,11 @@ The owner wants to continue the renovation across new Codex chats with a simple 
 
 ## Working repository
 
-- Local root: `C:/Projects/german-master-2`
+- Local root: `<repository>`
 - Remote: `https://github.com/abulhawa/german-master-2`
 - Primary branch: `main`
 - This continuation started clean on main at `fa30875`, with all three hosted workflows passing. Current changes add web reserve caching and local offline practice/delivery on both clients. See the newest checkpoint above for exact verification and local commit state.
-- Original repos remain preserved at `C:/Projects/german-master` and `C:/Projects/GermanVerbMaster-Android`. Do new work here, not in those repos.
+- Original repos remain preserved at `<preserved-web-repository>` and `<preserved-android-repository>`. Do new work here, not in those repos.
 
 ## Completed and verified
 
@@ -603,7 +651,7 @@ Target detail, topic/target-focused practice and owned profile setup/onboarding 
 
 - Web verified with Node 22.23.3 and npm 10.9.9. Portable local installation currently under ignored `.local/tools/node-v22.23.3-win-x64`; availability is machine-specific.
 - Run root `npm ci`, `npm run check`, `npm test`, and relevant `npm run build`. Use mocks/fixtures, no production credentials. Leave `DATABASE_URL` unset for the inherited test fixture default; an empty string prevents some suites from loading.
-- Android now verified with Gradle 9.8.0, AGP 9.4.1, Java 21, compile/target SDK 37, and the checked-in version catalog. This machine has Java under `C:/Users/ali_a/.gradle/jdks/eclipse_adoptium-21-amd64-windows.2` and SDK under `C:/Users/ali_a/AppData/Local/Android/Sdk`.
+- Android now verified with Gradle 9.8.0, AGP 9.4.1, Java 21, compile/target SDK 37, and the checked-in version catalog. This machine has Java under `<local-toolchain-path>` and SDK under `<local-toolchain-path>`.
 - Android SDK package naming currently uses `platforms;android-37.0`; CI also installs build tools 37.0.0 and the declared NDK. Discover actual available requirements when resolving the lint issue.
 - From `apps/android`, use the wrapper for relevant tests, `lintDebug` and `assembleDebug`. Reports/build outputs are local and ignored.
 

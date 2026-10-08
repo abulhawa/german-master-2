@@ -15,10 +15,10 @@ A separate real-service journey sets a 15-question preference, starts the five a
 Reproduce using installed Java/SDK and Node 22:
 
 ```powershell
-$env:JAVA_HOME='C:/Users/ali_a/.gradle/jdks/eclipse_adoptium-21-amd64-windows.2'
-$env:ANDROID_HOME='C:/Users/ali_a/AppData/Local/Android/Sdk'
-$env:GRADLE_USER_HOME='C:/Users/ali_a/.gradle'
-$env:GM_TEST_NODE='C:/Users/ali_a/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
+$env:JAVA_HOME='<local-toolchain-path>
+$env:ANDROID_HOME='<local-toolchain-path>
+$env:GRADLE_USER_HOME='<local-toolchain-path>
+$env:GM_TEST_NODE='<local-toolchain-path>
 apps/android/gradlew.bat -p apps/android :app:testDebugUnitTest :app:lintDebug :app:assembleDebug --offline --console=plain
 ```
 
