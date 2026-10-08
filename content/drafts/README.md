@@ -27,3 +27,8 @@ The five B1 irregular present-tense targets (`fahren`, `lesen`, `geben`, `nehmen
 ## Low-typing plural conversion — 8 October 2026
 
 All 10 B1 plural targets are prepared as immutable revision 2 `choice` exercises (20 variants). Each question uses four noun-form options built from the correct plural plus realistic learner errors such as missing umlaut, wrong plural ending, dative-plural `-n`, singular carry-over or `-s` overgeneralization where appropriate. Correct-answer positions vary in authored order because clients do not shuffle at runtime. The objective now explicitly measures choosing the standard plural rather than unrestricted written production. Revision 1 remains historical published content; revision 2 remains unpublished and pending independent German review.
+
+
+## B2 low-typing conversion — 9 October 2026
+
+All 30 B2 draft targets (60 variants) now use authored revision 2 `gap_choice` exercises instead of typed cloze input. Original exercise/target identifiers and context pairs are preserved, with four distinct options in varied authored order. Existing bilingual explanations remain. B2 level labels describe the learning pack, not a CEFR proficiency assessment. These are AI-authored review drafts, not independently verified German content. The synchronized candidate remains unpublished, and all earlier published revisions remain unchanged.
