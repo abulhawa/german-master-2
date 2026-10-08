@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import draft from '../../../content/drafts/initial-30.json';
+import b2Draft from '../../../content/drafts/b2-basics.json';
 import { validateDraftCatalog } from './content-review';
 
 describe('initial editorial workspace', () => {
@@ -34,6 +35,34 @@ describe('initial editorial workspace', () => {
       expect(new Set(item.exercise.options.map(option => option.id)).size).toBe(4);
       expect(item.exercise.options.some(option => option.id === answer.optionId)).toBe(true);
     }
+  });
+  it('converts all B2 draft variants into authored, answerable gap choices', () => {
+    const merged = { ...draft, targets: [...draft.targets, ...b2Draft.targets] };
+    const result = validateDraftCatalog(merged);
+    expect([result.targets, result.variants, result.independentlyApproved]).toEqual([60, 120, 0]);
+    const targets = result.catalog.targets.filter(target => target.level === 'B2');
+    expect(targets).toHaveLength(30);
+    const positions = new Set<number>();
+    for (const target of targets) {
+      expect(target.review.status).toBe('pending');
+      for (const variant of target.variants) {
+        const exercise = variant.exercise;
+        const answer = variant.rubric.acceptedAnswers[0];
+        if (exercise.type !== 'gap_choice' || answer.type !== 'gap_choice') {
+          throw Error('B2 revision must use an authored gap choice');
+        }
+        expect(exercise.revision).toBe(2);
+        expect(exercise.slots).toHaveLength(1);
+        expect(answer.selections).toHaveLength(1);
+        const options = exercise.slots[0].options;
+        expect(options).toHaveLength(4);
+        expect(new Set(options.map(option => option.id)).size).toBe(4);
+        const position = options.findIndex(option => option.id === answer.selections[0].optionId);
+        expect(position).toBeGreaterThanOrEqual(0);
+        positions.add(position);
+      }
+    }
+    expect(positions.size).toBe(4);
   });
   it('validates identities inside low-typing inputs', () => {
     const data = structuredClone(draft);
