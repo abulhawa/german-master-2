@@ -16,7 +16,7 @@ The repository contains the durable state. A new chat need not have access to th
 
 Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
 
-Exact next action: convert the five B2 verb/preposition targets (10 typed cloze variants) into authored gap choices with plausible distractors and bilingual feedback. Preserve immutable revisions, regenerate the unpublished candidate/workbooks and reuse the verified web/native controls and authoritative HTTP/restart/retry/completion checks. Then complete remaining conversion, independent German review and design/accessibility acceptance before closing M1.
+All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate, including the five verb/preposition targets. Exact next action: validate generated content, run full root/Android suites and web/native B2 client acceptance, then obtain independent German review and complete design/accessibility acceptance before M1 closure. Publication remains separately authorized.
 
 The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. Independent German review and physical-device acceptance remain open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
 
