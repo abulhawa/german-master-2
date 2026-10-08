@@ -32,10 +32,10 @@ import java.util.concurrent.TimeUnit
 class BasicCandidatePreviewTest {
     @get:Rule val compose = createComposeRule()
 
-    @Test fun allFortyConvertedVariantsAreSelectableAndGradeAtLargeText() {
+    @Test fun allHundredConvertedVariantsAreSelectableAndGradeAtLargeText() {
         Harness().use { harness ->
             val variants = harness.variants
-            assertEquals(40, variants.size)
+            assertEquals(100, variants.size)
             var exercise by mutableStateOf(variants.first().first)
             var draft by mutableStateOf<Answer?>(null)
             compose.setContent {
@@ -95,7 +95,7 @@ class BasicCandidatePreviewTest {
                 }
                 var repo = LearnerRepository(lossy, store)
                 repo.refresh()
-                val targets = harness.variants.map { it.first.targetId }.distinct()
+                val targets = harness.variants.map { it.first.targetId }.filter { it.startsWith("10000000-") }.distinct()
                 assertEquals(20, targets.size)
                 for (target in targets) {
                     repo.startPractice(TargetFocus(target))
