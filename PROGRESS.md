@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 B2 low-typing draft conversion — 9 October 2026
+
+- Converted all 30 B2 source targets / 60 previously typed cloze variants into authored, single-slot `gap_choice` revision 2 exercises. Every variant has four distinct, plausible answers with correct positions distributed across all four slots. Stable exercise/target IDs, variant/context keys, bilingual explanations and publication boundaries are preserved. Removed the answer-revealing passive-perfect hint. No independent German review has been claimed.
+- Regenerated the 65-target / 125-exercise unpublished candidate's SQL, manifest and editorial review workbook. Before changing the artifacts, independently reconstructed and matched the previous 125-member manifest and the B2 review workbook from source. After conversion, checked that all 60 new revision records and release references are consistently revision 2 and the manifest is recomputed. Added content and API regression tests to be run in CI.
+- Changes are in a review branch. No npm/Android runtime, physical-device or hosted CI result is claimed yet. No production SQL/configuration changes, publication, deployment, signing or store release occurred.
+- Exact next action: validate CI/build and B2 web/native preview, resolve any failures, then complete independent German review and remaining M1 design/accessibility acceptance. Five legacy starter exercises are retained unchanged.
+
+
 ## M0 closed — verified private preservation and recovery — 8 October 2026
 
 - Completed the owner's requested M0 closure under the clarified laptop-backup and owner-managed Android signing scope. M0 is complete; M1 is the sole active milestone. M2–M5 remain queued with partial implementation preserved; M6 has not started.
