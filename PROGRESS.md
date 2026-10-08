@@ -1,5 +1,25 @@
 # German Master 2.0 renovation checkpoint
 
+## Milestone item finalization — 8 October 2026
+
+- Reconciled the clean checkout at `e95363b` with the blueprint exit gates, current milestone table and recorded verification. Closed completed implementation items below; retained existing unmet acceptance requirements. No new issue or feature scope was added. Bootstrap is complete; full M0–M6 exits remain open and M7 remains deferred.
+
+| Milestone | Completed items | Current milestone status |
+| --- | --- | --- |
+| M0 | Monorepo bootstrap/imported histories, source recovery evidence, clean v2 baseline and deployment inventory. | Open: existing full restore/private backup and Play signing/version custody gates. |
+| M1 | Shared contracts/tokens; four reusable low-typing formats on both clients; published 65-target/125-exercise basics; three B1 draft topics converted (20 targets/40 revision-2 exercises), candidate generation and local validation repaired and passing. | In progress: converted-topic client preview, remaining catalog conversion, independent German review and design/accessibility acceptance. |
+| M2 | Authoritative grading/evidence/scheduling, adaptive sessions, idempotent replay, prepared packs and scoped network roles; local new-format HTTP/pack checks. | In progress: existing reviewed-content and independent-connection/load/operational acceptance. |
+| M3 | Deployed renovated web journey, guest practice, Topics/Progress, durable drafts/reports/completion, offline shell and recorded confirmed-account lifecycle. | In progress: converted-content acceptance, self-service email confirmation, browser deletion/recovery, assistive-technology/design and subsequent release verification. |
+| M4 | Native learner/API/repository foundation, authoritative JVM HTTP, durable draft/outbox recovery and four low-typing controls; recorded unit/lint/assembly and simulated large-text checks. | In progress: production/guest parity and existing real-device/account/accessibility/release acceptance. |
+| M5 | Both-client prepared reserves, provisional grading, frozen outboxes, ownership isolation and retry-safe reconciliation; recorded web offline cold-launch/restart/late-sync acceptance. | In progress: existing native/two-device/auth-switch and operational recovery/privacy/moderation gates. |
+| M6 | Pilot requirements defined in the blueprint. | Not started: existing reviewed-coverage, participant feedback and delayed-retention gates. |
+| M7 | Optional expansion remains outside the current core task. | Deferred until the usefulness gate. |
+
+- Evidence: [current milestone gates](docs/operations/milestone-gates.md), the repair and three conversion checkpoints below, and their linked verification records. The candidate contains 20 plural choices and 20 adjective/verb gap choices; it remains unpublished and pending independent review. Historical checkpoints remain unchanged.
+- Validation: documentation links, table/next-action consistency and Git whitespace checked. Runtime suites were not repeated for documentation-only changes; the repair checkpoint below records the latest passing checks. This update is committed locally; no push, hosted CI, deployment, publication or device acceptance is claimed.
+- Exact next action: preview all three converted B1 families on web and Android against the unpublished local candidate before expanding conversion. Push the verified repair and this documentation update when authorized, then verify hosted checks. Existing editorial/device gates remain unchanged.
+- Commit message: `docs: finalize completed milestone items and current next action`.
+
 ## Repair ChatGPT low-typing verification — 8 October 2026
 
 - Owner requested fixes after review of ChatGPT's 14 commits through `5442d84`. Fast-forwarded the clean local main checkout from `ab96843`; preserved the converted draft content and publication boundaries.

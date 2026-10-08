@@ -12,9 +12,9 @@ If the chat starts outside the repo, use:
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
-## Current shared priority — 7 October 2026
+## Current shared priority — 8 October 2026
 
-The low-typing foundation is implemented and pushed as `59d7b0d`. Continue with one complete topic: author MCQ distractors, gap choices, accepted token orders or matching pairs and bilingual feedback; integrate/preview both clients and prepare it for German review without publishing. Extend the validated pattern across the catalog afterward. Android production/guest parity, real-device accessibility and remaining account/operations gates follow the [current milestone table](milestone-gates.md).
+The low-typing foundation is implemented and pushed as `59d7b0d`. B1 adjective endings, irregular present-tense verbs and plurals are now converted in the unpublished candidate (20 targets/40 revision-2 exercises). Repair `e95363b` is committed locally with passing root generated/type checks, full tests and web/API build. Next, preview all three converted families on web and Android against the unpublished local candidate and prepare them for independent German review. Extend the validated pattern across the remaining catalog afterward. Push the verified repair/documentation when authorized and verify hosted checks separately. Android production/guest parity, real-device accessibility and remaining account/operations gates follow the [current milestone table](milestone-gates.md).
 
 This is a hard reset with no existing learners to migrate. Do not recreate legacy-user migration work. Preserve identity/signing, provenance, immutable revisions and operational recovery. ChatGPT content preparation and Codex integration share this priority and [authoring guide](../content/practice-formats.md); check the latest checkout before editing shared files.
 
