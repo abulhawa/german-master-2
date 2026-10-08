@@ -17,7 +17,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -28,14 +28,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001000",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000000",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Antrag ___ von der Behörde geprüft. (werden, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  },
+                  {
+                    "id": "werde",
+                    "text": "werde"
+                  },
+                  {
+                    "id": "wurden",
+                    "text": "wurden"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -43,19 +61,19 @@
               "de": "Verwende werden und das Partizip II."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wird"
+                    "optionId": "wird"
                   }
                 ]
               }
@@ -65,7 +83,7 @@
               "de": "Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-0-1",
@@ -74,14 +92,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001001",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000000",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Rechnung ___ heute bearbeitet. (werden, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "wurde",
+                    "text": "wurde"
+                  },
+                  {
+                    "id": "werdet",
+                    "text": "werdet"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -89,19 +125,19 @@
               "de": "Verwende werden und das Partizip II."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wird"
+                    "optionId": "wird"
                   }
                 ]
               }
@@ -111,7 +147,7 @@
               "de": "Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -129,7 +165,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -140,14 +176,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001002",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000001",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Unterlagen ___ gestern geprüft. (werden, Präteritum)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "wurde",
+                    "text": "wurde"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "wurden",
+                    "text": "wurden"
+                  },
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -155,19 +209,19 @@
               "de": "Setze werden ins Präteritum."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wurden"
+                    "optionId": "wurden"
                   }
                 ]
               }
@@ -177,7 +231,7 @@
               "de": "Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-1-1",
@@ -186,14 +240,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001003",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000001",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Lieferung ___ letzte Woche verschickt. (werden, Präteritum)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "wurden",
+                    "text": "wurden"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "worden",
+                    "text": "worden"
+                  },
+                  {
+                    "id": "wurde",
+                    "text": "wurde"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -201,19 +273,19 @@
               "de": "Setze werden ins Präteritum."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wurde"
+                    "optionId": "wurde"
                   }
                 ]
               }
@@ -223,7 +295,7 @@
               "de": "Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -241,7 +313,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -252,34 +324,52 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001004",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000002",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Vertrag ist unterschrieben ___. (Passiv, Perfekt)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "worden",
+                    "text": "worden"
+                  },
+                  {
+                    "id": "geworden",
+                    "text": "geworden"
+                  },
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  },
+                  {
+                    "id": "wurde",
+                    "text": "wurde"
+                  }
+                ]
               }
             ],
             "hint": {
-              "en": "The passive perfect ends with worden.",
-              "de": "Im Perfekt des Vorgangspassivs steht am Ende worden."
+              "en": "Distinguish the perfect passive from the participle of the full verb werden.",
+              "de": "Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs werden."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "worden"
+                    "optionId": "worden"
                   }
                 ]
               }
@@ -289,7 +379,7 @@
               "de": "Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-2-1",
@@ -298,34 +388,52 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001005",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000002",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Geräte sind repariert ___. (Passiv, Perfekt)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "geworden",
+                    "text": "geworden"
+                  },
+                  {
+                    "id": "worden",
+                    "text": "worden"
+                  },
+                  {
+                    "id": "wurden",
+                    "text": "wurden"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  }
+                ]
               }
             ],
             "hint": {
-              "en": "The passive perfect ends with worden.",
-              "de": "Im Perfekt des Vorgangspassivs steht am Ende worden."
+              "en": "Distinguish the perfect passive from the participle of the full verb werden.",
+              "de": "Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs werden."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "worden"
+                    "optionId": "worden"
                   }
                 ]
               }
@@ -335,7 +443,7 @@
               "de": "Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -353,7 +461,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -364,14 +472,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001006",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000003",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Antrag muss bis Freitag geprüft ___. (Passivinfinitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "worden",
+                    "text": "worden"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  },
+                  {
+                    "id": "wurden",
+                    "text": "wurden"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -379,19 +505,19 @@
               "de": "Nach einem Modalverb stehen Partizip II und werden."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "werden"
+                    "optionId": "werden"
                   }
                 ]
               }
@@ -401,7 +527,7 @@
               "de": "Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-3-1",
@@ -410,14 +536,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001007",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000003",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Daten können digital übermittelt ___. (Passivinfinitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "worden",
+                    "text": "worden"
+                  },
+                  {
+                    "id": "wird",
+                    "text": "wird"
+                  },
+                  {
+                    "id": "werde",
+                    "text": "werde"
+                  },
+                  {
+                    "id": "werden",
+                    "text": "werden"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -425,19 +569,19 @@
               "de": "Nach einem Modalverb stehen Partizip II und werden."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "werden"
+                    "optionId": "werden"
                   }
                 ]
               }
@@ -447,7 +591,7 @@
               "de": "Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -465,7 +609,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -476,14 +620,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001008",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000004",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn ich mehr Zeit ___, würde ich den Kurs besuchen. (haben, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  },
+                  {
+                    "id": "hatte",
+                    "text": "hatte"
+                  },
+                  {
+                    "id": "habe",
+                    "text": "habe"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -491,19 +653,19 @@
               "de": "Verwende den Konjunktiv II von haben."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hätte"
+                    "optionId": "hätte"
                   }
                 ]
               }
@@ -513,7 +675,7 @@
               "de": "Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …"
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-4-1",
@@ -522,14 +684,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001009",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000004",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn sie einen Führerschein ___, könnte sie zur Arbeit fahren. (haben, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hat",
+                    "text": "hat"
+                  },
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  },
+                  {
+                    "id": "hatte",
+                    "text": "hatte"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -537,19 +717,19 @@
               "de": "Verwende den Konjunktiv II von haben."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hätte"
+                    "optionId": "hätte"
                   }
                 ]
               }
@@ -559,7 +739,7 @@
               "de": "Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …"
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -577,7 +757,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -588,14 +768,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001010",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000005",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "___ Sie mir bitte die Unterlagen schicken? (können, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "Können",
+                    "text": "Können"
+                  },
+                  {
+                    "id": "Könnte",
+                    "text": "Könnte"
+                  },
+                  {
+                    "id": "Könnten",
+                    "text": "Könnten"
+                  },
+                  {
+                    "id": "Könntest",
+                    "text": "Könntest"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -603,19 +801,19 @@
               "de": "Verwende den Konjunktiv II von können."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "Könnten"
+                    "optionId": "Könnten"
                   }
                 ]
               }
@@ -625,7 +823,7 @@
               "de": "Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-5-1",
@@ -634,14 +832,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001011",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000005",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "___ du mir kurz helfen? (können, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "Könnten",
+                    "text": "Könnten"
+                  },
+                  {
+                    "id": "Könnte",
+                    "text": "Könnte"
+                  },
+                  {
+                    "id": "Kannst",
+                    "text": "Kannst"
+                  },
+                  {
+                    "id": "Könntest",
+                    "text": "Könntest"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -649,19 +865,19 @@
               "de": "Verwende den Konjunktiv II von können."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "Könntest"
+                    "optionId": "Könntest"
                   }
                 ]
               }
@@ -671,7 +887,7 @@
               "de": "Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -689,7 +905,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -700,14 +916,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001012",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000006",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn ich früher gelernt ___, hätte ich die Prüfung bestanden. (haben, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  },
+                  {
+                    "id": "hatte",
+                    "text": "hatte"
+                  },
+                  {
+                    "id": "habe",
+                    "text": "habe"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -715,19 +949,19 @@
               "de": "Verwende hätte mit einem Partizip II."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hätte"
+                    "optionId": "hätte"
                   }
                 ]
               }
@@ -737,7 +971,7 @@
               "de": "Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-6-1",
@@ -746,14 +980,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001013",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000006",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn er die Nachricht gelesen ___, hätte er geantwortet. (haben, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hatte",
+                    "text": "hatte"
+                  },
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  },
+                  {
+                    "id": "habe",
+                    "text": "habe"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -761,19 +1013,19 @@
               "de": "Verwende hätte mit einem Partizip II."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hätte"
+                    "optionId": "hätte"
                   }
                 ]
               }
@@ -783,7 +1035,7 @@
               "de": "Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -801,7 +1053,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -812,14 +1064,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001014",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000007",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn der Bus pünktlich gekommen ___, hätten wir den Zug erreicht. (sein, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "war",
+                    "text": "war"
+                  },
+                  {
+                    "id": "ist",
+                    "text": "ist"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  },
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -827,19 +1097,19 @@
               "de": "Verwende wäre bei Verben, deren Perfekt mit sein gebildet wird."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wäre"
+                    "optionId": "wäre"
                   }
                 ]
               }
@@ -849,7 +1119,7 @@
               "de": "Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-7-1",
@@ -858,14 +1128,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001015",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000007",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wenn ich früher losgefahren ___, hätte ich den Termin geschafft. (sein, Konjunktiv II)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "war",
+                    "text": "war"
+                  },
+                  {
+                    "id": "ist",
+                    "text": "ist"
+                  },
+                  {
+                    "id": "hätte",
+                    "text": "hätte"
+                  },
+                  {
+                    "id": "wäre",
+                    "text": "wäre"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -873,19 +1161,19 @@
               "de": "Verwende wäre bei Verben, deren Perfekt mit sein gebildet wird."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "wäre"
+                    "optionId": "wäre"
                   }
                 ]
               }
@@ -895,7 +1183,7 @@
               "de": "Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -913,7 +1201,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -924,14 +1212,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001016",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000008",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Obwohl es stark ___, fahren wir mit dem Rad. (regnen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "regnet",
+                    "text": "regnet"
+                  },
+                  {
+                    "id": "regnen",
+                    "text": "regnen"
+                  },
+                  {
+                    "id": "regnete",
+                    "text": "regnete"
+                  },
+                  {
+                    "id": "regnest",
+                    "text": "regnest"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -939,19 +1245,19 @@
               "de": "Obwohl leitet einen Nebensatz ein."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "regnet"
+                    "optionId": "regnet"
                   }
                 ]
               }
@@ -961,7 +1267,7 @@
               "de": "Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-8-1",
@@ -970,14 +1276,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001017",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000008",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Obwohl die Aufgabe schwierig ___, geben wir nicht auf. (sein, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "war",
+                    "text": "war"
+                  },
+                  {
+                    "id": "ist",
+                    "text": "ist"
+                  },
+                  {
+                    "id": "sind",
+                    "text": "sind"
+                  },
+                  {
+                    "id": "sei",
+                    "text": "sei"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -985,19 +1309,19 @@
               "de": "Obwohl leitet einen Nebensatz ein."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "ist"
+                    "optionId": "ist"
                   }
                 ]
               }
@@ -1007,7 +1331,7 @@
               "de": "Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1025,7 +1349,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1036,14 +1360,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001018",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000009",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Da die Kollegin heute ___, übernimmt Tim ihre Aufgaben. (fehlen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "fehlen",
+                    "text": "fehlen"
+                  },
+                  {
+                    "id": "fehlte",
+                    "text": "fehlte"
+                  },
+                  {
+                    "id": "fehlt",
+                    "text": "fehlt"
+                  },
+                  {
+                    "id": "fehlst",
+                    "text": "fehlst"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1051,19 +1393,19 @@
               "de": "Da leitet eine Begründung ein; das Verb steht am Ende."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "fehlt"
+                    "optionId": "fehlt"
                   }
                 ]
               }
@@ -1073,7 +1415,7 @@
               "de": "Im Nebensatz mit da steht das konjugierte Verb am Ende."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-9-1",
@@ -1082,14 +1424,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001019",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000009",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Da der Drucker nicht ___, schicken wir die Datei per E-Mail. (funktionieren, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "funktionieren",
+                    "text": "funktionieren"
+                  },
+                  {
+                    "id": "funktionierte",
+                    "text": "funktionierte"
+                  },
+                  {
+                    "id": "funktionierst",
+                    "text": "funktionierst"
+                  },
+                  {
+                    "id": "funktioniert",
+                    "text": "funktioniert"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1097,19 +1457,19 @@
               "de": "Da leitet eine Begründung ein; das Verb steht am Ende."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "funktioniert"
+                    "optionId": "funktioniert"
                   }
                 ]
               }
@@ -1119,7 +1479,7 @@
               "de": "Im Nebensatz mit da steht das konjugierte Verb am Ende."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1137,7 +1497,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1148,14 +1508,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001020",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000010",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Zug hatte Verspätung, sodass ich zu spät ___. (ankommen, Präteritum)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "ankam",
+                    "text": "ankam"
+                  },
+                  {
+                    "id": "ankomme",
+                    "text": "ankomme"
+                  },
+                  {
+                    "id": "ankäme",
+                    "text": "ankäme"
+                  },
+                  {
+                    "id": "ankommen",
+                    "text": "ankommen"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1163,19 +1541,19 @@
               "de": "Sodass leitet die Folge in einem Nebensatz ein."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "ankam"
+                    "optionId": "ankam"
                   }
                 ]
               }
@@ -1185,7 +1563,7 @@
               "de": "Im Nebensatz mit sodass steht das konjugierte Verb am Ende."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-10-1",
@@ -1194,14 +1572,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001021",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000010",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Erklärung war klar, sodass alle den Ablauf ___. (verstehen, Präteritum)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "verstand",
+                    "text": "verstand"
+                  },
+                  {
+                    "id": "verstanden",
+                    "text": "verstanden"
+                  },
+                  {
+                    "id": "verstehen",
+                    "text": "verstehen"
+                  },
+                  {
+                    "id": "versteht",
+                    "text": "versteht"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1209,19 +1605,19 @@
               "de": "Sodass leitet die Folge in einem Nebensatz ein."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "verstanden"
+                    "optionId": "verstanden"
                   }
                 ]
               }
@@ -1231,7 +1627,7 @@
               "de": "Im Nebensatz mit sodass steht das konjugierte Verb am Ende."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1249,7 +1645,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1260,14 +1656,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001022",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000011",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich besuche einen Kurs, um meine Aussprache ___ verbessern. (Infinitivpartikel)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "zum",
+                    "text": "zum"
+                  },
+                  {
+                    "id": "für",
+                    "text": "für"
+                  },
+                  {
+                    "id": "zu",
+                    "text": "zu"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1275,19 +1689,19 @@
               "de": "Vor dem Infinitiv steht zu."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "zu"
+                    "optionId": "zu"
                   }
                 ]
               }
@@ -1297,7 +1711,7 @@
               "de": "Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-11-1",
@@ -1306,14 +1720,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001023",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000011",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie spart Geld, um eine Weiterbildung ___ finanzieren. (Infinitivpartikel)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "zum",
+                    "text": "zum"
+                  },
+                  {
+                    "id": "für",
+                    "text": "für"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  },
+                  {
+                    "id": "zu",
+                    "text": "zu"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1321,19 +1753,19 @@
               "de": "Vor dem Infinitiv steht zu."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "zu"
+                    "optionId": "zu"
                   }
                 ]
               }
@@ -1343,7 +1775,7 @@
               "de": "Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1361,7 +1793,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1372,14 +1804,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001024",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000012",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich habe vor, mich auf das Gespräch ___. (vorbereiten, Infinitiv mit zu)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "vorzubereiten",
+                    "text": "vorzubereiten"
+                  },
+                  {
+                    "id": "vorbereiten",
+                    "text": "vorbereiten"
+                  },
+                  {
+                    "id": "zubereiten",
+                    "text": "zubereiten"
+                  },
+                  {
+                    "id": "vorzubereite",
+                    "text": "vorzubereite"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1387,19 +1837,19 @@
               "de": "Setze zu zwischen Vorsilbe und Verbstamm."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "vorzubereiten"
+                    "optionId": "vorzubereiten"
                   }
                 ]
               }
@@ -1409,7 +1859,7 @@
               "de": "Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-12-1",
@@ -1418,14 +1868,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001025",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000012",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie hat beschlossen, am Seminar ___. (teilnehmen, Infinitiv mit zu)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "teilnehmen",
+                    "text": "teilnehmen"
+                  },
+                  {
+                    "id": "teilzunehmen",
+                    "text": "teilzunehmen"
+                  },
+                  {
+                    "id": "zuteilnehmen",
+                    "text": "zuteilnehmen"
+                  },
+                  {
+                    "id": "teilzunehme",
+                    "text": "teilzunehme"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1433,19 +1901,19 @@
               "de": "Setze zu zwischen Vorsilbe und Verbstamm."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "teilzunehmen"
+                    "optionId": "teilzunehmen"
                   }
                 ]
               }
@@ -1455,7 +1923,7 @@
               "de": "Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1473,7 +1941,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1484,14 +1952,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001026",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000013",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Vertrag, ___ ich gestern unterschrieben habe, gilt ab Mai. (Relativpronomen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  },
+                  {
+                    "id": "den",
+                    "text": "den"
+                  },
+                  {
+                    "id": "das",
+                    "text": "das"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1499,19 +1985,19 @@
               "de": "Das Relativpronomen ist das Objekt im Relativsatz."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "den"
+                    "optionId": "den"
                   }
                 ]
               }
@@ -1521,7 +2007,7 @@
               "de": "Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-13-1",
@@ -1530,14 +2016,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001027",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000013",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Das Angebot, ___ wir erhalten haben, ist günstig. (Relativpronomen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "den",
+                    "text": "den"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  },
+                  {
+                    "id": "das",
+                    "text": "das"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1545,19 +2049,19 @@
               "de": "Das Relativpronomen ist das Objekt im Relativsatz."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "das"
+                    "optionId": "das"
                   }
                 ]
               }
@@ -1567,7 +2071,7 @@
               "de": "Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1585,7 +2089,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1596,14 +2100,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001028",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000014",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Kollegin, ___ ich geholfen habe, bedankt sich. (Relativpronomen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "der",
+                    "text": "der"
+                  },
+                  {
+                    "id": "die",
+                    "text": "die"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "den",
+                    "text": "den"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1611,19 +2133,19 @@
               "de": "Helfen und mit verlangen den Dativ."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "der"
+                    "optionId": "der"
                   }
                 ]
               }
@@ -1633,7 +2155,7 @@
               "de": "Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-14-1",
@@ -1642,14 +2164,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001029",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000014",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Kunde, mit ___ ich gesprochen habe, kommt morgen. (Relativpronomen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "den",
+                    "text": "den"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "dessen",
+                    "text": "dessen"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1657,19 +2197,19 @@
               "de": "Helfen und mit verlangen den Dativ."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "dem"
+                    "optionId": "dem"
                   }
                 ]
               }
@@ -1679,7 +2219,7 @@
               "de": "Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1697,7 +2237,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1708,14 +2248,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001030",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000015",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Mitarbeiter, ___ Vorschlag wir besprochen haben, ist heute da. (Relativpronomen im Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "deren",
+                    "text": "deren"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "dessen",
+                    "text": "dessen"
+                  },
+                  {
+                    "id": "den",
+                    "text": "den"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1723,19 +2281,19 @@
               "de": "Dessen und deren drücken Zugehörigkeit aus."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "dessen"
+                    "optionId": "dessen"
                   }
                 ]
               }
@@ -1745,7 +2303,7 @@
               "de": "Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-15-1",
@@ -1754,14 +2312,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001031",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000015",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Firma, ___ Produkte wir verkaufen, hat ihren Sitz in Köln. (Relativpronomen im Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "dessen",
+                    "text": "dessen"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  },
+                  {
+                    "id": "deren",
+                    "text": "deren"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1769,19 +2345,19 @@
               "de": "Dessen und deren drücken Zugehörigkeit aus."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "deren"
+                    "optionId": "deren"
                   }
                 ]
               }
@@ -1791,7 +2367,7 @@
               "de": "Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1809,7 +2385,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1820,14 +2396,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001032",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000016",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Trotz ___ starken Regens fand die Veranstaltung statt. (der, Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "des",
+                    "text": "des"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "den",
+                    "text": "den"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1835,19 +2429,19 @@
               "de": "Verwende den Genitiv der Standardschriftsprache."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "des"
+                    "optionId": "des"
                   }
                 ]
               }
@@ -1857,7 +2451,7 @@
               "de": "In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-16-1",
@@ -1866,14 +2460,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001033",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000016",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Trotz ___ Verspätung erreichten wir den Anschluss. (die, Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "die",
+                    "text": "die"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  },
+                  {
+                    "id": "des",
+                    "text": "des"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1881,19 +2493,19 @@
               "de": "Verwende den Genitiv der Standardschriftsprache."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "der"
+                    "optionId": "der"
                   }
                 ]
               }
@@ -1903,7 +2515,7 @@
               "de": "In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -1921,7 +2533,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -1932,14 +2544,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001034",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000017",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Während ___ Gesprächs klingelte das Telefon. (das, Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "das",
+                    "text": "das"
+                  },
+                  {
+                    "id": "des",
+                    "text": "des"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1947,19 +2577,19 @@
               "de": "Hier ist während eine Präposition und keine Konjunktion."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "des"
+                    "optionId": "des"
                   }
                 ]
               }
@@ -1969,7 +2599,7 @@
               "de": "Als Präposition steht während in der Standardschriftsprache mit dem Genitiv."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-17-1",
@@ -1978,14 +2608,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001035",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000017",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Während ___ Besprechung machen wir Notizen. (die, Genitiv)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "den",
+                    "text": "den"
+                  },
+                  {
+                    "id": "das",
+                    "text": "das"
+                  },
+                  {
+                    "id": "dem",
+                    "text": "dem"
+                  },
+                  {
+                    "id": "der",
+                    "text": "der"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -1993,19 +2641,19 @@
               "de": "Hier ist während eine Präposition und keine Konjunktion."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "der"
+                    "optionId": "der"
                   }
                 ]
               }
@@ -2015,7 +2663,7 @@
               "de": "Als Präposition steht während in der Standardschriftsprache mit dem Genitiv."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2033,7 +2681,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2044,14 +2692,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001036",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000018",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wegen des ___ Wetters wurde das Fest abgesagt. (schlecht)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "schlechten",
+                    "text": "schlechten"
+                  },
+                  {
+                    "id": "schlechtem",
+                    "text": "schlechtem"
+                  },
+                  {
+                    "id": "schlechte",
+                    "text": "schlechte"
+                  },
+                  {
+                    "id": "schlechter",
+                    "text": "schlechter"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2059,19 +2725,19 @@
               "de": "Nach dem bestimmten Artikel endet das Adjektiv hier auf -en."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "schlechten"
+                    "optionId": "schlechten"
                   }
                 ]
               }
@@ -2081,7 +2747,7 @@
               "de": "Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-18-1",
@@ -2090,14 +2756,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001037",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000018",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Folgen des ___ Fehlers waren teuer. (technisch)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "technischem",
+                    "text": "technischem"
+                  },
+                  {
+                    "id": "technischen",
+                    "text": "technischen"
+                  },
+                  {
+                    "id": "technischer",
+                    "text": "technischer"
+                  },
+                  {
+                    "id": "technisches",
+                    "text": "technisches"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2105,19 +2789,19 @@
               "de": "Nach dem bestimmten Artikel endet das Adjektiv hier auf -en."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "technischen"
+                    "optionId": "technischen"
                   }
                 ]
               }
@@ -2127,7 +2811,7 @@
               "de": "Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2145,7 +2829,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2156,14 +2840,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001038",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000019",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Mit ___ Interesse habe ich Ihre Anzeige gelesen. (groß)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "großen",
+                    "text": "großen"
+                  },
+                  {
+                    "id": "großer",
+                    "text": "großer"
+                  },
+                  {
+                    "id": "großem",
+                    "text": "großem"
+                  },
+                  {
+                    "id": "große",
+                    "text": "große"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2171,19 +2873,19 @@
               "de": "Ohne Artikel werden Adjektive stark dekliniert."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "großem"
+                    "optionId": "großem"
                   }
                 ]
               }
@@ -2193,7 +2895,7 @@
               "de": "Ohne Artikel endet das Adjektiv im Dativ Maskulinum auf -em, im Dativ Plural auf -en."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-19-1",
@@ -2202,14 +2904,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001039",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000019",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Mit ___ Kollegen arbeiten wir gern zusammen. (zuverlässig)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "zuverlässige",
+                    "text": "zuverlässige"
+                  },
+                  {
+                    "id": "zuverlässigem",
+                    "text": "zuverlässigem"
+                  },
+                  {
+                    "id": "zuverlässiger",
+                    "text": "zuverlässiger"
+                  },
+                  {
+                    "id": "zuverlässigen",
+                    "text": "zuverlässigen"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2217,19 +2937,19 @@
               "de": "Ohne Artikel werden Adjektive stark dekliniert."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "zuverlässigen"
+                    "optionId": "zuverlässigen"
                   }
                 ]
               }
@@ -2239,7 +2959,7 @@
               "de": "Ohne Artikel endet das Adjektiv im Dativ Maskulinum auf -em, im Dativ Plural auf -en."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2257,7 +2977,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2268,14 +2988,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001040",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000020",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Erfolg hängt ___ der Erfahrung des Teams ab. (Präposition zu abhängen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  },
+                  {
+                    "id": "auf",
+                    "text": "auf"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2283,19 +3021,19 @@
               "de": "Lerne die feste Präposition zu abhängen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "von"
+                    "optionId": "von"
                   }
                 ]
               }
@@ -2305,7 +3043,7 @@
               "de": "Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-20-1",
@@ -2314,14 +3052,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001041",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000020",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Unsere Planung hängt ___ dem Wetter ab. (Präposition zu abhängen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  },
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "für",
+                    "text": "für"
+                  },
+                  {
+                    "id": "zu",
+                    "text": "zu"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2329,19 +3085,19 @@
               "de": "Lerne die feste Präposition zu abhängen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "von"
+                    "optionId": "von"
                   }
                 ]
               }
@@ -2351,7 +3107,7 @@
               "de": "Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2369,7 +3125,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2380,14 +3136,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001042",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000021",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie nimmt ___ einer Fortbildung teil. (Präposition zu teilnehmen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "in",
+                    "text": "in"
+                  },
+                  {
+                    "id": "bei",
+                    "text": "bei"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  },
+                  {
+                    "id": "auf",
+                    "text": "auf"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2395,19 +3169,19 @@
               "de": "Lerne die feste Präposition zu teilnehmen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "an"
+                    "optionId": "an"
                   }
                 ]
               }
@@ -2417,7 +3191,7 @@
               "de": "Teilnehmen steht mit an und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-21-1",
@@ -2426,14 +3200,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001043",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000021",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wir nehmen ___ dem Projekt teil. (Präposition zu teilnehmen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  },
+                  {
+                    "id": "über",
+                    "text": "über"
+                  },
+                  {
+                    "id": "zu",
+                    "text": "zu"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2441,19 +3233,19 @@
               "de": "Lerne die feste Präposition zu teilnehmen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "an"
+                    "optionId": "an"
                   }
                 ]
               }
@@ -2463,7 +3255,7 @@
               "de": "Teilnehmen steht mit an und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2481,7 +3273,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2492,14 +3284,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001044",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000022",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Daten überzeugen mich ___ der Qualität. (Präposition zu überzeugen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  },
+                  {
+                    "id": "bei",
+                    "text": "bei"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2507,19 +3317,19 @@
               "de": "Lerne jemanden von etwas überzeugen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "von"
+                    "optionId": "von"
                   }
                 ]
               }
@@ -2529,7 +3339,7 @@
               "de": "Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-22-1",
@@ -2538,14 +3348,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001045",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000022",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie überzeugt das Team ___ ihrem Vorschlag. (Präposition zu überzeugen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "über",
+                    "text": "über"
+                  },
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "zu",
+                    "text": "zu"
+                  },
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2553,19 +3381,19 @@
               "de": "Lerne jemanden von etwas überzeugen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "von"
+                    "optionId": "von"
                   }
                 ]
               }
@@ -2575,7 +3403,7 @@
               "de": "Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2593,7 +3421,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2604,14 +3432,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001046",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000023",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Wir befassen uns ___ den neuen Regeln. (Präposition zu sich befassen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "über",
+                    "text": "über"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  },
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  },
+                  {
+                    "id": "für",
+                    "text": "für"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2619,19 +3465,19 @@
               "de": "Lerne die feste Präposition zu sich befassen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "mit"
+                    "optionId": "mit"
                   }
                 ]
               }
@@ -2641,7 +3487,7 @@
               "de": "Sich befassen steht mit mit und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-23-1",
@@ -2650,14 +3496,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001047",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000023",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Er befasst sich ___ der Auswertung. (Präposition zu sich befassen)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  },
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "über",
+                    "text": "über"
+                  },
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2665,19 +3529,19 @@
               "de": "Lerne die feste Präposition zu sich befassen."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "mit"
+                    "optionId": "mit"
                   }
                 ]
               }
@@ -2687,7 +3551,7 @@
               "de": "Sich befassen steht mit mit und Dativ."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2705,7 +3569,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2716,14 +3580,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001048",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000024",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Neue Möglichkeiten ergeben sich ___ dem Gespräch. (Präposition zu sich ergeben)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  },
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  },
+                  {
+                    "id": "von",
+                    "text": "von"
+                  },
+                  {
+                    "id": "an",
+                    "text": "an"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2731,19 +3613,19 @@
               "de": "Ergeben bedeutet hier resultieren, nicht kapitulieren."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "aus"
+                    "optionId": "aus"
                   }
                 ]
               }
@@ -2753,7 +3635,7 @@
               "de": "Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-24-1",
@@ -2762,14 +3644,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001049",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000024",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die nächsten Schritte ergeben sich ___ der Analyse. (Präposition zu sich ergeben)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Präposition",
+                "options": [
+                  {
+                    "id": "bei",
+                    "text": "bei"
+                  },
+                  {
+                    "id": "aus",
+                    "text": "aus"
+                  },
+                  {
+                    "id": "mit",
+                    "text": "mit"
+                  },
+                  {
+                    "id": "über",
+                    "text": "über"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2777,19 +3677,19 @@
               "de": "Ergeben bedeutet hier resultieren, nicht kapitulieren."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "aus"
+                    "optionId": "aus"
                   }
                 ]
               }
@@ -2799,7 +3699,7 @@
               "de": "Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2817,7 +3717,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2828,14 +3728,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001050",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000025",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich ___ einen Antrag auf Förderung. (stellen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "stellt",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "stelle",
+                    "text": "stelle"
+                  },
+                  {
+                    "id": "stellst",
+                    "text": "stellst"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2843,19 +3761,19 @@
               "de": "Setze das angegebene Verb ins Präsens."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "stelle"
+                    "optionId": "stelle"
                   }
                 ]
               }
@@ -2865,7 +3783,7 @@
               "de": "Einen Antrag stellen ist eine übliche Verbindung für eine formelle Beantragung."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-25-1",
@@ -2874,14 +3792,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001051",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000025",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Sie ___ einen Antrag auf Weiterbildung. (stellen, Präsens, 3. Person Singular)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "stelle",
+                    "text": "stelle"
+                  },
+                  {
+                    "id": "stellst",
+                    "text": "stellst"
+                  },
+                  {
+                    "id": "stellt",
+                    "text": "stellt"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2889,19 +3825,19 @@
               "de": "Setze das angegebene Verb ins Präsens."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "stellt"
+                    "optionId": "stellt"
                   }
                 ]
               }
@@ -2911,7 +3847,7 @@
               "de": "Einen Antrag stellen ist eine übliche Verbindung für eine formelle Beantragung."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -2929,7 +3865,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -2940,14 +3876,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001052",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000026",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Der Vorstand ___ morgen eine Entscheidung. (treffen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "trifft",
+                    "text": "trifft"
+                  },
+                  {
+                    "id": "treffen",
+                    "text": "treffen"
+                  },
+                  {
+                    "id": "triffst",
+                    "text": "triffst"
+                  },
+                  {
+                    "id": "treffe",
+                    "text": "treffe"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -2955,19 +3909,19 @@
               "de": "Treffen verändert im Singular seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "trifft"
+                    "optionId": "trifft"
                   }
                 ]
               }
@@ -2977,7 +3931,7 @@
               "de": "Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-26-1",
@@ -2986,14 +3940,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001053",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000026",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Du ___ die Entscheidung selbst. (treffen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "trifft",
+                    "text": "trifft"
+                  },
+                  {
+                    "id": "triffst",
+                    "text": "triffst"
+                  },
+                  {
+                    "id": "treffen",
+                    "text": "treffen"
+                  },
+                  {
+                    "id": "trefft",
+                    "text": "trefft"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3001,19 +3973,19 @@
               "de": "Treffen verändert im Singular seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "triffst"
+                    "optionId": "triffst"
                   }
                 ]
               }
@@ -3023,7 +3995,7 @@
               "de": "Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -3041,7 +4013,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -3052,14 +4024,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001054",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000027",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Leiterin ___ die Verantwortung für das Projekt. (übernehmen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "übernehme",
+                    "text": "übernehme"
+                  },
+                  {
+                    "id": "übernehmen",
+                    "text": "übernehmen"
+                  },
+                  {
+                    "id": "übernimmt",
+                    "text": "übernimmt"
+                  },
+                  {
+                    "id": "übernimmst",
+                    "text": "übernimmst"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3067,19 +4057,19 @@
               "de": "Übernehmen verändert im Singular seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "übernimmt"
+                    "optionId": "übernimmt"
                   }
                 ]
               }
@@ -3089,7 +4079,7 @@
               "de": "Verantwortung übernehmen bedeutet für etwas verantwortlich werden; die Formen lauten übernimmt / übernimmst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-27-1",
@@ -3098,14 +4088,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001055",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000027",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Du ___ die Verantwortung für die Abrechnung. (übernehmen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "übernimmt",
+                    "text": "übernimmt"
+                  },
+                  {
+                    "id": "übernehmen",
+                    "text": "übernehmen"
+                  },
+                  {
+                    "id": "übernehmt",
+                    "text": "übernehmt"
+                  },
+                  {
+                    "id": "übernimmst",
+                    "text": "übernimmst"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3113,19 +4121,19 @@
               "de": "Übernehmen verändert im Singular seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "übernimmst"
+                    "optionId": "übernimmst"
                   }
                 ]
               }
@@ -3135,7 +4143,7 @@
               "de": "Verantwortung übernehmen bedeutet für etwas verantwortlich werden; die Formen lauten übernimmt / übernimmst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -3153,7 +4161,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -3164,14 +4172,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001056",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000028",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Das Team ___ die Frist ein. (einhalten, Präsens; nur der konjugierte Teil)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hält",
+                    "text": "hält"
+                  },
+                  {
+                    "id": "halte",
+                    "text": "halte"
+                  },
+                  {
+                    "id": "hältst",
+                    "text": "hältst"
+                  },
+                  {
+                    "id": "halten",
+                    "text": "halten"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3179,19 +4205,19 @@
               "de": "Einhalten ist trennbar und verändert seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hält"
+                    "optionId": "hält"
                   }
                 ]
               }
@@ -3201,7 +4227,7 @@
               "de": "Eine Frist einhalten bedeutet rechtzeitig fertig werden. Im Singular stehen hält / hältst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-28-1",
@@ -3210,14 +4236,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001057",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000028",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Du ___ die vereinbarte Frist ein. (einhalten, Präsens; nur der konjugierte Teil)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "hält",
+                    "text": "hält"
+                  },
+                  {
+                    "id": "hältst",
+                    "text": "hältst"
+                  },
+                  {
+                    "id": "haltet",
+                    "text": "haltet"
+                  },
+                  {
+                    "id": "halten",
+                    "text": "halten"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3225,19 +4269,19 @@
               "de": "Einhalten ist trennbar und verändert seinen Stammvokal."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "hältst"
+                    "optionId": "hältst"
                   }
                 ]
               }
@@ -3247,7 +4291,7 @@
               "de": "Eine Frist einhalten bedeutet rechtzeitig fertig werden. Im Singular stehen hält / hältst."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     },
@@ -3265,7 +4309,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "",
+        "notes": "Agent-authored revision 2 low-typing conversion, 2026-10-09. Independent grammar and ambiguity review pending.",
         "reviewedHash": null
       },
       "variants": [
@@ -3276,14 +4320,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001058",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000029",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Ich ___ alle Voraussetzungen für die Stelle. (erfüllen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "erfüllt",
+                    "text": "erfüllt"
+                  },
+                  {
+                    "id": "erfüllst",
+                    "text": "erfüllst"
+                  },
+                  {
+                    "id": "erfülle",
+                    "text": "erfülle"
+                  },
+                  {
+                    "id": "erfüllen",
+                    "text": "erfüllen"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3291,19 +4353,19 @@
               "de": "Setze das angegebene Verb ins Präsens."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "erfülle"
+                    "optionId": "erfülle"
                   }
                 ]
               }
@@ -3313,7 +4375,7 @@
               "de": "Voraussetzungen erfüllen bedeutet den Anforderungen für etwas entsprechen."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         },
         {
           "variantKey": "b2-29-1",
@@ -3322,14 +4384,32 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001059",
-            "revision": 1,
+            "revision": 2,
             "targetId": "40000000-0000-4000-8000-000000000029",
-            "type": "cloze",
+            "type": "gap_choice",
             "prompt": "Die Bewerberin ___ die fachlichen Voraussetzungen. (erfüllen, Präsens)",
             "slots": [
               {
                 "id": "form",
-                "label": "Form"
+                "label": "Form",
+                "options": [
+                  {
+                    "id": "erfülle",
+                    "text": "erfülle"
+                  },
+                  {
+                    "id": "erfüllen",
+                    "text": "erfüllen"
+                  },
+                  {
+                    "id": "erfüllst",
+                    "text": "erfüllst"
+                  },
+                  {
+                    "id": "erfüllt",
+                    "text": "erfüllt"
+                  }
+                ]
               }
             ],
             "hint": {
@@ -3337,19 +4417,19 @@
               "de": "Setze das angegebene Verb ins Präsens."
             },
             "instruction": {
-              "en": "Complete only the gap, using the expression or form specified in parentheses.",
-              "de": "Ergänze nur die Lücke mit dem Ausdruck oder der Form in Klammern."
+              "en": "Choose the form that correctly completes the sentence.",
+              "de": "Wähle die Form, die den Satz richtig ergänzt."
             }
           },
           "rubric": {
             "normalizationVersion": "de-nfc-trim-v1",
             "acceptedAnswers": [
               {
-                "type": "cloze",
-                "values": [
+                "type": "gap_choice",
+                "selections": [
                   {
                     "slotId": "form",
-                    "text": "erfüllt"
+                    "optionId": "erfüllt"
                   }
                 ]
               }
@@ -3359,7 +4439,7 @@
               "de": "Voraussetzungen erfüllen bedeutet den Anforderungen für etwas entsprechen."
             }
           },
-          "ambiguityNotes": "The parenthetical cue specifies the required lemma or construction. Evaluate that requested form, not arbitrary paraphrases. Independent level/naturalness/alternative-answer review pending."
+          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending."
         }
       ]
     }
