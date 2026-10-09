@@ -1,5 +1,55 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 TalkBack acceptance completed for now — 9 October 2026
+
+- Owner explicitly accepted the available TalkBack evidence, requested stopping further testing and asked to describe it as completed for now. TalkBack acceptance is complete for the current M1 scope; further improvements are deferred. This is owner acceptance, not full spoken/gesture certification. Do not reinstate the deferred gate on continuation.
+- Physical keyboard input selected a choice with checked semantics, inspected the answer, added ordering tokens and moved `Ich` to first position without dragging. Repeated UIAutomator inspections coincided with TalkBack on/off announcements reported by the owner, so uninterrupted TalkBack output is not established. Inspection loop stopped and accessibility settings returned to the original disabled state; preview stopped and original learner draft unchanged.
+- Fixed next-question keyboard focus and scroll visibility in the native learner and format preview. A focusable heading requests focus and brings itself into view on question identity changes. Regression asserts focus on each next question. Newly built physical preview shows the first prompt focused. Full offline Android verification passes: 43 suites/165 tests, zero failures/errors; debug/preview builds and lint pass. Log: ignored `.local/m1-focus-android.log`. Web changes were not made; prior hosted/local web checks remain applicable. Additional B2 browser keyboard checks advanced through three confirmed answers with next-prompt focus and German `lang` metadata.
+- New native fix is local; hosted checks previously passed at `d9715d0` and do not cover this new code. Next: hosted verification after an authorized push, then final both-client design/web accessibility acceptance. M1 remains active until those remaining gates are recorded; TalkBack is completed for now. No merge, deployment, publication, release, production change or AI/Groq call.
+- Commit message: `fix(android): focus new practice prompts and record accepted TalkBack scope`.
+
+## M1 hosted verification passed — 9 October 2026
+
+- Fresh fetch confirms PR #11 remote head and local repair commit both equal `d9715d0`. Web, Android, web accessibility, repository safety and CodeQL Actions all pass on this head; Vercel and its preview status also pass. PR remains draft. Web run `37898138261` and Android run `37898138259` completed successfully by 09:24 Europe/Berlin.
+- Hosted verification gate for the acceptance repairs is closed. Remaining M1 gates: complete physical Android TalkBack/keyboard/core journey and final both-client design/accessibility acceptance, including manual web screen-reader review. Passing CI does not establish these manual outcomes or hosted visual acceptance.
+- Next: finish those accessibility/design records before assessing M1 exit. Production merge/deployment/publication and Android release approval stay separate. This recheck made no push, merge, deployment, publication, device change or production write; documentation-only checks pass.
+- Commit message: `docs: record passing M1 hosted verification`.
+
+## M1 fetched PR, physical phone and acceptance recheck — 9 October 2026
+
+- Fetched origin without overwriting work; clean main matched `e6facd2`, then tracked draft PR #11 at `bce5cc3`. Hosted Web/Android verify fail; accessibility/safety/CodeQL and Vercel pass. READY preview metadata matches the head, but browser access requires Vercel authentication.
+- Repaired approval-vs-structure test isolation, offscreen native fixture text entry and Windows CRLF candidate comparison. Candidate regeneration has no semantic diff; the 125-member manifest and 60 hash-bound AI approvals validate.
+- Node 22 root install/check/full tests/build pass: backend 193, web 398, HTTP 20 tests. Offline Android: 43 suites/165 tests pass; debug/preview assembly and lint pass with zero lint errors (17/18 warnings). Existing B2 authoritative client acceptance passes.
+- Connected Pixel 10 Pro runs the newly built isolated preview: B2 gap choice/confirmed feedback/Continue pass; physical 200% font/enlarged density feedback wraps and remains reachable. TalkBack service and a question-position focus outline were observed, but complete spoken/gesture/keyboard acceptance remains unverified. Local web B2 feedback/keyboard/320px visuals and automated 200% text/reflow accessibility pass. See [detailed evidence and limits](docs/operations/m1-acceptance-2026-10-09.md).
+- Original phone font/density/accessibility settings and preview draft restored; temporary acceptance data preserved separately. No AI/Groq calls, production changes, push, merge, deployment, publication or Android release.
+- Exact remaining M1 gates: green hosted checks for the local repairs; complete physical TalkBack/keyboard/core journey; final both-client design/accessibility acceptance, including manual web screen reader. Phone availability, content conversion and independent human German review are not current blockers. M1 stays active; later milestones queued.
+- Next: obtain hosted verification after an authorized push, finish manual assistive-technology and design acceptance, then assess M1 exit separately from production approval.
+- Commit message: `fix: repair M1 acceptance fixtures and record physical-device evidence`.
+
+## M1 German content review policy and AI approval — 9 October 2026
+
+- The owner removed mandatory independent human German review. ChatGPT GPT-6 editorial review, identified explicitly as AI and tied to per-target content hashes, replaces that M1 content gate.
+- Reviewed 30 B1 and 30 B2 draft targets (120 variants), checking grammatical form, answer alternatives, instruction clarity, distractors, explanation accuracy, leakage and level framing. Every draft target has AI reviewer/date, checklist notes and approved content hash. The five previously published revision-1 starter exercises were inspected but not rewritten.
+- Corrected misleading B1 `für + Akkusativ` hints; corrected B2 dative-adjective case explanation for neuter `Interesse` and removed singular/plural ambiguity by using clearly plural `Kolleginnen`. Prior B2 hint leakage fixes remain.
+- The unpublished candidate SQL and catalog were regenerated and the 125-member manifest recomputed as `0f6fe969595ca116346c29c67b6d881fa82862222c5f164fc0773256b229b676`; regenerated B1/B2 review workbooks and the 60-target GPT-6 audit record match their approved source hashes. Hosted CI must validate this new head. M1 is not closed until physical Android accessibility and final design acceptance are evidenced. Production merge/publication remains separately authorized.
+- Next: regenerate candidate/workbooks, verify CI, complete native TalkBack/large-text/device tests and design acceptance, then record M1 exit only when all gates pass.
+
+## M1 quality correction in progress — 9 October 2026
+
+- Baseline PR #11 head `b44b0f6` passed Web, Android verify/lint, web accessibility, repository safety and Vercel preview checks.
+- A new editorial audit found 12 B2 variants in six target families where bilingual hints disclosed a keyed answer. The agent removed direct answer leakage, polished four repeated German explanations and improved two example contexts. This is AI editorial work only, not independent German sign-off.
+- The synchronized unpublished candidate SQL, 125-member manifest and B2 review workbook were regenerated in commit `32ff524`, with manifest `7fdd71ec45895a92afa5277b41eb9416e0c1f8588836f25a5a4c1a976b678dcd`. Latest-head CI verification is still pending; no production content, production deployment or store release is authorized.
+- M1 remains open pending independent German review and physical Android/TalkBack, display-size and keyboard acceptance plus product design sign-off.
+- Exact next action: verify new-head CI, then obtain independent German review and physical Android/TalkBack evidence and record final M1 design acceptance. Preserve the production approval boundary.
+
+## M1 B2 low-typing draft conversion — 9 October 2026
+
+- Converted all 30 B2 source targets / 60 previously typed cloze variants into authored, single-slot `gap_choice` revision 2 exercises. Every variant has four distinct, plausible answers with correct positions distributed across all four slots. Stable exercise/target IDs, variant/context keys, bilingual explanations and publication boundaries are preserved. Removed the answer-revealing passive-perfect hint. No independent German review has been claimed.
+- Regenerated the 65-target / 125-exercise unpublished candidate's SQL, manifest and editorial review workbook. Before changing the artifacts, independently reconstructed and matched the previous 125-member manifest and the B2 review workbook from source. After conversion, checked that all 60 new revision records and release references are consistently revision 2 and the manifest is recomputed. Added content and API regression tests to be run in CI.
+- Changes are in a review branch. No npm/Android runtime, physical-device or hosted CI result is claimed yet. No production SQL/configuration changes, publication, deployment, signing or store release occurred.
+- Exact next action: validate CI/build and B2 web/native preview, resolve any failures, then complete independent German review and remaining M1 design/accessibility acceptance. Five legacy starter exercises are retained unchanged.
+
+
 ## M0 closed — verified private preservation and recovery — 8 October 2026
 
 - Completed the owner's requested M0 closure under the clarified laptop-backup and owner-managed Android signing scope. M0 is complete; M1 is the sole active milestone. M2–M5 remain queued with partial implementation preserved; M6 has not started.

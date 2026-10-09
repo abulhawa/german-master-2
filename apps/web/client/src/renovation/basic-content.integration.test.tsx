@@ -26,11 +26,11 @@ function select(exercise: Exercise, answer: Answer) {
   } else throw Error('Unexpected converted format');
 }
 
-it('renders all 40 authored revision-2 variants and preserves partial gap drafts across remount', async () => {
+it('renders all 100 authored revision-2 variants and preserves partial gap drafts across remount', async () => {
   const preview = await basicPreview();
   try {
     const converted = preview.members.filter(m => m.revision === 2);
-    expect(converted).toHaveLength(40);
+    expect(converted).toHaveLength(100);
     for (const member of converted) {
       const exercise = member.payload as Exercise, rubric = member.rubric as Rubric;
       let draft: Answer | null = null, ready: Answer | null = null;
@@ -52,7 +52,14 @@ it('renders all 40 authored revision-2 variants and preserves partial gap drafts
   } finally { cleanup(); await preview.db.close(); }
 });
 
-for (const [family, target] of [['plural','000'], ['adjective','015'], ['verb','020']] as const) {
+for (const [family, targetId, level] of [
+  ['plural', '10000000-0000-4000-8000-000000000000', 'B1'],
+  ['adjective', '10000000-0000-4000-8000-000000000015', 'B1'],
+  ['verb', '10000000-0000-4000-8000-000000000020', 'B1'],
+  ['B2 passive', '40000000-0000-4000-8000-000000000000', 'B2'],
+  ['B2 verb-preposition', '40000000-0000-4000-8000-000000000020', 'B2'],
+  ['B2 workplace verb', '40000000-0000-4000-8000-000000000025', 'B2'],
+] as const) {
   it(`${family}: real learner controls resume a revision-2 draft and replay response loss to one confirmed result`, async () => {
     const preview = await basicPreview();
     const subject = fixtureAccount.identity.subject;
@@ -75,8 +82,8 @@ for (const [family, target] of [['plural','000'], ['adjective','015'], ['verb','
     const storage = { getItem: (k:string) => values.get(k) ?? null, setItem: (k:string,v:string) => { values.set(k,v); } };
     try {
       await api.saveProfile({apiVersion:'v2',requestId:crypto.randomUUID(),expectedRevision:0,
-        preferences:{locale:'en',timezone:'Europe/Berlin',level:'B1',sessionQuestionCount:5}});
-      const request = {...sessionRequest(),questionCount:1,focus:{type:'target' as const,id:`10000000-0000-4000-8000-000000000${target}`}};
+        preferences:{locale:'en',timezone:'Europe/Berlin',level,sessionQuestionCount:5}});
+      const request = {...sessionRequest(),questionCount:1,focus:{type:'target' as const,id:targetId}};
       const session = await api.createFocusedSession(request);
       const exercise = session.questions[0].exercise;
       expect(exercise.revision).toBe(2);

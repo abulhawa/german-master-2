@@ -51,7 +51,7 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
     throw Error('Previous release must match its published immutable manifest');
   const targetIds = new Set(previous.targets.map(t=>t.id));
   const exerciseIds = new Set(previousMembers.map(m=>m.exercise_id));
-  const sql = [publication?'-- Owner-authorized additive basic release. Independent German review remains pending.':
+  const sql = [publication?'-- Owner-authorized additive basic release. GPT-6 AI editorial review is tracked in source; no independent human review required.':
     '-- Unpublished additive candidate. Run only in an isolated review database.',
     '-- No learner writes, UPDATE, DELETE or replacement of existing revisions.', 'BEGIN;'];
   topics.forEach((topic,i)=>sql.push(insert('topic',['id','title'],[id(600+i),topic.title])));
@@ -69,7 +69,7 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
       const e=v.exercise;
       if(exerciseIds.has(e.id)) throw Error('Exercise collides with previous release');
       exerciseIds.add(e.id);
-      const provenance=target.provenance+(publication?` Owner-authorized basic release by ${publication.authorizedBy} at ${publication.authorizedAt}; AI editorial/rubric checks, independent German review pending. Authorization: ${publication.authorization}`:'');
+      const provenance=target.provenance+(publication?` Owner-authorized basic release by ${publication.authorizedBy} at ${publication.authorizedAt}; GPT-6 AI editorial/rubric checks; independent human review not required by owner. Authorization: ${publication.authorization}`:'');
       const member:RuntimeMember = {exercise_id:e.id,revision:e.revision,target_id:target.id,topic_id:topicId,
         level:target.level,kind:target.category==='plural'||target.category==='work_vocabulary'?'lexical':'grammar',
         objective:target.objective,topic_title:topics[topic].title,status:targetStatus,review_status:reviewStatus,payload:e,

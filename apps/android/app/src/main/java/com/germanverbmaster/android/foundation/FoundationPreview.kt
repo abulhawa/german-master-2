@@ -1,6 +1,11 @@
 package com.germanverbmaster.android.foundation
 
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.ImeAction
@@ -39,6 +44,20 @@ fun FoundationTheme(content: @Composable () -> Unit) {
 fun PracticeCard(content: @Composable ColumnScope.() -> Unit) {
     Surface(shape=MaterialTheme.shapes.large, color=MaterialTheme.colorScheme.surface) {
         Column(Modifier.padding(FoundationTokens.spacing[4].dp), verticalArrangement=Arrangement.spacedBy(FoundationTokens.spacing[3].dp), content=content)
+    }
+}
+
+/** A new question is the keyboard entry point, even after scrolling through a long answer. */
+@Composable
+fun PracticeHeading(prompt: String, identity: String) {
+    val focus = remember { FocusRequester() }
+    val visibility = remember { BringIntoViewRequester() }
+    Text(prompt, style = MaterialTheme.typography.headlineSmall,
+        modifier = Modifier.bringIntoViewRequester(visibility).focusRequester(focus)
+            .focusable().semantics { heading() })
+    LaunchedEffect(identity) {
+        focus.requestFocus()
+        visibility.bringIntoView()
     }
 }
 
@@ -91,7 +110,7 @@ fun FoundationPreview(session: Session) {
             Row(Modifier.fillMaxWidth().heightIn(min=FoundationTokens.controlMin.dp).toggleable(value=german,role=Role.Switch,onValueChange={german=it})) { Switch(checked=german,onCheckedChange=null); Text(stringResource(R.string.foundation_german)) }
             PracticeCard {
                 Text(stringResource(R.string.foundation_position,index+1,session.questions.size))
-                Text(exercise.prompt,style=MaterialTheme.typography.headlineSmall,modifier=Modifier.semantics { heading() })
+                PracticeHeading(exercise.prompt, exercise.id)
                 Text(if(german) exercise.instruction.de else exercise.instruction.en)
                 key(exercise.id) {
                     ExerciseInput(exercise, german) { answer=it;inspected=false }

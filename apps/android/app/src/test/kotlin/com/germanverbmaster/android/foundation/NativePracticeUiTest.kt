@@ -63,10 +63,10 @@ class NativePracticeUiTest {
                     assertEquals(ordered, (repo.state.practice!!.draft as AnswerWordOrder).tokenIds)
                 }
                 4 -> {
-                    compose.onNodeWithText("du").performTextInput("arbeitest")
+                    compose.onNodeWithText("du").performScrollTo().performTextInput("arbeitest")
                     compose.onNodeWithText("Check", substring = false).assertIsNotEnabled()
                     assertEquals(repo.state.practice, LearnerRepository(api, store).state.practice)
-                    compose.onNodeWithText("ihr").performTextInput("arbeitet")
+                    compose.onNodeWithText("ihr").performScrollTo().performTextInput("arbeitet")
                 }
             }
             if(index == 1) compose.onNodeWithText("Skip", substring = false).performScrollTo().performClick()
@@ -78,6 +78,7 @@ class NativePracticeUiTest {
                 compose.onNodeWithText("Continue", substring = false).performScrollTo().performClick()
             }
             compose.waitForIdle()
+            if (index < 4) compose.onNodeWithText(session.questions[index + 1].exercise.prompt).assertIsFocused()
         }
         compose.onNodeWithText("Confirmed summary").assertExists()
         compose.onNodeWithText("Graded: 4 · Skipped: 1 · Correct: 4").assertExists()

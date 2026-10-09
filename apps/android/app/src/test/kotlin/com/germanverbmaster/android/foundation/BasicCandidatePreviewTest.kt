@@ -32,10 +32,10 @@ import java.util.concurrent.TimeUnit
 class BasicCandidatePreviewTest {
     @get:Rule val compose = createComposeRule()
 
-    @Test fun allFortyConvertedVariantsAreSelectableAndGradeAtLargeText() {
+    @Test fun allHundredConvertedVariantsAreSelectableAndGradeAtLargeText() {
         Harness().use { harness ->
             val variants = harness.variants
-            assertEquals(40, variants.size)
+            assertEquals(100, variants.size)
             var exercise by mutableStateOf(variants.first().first)
             var draft by mutableStateOf<Answer?>(null)
             compose.setContent {
@@ -95,7 +95,7 @@ class BasicCandidatePreviewTest {
                 }
                 var repo = LearnerRepository(lossy, store)
                 repo.refresh()
-                val targets = harness.variants.map { it.first.targetId }.distinct()
+                val targets = harness.variants.map { it.first.targetId }.filter { it.startsWith("10000000-") }.distinct()
                 assertEquals(20, targets.size)
                 for (target in targets) {
                     repo.startPractice(TargetFocus(target))
@@ -130,6 +130,46 @@ class BasicCandidatePreviewTest {
                 assertEquals(20, harness.command("stats").getValue("evidence").jsonPrimitive.int)
                 assertEquals(repo.state, store.read())
             } finally { directory.listFiles()?.forEach { it.delete() }; directory.delete() }
+        }
+    }
+
+    @Test fun b2TargetsUseAuthoritativeHttpAndRestoreDrafts() = runBlocking {
+        Harness().use { harness ->
+            val directory = Files.createTempDirectory("basic-b2-candidate-native").toFile()
+            try {
+                val api = harness.api
+                api.save(ProfileRequest("v2", UUID.randomUUID().toString(), 0,
+                    ProfilePreferences("en", "Europe/Berlin", "B2", 5)))
+                val store = AtomicLearnerStore(File(directory, "cache.json"))
+                var repo = LearnerRepository(api, store)
+                repo.refresh()
+                val variants = harness.variants.filter { it.first.targetId.startsWith("40000000-") }
+                val targets = variants.map { it.first.targetId }.distinct()
+                assertEquals(60, variants.size)
+                assertEquals(30, targets.size)
+                for (target in targets) {
+                    repo.startPractice(TargetFocus(target))
+                    val current = repo.state.practice!!.question.exercise
+                    assertEquals(2, current.revision)
+                    assertTrue(current is ExerciseGapChoice)
+                    val rubric = variants.single { it.first.id == current.id }.second
+                    val answer = rubric.acceptedAnswers.first()
+                    repo.draft(answer)
+                    repo = LearnerRepository(api, store)
+                    assertEquals(answer, repo.state.practice!!.draft)
+                    repo.answer()
+                    assertEquals("correct", repo.state.practice!!.evaluation!!.outcome)
+                    repo.continuePractice()
+                    repo.finishPractice()
+                    assertEquals(1, repo.state.practice!!.completionReceipt!!.correctCount)
+                    repo.discardPractice()
+                }
+                assertEquals(30, harness.command("stats").getValue("evidence").jsonPrimitive.int)
+                assertEquals(repo.state, store.read())
+            } finally {
+                directory.listFiles()?.forEach { it.delete() }
+                directory.delete()
+            }
         }
     }
 

@@ -1,8 +1,8 @@
 # Initial German-language review workbook
 
-Generated from initial-30.json. Agent-authored, unpublished drafts. Validation is structural and grading conformance evidence, not German-language approval.
+Generated from initial-30.json. GPT-6 AI-editorially approved drafts with target content hashes. Validation is structural evidence and not human certification.
 
-Targets: 30; variants: 60; independently approved: 0.
+Targets: 30; variants: 60; AI-editorially approved: 30.
 
 For each target, check objective, B1/B2 suitability, grammar, naturalness, ambiguity, all accepted alternatives, distractors, hint leakage, explanation, context variation and provenance. Record reviewer, date, approved/changes-requested status and checklist findings in the JSON. Publication remains separately authorized.
 
@@ -12,7 +12,7 @@ Target: 10000000-0000-4000-8000-000000000000 · B1 · plural
 
 Choose the standard plural of der Antrag.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
 
@@ -144,7 +144,7 @@ Target: 10000000-0000-4000-8000-000000000001 · B1 · plural
 
 Choose the standard plural of die Rechnung.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
 
@@ -276,7 +276,7 @@ Target: 10000000-0000-4000-8000-000000000002 · B1 · plural
 
 Choose the standard plural of der Termin.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
 
@@ -408,7 +408,7 @@ Target: 10000000-0000-4000-8000-000000000003 · B1 · plural
 
 Choose the standard plural of das Gespräch.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
 
@@ -540,7 +540,7 @@ Target: 10000000-0000-4000-8000-000000000004 · B1 · plural
 
 Choose the standard plural of der Vertrag.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
 
@@ -672,7 +672,7 @@ Target: 10000000-0000-4000-8000-000000000005 · B1 · plural
 
 Choose the standard plural of die Erfahrung.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
 
@@ -804,7 +804,7 @@ Target: 10000000-0000-4000-8000-000000000006 · B1 · plural
 
 Choose the standard plural of das Angebot.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
 
@@ -936,7 +936,7 @@ Target: 10000000-0000-4000-8000-000000000007 · B1 · plural
 
 Choose the standard plural of die Entscheidung.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
 
@@ -1068,7 +1068,7 @@ Target: 10000000-0000-4000-8000-000000000008 · B1 · plural
 
 Choose the standard plural of die Voraussetzung.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
 
@@ -1200,7 +1200,7 @@ Target: 10000000-0000-4000-8000-000000000009 · B1 · plural
 
 Choose the standard plural of der Vorschlag.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
 
@@ -1332,7 +1332,7 @@ Target: 10000000-0000-4000-8000-000000000010 · B1 · preposition
 
 Choose the definite singular article after mit, using the dative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
 
@@ -1472,7 +1472,7 @@ Target: 10000000-0000-4000-8000-000000000011 · B1 · preposition
 
 Choose the definite singular article after bei, using the dative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
 
@@ -1612,9 +1612,9 @@ Target: 10000000-0000-4000-8000-000000000012 · B1 · preposition
 
 Choose the definite singular article after für, using the accusative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
-Content SHA-256 for sign-off: d0818e9e9d5ec193a64d73552165a6d2aa179256bf95e95ab8cdcaf16253b614
+Content SHA-256 for sign-off: b87d576dc52bea0f1feadc24b636e60e9d1c95315c3a708b20a8a89daa14dfe7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -1639,8 +1639,8 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt."
   },
   "hint": {
-    "en": "für always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+    "en": "The preposition für takes the accusative. Check the noun's gender.",
+    "de": "Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des Nomens."
   },
   "options": [
     {
@@ -1703,8 +1703,8 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt."
   },
   "hint": {
-    "en": "für always takes the accusative. Match the article to the noun’s gender.",
-    "de": "„für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an."
+    "en": "The preposition für takes the accusative. Check the noun's gender.",
+    "de": "Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des Nomens."
   },
   "options": [
     {
@@ -1752,7 +1752,7 @@ Target: 10000000-0000-4000-8000-000000000013 · B1 · preposition
 
 Choose the definite singular article after ohne, using the accusative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
 
@@ -1892,7 +1892,7 @@ Target: 10000000-0000-4000-8000-000000000014 · B1 · preposition
 
 Choose the definite singular article after aus, using the dative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
 
@@ -2032,7 +2032,7 @@ Target: 10000000-0000-4000-8000-000000000015 · B1 · adjective
 
 Choose the weak adjective ending after der in masculine nominative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
 
@@ -2194,7 +2194,7 @@ Target: 10000000-0000-4000-8000-000000000016 · B1 · adjective
 
 Choose the weak adjective ending after die in feminine nominative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
 
@@ -2356,7 +2356,7 @@ Target: 10000000-0000-4000-8000-000000000017 · B1 · adjective
 
 Choose the weak adjective ending after das in neuter nominative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
 
@@ -2518,7 +2518,7 @@ Target: 10000000-0000-4000-8000-000000000018 · B1 · adjective
 
 Choose the weak adjective ending after den in masculine accusative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
 
@@ -2680,7 +2680,7 @@ Target: 10000000-0000-4000-8000-000000000019 · B1 · adjective
 
 Choose the weak adjective ending after a definite article in the dative.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
 
@@ -2842,7 +2842,7 @@ Target: 10000000-0000-4000-8000-000000000020 · B1 · verb
 
 Choose the second- and third-person singular present forms of fahren.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
 
@@ -3048,7 +3048,7 @@ Target: 10000000-0000-4000-8000-000000000021 · B1 · verb
 
 Choose the second- and third-person singular present forms of lesen.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
 
@@ -3254,7 +3254,7 @@ Target: 10000000-0000-4000-8000-000000000022 · B1 · verb
 
 Choose the second- and third-person singular present forms of geben.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
 
@@ -3460,7 +3460,7 @@ Target: 10000000-0000-4000-8000-000000000023 · B1 · verb
 
 Choose the second- and third-person singular present forms of nehmen.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
 
@@ -3666,7 +3666,7 @@ Target: 10000000-0000-4000-8000-000000000024 · B1 · verb
 
 Choose the second- and third-person singular present forms of sprechen.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
 
@@ -3872,7 +3872,7 @@ Target: 10000000-0000-4000-8000-000000000025 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by weil.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
 
@@ -4014,7 +4014,7 @@ Target: 10000000-0000-4000-8000-000000000026 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by dass.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
 
@@ -4156,7 +4156,7 @@ Target: 10000000-0000-4000-8000-000000000027 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by obwohl.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
 
@@ -4298,7 +4298,7 @@ Target: 10000000-0000-4000-8000-000000000028 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by wenn.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
 
@@ -4440,7 +4440,7 @@ Target: 10000000-0000-4000-8000-000000000029 · B1 · word-order
 
 Place the finite verb at the end of an indirect yes/no question introduced by ob.
 
-Review: pending; reviewer: pending
+Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
 
 Content SHA-256 for sign-off: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
 

@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import draft from '../../../content/drafts/initial-30.json';
+import b2Draft from '../../../content/drafts/b2-basics.json';
 import { validateDraftCatalog } from './content-review';
 
 describe('initial editorial workspace', () => {
   it('validates 30 original targets, 60 variants and the intended low-typing forms without approving content', () => {
     const result = validateDraftCatalog(draft);
-    expect([result.targets,result.variants,result.independentlyApproved]).toEqual([30,60,0]);
+    expect([result.targets,result.variants,result.editoriallyApproved]).toEqual([30,60,30]);
     expect(result.catalog.publicationApproved).toBe(false);
   });
   it.each(['linkage','duplicate','answer','context','approval','publication','solution'])('rejects broken %s boundaries', mode => {
@@ -16,7 +17,7 @@ describe('initial editorial workspace', () => {
     if (mode === 'duplicate') data.targets[1].id = target.id;
     if (mode === 'answer') Object.assign(variant.rubric.acceptedAnswers[0], {type:'choice',optionId:'unknown'});
     if (mode === 'context') target.variants[1].contextKey = variant.contextKey;
-    if (mode === 'approval') target.review.status = 'approved';
+    if (mode === 'approval') target.review.reviewedHash = '0'.repeat(64);
     if (mode === 'publication') data.publicationApproved = true;
     if (mode === 'solution') Object.assign(variant.exercise,{acceptedAnswer:'leaked'});
     expect(() => validateDraftCatalog(data)).toThrow();
@@ -35,10 +36,56 @@ describe('initial editorial workspace', () => {
       expect(item.exercise.options.some(option => option.id === answer.optionId)).toBe(true);
     }
   });
+  it('converts all B2 draft variants into authored, answerable gap choices', () => {
+    const merged = { ...draft, targets: [...draft.targets, ...b2Draft.targets] };
+    const result = validateDraftCatalog(merged);
+    expect([result.targets, result.variants, result.editoriallyApproved]).toEqual([60, 120, 60]);
+    const targets = result.catalog.targets.filter(target => target.level === 'B2');
+    expect(targets).toHaveLength(30);
+    const positions = new Set<number>();
+    for (const target of targets) {
+      expect(target.review.status).toBe('approved');
+      for (const variant of target.variants) {
+        const exercise = variant.exercise;
+        const answer = variant.rubric.acceptedAnswers[0];
+        if (exercise.type !== 'gap_choice' || answer.type !== 'gap_choice') {
+          throw Error('B2 revision must use an authored gap choice');
+        }
+        expect(exercise.revision).toBe(2);
+        expect(exercise.slots).toHaveLength(1);
+        expect(answer.selections).toHaveLength(1);
+        const options = exercise.slots[0].options;
+        expect(options).toHaveLength(4);
+        expect(new Set(options.map(option => option.id)).size).toBe(4);
+        const position = options.findIndex(option => option.id === answer.selections[0].optionId);
+        expect(position).toBeGreaterThanOrEqual(0);
+        positions.add(position);
+      }
+    }
+    expect(positions.size).toBe(4);
+  });
+  it('keeps correct answer tokens out of bilingual B2 hints', () => {
+    for (const target of b2Draft.targets) {
+      for (const variant of target.variants) {
+        const exercise = variant.exercise;
+        const answer = variant.rubric.acceptedAnswers[0];
+        if (exercise.type !== 'gap_choice' || answer.type !== 'gap_choice') throw Error('expected B2 gap choice');
+        const selected = exercise.slots[0].options.find(option => option.id === answer.selections[0].optionId);
+        expect(selected).toBeDefined();
+        if (!selected || ['der', 'die', 'das', 'dem', 'den'].includes(selected.text.toLowerCase())) continue;
+        for (const language of ['en', 'de'] as const) {
+          expect(exercise.hint[language]).not.toMatch(
+            new RegExp('(^|[^\\p{L}])' + selected.text + '($|[^\\p{L}])', 'iu'));
+        }
+      }
+    }
+  });
   it('validates identities inside low-typing inputs', () => {
     const data = structuredClone(draft);
     const target = data.targets.find(item => item.category === 'adjective');
     expect(target).toBeDefined();
+    // This test checks structural identities independently of editorial approval.
+    target!.review.status = 'pending';
     const exercise = target!.variants[0].exercise as any;
     expect(exercise.type).toBe('gap_choice');
     exercise.slots[0].options[1].id = exercise.slots[0].options[0].id;
@@ -48,7 +95,7 @@ describe('initial editorial workspace', () => {
     const data=structuredClone(draft);
     const result=validateDraftCatalog(data);
     Object.assign(data.targets[0].review,{status:'approved',reviewer:'Test reviewer',date:'2026-10-04',notes:'Fixture approval only',reviewedHash:result.targetHashes.get(data.targets[0].id)});
-    expect(validateDraftCatalog(data).independentlyApproved).toBe(1);
+    expect(validateDraftCatalog(data).editoriallyApproved).toBe(30);
     data.targets[0].variants[0].exercise.prompt += ' Changed';
     expect(()=>validateDraftCatalog(data)).toThrow('matching content hash');
   });

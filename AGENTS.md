@@ -16,6 +16,8 @@
 
 ## Continuing the renovation
 
+- Owner decision (9 October 2026): TalkBack acceptance is completed for now based on the available evidence. Stop further TalkBack testing and defer improvements until needed. Record this as owner acceptance of the current scope, not a claim that a complete uninterrupted spoken/gesture journey passed. Do not reopen this M1 gate without a new owner request or a demonstrated critical defect. Final design/web accessibility acceptance and production release approval remain separate.
+
 - Never put personal machine paths or private backup locations in tracked files, commits, or public reports. Keep those details in ignored/private recovery manifests; public evidence uses repository-relative paths or generic placeholders.
 
 

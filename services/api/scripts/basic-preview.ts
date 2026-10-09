@@ -19,7 +19,7 @@ export async function basicPreview() {
     const old = await runtimeMembers(db, previous.releaseId);
     const draft = buildBasicCandidate(input, previous, old);
     if (JSON.stringify(draft.config) !== JSON.stringify(JSON.parse(read('../../../content/candidates/basics/catalog.json')))
-      || draft.sql !== read('../../../content/candidates/basics/seed.sql')) throw Error('Regenerate the candidate before previewing');
+      || draft.sql !== read('../../../content/candidates/basics/seed.sql').replace(/\r\n/g, '\n')) throw Error('Regenerate the candidate before previewing');
     // The service deliberately refuses draft releases. Simulate activation only in this new
     // in-memory database, preserving the authored payloads/rubrics and pending external review.
     const activated = buildBasicCandidate(input, previous, old, {

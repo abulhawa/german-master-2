@@ -26,9 +26,9 @@ try {
   writeFileSync(publication?new URL('../../../db/seed/production-basics.sql',import.meta.url):new URL('seed.sql',directory),candidate.sql);
   const reviewed=validateDraftCatalog(input);
   const lines=['# Basic practice candidate: editorial review','',
-    '65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. This workbook describes source review drafts; independent German review remains pending. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.', '',
+    '65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. Source drafts carry GPT-6 AI editorial approval recorded by content hash (9 October 2026); no human review is claimed. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.', '',
     'The B2 label selects a scaffolded practice pack for B2 learners; it is not a claim that every individual form is exclusive to B2 or that this assesses proficiency.', '',
-    'Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record independent sign-off in the source JSON with its matching content hash. AI editorial work is not human approval. The SQL installs only drafts in an isolated review database; do not use it to activate production.', '',
+    'Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record the AI editor, dated checklist and content hash in source JSON. This is owner-accepted AI editorial approval, not human certification. The SQL installs only drafts in an isolated review database; do not use it to activate production.', '',
     '## Additions', ''];
   for(const t of reviewed.catalog.targets) {
     lines.push(`### ${t.level}: ${t.title.de}`, '', `Target: ${t.id}; category: ${t.category}; review: ${t.review.status}.`,

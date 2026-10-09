@@ -12,13 +12,15 @@ If the chat starts outside the repo, use:
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
-## Current shared priority — 8 October 2026
+## Current shared priority — 9 October 2026
+
+Latest owner decision: **TalkBack acceptance is completed for now**. Further TalkBack testing/improvements are deferred; do not reopen it as a blocker. The native next-question focus fix passes full local Android checks and needs hosted verification after an authorized push. Finish final both-client design/web accessibility acceptance before closing M1. Earlier TalkBack pending references below describe historical evidence limits and are superseded by this accepted scope.
 
 Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
 
-Exact next action: convert the five B2 verb/preposition targets (10 typed cloze variants) into authored gap choices with plausible distractors and bilingual feedback. Preserve immutable revisions, regenerate the unpublished candidate/workbooks and reuse the verified web/native controls and authoritative HTTP/restart/retry/completion checks. Then complete remaining conversion, independent German review and design/accessibility acceptance before closing M1.
+All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate. Root and Android suites, converted-content client tests and hash-bound GPT-6 AI editorial validation pass locally; all hosted Actions and Vercel checks pass at PR #11 head `d9715d0`. A connected physical phone has partial B2/large-text runtime evidence. Exact next action: finish physical TalkBack/keyboard and manual web screen-reader acceptance, and record final both-client design acceptance. See [9 October acceptance evidence](m1-acceptance-2026-10-09.md). Publication remains separately authorized.
 
-The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. Independent German review and physical-device acceptance remain open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
+The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. The owner waived mandatory independent human German review on 9 October; ChatGPT GPT-6 editorial review is the content gate. Real physical-device Android acceptance remains open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
 
 The owner accepts laptop backups and personally holds/signs Android keys in Android Studio. Source identity/version is `com.germanverbmaster.android`, 29 / 0.2.08; the owner checks the live Play maximum before release. Exact recovery locations and machine paths stay in ignored/private manifests. The existing legacy and renovated Supabase projects remain separate and unchanged; no third project is needed.
 
