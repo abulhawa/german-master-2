@@ -609,7 +609,8 @@ describe("isolated learner journey", () => {
     fireEvent.click(screen.getByText("Progress"));
     expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
     expect(screen.getByText("Needs practice", { selector: ".gm-state-badge" })).toBeInTheDocument();
-    expect(screen.queryByText("Mastered")).not.toBeInTheDocument();
+    expect(screen.getByText("Mastered").closest(".gm-progress-stat")).toHaveTextContent("0Mastered");
+    expect(screen.queryByText("Mastered", { selector: ".gm-state-badge" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading")).toHaveFocus();
   });
   it("persists partial slot drafts, token order and hint assistance", async () => {
