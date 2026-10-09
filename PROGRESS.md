@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 German content review policy and AI approval — 9 October 2026
+
+- The owner removed mandatory independent human German review. ChatGPT GPT-6 editorial review, identified explicitly as AI and tied to per-target content hashes, replaces that M1 content gate.
+- Reviewed 30 B1 and 30 B2 draft targets (120 variants), checking grammatical form, answer alternatives, instruction clarity, distractors, explanation accuracy, leakage and level framing. Every draft target has AI reviewer/date, checklist notes and approved content hash. The five previously published revision-1 starter exercises were inspected but not rewritten.
+- Corrected misleading B1 `für + Akkusativ` hints; corrected B2 dative-adjective case explanation for neuter `Interesse` and removed singular/plural ambiguity by using clearly plural `Kolleginnen`. Prior B2 hint leakage fixes remain.
+- Regeneration of candidate SQL/manifest and B1/B2 review workbooks still needs to follow these changes; CI on earlier heads does not verify this new revision. M1 is not closed until physical Android accessibility and final design acceptance are evidenced. Production merge/publication remains separately authorized.
+- Next: regenerate candidate/workbooks, verify CI, complete native TalkBack/large-text/device tests and design acceptance, then record M1 exit only when all gates pass.
+
 ## M1 quality correction in progress — 9 October 2026
 
 - Baseline PR #11 head `b44b0f6` passed Web, Android verify/lint, web accessibility, repository safety and Vercel preview checks.

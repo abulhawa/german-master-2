@@ -1,5 +1,9 @@
 # Initial content review workspace
 
+## Current editorial policy — 9 October 2026
+
+The owner removed the separate independent human German-review requirement for M1. ChatGPT GPT-6 is the editor for the initial B1/B2 practice candidate. All 60 target review records identify GPT-6 as an **AI** reviewer, include the review date/checklist and bind approval to the exact content SHA-256. Modifying any exercise invalidates that approval. This is an AI editorial decision, not external certification, CEFR assessment or learner validation. The passages below describe earlier checkpoints; any references to an outstanding mandatory independent reviewer are superseded. The five historical published starter revisions remain immutable. Production publishing still requires separate authorization.
+
 `initial-30.json` contains 30 original, agent-authored B1 draft targets with two distinct prompts/contexts each: noun plurals, article/case selection after prepositions, adjective endings, present verb forms and subordinate word order. All five initial exercise forms are represented. These are foundational objectives used by intermediate learners; B2 breadth and the approximately 120-target pilot catalog remain unfinished.
 
 Run `npm run content:review` from the repository root to validate and regenerate [the German-language review workbook](REVIEW.md). It shows every solution-free exercise, revision, accepted answer, explanation, ambiguity note and provenance together for editorial review. The root backend tests exercise validation and reject malformed linkage, rubric answers, identities, context reuse, incomplete approval records, publication flags and leaked solutions.

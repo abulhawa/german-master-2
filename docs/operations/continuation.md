@@ -12,13 +12,13 @@ If the chat starts outside the repo, use:
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
-## Current shared priority — 8 October 2026
+## Current shared priority — 9 October 2026
 
 Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
 
-All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate, including the five verb/preposition targets. Exact next action: validate generated content, run full root/Android suites and web/native B2 client acceptance, then obtain independent German review and complete design/accessibility acceptance before M1 closure. Publication remains separately authorized.
+All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate, including the five verb/preposition targets. Exact next action: validate generated content, run full root/Android suites and web/native B2 client acceptance, then verify hash-bound GPT-6 AI editorial sign-off and finish design/accessibility acceptance before M1 closure. Publication remains separately authorized.
 
-The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. Independent German review and physical-device acceptance remain open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
+The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. The owner waived mandatory independent human German review on 9 October; ChatGPT GPT-6 editorial review is the content gate. Real physical-device Android acceptance remains open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
 
 The owner accepts laptop backups and personally holds/signs Android keys in Android Studio. Source identity/version is `com.germanverbmaster.android`, 29 / 0.2.08; the owner checks the live Play maximum before release. Exact recovery locations and machine paths stay in ignored/private manifests. The existing legacy and renovated Supabase projects remain separate and unchanged; no third project is needed.
 
