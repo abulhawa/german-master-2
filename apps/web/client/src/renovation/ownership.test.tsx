@@ -140,14 +140,14 @@ it("preserves the frozen profile request when an offline owner hands over to ano
   await waitFor(() => expect(a.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(a.getByText("Practice preferences"));
   await a.findByText("Save preferences");
-  fireEvent.change(a.getByLabelText("Timezone (IANA name)"), { target: { value: "UTC" } });
+  fireEvent.change(a.getByLabelText("Timezone"), { target: { value: "UTC" } });
   fireEvent.click(a.getByText("Save preferences")); await a.findByRole("alert");
   const frozen = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
   const second = render(<LearnerJourney api={api} />); const b = within(second.container);
   expect(b.getByRole("status")).toHaveTextContent("another tab");
   expect(api.saveProfile).toHaveBeenCalledOnce(); first.unmount();
   await b.findByText("Retry");
-  expect(b.getByLabelText("Timezone (IANA name)")).toHaveValue("UTC");
+  expect(b.getByLabelText("Timezone")).toHaveValue("UTC");
   api.saveProfile = vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences }));
   fireEvent.click(b.getByText("Retry"));
   await waitFor(() => expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe(""));
