@@ -132,7 +132,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         Text("${p.index + 1} / ${session.questions.size}")
         val preferredCount = if (p.focus == null) repository.state.profile?.preferences?.sessionQuestionCount ?: p.request.questionCount else p.request.questionCount
         if(session.questions.size < preferredCount) Text(text("Shorter session: ${session.questions.size} questions available.", "Kürzere Sitzung: ${session.questions.size} Fragen verfügbar."))
-        Text(exercise.prompt, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineSmall)
+        PracticeHeading(exercise.prompt, p.question.id)
         Text(if(german) exercise.instruction.de else exercise.instruction.en)
         if(p.editable && !busy) {
             fun draft(answer: Answer?) { edit { repository.draft(answer) } }

@@ -1,5 +1,7 @@
 # Renovation acceptance gates
 
+Latest accepted scope, 9 October: **TalkBack acceptance completed for now** by explicit owner decision; further TalkBack improvements deferred. This supersedes pending TalkBack requirements below without claiming full manual auditory verification. A subsequent native prompt-focus repair passes full local Android verification; its hosted validation and final both-client design/web accessibility acceptance remain open. See the latest `PROGRESS.md` entry.
+
 Reconciled on 9 October 2026 against root `PROGRESS.md`, blueprint section 23 and verified repair commit `e95363b` and the local client acceptance recorded in [candidate preview evidence](low-typing-candidate-preview.md). M0 is closed with verified private source/database/Storage recovery under the owner-approved scope; see [closure evidence](m0-closure.md). The full product renovation remains unfinished; M1 is the only active milestone.
 
 ## Current direction and evidence rules

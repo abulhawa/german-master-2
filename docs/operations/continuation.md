@@ -14,6 +14,8 @@ The repository contains the durable state. A new chat need not have access to th
 
 ## Current shared priority — 9 October 2026
 
+Latest owner decision: **TalkBack acceptance is completed for now**. Further TalkBack testing/improvements are deferred; do not reopen it as a blocker. The native next-question focus fix passes full local Android checks and needs hosted verification after an authorized push. Finish final both-client design/web accessibility acceptance before closing M1. Earlier TalkBack pending references below describe historical evidence limits and are superseded by this accepted scope.
+
 Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
 
 All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate. Root and Android suites, converted-content client tests and hash-bound GPT-6 AI editorial validation pass locally; all hosted Actions and Vercel checks pass at PR #11 head `d9715d0`. A connected physical phone has partial B2/large-text runtime evidence. Exact next action: finish physical TalkBack/keyboard and manual web screen-reader acceptance, and record final both-client design acceptance. See [9 October acceptance evidence](m1-acceptance-2026-10-09.md). Publication remains separately authorized.

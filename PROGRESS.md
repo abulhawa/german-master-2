@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 TalkBack acceptance completed for now — 9 October 2026
+
+- Owner explicitly accepted the available TalkBack evidence, requested stopping further testing and asked to describe it as completed for now. TalkBack acceptance is complete for the current M1 scope; further improvements are deferred. This is owner acceptance, not full spoken/gesture certification. Do not reinstate the deferred gate on continuation.
+- Physical keyboard input selected a choice with checked semantics, inspected the answer, added ordering tokens and moved `Ich` to first position without dragging. Repeated UIAutomator inspections coincided with TalkBack on/off announcements reported by the owner, so uninterrupted TalkBack output is not established. Inspection loop stopped and accessibility settings returned to the original disabled state; preview stopped and original learner draft unchanged.
+- Fixed next-question keyboard focus and scroll visibility in the native learner and format preview. A focusable heading requests focus and brings itself into view on question identity changes. Regression asserts focus on each next question. Newly built physical preview shows the first prompt focused. Full offline Android verification passes: 43 suites/165 tests, zero failures/errors; debug/preview builds and lint pass. Log: ignored `.local/m1-focus-android.log`. Web changes were not made; prior hosted/local web checks remain applicable. Additional B2 browser keyboard checks advanced through three confirmed answers with next-prompt focus and German `lang` metadata.
+- New native fix is local; hosted checks previously passed at `d9715d0` and do not cover this new code. Next: hosted verification after an authorized push, then final both-client design/web accessibility acceptance. M1 remains active until those remaining gates are recorded; TalkBack is completed for now. No merge, deployment, publication, release, production change or AI/Groq call.
+- Commit message: `fix(android): focus new practice prompts and record accepted TalkBack scope`.
+
 ## M1 hosted verification passed — 9 October 2026
 
 - Fresh fetch confirms PR #11 remote head and local repair commit both equal `d9715d0`. Web, Android, web accessibility, repository safety and CodeQL Actions all pass on this head; Vercel and its preview status also pass. PR remains draft. Web run `37898138261` and Android run `37898138259` completed successfully by 09:24 Europe/Berlin.

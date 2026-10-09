@@ -78,6 +78,7 @@ class NativePracticeUiTest {
                 compose.onNodeWithText("Continue", substring = false).performScrollTo().performClick()
             }
             compose.waitForIdle()
+            if (index < 4) compose.onNodeWithText(session.questions[index + 1].exercise.prompt).assertIsFocused()
         }
         compose.onNodeWithText("Confirmed summary").assertExists()
         compose.onNodeWithText("Graded: 4 · Skipped: 1 · Correct: 4").assertExists()

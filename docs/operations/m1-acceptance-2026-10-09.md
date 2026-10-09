@@ -31,6 +31,10 @@ Web: local unpublished B2 passive-present answer `wird` obtains confirmed feedba
 
 ## Exact remaining M1 gates
 
+**Owner acceptance update:** TalkBack acceptance is **completed for now**, as explicitly requested on 9 October. Further TalkBack testing/improvements are deferred; the earlier incomplete-journey notes below remain evidence limits, not a current TalkBack completion blocker. UIAutomator inspection repeatedly interrupted the listening experience according to the owner's report; automated inspection is not proof of uninterrupted speech. The testing loop stopped, accessibility returned to the original disabled state and preview stopped. No original learner draft was changed in this follow-up.
+
+The follow-up fixes native prompt focus/scroll visibility on question changes, with a next-prompt focus regression. All 165 offline Android tests, both builds and lint pass. A newly built physical preview exposes the first prompt as focused. Remaining current gates are hosted verification of this subsequent native change and final both-client design/web accessibility acceptance; production approval stays separate.
+
 Update after fresh fetch on 9 October: PR head `d9715d0` now contains the repairs. All Web/Android/accessibility/safety/CodeQL Actions and Vercel statuses pass. [Web run](https://github.com/abulhawa/german-master-2/actions/runs/37898138261) and [Android run](https://github.com/abulhawa/german-master-2/actions/runs/37898138259) close item 1 below. The earlier hosted-state and unpushed observations describe the initial recheck; items 2 and 3 remain open. PR remains draft.
 
 1. Hosted Web/Android checks must pass for the repaired commit. Repairs are local and unpushed; hosted results still describe `bce5cc3`.
