@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## Cold-start correction merged and live — 10 October 2026
+
+- PR #14 head `86e3859` passed Web (including offline shell), accessibility, safety, CodeQL and Vercel checks. Under the owner's ongoing merge/deploy authorization, merged it as `086e9ae` at 00:17 Europe/Berlin. Production deployment `dpl_8TKhmvpxo7NGJBq6suYh4xGxWkDV` is READY for that exact commit; the canonical site serves `index-Cn1Bd8Nj.js` with unchanged stylesheet. Local main fast-forwarded without discarding work.
+- Full local verification passed 193 backend, 411 web and 20 HTTP tests, generated/type checks and both builds. The 21 focused regressions cover readiness and account/session security. Final production Chromium runs use public deployed assets with synthetic local auth/API fixtures: delayed saved-subject cold start and controlling-worker reload automatically load preferences/catalog/progress, enable practice and remove retry controls; controlling-worker hidden → visible return retains the topic, generation and component instances without a document reload. These are deployed-client fixture checks, not production account/backend journey acceptance.
+- The browser load-only assertion was refined to wait for practice readiness because catalog can arrive before the concurrent profile/progress responses. This is test/evidence-only work after the deployed product commit. Detailed ignored traces are retained; no credential logs, production account writes, content/schema changes, Android release or Groq/live AI use. Post-merge Web, accessibility, safety and the main analysis workflow have now passed; the exact PR-head checks are also green.
+- M1 remains active with the existing owner design/manual accessibility gates. Exact next action: owner reload/review of the corrected live app and remaining M1 acceptance. This final evidence/test-only commit stays local to avoid another automatic production build.
+- Commit message: `test(web): record deployed cold-start and worker acceptance`.
+
 ## Cold-start data loading correction — 10 October 2026
 
 - Owner authorized deploying and merging the tab-return fix. PR #13 merged as `59bfeaf` at 00:02 Europe/Berlin; Vercel production `dpl_v5x45yKnkewFRAr92d9Sn793ULGE` became READY and the canonical site changed to `index-DV4RhDd8.js`. All PR and subsequent main checks passed. A normal deployed tab-return fixture run passed, but the worker/reload run failed before loading topics; no successful complete post-release acceptance is claimed.
