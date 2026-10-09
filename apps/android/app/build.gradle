@@ -17,13 +17,18 @@ if (localPropsFile.exists()) {
     localPropsFile.withInputStream { localProps.load(it) }
 }
 
-def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
-def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
-def v2Origin = System.getenv("GM_V2_API_ORIGIN") ?: ""
+// Android Studio runs Gradle without shell environment variables on many setups.
+// These public-only local.properties fallbacks do not read legacy Supabase credentials.
+def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: localProps.getProperty("gm.v2.auth.project", "")
+def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: localProps.getProperty("gm.v2.auth.publishableKey", "")
+def v2Origin = System.getenv("GM_V2_API_ORIGIN") ?: localProps.getProperty("gm.v2.api.origin", "")
 def validV2PublicConfig =
     v2Project == "zgmyrpzwgtydwlzponih" &&
     (v2Key ==~ /sb_publishable_[A-Za-z0-9_-]+/) &&
     (v2Origin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/)
+// Production bundles must never send an Auth bearer token to an arbitrary HTTPS host.
+def validV2ReleaseConfig = validV2PublicConfig &&
+    v2Origin in ["https://germanmaster.qortxai.com", "https://germanmaster.qortxai.com/"]
 if ((v2Project || v2Key || v2Origin) && !validV2PublicConfig) {
     throw new GradleException("Incomplete German Master 2.0 public configuration")
 }
@@ -77,10 +82,15 @@ android {
             applicationIdSuffix = ".preview"
             versionNameSuffix = "-preview"
             matchingFallbacks = ["debug"]
-            // Uses optional public v2 configuration; never reads legacy local.properties.
+            // Uses only gm.v2.* public configuration; never reads legacy local.properties credentials.
         }
         release {
-            signingConfig = signingConfigs.getByName("release")
+            // CI can exercise a minified unsigned AAB without access to owner signing keys.
+            // Android Studio's signed-bundle workflow remains owner-managed.
+            if (["signing.storeFile", "signing.storePassword", "signing.keyAlias", "signing.keyPassword"]
+                    .every { localProps.getProperty(it) }) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             minifyEnabled = true
             shrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -122,9 +132,9 @@ android {
 // The release pre-build always validates its v2 public endpoints.
 tasks.register("verifyV2ReleaseConfiguration") {
     group = "verification"
-    description = "Require the v2 Auth project, publishable key, and HTTPS API origin"
+    description = "Require the v2 Auth project, publishable key and canonical production HTTPS API"
     doLast {
-        if (!validV2PublicConfig) {
+        if (!validV2ReleaseConfig) {
             throw new GradleException("Complete German Master 2.0 release public configuration required")
         }
     }

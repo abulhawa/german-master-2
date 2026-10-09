@@ -14,7 +14,7 @@ The repository contains the durable state. A new chat need not have access to th
 
 ## Current shared priority — 9 October 2026
 
-Commit `813c779` is pushed to `main`; Web, Android, accessibility, safety, CodeQL and Vercel statuses passed for that exact revision. Android Studio versionCode/versionName remains owner-managed. The subsequent v2-only native launch/release-configuration change is on a separate review branch and must pass its own checks before any merge; no release is authorized by that change.
+Commit `813c779` is pushed to `main`; Web, Android, accessibility, safety, CodeQL and Vercel statuses passed for that exact revision. Android Studio versionCode/versionName remains owner-managed. PR #12 holds the subsequent v2-only native launch/release-configuration change, including Android Studio public configuration and a production-only release API origin. It remains a review branch until the latest-head checks pass; no release is authorized by that change.
 
 Latest design implementation: Android now uses the web-inspired blue-panel Home and both clients align practice with the revised low-typing S04 concepts. Local builds, tests and Pixel/light/dark/English/German/enlarged-text evidence are recorded in [design alignment](../design/study-alignment-2026-10-09.md) and the newest checkpoint. Next: authorized hosted verification and final owner design/manual web accessibility acceptance. Do not revert Home to the older October 3 concept or recreate completed low-typing controls.
 
