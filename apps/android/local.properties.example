@@ -1,6 +1,10 @@
-# Copy this file to local.properties and fill in your Supabase credentials.
-# local.properties is gitignored — never commit real keys.
+# Android Studio creates and maintains apps/android/local.properties.
+# Append these PUBLIC v2 settings to it without replacing your existing sdk.dir.
+# Do not commit local.properties, signing credentials, or an actual publishable key.
+# The Android release uses the dedicated German Master 2.0 Supabase project.
+gm.v2.auth.project=zgmyrpzwgtydwlzponih
+gm.v2.auth.publishableKey=REPLACE_WITH_REAL_V2_PUBLISHABLE_KEY
+gm.v2.api.origin=https://germanmaster.qortxai.com
 
-# From your Supabase project → Settings → API
-supabase.url=https://your-project-ref.supabase.co
-supabase.anon.key=your-anon-key-here
+# Optional: the owner may use Android Studio's Generate Signed Bundle wizard.
+# Legacy supabase.url, supabase.anon.key, and google.web.client.id are not read.

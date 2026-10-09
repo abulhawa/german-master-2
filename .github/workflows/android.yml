@@ -60,6 +60,35 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Install imported app SDK requirements
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
+      - name: Verify release rejects missing public v2 configuration
+        run: |
+          if bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-config-guard.log" 2>&1; then
+            echo "ERROR: Android release accepted empty public configuration"
+            exit 1
+          fi
+          grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-config-guard.log"
+      - name: Reject non-production release host
+        env:
+          GM_V2_AUTH_PROJECT: zgmyrpzwgtydwlzponih
+          GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
+          GM_V2_API_ORIGIN: https://untrusted.example
+        run: |
+          if bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-host-guard.log" 2>&1; then
+            echo "ERROR: release accepted a non-production API origin"
+            exit 1
+          fi
+          grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-host-guard.log"
+      - name: Build unsigned production-configured release bundle
+        env:
+          GM_V2_AUTH_PROJECT: zgmyrpzwgtydwlzponih
+          GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
+          GM_V2_API_ORIGIN: https://germanmaster.qortxai.com
+        run: |
+          bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2
+          bash gradlew :app:bundleRelease --dry-run --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-task-graph.log"
+          grep -q ':app:verifyV2ReleaseConfiguration SKIPPED' "$RUNNER_TEMP/release-task-graph.log"
+          bash gradlew :app:bundleRelease --no-daemon --max-workers=4
+          test -s app/build/outputs/bundle/release/app-release.aab
       - name: Verify debug app
         run: bash gradlew testDebugUnitTest assembleDebug assembleLearnerPreview --no-daemon --continue --max-workers=4
       - name: Lint debug app
