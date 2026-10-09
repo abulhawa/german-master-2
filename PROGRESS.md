@@ -1,5 +1,11 @@
 # German Master 2.0 renovation checkpoint
 
+## Web navigation fix branch pushed — 9 October 2026
+
+- Under the owner's explicit push instruction, pushed `269fd0b` to `origin/fix/web-tab-return-navigation`; remote ref matches the local fix. No merge or deployment command was issued, and no hosted/deployed outcome is claimed. The repository integration may run branch checks/previews independently.
+- M1 remains active with its existing gates. Exact next action: review the pushed fix and verify hosted checks under the owner's scope; production deployment and merge remain unauthorized. The concurrent owner-browser connectivity report is a local troubleshooting matter, not a verified project defect or production outage.
+- Commit message: `docs: record authorized web navigation fix push`.
+
 ## Web tab-return navigation reset fixed — 9 October 2026
 
 - Investigated the owner's explicit bug request on separate branch `fix/web-tab-return-navigation`, based on clean `813c779`. Inspected the owner's Edge detail view; the owner reproduced after disconnecting browser control. Headed Chromium/Playwright reproduced the deployed reset using public assets with synthetic local auth/API fixtures and real hidden → visible events. Existing-session `SIGNED_IN` cleared the learner, replaced account generation and remounted Home; document identity and URL did not change. Both worker-controlled and uncontrolled deployed runs fail. Clean credential-free guest practice did not reproduce and retains its draft; no universal unauthenticated-reset claim is made.
