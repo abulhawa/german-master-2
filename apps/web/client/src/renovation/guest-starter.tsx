@@ -106,6 +106,13 @@ const starterSession = SessionSchema.parse({
   ],
 });
 
+/** Guest-only input suggestions. Do not revise the published questions or their rubrics. */
+const starterSuggestions: Record<string, Record<string,string[]>> = {
+  "30000000-0000-4000-8000-000000000100": { answer: ["Berufen", "Berufe", "Berufs"] },
+  "30000000-0000-4000-8000-000000000102": { preposition: ["im", "in", "ins"] },
+  "30000000-0000-4000-8000-000000000104": { du: ["arbeitet", "arbeitest", "arbeits"], ihr: ["arbeiten", "arbeitet", "arbeitete"] },
+};
+
 const DraftSchema = z.union([
   AnswerSchema,
   z.strictObject({ type: z.literal("word_order"), tokenIds: z.array(z.string()) }),
@@ -275,7 +282,7 @@ const copy = {
   en: {
     subtitle: "B1–B2 German practice",
     title: "Practise what needs attention.",
-    intro: "Short mixed sessions help you find recurring mistakes and make the right form more reliable.",
+    intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed."
     language: "Interface language",
     languageHelp: "You can change this later.",
     level: "Your current German level",
@@ -288,7 +295,7 @@ const copy = {
     existing: "I already have an account",
     resumeAccount: "Continue saved account",
     localStatus: "Guest practice · saved on this device",
-    shorter: "Shorter session: 5 reviewed questions are available.",
+    shorter: "This starter has five reviewed B1 questions."
     question: "Question", of: "of",
     hint: "Hint", check: "Check answer", skip: "Skip", next: "Continue",
     correct: "Looks correct locally", incorrect: "Not quite", assisted: "Assisted answer",
@@ -303,7 +310,7 @@ const copy = {
     create: "Create account", signIn: "Sign in",
     complete: "Starter session complete", saved: "Session saved",
     answered: "answered", skipped: "skipped", lookCorrect: "look correct locally",
-    retention: "This is a starting point. Reliable progress comes from later unassisted checks.",
+    retention: "Good start. Try another short session to practise more, or save your results to track progress over time."
     keepProgress: "Keep your progress",
     keepProgressBody: "Create an account or sign in to save this practice and use confirmed progress across devices.",
     notNow: "Not now", finish: "Finish",
@@ -316,7 +323,7 @@ const copy = {
   de: {
     subtitle: "Deutsch üben auf B1–B2",
     title: "Übe, was noch Aufmerksamkeit braucht.",
-    intro: "Kurze gemischte Übungen helfen dir, wiederkehrende Fehler zu erkennen und die richtige Form sicherer zu machen.",
+    intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto."
     language: "Sprache der Oberfläche",
     languageHelp: "Du kannst das später ändern.",
     level: "Dein aktuelles Deutschniveau",
@@ -329,7 +336,7 @@ const copy = {
     existing: "Ich habe bereits ein Konto",
     resumeAccount: "Gespeichertes Konto fortsetzen",
     localStatus: "Gastübung · auf diesem Gerät gespeichert",
-    shorter: "Kürzere Übung: 5 geprüfte Fragen sind verfügbar.",
+    shorter: "Dieser Einstieg enthält fünf geprüfte B1-Aufgaben."
     question: "Frage", of: "von",
     hint: "Hinweis", check: "Antwort prüfen", skip: "Überspringen", next: "Weiter",
     correct: "Sieht lokal richtig aus", incorrect: "Noch nicht ganz", assisted: "Antwort mit Hilfe",
@@ -344,7 +351,7 @@ const copy = {
     create: "Konto erstellen", signIn: "Anmelden",
     complete: "Erste Übung abgeschlossen", saved: "Übung gespeichert",
     answered: "beantwortet", skipped: "übersprungen", lookCorrect: "sehen lokal richtig aus",
-    retention: "Das ist ein Anfang. Verlässlicher Fortschritt zeigt sich bei späteren Übungen ohne Hilfe.",
+    retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen."
     keepProgress: "Fortschritt behalten",
     keepProgressBody: "Erstelle ein Konto oder melde dich an, um diese Übungen zu speichern und bestätigten Fortschritt auf mehreren Geräten zu nutzen.",
     notNow: "Nicht jetzt", finish: "Abschließen",
@@ -512,11 +519,10 @@ export function GuestStarterJourney({
       </div>}
       <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.finish}</FoundationButton>
     </PracticeCard> : question ? <PracticeCard>
-      {state.session!.questions.length < state.questionCount && <p className="gm-notice">{c.shorter}</p>}
       <p>{question.exercise.instruction[state.locale]}</p><h1 lang="de">{question.exercise.prompt}</h1>
       <fieldset className="gm-answer-group" disabled={!!state.feedback || storageError}>
         <ExerciseInput key={question.id} exercise={question.exercise} locale={state.locale} initialAnswer={state.draft as Answer | null}
-          onAnswer={() => {}} onDraft={draft => commit({ ...state, draft })} />
+          onAnswer={() => {}} onDraft={draft => commit({ ...state, draft })} suggestions={starterSuggestions[question.exercise.id]} />
         {!state.feedback && <FoundationButton className="gm-secondary" disabled={state.assisted || storageError}
           onClick={() => commit({ ...state, assisted: true })}>{c.hint}</FoundationButton>}
         {state.assisted && <p>{question.exercise.hint[state.locale]}</p>}
