@@ -56,8 +56,11 @@ export class VerifiedLearnerProvider {
 
   async bind() {
     const operation = ++this.operation;
-    this.online = false;
-    const credential = await this.credential();
+    // Same-session background verification must not temporarily disable a
+    // previously verified transport. Every request still verifies a credential.
+    let credential: Awaited<ReturnType<VerifiedLearnerProvider['credential']>>;
+    try { credential = await this.credential(); }
+    catch(error) { if(operation===this.operation)this.online=false;throw error; }
     if (operation !== this.operation) throw Error('Sign-in changed');
     this.saved.setItem(this.savedKey, credential.subject);
     if (!this.active || this.active.subject !== credential.subject || (this.sessionId !== null && this.sessionId !== credential.sessionId)) {
@@ -100,7 +103,7 @@ export class VerifiedLearnerProvider {
       if (!this.online) throw Error('Sign in before syncing');
       const credential = await this.credential();
       account.assertCurrent();
-      if (credential.subject !== account.identity.subject) { this.invalidate(); throw Error('Account changed'); }
+      if (credential.subject !== account.identity.subject || credential.sessionId !== this.sessionId) { this.invalidate(); throw Error('Account changed'); }
       if (typeof input !== 'string' || !input.startsWith('/v2/') || input.startsWith('//')) throw Error('Invalid learner route');
       const headers = new Headers(init?.headers);
       headers.set('Authorization', `Bearer ${credential.token}`);

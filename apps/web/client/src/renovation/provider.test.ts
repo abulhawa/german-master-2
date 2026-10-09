@@ -11,16 +11,31 @@ function fixture() {
   let user = subject;
   let rejected = false;
   let expiry = 10;
-  const token = () => `e30.${btoa(JSON.stringify({ iss: `https://${project}.supabase.co/auth/v1`, aud: 'authenticated', role: 'authenticated', sub: user, session_id: subject, exp: expiry })).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
+  let authSession = subject;
+  const token = () => `e30.${btoa(JSON.stringify({ iss: `https://${project}.supabase.co/auth/v1`, aud: 'authenticated', role: 'authenticated', sub: user, session_id: authSession, exp: expiry })).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
   const auth = {
     getSession: vi.fn(async () => ({ data: { session: { user: { id: user }, access_token: token(), expires_at: expiry } }, error: null })),
     getUser: vi.fn(async () => ({ data: { user: { id: user, is_anonymous: false } }, error: rejected ? Error('rejected') : null })),
     signOut: vi.fn(async () => ({ error: rejected ? Error('offline') : null })),
   };
   const provider = new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'], project, () => now);
-  return { provider, auth, token, refresh:()=>{expiry=20;}, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
+  return { provider, auth, token, newSession:()=>{authSession=other;}, refresh:()=>{expiry=20;}, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
 }
 afterEach(()=>localStorage.clear());
+it('keeps verified requests usable during deferred same-session verification',async()=>{
+  const f=fixture(),account=await f.provider.bind();
+  let release!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
+  f.auth.getUser.mockImplementationOnce(()=>new Promise(resolve=>{release=resolve;}));
+  const pending=f.provider.bind();await vi.waitFor(()=>expect(release).toBeTypeOf('function'));
+  const send=vi.fn(async()=>new Response(JSON.stringify({apiVersion:'v2',revision:1,setupCompleted:true,preferences:{locale:'en',timezone:'Europe/Berlin',level:'B1',sessionQuestionCount:15}}),{status:200}));
+  expect((await f.provider.api(account,'https://api.example',send).profile()).setupCompleted).toBe(true);
+  release({data:{user:{id:subject,is_anonymous:false}},error:null});expect(await pending).toBe(account);
+});
+it('rejects a silent same-subject auth-session change before sending a request',async()=>{
+  const f=fixture(),account=await f.provider.bind();f.newSession();const send=vi.fn();
+  await expect(f.provider.api(account,'https://api.example',send).profile()).rejects.toThrow('Account changed');
+  expect(send).not.toHaveBeenCalled();expect(()=>account.assertCurrent()).toThrow();
+});
 it('re-verifies a recovered session without replacing its account binding',async()=>{
   const f=fixture(), account=await f.provider.bind();
   for(const event of ['SIGNED_IN','TOKEN_REFRESHED','USER_UPDATED'] as const){
