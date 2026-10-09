@@ -15,7 +15,8 @@ it("starts real guest practice without authentication and restores the saved dra
   expect(screen.queryByLabelText("Usual session")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
   expect(screen.getByRole("status")).toHaveTextContent("Guest practice · saved on this device");
-  expect(screen.getByText("Shorter session: 5 reviewed questions are available.")).toBeInTheDocument();
+  expect(screen.queryByText(/Shorter session:/)).toBeNull();
+  expect(screen.getByRole("radio", { name: "Berufe" })).toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
@@ -28,6 +29,22 @@ it("starts real guest practice without authentication and restores the saved dra
   expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
   expect(screen.getByLabelText("Your answer")).toHaveValue("Berufe");
   expect(onAuth).not.toHaveBeenCalled();
+});
+
+it("lets a guest finish text-based exercises by tapping choices without changing saved answer types", () => {
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  expect(screen.getByLabelText("Your answer")).toHaveValue("Berufe");
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  const saved = JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!);
+  expect(saved.attempts[0].answer).toEqual({type:"short_answer",text:"Berufe"});
+  fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+  fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+  fireEvent.click(screen.getByRole("radio", { name: "ins" }));
+  expect(screen.getByLabelText("Präposition")).toHaveValue("ins");
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).attempts[1].answer).toEqual({type:"cloze",values:[{slotId:"preposition",text:"ins"}]});
 });
 
 it("offers account creation only after useful guest practice and never attaches automatically", () => {

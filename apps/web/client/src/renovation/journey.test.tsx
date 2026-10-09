@@ -43,7 +43,7 @@ function apiFixture(): LearnerApi {
   return { expose: vi.fn(async event => ({ eventId: event.eventId, status: "accepted" as const, serverSequence: 1 })), profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
-afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); localStorage.clear(); window.history.replaceState(null, "", window.location.pathname); vi.unstubAllGlobals(); });
 it('retains selected choices while saving and after feedback, then focuses the next prompt', async () => {
   const formats = SessionSchema.parse(formatSample);
   const api = apiFixture();
@@ -84,7 +84,7 @@ describe('Home screen handoff', () => {
     expect(await screen.findByRole('heading', {name:'Account', exact:true})).toHaveFocus();
     expect(screen.getByLabelText('Theme')).toBeInTheDocument();
     expect(screen.getByText('Sync saved work and sign out')).not.toBeVisible();
-    fireEvent.click(screen.getByText('Account and privacy'));
+    fireEvent.click(screen.getByText('Sign out'));
     expect(screen.getByText('Sync saved work and sign out')).toBeVisible();
     fireEvent.click(screen.getByRole('button', {name:'Home', exact:true}));
     fireEvent.click(screen.getByRole('button', {name:'Continue practice'}));
@@ -143,6 +143,7 @@ it('sign-out choices require explicit removal and resume retained work only for 
   const api=apiFixture();const db=new WebReserve('signout-ui');
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
   fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
+  fireEvent.click(screen.getByText('Sign out'));
   await waitFor(()=>expect(screen.getByText('Sync saved work and sign out')).toBeEnabled());
   fireEvent.click(screen.getByText('Remove local work and sign out…'));
   fireEvent.click(screen.getByText('Keep my local work'));
@@ -152,6 +153,7 @@ it('sign-out choices require explicit removal and resume retained work only for 
   rendered.unmount();const remount=render(<LearnerJourney api={api} reserve={db}/>);
   fireEvent.click(screen.getByText('Resume the same local fixture learner'));
   fireEvent.click(await screen.findByRole('button', {name:'Account', exact:true}));
+  fireEvent.click(screen.getByText('Sign out'));
   await waitFor(()=>expect(screen.getByText('Remove local work and sign out…')).toBeEnabled());
   localStorage.setItem(PROFILE_PENDING_KEY,'explicitly removed pending work');
   fireEvent.click(screen.getByText('Remove local work and sign out…'));fireEvent.click(screen.getByText('Confirm local removal and sign out'));
@@ -418,7 +420,7 @@ it("requires setup, confirms preferences and reports unavailable B2 drafts", asy
   await waitFor(() => expect(screen.getByRole("heading", { name: "Set up your practice" })).toHaveFocus());
   expect(screen.queryByText("Start short practice")).not.toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
-  fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "UTC" } });
+  fireEvent.change(screen.getByLabelText("Timezone"), { target: { value: "UTC" } });
   fireEvent.click(screen.getByText("Save preferences"));
   await screen.findByText(/No questions are available at your selected level/);
   expect(screen.getByText("Start short practice")).toBeDisabled();
@@ -443,13 +445,13 @@ it("retries frozen setup payload after lost response and reload without overwrit
   fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
   await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(screen.getByText("Practice preferences"));
-  fireEvent.change(screen.getByLabelText("Timezone (IANA name)"), { target: { value: "Asia/Tokyo" } });
+  fireEvent.change(screen.getByLabelText("Timezone"), { target: { value: "Asia/Tokyo" } });
   fireEvent.click(screen.getByText("Save preferences"));
   await screen.findByRole("alert");
   const request = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
   cleanup(); render(<LearnerJourney api={api} />);
   await screen.findByText("Retry");
-  expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
+  expect(screen.getByLabelText("Timezone")).toBeDisabled();
   fireEvent.click(screen.getByText("Retry"));
   await screen.findByRole("heading", { name: 'A little practice. Lasting progress.' });
   expect(api.saveProfile).toHaveBeenLastCalledWith(request);
@@ -472,12 +474,28 @@ it("reloads current preferences to correct an invalid frozen setup request", asy
   localStorage.setItem(PROFILE_PENDING_KEY, JSON.stringify(request));
   render(<LearnerJourney api={api} />);
   expect(await screen.findByText("Retry")).toBeInTheDocument();
-  expect(screen.getByLabelText("Timezone (IANA name)")).toBeDisabled();
+  expect(screen.getByLabelText("Timezone")).toBeDisabled();
   fireEvent.click(screen.getByText("Reload current preferences"));
-  await waitFor(() => expect(screen.getByLabelText("Timezone (IANA name)")).toBeEnabled());
-  expect(screen.getByLabelText("Timezone (IANA name)")).toHaveValue("Europe/Berlin");
+  await waitFor(() => expect(screen.getByLabelText("Timezone")).toBeEnabled());
+  expect(screen.getByLabelText("Timezone")).toHaveValue("Europe/Berlin");
   expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
   expect(api.saveProfile).not.toHaveBeenCalled();
+});
+
+it("keeps topic detail in the URL and restores navigation on browser history or remount", async () => {
+  const api = apiFixture();
+  const mounted=render(<LearnerJourney api={api} />);
+  fireEvent.click(screen.getByRole("button", { name: "Topics" }));
+  fireEvent.click(await screen.findByRole("button", { name: "German in everyday work" }));
+  expect(window.location.hash).toBe(`#/learn/topic/${catalog.topics[0].id}`);
+  fireEvent.click(screen.getByRole("button", { name: "Plural of Beruf" }));
+  expect(window.location.hash).toBe(`#/learn/target/${catalog.targets[0].id}`);
+  mounted.unmount();
+  render(<LearnerJourney api={api} />);
+  expect(await screen.findByRole("heading", { name: "Plural of Beruf" })).toBeInTheDocument();
+  window.history.replaceState(null,"","#/learn/topics");
+  fireEvent.popState(window);
+  expect(await screen.findByRole("heading", { name: "Topics" })).toBeInTheDocument();
 });
 
 describe("isolated learner journey", () => {
@@ -590,8 +608,9 @@ describe("isolated learner journey", () => {
     await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
     fireEvent.click(screen.getByText("Progress"));
     expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
-    expect(screen.getByText("Needs practice")).toBeInTheDocument();
-    expect(screen.queryByText("Mastered")).not.toBeInTheDocument();
+    expect(screen.getByText("Needs practice", { selector: ".gm-state-badge" })).toBeInTheDocument();
+    expect(screen.getByText("Mastered").closest(".gm-progress-stat")).toHaveTextContent("0Mastered");
+    expect(screen.queryByText("Mastered", { selector: ".gm-state-badge" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading")).toHaveFocus();
   });
   it("persists partial slot drafts, token order and hint assistance", async () => {

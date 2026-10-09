@@ -34,6 +34,12 @@ import { IdentityDeletionControl } from './identity-deletion-control';
 import type { IdentityDeletionProof } from '@german-master/contracts';
 
 const localApi = localLearnerApi(fixtureAccount);
+type WorkspaceView = "home" | "practice" | "progress" | "topics" | "topic" | "target" | "account";
+function readWorkspaceRoute(): { view: WorkspaceView; selectedId: string | null } {
+  const match = /^#\/learn\/(home|practice|progress|topics|topic|target|account)(?:\/([0-9a-f-]{36}))?$/.exec(window.location.hash);
+  if (!match || ((match[1] === "topic" || match[1] === "target") && !match[2])) return { view: "home", selectedId: null };
+  return { view: match[1] as WorkspaceView, selectedId: match[2] ?? null };
+}
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean; identityDeletion?:IdentityDeletionTransport; clearDeletedIdentity?:()=>Promise<void>; forgetDeletedIdentity?:()=>Promise<void>; onReauthenticate?:()=>void; localAccess?:boolean };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
@@ -121,13 +127,13 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const [loaded] = useState(() => { try { return { state: readJourney(storage), damaged: false }; } catch { return { state: emptyJourney(), damaged: true }; } });
   const [state, setState] = useState(loaded.state);
   const current = useRef(state);
-  const [view, setView] = useState<"home" | "practice" | "progress" | "topics" | "topic" | "target" | "account">("home");
+  const [view, setView] = useState<WorkspaceView>(() => readWorkspaceRoute().view);
   const [profile, setProfile] = useState<LearnerProfile | null>(null);
   const [profileFailed, setProfileFailed] = useState(false);
   const [editingSetup, setEditingSetup] = useState(() => { try { return !!storage.getItem(PROFILE_PENDING_KEY); } catch { return true; } });
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [catalogFailed, setCatalogFailed] = useState(false);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(() => readWorkspaceRoute().selectedId);
   const [busy, setBusy] = useState(false);
   const [closing, setClosing] = useState(false);
   const [syncRevision, setSyncRevision] = useState(0);
@@ -182,13 +188,18 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
+  useEffect(() => {
+    const restore = () => { const route = readWorkspaceRoute(); setView(route.view); setSelectedId(route.selectedId); };
+    window.addEventListener("popstate", restore); window.addEventListener("hashchange", restore);
+    return () => { window.removeEventListener("popstate", restore); window.removeEventListener("hashchange", restore); };
+  }, []);
   useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
   useEffect(() => { if (view === 'practice') heading.current?.focus(); }, [closing, p?.completion, view]);
 
   async function start(focus?: PracticeFocus) {
     if (!canPractice) return;
-    setView("practice");
+    navigate("practice");
     await run(async () => {
       let practice = current.current.practice;
       if (practice?.completion && !practice.completionReceipt) return;
@@ -273,8 +284,14 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const nothingDue = !!confirmed && !!hasEvidence && needs + due === 0;
   const improving = confirmed?.targets.filter(t => t.state === 'improving') ?? [];
   function preference(update: Partial<Journey>) { try { commit({ ...current.current, ...update }); } catch { /* Preserve prior state. */ } }
-  function navigate(nextView: typeof view) {
+  function navigate(nextView: WorkspaceView, nextId?: string) {
+    const id = nextId ?? selectedId;
+    if (nextId !== undefined) setSelectedId(nextId);
     setView(nextView);
+    // Practice is a focused flow on top of Home/Topic; keep the origin route for safe reload/resume.
+    if (nextView === "practice") return;
+    const route = `#/learn/${nextView}${(nextView === "topic" || nextView === "target") && id ? `/${id}` : ""}`;
+    if (window.location.hash !== route) window.history.pushState({ germanMaster: true }, "", route);
     // Keyboard activation leaves focus on the triggering button in real browsers.
     // Refocus after the click/default-action turn so the new page is announced.
     setTimeout(() => heading.current?.focus(), 0);
@@ -283,7 +300,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const selectedTarget = catalog?.targets.find(t => t.id === selectedId);
   const selectedTopic = catalog?.topics.find(t => t.id === selectedId);
   const targetState = confirmed?.targets.find(t => t.targetId === selectedId);
-  function showTarget(id: string) { setSelectedId(id); navigate("target"); }
+  function showTarget(id: string) { navigate("target", id); }
   function focusAction(focus: PracticeFocus, count: number) {
     return <><p>{c.available}: {count}</p><p>{c.focusedShort}</p>
       {p && !complete ? <><p>{c.resumeFirst}</p><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.resume}</FoundationButton></>
@@ -301,7 +318,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     <div className="gm-column gm-workspace-content">
       {view === 'practice' ? <header className="gm-practice-header"><strong>German Master</strong>
         {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</span>}
-        <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
+        <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) navigate("home"); else setClosing(true); }}>{c.close}</FoundationButton>
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
@@ -318,7 +335,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {setup && profile && view !== "practice" && !loaded.damaged && <ProfileSetup key={`${profile.revision}:${syncRevision}`} profile={profile} api={api} storage={storage}
         owner={owner} authenticated={authenticated}
         onPreviewLocale={locale => preference({ locale })}
-        onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); setView("home"); void loadCatalog(); }}
+        onSaved={value => { preference({ locale: value.preferences.locale }); setProfile(value); setEditingSetup(false); navigate("home"); void loadCatalog(); }}
         onReload={async () => { const value = await api.profile(); setProfile(value); preference({ locale: value.preferences.locale }); return value; }}
         onCancel={profile.setupCompleted ? () => setEditingSetup(false) : undefined} />}
       {setup && view !== "practice" && p && !complete && <FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.resume}</FoundationButton>}
@@ -335,7 +352,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             {!catalogFailed && catalog && availableCount === 0 && <div className="gm-empty-content"><p>{s.noQuestions}</p><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={()=>setEditingSetup(true)}>{c.editSetup}</FoundationButton></div>}
           </div><StudyArt/></div>
           {catalog && catalog.topics.length > 0 && <section className="gm-explore-section"><div className="gm-section-heading"><div><h2>{s.explore}</h2><p>{s.exploreNote}</p></div><FoundationButton className="gm-text-button gm-secondary" onClick={()=>navigate('topics')}>{nothingDue ? h.chooseTopic : s.browseTopics}<ArrowRight aria-hidden="true"/></FoundationButton></div>
-            <div className="gm-topic-grid">{catalog.topics.map((topic,index)=><FoundationButton key={topic.id} className="gm-topic-tile gm-secondary" onClick={()=>{setSelectedId(topic.id);navigate('topic');}}><span className="gm-tile-number">{String(index+1).padStart(2,'0')}</span><BookOpen aria-hidden="true"/><span className="gm-tile-title">{topic.title[state.locale]}</span><span className="gm-tile-note">{catalog.targets.filter(t=>t.topicId===topic.id).length} {s.targetCount}</span><ArrowRight className="gm-tile-arrow" aria-hidden="true"/></FoundationButton>)}</div>
+            <div className="gm-topic-grid">{catalog.topics.map((topic,index)=><FoundationButton key={topic.id} className="gm-topic-tile gm-secondary" onClick={()=>{navigate('topic', topic.id);}}><span className="gm-tile-number">{String(index+1).padStart(2,'0')}</span><BookOpen aria-hidden="true"/><span className="gm-tile-title">{topic.title[state.locale]}</span><span className="gm-tile-note">{catalog.targets.filter(t=>t.topicId===topic.id).length} {s.targetCount}</span><ArrowRight className="gm-tile-arrow" aria-hidden="true"/></FoundationButton>)}</div>
           </section>}
         </>}
         {view === 'home' && !setup && confirmed && confirmed.targets.some(t => t.state === 'needs_practice' || t.isDue) && <PracticeCard>
@@ -357,10 +374,10 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
 </details>}
-        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.accountTools}</summary>
+        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>}
+         {view === 'account' && <details className="gm-account-disclosure"><summary>{s.accountTools}</summary>
         { api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
-        { <PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} />}
-        { identityControl?.(state.locale,busy||loaded.damaged)}
+                { identityControl?.(state.locale,busy||loaded.damaged)}
         { api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
           if (lock.current) throw Error('Learner operation in progress');
           lock.current=true;setBusy(true);
@@ -375,7 +392,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             {((p?.pending && !p.evaluation) || p?.pendingExposure || p?.rejected) && <p role="status">{c.resolvePending}</p>}
             <FoundationButton disabled={busy || !!(p?.pending && !p.evaluation) || !!p?.pendingExposure || !!p?.rejected} onClick={() => void finish()}>{c.endSession}</FoundationButton>
             <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); heading.current?.focus(); }}>{c.keepPractising}</FoundationButton>
-            <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); setView('home'); }}>{c.saveAndLeave}</FoundationButton>
+            <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); navigate("home"); }}>{c.saveAndLeave}</FoundationButton>
           </PracticeCard> : <PracticeCard>
             {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
               <h1 ref={heading} tabIndex={-1}>{p.completion?.mode === 'partial' ? c.partialSummary : c.complete}</h1><p role="status">{c.summary}: {p.completionReceipt?.gradedCount ?? p.confirmedCount} / {p.session.questions.length}</p>
@@ -415,9 +432,15 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
         {view === "progress" && !setup && <>
           <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p></div>
+          {confirmed && <div className="gm-progress-overview" aria-label={s.progressOverview}>
+            {([{ name: c.needs, count: confirmed.targets.filter(t => t.state === "needs_practice").length },
+              { name: h.improving, count: confirmed.targets.filter(t => t.state === "improving").length },
+              { name: c.states.mastered, count: confirmed.targets.filter(t => t.state === "mastered").length }] as const).map(item =>
+                <div key={item.name} className="gm-progress-stat"><strong>{item.count}</strong><span>{item.name}</span></div>)}
+          </div>}
           <PracticeCard>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
-          {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p><ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
+          {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p>{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
             <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p className="gm-state-badge" data-state={t.state}>{c.states[t.state]}</p>
             {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
             <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
@@ -429,17 +452,17 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           <PracticeCard>
           {catalogFailed && <p role="alert">{c.catalogUnavailable}</p>}
           {(!catalog || catalogFailed) && <FoundationButton disabled={busy} onClick={() => void loadCatalog()}>{c.retryCatalog}</FoundationButton>}
-          {view === "topics" && catalog && <ul className="gm-targets">{catalog.topics.map(topic => <li key={topic.id}>
-            <FoundationButton className="gm-secondary" onClick={() => { setSelectedId(topic.id); navigate("topic"); }}>{topic.title[state.locale]}</FoundationButton>
-            <p>{c.available}: {catalog.targets.filter(t => t.topicId === topic.id && t.availableQuestionCount > 0).length}</p>
+          {view === "topics" && catalog && <ul className="gm-targets gm-collection">{catalog.topics.map(topic => <li key={topic.id}>
+            <FoundationButton className="gm-secondary" onClick={() => { navigate("topic", topic.id); }}>{topic.title[state.locale]}</FoundationButton>
+            <p>{c.available}: {catalog.targets.filter(t => t.topicId === topic.id).reduce((sum,t) => sum + t.availableQuestionCount, 0)}</p>
           </li>)}</ul>}
-          {view === "topic" && selectedTopic && catalog && <>
-            {focusAction({ type: "topic", id: selectedTopic.id }, catalog.targets.filter(t => t.topicId === selectedTopic.id && t.availableQuestionCount > 0).length)}
-            <ul className="gm-targets">{catalog.targets.filter(t => t.topicId === selectedTopic.id).map(t => <li key={t.id}>
+          {view === "topic" && selectedTopic && catalog && <><p className="gm-topic-description">{s.topicDetailIntro}</p>
+            {focusAction({ type: "topic", id: selectedTopic.id }, catalog.targets.filter(t => t.topicId === selectedTopic.id).reduce((sum,t) => sum + t.availableQuestionCount, 0))}
+            <ul className="gm-targets gm-collection">{catalog.targets.filter(t => t.topicId === selectedTopic.id).map(t => <li key={t.id}>
               <FoundationButton className="gm-secondary" onClick={() => showTarget(t.id)}>{t.title[state.locale]}</FoundationButton><p>{t.level} · {t.description[state.locale]}</p>
             </li>)}</ul>
           </>}
-          {view === "target" && selectedTarget && <>
+          {view === "target" && selectedTarget && <><p className="gm-topic-description">{s.targetDetailIntro}</p>
             <p>{selectedTarget.level} · {selectedTarget.description[state.locale]}</p>
             {targetState ? <><p>{c.states[targetState.state]}</p><p>{c.checks}: {targetState.qualifyingCheckCount}</p>
               {targetState.schedule[0] && <p>{targetState.isDue ? c.due : c.later}: <time dateTime={targetState.schedule[0].dueAt}>{new Date(targetState.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
@@ -447,9 +470,9 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <p>{c.retentionNote}</p>
             {focusAction({ type: "target", id: selectedTarget.id }, selectedTarget.availableQuestionCount)}
           </>}
-          {view !== "topics" && <FoundationButton className="gm-secondary" onClick={() => navigate("topics")}>{c.back}</FoundationButton>}
+          {view !== "topics" && <FoundationButton className="gm-secondary" onClick={() => view === "target" && selectedTarget ? navigate("topic",selectedTarget.topicId) : navigate("topics")}>{view === "target" ? s.backToTargets : c.back}</FoundationButton>}
         </PracticeCard></>}
-        {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy || !!p.completion && !p.completionReceipt} onClick={() => { preference({ practice: null }); setView("home"); }}>{c.discard}</FoundationButton></details>}
+        {p && <details><summary>{c.saved}</summary><p>{c.discardNote}</p><FoundationButton className="gm-secondary" disabled={busy || !!p.completion && !p.completionReceipt} onClick={() => { preference({ practice: null }); navigate("home"); }}>{c.discard}</FoundationButton></details>}
       </>}
     </div>
   </main>;
