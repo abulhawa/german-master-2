@@ -430,6 +430,12 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
         {view === "progress" && !setup && <>
           <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p></div>
+          {confirmed && <div className="gm-progress-overview" aria-label={s.progressOverview}>
+            {([{ name: c.needs, count: confirmed.targets.filter(t => t.state === "needs_practice").length },
+              { name: h.improving, count: confirmed.targets.filter(t => t.state === "improving").length },
+              { name: c.states.mastered, count: confirmed.targets.filter(t => t.state === "mastered").length }] as const).map(item =>
+                <div key={item.name} className="gm-progress-stat"><strong>{item.count}</strong><span>{item.name}</span></div>)}
+          </div>}
           <PracticeCard>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
           {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p>{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
