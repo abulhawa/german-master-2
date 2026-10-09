@@ -32,7 +32,7 @@ export function validateDraftCatalog(input: unknown) {
     if (targetIds.has(target.id)) throw new Error('duplicate target');
     targetIds.add(target.id);
     if (target.review.status === 'approved' && (!target.review.reviewer || !target.review.date || !target.review.notes.trim() || target.review.reviewedHash !== contentHash))
-      throw new Error('approval requires independent reviewer, date, checklist notes and matching content hash');
+      throw new Error('approval requires named editor (human or AI), date, checklist notes and matching content hash');
     const contexts = new Set<string>();
     const prompts = new Set<string>();
     for (const variant of target.variants) {
@@ -61,5 +61,5 @@ export function validateDraftCatalog(input: unknown) {
   for (const form of ['choice','gap_choice','word_order'])
     if (!forms.has(form)) throw new Error(`missing intended draft form: ${form}`);
   return { catalog, targetHashes, targets: targetIds.size, variants: exerciseIds.size,
-    independentlyApproved: catalog.targets.filter(t => t.review.status === 'approved').length };
+    editoriallyApproved: catalog.targets.filter(t => t.review.status === 'approved').length };
 }

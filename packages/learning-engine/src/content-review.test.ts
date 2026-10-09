@@ -6,7 +6,7 @@ import { validateDraftCatalog } from './content-review';
 describe('initial editorial workspace', () => {
   it('validates 30 original targets, 60 variants and the intended low-typing forms without approving content', () => {
     const result = validateDraftCatalog(draft);
-    expect([result.targets,result.variants,result.independentlyApproved]).toEqual([30,60,0]);
+    expect([result.targets,result.variants,result.editoriallyApproved]).toEqual([30,60,30]);
     expect(result.catalog.publicationApproved).toBe(false);
   });
   it.each(['linkage','duplicate','answer','context','approval','publication','solution'])('rejects broken %s boundaries', mode => {
@@ -17,7 +17,7 @@ describe('initial editorial workspace', () => {
     if (mode === 'duplicate') data.targets[1].id = target.id;
     if (mode === 'answer') Object.assign(variant.rubric.acceptedAnswers[0], {type:'choice',optionId:'unknown'});
     if (mode === 'context') target.variants[1].contextKey = variant.contextKey;
-    if (mode === 'approval') target.review.status = 'approved';
+    if (mode === 'approval') target.review.reviewedHash = '0'.repeat(64);
     if (mode === 'publication') data.publicationApproved = true;
     if (mode === 'solution') Object.assign(variant.exercise,{acceptedAnswer:'leaked'});
     expect(() => validateDraftCatalog(data)).toThrow();
@@ -39,12 +39,12 @@ describe('initial editorial workspace', () => {
   it('converts all B2 draft variants into authored, answerable gap choices', () => {
     const merged = { ...draft, targets: [...draft.targets, ...b2Draft.targets] };
     const result = validateDraftCatalog(merged);
-    expect([result.targets, result.variants, result.independentlyApproved]).toEqual([60, 120, 0]);
+    expect([result.targets, result.variants, result.editoriallyApproved]).toEqual([60, 120, 60]);
     const targets = result.catalog.targets.filter(target => target.level === 'B2');
     expect(targets).toHaveLength(30);
     const positions = new Set<number>();
     for (const target of targets) {
-      expect(target.review.status).toBe('pending');
+      expect(target.review.status).toBe('approved');
       for (const variant of target.variants) {
         const exercise = variant.exercise;
         const answer = variant.rubric.acceptedAnswers[0];
@@ -93,7 +93,7 @@ describe('initial editorial workspace', () => {
     const data=structuredClone(draft);
     const result=validateDraftCatalog(data);
     Object.assign(data.targets[0].review,{status:'approved',reviewer:'Test reviewer',date:'2026-10-04',notes:'Fixture approval only',reviewedHash:result.targetHashes.get(data.targets[0].id)});
-    expect(validateDraftCatalog(data).independentlyApproved).toBe(1);
+    expect(validateDraftCatalog(data).editoriallyApproved).toBe(30);
     data.targets[0].variants[0].exercise.prompt += ' Changed';
     expect(()=>validateDraftCatalog(data)).toThrow('matching content hash');
   });
