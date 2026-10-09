@@ -1,16 +1,16 @@
 # Basic practice candidate: editorial review
 
-65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. This workbook describes source review drafts; independent German review remains pending. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.
+65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. Source drafts carry GPT-6 AI editorial approval recorded by content hash (9 October 2026); no human review is claimed. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.
 
 The B2 label selects a scaffolded practice pack for B2 learners; it is not a claim that every individual form is exclusive to B2 or that this assesses proficiency.
 
-Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record independent sign-off in the source JSON with its matching content hash. AI editorial work is not human approval. The SQL installs only drafts in an isolated review database; do not use it to activate production.
+Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record the AI editor, dated checklist and content hash in source JSON. This is owner-accepted AI editorial approval, not human certification. The SQL installs only drafts in an isolated review database; do not use it to activate production.
 
 ## Additions
 
 ### B1: Plural: der Antrag
 
-Target: 10000000-0000-4000-8000-000000000000; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000000; category: plural; review: approved.
 
 Content hash: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
 
@@ -38,7 +38,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Rechnung
 
-Target: 10000000-0000-4000-8000-000000000001; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000001; category: plural; review: approved.
 
 Content hash: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
 
@@ -66,7 +66,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Termin
 
-Target: 10000000-0000-4000-8000-000000000002; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000002; category: plural; review: approved.
 
 Content hash: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
 
@@ -94,7 +94,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: das Gespräch
 
-Target: 10000000-0000-4000-8000-000000000003; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000003; category: plural; review: approved.
 
 Content hash: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
 
@@ -122,7 +122,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Vertrag
 
-Target: 10000000-0000-4000-8000-000000000004; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000004; category: plural; review: approved.
 
 Content hash: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
 
@@ -150,7 +150,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Erfahrung
 
-Target: 10000000-0000-4000-8000-000000000005; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000005; category: plural; review: approved.
 
 Content hash: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
 
@@ -178,7 +178,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: das Angebot
 
-Target: 10000000-0000-4000-8000-000000000006; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000006; category: plural; review: approved.
 
 Content hash: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
 
@@ -206,7 +206,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Entscheidung
 
-Target: 10000000-0000-4000-8000-000000000007; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000007; category: plural; review: approved.
 
 Content hash: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
 
@@ -234,7 +234,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Voraussetzung
 
-Target: 10000000-0000-4000-8000-000000000008; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000008; category: plural; review: approved.
 
 Content hash: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
 
@@ -262,7 +262,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Vorschlag
 
-Target: 10000000-0000-4000-8000-000000000009; category: plural; review: pending.
+Target: 10000000-0000-4000-8000-000000000009; category: plural; review: approved.
 
 Content hash: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
 
@@ -290,7 +290,7 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Dativartikel nach „mit“
 
-Target: 10000000-0000-4000-8000-000000000010; category: preposition; review: pending.
+Target: 10000000-0000-4000-8000-000000000010; category: preposition; review: approved.
 
 Content hash: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
 
@@ -318,7 +318,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 ### B1: Dativartikel nach „bei“
 
-Target: 10000000-0000-4000-8000-000000000011; category: preposition; review: pending.
+Target: 10000000-0000-4000-8000-000000000011; category: preposition; review: approved.
 
 Content hash: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
 
@@ -346,9 +346,9 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 ### B1: Akkusativartikel nach „für“
 
-Target: 10000000-0000-4000-8000-000000000012; category: preposition; review: pending.
+Target: 10000000-0000-4000-8000-000000000012; category: preposition; review: approved.
 
-Content hash: d0818e9e9d5ec193a64d73552165a6d2aa179256bf95e95ab8cdcaf16253b614
+Content hash: b87d576dc52bea0f1feadc24b636e60e9d1c95315c3a708b20a8a89daa14dfe7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -356,7 +356,7 @@ Original agent-authored examples for German Master 2.0; no imported dataset.
 
 Accepted: `[{"type":"choice","optionId":"den"}]`
 
-Hint: „für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an.
+Hint: Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des Nomens.
 
 Explanation: „für“ verlangt den Akkusativ. „der Kunde“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
@@ -366,7 +366,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 Accepted: `[{"type":"choice","optionId":"den"}]`
 
-Hint: „für“ verlangt immer den Akkusativ. Passe den Artikel an das Genus des Nomens an.
+Hint: Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des Nomens.
 
 Explanation: „für“ verlangt den Akkusativ. „der Kurs“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
@@ -374,7 +374,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 ### B1: Akkusativartikel nach „ohne“
 
-Target: 10000000-0000-4000-8000-000000000013; category: preposition; review: pending.
+Target: 10000000-0000-4000-8000-000000000013; category: preposition; review: approved.
 
 Content hash: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
 
@@ -402,7 +402,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 ### B1: Dativartikel nach „aus“
 
-Target: 10000000-0000-4000-8000-000000000014; category: preposition; review: pending.
+Target: 10000000-0000-4000-8000-000000000014; category: preposition; review: approved.
 
 Content hash: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
 
@@ -430,7 +430,7 @@ The prompt names the noun and asks specifically for a separate definite singular
 
 ### B1: Adjektivendung: Maskulinum im Nominativ nach „der“
 
-Target: 10000000-0000-4000-8000-000000000015; category: adjective; review: pending.
+Target: 10000000-0000-4000-8000-000000000015; category: adjective; review: approved.
 
 Content hash: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
 
@@ -458,7 +458,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 ### B1: Adjektivendung: Femininum im Nominativ nach „die“
 
-Target: 10000000-0000-4000-8000-000000000016; category: adjective; review: pending.
+Target: 10000000-0000-4000-8000-000000000016; category: adjective; review: approved.
 
 Content hash: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
 
@@ -486,7 +486,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 ### B1: Adjektivendung: Neutrum im Nominativ nach „das“
 
-Target: 10000000-0000-4000-8000-000000000017; category: adjective; review: pending.
+Target: 10000000-0000-4000-8000-000000000017; category: adjective; review: approved.
 
 Content hash: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
 
@@ -514,7 +514,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 ### B1: Adjektivendung: Maskulinum im Akkusativ nach „den“
 
-Target: 10000000-0000-4000-8000-000000000018; category: adjective; review: pending.
+Target: 10000000-0000-4000-8000-000000000018; category: adjective; review: approved.
 
 Content hash: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
 
@@ -542,7 +542,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 ### B1: Adjektivendung: Dativ nach bestimmtem Artikel
 
-Target: 10000000-0000-4000-8000-000000000019; category: adjective; review: pending.
+Target: 10000000-0000-4000-8000-000000000019; category: adjective; review: approved.
 
 Content hash: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
 
@@ -570,7 +570,7 @@ This revision measures recognition of the weak adjective ending in an explicit c
 
 ### B1: Präsens: fahren (du/er)
 
-Target: 10000000-0000-4000-8000-000000000020; category: verb; review: pending.
+Target: 10000000-0000-4000-8000-000000000020; category: verb; review: approved.
 
 Content hash: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
 
@@ -598,7 +598,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 ### B1: Präsens: lesen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000021; category: verb; review: pending.
+Target: 10000000-0000-4000-8000-000000000021; category: verb; review: approved.
 
 Content hash: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
 
@@ -626,7 +626,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 ### B1: Präsens: geben (du/er)
 
-Target: 10000000-0000-4000-8000-000000000022; category: verb; review: pending.
+Target: 10000000-0000-4000-8000-000000000022; category: verb; review: approved.
 
 Content hash: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
 
@@ -654,7 +654,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 ### B1: Präsens: nehmen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000023; category: verb; review: pending.
+Target: 10000000-0000-4000-8000-000000000023; category: verb; review: approved.
 
 Content hash: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
 
@@ -682,7 +682,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 ### B1: Präsens: sprechen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000024; category: verb; review: pending.
+Target: 10000000-0000-4000-8000-000000000024; category: verb; review: approved.
 
 Content hash: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
 
@@ -710,7 +710,7 @@ Both subjects and the infinitive are explicit. This low-typing revision measures
 
 ### B1: Nebensatz mit „weil“
 
-Target: 10000000-0000-4000-8000-000000000025; category: word-order; review: pending.
+Target: 10000000-0000-4000-8000-000000000025; category: word-order; review: approved.
 
 Content hash: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
 
@@ -738,7 +738,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 ### B1: Nebensatz mit „dass“
 
-Target: 10000000-0000-4000-8000-000000000026; category: word-order; review: pending.
+Target: 10000000-0000-4000-8000-000000000026; category: word-order; review: approved.
 
 Content hash: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
 
@@ -766,7 +766,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 ### B1: Nebensatz mit „obwohl“
 
-Target: 10000000-0000-4000-8000-000000000027; category: word-order; review: pending.
+Target: 10000000-0000-4000-8000-000000000027; category: word-order; review: approved.
 
 Content hash: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
 
@@ -794,7 +794,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 ### B1: Nebensatz mit „wenn“
 
-Target: 10000000-0000-4000-8000-000000000028; category: word-order; review: pending.
+Target: 10000000-0000-4000-8000-000000000028; category: word-order; review: approved.
 
 Content hash: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
 
@@ -822,7 +822,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 ### B1: Indirekte Frage mit „ob“
 
-Target: 10000000-0000-4000-8000-000000000029; category: word-order; review: pending.
+Target: 10000000-0000-4000-8000-000000000029; category: word-order; review: approved.
 
 Content hash: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
 
@@ -850,7 +850,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 ### B2: Passiv im Präsens
 
-Target: 40000000-0000-4000-8000-000000000000; category: passive; review: pending.
+Target: 40000000-0000-4000-8000-000000000000; category: passive; review: approved.
 
 Content hash: 3b42a2c16a075e09f52bae358a0b723519838ae2d5548faf529d36ec6cf2a38b
 
@@ -878,7 +878,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Passiv im Präteritum
 
-Target: 40000000-0000-4000-8000-000000000001; category: passive; review: pending.
+Target: 40000000-0000-4000-8000-000000000001; category: passive; review: approved.
 
 Content hash: 6382818dbc3601215d81a2b6d03291c6cb093030ca5ddb4dbde0be97597332af
 
@@ -906,7 +906,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Passiv im Perfekt
 
-Target: 40000000-0000-4000-8000-000000000002; category: passive; review: pending.
+Target: 40000000-0000-4000-8000-000000000002; category: passive; review: approved.
 
 Content hash: 56af56bba0f6a925b7d9159a5df5f0729d0b2b0faa758c3eeec498d607bb8668
 
@@ -934,7 +934,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Passiv mit Modalverb
 
-Target: 40000000-0000-4000-8000-000000000003; category: passive; review: pending.
+Target: 40000000-0000-4000-8000-000000000003; category: passive; review: approved.
 
 Content hash: 026aa6584fc42c4b4ba30d4918093fb8ec231738a8b415475bd8587fc2d8dfca
 
@@ -962,7 +962,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Irreale Bedingungen mit hätte
 
-Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: pending.
+Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: approved.
 
 Content hash: bfa60953d9e88eb6d15f62e7ac4e04fdaf60ebc026133a99772a83d4456f9fb5
 
@@ -990,7 +990,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Höfliche Bitten mit könnte
 
-Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: pending.
+Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: approved.
 
 Content hash: bb08b96e6d93c3aad4760bf18974d031e1288109a5a71ed014b58bcc691bc2db
 
@@ -1018,7 +1018,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Irreale Vergangenheit mit hätte
 
-Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: pending.
+Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: approved.
 
 Content hash: bc39de2777232ed871cd1cf800418b7d9b8cf1e9e6da608aaceecd9e1cea22eb
 
@@ -1046,7 +1046,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Irreale Vergangenheit mit wäre
 
-Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: pending.
+Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: approved.
 
 Content hash: b4202310d9af32de7808591a6da4d876308115a3b816467b5bd27fb38f3ec243
 
@@ -1074,7 +1074,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Gegensatz mit obwohl
 
-Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: pending.
+Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: approved.
 
 Content hash: 7cde5a37fe0b446c843c864e9af7a07f5c2e3b3d93a3e56c87c84f840f3520d1
 
@@ -1102,7 +1102,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Begründung mit da
 
-Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: pending.
+Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: approved.
 
 Content hash: dabd5d484b00f7b99a2c2be9f94f99def2660e0d6f03d21dc54bca04760fbf6f
 
@@ -1130,7 +1130,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Folge mit sodass
 
-Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: pending.
+Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: approved.
 
 Content hash: 5106c68835b20ec50cf07d7fb814bedb160bf8975a594495daa6b524bb1f56a0
 
@@ -1158,7 +1158,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Absicht mit um … zu
 
-Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: pending.
+Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: approved.
 
 Content hash: 74e622f32f19cb732992bca95ea43cf926a0eab4616d38a8a4993010070df4fb
 
@@ -1186,7 +1186,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Infinitiv mit zu bei trennbaren Verben
 
-Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: pending.
+Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: approved.
 
 Content hash: e21a318f12fcaf1e5aa5a8e460ade15519b94bad90faf9b9365076b9964a92cb
 
@@ -1214,7 +1214,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Relativpronomen im Akkusativ
 
-Target: 40000000-0000-4000-8000-000000000013; category: relative; review: pending.
+Target: 40000000-0000-4000-8000-000000000013; category: relative; review: approved.
 
 Content hash: 7421342b62327ab9358e183d09139efb6eb8c4944f47c11f972d32f22f65b478
 
@@ -1242,7 +1242,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Relativpronomen im Dativ
 
-Target: 40000000-0000-4000-8000-000000000014; category: relative; review: pending.
+Target: 40000000-0000-4000-8000-000000000014; category: relative; review: approved.
 
 Content hash: e12349d32dfa20e83635a3bb307685ba68ae0fa08c2c4b2f10d31bc1649cf65b
 
@@ -1270,7 +1270,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Relativpronomen im Genitiv
 
-Target: 40000000-0000-4000-8000-000000000015; category: relative; review: pending.
+Target: 40000000-0000-4000-8000-000000000015; category: relative; review: approved.
 
 Content hash: 55870e213b73b8467c32b62d6cebb724adc9c75c261b13db8bc8edb4be655ab1
 
@@ -1298,7 +1298,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Genitiv nach trotz
 
-Target: 40000000-0000-4000-8000-000000000016; category: cases; review: pending.
+Target: 40000000-0000-4000-8000-000000000016; category: cases; review: approved.
 
 Content hash: 0950c489b53109d7807b82daf853ffc6a0e87beae7d6738b553bfae5d6359002
 
@@ -1326,7 +1326,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Genitiv nach während
 
-Target: 40000000-0000-4000-8000-000000000017; category: cases; review: pending.
+Target: 40000000-0000-4000-8000-000000000017; category: cases; review: approved.
 
 Content hash: 6c118f36f078a955bb63aa3831076016feb24bb5bb1f2e51ee8d6a44713ce56d
 
@@ -1354,7 +1354,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Adjektive im Genitiv
 
-Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: pending.
+Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: approved.
 
 Content hash: c4d7851d8733adf7913a4dac09096bf1608262976102958ea6faaccb833bb59c
 
@@ -1382,9 +1382,9 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Adjektive ohne Artikel
 
-Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: pending.
+Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: approved.
 
-Content hash: 73cbdd60c4462ab3f5ccaf35012ba43753c2c6cddb5225084b101421d8745b70
+Content hash: 258176d52ac6eb50f263dead250a715968d1233e0bf9de2e0c8dfb97d7218812
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1394,23 +1394,23 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"gro�
 
 Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
-Explanation: Ohne Artikel endet das Adjektiv im Dativ Maskulinum auf -em, im Dativ Plural auf -en.
+Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
-**b2-19-1** — Mit ___ Kollegen arbeiten wir gern zusammen. (zuverlässig)
+**b2-19-1** — Mit ___ Kolleginnen aus anderen Abteilungen arbeiten wir gern zusammen. (zuverlässig)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"zuverlässigen"}]}]`
 
 Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
-Explanation: Ohne Artikel endet das Adjektiv im Dativ Maskulinum auf -em, im Dativ Plural auf -en.
+Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
 ### B2: Abhängen von
 
-Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: pending.
+Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: approved.
 
 Content hash: 597826e74a0fd420c70e111c7c53b74d19b9e6858d37bb01d5002c345f1c55ed
 
@@ -1438,7 +1438,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Teilnehmen an
 
-Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: pending.
+Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: approved.
 
 Content hash: fc9bd642452959bda207d7d3a0fbd129ac1a833ba868dfba4fa214ec3787f2fe
 
@@ -1466,7 +1466,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Überzeugen von
 
-Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: pending.
+Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: approved.
 
 Content hash: 09d9be40202f40394d5a4be50c46b25904a18532f986829ecf3e05cfebd20855
 
@@ -1494,7 +1494,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Sich befassen mit
 
-Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: pending.
+Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: approved.
 
 Content hash: 8f3630beb055532d3cbe11e932fd02e6325005bded4bda7a372cec2f98f0334a
 
@@ -1522,7 +1522,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Sich ergeben aus
 
-Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: pending.
+Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: approved.
 
 Content hash: 0858579283dd7b865346d686a30dc9bbe960c31f898d6995d310acd43f0b2d85
 
@@ -1550,7 +1550,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Einen Antrag stellen
 
-Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: pending.
+Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: approved.
 
 Content hash: f6f91a83ffec30d8eceb45aadda696af89a80ad95e33ee64b62f1e51616352a7
 
@@ -1578,7 +1578,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Eine Entscheidung treffen
 
-Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: pending.
+Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: approved.
 
 Content hash: a143e5c07b0bf83af07693d45b5d98add24bc28b16c73bc921635732f37b2f13
 
@@ -1606,7 +1606,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Verantwortung übernehmen
 
-Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: pending.
+Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: approved.
 
 Content hash: b5a0e048eb561376015c89fd9a0cf25cb678646b3fb39991a51d5cd43f3e8919
 
@@ -1634,7 +1634,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Eine Frist einhalten
 
-Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: pending.
+Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: approved.
 
 Content hash: aed8cf4ec16b25350277824dc5025481241bdafff015a3f2ca017288cb9e11e8
 
@@ -1662,7 +1662,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 ### B2: Voraussetzungen erfüllen
 
-Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: pending.
+Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: approved.
 
 Content hash: 68c0098f932276ef43ae673d31443a511b5b5f533286b1470857fcf1b8290c11
 
