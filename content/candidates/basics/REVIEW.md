@@ -852,7 +852,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 40000000-0000-4000-8000-000000000000; category: passive; review: approved.
 
-Content hash: 218dce010f29d68750d9334a6340cbbe6019d3b15134a6869e86b83094768a31
+Content hash: e3287d09c98c9fc7bb94148e7203c7d9c550a86260d54ba86315d152c7187149
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -880,7 +880,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000001; category: passive; review: approved.
 
-Content hash: 1985189dc5eab421c9a1657ffff6a76d56cd2d3b75e1be337ec90f3e3a440ac2
+Content hash: 9b3f0ccd97b702454624d2ae904cbdfa4f6eb935ec28afcf9673b9cacb785cfc
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -908,7 +908,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000002; category: passive; review: approved.
 
-Content hash: 49720cdb573770fcbb90c76c76f95d901e15ac7f49e6856e355381058834bb07
+Content hash: c805c8f240aea7b192dd00b51868475c891721b615721e1bccadffa3a1959586
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -936,7 +936,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000003; category: passive; review: approved.
 
-Content hash: 648b9966ad3ea40e5ebfd08c90506f50d266af73af1161056baee91522ca4605
+Content hash: 2840767f5d86823c0942e2156741ca7f6e964691316b3c2fd466bb3c17d77c26
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -964,7 +964,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: approved.
 
-Content hash: 78e79ea9cb5675582bcef5e6f952e41b4b966b8d28320a83ec0df34b9dacc237
+Content hash: 51f14091cbaf4a8808893f077b100b50f2d67b3c2d602517ed25610fccff6659
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -992,7 +992,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: approved.
 
-Content hash: b66049833faffc669ef644b98b6edf2901f18af89f516086e3c99933d852ac03
+Content hash: e9cd2f429008f27b01b0515ef2b4818f520203d8f1e1cb5b0ee4aa47718a370b
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1020,7 +1020,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: approved.
 
-Content hash: 1253decbe4bae37af587c94c0b73ad62379eed4ed132048e91465e7200993b4c
+Content hash: cc7c56299d9ed104f6200f65d05a544a8ef2310bde75b4a67de1eb2040c0c973
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1048,7 +1048,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: approved.
 
-Content hash: e7b14a76973def16fbd84154e1da0aa5a690a6a1b01653caaa49cae90dfadbce
+Content hash: 0d9324967c1130f37a18c013685449ebb171ba4145f5abcc7c31b6fc152b31e3
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1076,7 +1076,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: approved.
 
-Content hash: e8d0cf2d3a378d2d88d9afe022f541a3af02539bfad8b0c97a57595adb316145
+Content hash: 9657a66b362fb1b1a16e159591997f6a6c443270194869716d0df1c395353bed
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1104,7 +1104,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: approved.
 
-Content hash: 2481ea29c1c5c1c2323e043157b43701906c1f140f4c445b07c49bb7f49194cd
+Content hash: 86f0b07985cdd4d309161ca30dda830bb2e2273681b2a73cbeb6df161f4e94e7
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1132,7 +1132,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: approved.
 
-Content hash: 4a90f0129c4a7643088bb8bf34becbe32a905fffaa5b4281d9c7b92086a562a4
+Content hash: 09ddf77f491b06b4b55ed107dbd2d0ff7a0accd414898d5188fc25eebb1826c3
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1160,7 +1160,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: approved.
 
-Content hash: 2cd6d51a2253aeaed71c5c182fbad42692271b621c58289daa17bae2037b8427
+Content hash: d08a49a06ae520731eae7043396f1f14dc49af85c64f52a13f705bf270fda7c8
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1188,7 +1188,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: approved.
 
-Content hash: 142c7ae18f1c87d8036b1509dcb52d801ca7e3e23735cdfd0d9669d42c346deb
+Content hash: 9aa26c79bed31cd267fd10e53dfd02ab24b6e3bab988c3a9651bb9152b5a3c8d
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1216,7 +1216,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000013; category: relative; review: approved.
 
-Content hash: d0ebc1e2c9577db284d26574c77da4edd3d3a76d0a840441db0276fd0d7897cf
+Content hash: daace6b7b59df841da41b2ba169a28142c10bfcd015ad06566a2d994e93aeb15
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1244,7 +1244,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000014; category: relative; review: approved.
 
-Content hash: 9f25404233cea04c5adfba424ce54e68dabe2379510341e53c94679b4c9acd36
+Content hash: 7170d01e4ccd81cdbaff12a58315a8c64883e2cae0589fc618573e5f4dc421be
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1272,7 +1272,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000015; category: relative; review: approved.
 
-Content hash: 6a44df2f66fd83bc044cd5ccd4cc3a970fb9b0e7af6c718e4bcf958381f01e7c
+Content hash: 9c7cd5004ef02e06fd817bdb223e9dcaf71de081b30ac8919ba8b76e48e00be6
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1300,7 +1300,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000016; category: cases; review: approved.
 
-Content hash: 35d5d0af7dfd7ea560840ce779f26abc98be7bad8d13c936a504ba87fd26f673
+Content hash: 3d7c0302a18ba429917f8d4334fcc65b975ee8eff480857739bfe6e9114b5109
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1328,7 +1328,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000017; category: cases; review: approved.
 
-Content hash: 371c9e27d4b74d6794c1bf7a2969998f2b241cd20354a5622b19828e96dc90c4
+Content hash: 6b85b4abd37063d8e6b440afc056e0584537e92fb41cd3d74c9b6e48b516a3f8
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1356,7 +1356,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: approved.
 
-Content hash: fac2f307c8f87ab181e067f5ce349ff2f95af65a8dfbd17aa285b373b6d64c8e
+Content hash: bae2e8cbd0f9f91488d9f8a8338d33db204b2828ad52916e800943c50959bdb2
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1384,7 +1384,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: approved.
 
-Content hash: 4adee8c6ebb5390ee8c57fb5b9f8d3a23e4a7dc7decb3956adda6b269b1447de
+Content hash: 1ae4dcc1f8da4b4fbb7af676e2a37c624c011fbfff3bc39abb27574554adf7ff
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1412,7 +1412,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: approved.
 
-Content hash: ec05dab4c602ba7a66ae96c7c0ced3f67703cc599c8ffc2628ebf224f31c66e0
+Content hash: 71a37284f9556f26e90e79ddf6144a5dd8e2f1159577f353f57f640a3b36a101
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1440,7 +1440,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: approved.
 
-Content hash: 70ae0d4fe1c411ebd887822b3af2ebbdf7fc51de66a48a07cbde7c81bd9e3c04
+Content hash: 8bcbaf80de2c9f6cae9ffa70152a049fe3d449116f8d1dc6e2b841f6a9a73c95
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1468,7 +1468,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: approved.
 
-Content hash: d1819476163862101e6d43238fb0858650e8c5c99b5f75f2ee0ff4e3171dacc9
+Content hash: ce390351e9924b7adfee0a9d26d201d71f9fe8cddb882ac41359997fb09b11fe
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1496,7 +1496,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: approved.
 
-Content hash: db921737b045bbaf1d3420384659421f9b7ca1d4ea257fb5958a603f1e24b831
+Content hash: ff351d8ec9a541a9f4bf489e258df725a10dc48bad6dd3497ec8d784b5b2a057
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1524,7 +1524,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: approved.
 
-Content hash: cf4991bcec27247e9a313a2ec785a7e979db57f4d1ab40f6c4264babff9b19d1
+Content hash: 886c268e4637033a2428efe18213df49a9a3661c2dfa460eb8e209ddec5cab1a
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1552,7 +1552,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: approved.
 
-Content hash: 6d07f09e6f09a5a1299f6528767f93452e75a0a2d21dda14e3946fd629708556
+Content hash: 0dd6f23d8d985c1f3119323d2b96c95469f5006730bc5c32a40fc61fda1d4d9c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1580,7 +1580,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: approved.
 
-Content hash: 3e04226ab68b2a61649ccda393e58586c57235ef293f264c14e9308f52a7acaa
+Content hash: 1006acf2a32d032be7bf30fa0e39a387071d0c83b775972924752ecdda0e4a90
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1608,7 +1608,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: approved.
 
-Content hash: 17196b4bb595c0089dbb4a970d6b4ad501d5e7d27aea2f5204a0edb4d44c8658
+Content hash: 3ef96fb8eb5fefab36cd5e2d1ef0039bbc8f31ce5339b3d4a9090db7c2645a43
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1636,7 +1636,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: approved.
 
-Content hash: c009e142fecb506b4cff35c632193722767f4d41f8250bf1a3427b0cd35a5520
+Content hash: 512a2ec6eb5a3cd45ad8e07c03b3050795015784380521c2b79b39a868742273
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1664,7 +1664,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: approved.
 
-Content hash: febf918f6255a6d11c28e1f62d7f27fd7a26dd8ae641186bfb26e571d40bddee
+Content hash: 5b93004e3866c735f55d84c14a7cdc9113ca238f093483d07253bb7748ac95a5
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
