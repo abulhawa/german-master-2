@@ -31,6 +31,8 @@ Web: local unpublished B2 passive-present answer `wird` obtains confirmed feedba
 
 ## Exact remaining M1 gates
 
+Update after fresh fetch on 9 October: PR head `d9715d0` now contains the repairs. All Web/Android/accessibility/safety/CodeQL Actions and Vercel statuses pass. [Web run](https://github.com/abulhawa/german-master-2/actions/runs/37898138261) and [Android run](https://github.com/abulhawa/german-master-2/actions/runs/37898138259) close item 1 below. The earlier hosted-state and unpushed observations describe the initial recheck; items 2 and 3 remain open. PR remains draft.
+
 1. Hosted Web/Android checks must pass for the repaired commit. Repairs are local and unpushed; hosted results still describe `bce5cc3`.
 2. Complete physical Android accessibility core journey: TalkBack spoken output/reading order/selection/feedback/focus, ordering and matching alternatives, keyboard/insets, and usable large-text/display-size navigation. The phone is available; no missing-device blocker remains.
 3. Final both-client design/accessibility acceptance, including manual web screen-reader review. Current local visuals and automated reflow checks are partial evidence. Hosted preview visual review needs an existing authorized browser session or equivalent scoped access.

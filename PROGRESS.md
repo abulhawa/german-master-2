@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 hosted verification passed — 9 October 2026
+
+- Fresh fetch confirms PR #11 remote head and local repair commit both equal `d9715d0`. Web, Android, web accessibility, repository safety and CodeQL Actions all pass on this head; Vercel and its preview status also pass. PR remains draft. Web run `37898138261` and Android run `37898138259` completed successfully by 09:24 Europe/Berlin.
+- Hosted verification gate for the acceptance repairs is closed. Remaining M1 gates: complete physical Android TalkBack/keyboard/core journey and final both-client design/accessibility acceptance, including manual web screen-reader review. Passing CI does not establish these manual outcomes or hosted visual acceptance.
+- Next: finish those accessibility/design records before assessing M1 exit. Production merge/deployment/publication and Android release approval stay separate. This recheck made no push, merge, deployment, publication, device change or production write; documentation-only checks pass.
+- Commit message: `docs: record passing M1 hosted verification`.
+
 ## M1 fetched PR, physical phone and acceptance recheck — 9 October 2026
 
 - Fetched origin without overwriting work; clean main matched `e6facd2`, then tracked draft PR #11 at `bce5cc3`. Hosted Web/Android verify fail; accessibility/safety/CodeQL and Vercel pass. READY preview metadata matches the head, but browser access requires Vercel authentication.
