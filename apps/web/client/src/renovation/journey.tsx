@@ -288,6 +288,8 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     const id = nextId ?? selectedId;
     if (nextId !== undefined) setSelectedId(nextId);
     setView(nextView);
+    // Practice is a focused flow on top of Home/Topic; keep the origin route for safe reload/resume.
+    if (nextView === "practice") return;
     const route = `#/learn/${nextView}${(nextView === "topic" || nextView === "target") && id ? `/${id}` : ""}`;
     if (window.location.hash !== route) window.history.pushState({ germanMaster: true }, "", route);
     // Keyboard activation leaves focus on the triggering button in real browsers.
