@@ -12,6 +12,9 @@ const expectReset = process.argv.includes('--expect-reset');
 const guest = process.argv.includes('--guest');
 const controlled = process.argv.includes('--controlled');
 const failedVerification = process.argv.includes('--verification-failure');
+const cold = process.argv.includes('--cold');
+const expectLoadFailure = process.argv.includes('--expect-load-failure');
+const loadOnly = process.argv.includes('--load-only');
 if(controlled&&!live)throw Error('--controlled requires the explicitly authorized live diagnostic; routed static fixtures cannot populate a real worker precache.');
 const origin = live ? 'https://germanmaster.qortxai.com' : 'https://learner.example';
 const project = 'zgmyrpzwgtydwlzponih';
@@ -40,12 +43,13 @@ try {
   const context = browser.contexts()[0];
   // Routing and service workers are independently inspected below. Auth/API
   // fixtures must never escape into a service-worker fetch or live network.
-  const requests = [], errors = [];let rejectVerification=false;
+  const requests = [], errors = [];let rejectVerification=false;let userReads=0;
   await context.route('**/*', async route => {
     const url = new URL(route.request().url());
     if (url.hostname.endsWith('.supabase.co')) {
       assert.equal(url.hostname, `${project}.supabase.co`);
       assert.equal(url.pathname, '/auth/v1/user');
+      if(cold&&++userReads===1)await new Promise(resolve=>setTimeout(resolve,800));
       if(rejectVerification)return route.fulfill({status:503,json:{message:'Offline verification fixture'}});
       return route.fulfill({json:user});
     }
@@ -66,8 +70,9 @@ try {
     }
     return route.continue();
   });
-  await context.addInitScript(({project,session,guest}) => {
+  await context.addInitScript(({project,session,guest,cold,subject}) => {
     if(!guest)localStorage.setItem(`gm-v2-auth-${project}`,JSON.stringify(session));
+    if(cold)localStorage.setItem(`gm-v2-last-verified-${project}`,subject);
     const events = window.__tabTrace = [];
     const log = (kind,data={}) => events.push({kind,time:Math.round(performance.now()),...data});
     document.addEventListener('visibilitychange',()=>log('visibility',{state:document.visibilityState}));
@@ -95,13 +100,30 @@ try {
         }
         visit(root.current);
       }};
-  },{project,session,guest});
+  },{project,session,guest,cold,subject});
   const page=await context.newPage();
   page.on('request',r=>requests.push({path:new URL(r.url()).pathname,type:r.resourceType()}));
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(origin);
   if(controlled){await page.evaluate(()=>Promise.race([navigator.serviceWorker.ready,new Promise((_,reject)=>setTimeout(()=>reject(Error('Worker registration unavailable')),15000))]));await page.reload();await page.waitForFunction(()=>!!navigator.serviceWorker.controller);}
+  if(expectLoadFailure){
+    await page.getByRole('button',{name:'Reload topics',exact:true}).waitFor();
+    await page.waitForTimeout(1200);
+    console.log(JSON.stringify({requests,body:await page.locator('body').innerText(),trace:await page.evaluate(()=>window.__tabTrace)},null,2));
+    assert.equal(await page.getByRole('button',{name:'Browse topics',exact:true}).count(),0);
+    await browser.close();processHandle.kill();process.exit(0);
+  }
   let heading;
+  if(loadOnly){
+    await page.getByRole('button',{name:'Browse topics',exact:true}).waitFor();
+    await page.waitForFunction(()=>!document.querySelector('[role="alert"]'));
+    assert.ok(await page.getByRole('button',{name:'Start short practice',exact:true}).isEnabled());
+    assert.equal(await page.getByRole('button',{name:'Reload topics',exact:true}).count(),0);
+    assert.equal(await page.getByRole('button',{name:'Reload current preferences',exact:true}).count(),0);
+    for(const path of ['/v2/profile','/v2/catalog','/v2/targets'])assert.ok(requests.some(r=>r.path===path),`Missing verified read ${path}`);
+    console.log(JSON.stringify({requests,body:await page.locator('body').innerText(),trace:await page.evaluate(()=>window.__tabTrace)},null,2));
+    await browser.close();processHandle.kill();process.exit(0);
+  }
   if(guest){
     await page.getByRole('button',{name:'Try German Master',exact:true}).click();
     const answer=page.getByLabel('Your answer');await answer.fill('retained guest draft');

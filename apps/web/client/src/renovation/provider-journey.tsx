@@ -69,7 +69,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     });
     return ()=> {alive=false;++ticket;data.subscription.unsubscribe();host.provider.invalidate();};
   },[host,retry]);
-  const api=useMemo(()=>account ? host.provider.api(account,origin) : undefined,[host,account,origin]);
+  // Retaining the account on cold local -> verified recovery must still notify
+  // the learner to retry its initially blocked reads, without remounting it.
+  const api=useMemo(()=>account ? host.provider.api(account,origin) : undefined,[host,account,origin,local]);
   const identityDeletion=useMemo(()=>account&&deletionEnabled?host.provider.identityDeletion(account,origin):undefined,[host,account,origin,deletionEnabled]);
   async function signIn() {
     if(busy||loginLock.current) return;loginLock.current=true;setBusy(true);setFailed(false);

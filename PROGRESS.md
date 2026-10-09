@@ -1,5 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
+## Cold-start data loading correction — 10 October 2026
+
+- Owner authorized deploying and merging the tab-return fix. PR #13 merged as `59bfeaf` at 00:02 Europe/Berlin; Vercel production `dpl_v5x45yKnkewFRAr92d9Sn793ULGE` became READY and the canonical site changed to `index-DV4RhDd8.js`. All PR and subsequent main checks passed. A normal deployed tab-return fixture run passed, but the worker/reload run failed before loading topics; no successful complete post-release acceptance is claimed.
+- The owner's screenshot exposed an introduced cold-start regression. With a saved subject and an 800 ms synthetic verification delay, the deployed app mounts local access, blocks all initial learner reads, then retains the same binding/API after verification. It shows preference/topic/progress failures indefinitely with zero API requests. The first fix missed this readiness transition. The error controls are separate retries, not page reload buttons; removing them cosmetically would hide the failed data load.
+- `fix/web-auth-ready-data-loading` now changes the learner API on local/verified readiness transitions so blocked reads retry automatically without remounting navigation. Background same-session verification preserves already-verified delivery; each request still checks the current verified credential and matching session UUID, and failed verification blocks delivery. Regression coverage includes slow cold verification, retained detail, concurrent reads during re-verification and silent session changes.
+- Generated/type checks, root and learner-product builds, 21 focused provider tests, real Chromium cold-load checks (three verified reads, enabled practice, no retry controls) and ordinary real tab-return checks pass. Full root tests and hosted checks remain in progress before merge/deployment of this correction. No backend/schema/content/Android change, production account writes or AI/Groq use. M1 gates remain unchanged.
+- Exact next action: finish full checks, merge/deploy the correction under the owner's ongoing authorization, verify cold start and worker-controlled reload on the canonical site, then update this checkpoint with final evidence.
+- Commit message: `fix(web): retry learner reads when saved access becomes verified`.
+
 ## Web navigation fix branch pushed — 9 October 2026
 
 - Under the owner's explicit push instruction, pushed `269fd0b` to `origin/fix/web-tab-return-navigation`; remote ref matches the local fix. No merge or deployment command was issued, and no hosted/deployed outcome is claimed. The repository integration may run branch checks/previews independently.

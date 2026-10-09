@@ -1,17 +1,21 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { LearnerApi } from './api';
 import type { SupabaseClient, Session, AuthChangeEvent } from '@supabase/supabase-js';
 import { ProviderLearnerJourney } from './provider-journey';
 import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
 import { guestAttemptCount, guestUnattachedAttemptCount } from './guest-starter';
-vi.mock('./journey',()=>({default:({account,revoke}:{account:{identity:{subject:string}};revoke:()=>Promise<void>})=>{
+const reads=vi.hoisted(()=>({enabled:false}));
+vi.mock('./journey',()=>({default:({account,revoke,api}:{account:{identity:{subject:string}};revoke:()=>Promise<void>;api:LearnerApi})=>{
   const [detail,setDetail]=useState(false);
-  return <><p>Bound learner {account.identity.subject}</p><button onClick={()=>setDetail(true)}>Open detail</button>{detail&&<h1>Retained detail</h1>}<button onClick={()=>void revoke()}>Revoke session</button></>;
+  const [data,setData]=useState('');
+  useEffect(()=>{if(!reads.enabled)return;let alive=true;void api.profile().then(()=>{if(alive)setData('Data loaded');}).catch(()=>{if(alive)setData('Data blocked');});return()=>{alive=false;};},[api]);
+  return <><p>Bound learner {account.identity.subject}</p><p>{data}</p><button onClick={()=>setDetail(true)}>Open detail</button>{detail&&<h1>Retained detail</h1>}<button onClick={()=>void revoke()}>Revoke session</button></>;
 }}));
 const project='zgmyrpzwgtydwlzponih', subject='00000000-0000-4000-8000-000000000020';
-function fixture() {
-  let signedIn=false; let callback: (event:AuthChangeEvent,session:Session|null)=>void=()=>{};
+function fixture(initiallySignedIn=false) {
+  let signedIn=initiallySignedIn; let callback: (event:AuthChangeEvent,session:Session|null)=>void=()=>{};
   const token=`e30.${btoa(JSON.stringify({iss:`https://${project}.supabase.co/auth/v1`,aud:'authenticated',role:'authenticated',sub:subject,session_id:subject,exp:9999999999})).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
   const session=()=>signedIn?{user:{id:subject},access_token:token,expires_at:9999999999} as Session:null;
   const auth={
@@ -26,7 +30,20 @@ function fixture() {
   const host={client:{auth},provider,dispose:()=>provider.invalidate()} as unknown as ReturnType<typeof createLearnerProvider>;
   return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
-afterEach(()=>{cleanup();localStorage.clear();vi.unstubAllGlobals();});
+afterEach(()=>{cleanup();localStorage.clear();vi.unstubAllGlobals();reads.enabled=false;});
+it('automatically retries cold local reads after verification without losing the selected view',async()=>{
+  reads.enabled=true;localStorage.setItem(`gm-v2-last-verified-${project}`,subject);
+  const f=fixture(true);
+  let release!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
+  f.auth.getUser.mockImplementationOnce(()=>new Promise(resolve=>{release=resolve;}));
+  vi.stubGlobal('fetch',vi.fn(async()=>new Response(JSON.stringify({apiVersion:'v2',revision:1,setupCompleted:true,preferences:{locale:'en',timezone:'Europe/Berlin',level:'B1',sessionQuestionCount:15}}),{status:200})));
+  render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await screen.findByText('Data blocked');fireEvent.click(screen.getByRole('button',{name:'Open detail'}));
+  await waitFor(()=>expect(release).toBeTypeOf('function'));
+  await act(async()=>release({data:{user:{id:subject,is_anonymous:false}},error:null}));
+  await screen.findByText('Data loaded');
+  expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
+});
 async function openAuth() {
   fireEvent.click(await screen.findByRole('button',{name:'I already have an account'}));
   await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
