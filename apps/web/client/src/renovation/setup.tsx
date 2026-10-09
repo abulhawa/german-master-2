@@ -19,7 +19,13 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
     catch { return { pending: null, damaged: true }; }
   });
   const [pending, setPending] = useState<ProfileRequest | null>(loaded.pending);
-  const [preferences, setPreferences] = useState(loaded.pending?.preferences ?? profile.preferences);
+  const [preferences, setPreferences] = useState(() => {
+    if (loaded.pending || profile.setupCompleted) return loaded.pending?.preferences ?? profile.preferences;
+    // Profile defaults are not a learner timezone choice. Use the browser zone at first setup only.
+    let timezone = profile.preferences.timezone;
+    try { timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || timezone; } catch { /* Keep server default. */ }
+    return { ...profile.preferences, timezone };
+  });
   const [busy, setBusy] = useState(false);
   const lock = useRef(false);
   const [error, setError] = useState(false);
