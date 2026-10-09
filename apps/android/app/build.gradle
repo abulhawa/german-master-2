@@ -50,12 +50,11 @@ android {
         buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", groovy.json.JsonOutput.toJson(v2Key))
         buildConfigField("String", "V2_API_ORIGIN", groovy.json.JsonOutput.toJson(v2Origin))
 
-        buildConfigField("String", "SUPABASE_URL",
-            "\"${localProps.getProperty("supabase.url", "")}\"")
-        buildConfigField("String", "SUPABASE_ANON_KEY",
-            "\"${localProps.getProperty("supabase.anon.key", "")}\"")
-        buildConfigField("String", "GOOGLE_WEB_CLIENT_ID",
-            "\"${localProps.getProperty("google.web.client.id", "YOUR_WEB_CLIENT_ID_HERE")}\"")
+        // Preserve legacy field names for imported source compatibility only.
+        // Never package the legacy database or Google OAuth configuration in v2.
+        buildConfigField("String", "SUPABASE_URL", '""')
+        buildConfigField("String", "SUPABASE_ANON_KEY", '""')
+        buildConfigField("String", "GOOGLE_WEB_CLIENT_ID", '""')
 
         ndk {
             debugSymbolLevel = "FULL"

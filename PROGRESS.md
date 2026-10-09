@@ -4,6 +4,7 @@
 
 - Owner requested removing the obsolete legacy/v2 launch switch. Android Studio remains responsible for versionCode/versionName; no version metadata changed.
 - MainActivity unconditionally launches NativeProviderHost. MainApplication never queues legacy synchronization and retains PausedLegacySyncFactory for old pending jobs. Existing source, installed app and local learner caches are not removed.
+- The imported SyncWorker is a no-op and the legacy Supabase DI provider fails closed; legacy API/Google client configuration is no longer embedded in Android BuildConfig. This preserves original repository history and avoids loading the old project from the new client.
 - Removed BuildConfig.V2_ENABLED and GM_V2_RELEASE. All build variants receive public-only v2 project/key/API inputs; absent debug/preview inputs show an explicit configuration message instead of crashing or launching the legacy UI.
 - A release-prebuild dependency requires a valid v2 project reference, public Auth key and HTTPS API origin; CI exercises its failure path without credentials. Configuration is verified without exposing credentials.
 - This change is confined to a review branch. No local Android tests, successful hosted checks for the branch, production mutation, merge, device installation, signing, store upload, or content publication are claimed.
