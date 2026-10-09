@@ -852,7 +852,7 @@ German can allow marked constituent orders, but this exercise explicitly fixes c
 
 Target: 40000000-0000-4000-8000-000000000000; category: passive; review: approved.
 
-Content hash: 3b42a2c16a075e09f52bae358a0b723519838ae2d5548faf529d36ec6cf2a38b
+Content hash: 218dce010f29d68750d9334a6340cbbe6019d3b15134a6869e86b83094768a31
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -864,7 +864,7 @@ Hint: Verwende werden und das Partizip II.
 
 Explanation: Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-0-1** — Die Rechnung ___ heute bearbeitet. (werden, Präsens)
 
@@ -874,13 +874,13 @@ Hint: Verwende werden und das Partizip II.
 
 Explanation: Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Passiv im Präteritum
 
 Target: 40000000-0000-4000-8000-000000000001; category: passive; review: approved.
 
-Content hash: 6382818dbc3601215d81a2b6d03291c6cb093030ca5ddb4dbde0be97597332af
+Content hash: 1985189dc5eab421c9a1657ffff6a76d56cd2d3b75e1be337ec90f3e3a440ac2
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -892,7 +892,7 @@ Hint: Setze werden ins Präteritum.
 
 Explanation: Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-1-1** — Die Lieferung ___ letzte Woche verschickt. (werden, Präteritum)
 
@@ -902,13 +902,13 @@ Hint: Setze werden ins Präteritum.
 
 Explanation: Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Passiv im Perfekt
 
 Target: 40000000-0000-4000-8000-000000000002; category: passive; review: approved.
 
-Content hash: 56af56bba0f6a925b7d9159a5df5f0729d0b2b0faa758c3eeec498d607bb8668
+Content hash: 49720cdb573770fcbb90c76c76f95d901e15ac7f49e6856e355381058834bb07
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -920,7 +920,7 @@ Hint: Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs we
 
 Explanation: Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-2-1** — Die Geräte sind repariert ___. (Passiv, Perfekt)
 
@@ -930,13 +930,13 @@ Hint: Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs we
 
 Explanation: Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Passiv mit Modalverb
 
 Target: 40000000-0000-4000-8000-000000000003; category: passive; review: approved.
 
-Content hash: 026aa6584fc42c4b4ba30d4918093fb8ec231738a8b415475bd8587fc2d8dfca
+Content hash: 648b9966ad3ea40e5ebfd08c90506f50d266af73af1161056baee91522ca4605
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -948,7 +948,7 @@ Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit M
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-3-1** — Die Daten können digital übermittelt ___. (Passivinfinitiv)
 
@@ -958,13 +958,13 @@ Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit M
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Irreale Bedingungen mit hätte
 
 Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: approved.
 
-Content hash: bfa60953d9e88eb6d15f62e7ac4e04fdaf60ebc026133a99772a83d4456f9fb5
+Content hash: 78e79ea9cb5675582bcef5e6f952e41b4b966b8d28320a83ec0df34b9dacc237
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -976,7 +976,7 @@ Hint: Verwende den Konjunktiv II von haben.
 
 Explanation: Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-4-1** — Wenn sie einen Führerschein ___, könnte sie zur Arbeit fahren. (haben, Konjunktiv II)
 
@@ -986,13 +986,13 @@ Hint: Verwende den Konjunktiv II von haben.
 
 Explanation: Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Höfliche Bitten mit könnte
 
 Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: approved.
 
-Content hash: bb08b96e6d93c3aad4760bf18974d031e1288109a5a71ed014b58bcc691bc2db
+Content hash: b66049833faffc669ef644b98b6edf2901f18af89f516086e3c99933d852ac03
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1004,7 +1004,7 @@ Hint: Verwende den Konjunktiv II von können.
 
 Explanation: Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-5-1** — ___ du mir kurz helfen? (können, Konjunktiv II)
 
@@ -1014,13 +1014,13 @@ Hint: Verwende den Konjunktiv II von können.
 
 Explanation: Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Irreale Vergangenheit mit hätte
 
 Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: approved.
 
-Content hash: bc39de2777232ed871cd1cf800418b7d9b8cf1e9e6da608aaceecd9e1cea22eb
+Content hash: 1253decbe4bae37af587c94c0b73ad62379eed4ed132048e91465e7200993b4c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1032,7 +1032,7 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und le
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-6-1** — Wenn er die Nachricht gelesen ___, hätte er geantwortet. (haben, Konjunktiv II)
 
@@ -1042,13 +1042,13 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und le
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Irreale Vergangenheit mit wäre
 
 Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: approved.
 
-Content hash: b4202310d9af32de7808591a6da4d876308115a3b816467b5bd27fb38f3ec243
+Content hash: e7b14a76973def16fbd84154e1da0aa5a690a6a1b01653caaa49cae90dfadbce
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1060,7 +1060,7 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fa
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-7-1** — Wenn ich früher losgefahren ___, hätte ich den Termin geschafft. (sein, Konjunktiv II)
 
@@ -1070,13 +1070,13 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fa
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Gegensatz mit obwohl
 
 Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: approved.
 
-Content hash: 7cde5a37fe0b446c843c864e9af7a07f5c2e3b3d93a3e56c87c84f840f3520d1
+Content hash: e8d0cf2d3a378d2d88d9afe022f541a3af02539bfad8b0c97a57595adb316145
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1088,7 +1088,7 @@ Hint: Obwohl leitet einen Nebensatz ein.
 
 Explanation: Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-8-1** — Obwohl die Aufgabe schwierig ___, geben wir nicht auf. (sein, Präsens)
 
@@ -1098,13 +1098,13 @@ Hint: Obwohl leitet einen Nebensatz ein.
 
 Explanation: Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Begründung mit da
 
 Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: approved.
 
-Content hash: dabd5d484b00f7b99a2c2be9f94f99def2660e0d6f03d21dc54bca04760fbf6f
+Content hash: 2481ea29c1c5c1c2323e043157b43701906c1f140f4c445b07c49bb7f49194cd
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1116,7 +1116,7 @@ Hint: Da leitet eine Begründung ein; das Verb steht am Ende.
 
 Explanation: Im Nebensatz mit da steht das konjugierte Verb am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-9-1** — Da der Drucker nicht ___, schicken wir die Datei per E-Mail. (funktionieren, Präsens)
 
@@ -1126,13 +1126,13 @@ Hint: Da leitet eine Begründung ein; das Verb steht am Ende.
 
 Explanation: Im Nebensatz mit da steht das konjugierte Verb am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Folge mit sodass
 
 Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: approved.
 
-Content hash: 5106c68835b20ec50cf07d7fb814bedb160bf8975a594495daa6b524bb1f56a0
+Content hash: 4a90f0129c4a7643088bb8bf34becbe32a905fffaa5b4281d9c7b92086a562a4
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1144,7 +1144,7 @@ Hint: Sodass leitet die Folge in einem Nebensatz ein.
 
 Explanation: Im Nebensatz mit sodass steht das konjugierte Verb am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-10-1** — Die Erklärung war klar, sodass alle den Ablauf ___. (verstehen, Präteritum)
 
@@ -1154,13 +1154,13 @@ Hint: Sodass leitet die Folge in einem Nebensatz ein.
 
 Explanation: Im Nebensatz mit sodass steht das konjugierte Verb am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Absicht mit um … zu
 
 Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: approved.
 
-Content hash: 74e622f32f19cb732992bca95ea43cf926a0eab4616d38a8a4993010070df4fb
+Content hash: 2cd6d51a2253aeaed71c5c182fbad42692271b621c58289daa17bae2037b8427
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1172,7 +1172,7 @@ Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partike
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-11-1** — Sie spart Geld, um eine Weiterbildung ___ finanzieren. (Infinitivpartikel)
 
@@ -1182,13 +1182,13 @@ Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partike
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Infinitiv mit zu bei trennbaren Verben
 
 Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: approved.
 
-Content hash: e21a318f12fcaf1e5aa5a8e460ade15519b94bad90faf9b9365076b9964a92cb
+Content hash: 142c7ae18f1c87d8036b1509dcb52d801ca7e3e23735cdfd0d9669d42c346deb
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1200,7 +1200,7 @@ Hint: Setze zu zwischen Vorsilbe und Verbstamm.
 
 Explanation: Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-12-1** — Sie hat beschlossen, am Seminar ___. (teilnehmen, Infinitiv mit zu)
 
@@ -1210,13 +1210,13 @@ Hint: Setze zu zwischen Vorsilbe und Verbstamm.
 
 Explanation: Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Relativpronomen im Akkusativ
 
 Target: 40000000-0000-4000-8000-000000000013; category: relative; review: approved.
 
-Content hash: 7421342b62327ab9358e183d09139efb6eb8c4944f47c11f972d32f22f65b478
+Content hash: d0ebc1e2c9577db284d26574c77da4edd3d3a76d0a840441db0276fd0d7897cf
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1228,7 +1228,7 @@ Hint: Das Relativpronomen ist das Objekt im Relativsatz.
 
 Explanation: Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-13-1** — Das Angebot, ___ wir erhalten haben, ist günstig. (Relativpronomen)
 
@@ -1238,13 +1238,13 @@ Hint: Das Relativpronomen ist das Objekt im Relativsatz.
 
 Explanation: Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Relativpronomen im Dativ
 
 Target: 40000000-0000-4000-8000-000000000014; category: relative; review: approved.
 
-Content hash: e12349d32dfa20e83635a3bb307685ba68ae0fa08c2c4b2f10d31bc1649cf65b
+Content hash: 9f25404233cea04c5adfba424ce54e68dabe2379510341e53c94679b4c9acd36
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1256,7 +1256,7 @@ Hint: Helfen und mit verlangen den Dativ.
 
 Explanation: Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-14-1** — Der Kunde, mit ___ ich gesprochen habe, kommt morgen. (Relativpronomen)
 
@@ -1266,13 +1266,13 @@ Hint: Helfen und mit verlangen den Dativ.
 
 Explanation: Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Relativpronomen im Genitiv
 
 Target: 40000000-0000-4000-8000-000000000015; category: relative; review: approved.
 
-Content hash: 55870e213b73b8467c32b62d6cebb724adc9c75c261b13db8bc8edb4be655ab1
+Content hash: 6a44df2f66fd83bc044cd5ccd4cc3a970fb9b0e7af6c718e4bcf958381f01e7c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1284,7 +1284,7 @@ Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem No
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-15-1** — Die Firma, ___ Produkte wir verkaufen, hat ihren Sitz in Köln. (Relativpronomen im Genitiv)
 
@@ -1294,13 +1294,13 @@ Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem No
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Genitiv nach trotz
 
 Target: 40000000-0000-4000-8000-000000000016; category: cases; review: approved.
 
-Content hash: 0950c489b53109d7807b82daf853ffc6a0e87beae7d6738b553bfae5d6359002
+Content hash: 35d5d0af7dfd7ea560840ce779f26abc98be7bad8d13c936a504ba87fd26f673
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1312,7 +1312,7 @@ Hint: Verwende den Genitiv der Standardschriftsprache.
 
 Explanation: In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-16-1** — Trotz ___ Verspätung erreichten wir den Anschluss. (die, Genitiv)
 
@@ -1322,13 +1322,13 @@ Hint: Verwende den Genitiv der Standardschriftsprache.
 
 Explanation: In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Genitiv nach während
 
 Target: 40000000-0000-4000-8000-000000000017; category: cases; review: approved.
 
-Content hash: 6c118f36f078a955bb63aa3831076016feb24bb5bb1f2e51ee8d6a44713ce56d
+Content hash: 371c9e27d4b74d6794c1bf7a2969998f2b241cd20354a5622b19828e96dc90c4
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1340,7 +1340,7 @@ Hint: Hier ist während eine Präposition und keine Konjunktion.
 
 Explanation: Als Präposition steht während in der Standardschriftsprache mit dem Genitiv.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-17-1** — Während ___ Besprechung machen wir Notizen. (die, Genitiv)
 
@@ -1350,13 +1350,13 @@ Hint: Hier ist während eine Präposition und keine Konjunktion.
 
 Explanation: Als Präposition steht während in der Standardschriftsprache mit dem Genitiv.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Adjektive im Genitiv
 
 Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: approved.
 
-Content hash: c4d7851d8733adf7913a4dac09096bf1608262976102958ea6faaccb833bb59c
+Content hash: fac2f307c8f87ab181e067f5ce349ff2f95af65a8dfbd17aa285b373b6d64c8e
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1368,7 +1368,7 @@ Hint: Nach dem bestimmten Artikel endet das Adjektiv hier auf -en.
 
 Explanation: Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-18-1** — Die Folgen des ___ Fehlers verursachten hohe Kosten. (technisch)
 
@@ -1378,13 +1378,13 @@ Hint: Nach dem bestimmten Artikel endet das Adjektiv hier auf -en.
 
 Explanation: Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Adjektive ohne Artikel
 
 Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: approved.
 
-Content hash: 258176d52ac6eb50f263dead250a715968d1233e0bf9de2e0c8dfb97d7218812
+Content hash: 4adee8c6ebb5390ee8c57fb5b9f8d3a23e4a7dc7decb3956adda6b269b1447de
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1396,7 +1396,7 @@ Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
 Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-19-1** — Mit ___ Kolleginnen aus anderen Abteilungen arbeiten wir gern zusammen. (zuverlässig)
 
@@ -1406,13 +1406,13 @@ Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
 Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Abhängen von
 
 Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: approved.
 
-Content hash: 597826e74a0fd420c70e111c7c53b74d19b9e6858d37bb01d5002c345f1c55ed
+Content hash: ec05dab4c602ba7a66ae96c7c0ced3f67703cc599c8ffc2628ebf224f31c66e0
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1424,7 +1424,7 @@ Hint: Lerne die feste Präposition zu abhängen.
 
 Explanation: Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-20-1** — Unsere Planung hängt ___ dem Wetter ab. (Präposition zu abhängen)
 
@@ -1434,13 +1434,13 @@ Hint: Lerne die feste Präposition zu abhängen.
 
 Explanation: Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Teilnehmen an
 
 Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: approved.
 
-Content hash: fc9bd642452959bda207d7d3a0fbd129ac1a833ba868dfba4fa214ec3787f2fe
+Content hash: 70ae0d4fe1c411ebd887822b3af2ebbdf7fc51de66a48a07cbde7c81bd9e3c04
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1452,7 +1452,7 @@ Hint: Lerne die feste Präposition zu teilnehmen.
 
 Explanation: Teilnehmen steht mit an und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-21-1** — Wir nehmen ___ dem Projekt teil. (Präposition zu teilnehmen)
 
@@ -1462,13 +1462,13 @@ Hint: Lerne die feste Präposition zu teilnehmen.
 
 Explanation: Teilnehmen steht mit an und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Überzeugen von
 
 Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: approved.
 
-Content hash: 09d9be40202f40394d5a4be50c46b25904a18532f986829ecf3e05cfebd20855
+Content hash: d1819476163862101e6d43238fb0858650e8c5c99b5f75f2ee0ff4e3171dacc9
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1480,7 +1480,7 @@ Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem A
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-22-1** — Sie überzeugt das Team ___ ihrem Vorschlag. (Präposition zu überzeugen)
 
@@ -1490,13 +1490,13 @@ Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem A
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Sich befassen mit
 
 Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: approved.
 
-Content hash: 8f3630beb055532d3cbe11e932fd02e6325005bded4bda7a372cec2f98f0334a
+Content hash: db921737b045bbaf1d3420384659421f9b7ca1d4ea257fb5958a603f1e24b831
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1508,7 +1508,7 @@ Hint: Lerne die feste Präposition zu sich befassen.
 
 Explanation: Sich befassen steht mit mit und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-23-1** — Er befasst sich ___ der Auswertung. (Präposition zu sich befassen)
 
@@ -1518,13 +1518,13 @@ Hint: Lerne die feste Präposition zu sich befassen.
 
 Explanation: Sich befassen steht mit mit und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Sich ergeben aus
 
 Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: approved.
 
-Content hash: 0858579283dd7b865346d686a30dc9bbe960c31f898d6995d310acd43f0b2d85
+Content hash: cf4991bcec27247e9a313a2ec785a7e979db57f4d1ab40f6c4264babff9b19d1
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1536,7 +1536,7 @@ Hint: Ergeben bedeutet hier resultieren, nicht kapitulieren.
 
 Explanation: Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-24-1** — Die nächsten Schritte ergeben sich ___ der Analyse. (Präposition zu sich ergeben)
 
@@ -1546,13 +1546,13 @@ Hint: Ergeben bedeutet hier resultieren, nicht kapitulieren.
 
 Explanation: Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Einen Antrag stellen
 
 Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: approved.
 
-Content hash: f6f91a83ffec30d8eceb45aadda696af89a80ad95e33ee64b62f1e51616352a7
+Content hash: 6d07f09e6f09a5a1299f6528767f93452e75a0a2d21dda14e3946fd629708556
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1564,7 +1564,7 @@ Hint: Setze das angegebene Verb ins Präsens.
 
 Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-25-1** — Sie ___ einen Antrag auf Weiterbildung. (stellen, Präsens, 3. Person Singular)
 
@@ -1574,13 +1574,13 @@ Hint: Setze das angegebene Verb ins Präsens.
 
 Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Eine Entscheidung treffen
 
 Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: approved.
 
-Content hash: a143e5c07b0bf83af07693d45b5d98add24bc28b16c73bc921635732f37b2f13
+Content hash: 3e04226ab68b2a61649ccda393e58586c57235ef293f264c14e9308f52a7acaa
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1592,7 +1592,7 @@ Hint: Treffen verändert im Singular seinen Stammvokal.
 
 Explanation: Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-26-1** — Du ___ die Entscheidung selbst. (treffen, Präsens)
 
@@ -1602,13 +1602,13 @@ Hint: Treffen verändert im Singular seinen Stammvokal.
 
 Explanation: Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Verantwortung übernehmen
 
 Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: approved.
 
-Content hash: b5a0e048eb561376015c89fd9a0cf25cb678646b3fb39991a51d5cd43f3e8919
+Content hash: 17196b4bb595c0089dbb4a970d6b4ad501d5e7d27aea2f5204a0edb4d44c8658
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1620,7 +1620,7 @@ Hint: Übernehmen verändert im Singular seinen Stammvokal.
 
 Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-27-1** — Du ___ die Verantwortung für die Abrechnung. (übernehmen, Präsens)
 
@@ -1630,13 +1630,13 @@ Hint: Übernehmen verändert im Singular seinen Stammvokal.
 
 Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Eine Frist einhalten
 
 Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: approved.
 
-Content hash: aed8cf4ec16b25350277824dc5025481241bdafff015a3f2ca017288cb9e11e8
+Content hash: c009e142fecb506b4cff35c632193722767f4d41f8250bf1a3427b0cd35a5520
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1648,7 +1648,7 @@ Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
 
 Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-28-1** — Du ___ die vereinbarte Frist ein. (einhalten, Präsens; nur der konjugierte Teil)
 
@@ -1658,13 +1658,13 @@ Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
 
 Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 ### B2: Voraussetzungen erfüllen
 
 Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: approved.
 
-Content hash: 68c0098f932276ef43ae673d31443a511b5b5f533286b1470857fcf1b8290c11
+Content hash: febf918f6255a6d11c28e1f62d7f27fd7a26dd8ae641186bfb26e571d40bddee
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1676,7 +1676,7 @@ Hint: Setze das angegebene Verb ins Präsens.
 
 Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
 **b2-29-1** — Die Bewerberin ___ die fachlichen Voraussetzungen. (erfüllen, Präsens)
 
@@ -1686,5 +1686,5 @@ Hint: Setze das angegebene Verb ins Präsens.
 
 Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
+Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
 
