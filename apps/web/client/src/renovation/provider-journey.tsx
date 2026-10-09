@@ -40,8 +40,8 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   useEffect(()=> {
     let alive=true; let ticket=0;
     try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);}} catch {setFailed(true);}
-    function verify(allowLocal=false, resume=false) {
-      const current=++ticket;setAccount(null);setBusy(true);setFailed(false);
+    function verify(allowLocal=false, resume=false, retain=false) {
+      const current=++ticket;if(!retain)setAccount(null);setBusy(true);setFailed(false);
       if(allowLocal) {
         try {const saved=host.provider.localBinding();if(saved){setAccount(saved);setLocal(true);}} catch {setFailed(true);}
       }
@@ -50,18 +50,21 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
         // A fresh, verified same-subject sign-in can resume a completed sign-out.
         const saved=new LearnerSignOut(binding,binding.storage(browserStorage));
         if(resume && saved.read()?.complete) saved.resume();
-        setAttachDismissed(false);setAttachResult(null);setAttachFailed(false);setAccount(binding);setLocal(false);setShowLogin(false);
+        if(!retain){setAttachDismissed(false);setAttachResult(null);setAttachFailed(false);}setAccount(binding);setLocal(false);setShowLogin(false);
       }).catch(error=> {if(alive&&current===ticket){
         setFailed(!(error instanceof Error && error.message==='Sign in before syncing'));
+        if(retain)setLocal(true);
       }})
         .finally(()=> {if(alive&&current===ticket)setBusy(false);});
     }
-    const {data}=host.client.auth.onAuthStateChange(event=> {
+    const {data}=host.client.auth.onAuthStateChange((event,session)=> {
       if(!alive) return;
       if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
       else if(event==='INITIAL_SESSION'||event==='SIGNED_IN'||event==='USER_UPDATED'||event==='TOKEN_REFRESHED') {
         // SDK callbacks hold the auth lock; schedule provider reads after callback return.
-        host.provider.invalidate();setAccount(null);queueMicrotask(()=> {if(alive)verify(event==='INITIAL_SESSION',event==='SIGNED_IN');});
+        const retain=host.provider.observeAuthEvent(event,session);
+        if(!retain)setAccount(null);
+        queueMicrotask(()=> {if(alive)verify(event==='INITIAL_SESSION'&&!retain,event==='SIGNED_IN',retain);});
       }
     });
     return ()=> {alive=false;++ticket;data.subscription.unsubscribe();host.provider.invalidate();};

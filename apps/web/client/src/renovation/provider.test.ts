@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseClient, Session } from '@supabase/supabase-js';
 import { VerifiedLearnerProvider } from './provider';
 import { LearnerSignOut } from './signout';
 import { LearnerIdentityDeletion } from './identity-deletion';
@@ -10,16 +10,39 @@ function fixture() {
   let now = 1000;
   let user = subject;
   let rejected = false;
-  const token = () => `e30.${btoa(JSON.stringify({ iss: `https://${project}.supabase.co/auth/v1`, aud: 'authenticated', role: 'authenticated', sub: user, session_id: subject, exp: 10 })).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
+  let expiry = 10;
+  const token = () => `e30.${btoa(JSON.stringify({ iss: `https://${project}.supabase.co/auth/v1`, aud: 'authenticated', role: 'authenticated', sub: user, session_id: subject, exp: expiry })).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
   const auth = {
-    getSession: vi.fn(async () => ({ data: { session: { user: { id: user }, access_token: token(), expires_at: 10 } }, error: null })),
+    getSession: vi.fn(async () => ({ data: { session: { user: { id: user }, access_token: token(), expires_at: expiry } }, error: null })),
     getUser: vi.fn(async () => ({ data: { user: { id: user, is_anonymous: false } }, error: rejected ? Error('rejected') : null })),
     signOut: vi.fn(async () => ({ error: rejected ? Error('offline') : null })),
   };
   const provider = new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'], project, () => now);
-  return { provider, auth, token, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
+  return { provider, auth, token, refresh:()=>{expiry=20;}, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
 }
 afterEach(()=>localStorage.clear());
+it('re-verifies a recovered session without replacing its account binding',async()=>{
+  const f=fixture(), account=await f.provider.bind();
+  for(const event of ['SIGNED_IN','TOKEN_REFRESHED','USER_UPDATED'] as const){
+    if(event==='TOKEN_REFRESHED')f.refresh();
+    const session={user:{id:subject},access_token:f.token()} as Session;
+    expect(f.provider.observeAuthEvent(event,session)).toBe(true);
+    expect(await f.provider.bind()).toBe(account);
+    account.assertCurrent();
+  }
+  expect(f.auth.getUser).toHaveBeenCalledTimes(4);
+  f.reject(true);await expect(f.provider.bind()).rejects.toThrow('verification');
+  expect(()=>f.provider.assertVerified(account)).toThrow('Sign in');
+  const send=vi.fn();await expect(f.provider.api(account,'https://api.example',send).profile()).rejects.toThrow('Sign in');
+  expect(send).not.toHaveBeenCalled();
+});
+it.each(['different subject','different session','missing session','sign-out'] as const)('invalidates old authority immediately on %s',async change=>{
+  const f=fixture(), account=await f.provider.bind();
+  const claims={iss:`https://${project}.supabase.co/auth/v1`,aud:'authenticated',role:'authenticated',sub:change==='different subject'?other:subject,session_id:change==='different session'?other:subject,exp:10};
+  const session={user:{id:claims.sub},access_token:`e30.${btoa(JSON.stringify(claims))}.c2ln`} as Session;
+  expect(f.provider.observeAuthEvent(change==='sign-out'?'SIGNED_OUT':'SIGNED_IN',change==='missing session'?null:session)).toBe(false);
+  expect(()=>account.assertCurrent()).toThrow('Sign in');
+});
 it('confirmed old-subject cleanup preserves a newly signed-in account and its saved reference',async()=> {
   const f=fixture(),a=await f.provider.bind();
   const saved={getItem:(key:string)=>localStorage.getItem(key),setItem:(key:string,value:string)=>localStorage.setItem(key,value)};
@@ -74,7 +97,7 @@ it('cold local binding uses only the saved verified subject and blocks delivery 
   const send=vi.fn();await expect(restarted.provider.api(local,'https://api.example',send).profile()).rejects.toThrow('Sign in');
   expect(restarted.auth.getSession).not.toHaveBeenCalled();expect(send).not.toHaveBeenCalled();
   expect(local.storage({getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)}).getItem('frozen')).toBe('original request');
-  restarted.reject(false);const verified=await restarted.provider.bind();expect(()=>local.assertCurrent()).toThrow();verified.assertCurrent();
+  restarted.reject(false);const verified=await restarted.provider.bind();expect(verified).toBe(local);verified.assertCurrent();
   restarted.provider.invalidate();expect(()=>verified.assertCurrent()).toThrow();
 });
 it('leaves sign-out retryable after failed revocation and preserves synced drafts', async () => {

@@ -1,5 +1,19 @@
 # German Master 2.0 renovation checkpoint
 
+## Web navigation fix branch pushed — 9 October 2026
+
+- Under the owner's explicit push instruction, pushed `269fd0b` to `origin/fix/web-tab-return-navigation`; remote ref matches the local fix. No merge or deployment command was issued, and no hosted/deployed outcome is claimed. The repository integration may run branch checks/previews independently.
+- M1 remains active with its existing gates. Exact next action: review the pushed fix and verify hosted checks under the owner's scope; production deployment and merge remain unauthorized. The concurrent owner-browser connectivity report is a local troubleshooting matter, not a verified project defect or production outage.
+- Commit message: `docs: record authorized web navigation fix push`.
+
+## Web tab-return navigation reset fixed — 9 October 2026
+
+- Investigated the owner's explicit bug request on separate branch `fix/web-tab-return-navigation`, based on clean `813c779`. Inspected the owner's Edge detail view; the owner reproduced after disconnecting browser control. Headed Chromium/Playwright reproduced the deployed reset using public assets with synthetic local auth/API fixtures and real hidden → visible events. Existing-session `SIGNED_IN` cleared the learner, replaced account generation and remounted Home; document identity and URL did not change. Both worker-controlled and uncontrolled deployed runs fail. Clean credential-free guest practice did not reproduce and retains its draft; no universal unauthenticated-reset claim is made.
+- Same-subject/session recovery, token refresh and user updates now re-verify without replacing the binding, generation, learner view or guest-attachment choice. Failed verification keeps local navigation/drafts with online delivery blocked. Different subject/session, missing session and sign-out still invalidate old authority. Cold owned local access upgrades in place only after verification. ADR 029 records the correction to blanket event removal; no visual, backend, content or mastery-policy change.
+- Offline root install, generated/type checks, full root tests (193 backend, 408 web, 20 HTTP), root build and learner product build pass. Final strengthened provider/rotated-token tests pass 18 tests. Real Chromium fixed-build topic, failed-verification and guest regressions pass, including retained component IDs/generation and unchanged document identity. The committed harness avoids Playwright focus emulation; live diagnostics are explicit opt-in. Fixed-build worker-controlled acceptance is not claimed because routed static fixtures cannot populate the real precache. See `docs/operations/web-tab-return-navigation.md` for runtime evidence, reproduction and limits.
+- Local commit only; no push, merge, deployment, production writes, publication, Android release or Groq/live AI use. Bootstrap remains complete; product reset remains incomplete. M1 remains active with prior design/manual accessibility and hosted-verification gates. Exact next action: owner review of this fix branch and authorized hosted verification; do not deploy or merge under this request.
+- Commit message: `fix(web): preserve learner navigation on same-session tab recovery`.
+
 ## Android v2-only launch hardening — 9 October 2026 (review iteration pending hosted verification)
 
 - Owner requested removing the obsolete legacy/v2 launch switch. Android Studio remains responsible for versionCode/versionName; no version metadata changed.

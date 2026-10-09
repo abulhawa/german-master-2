@@ -1,25 +1,30 @@
 import { afterEach, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { useState } from 'react';
+import type { SupabaseClient, Session, AuthChangeEvent } from '@supabase/supabase-js';
 import { ProviderLearnerJourney } from './provider-journey';
 import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
 import { guestAttemptCount, guestUnattachedAttemptCount } from './guest-starter';
-vi.mock('./journey',()=>({default:({account,revoke}:{account:{identity:{subject:string}};revoke:()=>Promise<void>})=><><p>Bound learner {account.identity.subject}</p><button onClick={()=>void revoke()}>Revoke session</button></>}));
+vi.mock('./journey',()=>({default:({account,revoke}:{account:{identity:{subject:string}};revoke:()=>Promise<void>})=>{
+  const [detail,setDetail]=useState(false);
+  return <><p>Bound learner {account.identity.subject}</p><button onClick={()=>setDetail(true)}>Open detail</button>{detail&&<h1>Retained detail</h1>}<button onClick={()=>void revoke()}>Revoke session</button></>;
+}}));
 const project='zgmyrpzwgtydwlzponih', subject='00000000-0000-4000-8000-000000000020';
 function fixture() {
-  let signedIn=false; let callback: (event:string)=>void=()=>{};
+  let signedIn=false; let callback: (event:AuthChangeEvent,session:Session|null)=>void=()=>{};
   const token=`e30.${btoa(JSON.stringify({iss:`https://${project}.supabase.co/auth/v1`,aud:'authenticated',role:'authenticated',sub:subject,session_id:subject,exp:9999999999})).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_')}.c2ln`;
+  const session=()=>signedIn?{user:{id:subject},access_token:token,expires_at:9999999999} as Session:null;
   const auth={
     getSession:vi.fn(async()=>({data:{session:signedIn?{user:{id:subject},access_token:token,expires_at:9999999999}:null},error:null})),
     getUser:vi.fn(async()=>({data:{user:{id:subject,is_anonymous:false}},error:null})),
-    signOut:vi.fn(async()=>{signedIn=false;callback('SIGNED_OUT');return {error:null};}),
-    signInWithPassword:vi.fn(async()=>{signedIn=true;callback('SIGNED_IN');return {error:null};}),
+    signOut:vi.fn(async()=>{signedIn=false;callback('SIGNED_OUT',null);return {error:null};}),
+    signInWithPassword:vi.fn(async()=>{signedIn=true;callback('SIGNED_IN',session());return {error:null};}),
     signUp:vi.fn(async()=>({data:{session:null},error:null})),
-    onAuthStateChange:(listener:(event:string)=>void)=>{callback=listener;queueMicrotask(()=>listener('INITIAL_SESSION'));return {data:{subscription:{unsubscribe:vi.fn()}}};},
+    onAuthStateChange:(listener:typeof callback)=>{callback=listener;queueMicrotask(()=>listener('INITIAL_SESSION',session()));return {data:{subscription:{unsubscribe:vi.fn()}}};},
   };
   const provider=new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project);
   const host={client:{auth},provider,dispose:()=>provider.invalidate()} as unknown as ReturnType<typeof createLearnerProvider>;
-  return {auth,host,emit:(event:string)=>callback(event)};
+  return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
 afterEach(()=>{cleanup();localStorage.clear();vi.unstubAllGlobals();});
 async function openAuth() {
@@ -38,6 +43,30 @@ it('registers without binding an unconfirmed identity or retaining its password'
   expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password',options:{emailRedirectTo:'https://api.example'}});
   expect(screen.queryByText(/Bound learner/)).toBeNull();
   expect(screen.getByLabelText('Password')).toHaveValue('');
+});
+it.each(['SIGNED_IN','TOKEN_REFRESHED','USER_UPDATED'] as const)('retains detail during and after same-session %s verification',async event=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await openAuth();fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
+  await screen.findByText(`Bound learner ${subject}`);
+  fireEvent.click(screen.getByRole('button',{name:'Open detail'}));
+  let release!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
+  f.auth.getUser.mockImplementationOnce(()=>new Promise(resolve=>{release=resolve;}));
+  await act(async()=>f.emit(event));
+  await waitFor(()=>expect(release).toBeTypeOf('function'));
+  expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
+  await act(async()=>release({data:{user:{id:subject,is_anonymous:false}},error:null}));
+  expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
+  expect(f.auth.getUser).toHaveBeenCalledTimes(2);
+});
+it('retains detail on failed same-session verification and still removes it on sign-out',async()=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await openAuth();fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
+  await screen.findByText(`Bound learner ${subject}`);fireEvent.click(screen.getByRole('button',{name:'Open detail'}));
+  f.auth.getUser.mockRejectedValueOnce(Error('offline'));
+  await act(async()=>f.emit('SIGNED_IN'));
+  expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
+  await act(async()=>f.emit('SIGNED_OUT'));
+  expect(screen.queryByRole('heading',{name:'Retained detail'})).toBeNull();
 });
 it('mounts learner only after online verification and removes it on provider sign-out',async()=> {
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
