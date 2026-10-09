@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Low-typing S04 mockup update — 9 October 2026
+
+- Updated the desktop feedback and native Android dark offline-feedback concept boards at the owner's request. Both now show authored der/den/dem choices with retained selection after explicit Check, replacing the obsolete typed answer fields. Android now includes the singular context cue used on web.
+- Updated the mockup collection, clarified original versus current concepts and remaining state coverage, and saved the exact two built-in image edit prompts. Visually inspected both outputs for labels, selection, German context, feedback and visible actions; documentation/link and whitespace checks pass. These are illustrative raster concepts, not runtime or accessibility acceptance.
+- M1 remains active; final both-client design/web accessibility acceptance and post-merge verification remain separate. TalkBack stays owner-accepted for now. No app code, production changes, push, merge, deployment, publication, Android release or Groq calls.
+- Commit message: `docs(design): update web and Android feedback mockups for low-typing choices`.
+
 ## PR #11 merged under owner instruction — 9 October 2026
 
 - Owner authorized merging immediately without waiting for new-head Actions. Pushed the two verified local commits, marked PR #11 ready, then merged exact head `38d6617` using a merge commit. GitHub confirms MERGED at 09:39 Europe/Berlin; merge commit `312f3a2`. Local main fast-forwarded to origin/main without discarding work.
