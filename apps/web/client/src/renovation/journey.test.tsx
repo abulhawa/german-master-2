@@ -608,7 +608,7 @@ describe("isolated learner journey", () => {
     await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
     fireEvent.click(screen.getByText("Progress"));
     expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
-    expect(screen.getByText("Needs practice")).toBeInTheDocument();
+    expect(screen.getByText("Needs practice", { selector: ".gm-state-badge" })).toBeInTheDocument();
     expect(screen.queryByText("Mastered")).not.toBeInTheDocument();
     expect(screen.getByRole("heading")).toHaveFocus();
   });
