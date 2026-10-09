@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## PR #11 merged under owner instruction — 9 October 2026
+
+- Owner authorized merging immediately without waiting for new-head Actions. Pushed the two verified local commits, marked PR #11 ready, then merged exact head `38d6617` using a merge commit. GitHub confirms MERGED at 09:39 Europe/Berlin; merge commit `312f3a2`. Local main fast-forwarded to origin/main without discarding work.
+- Latest-head checks were still running at merge; earlier hosted checks passed at `d9715d0`, and full local Android checks passed for the subsequent focus fix. No all-green post-merge claim is made. Existing Vercel integration may automatically deploy main; production deployment outcome has not been verified here. No separate deploy command, content publication, database write or Android store release occurred.
+- TalkBack acceptance remains completed for now under owner decision. Merge does not establish final both-client design/web accessibility acceptance or close M1. Next: verify post-merge checks/deployment status and record the remaining design/web accessibility acceptance.
+- Commit message: `docs: record owner-authorized PR 11 merge`.
+
 ## M1 TalkBack acceptance completed for now — 9 October 2026
 
 - Owner explicitly accepted the available TalkBack evidence, requested stopping further testing and asked to describe it as completed for now. TalkBack acceptance is complete for the current M1 scope; further improvements are deferred. This is owner acceptance, not full spoken/gesture certification. Do not reinstate the deferred gate on continuation.
