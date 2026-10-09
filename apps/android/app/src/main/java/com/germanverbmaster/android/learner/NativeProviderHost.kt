@@ -16,9 +16,16 @@ import io.github.jan.supabase.auth.status.SessionStatus
 import kotlinx.coroutines.*
 import java.io.File
 
-/** Configured preview host; no legacy AuthRepository, raw-table client or background worker. */
+/** Dedicated v2 host; no legacy AuthRepository, raw-table client or background worker. */
 @Composable
 fun NativeProviderHost(project: String, publishableKey: String, origin: String, directory: File) {
+    // Unconfigured debug and preview builds never fall back to the old UI or crash.
+    if (project.isBlank() || publishableKey.isBlank() || origin.isBlank()) {
+        Surface(Modifier.fillMaxSize()) {
+            Text("German Master 2.0 needs public Auth and API configuration.", Modifier.safeDrawingPadding().padding(24.dp))
+        }
+        return
+    }
     val context = LocalContext.current
     val client = remember(project,publishableKey) { createLearnerAuthClient(context,project,publishableKey) }
     val subjectStore = remember(project) { AtomicVerifiedSubjectStore(File(context.noBackupFilesDir,"gm-v2-last-verified-$project")) }

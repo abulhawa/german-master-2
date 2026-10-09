@@ -60,6 +60,13 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Install imported app SDK requirements
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
+      - name: Verify release rejects missing public v2 configuration
+        run: |
+          if bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-config-guard.log" 2>&1; then
+            echo "ERROR: Android release accepted empty public configuration"
+            exit 1
+          fi
+          grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-config-guard.log"
       - name: Verify debug app
         run: bash gradlew testDebugUnitTest assembleDebug assembleLearnerPreview --no-daemon --continue --max-workers=4
       - name: Lint debug app

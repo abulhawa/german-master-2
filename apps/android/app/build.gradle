@@ -17,12 +17,15 @@ if (localPropsFile.exists()) {
     localPropsFile.withInputStream { localProps.load(it) }
 }
 
-def v2Release = System.getenv("GM_V2_RELEASE") == "1"
-def releaseProject = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
-def releaseKey = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
-def releaseOrigin = System.getenv("GM_V2_API_ORIGIN") ?: ""
-if (v2Release && (releaseProject != "zgmyrpzwgtydwlzponih" || !(releaseKey ==~ /sb_publishable_[A-Za-z0-9_-]+/) || !(releaseOrigin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/))) {
-    throw new GradleException("Complete dedicated v2 staging public configuration required")
+def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
+def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
+def v2Origin = System.getenv("GM_V2_API_ORIGIN") ?: ""
+def validV2PublicConfig =
+    v2Project == "zgmyrpzwgtydwlzponih" &&
+    (v2Key ==~ /sb_publishable_[A-Za-z0-9_-]+/) &&
+    (v2Origin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/)
+if ((v2Project || v2Key || v2Origin) && !validV2PublicConfig) {
+    throw new GradleException("Incomplete German Master 2.0 public configuration")
 }
 
 android {
@@ -42,10 +45,10 @@ android {
         targetSdk = 37
         versionCode = 29
         versionName = "0.2.08"
-        buildConfigField("boolean", "V2_ENABLED", "false")
-        buildConfigField("String", "V2_AUTH_PROJECT", '""')
-        buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", '""')
-        buildConfigField("String", "V2_API_ORIGIN", '""')
+        // The same v2 client entry point is used in every Android variant.
+        buildConfigField("String", "V2_AUTH_PROJECT", groovy.json.JsonOutput.toJson(v2Project))
+        buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", groovy.json.JsonOutput.toJson(v2Key))
+        buildConfigField("String", "V2_API_ORIGIN", groovy.json.JsonOutput.toJson(v2Origin))
 
         buildConfigField("String", "SUPABASE_URL",
             "\"${localProps.getProperty("supabase.url", "")}\"")
@@ -75,27 +78,9 @@ android {
             applicationIdSuffix = ".preview"
             versionNameSuffix = "-preview"
             matchingFallbacks = ["debug"]
-            buildConfigField("boolean", "V2_ENABLED", "true")
-            // Explicit public-only configuration; never reads legacy local.properties credentials.
-            def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: ""
-            def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: ""
-            def v2Origin = System.getenv("GM_V2_API_ORIGIN") ?: ""
-            if (v2Project || v2Key || v2Origin) {
-                if (v2Project != "zgmyrpzwgtydwlzponih" || !(v2Key ==~ /sb_publishable_[A-Za-z0-9_-]+/) || !(v2Origin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/)) {
-                    throw new GradleException("Complete dedicated v2 staging public configuration required")
-                }
-                buildConfigField("String", "V2_AUTH_PROJECT", groovy.json.JsonOutput.toJson(v2Project))
-                buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", groovy.json.JsonOutput.toJson(v2Key))
-                buildConfigField("String", "V2_API_ORIGIN", groovy.json.JsonOutput.toJson(v2Origin))
-            }
+            // Uses optional public v2 configuration; never reads legacy local.properties.
         }
         release {
-            if(v2Release) {
-                buildConfigField("boolean", "V2_ENABLED", "true")
-                buildConfigField("String", "V2_AUTH_PROJECT", groovy.json.JsonOutput.toJson(releaseProject))
-                buildConfigField("String", "V2_AUTH_PUBLISHABLE_KEY", groovy.json.JsonOutput.toJson(releaseKey))
-                buildConfigField("String", "V2_API_ORIGIN", groovy.json.JsonOutput.toJson(releaseOrigin))
-            }
             signingConfig = signingConfigs.getByName("release")
             minifyEnabled = true
             shrinkResources = true
@@ -133,6 +118,20 @@ android {
         checkReleaseBuilds = true
         abortOnError = true
     }
+}
+
+// The release pre-build always validates its v2 public endpoints.
+tasks.register("verifyV2ReleaseConfiguration") {
+    group = "verification"
+    description = "Require the v2 Auth project, publishable key, and HTTPS API origin"
+    doLast {
+        if (!validV2PublicConfig) {
+            throw new GradleException("Complete German Master 2.0 release public configuration required")
+        }
+    }
+}
+tasks.matching { it.name == "preReleaseBuild" }.configureEach {
+    dependsOn(tasks.named("verifyV2ReleaseConfiguration"))
 }
 
 // Install the isolated fixture beside the release app without replacing its signing/data.
