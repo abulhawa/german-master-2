@@ -4,9 +4,9 @@
 
 - Baseline PR #11 head `b44b0f6` passed Web, Android verify/lint, web accessibility, repository safety and Vercel preview checks.
 - A new editorial audit found 12 B2 variants in six target families where bilingual hints disclosed a keyed answer. The agent removed direct answer leakage, polished four repeated German explanations and improved two example contexts. This is AI editorial work only, not independent German sign-off.
-- The unpublished candidate SQL/manifest and B2 review workbook must be regenerated in the next commit. Latest-head CI has not been verified; no production content, production deployment or store release is authorized.
+- The synchronized unpublished candidate SQL, 125-member manifest and B2 review workbook were regenerated in commit `32ff524`, with manifest `7fdd71ec45895a92afa5277b41eb9416e0c1f8588836f25a5a4c1a976b678dcd`. Latest-head CI verification is still pending; no production content, production deployment or store release is authorized.
 - M1 remains open pending independent German review and physical Android/TalkBack, display-size and keyboard acceptance plus product design sign-off.
-- Exact next action: regenerate candidate artifacts from the edited B2 source and verify new head CI. Preserve production approval boundary.
+- Exact next action: verify new-head CI, then obtain independent German review and physical Android/TalkBack evidence and record final M1 design acceptance. Preserve the production approval boundary.
 
 ## M1 B2 low-typing draft conversion — 9 October 2026
 
