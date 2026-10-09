@@ -282,7 +282,7 @@ const copy = {
   en: {
     subtitle: "B1–B2 German practice",
     title: "Practise what needs attention.",
-    intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed."
+    intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed.",
     language: "Interface language",
     languageHelp: "You can change this later.",
     level: "Your current German level",
@@ -295,7 +295,7 @@ const copy = {
     existing: "I already have an account",
     resumeAccount: "Continue saved account",
     localStatus: "Guest practice · saved on this device",
-    shorter: "This starter has five reviewed B1 questions."
+    shorter: "This starter has five reviewed B1 questions.",
     question: "Question", of: "of",
     hint: "Hint", check: "Check answer", skip: "Skip", next: "Continue",
     correct: "Looks correct locally", incorrect: "Not quite", assisted: "Assisted answer",
@@ -310,7 +310,7 @@ const copy = {
     create: "Create account", signIn: "Sign in",
     complete: "Starter session complete", saved: "Session saved",
     answered: "answered", skipped: "skipped", lookCorrect: "look correct locally",
-    retention: "Good start. Try another short session to practise more, or save your results to track progress over time."
+    retention: "Good start. Try another short session to practise more, or save your results to track progress over time.",
     keepProgress: "Keep your progress",
     keepProgressBody: "Create an account or sign in to save this practice and use confirmed progress across devices.",
     notNow: "Not now", finish: "Finish",
@@ -323,7 +323,7 @@ const copy = {
   de: {
     subtitle: "Deutsch üben auf B1–B2",
     title: "Übe, was noch Aufmerksamkeit braucht.",
-    intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto."
+    intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto.",
     language: "Sprache der Oberfläche",
     languageHelp: "Du kannst das später ändern.",
     level: "Dein aktuelles Deutschniveau",
@@ -336,7 +336,7 @@ const copy = {
     existing: "Ich habe bereits ein Konto",
     resumeAccount: "Gespeichertes Konto fortsetzen",
     localStatus: "Gastübung · auf diesem Gerät gespeichert",
-    shorter: "Dieser Einstieg enthält fünf geprüfte B1-Aufgaben."
+    shorter: "Dieser Einstieg enthält fünf geprüfte B1-Aufgaben.",
     question: "Frage", of: "von",
     hint: "Hinweis", check: "Antwort prüfen", skip: "Überspringen", next: "Weiter",
     correct: "Sieht lokal richtig aus", incorrect: "Noch nicht ganz", assisted: "Antwort mit Hilfe",
@@ -351,7 +351,7 @@ const copy = {
     create: "Konto erstellen", signIn: "Anmelden",
     complete: "Erste Übung abgeschlossen", saved: "Übung gespeichert",
     answered: "beantwortet", skipped: "übersprungen", lookCorrect: "sehen lokal richtig aus",
-    retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen."
+    retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen.",
     keepProgress: "Fortschritt behalten",
     keepProgressBody: "Erstelle ein Konto oder melde dich an, um diese Übungen zu speichern und bestätigten Fortschritt auf mehreren Geräten zu nutzen.",
     notNow: "Nicht jetzt", finish: "Abschließen",
