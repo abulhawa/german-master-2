@@ -936,7 +936,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000003; category: passive; review: pending.
 
-Content hash: 5df34b741be96ecbfa5e2022c592f64633fc85405b0cd0dc39e1efd4df167d9a
+Content hash: 026aa6584fc42c4b4ba30d4918093fb8ec231738a8b415475bd8587fc2d8dfca
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -944,7 +944,7 @@ Original Codex-authored controlled examples, 7 October 2026; AI editorial assist
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"werden"}]}]`
 
-Hint: Nach einem Modalverb stehen Partizip II und werden.
+Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit Modalverb.
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
@@ -954,7 +954,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"werden"}]}]`
 
-Hint: Nach einem Modalverb stehen Partizip II und werden.
+Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit Modalverb.
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
@@ -1020,7 +1020,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: pending.
 
-Content hash: c17403e5e9f3294f6ef821e153b5763ebc2d6f441d7106c41184b7a99b09b6a0
+Content hash: bc39de2777232ed871cd1cf800418b7d9b8cf1e9e6da608aaceecd9e1cea22eb
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1028,7 +1028,7 @@ Original Codex-authored controlled examples, 7 October 2026; AI editorial assist
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hätte"}]}]`
 
-Hint: Verwende hätte mit einem Partizip II.
+Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und lesen im Perfekt steht.
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
@@ -1038,7 +1038,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hätte"}]}]`
 
-Hint: Verwende hätte mit einem Partizip II.
+Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und lesen im Perfekt steht.
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
@@ -1048,7 +1048,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: pending.
 
-Content hash: 7ba00cf83929ec29371a0ac0738cba3289a37b11713e83a0c3771b9500e29ff1
+Content hash: b4202310d9af32de7808591a6da4d876308115a3b816467b5bd27fb38f3ec243
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1056,7 +1056,7 @@ Original Codex-authored controlled examples, 7 October 2026; AI editorial assist
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"wäre"}]}]`
 
-Hint: Verwende wäre bei Verben, deren Perfekt mit sein gebildet wird.
+Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fahren im Perfekt steht.
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
@@ -1066,7 +1066,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"wäre"}]}]`
 
-Hint: Verwende wäre bei Verben, deren Perfekt mit sein gebildet wird.
+Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fahren im Perfekt steht.
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
@@ -1160,7 +1160,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: pending.
 
-Content hash: 487ffb7bca0f5cc2bffd27badf3055fe3be1c6fbabb3e96de3e64b09294f3a9a
+Content hash: 74e622f32f19cb732992bca95ea43cf926a0eab4616d38a8a4993010070df4fb
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1168,7 +1168,7 @@ Original Codex-authored controlled examples, 7 October 2026; AI editorial assist
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"zu"}]}]`
 
-Hint: Vor dem Infinitiv steht zu.
+Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partikel.
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
@@ -1178,7 +1178,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"zu"}]}]`
 
-Hint: Vor dem Infinitiv steht zu.
+Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partikel.
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
@@ -1272,7 +1272,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000015; category: relative; review: pending.
 
-Content hash: 6552a8bf76dddc6b99ca34ed934228594e35ebfc191170ae91ccf143941bc8ef
+Content hash: 55870e213b73b8467c32b62d6cebb724adc9c75c261b13db8bc8edb4be655ab1
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1280,7 +1280,7 @@ Original Codex-authored controlled examples, 7 October 2026; AI editorial assist
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"dessen"}]}]`
 
-Hint: Dessen und deren drücken Zugehörigkeit aus.
+Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem Nomen.
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
@@ -1290,7 +1290,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"deren"}]}]`
 
-Hint: Dessen und deren drücken Zugehörigkeit aus.
+Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem Nomen.
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
@@ -1356,7 +1356,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: pending.
 
-Content hash: be7b6429bde427541718d2502131b15c8e7665240a17338e9441476467b9e2db
+Content hash: c4d7851d8733adf7913a4dac09096bf1608262976102958ea6faaccb833bb59c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1370,7 +1370,7 @@ Explanation: Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
-**b2-18-1** — Die Folgen des ___ Fehlers waren teuer. (technisch)
+**b2-18-1** — Die Folgen des ___ Fehlers verursachten hohe Kosten. (technisch)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"technischen"}]}]`
 
@@ -1468,15 +1468,15 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: pending.
 
-Content hash: aeb5f5bece5275c90cfca65db1b589a68b7c7735a2b8885520670b949e6c587c
+Content hash: 09d9be40202f40394d5a4be50c46b25904a18532f986829ecf3e05cfebd20855
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-22-0** — Die Daten überzeugen mich ___ der Qualität. (Präposition zu überzeugen)
+**b2-22-0** — Die Daten überzeugen mich ___ der Qualität des Verfahrens. (Präposition zu überzeugen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"von"}]}]`
 
-Hint: Lerne jemanden von etwas überzeugen.
+Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem Argument.
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
@@ -1486,7 +1486,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"von"}]}]`
 
-Hint: Lerne jemanden von etwas überzeugen.
+Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem Argument.
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
@@ -1552,7 +1552,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: pending.
 
-Content hash: 8a8f811a136b14da7db246ac22c9e4a78b36f4177bf6a9b476421cb8303f0c1d
+Content hash: f6f91a83ffec30d8eceb45aadda696af89a80ad95e33ee64b62f1e51616352a7
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1562,7 +1562,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stel
 
 Hint: Setze das angegebene Verb ins Präsens.
 
-Explanation: Einen Antrag stellen ist eine übliche Verbindung für eine formelle Beantragung.
+Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1572,7 +1572,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stel
 
 Hint: Setze das angegebene Verb ins Präsens.
 
-Explanation: Einen Antrag stellen ist eine übliche Verbindung für eine formelle Beantragung.
+Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1608,7 +1608,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: pending.
 
-Content hash: daf88b1c8c191b47698cb6d5629df241ff811bf64c07fbabeaf4aa607f16abe7
+Content hash: b5a0e048eb561376015c89fd9a0cf25cb678646b3fb39991a51d5cd43f3e8919
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1618,7 +1618,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übe
 
 Hint: Übernehmen verändert im Singular seinen Stammvokal.
 
-Explanation: Verantwortung übernehmen bedeutet für etwas verantwortlich werden; die Formen lauten übernimmt / übernimmst.
+Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1628,7 +1628,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übe
 
 Hint: Übernehmen verändert im Singular seinen Stammvokal.
 
-Explanation: Verantwortung übernehmen bedeutet für etwas verantwortlich werden; die Formen lauten übernimmt / übernimmst.
+Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1636,7 +1636,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: pending.
 
-Content hash: f4da286e2d9f267a1a2190823d6671647e53335a1747d151770af24d6956dfa9
+Content hash: aed8cf4ec16b25350277824dc5025481241bdafff015a3f2ca017288cb9e11e8
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1646,7 +1646,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"häl
 
 Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
 
-Explanation: Eine Frist einhalten bedeutet rechtzeitig fertig werden. Im Singular stehen hält / hältst.
+Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1656,7 +1656,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"häl
 
 Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
 
-Explanation: Eine Frist einhalten bedeutet rechtzeitig fertig werden. Im Singular stehen hält / hältst.
+Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1664,7 +1664,7 @@ Revision 2 measures recognition through an authored gap choice. Distractors mode
 
 Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: pending.
 
-Content hash: 1ce1e73309f174eb152dc34d45cd49f9209b58c92753fbe94ae37b5a42fdeba7
+Content hash: 68c0098f932276ef43ae673d31443a511b5b5f533286b1470857fcf1b8290c11
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1674,7 +1674,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erf�
 
 Hint: Setze das angegebene Verb ins Präsens.
 
-Explanation: Voraussetzungen erfüllen bedeutet den Anforderungen für etwas entsprechen.
+Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
@@ -1684,7 +1684,7 @@ Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erf�
 
 Hint: Setze das angegebene Verb ins Präsens.
 
-Explanation: Voraussetzungen erfüllen bedeutet den Anforderungen für etwas entsprechen.
+Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
 
 Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. Independent review of alternatives, level and answer leakage remains pending.
 
