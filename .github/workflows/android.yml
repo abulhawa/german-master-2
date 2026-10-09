@@ -2,10 +2,26 @@ name: Android checks
 
 on:
   pull_request:
-    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**', 'services/**', 'packages/**', 'db/**', 'package.json', 'package-lock.json']
+    paths: &android-paths
+      - 'apps/android/**'
+      - '.github/workflows/android.yml'
+      - 'contracts/**'
+      - 'design/**'
+      - 'content/**'
+      - 'services/**'
+      - 'packages/**'
+      - 'db/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.npmrc'
+      # Documentation and store artwork are not app or native HTTP test inputs.
+      - '!**/*.md'
+      - '!**/*.mdx'
+      - '!apps/android/docs/**'
+      - '!apps/android/play-store-listing/**'
   push:
     branches: [main]
-    paths: ['apps/android/**', '.github/workflows/android.yml', 'contracts/**', 'design/**', 'content/**', 'services/**', 'packages/**', 'db/**', 'package.json', 'package-lock.json']
+    paths: *android-paths
   workflow_dispatch:
 
 permissions:

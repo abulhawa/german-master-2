@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## CI documentation and dependency routing — 9 October 2026
+
+- Refined web, Android and web accessibility trigger paths for both pull requests and main pushes. Markdown/MDX, app documentation and Android store listings skip application checks; mixed changes and shared contracts/design/content/API/learning/database dependencies retain verification. Added missing accessibility shared-dependency/package triggers and npm configuration triggers. Manual dispatch remains available.
+- Read-only GitHub inspection reports main unprotected and no repository rulesets; path filtering therefore does not currently omit required checks. Repository secret scanning remains unconditional. CodeQL default setup and Vercel deployment routing are separate and unchanged. See `docs/operations/ci-change-routing.md`.
+- Verification: local workflow parsing, routing cases and whitespace checks; no application code changes or hosted run claimed. Local commit only; no push, merge, deployment, publication or production mutation. M1 remains active with its prior acceptance gates. Next: verify routing after an authorized push.
+- Commit message: `ci: skip documentation-only application checks and cover shared dependencies`.
+
 ## Low-typing S04 mockup update — 9 October 2026
 
 - Updated the desktop feedback and native Android dark offline-feedback concept boards at the owner's request. Both now show authored der/den/dem choices with retained selection after explicit Check, replacing the obsolete typed answer fields. Android now includes the singular context cue used on web.

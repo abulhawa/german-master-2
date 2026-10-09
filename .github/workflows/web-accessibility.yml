@@ -2,32 +2,29 @@ name: Web accessibility acceptance
 
 on:
   pull_request:
-    paths:
+    paths: &accessibility-paths
       - '.github/workflows/web-accessibility.yml'
       - 'apps/web/client/src/foundation/**'
       - 'apps/web/client/src/renovation/**'
       - 'apps/web/learner-preview/**'
       - 'apps/web/scripts/verify-v2-accessibility.mjs'
       - 'apps/web/vite.learner-preview.config.ts'
+      - 'apps/web/package.json'
+      - 'apps/web/tsconfig.json'
       - 'design/**'
       - 'contracts/**'
       - 'services/api/**'
+      - 'packages/**'
+      - 'content/**'
+      - 'db/**'
       - 'package.json'
       - 'package-lock.json'
+      - '.npmrc'
+      - '!**/*.md'
+      - '!**/*.mdx'
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/web-accessibility.yml'
-      - 'apps/web/client/src/foundation/**'
-      - 'apps/web/client/src/renovation/**'
-      - 'apps/web/learner-preview/**'
-      - 'apps/web/scripts/verify-v2-accessibility.mjs'
-      - 'apps/web/vite.learner-preview.config.ts'
-      - 'design/**'
-      - 'contracts/**'
-      - 'services/api/**'
-      - 'package.json'
-      - 'package-lock.json'
+    paths: *accessibility-paths
   workflow_dispatch:
 
 permissions:
