@@ -1,4 +1,4 @@
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient, type AuthChangeEvent, type Session } from '@supabase/supabase-js';
 import { AccountBinding, type LearnerIdentity } from './account';
 import { localLearnerApi } from './api';
 import { browserStorage, type JourneyStorage } from './storage';
@@ -16,11 +16,26 @@ export class VerifiedLearnerProvider {
   private operation = 0;
   private online = false;
   private verifiedExpiry = 0;
+  private binding: AccountBinding | null = null;
+  private sessionId: string | null = null;
   constructor(private readonly auth: Auth, private readonly projectRef: string, private readonly now = () => Date.now(), private readonly saved: JourneyStorage = browserStorage) {
     if (!/^[a-z]{20}$/.test(projectRef)) throw Error('Invalid auth project reference');
   }
 
-  invalidate() { this.operation++; this.active = null; this.online = false; }
+  invalidate() { this.operation++; this.active = null; this.binding = null; this.sessionId = null; this.online = false; }
+
+  /** SIGNED_IN also means session recovery on tab visibility, not just login.
+   * Event data only decides whether to retain local UI; bind still verifies it. */
+  observeAuthEvent(event: AuthChangeEvent, session: Session | null) {
+    if (event === 'SIGNED_OUT' || event === 'PASSWORD_RECOVERY') { this.invalidate(); return false; }
+    if (!['INITIAL_SESSION','SIGNED_IN','USER_UPDATED','TOKEN_REFRESHED'].includes(event)) return false;
+    let sessionId: unknown;
+    try { sessionId = JSON.parse(atob(session!.access_token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/'))).session_id; } catch { /* Untrusted/missing event: fail closed. */ }
+    const retained = !!this.active && session?.user.id.toLowerCase() === this.active.subject
+      && typeof sessionId === 'string' && uuid.test(sessionId) && (this.sessionId === null || this.sessionId === sessionId);
+    if (!retained) this.invalidate();
+    return retained;
+  }
 
   private get savedKey() { return `gm-v2-last-verified-${this.projectRef}`; }
   hasSavedAccount() {
@@ -35,7 +50,8 @@ export class VerifiedLearnerProvider {
     if (!subject || !uuid.test(subject)) return null;
     this.invalidate();
     this.active = { subject: subject.toLowerCase(), generation: ++this.generation };
-    return new AccountBinding(this.active, () => this.active);
+    this.binding = new AccountBinding(this.active, () => this.active);
+    return this.binding;
   }
 
   async bind() {
@@ -44,10 +60,14 @@ export class VerifiedLearnerProvider {
     const credential = await this.credential();
     if (operation !== this.operation) throw Error('Sign-in changed');
     this.saved.setItem(this.savedKey, credential.subject);
-    this.active = { subject: credential.subject, generation: ++this.generation };
+    if (!this.active || this.active.subject !== credential.subject || (this.sessionId !== null && this.sessionId !== credential.sessionId)) {
+      this.active = { subject: credential.subject, generation: ++this.generation };
+      this.binding = new AccountBinding(this.active, () => this.active);
+    }
+    this.sessionId = credential.sessionId;
     this.online = true;
     this.verifiedExpiry = credential.expiresAt;
-    return new AccountBinding(this.active, () => this.active);
+    return this.binding!;
   }
 
   private async credential() {
@@ -67,7 +87,7 @@ export class VerifiedLearnerProvider {
     if (verified.error || !verified.data.user || verified.data.user.is_anonymous
       || verified.data.user.id !== session.user.id || session.expires_at! * 1000 <= this.now())
       throw Error('Account verification unavailable');
-    return { subject: session.user.id.toLowerCase(), token: session.access_token, expiresAt: session.expires_at! * 1000 };
+    return { subject: session.user.id.toLowerCase(), sessionId: claims.session_id as string, token: session.access_token, expiresAt: session.expires_at! * 1000 };
   }
 
   api(account: AccountBinding, origin: string, send: typeof fetch = fetch) {
@@ -157,8 +177,6 @@ export function createLearnerProvider(projectRef: string, publishableKey: string
     global: { fetch: (url, options) => fetch(url,{...options,signal:AbortSignal.timeout(10000),cache:'no-store',redirect:'error'}) },
   });
   const provider = new VerifiedLearnerProvider(client.auth, projectRef);
-  const { data } = client.auth.onAuthStateChange(event => {
-    if (event === 'SIGNED_OUT' || event === 'SIGNED_IN' || event === 'PASSWORD_RECOVERY' || event === 'USER_UPDATED') provider.invalidate();
-  });
+  const { data } = client.auth.onAuthStateChange((event, session) => { provider.observeAuthEvent(event, session); });
   return { client, provider, dispose: async () => { data.subscription.unsubscribe(); provider.invalidate(); await client.auth.dispose(); } };
 }

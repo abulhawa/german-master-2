@@ -5,8 +5,9 @@ import { OWNER_LOCK } from './ownership';
 export const FIXTURE_SUBJECT = '00000000-0000-4000-8000-000000000010';
 export type LearnerIdentity = { subject: string; generation: number };
 
-/** Captures an authenticated identity, never a bearer token. A new sign-in generation
- * invalidates old transports even when the same subject signs back in. */
+/** Captures an authenticated identity, never a bearer token. A different auth
+ * session invalidates old transports even for the same subject; recovery and
+ * token refresh within the current session retain this binding. */
 export class AccountBinding {
   readonly identity: Readonly<LearnerIdentity>;
   constructor(identity: LearnerIdentity, private readonly current: () => LearnerIdentity | null) {
