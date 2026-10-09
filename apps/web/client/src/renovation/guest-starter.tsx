@@ -14,6 +14,7 @@ import {
   type GuestAttachmentRequest,
 } from "@german-master/contracts";
 import { answerText } from "../foundation/api";
+import { PracticeFeedback } from "../foundation/practice-feedback";
 import { ExerciseInput } from "../foundation/exercise-input";
 import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { readyAnswer } from "./storage";
@@ -490,9 +491,11 @@ export function GuestStarterJourney({
   </div></main>;
 
   return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
-    <header className="gm-header"><strong>German Master</strong><span>{c.subtitle}</span></header>
+    <header className="gm-practice-header"><strong>German Master</strong>
+      {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
+      <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
+    </header>
     <p role="status" className="gm-notice">{c.localStatus}</p>
-    <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
     {storageError && <p role="alert">{c.storageError}</p>}
     {closing ? <PracticeCard><h1>{c.leaveTitle}</h1><p>{c.leaveBody}</p>
       <FoundationButton onClick={() => { setClosing(false); setView("home"); }}>{c.saveHome}</FoundationButton>
@@ -509,25 +512,22 @@ export function GuestStarterJourney({
       </div>}
       <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.finish}</FoundationButton>
     </PracticeCard> : question ? <PracticeCard>
-      <p className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session!.questions.length}</p>
       {state.session!.questions.length < state.questionCount && <p className="gm-notice">{c.shorter}</p>}
-      <h1 lang="de">{question.exercise.prompt}</h1><p>{question.exercise.instruction[state.locale]}</p>
+      <p>{question.exercise.instruction[state.locale]}</p><h1 lang="de">{question.exercise.prompt}</h1>
       <fieldset className="gm-answer-group" disabled={!!state.feedback || storageError}>
         <ExerciseInput key={question.id} exercise={question.exercise} locale={state.locale} initialAnswer={state.draft as Answer | null}
           onAnswer={() => {}} onDraft={draft => commit({ ...state, draft })} />
-        <FoundationButton className="gm-secondary" disabled={state.assisted || !!state.feedback || storageError}
-          onClick={() => commit({ ...state, assisted: true })}>{c.hint}</FoundationButton>
+        {!state.feedback && <FoundationButton className="gm-secondary" disabled={state.assisted || storageError}
+          onClick={() => commit({ ...state, assisted: true })}>{c.hint}</FoundationButton>}
         {state.assisted && <p>{question.exercise.hint[state.locale]}</p>}
       </fieldset>
       {!state.feedback && <><FoundationButton disabled={storageError || !readyAnswer(question.exercise, state.draft as Answer | null)} onClick={check}>{c.check}</FoundationButton>
         <FoundationButton className="gm-secondary" disabled={storageError} onClick={skip}>{c.skip}</FoundationButton></>}
-      {state.feedback && <div className="gm-feedback" tabIndex={-1}>
-        <p role="status">{state.feedback.outcome === "correct" ? c.correct : c.incorrect}{state.feedback.assisted ? ` · ${c.assisted}` : ""}</p>
-        <p>{c.yourAnswer}: <span lang="de">{answerText(state.draft as Answer, state.session!, state.index)}</span></p>
-        <p>{c.accepted}: <span lang="de">{answerText(state.feedback.acceptedAnswer, state.session!, state.index)}</span></p>
-        <p>{state.feedback.explanation[state.locale]}</p><p className="gm-meta">{c.provisional}</p>
-        <FoundationButton onClick={next}>{c.next}</FoundationButton>
-      </div>}
+      {state.feedback && <PracticeFeedback correct={state.feedback.outcome === "correct"}
+        outcome={`${state.feedback.outcome === "correct" ? c.correct : c.incorrect}${state.feedback.assisted ? ` · ${c.assisted}` : ""}`}
+        answer={answerText(state.draft as Answer, state.session!, state.index)} accepted={answerText(state.feedback.acceptedAnswer, state.session!, state.index)}
+        answerLabel={c.yourAnswer} acceptedLabel={c.accepted} explanation={state.feedback.explanation[state.locale]}
+        note={c.provisional} nextLabel={c.next} onNext={next} disabled={storageError} />}
     </PracticeCard> : null}
   </div></main>;
 }

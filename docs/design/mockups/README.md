@@ -39,3 +39,5 @@ Generated with the built-in image-generation tool: four generation calls and one
 The 9 October low-typing update used two additional built-in image edit calls, one per S04 board. Both outputs were visually inspected for choice labels, selection, singular context, feedback and visible actions. Exact edit prompts are saved in [low-typing-prompts-2026-10-09.json](low-typing-prompts-2026-10-09.json); the original prompts remain as historical provenance. No application behavior, content publication or design-acceptance gate changed.
 
 Product implementation, content review and design approval remain separate roadmap gates. The owner has authorized design/dependency changes during the hard reset; this set explores the existing blueprint direction without changing its learner scope.
+
+The [9 October implementation alignment](../study-alignment-2026-10-09.md) records both-client S04 changes, native adoption of the newer blue-panel Home, runtime screenshots and verification limits. These raster boards remain illustrative references; actual authored exercises may have different text and option counts.

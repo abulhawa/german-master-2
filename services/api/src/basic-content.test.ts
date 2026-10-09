@@ -59,7 +59,7 @@ it('keeps the committed unpublished candidate synchronized with the generator',a
   try {
     const candidate=await prepare(db);
     expect(JSON.parse(read('../../../content/candidates/basics/catalog.json'))).toEqual(candidate.config);
-    expect(read('../../../content/candidates/basics/seed.sql')).toBe(candidate.sql);
+    expect(read('../../../content/candidates/basics/seed.sql').replace(/\r\n/g, '\n')).toBe(candidate.sql);
   } finally {await db.close();}
 });
 it('locally simulates activation: B1 and B2 allocate distinct targets, grade and replay; old sessions stay pinned',async()=> {

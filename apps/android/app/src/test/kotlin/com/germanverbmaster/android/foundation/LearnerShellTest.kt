@@ -50,7 +50,7 @@ class LearnerShellTest {
         compose.waitUntil(10000) { compose.onAllNodesWithText("Needs practice: 1").fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("Retention checks: 0").assertExists()
         compose.onNodeWithText("No questions available for these preferences.").assertExists()
-        compose.onNodeWithText("Progress").performScrollTo().performClick()
+        compose.onNodeWithText("Progress").performClick()
         compose.onNodeWithText("Needs practice (1)").performScrollTo().assertExists()
         compose.onNodeWithText("Qualifying checks: 0").performScrollTo().assertExists()
     }
@@ -63,5 +63,21 @@ class LearnerShellTest {
         compose.onNodeWithText("Reload current preferences").performScrollTo().performClick()
         compose.waitUntil(10000) { repo.state.pending == null }
         compose.onNodeWithText("Save preferences").performScrollTo().assertIsEnabled()
+    }
+    @Test fun homeKeepsSettingsAndSyncBehindAccountAndKeepsStartDisabledWithoutContent() {
+        val repo = repository(true)
+        compose.setContent { FoundationTheme { LearnerShell(repo) } }
+        compose.waitUntil(10000) { repo.state.catalog != null }
+        compose.onNodeWithText("A little practice. Lasting progress.").assertExists()
+        compose.onNodeWithText("Start practice").performScrollTo().assertIsNotEnabled()
+        compose.onNodeWithText("Sync all saved work").assertDoesNotExist()
+        compose.onNodeWithText("Downloaded practice").assertDoesNotExist()
+        compose.onNodeWithText("Account").performScrollTo().performClick()
+        compose.onNodeWithText("Downloaded practice").performScrollTo().assertExists()
+        compose.onNodeWithText("Sync all saved work").performScrollTo().assertExists()
+        compose.onNodeWithText("Edit preferences").performScrollTo().performClick()
+        compose.onNodeWithText("Save preferences").performScrollTo().assertIsEnabled()
+        compose.onNodeWithText("Back to Home").performScrollTo().performClick()
+        compose.onNodeWithText("A little practice. Lasting progress.").assertExists()
     }
 }

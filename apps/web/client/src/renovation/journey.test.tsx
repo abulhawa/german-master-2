@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { SessionSchema, AttemptBatchResponseSchema, TargetPageSchema } from "@german-master/contracts";
 import sample from "@german-master/contracts/examples/session.json";
+import formatSample from "@german-master/contracts/examples/practice-formats-session.json";
 import acknowledgment from "@german-master/contracts/examples/attempt-response.json";
 import targetPage from "@german-master/contracts/examples/target-page.json";
 import catalog from "@german-master/contracts/examples/catalog.json";
@@ -43,6 +44,30 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals(); });
+it('retains selected choices while saving and after feedback, then focuses the next prompt', async () => {
+  const formats = SessionSchema.parse(formatSample);
+  const api = apiFixture();
+  api.createSession = vi.fn(async () => formats);
+  let release!: (value: Awaited<ReturnType<LearnerApi['submit']>>) => void;
+  api.submit = vi.fn(() => new Promise(resolve => { release = resolve; }));
+  render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByRole('button', {name:'Start short practice'})).toBeEnabled());
+  fireEvent.click(screen.getByRole('button', {name:'Start short practice'}));
+  const selected = await screen.findByRole('radio', {name:'den'});
+  fireEvent.click(selected);
+  fireEvent.click(screen.getByRole('button', {name:'Check answer'}));
+  await waitFor(() => expect(api.submit).toHaveBeenCalledOnce());
+  expect(selected).toBeChecked(); expect(selected).toBeDisabled();
+  const attempt = vi.mocked(api.submit).mock.calls[0][0];
+  release({attemptId: attempt.attemptId, status: 'accepted', serverSequence: 1,
+    evaluation: {outcome: 'incorrect', policyVersion: 'test', explanation: {en:'Use the dative.',de:'Verwende den Dativ.'},
+      acceptedAnswer: {type:'choice', optionId:'dem'}, assisted: false}});
+  await screen.findByText('Use the dative.');
+  expect(selected).toBeChecked(); expect(selected).toBeDisabled();
+  expect(screen.queryByRole('button', {name:'Check answer'})).toBeNull();
+  fireEvent.click(screen.getByRole('button', {name:'Continue', exact:true}));
+  await waitFor(() => expect(screen.getByRole('heading', {name:formats.questions[1].exercise.prompt})).toHaveFocus());
+});
 describe('Home screen handoff', () => {
   it('keeps account controls behind Account and preserves a draft across navigation', async () => {
     const api = apiFixture();

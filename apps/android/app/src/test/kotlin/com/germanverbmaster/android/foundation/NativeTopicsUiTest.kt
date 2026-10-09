@@ -38,7 +38,7 @@ class NativeTopicsUiTest {
         compose.setContent { FoundationTheme { LearnerShell(repo) } }
         compose.waitUntil(10000) { repo.state.profile != null }
         compose.waitForIdle()
-        compose.onNodeWithText("Topics", substring = false).performScrollTo().performClick()
+        compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
         compose.onNodeWithText("Grammar").performScrollTo().performClick()
         compose.onNodeWithText("Nouns · B1").performScrollTo().performClick()
         compose.onNodeWithText("Noun description").assertExists()
@@ -50,7 +50,7 @@ class NativeTopicsUiTest {
         compose.onNodeWithText("Answer", substring = false).performTextInput("saved draft")
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
         compose.onNodeWithText("Save and return Home").performClick()
-        compose.onNodeWithText("Topics", substring = false).performScrollTo().performClick()
+        compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
         compose.onNodeWithText("Grammar").performScrollTo().performClick()
         compose.onNodeWithText("Practise this (1)").assertIsNotEnabled()
         compose.onNodeWithText("Continue practice").performScrollTo().performClick()

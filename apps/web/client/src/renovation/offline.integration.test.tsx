@@ -54,7 +54,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
     await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));expect(screen.getByText('Open saved session 1')).toBeEnabled();});
     fireEvent.click(screen.getByText('Open saved session 1'));
     await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
-    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite');
+    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite — checked locally');
     const before=await repo.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
     fireEvent.click(screen.getByText('Sign in or verify account'));
     fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
@@ -117,7 +117,7 @@ it('downloads once, practises all five forms without HTTP across restart, then r
       }
       await waitFor(() => expect(screen.getByText('Check answer')).toBeEnabled());
       fireEvent.click(screen.getByText('Check answer'));
-      await screen.findByText('Correct');
+      await screen.findByText('Looks correct locally');
       fireEvent.click(screen.getByText('Continue'));
       if (index < 4) await screen.findByText(`Question ${index + 2} / 5`);
     }

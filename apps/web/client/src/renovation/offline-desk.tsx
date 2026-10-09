@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { type Answer, type Catalog } from '@german-master/contracts';
+import { PracticeFeedback } from "../foundation/practice-feedback";
 import { ExerciseInput } from "../foundation/exercise-input";
 import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { sessionRequest, answerText } from '../foundation/api';
@@ -22,6 +23,7 @@ const copy = {
     syncing: 'Saving…', old: 'Download expired or consumed. Started sessions remain saved.',
     rejected: 'A saved event was not accepted. It remains on this device for review; further sync has stopped.',
     provisionalCorrect: 'Provisional correct', covered: 'Targets covered',
+    locallyCorrect: 'Looks correct locally', locallyIncorrect: 'Not quite — checked locally', yourAnswer: 'Your answer', accepted: 'Accepted answer',
   },
   de: { title: 'Heruntergeladene Übungen', download: 'Zwei Sitzungen herunterladen', retry: 'Gespeicherten Download wiederholen', start: 'Heruntergeladene Übungen starten',
     available: 'Sitzungen zum Starten verfügbar', pending: 'Download-Anfrage gespeichert. Bei Verbindung erneut versuchen.',
@@ -35,6 +37,7 @@ const copy = {
     syncing: 'Wird gespeichert…', old: 'Download abgelaufen oder verbraucht. Gestartete Sitzungen bleiben gespeichert.',
     rejected: 'Ein gespeichertes Ereignis wurde nicht akzeptiert. Es bleibt zur Prüfung auf diesem Gerät. Die Synchronisierung wurde angehalten.',
     provisionalCorrect: 'Vorläufig richtig', covered: 'Behandelte Lernziele',
+    locallyCorrect: 'Lokal richtig', locallyIncorrect: 'Noch nicht ganz — lokal geprüft', yourAnswer: 'Deine Antwort', accepted: 'Akzeptierte Antwort',
   },
 };
 
@@ -138,28 +141,30 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
         <p>{c.note}</p>
         {!practice!.ended && <FoundationButton disabled={busy} onClick={() => void run(async () => { await repo.end(practice!.id); await reload(practice!.id); })}>{c.end}</FoundationButton>}
       </> : <>
-        <p>{c.question} {practice!.index + 1} / {active.session.questions.length}</p>
+        <header className="gm-practice-header"><strong>German Master</strong><span>{c.question} {practice!.index + 1} / {active.session.questions.length}</span>
+          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => setClosing(true)}>{c.close}</FoundationButton></header>
         <h3 lang="de">{question!.exercise.prompt}</h3>
         <p>{question!.exercise.instruction[locale]}</p>
-        {!feedback ? <fieldset className="gm-offline-answer" disabled={busy} onKeyDown={event => {
+        <fieldset className="gm-offline-answer gm-answer-group" disabled={busy || !!feedback} onKeyDown={event => {
           if (event.key !== 'Enter' || event.repeat || event.nativeEvent.isComposing || !(event.target instanceof HTMLInputElement)
             || event.target.type === 'radio' || !readyAnswer(question!.exercise, practice!.draft as Answer | null)) return;
           event.preventDefault(); check();
         }}>
           <ExerciseInput key={`${practice!.id}:${practice!.index}:${inputKey}`} exercise={question!.exercise} locale={locale}
             initialAnswer={practice!.draft as Answer | null} onAnswer={() => {}} onDraft={draft} />
-          <FoundationButton disabled={!readyAnswer(question!.exercise, practice!.draft as Answer | null)} onClick={check}>{c.submit}</FoundationButton>
-          <FoundationButton onClick={() => void run(async () => { await repo.skip(practice!.id); await reload(practice!.id); })}>{c.skip}</FoundationButton>
-          {question!.exercise.hint && <FoundationButton onClick={() => void run(async () => {
+          {!feedback && <FoundationButton disabled={!readyAnswer(question!.exercise, practice!.draft as Answer | null)} onClick={check}>{c.submit}</FoundationButton>}
+          {!feedback && <FoundationButton onClick={() => void run(async () => { await repo.skip(practice!.id); await reload(practice!.id); })}>{c.skip}</FoundationButton>}
+          {!feedback && question!.exercise.hint && <FoundationButton onClick={() => void run(async () => {
             const saved = await repo.read(practice!.id); await repo.draft(practice!.id, saved.practice.draft, true); await reload(practice!.id);
           })}>{c.hint}</FoundationButton>}
           {practice!.assisted && <p>{question!.exercise.hint?.[locale]}</p>}
-        </fieldset> : <div ref={feedbackRegion} role="status" tabIndex={-1}>
-          <strong>{feedback.outcome === 'correct' ? c.correct : c.incorrect}</strong>
-          <p>{feedback.explanation[locale]}</p><p lang="de">{answerText(feedback.acceptedAnswer, active.session, practice!.index)}</p>
-          <FoundationButton disabled={busy} onClick={() => void run(async () => { await repo.next(practice!.id); await reload(practice!.id); })}>{c.next}</FoundationButton>
-        </div>}
-        <FoundationButton disabled={busy} onClick={() => setClosing(true)}>{c.close}</FoundationButton>
+        </fieldset>
+        {feedback && <PracticeFeedback regionRef={feedbackRegion} correct={feedback.outcome === 'correct'}
+          outcome={feedback.outcome === 'correct' ? c.locallyCorrect : c.locallyIncorrect}
+          answer={answerText(practice!.draft as Answer, active.session, practice!.index)} accepted={answerText(feedback.acceptedAnswer, active.session, practice!.index)}
+          answerLabel={c.yourAnswer} acceptedLabel={c.accepted}
+          explanation={feedback.explanation[locale]} note={c.note} nextLabel={c.next} disabled={busy}
+          onNext={() => void run(async () => { await repo.next(practice!.id); await reload(practice!.id); })} />}
       </>}
       <FoundationButton disabled={busy || pending === 0} onClick={() => void run(async () => {
         try { if (syncAll) await syncAll(); else { await repo.sync(practice!.id, api); onSynced?.(); } }

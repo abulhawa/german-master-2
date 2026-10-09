@@ -11,6 +11,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.automirrored.outlined.TrendingUp
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import com.germanverbmaster.android.R
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.foundation.FoundationTheme
@@ -77,17 +83,42 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
         }
         return
     }
-    Surface(Modifier.fillMaxSize()) {
-        Column(Modifier.safeDrawingPadding().imePadding().widthIn(max = 720.dp).fillMaxWidth()
+    val design = studyCopy(german)
+    val focused = screen == "practice" && cache.practice != null
+    Scaffold(containerColor = MaterialTheme.colorScheme.background, bottomBar = {
+        if (!focused && !setup && cache.profile != null) NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
+            listOf(Triple("home", R.string.study_home, Icons.Outlined.Home),
+                Triple("progress", R.string.study_progress, Icons.AutoMirrored.Outlined.TrendingUp),
+                Triple("topics", R.string.study_topics, Icons.AutoMirrored.Outlined.MenuBook)).forEach { (destination, title, icon) ->
+                NavigationBarItem(selected = screen == destination || destination == "topics" && screen in setOf("topic", "target"),
+                    onClick = { screen = destination }, enabled = !busy,
+                    colors = NavigationBarItemDefaults.colors(selectedIconColor = MaterialTheme.colorScheme.primary,
+                        selectedTextColor = MaterialTheme.colorScheme.primary,
+                        indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant),
+                    icon = { Icon(icon, contentDescription = null) }, label = { Text(design(title)) })
+            }
+        }
+    }) { insets ->
+        Column(Modifier.padding(insets).imePadding().widthIn(max = 720.dp).fillMaxWidth()
             .verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            Text(if(repository.authenticatedAccount) "German Master 2.0" else label("Local learner preview", "Lokale Lernvorschau"))
-            if(screen!="practice") {
+            if (!focused) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Text("German Master", style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
+                TextButton(onClick = { screen = "account" }, enabled = !busy) { Text(design(R.string.study_account)) }
+            }
+            if(screen == "account") {
                 val authCopy=providerCopy(if(german) "de" else "en")
                 if(localOnly) Text(authCopy.local)
                 onSignIn?.let { action -> LearnerButton(authCopy.signIn,!busy,action) }
             }
-            if(!repository.authenticatedAccount) Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
+            if(!repository.authenticatedAccount && screen == "account") Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
             if (busy) Text(label("Loading…", "Wird geladen…"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+            if (localOnly && screen != "account") {
+                val authCopy = providerCopy(if (german) "de" else "en")
+                Text(authCopy.local, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                onSignIn?.let { signIn -> TextButton(onClick = signIn, enabled = !busy) { Text(authCopy.signIn) } }
+            }
             if (cache.contentReport != null && !cache.reportRecorded) {
                 Text(label("Exercise report saved; awaiting confirmation.", "Übungsmeldung gespeichert; Bestätigung ausstehend."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
                 LearnerButton(label("Retry saved report", "Gespeicherte Meldung erneut senden"), !busy) { run(false) { repository.reportProblem(requireNotNull(cache.contentReport).category) } }
@@ -101,8 +132,10 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 LearnerButton(label("Retry saved preferences", "Gespeicherte Einstellungen erneut senden"), !busy) { run { repository.retry() } }
                 LearnerButton(label("Reload current preferences", "Aktuelle Einstellungen laden"), !busy) { run { repository.reloadProfile() } }
             }
-            LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
-            LearnerButton(label("Sync all saved work", "Alle gespeicherten Vorgänge synchronisieren"), !busy) { run { repository.syncSavedWork() } }
+            if (screen == "account") {
+                LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
+                LearnerButton(label("Sync all saved work", "Alle gespeicherten Vorgänge synchronisieren"), !busy) { run { repository.syncSavedWork() } }
+            }
             val profile = cache.profile
             if (profile != null && setup) {
                 Text(label("Setup and preferences", "Einrichtung und Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
@@ -115,29 +148,31 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                     LearnerButton("Language / Sprache: $locale", editable) { locale = if (locale == "en") "de" else "en" }
                     LearnerButton(label("Level", "Niveau") + ": $level", editable) { level = if (level == "B1") "B2" else "B1" }
                     LearnerButton(label("Preferred questions", "Gewünschte Fragen") + ": $count", editable) { count = if (count == 5) 15 else 5 }
-                    OutlinedTextField(timezone, { timezone = it }, enabled = editable, label = { Text(label("Timezone (IANA)", "Zeitzone (IANA)")) }, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp))
+                    OutlinedTextField(timezone, { timezone = it }, enabled = editable, singleLine = true, label = { Text(label("Timezone (IANA)", "Zeitzone (IANA)")) }, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp))
                     LearnerButton(label("Save preferences", "Einstellungen speichern"), editable) { run { repository.save(ProfilePreferences(locale, timezone, level, count)) } }
                 }
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }
             } else if (profile != null) {
-                LearnerButton(label("Home", "Startseite"), !busy) { screen = "home" }
-                LearnerButton(label("Progress", "Fortschritt"), !busy) { screen = "progress" }
-                LearnerButton(label("Topics", "Themen"), !busy) { screen = "topics" }
-                LearnerButton(label("Edit preferences", "Einstellungen ändern"), !busy) { screen = "setup" }
-                Text(when(screen) { "progress" -> label("Confirmed Progress", "Bestätigter Fortschritt"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); "target" -> label("Target detail", "Lernzieldetails"); else -> label("Home", "Startseite") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
-                Text(label("Confirmed snapshot", "Bestätigter Datenstand") + ": " + (cache.generatedAt ?: "—"))
-                if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
+                if (screen != "home") {
+                    Text(when(screen) { "account" -> design(R.string.study_account); "progress" -> label("Confirmed Progress", "Bestätigter Fortschritt"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); else -> label("Target detail", "Lernzieldetails") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
+                }
+                if (screen == "progress") {
+                    Text(label("Confirmed snapshot", "Bestätigter Datenstand") + ": " + (cache.generatedAt ?: "—"))
+                    if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
+                    LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
+                }
                 if (screen == "home") {
+                    StudyHome(cache, german, busy, fresh,
+                        start = { screen = "practice"; run(false) { repository.startPractice() } },
+                        preferences = { screen = "setup" }, refresh = { run {} },
+                        openTopic = { detailId = it; screen = "topic" }, openTarget = { detailId = it; screen = "target" })
+                } else if (screen == "account") {
+                    LearnerButton(design(R.string.study_preferences), !busy) { screen = "setup" }
                     NativePrivacyExport(repository, german, busy) { cache = repository.state }
                     if(!repository.authenticatedAccount) NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
                     if(repository.identityDeletionEnabled) NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
                     NativePrivacySignOut(repository, german, busy) { cache = repository.state }
-                    Text(label("Needs practice", "Übungsbedarf") + ": ${cache.targets.count { it.state == "needs_practice" }}")
-                    Text(label("Retention checks", "Behalten überprüfen") + ": ${cache.targets.count { it.isDue && it.state != "needs_practice" }}")
-                    if (cache.targets.isEmpty()) Text(label("Let’s find what to practise.", "Finden wir heraus, was du üben kannst."))
                     val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
-                    Text(if (available == null) label("Availability unknown; refresh.", "Verfügbarkeit unbekannt; bitte aktualisieren.") else if (available == 0) label("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar.") else label("$available questions available; preference: ${profile.preferences.sessionQuestionCount}.", "$available Fragen verfügbar; Wunsch: ${profile.preferences.sessionQuestionCount}."))
-                    LearnerButton(label(if(cache.practice == null) "Start practice" else "Continue practice", if(cache.practice == null) "Übung starten" else "Übung fortsetzen"), !busy && (cache.practice != null || (cache.pending == null && (available ?: 0) > 0))) { screen = "practice"; run(false) { repository.startPractice() } }
                     Text(label("Downloaded practice", "Heruntergeladene Übungen"), Modifier.semantics { heading() })
                     val pack = cache.preparedPack
                     val prepared = pack?.sessions?.count { it.id !in cache.consumedPreparedSessions } ?: 0

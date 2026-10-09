@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
+import { PracticeFeedback } from "../foundation/practice-feedback";
 import { ExerciseInput } from "../foundation/exercise-input";
 import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { prepareAttempt, answerText, sessionRequest } from "../foundation/api";
@@ -298,8 +299,10 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       <FoundationButton className="gm-nav-item gm-account-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><UserRound aria-hidden="true"/>{s.account}</FoundationButton>
     </aside>}
     <div className="gm-column gm-workspace-content">
-      <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>
-      {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
+      {view === 'practice' ? <header className="gm-practice-header"><strong>German Master</strong>
+        {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</span>}
+        <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
+      </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
         <PracticeCard><h2>{s.appearance}</h2><div className="gm-settings">
@@ -368,7 +371,6 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         }} />}
 </details>}
         {view === "practice" && <>
-          <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) setView('home'); else setClosing(true); }}>{c.close}</FoundationButton>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>
             {((p?.pending && !p.evaluation) || p?.pendingExposure || p?.rejected) && <p role="status">{c.resolvePending}</p>}
             <FoundationButton disabled={busy || !!(p?.pending && !p.evaluation) || !!p?.pendingExposure || !!p?.rejected} onClick={() => void finish()}>{c.endSession}</FoundationButton>
@@ -385,16 +387,16 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
                 <li key={question.exercise.targetId}>{catalog?.targets.find(t => t.id === question.exercise.targetId)?.title[state.locale] ?? question.exercise.prompt}</li>)}</ul>
               <FoundationButton onClick={() => { navigate("progress"); void refresh(); }}>{c.progress}</FoundationButton>
             </> : exercise ? <>
-              <p className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</p>
+              {catalog?.targets.find(t => t.id === exercise.targetId)?.title[state.locale] && <p className="gm-practice-target">{catalog.targets.find(t => t.id === exercise.targetId)!.title[state.locale]}</p>}
               {!("focus" in p.request) && p.session.questions.length < (profile?.preferences.sessionQuestionCount ?? p.request.questionCount) && <p>{c.shorterSession}: {p.session.questions.length}</p>}
-              <h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1><p>{exercise.instruction[state.locale]}</p>
-              <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || busy} onKeyDown={event => {
+              <p>{exercise.instruction[state.locale]}</p><h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1>
+              <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || !!p.evaluation || p.rejected || busy} onKeyDown={event => {
                 if (event.key !== "Enter" || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229 || event.repeat || !(event.target instanceof HTMLInputElement) || event.target.type !== "text") return;
                 event.preventDefault();
                 if (!busy && !p.pending && !p.pendingExposure && !p.evaluation && !p.rejected && readyAnswer(exercise, p.draft as Answer | null)) void submit();
               }}>
                 <ExerciseInput key={`${p.session.id}-${p.index}`} exercise={exercise} locale={state.locale} initialAnswer={p.draft as Answer | null} onAnswer={() => {}} onDraft={draft => { try { editPractice({ draft }); return true; } catch { return false; } }} />
-                <FoundationButton className="gm-secondary" disabled={p.assisted} onClick={() => { try { editPractice({ assisted: true }); } catch { /* Reveal only after assistance has been saved. */ } }}>{c.hint}</FoundationButton>
+                {!p.evaluation && <FoundationButton className="gm-secondary" disabled={p.assisted} onClick={() => { try { editPractice({ assisted: true }); } catch { /* Reveal only after assistance has been saved. */ } }}>{c.hint}</FoundationButton>}
                 {p.assisted && <p>{exercise.hint[state.locale]}</p>}
               </fieldset>
               {!p.evaluation && !p.pendingExposure && <FoundationButton disabled={busy || p.rejected || (!p.pending && !readyAnswer(exercise, p.draft as Answer | null)) || error === "storageError"} onClick={() => void submit()}>{busy ? c.sending : p.pending ? c.retry : c.submit}</FoundationButton>}
@@ -402,15 +404,15 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
               {p.pendingExposure && <p role="status">{c.skipPending}</p>}
               {p.pending && !p.evaluation && <p role="status">{c.pending}</p>}
               {p.rejected && <p role="alert">{p.pendingExposure ? c.skipRejected : c.rejected} {c.discardNote}</p>}
-              {p.evaluation && p.pending && <div className="gm-feedback" ref={feedback} tabIndex={-1}>
-                <p role="status">{p.evaluation.outcome === "correct" ? c.correct : c.incorrect}{p.evaluation.assisted ? ` · ${c.assisted}` : ""}</p>
-                <p>{c.yourAnswer}: <span lang="de">{answerText(p.pending.answer, p.session, p.index)}</span></p>
-                <p>{c.acceptedAnswer}: <span lang="de">{answerText(p.evaluation.acceptedAnswer, p.session, p.index)}</span></p>
-                <p>{p.evaluation.explanation[state.locale]}</p><FoundationButton onClick={next}>{c.next}</FoundationButton>
-              </div>}
+              {p.evaluation && p.pending && <PracticeFeedback regionRef={feedback} correct={p.evaluation.outcome === "correct"}
+                outcome={`${p.evaluation.outcome === "correct" ? c.correct : c.incorrect}${p.evaluation.assisted ? ` · ${c.assisted}` : ""}`}
+                answer={answerText(p.pending.answer, p.session, p.index)} accepted={answerText(p.evaluation.acceptedAnswer, p.session, p.index)}
+                answerLabel={c.yourAnswer} acceptedLabel={c.acceptedAnswer} explanation={p.evaluation.explanation[state.locale]}
+                nextLabel={c.next} onNext={next} disabled={busy} />}
             </> : null}
           </PracticeCard>}
         </>}
+      {!loaded.damaged && <ContentReport key={syncRevision} owner={owner} question={view === 'practice' && !complete ? p?.session?.questions[p.index] : undefined} locale={state.locale} storage={storage} send={api.report} />}
         {view === "progress" && !setup && <>
           <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{c.confirmed}</h1><p>{c.explanation}</p></div>
           <PracticeCard>

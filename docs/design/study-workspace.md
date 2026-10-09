@@ -1,5 +1,7 @@
 # Study workspace redesign — 7 October 2026
 
+9 October: the [Android Home and both-client practice alignment](study-alignment-2026-10-09.md) brings the native learner to this blue-panel Home direction and updates practice against the low-typing S04 concepts. The web Home remains unchanged.
+
 The owner rejected the first sidebar implementation as still looking like a scaffold and explicitly asked to remove the many settings from the learning experience. This revision adopts a more distinctive study workspace while retaining the existing learning and account protocols.
 
 - Guest entry has a wordmark, optional interface language, a large introduction and one practice action. Level and session-length forms no longer block the first question. Existing default preferences and the five-question starter remain; this is not a new content release or level test.

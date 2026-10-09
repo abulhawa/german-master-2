@@ -1,6 +1,9 @@
 package com.germanverbmaster.android.foundation
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Alignment
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -16,7 +19,7 @@ import com.germanverbmaster.android.foundation.contract.*
 /** Stateless answer controls: the caller persists a draft before displaying its next state. */
 @Composable
 fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emptyList(), german: Boolean = false,
-                   onDraft: (Answer) -> Unit, onOrder: (List<String>) -> Unit = {}) {
+                   onDraft: (Answer) -> Unit, onOrder: (List<String>) -> Unit = {}, readOnly: Boolean = false) {
     var activeLeft by remember(exercise.id) { mutableStateOf<String?>(null) }
     val context = LocalContext.current
     val configuration = LocalConfiguration.current
@@ -29,23 +32,31 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
     val remove = stringResource(R.string.practice_remove)
     val moveLeft = stringResource(R.string.practice_move_left)
     val moveRight = stringResource(R.string.practice_move_right)
-    @Composable fun option(label: String, selected: Boolean = false, enabled: Boolean = true, click: () -> Unit) {
-        OutlinedButton(onClick = click, enabled = enabled,
+    @Composable fun option(label: String, selected: Boolean = false, enabled: Boolean = true, choice: Boolean = false, click: () -> Unit) {
+        val colors = MaterialTheme.colorScheme
+        OutlinedButton(onClick = click, enabled = enabled && !readOnly, shape = RoundedCornerShape(14.dp),
+            border = BorderStroke(if (selected) 2.dp else 1.dp, if (selected) colors.primary else colors.outline),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = colors.onSurface,
+                containerColor = if (selected) colors.primary.copy(alpha = 0.10f) else colors.surface,
+                disabledContentColor = colors.onSurface, disabledContainerColor = if (selected) colors.primary.copy(alpha = 0.10f) else colors.surface),
             modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).semantics { this.selected = selected }) {
-            if (selected) RadioButton(selected = true, onClick = null)
-            Text(label)
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                if (choice) RadioButton(selected = selected, onClick = null, enabled = enabled && !readOnly,
+                    colors = RadioButtonDefaults.colors(disabledSelectedColor = colors.primary, disabledUnselectedColor = colors.outline))
+                Text(label, modifier = Modifier.weight(1f))
+            }
         }
     }
     when (exercise) {
         is ExerciseChoice -> exercise.options.forEach { item ->
-            option(item.text, (draft as? AnswerChoice)?.optionId == item.id) { onDraft(AnswerChoice(item.id)) }
+            option(item.text, (draft as? AnswerChoice)?.optionId == item.id, choice = true) { onDraft(AnswerChoice(item.id)) }
         }
         is ExerciseGapChoice -> {
             val selections = (draft as? AnswerGapChoice)?.selections.orEmpty()
             exercise.slots.forEach { slot ->
                 Text(slot.label, Modifier.semantics { heading() })
                 slot.options.forEach { item ->
-                    option(item.text, selections.any { it.slotId == slot.id && it.optionId == item.id }) {
+                    option(item.text, selections.any { it.slotId == slot.id && it.optionId == item.id }, choice = true) {
                         onDraft(AnswerGapChoice(selections.filter { it.slotId != slot.id } + GapSelection(slot.id, item.id)))
                     }
                 }

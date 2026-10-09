@@ -4,6 +4,8 @@ import androidx.compose.runtime.*
 import androidx.compose.material3.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
+import com.germanverbmaster.android.R
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.unit.dp
 import com.germanverbmaster.android.foundation.*
@@ -89,9 +91,14 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         OutlinedButton(onClick = block, enabled = enabled, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(label) }
     }
     var closing by remember { mutableStateOf(false) }
+    val c = studyCopy(german)
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+        TextButton(onClick = { if(p.session == null || p.completion != null || p.index == p.session.questions.size) close() else closing = true }, enabled = !busy) { Text(text("Close practice", "Übung schließen")) }
+        if (p.session != null && p.index < p.session.questions.size) Text(text("Question ${p.index + 1} of ${p.session.questions.size}", "Aufgabe ${p.index + 1} von ${p.session.questions.size}"), color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
     if (p.offlinePack != null) {
-        Text(text("Saved on this device. Feedback is provisional until synced.", "Auf diesem Gerät gespeichert. Rückmeldungen sind bis zur Synchronisierung vorläufig."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-        button(text("Sync saved work", "Gespeicherte Arbeit synchronisieren"), !busy && p.outbox.any { !it.delivered }) { action { repository.syncSavedWork(); repository.refresh() } }
+        Text(c(R.string.study_saved), color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+        Text(c(R.string.study_sync_note), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         p.outbox.forEach { event ->
             val receipt = event.attemptReceipt
             val confirmed = when(receipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
@@ -99,7 +106,6 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             if (receipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(text("A saved event was not accepted. Further sync has stopped; the event remains saved for review.", "Ein gespeichertes Ereignis wurde nicht akzeptiert. Die Synchronisierung wurde angehalten. Das Ereignis bleibt zur Prüfung gespeichert."))
         }
     }
-    button(text("Close practice", "Übung schließen")) { if(p.session == null || p.completion != null || p.index == p.session.questions.size) close() else closing = true }
     if (closing) {
         AlertDialog(onDismissRequest = { closing = false }, title = { Text(text("End this session?", "Diese Übung beenden?")) },
             text = { Column { Text(if(p.offlinePack != null) text("Your answers, Skips and partial draft stay saved on this device. Sync later to confirm them.", "Antworten, übersprungene Aufgaben und Entwurf bleiben auf diesem Gerät gespeichert. Später synchronisieren, um sie zu bestätigen.") else text("Confirmed answers remain. Your partial session and draft stay saved. Retry any pending answer or Skip before ending.", "Bestätigte Antworten bleiben erhalten. Teilübung und Entwurf bleiben gespeichert. Senden Sie ausstehende Antworten oder Überspring-Anfragen zuerst erneut."))
@@ -129,11 +135,19 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         button(text("Finish", "Abschließen"), enabled = !busy && (p.completionReceipt != null || p.offlinePack != null && p.completion != null)) { edit { repository.discardPractice() }; close() }
     } else {
         val exercise = p.question.exercise
-        Text("${p.index + 1} / ${session.questions.size}")
+        repository.state.catalog?.targets?.find { it.id == exercise.targetId }?.title?.let { title ->
+            SuggestionChip(onClick = {}, enabled = false, label = { Text(if (german) title.de else title.en) },
+                colors = SuggestionChipDefaults.suggestionChipColors(disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant))
+        }
         val preferredCount = if (p.focus == null) repository.state.profile?.preferences?.sessionQuestionCount ?: p.request.questionCount else p.request.questionCount
         if(session.questions.size < preferredCount) Text(text("Shorter session: ${session.questions.size} questions available.", "Kürzere Sitzung: ${session.questions.size} Fragen verfügbar."))
+        Text(if(german) exercise.instruction.de else exercise.instruction.en, style = MaterialTheme.typography.titleMedium)
         PracticeHeading(exercise.prompt, p.question.id)
-        Text(if(german) exercise.instruction.de else exercise.instruction.en)
+        if (exercise is ExerciseChoice || exercise is ExerciseGapChoice || exercise is ExerciseWordOrder || exercise is ExerciseMatching) {
+            if (exercise is ExerciseChoice || exercise is ExerciseGapChoice) Text(c(R.string.study_selection), color = MaterialTheme.colorScheme.onSurfaceVariant)
+            LowTypingInput(exercise, p.draft, p.order, german = german, readOnly = !p.editable || busy,
+                onDraft = { value -> edit { repository.draft(value) } }, onOrder = { value -> edit { repository.order(value) } })
+        }
         if(p.editable && !busy) {
             fun draft(answer: Answer?) { edit { repository.draft(answer) } }
             fun checkAnswer() {
@@ -142,9 +156,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             }
             when(exercise) {
                 is ExerciseShortAnswer -> AnswerField(text("Answer", "Antwort"), (p.draft as? AnswerShortAnswer)?.text.orEmpty(), onCheck = ::checkAnswer) { draft(AnswerShortAnswer(it)) }
-                is ExerciseChoice, is ExerciseWordOrder, is ExerciseGapChoice, is ExerciseMatching ->
-                    LowTypingInput(exercise, p.draft, p.order, german = german, onDraft = ::draft,
-                        onOrder = { next -> edit { repository.order(next) } })
+                is ExerciseChoice, is ExerciseWordOrder, is ExerciseGapChoice, is ExerciseMatching -> Unit
                 is ExerciseCloze, is ExerciseMultiSlot -> {
                     val slots = if(exercise is ExerciseCloze) exercise.slots else (exercise as ExerciseMultiSlot).slots
                     val values = when(val answer = p.draft) { is AnswerCloze -> answer.values; is AnswerMultiSlot -> answer.values; else -> emptyList() }
@@ -155,19 +167,24 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
                 }
             }
             button(text("Hint", "Hinweis")) { edit { repository.hint() } }
-        } else p.draft?.let { Text(foundationAnswerText(it, exercise)) }
+        } else if (exercise !is ExerciseChoice && exercise !is ExerciseGapChoice && exercise !is ExerciseWordOrder && exercise !is ExerciseMatching) p.draft?.let { Text(foundationAnswerText(it, exercise)) }
         if(p.assisted) Text(if(german) exercise.hint.de else exercise.hint.en)
         if(p.evaluation == null && !p.rejected) {
-            if(p.exposure == null) button(text(if(p.pending == null) "Check" else "Retry answer", if(p.pending == null) "Prüfen" else "Antwort erneut senden"), !busy && (p.pending != null || nativeAnswerReady(exercise, p.draft))) { action { repository.answer() } }
+            if(p.exposure == null) Button(onClick = { action { repository.answer() } }, enabled = !busy && (p.pending != null || nativeAnswerReady(exercise, p.draft)), modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text(text(if(p.pending == null) "Check" else "Retry answer", if(p.pending == null) "Prüfen" else "Antwort erneut senden")) }
             if(p.pending == null) button(text(if(p.exposure == null) "Skip" else "Retry skip", if(p.exposure == null) "Überspringen" else "Überspringen erneut senden")) { action { repository.skip() } }
         }
         if(p.pending != null && p.evaluation == null || p.exposure != null) Text(text("Saved; awaiting server confirmation.", "Gespeichert; Serverbestätigung ausstehend."))
         p.evaluation?.let { evaluation ->
-            Text(if(evaluation.outcome == "correct") text("Correct", "Richtig") else text("Incorrect", "Nicht richtig"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-            if(evaluation.assisted) Text(text("Assisted answer", "Antwort mit Hilfe"))
-            Text(foundationAnswerText(evaluation.acceptedAnswer, exercise))
-            Text(if(german) evaluation.explanation.de else evaluation.explanation.en)
-            button(text("Continue", "Weiter")) { action { repository.continuePractice() } }
+            val event = p.outbox.find { it.attempt?.sessionQuestionId == p.question.id }
+            val confirmed = when (val receipt = event?.attemptReceipt) {
+                is AttemptAcknowledgment -> receipt.evaluation
+                is AttemptDuplicate -> receipt.evaluation
+                else -> null
+            }
+            val shown = confirmed ?: evaluation
+            StudyFeedback(shown.outcome == "correct", p.offlinePack != null && confirmed == null, german,
+                p.draft?.let { foundationAnswerText(it, exercise) }, foundationAnswerText(shown.acceptedAnswer, exercise),
+                if (german) shown.explanation.de else shown.explanation.en, shown.assisted, busy) { action { repository.continuePractice() } }
         }
         if(p.rejected) Text(text("Submission rejected. Saved work remains; discard only to recover after a fixture reset.", "Übermittlung abgelehnt. Daten bleiben gespeichert; nach Zurücksetzen des Testservers verwerfen."))
     }
@@ -177,7 +194,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         val recorded = repository.state.reportRecorded && savedReport?.sessionQuestionId == p.question.id
         if (recorded) Text(text("Report recorded for this revision. Your learning result is unchanged.", "Meldung für diese Version gespeichert. Ihr Lernergebnis bleibt unverändert."))
         else if (savedReport == null || repository.state.reportRecorded) {
-            button(text("Report an exercise problem", "Problem mit der Übung melden")) { reportOpen = true }
+            TextButton(onClick = { reportOpen = true }, enabled = !busy) { Text(text("Report an exercise problem", "Problem mit der Übung melden")) }
             if (reportOpen) {
                 listOf("incorrect_answer" to text("Incorrect accepted answer", "Falsche akzeptierte Antwort"), "ambiguous_prompt" to text("Ambiguous prompt", "Mehrdeutige Aufgabenstellung"), "other" to text("Other exercise problem", "Anderes Problem mit der Übung")).forEach { (category, label) ->
                     button(label) { reportOpen = false; action { repository.reportProblem(category) } }
@@ -186,9 +203,12 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             }
         }
     }
+    if (p.offlinePack != null) TextButton(onClick = { action { repository.syncSavedWork(); repository.refresh() } }, enabled = !busy && p.outbox.any { !it.delivered }) { Text(text("Sync saved work", "Gespeicherte Arbeit synchronisieren")) }
     if(p.offlinePack == null) {
     var confirm by remember { mutableStateOf(false) }
-    button(text("Discard local session…", "Lokale Sitzung verwerfen…")) { confirm = true }
+    var recoveryOpen by remember { mutableStateOf(false) }
+    TextButton(onClick = { recoveryOpen = !recoveryOpen }) { Text(text("Session recovery", "Sitzung wiederherstellen")) }
+    if (recoveryOpen) button(text("Discard local session…", "Lokale Sitzung verwerfen…")) { confirm = true }
     if(confirm) AlertDialog(onDismissRequest = { confirm = false }, title = { Text(text("Discard saved practice?", "Gespeicherte Übung verwerfen?")) }, text = { Text(text("Pending work and drafts will be removed from this device.", "Ausstehende Daten und Entwürfe werden auf diesem Gerät entfernt.")) }, confirmButton = { TextButton(onClick = { action { repository.discardPractice() }; close() }) { Text(text("Discard", "Verwerfen")) } }, dismissButton = { TextButton(onClick = { confirm = false }) { Text(text("Cancel", "Abbrechen")) } })
     }
 }
