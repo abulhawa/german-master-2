@@ -84,7 +84,10 @@ jobs:
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
           GM_V2_API_ORIGIN: https://germanmaster.qortxai.com
         run: |
-          bash gradlew :app:verifyV2ReleaseConfiguration :app:bundleRelease --no-daemon --max-workers=4
+          bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2
+          bash gradlew :app:bundleRelease --dry-run --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-task-graph.log"
+          grep -q ':app:verifyV2ReleaseConfiguration SKIPPED' "$RUNNER_TEMP/release-task-graph.log"
+          bash gradlew :app:bundleRelease --no-daemon --max-workers=4
           test -s app/build/outputs/bundle/release/app-release.aab
       - name: Verify debug app
         run: bash gradlew testDebugUnitTest assembleDebug assembleLearnerPreview --no-daemon --continue --max-workers=4
