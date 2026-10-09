@@ -1,5 +1,16 @@
 # German Master 2.0 renovation checkpoint
 
+## First-visit web UX improvements — 10 October 2026 (PR #15, unmerged)
+
+- Owner requested fixes to all findings in the first-time visitor walkthrough. Branch `fix/first-visit-ux-review-20261010` / PR #15 updates web UI only; production `main` is unchanged.
+- Guest starter now offers optional tap-to-select alternatives for plural, preposition and conjugation inputs, while preserving exact original exercise IDs, revision-1 answer payloads, checked grading rubrics and account attachment behavior. Existing manual typing remains possible. The sampler is described honestly as five B1 questions; misleading shorter-session notice removed and bilingual completion/intro copy improved.
+- New profile setup detects the initial browser timezone without replacing confirmed learner preferences. Home topic tiles retain available-target counts; Topics and topic-focused practice now show summed available-question counts rather than counting targets as questions.
+- Signed-in Home/Topics/Topic/Target/Progress/Account use hash navigation so direct links and browser Back/Forward can restore non-practice screens. Focused Practice deliberately retains the originating route for reload/resume safety. Target Back returns to its containing topic. Topic lists are visually grouped, confirmed Progress presents three server-derived status counts, and Account gives sign-out its own disclosure while keeping deletion/export actions behind privacy controls.
+- Added guest tap-payload tests and navigation/history/account regression tests. English/German strings and responsive/token-based styling included.
+- Evidence so far: the 10 October initial branch produced a reproducible syntax error in guest copy; repaired in `2c423cb`, whose Vercel preview became READY, TypeScript check and hosted accessibility acceptance passed. A subsequent history/resume hardening commit requires latest-head hosted tests and preview verification. Earlier pending/cancelled runs are not credited as passing. No backend, Android, content publication, identity/schema mutation, account write or production deploy performed.
+- Exact next action: inspect latest PR #15 hosted web, safety, accessibility and Vercel checks; correct any failing regression; conduct real browser visual/back-navigation acceptance; only then consider ready-for-review and separately authorized merge/deployment. M1 remains active and its existing gate status is unchanged.
+
+
 ## Cold-start data loading correction — 10 October 2026
 
 - Owner authorized deploying and merging the tab-return fix. PR #13 merged as `59bfeaf` at 00:02 Europe/Berlin; Vercel production `dpl_v5x45yKnkewFRAr92d9Sn793ULGE` became READY and the canonical site changed to `index-DV4RhDd8.js`. All PR and subsequent main checks passed. A normal deployed tab-return fixture run passed, but the worker/reload run failed before loading topics; no successful complete post-release acceptance is claimed.
