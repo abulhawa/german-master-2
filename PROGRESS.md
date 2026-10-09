@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 quality correction in progress — 9 October 2026
+
+- Baseline PR #11 head `b44b0f6` passed Web, Android verify/lint, web accessibility, repository safety and Vercel preview checks.
+- A new editorial audit found 12 B2 variants in six target families where bilingual hints disclosed a keyed answer. The agent removed direct answer leakage, polished four repeated German explanations and improved two example contexts. This is AI editorial work only, not independent German sign-off.
+- The unpublished candidate SQL/manifest and B2 review workbook must be regenerated in the next commit. Latest-head CI has not been verified; no production content, production deployment or store release is authorized.
+- M1 remains open pending independent German review and physical Android/TalkBack, display-size and keyboard acceptance plus product design sign-off.
+- Exact next action: regenerate candidate artifacts from the edited B2 source and verify new head CI. Preserve production approval boundary.
+
 ## M1 B2 low-typing draft conversion — 9 October 2026
 
 - Converted all 30 B2 source targets / 60 previously typed cloze variants into authored, single-slot `gap_choice` revision 2 exercises. Every variant has four distinct, plausible answers with correct positions distributed across all four slots. Stable exercise/target IDs, variant/context keys, bilingual explanations and publication boundaries are preserved. Removed the answer-revealing passive-perfect hint. No independent German review has been claimed.

@@ -64,6 +64,22 @@ describe('initial editorial workspace', () => {
     }
     expect(positions.size).toBe(4);
   });
+  it('keeps correct answer tokens out of bilingual B2 hints', () => {
+    for (const target of b2Draft.targets) {
+      for (const variant of target.variants) {
+        const exercise = variant.exercise;
+        const answer = variant.rubric.acceptedAnswers[0];
+        if (exercise.type !== 'gap_choice' || answer.type !== 'gap_choice') throw Error('expected B2 gap choice');
+        const selected = exercise.slots[0].options.find(option => option.id === answer.selections[0].optionId);
+        expect(selected).toBeDefined();
+        if (!selected || ['der', 'die', 'das', 'dem', 'den'].includes(selected.text.toLowerCase())) continue;
+        for (const language of ['en', 'de'] as const) {
+          expect(exercise.hint[language]).not.toMatch(
+            new RegExp('(^|[^\\p{L}])' + selected.text + '($|[^\\p{L}])', 'iu'));
+        }
+      }
+    }
+  });
   it('validates identities inside low-typing inputs', () => {
     const data = structuredClone(draft);
     const target = data.targets.find(item => item.category === 'adjective');
