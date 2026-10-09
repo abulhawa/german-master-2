@@ -14,6 +14,19 @@
 - Local commit only; no push, merge, deployment, production writes, publication, Android release or Groq/live AI use. Bootstrap remains complete; product reset remains incomplete. M1 remains active with prior design/manual accessibility and hosted-verification gates. Exact next action: owner review of this fix branch and authorized hosted verification; do not deploy or merge under this request.
 - Commit message: `fix(web): preserve learner navigation on same-session tab recovery`.
 
+## Android v2-only launch hardening — 9 October 2026 (review iteration pending hosted verification)
+
+- Owner requested removing the obsolete legacy/v2 launch switch. Android Studio remains responsible for versionCode/versionName; no version metadata changed.
+- MainActivity unconditionally launches NativeProviderHost. MainApplication never queues legacy synchronization and retains PausedLegacySyncFactory for old pending jobs. Existing source, installed app and local learner caches are not removed.
+- The imported SyncWorker is a no-op and the legacy Supabase DI provider fails closed; legacy API/Google client configuration is no longer embedded in Android BuildConfig. This preserves original repository history and avoids loading the old project from the new client.
+- Removed BuildConfig.V2_ENABLED and GM_V2_RELEASE. All build variants receive public-only v2 project/key/API inputs; absent debug/preview inputs show an explicit configuration message instead of crashing or launching the legacy UI.
+- A release-prebuild dependency requires the production v2 project reference, public Auth key and the canonical production HTTPS origin; CI exercises missing configuration and wrong-host rejection with synthetic public strings. The reviewed change additionally makes the optimized unsigned AAB buildable in CI with synthetic public configuration. Android Studio can read ignored `gm.v2.*` public configuration from `apps/android/local.properties` without requiring terminal environment variables or changing owner signing.
+- The local.properties example intentionally contains an invalid placeholder instead of a syntactically valid publishable key. CI verifies that the actual release task graph includes the guard and builds an unsigned/minified `bundleRelease` with a synthetic public key. Latest-head CI must pass before crediting this new release path; owner signing and the live Play versionCode remain separate.
+- This change is confined to a review branch. No local Android tests, successful hosted checks for the branch, production mutation, merge, device installation, signing, store upload, or content publication are claimed.
+- M1 remains active. The accepted TalkBack scope and earlier physical design evidence are unchanged.
+- Commit message: `fix(android): remove legacy launch flag and require v2 release configuration`.
+
+
 ## Android blue Home and both-client S04 alignment — 9 October 2026
 
 - Implemented the owner's approved design plan. Native Home now follows the current web blue-panel workspace with a single Start/Continue action, real topic exploration and next-focus targets. Home/Progress/Topics use fixed native navigation; Account holds preferences, downloads, sync, privacy and sign-out. Actionable pending-write and expired-login recovery remains available. Web Home is preserved.
