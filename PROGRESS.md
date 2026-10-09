@@ -1,5 +1,16 @@
 # German Master 2.0 renovation checkpoint
 
+## M1 fetched PR, physical phone and acceptance recheck — 9 October 2026
+
+- Fetched origin without overwriting work; clean main matched `e6facd2`, then tracked draft PR #11 at `bce5cc3`. Hosted Web/Android verify fail; accessibility/safety/CodeQL and Vercel pass. READY preview metadata matches the head, but browser access requires Vercel authentication.
+- Repaired approval-vs-structure test isolation, offscreen native fixture text entry and Windows CRLF candidate comparison. Candidate regeneration has no semantic diff; the 125-member manifest and 60 hash-bound AI approvals validate.
+- Node 22 root install/check/full tests/build pass: backend 193, web 398, HTTP 20 tests. Offline Android: 43 suites/165 tests pass; debug/preview assembly and lint pass with zero lint errors (17/18 warnings). Existing B2 authoritative client acceptance passes.
+- Connected Pixel 10 Pro runs the newly built isolated preview: B2 gap choice/confirmed feedback/Continue pass; physical 200% font/enlarged density feedback wraps and remains reachable. TalkBack service and a question-position focus outline were observed, but complete spoken/gesture/keyboard acceptance remains unverified. Local web B2 feedback/keyboard/320px visuals and automated 200% text/reflow accessibility pass. See [detailed evidence and limits](docs/operations/m1-acceptance-2026-10-09.md).
+- Original phone font/density/accessibility settings and preview draft restored; temporary acceptance data preserved separately. No AI/Groq calls, production changes, push, merge, deployment, publication or Android release.
+- Exact remaining M1 gates: green hosted checks for the local repairs; complete physical TalkBack/keyboard/core journey; final both-client design/accessibility acceptance, including manual web screen reader. Phone availability, content conversion and independent human German review are not current blockers. M1 stays active; later milestones queued.
+- Next: obtain hosted verification after an authorized push, finish manual assistive-technology and design acceptance, then assess M1 exit separately from production approval.
+- Commit message: `fix: repair M1 acceptance fixtures and record physical-device evidence`.
+
 ## M1 German content review policy and AI approval — 9 October 2026
 
 - The owner removed mandatory independent human German review. ChatGPT GPT-6 editorial review, identified explicitly as AI and tied to per-target content hashes, replaces that M1 content gate.

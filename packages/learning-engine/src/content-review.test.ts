@@ -84,6 +84,8 @@ describe('initial editorial workspace', () => {
     const data = structuredClone(draft);
     const target = data.targets.find(item => item.category === 'adjective');
     expect(target).toBeDefined();
+    // This test checks structural identities independently of editorial approval.
+    target!.review.status = 'pending';
     const exercise = target!.variants[0].exercise as any;
     expect(exercise.type).toBe('gap_choice');
     exercise.slots[0].options[1].id = exercise.slots[0].options[0].id;
