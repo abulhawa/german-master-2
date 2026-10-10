@@ -87,7 +87,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     try {
       setConfirmation(false);
       if(register) {
-        const {data,error}=await host.client.auth.signUp({email,password,options:{emailRedirectTo:origin}});
+        const {data,error}=await host.client.auth.signUp({email,password,options:{emailRedirectTo:new URL('/',window.location.origin).href}});
         if(error) throw Error('Registration failed');
         if(!data.session) {setConfirmation(true);setRegister(false);}
       } else {
@@ -117,7 +117,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
   }
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
-    const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
+    const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
   }}/>;
   if(emailHelp) return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} back={()=>setEmailHelp(null)}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;

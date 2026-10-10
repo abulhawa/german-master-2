@@ -43,8 +43,8 @@ class NativePracticeUiTest {
                 NativePracticeView(repo.state.practice!!, false, false, {}, repo, { it() }, {}, {})
             }
         } }
-        compose.onNodeWithText("✓ Looks correct locally").assertExists()
-        compose.onNodeWithText("This answer is saved. The server will confirm it when you reconnect.").assertExists()
+        compose.onNodeWithText("✓ Looks correct — not synced yet").assertExists()
+        compose.onNodeWithText("This answer is saved on this device. Your progress will update after it syncs.").assertExists()
         val answer = rubric.acceptedAnswers.first() as AnswerChoice
         compose.onNodeWithText(exercise.options.single { it.id == answer.optionId }.text).assertIsSelected().assertIsNotEnabled()
         assertEquals(1, repo.state.practice!!.outbox.size)
@@ -148,12 +148,12 @@ class NativePracticeUiTest {
             compose.waitForIdle()
             if (index < 4) compose.onNodeWithText(session.questions[index + 1].exercise.prompt).assertIsFocused()
         }
-        compose.onNodeWithText("Confirmed summary").assertExists()
+        compose.onNodeWithText("Practice summary").assertExists()
         compose.onNodeWithText("Graded: 4 · Skipped: 1 · Correct: 4").assertExists()
-        compose.onNodeWithText("Targets covered").assertExists()
+        compose.onNodeWithText("Skills practised").assertExists()
         compose.onNodeWithText("View Progress").performScrollTo().performClick()
         compose.waitForIdle()
-        compose.onNodeWithText("Confirmed Progress").assertExists()
+        compose.onNodeWithText("Your progress").assertExists()
         assertTrue(attempts[0].assistance.contains("hint"))
     }
 }

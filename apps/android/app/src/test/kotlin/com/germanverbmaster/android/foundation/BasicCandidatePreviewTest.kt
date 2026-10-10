@@ -32,22 +32,24 @@ import java.util.concurrent.TimeUnit
 class BasicCandidatePreviewTest {
     @get:Rule val compose = createComposeRule()
 
-    @Test fun allHundredConvertedVariantsAreSelectableAndGradeAtLargeText() {
+    @Test fun allHundredTwentyAuthoredVariantsAreSelectableAndGradeAtLargeText() {
         Harness().use { harness ->
             val variants = harness.variants
-            assertEquals(100, variants.size)
+            assertEquals(120, variants.size)
             var exercise by mutableStateOf(variants.first().first)
             var draft by mutableStateOf<Answer?>(null)
+            var order by mutableStateOf<List<String>>(emptyList())
             compose.setContent {
                 val density = LocalDensity.current
                 CompositionLocalProvider(LocalDensity provides Density(density.density, 2f)) {
                     FoundationTheme { Column(Modifier.width(320.dp).verticalScroll(rememberScrollState())) {
-                        LowTypingInput(exercise, draft, german = true, onDraft = { draft = it })
+                        LowTypingInput(exercise, draft, order = order, german = true,
+                            onDraft = { draft = it }, onOrder = { order = it; draft = if (it.size >= 2) AnswerWordOrder(it) else null })
                     } }
                 }
             }
             for ((question, rubric) in variants) {
-                compose.runOnIdle { exercise = question; draft = null }
+                compose.runOnIdle { exercise = question; draft = null; order = emptyList() }
                 assertFalse(nativeAnswerReady(question, draft))
                 when (val answer = rubric.acceptedAnswers.first()) {
                     is AnswerChoice -> {
@@ -64,7 +66,13 @@ class BasicCandidatePreviewTest {
                         node.performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp).performClick()
                         if (index < answer.selections.lastIndex) assertFalse(nativeAnswerReady(question, draft))
                     }
-                    else -> error("Unexpected converted answer")
+                    is AnswerWordOrder -> answer.tokenIds.forEach { id ->
+                        val token = (question as ExerciseWordOrder).tokens.single { it.id == id }
+                        compose.onNode(hasText(token.text, substring = false) and hasClickAction()).performScrollTo().assertIsDisplayed()
+                            .assertHeightIsAtLeast(48.dp).performClick()
+                    }
+                    else -> error("Unexpected authored answer")
+
                 }
                 compose.runOnIdle {
                     assertTrue(nativeAnswerReady(question, draft))
@@ -96,11 +104,11 @@ class BasicCandidatePreviewTest {
                 var repo = LearnerRepository(lossy, store)
                 repo.refresh()
                 val targets = harness.variants.map { it.first.targetId }.filter { it.startsWith("10000000-") }.distinct()
-                assertEquals(20, targets.size)
+                assertEquals(30, targets.size)
                 for (target in targets) {
                     repo.startPractice(TargetFocus(target))
                     val exercise = repo.state.practice!!.question.exercise
-                    assertEquals(2, exercise.revision)
+                    assertTrue(exercise.revision == 3 || exercise.revision == 4)
                     val rubric = harness.variants.single { it.first.id == exercise.id && it.first.revision == exercise.revision }.second
                     repo.draft(rubric.acceptedAnswers.first())
                     if (exercise is ExerciseGapChoice && exercise.slots.size > 1) {
@@ -127,7 +135,7 @@ class BasicCandidatePreviewTest {
                     repo.discardPractice()
                 }
                 assertEquals(submissions[0], submissions[1])
-                assertEquals(20, harness.command("stats").getValue("evidence").jsonPrimitive.int)
+                assertEquals(30, harness.command("stats").getValue("evidence").jsonPrimitive.int)
                 assertEquals(repo.state, store.read())
             } finally { directory.listFiles()?.forEach { it.delete() }; directory.delete() }
         }
@@ -150,7 +158,7 @@ class BasicCandidatePreviewTest {
                 for (target in targets) {
                     repo.startPractice(TargetFocus(target))
                     val current = repo.state.practice!!.question.exercise
-                    assertEquals(2, current.revision)
+                    assertTrue(current.revision == 4 || current.revision == 5)
                     assertTrue(current is ExerciseGapChoice)
                     val rubric = variants.single { it.first.id == current.id }.second
                     val answer = rubric.acceptedAnswers.first()

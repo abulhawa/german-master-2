@@ -32,11 +32,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: web-${{ github.ref }}
-  cancel-in-progress: true
+  group: web-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  verify:
+  tests_backend:
+    name: Backend tests and typecheck
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -48,14 +49,49 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: '24'
           cache: npm
       - run: npm ci
       - name: Type check
         run: npm run check
-      - name: Unit and integration tests with local mocks
-        if: ${{ !cancelled() }}
-        run: npm test
+      - name: Backend unit and integration tests
+        run: npm run test:backend
+  tests_client_http:
+    name: Web client and HTTP integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TEST_USE_GROQ: '0'
+      TEST_DATABASE_URL: ''
+      GROQ_API_KEY: ''
+      NODE_ENV: development
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Web client unit and integration tests
+        run: npm test --workspace=apps/web
+      - name: Authenticated web HTTP integration tests
+        run: npm run test:web-http
+  build_browser:
+    name: Web builds and browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TEST_USE_GROQ: '0'
+      TEST_DATABASE_URL: ''
+      GROQ_API_KEY: ''
+      NODE_ENV: development
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
       - name: Build without production configuration
         if: ${{ !cancelled() }}
         run: npm run build
@@ -71,3 +107,19 @@ jobs:
       - name: Offline shell cold launch and late sync
         if: ${{ !cancelled() }}
         run: npm run test:offline-shell
+  verify:
+    name: verify
+    if: ${{ always() && !cancelled() }}
+    needs: [tests_backend, tests_client_http, build_browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require successful test and browser/build jobs
+        env:
+          BACKEND_RESULT: ${{ needs.tests_backend.result }}
+          CLIENT_HTTP_RESULT: ${{ needs.tests_client_http.result }}
+          BUILD_RESULT: ${{ needs.build_browser.result }}
+        run: |
+          test "$BACKEND_RESULT" = success
+          test "$CLIENT_HTTP_RESULT" = success
+          test "$BUILD_RESULT" = success

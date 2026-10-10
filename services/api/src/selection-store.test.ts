@@ -46,7 +46,7 @@ it("pins replay across clock/history/availability changes and serializes concurr
   const fresh = await store.createSession(user, request(3));
   expect(fresh.questions.some(q => q.exercise.targetId === first.questions[0].exercise.targetId)).toBe(false);
   const pinned = (await db.query<{ engine_version: string }>("SELECT engine_version FROM gm.practice_session WHERE id=$1", [fresh.id])).rows[0];
-  expect(pinned.engine_version).toBe("mixed-selection-v1");
+  expect(pinned.engine_version).toBe("mixed-selection-v2");
 });
 
 it("filters capabilities before allocation and rolls back unavailable sessions", async () => {

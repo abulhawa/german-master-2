@@ -5,6 +5,7 @@ import type { LearnerApi } from './api';
 import type { SupabaseClient, Session, AuthChangeEvent } from '@supabase/supabase-js';
 import { ProviderLearnerJourney } from './provider-journey';
 import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
+import { AccountRecovery } from './account-recovery';
 import { guestAttemptCount, guestUnattachedAttemptCount } from './guest-starter';
 const reads=vi.hoisted(()=>({enabled:false}));
 vi.mock('./journey',()=>({default:({account,revoke,api}:{account:{identity:{subject:string}};revoke:()=>Promise<void>;api:LearnerApi})=>{
@@ -30,7 +31,7 @@ function fixture(initiallySignedIn=false) {
   const host={client:{auth},provider,dispose:()=>provider.invalidate()} as unknown as ReturnType<typeof createLearnerProvider>;
   return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
-afterEach(()=>{cleanup();localStorage.clear();vi.unstubAllGlobals();reads.enabled=false;});
+afterEach(()=>{cleanup();localStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;});
 it('automatically retries cold local reads after verification without losing the selected view',async()=>{
   reads.enabled=true;localStorage.setItem(`gm-v2-last-verified-${project}`,subject);
   const f=fixture(true);
@@ -57,7 +58,7 @@ it('registers without binding an unconfirmed identity or retaining its password'
   fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
   fireEvent.submit(screen.getByRole('button',{name:'Register'}).closest('form')!);
   await screen.findByText('Check your email to confirm your account, then sign in.');
-  expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password',options:{emailRedirectTo:'https://api.example'}});
+  expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password',options:{emailRedirectTo:new URL('/',window.location.origin).href}});
   expect(screen.queryByText(/Bound learner/)).toBeNull();
   expect(screen.getByLabelText('Password')).toHaveValue('');
 });
@@ -128,6 +129,17 @@ it('requires explicit consent after authentication and attaches guest evidence o
   fireEvent.click(screen.getByRole('button',{name:'Continue'}));
   await screen.findByText(`Bound learner ${subject}`);
   expect(send).toHaveBeenCalledOnce();
+});
+it('offers a fresh recovery email directly after an expired callback',async()=>{
+  window.history.replaceState(null,'','/?auth=recovery');
+  const f=fixture(), recovery=new AccountRecovery(f.auth as unknown as SupabaseClient['auth']);
+  recovery.initializationFinished();
+  const host={...f.host,recovery} as ReturnType<typeof createLearnerProvider>;
+  render(<ProviderLearnerJourney host={host} origin="https://api.example" />);
+  expect(await screen.findByText(/This link has expired or could not be opened/)).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button',{name:'Request a new recovery email'}));
+  expect(screen.getByRole('heading',{name:'Reset your password'})).toBeInTheDocument();
+  expect(screen.getByLabelText('Email')).toBeInTheDocument();
 });
 it('does not mount a stale verified response after an intervening sign-out',async()=> {
   const f=fixture();let complete!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;

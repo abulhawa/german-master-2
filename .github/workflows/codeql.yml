@@ -1,0 +1,88 @@
+name: CodeQL analysis
+
+on:
+  pull_request:
+    paths: &codeql-paths
+      - '.github/workflows/codeql.yml'
+      - 'apps/android/**'
+      - 'apps/web/**'
+      - 'api/**'
+      - 'packages/**'
+      - 'services/**'
+      - 'contracts/**'
+      - 'db/**'
+      - 'design/**'
+      - 'content/**'
+      - 'tools/**'
+      - '.github/workflows/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '!**/*.md'
+      - '!**/*.mdx'
+      - '!apps/android/play-store-listing/**'
+  push:
+    branches: [main]
+    paths: *codeql-paths
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * 1'
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: codeql-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  analyze:
+    name: Analyze ${{ matrix.language }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: actions
+            build-mode: none
+          - language: javascript-typescript
+            build-mode: none
+          - language: java-kotlin
+            build-mode: manual
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java for Android/Kotlin
+        if: matrix.language == 'java-kotlin'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for Kotlin extraction
+        if: matrix.language == 'java-kotlin'
+        uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Set up Gradle with read-only cache
+        if: matrix.language == 'java-kotlin'
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: true
+      - name: Install Android compile SDK
+        if: matrix.language == 'java-kotlin'
+        run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+      - name: Compile Android for Kotlin extraction (manual build)
+        if: matrix.language == 'java-kotlin'
+        working-directory: apps/android
+        run: bash gradlew :app:assembleDebug --no-daemon --max-workers=4
+      - name: Analyze
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: /language:${{ matrix.language }}

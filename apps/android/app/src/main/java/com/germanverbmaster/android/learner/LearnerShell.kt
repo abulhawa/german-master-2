@@ -112,7 +112,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 if(localOnly) Text(authCopy.local)
                 onSignIn?.let { action -> LearnerButton(authCopy.signIn,!busy,action) }
             }
-            if(!repository.authenticatedAccount && screen == "account") Text(label("Unpublished fixture · shared local account", "Unveröffentlichte Beispieldaten · gemeinsames lokales Konto"))
+            if(!repository.authenticatedAccount && screen == "account") Text(label("Local preview only. This practice is not linked to a sign-in account.", "Nur lokale Vorschau. Diese Übungen sind mit keinem Anmeldekonto verbunden."))
             if (busy) Text(label("Loading…", "Wird geladen…"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
             if (localOnly && screen != "account") {
                 val authCopy = providerCopy(if (german) "de" else "en")

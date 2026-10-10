@@ -1,3 +1,21 @@
+## CI efficiency: PR #18 (10 October 2026; optimization slice)
+
+- This branch includes Node.js 24 migration from the prior correction pass. Added controlled Android Gradle caching: ordinary pull requests and automatic main pushes read caches but do not create Gradle cache entries; the debug job alone may refresh Gradle caches in a manually dispatched main run. Current inventory: 119 GitHub Actions cache entries, 5,962,952,780 bytes (5.96 GB), read-only through the workflow token. No cache deletion or cleanup was executed.
+- All pre-optimization checks passed at `1bcebee`: web 282 seconds; Android 601 seconds. On initial parallel split `b2cf190`, all five workflows passed; web end-to-end 259 seconds, Android 478 seconds. The jobs continue to enforce all tests/builds/lint/config-guard/security checks with legacy-named aggregate `verify` result.
+- Costs: summed job log durations increased from roughly 282 to 300 seconds for web and from 601 to 833 seconds for Android. Android elapsed time improved by ~20%, but runner-minutes increased substantially; this is a deliberate speed/cost tradeoff to reassess. The release/debug jobs restore existing caches read-only on normal CI runs.
+- Refined pending CI implementation splits web backend tests from web client/HTTP tests on separate runners to improve the still-dominant 247-second test job; web builds/browser acceptance remain separate. Verify on latest PR-head Actions before treating the refinement as accepted.
+- PR safety: normal PR supersession can cancel outdated runs. Main/dispatch runs use unique concurrency identities to avoid suppressing verification of another commit. All required logical checks are retained; no production deployment, Android publication or Supabase/content change.
+- Exact next action: check final PR-head web, Android, accessibility, security and release-readiness workflows; measure final wall time, summed runner-job time and cache inventory, then decide on PR #18 review/merge authorization separately. M1 still open for real delivered auth-email acceptance, 60 content approvals and design acceptance.
+- Detailed measurement notes: `docs/operations/ci-optimization-2026-10-10.md`.
+
+## Post-consultant corrective review — 10 October 2026 (draft PR #18)
+
+- Branch `fix/post-consultant-verification-20261010` contains focused corrections to the eight fixes merged at `11ca27c`. No merge, content publication, production config update, deployment or Android release.
+- Initial GitHub Actions on main failed Web typecheck and 8 backend tests; Android had 8 unit failures. These included outdated editorial/revision assertions and a real native HTTP preview defect: the preview exported only obsolete revision-2 questions, excluding all current authored revisions 3–5.
+- The correction branch fixes registration email redirect to the frontend rather than API origin, handles recovery initialization event ordering, provides a direct expired-link re-request path, refreshes web and native test expectations without accepting changed content, and fixes the native preview selector. Added focused regressions for recovery subject isolation, variant selection and stale-progress persistence after local saves.
+- Hosted PR checks are the acceptance evidence; passing builds or copied assertions alone do not close M1. Real delivered confirmation/recovery links and redirect allowlist, mobile/web visual acceptance and new hash-bound editorial review of all 60 draft targets remain pending.
+- Proposed handoff after checks: correct any branch failures, review the full CI logs, then decide whether to advance PR #18. M1 stays active.
+
 # German Master 2.0 renovation checkpoint
 
 ## Consultant fix branch push authorized — 10 October 2026

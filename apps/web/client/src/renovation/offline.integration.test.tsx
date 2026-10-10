@@ -56,7 +56,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
     await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
     fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite — checked locally');
     const before=await repo.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByText('Sign in or verify account'));
+    fireEvent.click(screen.getByText('Reconnect account'));
     fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
     fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-password'}});
     fireEvent.submit(screen.getByRole('button',{name:'Sign in',exact:true}).closest('form')!);

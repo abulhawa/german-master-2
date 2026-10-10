@@ -37,13 +37,14 @@ it('installs an additive draft with an exact manifest, retains old revisions and
     expect(await runtimeMembers(db,previous.releaseId)).toEqual(old);
     expect(rows.filter(r=>r.level==='B2')).toHaveLength(60);
     const b2Rows = rows.filter(r => r.level === 'B2');
-    expect(b2Rows.every(r => r.revision === 2 && (r.payload as Exercise).type === 'gap_choice')).toBe(true);
+    expect(b2Rows.every(r => r.revision === (b2.targets.find(t => t.variants.some(v => v.exercise.id === r.exercise_id))?.category === 'connectors' ? 5 : 4) && (r.payload as Exercise).type === 'gap_choice')).toBe(true);
     expect(b2Rows.filter(r => r.review_status === 'pending')).toHaveLength(60);
     expect(rows.filter(r=>r.review_status==='pending')).toHaveLength(120);
-    const converted=rows.filter(r=>r.revision===2 && r.level==='B1');
-    expect(converted).toHaveLength(40);
-    expect(converted.filter(r=>(r.payload as Exercise).type==='choice')).toHaveLength(20);
+    const converted=rows.filter(r=>r.revision>=3 && r.level==='B1');
+    expect(converted).toHaveLength(60);
+    expect(converted.filter(r=>(r.payload as Exercise).type==='choice')).toHaveLength(30);
     expect(converted.filter(r=>(r.payload as Exercise).type==='gap_choice')).toHaveLength(20);
+    expect(converted.filter(r=>(r.payload as Exercise).type==='word_order')).toHaveLength(10);
     await expect(new FoundationStore(db,undefined,undefined,undefined,candidate.config).createSession(randomUUID(),request()))
       .rejects.toMatchObject({code:'content_unavailable'});
     expect((await db.query('SELECT * FROM gm.practice_session')).rows).toHaveLength(0);
@@ -101,17 +102,17 @@ it('locally simulates activation: B1 and B2 allocate distinct targets, grade and
           focus:{type:'target',id:'10000000-0000-4000-8000-000000000015'}});
         expect(focused.questions).toHaveLength(1);
         expect(focused.questions[0].exercise.type).toBe('gap_choice');
-        expect(focused.questions[0].exercise.revision).toBe(2);
+        expect(focused.questions[0].exercise.revision).toBe(4);
         const verbFocused=await store.createSession(learner,{...request(),questionCount:1,
           focus:{type:'target',id:'10000000-0000-4000-8000-000000000020'}});
         expect(verbFocused.questions).toHaveLength(1);
         expect(verbFocused.questions[0].exercise.type).toBe('gap_choice');
-        expect(verbFocused.questions[0].exercise.revision).toBe(2);
+        expect(verbFocused.questions[0].exercise.revision).toBe(4);
         const pluralFocused=await store.createSession(learner,{...request(),questionCount:1,
           focus:{type:'target',id:'10000000-0000-4000-8000-000000000000'}});
         expect(pluralFocused.questions).toHaveLength(1);
         expect(pluralFocused.questions[0].exercise.type).toBe('choice');
-        expect(pluralFocused.questions[0].exercise.revision).toBe(2);
+        expect(pluralFocused.questions[0].exercise.revision).toBe(3);
       }
       const evidence=(await db.query('SELECT * FROM gm.accepted_evidence WHERE user_id=$1',[learner])).rows;
       expect(evidence).toHaveLength(15);

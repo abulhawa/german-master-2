@@ -24,7 +24,8 @@ if (stdio) {
     for await (const line of createInterface({ input: process.stdin })) {
       const command = JSON.parse(line);
       if (command.action === 'close') break;
-      if (command.action === 'answers') console.log(JSON.stringify({ variants: members.filter(m => m.revision === 2)
+      // Keep the preview tied to currently authored revisions, not the obsolete revision-2-only filter.
+      if (command.action === 'answers') console.log(JSON.stringify({ variants: members.filter(m => m.revision >= 3)
         .map(m => ({ exercise: m.payload, rubric: { ...(m.rubric as object), exerciseId: m.exercise_id, exerciseRevision: m.revision } })) }));
       else if (command.action === 'stats') console.log(JSON.stringify({ evidence: (await db.query('SELECT id FROM gm.accepted_evidence')).rows.length }));
       else throw Error('Unknown preview command');
