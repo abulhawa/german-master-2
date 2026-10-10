@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: '24'
       - name: Verify release invariants and build provenance manifest
         run: node tools/release/readiness.mjs --output "$RUNNER_TEMP/release-readiness.json"
       - name: Preserve non-secret readiness evidence

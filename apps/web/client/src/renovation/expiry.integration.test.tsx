@@ -79,7 +79,7 @@ it.each(["attempt", "skip", "profile"].flatMap(kind =>
     writes.length = 0; reads.length = 0; pageStatuses.length = 0;
     now += 1000; failPage = true;
     render(<OwnedLearnerJourney api={api} />);
-    await screen.findByText("Could not refresh confirmed progress. Previously confirmed data stays available.");
+    await screen.findByText("Your progress could not be updated. Previously saved results are still available, if any.");
     expect(readJourney(localStorage)).toEqual(before);
     expect(writes).toEqual([]);
     expect(reads.some(path => path.startsWith("/v2/sync?"))).toBe(true);
@@ -90,9 +90,9 @@ it.each(["attempt", "skip", "profile"].flatMap(kind =>
     // Pending profile setup has no refresh button; remount retries its saved cursor.
     // Other cases exercise an explicit retry in the same mounted component.
     if (kind === "profile") { cleanup(); render(<OwnedLearnerJourney api={api} />); }
-    else fireEvent.click(screen.getByText("Refresh confirmed progress"));
+    else fireEvent.click(screen.getByText("Refresh progress"));
     await waitFor(() => expect(readJourney(localStorage).confirmed!.cursor).not.toBe(before.confirmed!.cursor));
-    await waitFor(() => expect(screen.queryByText("Could not refresh confirmed progress. Previously confirmed data stays available.")).toBeNull());
+    await waitFor(() => expect(screen.queryByText("Your progress could not be updated. Previously saved results are still available, if any.")).toBeNull());
     expect(readJourney(localStorage).practice).toEqual(before.practice);
     expect(readJourney(localStorage).confirmed!.targets).toHaveLength(5);
     expect(readJourney(localStorage).confirmed!.targets.reduce((total, target) => total + target.exposureCount, 0)).toBe(kind === "profile" ? 0 : 1);
@@ -108,9 +108,9 @@ it.each(["attempt", "skip", "profile"].flatMap(kind =>
       expect((await api.profile()).revision).toBe(revision);
     }
     else {
-      await waitFor(() => expect(screen.getByText("Refresh confirmed progress")).not.toBeDisabled());
+      await waitFor(() => expect(screen.getByText("Refresh progress")).not.toBeDisabled());
       const recoveredCursor = readJourney(localStorage).confirmed!.cursor;
-      fireEvent.click(screen.getByText("Refresh confirmed progress"));
+      fireEvent.click(screen.getByText("Refresh progress"));
       await waitFor(() => expect(reads.some(path => path.startsWith("/v2/sync?") && path.includes(recoveredCursor))).toBe(true));
       expect((await (kind === "attempt" ? api.submit(pending) : api.expose(event))).status).toBe("duplicate");
       expect((await db.query("SELECT * FROM gm.accepted_evidence WHERE user_id=$1", [owner])).rows).toHaveLength(1);

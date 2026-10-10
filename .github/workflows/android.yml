@@ -50,7 +50,7 @@ jobs:
           log-accepted-android-sdk-licenses: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: '24'
       - name: Check generated foundation contracts and tokens
         working-directory: .
         run: node contracts/scripts/generate.mjs --check && node design/generate.mjs --check

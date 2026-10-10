@@ -23,14 +23,19 @@ function select(exercise: Exercise, answer: Answer) {
       fireEvent.click(within(screen.getByRole('group', { name: slot.label })).getByRole('radio',
         { name: slot.options.find(o => o.id === selection.optionId)!.text }));
     }
-  } else throw Error('Unexpected converted format');
+  } else if (exercise.type === 'word_order' && answer.type === 'word_order') {
+    for (const id of answer.tokenIds) {
+      const token = exercise.tokens.find(t => t.id === id)!;
+      fireEvent.click(screen.getByRole('button', { name: token.text, exact: true }));
+    }
+  } else throw Error('Unexpected authored format');
 }
 
-it('renders all 100 authored revision-2 variants and preserves partial gap drafts across remount', async () => {
+it('renders all 120 authored revisions 3–5 and preserves partial gap drafts across remount', async () => {
   const preview = await basicPreview();
   try {
-    const converted = preview.members.filter(m => m.revision === 2);
-    expect(converted).toHaveLength(100);
+    const converted = preview.members.filter(m => m.revision >= 3);
+    expect(converted).toHaveLength(120);
     for (const member of converted) {
       const exercise = member.payload as Exercise, rubric = member.rubric as Rubric;
       let draft: Answer | null = null, ready: Answer | null = null;
@@ -60,7 +65,7 @@ for (const [family, targetId, level] of [
   ['B2 verb-preposition', '40000000-0000-4000-8000-000000000020', 'B2'],
   ['B2 workplace verb', '40000000-0000-4000-8000-000000000025', 'B2'],
 ] as const) {
-  it(`${family}: real learner controls resume a revision-2 draft and replay response loss to one confirmed result`, async () => {
+  it(`${family}: real learner controls resume a current draft and replay response loss to one confirmed result`, async () => {
     const preview = await basicPreview();
     const subject = fixtureAccount.identity.subject;
     const server = createApi(preview.store, async req => req.headers.authorization === 'Bearer foundation-local-demo' ? subject : null);
@@ -86,7 +91,7 @@ for (const [family, targetId, level] of [
       const request = {...sessionRequest(),questionCount:1,focus:{type:'target' as const,id:targetId}};
       const session = await api.createFocusedSession(request);
       const exercise = session.questions[0].exercise;
-      expect(exercise.revision).toBe(2);
+      expect(exercise.revision).toBe(family === 'plural' ? 3 : 4);
       expect(JSON.stringify(session)).not.toContain('acceptedAnswers');
       const rubric = preview.members.find(m => m.exercise_id === exercise.id)!.rubric as Rubric;
       const state = emptyJourney();

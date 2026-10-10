@@ -44,7 +44,7 @@ class BasicCandidatePreviewTest {
                 CompositionLocalProvider(LocalDensity provides Density(density.density, 2f)) {
                     FoundationTheme { Column(Modifier.width(320.dp).verticalScroll(rememberScrollState())) {
                         LowTypingInput(exercise, draft, order = order, german = true,
-                            onDraft = { draft = it }, onOrder = { order = it; draft = AnswerWordOrder(it) })
+                            onDraft = { draft = it }, onOrder = { order = it; draft = if (it.size >= 2) AnswerWordOrder(it) else null })
                     } }
                 }
             }
@@ -68,7 +68,7 @@ class BasicCandidatePreviewTest {
                     }
                     is AnswerWordOrder -> answer.tokenIds.forEach { id ->
                         val token = (question as ExerciseWordOrder).tokens.single { it.id == id }
-                        compose.onNodeWithText(token.text).performScrollTo().assertIsDisplayed()
+                        compose.onNode(hasText(token.text, substring = false) and hasClickAction()).performScrollTo().assertIsDisplayed()
                             .assertHeightIsAtLeast(48.dp).performClick()
                     }
                     else -> error("Unexpected authored answer")
