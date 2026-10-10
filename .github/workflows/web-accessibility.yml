@@ -31,7 +31,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: web-accessibility-${{ github.ref }}
+  group: web-accessibility-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
