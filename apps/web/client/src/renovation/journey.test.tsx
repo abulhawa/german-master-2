@@ -43,7 +43,7 @@ function apiFixture(): LearnerApi {
   return { expose: vi.fn(async event => ({ eventId: event.eventId, status: "accepted" as const, serverSequence: 1 })), profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
-afterEach(() => { cleanup(); localStorage.clear(); window.history.replaceState(null, "", window.location.pathname); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.restoreAllMocks(); localStorage.clear(); window.history.replaceState(null, "", window.location.pathname); vi.unstubAllGlobals(); });
 it('retains selected choices while saving and after feedback, then focuses the next prompt', async () => {
   const formats = SessionSchema.parse(formatSample);
   const api = apiFixture();
@@ -651,9 +651,11 @@ describe("isolated learner journey", () => {
     const api = await start();
     fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
     const spy = vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw Error("quota"); });
-    fireEvent.click(screen.getByText("Check answer"));
-    expect(await screen.findByRole("alert")).toHaveTextContent("New submissions are blocked");
-    expect(api.submit).not.toHaveBeenCalled(); spy.mockRestore();
+    try {
+      fireEvent.click(screen.getByText("Check answer"));
+      expect(await screen.findByRole("alert")).toHaveTextContent("Your answer could not be saved on this device");
+      expect(api.submit).not.toHaveBeenCalled();
+    } finally { spy.mockRestore(); }
   });
   it("preserves a corrupt record and blocks mutation", () => {
     localStorage.setItem(STORAGE_KEY, "corrupt");
