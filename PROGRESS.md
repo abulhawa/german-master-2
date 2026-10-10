@@ -1,3 +1,12 @@
+## Clean database replacement preparation — 10 October 2026
+
+- Owner requested a fresh Supabase project and one initial schema, with no user-data migration or compatibility layer. Production cutover is a separate controlled step. The new request supersedes the earlier no-third-project preference; the owner selected the existing organization, currently Free, without authorizing paid usage.
+- Fresh read-only v2 production inspection found 2 Auth users, 2 learner profiles, 2 practice sessions, 2 attempts, 2 learner-target states and 2 accepted-evidence rows. Owner explicitly confirmed both accounts/progress are disposable development/test data. No records were removed; recheck immediately before cutover.
+- Prepared `db/0001_initial_schema.sql` combining schema, indexes, immutable triggers/fixed search path, RLS/permissions, privacy worker and private invoker Auth views. No learner/content seed, login credentials or secrets. Repository consolidation remains incomplete: fixture migration runner and split SQL inputs still exist and must be converted before calling this the sole authoritative baseline.
+- Verification: six focused local PGlite tests pass across initial-schema, existing baseline, backend access and Auth views; backend TypeScript check passes. Synthetic Auth objects establish local SQL behavior only, not hosted Supabase or complete web/Android lifecycle acceptance.
+- Provisioning blocked: advertised Supabase `get_cost` returns UNAVAILABLE (`MCP tool get_cost was not returned by tools/list`), preventing the mandatory cost check/confirmation. No project created, billing change, production mutation, cutover, retirement, publication, deployment, push, Android release or live AI call.
+- Evidence and exact next steps: `docs/operations/clean-database-baseline-2026-10-10.md`. Finish fixture/test/tooling consolidation independently; restore cost/provisioning access, create/verify replacement, configure isolated Auth/secrets, then verify complete both-client lifecycle before separate cutover approval. M0/M1 remain complete; M2 alone remains active; later milestones stay queued.
+- Commit message: `db: prepare consolidated initial schema and record live inventory`.
 ## Owner-requested Account controls — 10 October 2026
 
 - Web Account now shows the current verified sign-in email, Change email and Reset password. The address is held only in provider memory and hidden for expired, invalidated or local-only access. Account actions use English/German copy and existing foundation controls; long addresses wrap at phone widths.

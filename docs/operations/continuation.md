@@ -12,6 +12,10 @@ If the chat starts outside the repo, use:
 
 The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
 
+## Latest owner-requested database task — 10 October 2026
+
+Prepare a fresh database replacement using one initial schema, without learner-data migration. The owner confirmed the two existing accounts/progress are disposable and selected the existing organization. See [replacement preparation](clean-database-baseline-2026-10-10.md) and the newest root checkpoint: SQL preparation passes local checks, but runtime consolidation and hosted verification remain incomplete; project creation is blocked by unavailable connector cost lookup. Production cutover and retirement remain separate controlled steps. M2 remains active.
+
 ## Current shared priority — 10 October 2026
 
 **M1 is complete; M2 is now the only active milestone.** Root `PROGRESS.md` records passing final local checks, delivered signup/recovery acceptance and explicit owner design/manual web accessibility acceptance. Next: representative independent-connection PostgreSQL contention/load and selection-query-cost verification in an isolated local environment, using the existing authoritative-engine/network evidence. M3–M5 stay queued; M6 has not started. Successful confirmation-resend delivery remains a queued account-lifecycle follow-up. The freshly AI-reviewed candidate remains unpublished. Do not restart accepted TalkBack/design/web screen-reader gates or repeat established identity/role setup as missing.
