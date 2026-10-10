@@ -10,8 +10,8 @@ export const homeCopy = {
     chooseTopic: 'Choose a topic',
     settings: 'Session details',
     improving: 'Getting stronger',
-    improvingNote: 'You're making progress with these skills.',
-    snapshotUnavailable: 'Your progress couldn't be loaded. You can still choose a topic or try again.',
+    improvingNote: 'You are making progress with these skills.',
+    snapshotUnavailable: 'Your progress could not be loaded. You can still choose a topic or try again.',
   },
   de: {
     heading: 'Bereit zum Üben?',
