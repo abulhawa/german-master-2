@@ -40,7 +40,7 @@ function readWorkspaceRoute(): { view: WorkspaceView; selectedId: string | null 
   if (!match || ((match[1] === "topic" || match[1] === "target") && !match[2])) return { view: "home", selectedId: null };
   return { view: match[1] as WorkspaceView, selectedId: match[2] ?? null };
 }
-type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean; identityDeletion?:IdentityDeletionTransport; clearDeletedIdentity?:()=>Promise<void>; forgetDeletedIdentity?:()=>Promise<void>; onReauthenticate?:()=>void; localAccess?:boolean };
+type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean; identityDeletion?:IdentityDeletionTransport; clearDeletedIdentity?:()=>Promise<void>; forgetDeletedIdentity?:()=>Promise<void>; onReauthenticate?:()=>void; accountSecurity?:(locale:'en'|'de',blocked:boolean)=>ReactNode; localAccess?:boolean };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
   return <AccountLearnerJourney key={`${account.identity.subject}:${account.identity.generation}`} {...props} account={account} />;
@@ -70,7 +70,7 @@ function AccountLearnerJourney(props: JourneyProps & { account: AccountBinding }
   </PracticeCard></div></main>;
 }
 
-export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke, authorizeResume, identityDeletion, clearDeletedIdentity,forgetDeletedIdentity, onReauthenticate, localAccess }: JourneyProps & { owner?: FixtureOwner }) {
+export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, revoke, authorizeResume, identityDeletion, clearDeletedIdentity,forgetDeletedIdentity, onReauthenticate, accountSecurity, localAccess }: JourneyProps & { owner?: FixtureOwner }) {
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
   useEffect(()=>()=>{
@@ -114,9 +114,9 @@ export function OwnedLearnerJourney({ api: suppliedApi, storage: suppliedStorage
   if(identitySaved) return <main className="gm-foundation" lang={locale}><div className="gm-column">{identityControl?.(locale,false)??<p role="alert">{locale==='de'?'Kontolöschung gespeichert. Üben und Synchronisieren sind gesperrt.':'Account deletion saved. Practice and sync are blocked.'}</p>}</div></main>;
   if (saved || damaged) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacyDeletion locale={locale} pending={!!saved} confirmed={!!saved?.receipt} complete={!!saved?.complete} blocked={damaged} remove={remove} /></div></main>;
   if(signedOut) return <main className="gm-foundation" lang={locale}><div className="gm-column"><PrivacySignOut authenticated={!!revoke} locale={locale} blocked={false} signedOut complete={signedOut.complete} leave={leave} resume={()=>{authorizeResume?.();signout.resume();refresh(v=>v+1);}} /></div></main>;
-  return <ActiveLearnerJourney onReauthenticate={onReauthenticate} localAccess={localAccess} identityControl={identityControl} authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
+  return <ActiveLearnerJourney accountSecurity={accountSecurity} onReauthenticate={onReauthenticate} localAccess={localAccess} identityControl={identityControl} authenticated={!!revoke} api={api} storage={activeStorage} account={account} reserve={db} owner={activeOwner} onDelete={remove} onSignOut={leave} />;
 }
-function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false,identityControl,onReauthenticate,localAccess }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void>; identityControl?:(locale:'en'|'de',blocked:boolean)=>ReactNode }) {
+function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, account = fixtureAccount, reserve, owner, onDelete, onSignOut, authenticated=false,identityControl,onReauthenticate,accountSecurity,localAccess }: JourneyProps & { owner?: FixtureOwner; onDelete: () => Promise<void>; onSignOut:(remove:boolean)=>Promise<void>; identityControl?:(locale:'en'|'de',blocked:boolean)=>ReactNode }) {
   const api = useMemo(() => suppliedApi ?? (account === fixtureAccount ? localApi : localLearnerApi(account)), [suppliedApi, account]);
   const storage = useMemo(() => suppliedStorage ?? account.storage(browserStorage), [suppliedStorage, account]);
   const db = useMemo(() => reserve ?? (account === fixtureAccount ? browserReserve : account.reserve()), [reserve, account]);
@@ -330,6 +330,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
+        {accountSecurity?.(state.locale, busy || loaded.damaged)}
         <PracticeCard><h2>{s.appearance}</h2><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey['locale'] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey['theme'] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>

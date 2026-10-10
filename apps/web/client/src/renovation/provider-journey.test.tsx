@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { LearnerApi } from './api';
 import type { SupabaseClient, Session, AuthChangeEvent } from '@supabase/supabase-js';
 import { ProviderLearnerJourney } from './provider-journey';
@@ -8,11 +8,11 @@ import { VerifiedLearnerProvider, type createLearnerProvider } from './provider'
 import { AccountRecovery } from './account-recovery';
 import { guestAttemptCount, guestUnattachedAttemptCount } from './guest-starter';
 const reads=vi.hoisted(()=>({enabled:false}));
-vi.mock('./journey',()=>({default:({account,revoke,api}:{account:{identity:{subject:string}};revoke:()=>Promise<void>;api:LearnerApi})=>{
+vi.mock('./journey',()=>({default:({account,revoke,api,accountSecurity}:{account:{identity:{subject:string}};revoke:()=>Promise<void>;api:LearnerApi;accountSecurity?:(locale:'en'|'de',blocked:boolean)=>ReactNode})=>{
   const [detail,setDetail]=useState(false);
   const [data,setData]=useState('');
   useEffect(()=>{if(!reads.enabled)return;let alive=true;void api.profile().then(()=>{if(alive)setData('Data loaded');}).catch(()=>{if(alive)setData('Data blocked');});return()=>{alive=false;};},[api]);
-  return <><p>Bound learner {account.identity.subject}</p><p>{data}</p><button onClick={()=>setDetail(true)}>Open detail</button>{detail&&<h1>Retained detail</h1>}<button onClick={()=>void revoke()}>Revoke session</button></>;
+  return <><p>Bound learner {account.identity.subject}</p><p>{data}</p>{accountSecurity?.('en',false)}<button onClick={()=>setDetail(true)}>Open detail</button>{detail&&<h1>Retained detail</h1>}<button onClick={()=>void revoke()}>Revoke session</button></>;
 }}));
 const project='zgmyrpzwgtydwlzponih', subject='00000000-0000-4000-8000-000000000020';
 function fixture(initiallySignedIn=false) {
@@ -25,6 +25,8 @@ function fixture(initiallySignedIn=false) {
     signOut:vi.fn(async()=>{signedIn=false;callback('SIGNED_OUT',null);return {error:null};}),
     signInWithPassword:vi.fn(async()=>{signedIn=true;callback('SIGNED_IN',session());return {error:null};}),
     signUp:vi.fn(async()=>({data:{session:null},error:null})),
+    resetPasswordForEmail:vi.fn(async()=>({data:{},error:null})),
+    updateUser:vi.fn(async()=>({data:{user:{id:subject}},error:null})),
     onAuthStateChange:(listener:typeof callback)=>{callback=listener;queueMicrotask(()=>listener('INITIAL_SESSION',session()));return {data:{subscription:{unsubscribe:vi.fn()}}};},
   };
   const provider=new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project);
@@ -32,6 +34,51 @@ function fixture(initiallySignedIn=false) {
   return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
 afterEach(()=>{cleanup();localStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;});
+it('shows the verified account email and opens a prefilled reset with an Account return path',async()=>{
+  const f=fixture(true);
+  f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'verified@example.test'})},error:null});
+  render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await screen.findByText('verified@example.test');
+  fireEvent.click(screen.getByRole('button',{name:'Reset password',exact:true}));
+  expect(screen.getByLabelText('Email')).toHaveValue('verified@example.test');
+  expect(f.auth.resetPasswordForEmail).not.toHaveBeenCalled();
+  fireEvent.submit(screen.getByRole('button',{name:'Send email'}).closest('form')!);
+  await screen.findByText(/If this address is eligible/);
+  expect(f.auth.resetPasswordForEmail).toHaveBeenCalledWith('verified@example.test',{redirectTo:new URL('/?auth=recovery',window.location.origin).href});
+  fireEvent.click(screen.getByRole('button',{name:'Back to Account'}));
+  await screen.findByText('verified@example.test');
+});
+it('keeps the current email until a verified email-change event, without changing learner identity',async()=>{
+  const f=fixture(true);
+  f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'current@example.test'})},error:null});
+  render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await screen.findByText('current@example.test');
+  fireEvent.click(screen.getByRole('button',{name:'Change email',exact:true}));
+  fireEvent.change(screen.getByLabelText('New email address'),{target:{value:'new@example.test'}});
+  fireEvent.submit(screen.getByRole('button',{name:'Send verification emails'}).closest('form')!);
+  await screen.findByText(/Change requested/);
+  expect(f.auth.updateUser).toHaveBeenCalledWith({email:'new@example.test'},{emailRedirectTo:new URL('/',window.location.origin).href});
+  expect(screen.getByText('current@example.test')).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button',{name:'Back to Account'}));
+  await screen.findByText('current@example.test');
+  f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'new@example.test'})},error:null});
+  await act(async()=>f.emit('USER_UPDATED'));
+  await screen.findByText('new@example.test');
+  expect(screen.queryByText('current@example.test')).toBeNull();
+  expect(screen.getByText(`Bound learner ${subject}`)).toBeInTheDocument();
+});
+it('does not update email when the verified subject changes during the request',async()=>{
+  const f=fixture(true);
+  f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'current@example.test'})},error:null});
+  render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+  await screen.findByText('current@example.test');
+  fireEvent.click(screen.getByRole('button',{name:'Change email',exact:true}));
+  f.auth.getUser.mockResolvedValueOnce({data:{user:{id:'00000000-0000-4000-8000-000000000021',is_anonymous:false}},error:null});
+  fireEvent.change(screen.getByLabelText('New email address'),{target:{value:'new@example.test'}});
+  fireEvent.submit(screen.getByRole('button',{name:'Send verification emails'}).closest('form')!);
+  await screen.findByRole('alert');
+  expect(f.auth.updateUser).not.toHaveBeenCalled();
+});
 it('automatically retries cold local reads after verification without losing the selected view',async()=>{
   reads.enabled=true;localStorage.setItem(`gm-v2-last-verified-${project}`,subject);
   const f=fixture(true);

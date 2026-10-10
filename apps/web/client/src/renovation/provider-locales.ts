@@ -1,5 +1,7 @@
 export const providerCopy = {
   en: {
+    changeEmail:'Change email',newEmail:'New email address',requestEmailChange:'Send verification emails',emailChangeHelp:'Your new address must be verified. Check your new inbox and, if requested, your current inbox too. Open the confirmation links in this browser.',verifyEmailChange:'Change requested. Check your inboxes and complete the email confirmations. Your sign-in email is not changed until verification is complete.',emailChangeFailed:'We could not request the change. Your current email is still shown. Reconnect if needed, then wait a minute before trying again.',
+    signInDetails:'Sign-in details', resetPassword:'Reset password', resetHelp:'We’ll email you a link to choose a new password.', backAccount:'Back to Account', emailUnavailable:'Reconnect your account to view your email and reset your password.',
     title:'Sign in to German Master',registerTitle:'Create your German Master account',register:'Register',createAccount:'Create account',backToSignIn:'Back to sign in',
     confirmation:'Check your email to confirm your account, then sign in.',email:'Email',password:'Password',signIn:'Sign in',retry:'Try again',
     checking:'Checking your sign-in…',failed:'We could not finish signing you in. Your saved practice is still on this device.',
@@ -13,6 +15,8 @@ export const providerCopy = {
     attachFailedTitle:'Guest practice wasn’t saved',attachFailed:'Your attempts are still on this device. You can retry safely.',continue:'Continue',
   },
   de: {
+    changeEmail:'E-Mail ändern',newEmail:'Neue E-Mail-Adresse',requestEmailChange:'Bestätigungs-E-Mails senden',emailChangeHelp:'Deine neue Adresse muss bestätigt werden. Prüfe dein neues Postfach und, falls angefordert, auch dein bisheriges. Öffne die Bestätigungslinks in diesem Browser.',verifyEmailChange:'Änderung angefragt. Prüfe deine Postfächer und bestätige die E-Mails. Deine Anmelde-E-Mail ändert sich erst nach der Bestätigung.',emailChangeFailed:'Die Änderung konnte nicht angefragt werden. Deine bisherige E-Mail wird weiterhin angezeigt. Verbinde dein Konto bei Bedarf erneut und warte vor einem neuen Versuch eine Minute.',
+    signInDetails:'Anmeldedaten', resetPassword:'Passwort zurücksetzen', resetHelp:'Wir senden dir einen Link per E-Mail, mit dem du ein neues Passwort wählen kannst.', backAccount:'Zurück zum Konto', emailUnavailable:'Verbinde dein Konto erneut, um deine E-Mail zu sehen und dein Passwort zurückzusetzen.',
     title:'Bei German Master anmelden',registerTitle:'German-Master-Konto erstellen',register:'Registrieren',createAccount:'Konto erstellen',backToSignIn:'Zurück zur Anmeldung',
     confirmation:'Bestätige dein Konto über die E-Mail und melde dich danach an.',email:'E-Mail',password:'Passwort',signIn:'Anmelden',retry:'Erneut versuchen',
     checking:'Deine Anmeldung wird geprüft…',failed:'Die Anmeldung konnte nicht abgeschlossen werden. Deine gespeicherten Übungen bleiben auf diesem Gerät.',

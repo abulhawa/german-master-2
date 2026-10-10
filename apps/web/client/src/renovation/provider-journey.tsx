@@ -13,6 +13,7 @@ import { shellCopy } from './shell-locales';
 import { AccountRecovery } from './account-recovery';
 import { RecoveryEmail, RecoveryPassword } from './account-recovery-ui';
 import { recoveryCopy } from './recovery-locales';
+import { AccountEmailChange } from './account-email-change';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
@@ -28,6 +29,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [register,setRegister] = useState(false);
   const [confirmation,setConfirmation] = useState(false);
   const [emailHelp,setEmailHelp] = useState<'reset'|'resend'|null>(null);
+  const [emailChange,setEmailChange] = useState<AccountBinding|null>(null);
   const recovery = useMemo(()=>host.recovery ?? new AccountRecovery(host.client.auth),[host]);
   const recoveryState = useSyncExternalStore(recovery.subscribe,recovery.getSnapshot);
   const [attachDismissed,setAttachDismissed] = useState(false);
@@ -67,12 +69,12 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     const {data}=host.client.auth.onAuthStateChange((event,session)=> {
       if(!alive) return;
       recovery.observe(event,session);
-      if(recovery.getSnapshot().stage!=='none') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');return;}
-      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
+      if(recovery.getSnapshot().stage!=='none') {++ticket;host.provider.invalidate();setEmailChange(null);setAccount(null);setBusy(false);setPassword('');return;}
+      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setEmailChange(null);setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
       else if(event==='INITIAL_SESSION'||event==='SIGNED_IN'||event==='USER_UPDATED'||event==='TOKEN_REFRESHED') {
         // SDK callbacks hold the auth lock; schedule provider reads after callback return.
         const retain=host.provider.observeAuthEvent(event,session);
-        if(!retain)setAccount(null);
+        if(!retain){setEmailChange(null);setAccount(null);}
         queueMicrotask(()=> {if(alive)verify(event==='INITIAL_SESSION'&&!retain,event==='SIGNED_IN',retain);});
       }
     });
@@ -119,8 +121,12 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
     const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
   }}/>;
-  if(emailHelp) return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} back={()=>setEmailHelp(null)}/></div></main>;
+  if(emailHelp) return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
+  if(emailChange&&account===emailChange&&!local&&!showLogin) {
+    const currentEmail=host.provider.emailFor(emailChange);
+    if(currentEmail)return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} back={()=>setEmailChange(null)}/></div></main>;
+  }
   if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
     return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
@@ -137,7 +143,16 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       </>}
     </PracticeCard></div></main>;
   }
-  if(account&&!showLogin) return <LearnerJourney onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
+  if(account&&!showLogin) return <LearnerJourney accountSecurity={(language,blocked)=>{
+    const labels=copy[language], address=local?null:host.provider.emailFor(account);
+    return <PracticeCard><h2>{labels.signInDetails}</h2>
+      {address ? <><p className="gm-account-email"><strong>{labels.email}</strong><br/>{address}</p>
+        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>setEmailChange(account)}>{labels.changeEmail}</FoundationButton>
+        <p>{labels.resetHelp}</p>
+        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);setEmailHelp('reset');}}>{labels.resetPassword}</FoundationButton></>
+        : <p>{labels.emailUnavailable}</p>}
+    </PracticeCard>;
+  }} onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>

@@ -4,15 +4,17 @@ import { FoundationButton, PracticeCard } from '../foundation/controls';
 import { AccountRecovery, type RecoveryState } from './account-recovery';
 import { recoveryCopy } from './recovery-locales';
 
-export function RecoveryEmail({ auth, locale, initialEmail, mode, back }: {
+export function RecoveryEmail({ auth, locale, initialEmail, mode, back, backLabel }: {
   auth: SupabaseClient['auth']; locale: 'en' | 'de'; initialEmail: string;
-  mode: 'reset' | 'resend'; back: () => void;
+  mode: 'reset' | 'resend'; back: () => void; backLabel?: string;
 }) {
   const c = recoveryCopy[locale];
   const [email, setEmail] = useState(initialEmail);
   const [busy, setBusy] = useState(false), [sent, setSent] = useState(false), [failed, setFailed] = useState(false);
   const [cooldown, setCooldown] = useState(false);
   const lock = useRef(false);
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { heading.current?.focus(); }, []);
   useEffect(() => { if (cooldown) { const id = setTimeout(() => setCooldown(false), 60_000); return () => clearTimeout(id); } }, [cooldown]);
   async function send() {
     if (lock.current || cooldown) return;
@@ -30,14 +32,14 @@ export function RecoveryEmail({ auth, locale, initialEmail, mode, back }: {
     finally { lock.current = false; setBusy(false); setCooldown(true); }
   }
   return <PracticeCard>
-    <h1>{mode === 'reset' ? c.resetTitle : c.resendTitle}</h1>
+    <h1 ref={heading} tabIndex={-1}>{mode === 'reset' ? c.resetTitle : c.resendTitle}</h1>
     <form className="gm-answer-group" onSubmit={event => { event.preventDefault(); void send(); }}>
       <label className="gm-field" htmlFor="recovery-email">{c.email}<input id="recovery-email" type="email" autoComplete="email" required disabled={busy} value={email} onChange={e => setEmail(e.target.value)} /></label>
       <button type="submit" className="gm-button" disabled={busy || cooldown}>{busy ? c.sending : c.send}</button>
     </form>
     {sent && <p role="status">{c.sent}</p>}{failed && <p role="alert">{c.failed}</p>}
     {cooldown && <p>{c.wait}</p>}<p>{c.savedWork}</p>
-    <FoundationButton disabled={busy} onClick={back}>{c.back}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={back}>{backLabel ?? c.back}</FoundationButton>
   </PracticeCard>;
 }
 

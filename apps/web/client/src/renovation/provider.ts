@@ -19,11 +19,17 @@ export class VerifiedLearnerProvider {
   private verifiedExpiry = 0;
   private binding: AccountBinding | null = null;
   private sessionId: string | null = null;
+  private verifiedEmail: string | null = null;
   constructor(private readonly auth: Auth, private readonly projectRef: string, private readonly now = () => Date.now(), private readonly saved: JourneyStorage = browserStorage) {
     if (!/^[a-z]{20}$/.test(projectRef)) throw Error('Invalid auth project reference');
   }
 
-  invalidate() { this.operation++; this.active = null; this.binding = null; this.sessionId = null; this.online = false; }
+  invalidate() { this.operation++; this.active = null; this.binding = null; this.sessionId = null; this.online = false; this.verifiedEmail = null; }
+
+  emailFor(account: AccountBinding) {
+    try { this.assertVerified(account); return this.verifiedEmail; }
+    catch { return null; }
+  }
 
   /** SIGNED_IN also means session recovery on tab visibility, not just login.
    * Event data only decides whether to retain local UI; bind still verifies it. */
@@ -69,6 +75,7 @@ export class VerifiedLearnerProvider {
       this.binding = new AccountBinding(this.active, () => this.active);
     }
     this.sessionId = credential.sessionId;
+    this.verifiedEmail = credential.email;
     this.online = true;
     this.verifiedExpiry = credential.expiresAt;
     return this.binding!;
@@ -91,7 +98,7 @@ export class VerifiedLearnerProvider {
     if (verified.error || !verified.data.user || verified.data.user.is_anonymous
       || verified.data.user.id !== session.user.id || session.expires_at! * 1000 <= this.now())
       throw Error('Account verification unavailable');
-    return { subject: session.user.id.toLowerCase(), sessionId: claims.session_id as string, token: session.access_token, expiresAt: session.expires_at! * 1000 };
+    return { subject: session.user.id.toLowerCase(), email: verified.data.user.email ?? null, sessionId: claims.session_id as string, token: session.access_token, expiresAt: session.expires_at! * 1000 };
   }
 
   api(account: AccountBinding, origin: string, send: typeof fetch = fetch) {

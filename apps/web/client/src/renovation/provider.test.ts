@@ -22,6 +22,18 @@ function fixture() {
   return { provider, auth, token, newSession:()=>{authSession=other;}, refresh:()=>{expiry=20;}, expire: () => { now = 10000; }, switch: () => { user = other; }, reject: (value: boolean) => { rejected = value; } };
 }
 afterEach(()=>localStorage.clear());
+it('only exposes the verified email for the current unexpired account',async()=>{
+  const f=fixture();
+  let now=1000;
+  const provider=new VerifiedLearnerProvider({...f.auth,getUser:async()=>({data:{user:{id:subject,is_anonymous:false,email:'verified@example.test'}},error:null})} as unknown as SupabaseClient['auth'],project,()=>now);
+  const account=await provider.bind();
+  expect(provider.emailFor(account)).toBe('verified@example.test');
+  provider.invalidate();expect(provider.emailFor(account)).toBeNull();
+  const local=provider.localBinding()!;expect(provider.emailFor(local)).toBeNull();
+  const current=await provider.bind();expect(provider.emailFor(account)).toBeNull();
+  expect(provider.emailFor(current)).toBe('verified@example.test');
+  now=10000;expect(provider.emailFor(current)).toBeNull();
+});
 it('keeps verified requests usable during deferred same-session verification',async()=>{
   const f=fixture(),account=await f.provider.bind();
   let release!:(value:Awaited<ReturnType<typeof f.auth.getUser>>)=>void;
