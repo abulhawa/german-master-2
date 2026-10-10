@@ -14,7 +14,7 @@ The repository contains the durable state. A new chat need not have access to th
 
 ## Latest owner-requested database task — 10 October 2026
 
-Prepare a fresh database replacement using one initial schema, without learner-data migration. The owner confirmed the two existing accounts/progress are disposable and selected the existing organization. See [replacement preparation](clean-database-baseline-2026-10-10.md) and the newest root checkpoint: SQL preparation passes local checks, but runtime consolidation and hosted verification remain incomplete; project creation is blocked by unavailable connector cost lookup. Production cutover and retirement remain separate controlled steps. M2 remains active.
+Prepare a fresh database replacement using one initial schema, without learner-data migration. The owner confirmed the two existing accounts/progress are disposable and selected the existing organization. See [replacement preparation](clean-database-baseline-2026-10-10.md) and the newest root checkpoint: SQL preparation passes local checks, but runtime consolidation and hosted verification remain incomplete; owner dashboard creation resolved provisioning and the replacement baseline is now installed/verified on the hosted project. Scoped logins, Auth/settings and both-client lifecycle acceptance remain unfinished. Production cutover and retirement remain separate controlled steps. M2 remains active.
 
 ## Current shared priority — 10 October 2026
 

@@ -76,3 +76,29 @@ make room or enable billing as a workaround.
 M2 remains the only active milestone. No production cutover, project retirement,
 Auth configuration mutation, content publication, deployment or store release
 was performed in this preparation.
+
+## Hosted installation follow-up
+
+The owner created `german-master-v2-clean` (`sqgjsmiaprsuilcjmaav`) in Frankfurt
+in the selected Free organization. It is ACTIVE_HEALTHY. Before installation,
+Auth users were zero, application schemas absent and the migration ledger absent.
+Applied the exact prepared initial SQL once. Supabase's ledger contains one
+entry: `20261010172945`, named `0001_initial_schema`; the application baseline
+is 1. The prior provisioning blocker is resolved through owner dashboard action.
+
+Hosted inspection verifies 29 application tables, all with RLS, 29 policies,
+61 indexes, 19 immutable triggers, three private invoker Auth views, four
+restricted NOLOGIN parent roles, fixed empty mutation-function search path and
+no learner-role schema access. Auth users, learner profiles and targets remain
+zero. Security advisor returned no findings.
+
+Performance follow-ups: 19 [RLS initialization-plan warnings](https://supabase.com/docs/guides/database/database-linter?lint=0003_auth_rls_initplan),
+eight [unindexed foreign keys](https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys),
+and 16 [unused indexes](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index).
+Unused-index notices on an empty database do not justify removing indexes.
+These findings remain to assess alongside the active M2 load/query-cost work.
+
+Scoped server login provisioning, Auth/SMTP/callback setup, replacement API/client
+configuration, content setup and complete both-client lifecycle acceptance remain
+unfinished. The existing production project remains unchanged. This installation
+is not production cutover or readiness acceptance.
