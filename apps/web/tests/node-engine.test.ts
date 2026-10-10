@@ -14,14 +14,14 @@ const packageJsonPath = join(thisDir, '..', 'package.json');
 const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8')) as PackageJson;
 
 describe('runtime requirements', () => {
-  test('package.json advertises Node.js 22 compatibility', () => {
+  test('package.json requires Node.js 24', () => {
     expect(packageJson.engines?.node, 'package.json should define a Node engine range').toBeTruthy();
-    expect(packageJson.engines?.node).toMatch(/^(>=22|22\.x)$/);
+    expect(packageJson.engines?.node).toBe('24.x');
   });
 
-  test('test environment runs on Node.js 22 or newer', () => {
+  test('test environment runs on Node.js 24', () => {
     const major = Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10);
     expect(Number.isNaN(major)).toBe(false);
-    expect(major).toBeGreaterThanOrEqual(22);
+    expect(major).toBe(24);
   });
 });
