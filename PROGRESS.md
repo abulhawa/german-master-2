@@ -1,5 +1,13 @@
 # German Master 2.0 renovation checkpoint
 
+## Plain-language learner UX audit — 10 October 2026 (draft PR #16)
+
+- Current source and published product baseline were reviewed from the connected GitHub and Vercel repositories. The canonical web artifact is built from `apps/web/learner-product`; the legacy `apps/web/client/src/App.tsx` is not the production learner entrypoint. Actual interactive browser and native-device acceptance were not available during this review.
+- Draft PR #16 / branch `audit/learner-experience-20261010` updates the real learner UI: removes “server-confirmed progress” and repeated snapshot notices, clarifies home/progress/skills language, rewrites pending/retry/confirmation/account/export copy, makes German informal learner wording more consistent, and adds accurate v2 HTML metadata. No practice grading, exercise revision, schema, backend, or Android behavior is changed.
+- A redundant stale-progress label is shown only when a refresh fails and previous saved progress is being displayed. Guest attachment remains opt-in, and export/downloading still distinguishes synced account data from drafts stored locally.
+- Adjusted existing journey and privacy test expectations. Design review: unchanged accessible controls, learner navigation, tokens, focused practice layout and dual English/German copy. See `docs/product/learner-experience-audit-2026-10-10.md`.
+- As of writing, this branch is **not merged, deployed or production/browser accepted**. Wait for final-head hosted checks, then perform browser-based wide/narrow-screen, guest, sign-in, error-state and browser-history acceptance. Production deployment and Android release remain separate approvals. M1 status is not advanced.
+
 ## First-visit web UX improvements — 10 October 2026 (PR #15, unmerged)
 
 - Owner requested fixes to all findings in the first-time visitor walkthrough. Branch `fix/first-visit-ux-review-20261010` / PR #15 updates web UI only; production `main` is unchanged.
