@@ -34,9 +34,9 @@ fun NativeIdentityDeletionControl(repository: LearnerRepository, german: Boolean
     }
     Column(verticalArrangement=Arrangement.spacedBy(16.dp)) {
         Text(label("Delete account","Konto löschen"),Modifier.semantics {heading()})
-        Text(if(marker?.complete==true)label("Account deletion confirmed and local work removed.","Kontolöschung bestätigt und lokale Daten entfernt.")
+        Text(if(marker?.complete==true)label("Your account and its saved work on this device have been deleted.","Dein Konto und seine gespeicherten Übungen auf diesem Gerät wurden gelöscht.")
             else if(marker!=null)label("Deletion saved. Practice and sync are blocked. Check status or explicitly reauthenticate to retry delivery.","Löschung gespeichert. Üben und Synchronisieren gesperrt. Prüfe den Status oder bestätige deine Anmeldung, um die Löschung erneut zu senden.")
-            else label("Deletes your sign-in account, confirmed learner data and unsynced work. Export first if you want a copy.","Löscht dein Anmeldekonto, bestätigte Lerndaten und nicht synchronisierte Vorgänge. Exportiere zuerst eine Kopie, falls gewünscht."))
+            else label("Deletes your account, saved learning data and unsynced work. Download your data first if you want a copy.","Löscht dein Konto, gespeicherte Lerndaten und noch nicht synchronisierte Übungen. Lade zuerst deine Daten herunter, wenn du eine Kopie möchtest."))
         if(marker!=null) LearnerButton(if(marker.receipt is IdentityDeletionCompleted)label("Finish local removal","Lokale Entfernung abschließen") else label("Check saved deletion status","Status der gespeicherten Löschung prüfen"),!busy&&!blocked) {run()}
         if(marker?.complete!=true && marker?.receipt !is IdentityDeletionCompleted) {
             if(!confirm)LearnerButton(if(marker==null)label("Delete account…","Konto löschen…") else label("Reauthenticate and retry deletion","Anmeldung bestätigen und Löschung erneut senden"),!busy&&!blocked) {confirm=true}

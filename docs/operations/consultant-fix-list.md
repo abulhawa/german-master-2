@@ -12,8 +12,8 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 | 4 | Dedicated progress freshness, retained across local operations and cleared only by successful snapshot refresh | Implemented, unverified | `239128d` | Failed refresh followed by local edits and navigation |
 | 5 | Authored bilingual descriptions and examples for 60 targets; candidate builder uses descriptions | Implemented, unverified | `7785e36` | Catalog generation and both-client detail screens |
 | 6 | Optional versioned rubric/evaluation feedback parts, generated TS/Kotlin contracts, web/native rendering and offline propagation | Implemented, unverified | `956c90a` | Contract conformance, both clients, old-content fallback |
-| 7 | Localized recovery/resend forms, PKCE callback screen, verified-subject password update, expiry/error states | Implemented, unverified | This slice | Recovery links, expired links, identity isolation, delivery |
-| 8 | Native learner terminology | Pending | — | English/German native journeys and recovery states |
+| 7 | Localized recovery/resend forms, PKCE callback screen, verified-subject password update, expiry/error states | Implemented, unverified | `2cad943` | Recovery links, expired links, identity isolation, delivery |
+| 8 | Native progress, practice, privacy and provider copy aligned; shared bilingual terminology guide | Implemented, unverified | This slice | English/German native journeys and recovery states |
 
 ## Implementation notes
 

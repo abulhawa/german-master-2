@@ -102,13 +102,13 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         p.outbox.forEach { event ->
             val receipt = event.attemptReceipt
             val confirmed = when(receipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
-            if (confirmed != null && confirmed.outcome != event.provisional?.outcome) Text(text("Server correction: ", "Serverkorrektur: ") + if(german) confirmed.explanation.de else confirmed.explanation.en)
+            if (confirmed != null && confirmed.outcome != event.provisional?.outcome) Text(text("Updated result: ", "Aktualisiertes Ergebnis: ") + if(german) confirmed.explanation.de else confirmed.explanation.en)
             if (receipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(text("A saved event was not accepted. Further sync has stopped; the event remains saved for review.", "Ein gespeichertes Ereignis wurde nicht akzeptiert. Die Synchronisierung wurde angehalten. Das Ereignis bleibt zur Prüfung gespeichert."))
         }
     }
     if (closing) {
         AlertDialog(onDismissRequest = { closing = false }, title = { Text(text("End this session?", "Diese Übung beenden?")) },
-            text = { Column { Text(if(p.offlinePack != null) text("Your answers, Skips and partial draft stay saved on this device. Sync later to confirm them.", "Antworten, übersprungene Aufgaben und Entwurf bleiben auf diesem Gerät gespeichert. Später synchronisieren, um sie zu bestätigen.") else text("Confirmed answers remain. Your partial session and draft stay saved. Retry any pending answer or Skip before ending.", "Bestätigte Antworten bleiben erhalten. Teilübung und Entwurf bleiben gespeichert. Senden Sie ausstehende Antworten oder Überspring-Anfragen zuerst erneut."))
+            text = { Column { Text(if(p.offlinePack != null) text("Your answers, Skips and partial draft stay saved on this device. Sync later to confirm them.", "Antworten, übersprungene Aufgaben und Entwurf bleiben auf diesem Gerät gespeichert. Später synchronisieren, um sie zu bestätigen.") else text("Your saved results remain. Your unfinished session stays on this device. Retry any unfinished answer or skip before ending.", "Deine gespeicherten Ergebnisse bleiben erhalten. Die angefangene Übung bleibt auf diesem Gerät. Sende ausstehende Antworten oder übersprungene Aufgaben vor dem Beenden erneut."))
                 TextButton(enabled = !busy, onClick = { closing = false; close() }) { Text(text("Save and return Home", "Speichern und zur Startseite")) }
             } },
             confirmButton = { TextButton(enabled = !busy && (p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected, onClick = { closing = false; action { repository.finishPractice() } }) { Text(text("End session", "Übung beenden")) } },
@@ -118,15 +118,15 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     if(session == null) {
         button(text("Retry session", "Sitzung erneut laden")) { action { repository.startPractice() } }
     } else if(p.index == session.questions.size || p.completion != null) {
-        Text(if(p.completion?.mode == "partial") text("Partial session summary", "Zusammenfassung der Teilübung") else if(p.offlinePack != null && p.completionReceipt == null) text("Saved session summary", "Zusammenfassung der gespeicherten Sitzung") else text("Confirmed summary", "Bestätigte Zusammenfassung"), Modifier.semantics { heading(); liveRegion = LiveRegionMode.Polite })
-        Text(if(p.completionReceipt != null) text("Session end confirmed by the server.", "Übungsende vom Server bestätigt.") else text("Session completion awaiting confirmation.", "Bestätigung des Übungsendes ausstehend."))
-        if(p.completionReceipt == null && (p.offlinePack == null || p.completion == null)) button(if(p.offlinePack != null) text("Save session end", "Übungsende speichern") else if(p.completion == null) text("Confirm session completion", "Übungsende bestätigen") else text("Retry saved completion", "Gespeichertes Übungsende erneut senden")) { action { repository.finishPractice() } }
+        Text(if(p.completion?.mode == "partial") text("Partial session summary", "Zusammenfassung der Teilübung") else if(p.offlinePack != null && p.completionReceipt == null) text("Saved session summary", "Zusammenfassung der gespeicherten Sitzung") else text("Practice summary", "Zusammenfassung deiner Übung"), Modifier.semantics { heading(); liveRegion = LiveRegionMode.Polite })
+        Text(if(p.completionReceipt != null) text("Session saved to your progress.", "Die Übung wurde in deinem Lernstand gespeichert.") else text("Your session still needs to sync.", "Deine Übung muss noch synchronisiert werden."))
+        if(p.completionReceipt == null && (p.offlinePack == null || p.completion == null)) button(if(p.offlinePack != null) text("Save session end", "Übungsende speichern") else if(p.completion == null) text("Finish session", "Übung abschließen") else text("Try saving session again", "Übung erneut speichern")) { action { repository.finishPractice() } }
         val graded = p.completionReceipt?.gradedCount ?: p.graded
         val skipped = p.completionReceipt?.skippedCount ?: p.skipped
         val correct = p.completionReceipt?.correctCount ?: p.correct
         Text(if(p.offlinePack != null && p.completionReceipt == null) text("Saved answers: $graded · Skipped: $skipped · Provisional correct: $correct", "Gespeicherte Antworten: $graded · Übersprungen: $skipped · Vorläufig richtig: $correct") else text("Graded: $graded · Skipped: $skipped · Correct: $correct", "Bewertet: $graded · Übersprungen: $skipped · Richtig: $correct"))
-        Text(text("A correct answer is a first step. Retained improvement needs later unassisted checks.", "Eine richtige Antwort ist ein erster Schritt. Nachhaltiger Fortschritt braucht spätere Prüfungen ohne Hilfe."))
-        Text(text("Targets covered", "Behandelte Lernziele"), Modifier.semantics { heading() })
+        Text(text("Getting an answer right is a good start. Later practice without hints helps it stick.", "Eine richtige Antwort ist ein guter Anfang. Späteres Üben ohne Hinweise hilft dir, das Gelernte zu behalten."))
+        Text(text("Skills practised", "Geübte Fähigkeiten"), Modifier.semantics { heading() })
         session.questions.take(p.index + if(p.evaluation != null) 1 else 0).distinctBy { it.exercise.targetId }.forEach { question ->
             val title = repository.state.catalog?.targets?.find { it.id == question.exercise.targetId }?.title
             Text(title?.let { if (german) it.de else it.en } ?: question.exercise.prompt)
@@ -173,7 +173,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             if(p.exposure == null) Button(onClick = { action { repository.answer() } }, enabled = !busy && (p.pending != null || nativeAnswerReady(exercise, p.draft)), modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text(text(if(p.pending == null) "Check" else "Retry answer", if(p.pending == null) "Prüfen" else "Antwort erneut senden")) }
             if(p.pending == null) button(text(if(p.exposure == null) "Skip" else "Retry skip", if(p.exposure == null) "Überspringen" else "Überspringen erneut senden")) { action { repository.skip() } }
         }
-        if(p.pending != null && p.evaluation == null || p.exposure != null) Text(text("Saved; awaiting server confirmation.", "Gespeichert; Serverbestätigung ausstehend."))
+        if(p.pending != null && p.evaluation == null || p.exposure != null) Text(text("Saved on this device; still waiting to sync.", "Auf diesem Gerät gespeichert; noch nicht synchronisiert."))
         p.evaluation?.let { evaluation ->
             val event = p.outbox.find { it.attempt?.sessionQuestionId == p.question.id }
             val confirmed = when (val receipt = event?.attemptReceipt) {
@@ -186,13 +186,13 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
                 p.draft?.let { foundationAnswerText(it, exercise) }, foundationAnswerText(shown.acceptedAnswer, exercise),
                 if (german) shown.explanation.de else shown.explanation.en, shown.assisted, busy, shown.completedAnswer) { action { repository.continuePractice() } }
         }
-        if(p.rejected) Text(text("Submission rejected. Saved work remains; discard only to recover after a fixture reset.", "Übermittlung abgelehnt. Daten bleiben gespeichert; nach Zurücksetzen des Testservers verwerfen."))
+        if(p.rejected) Text(text("This answer could not be saved to your progress. Your work is still on this device. Discarding the session removes unsynced answers.", "Diese Antwort konnte nicht in deinem Lernstand gespeichert werden. Deine Übungen bleiben auf diesem Gerät. Beim Verwerfen gehen nicht synchronisierte Antworten verloren."))
     }
     if (p.session != null && p.index < p.session.questions.size) {
         var reportOpen by remember(p.question.id) { mutableStateOf(false) }
         val savedReport = repository.state.contentReport
         val recorded = repository.state.reportRecorded && savedReport?.sessionQuestionId == p.question.id
-        if (recorded) Text(text("Report recorded for this revision. Your learning result is unchanged.", "Meldung für diese Version gespeichert. Ihr Lernergebnis bleibt unverändert."))
+        if (recorded) Text(text("Problem reported. Your result is unchanged.", "Das Problem wurde gemeldet. Dein Ergebnis bleibt unverändert."))
         else if (savedReport == null || repository.state.reportRecorded) {
             TextButton(onClick = { reportOpen = true }, enabled = !busy) { Text(text("Report an exercise problem", "Problem mit der Übung melden")) }
             if (reportOpen) {

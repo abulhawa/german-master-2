@@ -129,8 +129,8 @@ fun NativePrivacyExport(repository: LearnerRepository, german: Boolean, blocked:
     }
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(label("Privacy and account", "Datenschutz und Konto"), Modifier.semantics { heading() })
-        Text(label("Export contains confirmed server data. Sync first to include pending answers and preferences. Unsubmitted drafts stay on this device. Choose where to save the file.", "Der Export enthält bestätigte Serverdaten. Synchronisiere zuerst ausstehende Antworten und Einstellungen. Nicht abgegebene Entwürfe bleiben auf diesem Gerät. Wähle den Speicherort für die Datei."))
-        LearnerButton(label("Save confirmed data", "Bestätigte Daten speichern"), !busy && !blocked) { export(false) }
+        Text(label("The download contains data saved to your account. Sync first to include pending answers and preferences. Unsubmitted drafts stay on this device. Choose where to save the file.", "Der Download enthält die in deinem Konto gespeicherten Daten. Synchronisiere zuerst ausstehende Antworten und Einstellungen. Nicht abgegebene Entwürfe bleiben auf diesem Gerät. Wähle den Speicherort für die Datei."))
+        LearnerButton(label("Download my learning data", "Meine Lerndaten herunterladen"), !busy && !blocked) { export(false) }
         LearnerButton(label("Sync saved work and save data", "Gespeicherte Vorgänge synchronisieren und Daten speichern"), !busy && !blocked) { export(true) }
         status?.let { Text(it, Modifier.semantics { liveRegion = LiveRegionMode.Polite }) }
     }

@@ -128,7 +128,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }) { screen = "home" }
             } else {
             if (cache.pending != null) {
-                Text(label("Preferences saved on this device, awaiting confirmation. Progress below is server-confirmed only.", "Einstellungen lokal gespeichert, Bestätigung ausstehend. Fortschritt zeigt nur bestätigte Daten."))
+                Text(label("Your preferences are saved here and still need to sync. Your progress shows previously saved results.", "Deine Einstellungen sind hier gespeichert und müssen noch synchronisiert werden. Dein Lernstand zeigt die bisher gespeicherten Ergebnisse."))
                 LearnerButton(label("Retry saved preferences", "Gespeicherte Einstellungen erneut senden"), !busy) { run { repository.retry() } }
                 LearnerButton(label("Reload current preferences", "Aktuelle Einstellungen laden"), !busy) { run { repository.reloadProfile() } }
             }
@@ -154,11 +154,9 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }
             } else if (profile != null) {
                 if (screen != "home") {
-                    Text(when(screen) { "account" -> design(R.string.study_account); "progress" -> label("Confirmed Progress", "Bestätigter Fortschritt"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); else -> label("Target detail", "Lernzieldetails") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
+                    Text(when(screen) { "account" -> design(R.string.study_account); "progress" -> label("Your progress", "Dein Lernstand"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); else -> label("Skill detail", "Fähigkeit im Detail") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
                 }
-                if (screen == "progress") {
-                    Text(label("Confirmed snapshot", "Bestätigter Datenstand") + ": " + (cache.generatedAt ?: "—"))
-                    if (!fresh) Text(label("Saved snapshot; due flags may be outdated. Refresh to update.", "Gespeicherter Datenstand; Fälligkeiten können veraltet sein. Bitte aktualisieren."))
+                if (screen == "progress") {                    if (!fresh) Text(label("Showing your last saved progress. Refresh when online.", "Dein zuletzt gespeicherter Lernstand wird angezeigt. Aktualisiere ihn, wenn du online bist."))
                     LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
                 }
                 if (screen == "home") {
@@ -181,12 +179,12 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                     LearnerButton(if(cache.packRequest == null) label("Download two sessions", "Zwei Sitzungen herunterladen") else label("Retry saved download", "Gespeicherten Download wiederholen"), !busy && (cache.packRequest != null || cache.pending == null && (available ?: 0) > 0)) { run(false) { repository.prepareReserve() } }
                     LearnerButton(label("Start downloaded practice", "Heruntergeladene Übungen starten"), !busy && cache.practice == null && valid && prepared > 0) { run(false, {screen = "practice"}) { repository.startOffline() } }
                     cache.completedOffline.forEachIndexed { index, p ->
-                        Text(label("Saved session", "Gespeicherte Sitzung") + " ${index + 1}: ${p.outbox.count { !it.delivered }} " + label("awaiting confirmation", "Bestätigungen ausstehend"))
+                        Text(label("Saved session", "Gespeicherte Sitzung") + " ${index + 1}: ${p.outbox.count { !it.delivered }} " + label("waiting to sync", "noch zu synchronisieren"))
                         LearnerButton(label("Sync saved session", "Gespeicherte Sitzung synchronisieren") + " ${index + 1}", !busy && p.outbox.any { !it.delivered }) { run { repository.syncSavedWork() } }
                         p.outbox.forEach { event ->
                             val result = when(val receipt = event.attemptReceipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
-                            if(result != null && result.outcome != event.provisional?.outcome) Text(label("Server correction: ", "Serverkorrektur: ") + if(german) result.explanation.de else result.explanation.en)
-                            if(event.attemptReceipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(label("Saved event needs review; sync stopped.", "Gespeichertes Ereignis muss geprüft werden. Synchronisierung angehalten."))
+                            if(result != null && result.outcome != event.provisional?.outcome) Text(label("Updated result: ", "Aktualisiertes Ergebnis: ") + if(german) result.explanation.de else result.explanation.en)
+                            if(event.attemptReceipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(label("An answer could not be saved to your account. Sync has stopped; your work is still on this device.", "Eine Antwort konnte nicht in deinem Konto gespeichert werden. Die Synchronisierung wurde angehalten; deine Übungen bleiben auf diesem Gerät."))
                         }
                     }
                 } else if (screen in setOf("topics", "topic", "target")) {
@@ -195,20 +193,20 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                         resume = { screen = "practice"; run(false) { repository.startPractice() } },
                         start = { focus -> run(false, { screen = "practice" }) { repository.startPractice(focus) } })
                 } else {
-                    listOf("needs_practice" to label("Needs practice", "Übungsbedarf"), "improving" to label("Improving", "Verbessert"), "mastered" to label("Mastered", "Beherrscht")).forEach { (state, title) ->
+                    listOf("needs_practice" to label("Needs practice", "Braucht Übung"), "improving" to label("Improving", "Wird sicherer"), "mastered" to label("Mastered", "Sicher")).forEach { (state, title) ->
                         val targets = cache.targets.filter { it.state == state }
                         Text("$title (${targets.size})", Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                         targets.forEach { target ->
                             val metadata = cache.catalog?.targets?.find { it.id == target.targetId }
                             LearnerButton(metadata?.title?.let { if (german) it.de else it.en } ?: target.targetId, !busy) { detailId = target.targetId; screen = "target" }
-                            Text(label("Qualifying checks", "Qualifizierte Prüfungen") + ": ${target.qualifyingCheckCount}")
+                            Text(label("Review checks", "Wiederholungsprüfungen") + ": ${target.qualifyingCheckCount}")
                             target.schedule.firstOrNull()?.let {
                                 val date = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(ZoneId.of(profile.preferences.timezone)).format(Instant.parse(it.dueAt))
                                 Text(label("Review", "Wiederholung") + ": $date (${profile.preferences.timezone})")
                             }
                         }
                     }
-                    if (cache.targets.none { it.state in setOf("needs_practice", "improving", "mastered") }) Text(label("No confirmed gains or weaknesses yet.", "Noch keine bestätigten Fortschritte oder Schwächen."))
+                    if (cache.targets.none { it.state in setOf("needs_practice", "improving", "mastered") }) Text(label("Complete some practice to see what to review next.", "Übe zuerst, um zu sehen, was du als Nächstes wiederholen kannst."))
                 }
             }
         }
