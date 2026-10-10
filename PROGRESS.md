@@ -4,7 +4,7 @@
 
 - Owner explicitly requested local commits after each fix with all testing and verification deferred. The tracked list is `docs/operations/consultant-fix-list.md`.
 - Fix 1 implemented: history-aware server variant selection, missing-evidence preference and unchanged frozen replay. Integrated PR #16 WIP locally with the previous local evidence commit preserved. No GitHub merge or push.
-- M1 remains active. Fix 2 implemented: unpublished grammar revisions and transfer coverage gate; prior approvals invalidated. Fix 3 implemented: objective-alignment inventory and revised unpublished questions. Fix 4 implemented: independent progress freshness. Fix 5 implemented: bilingual descriptions and candidate generation support. Fix 6 implemented: structured feedback on both clients and regenerated contracts/unpublished candidate artifacts. Exact next action: implement fixes 7–8, then hand off for deferred verification. Nothing in this entry claims tested or release-ready behavior.
+- M1 remains active. Fix 2 implemented: unpublished grammar revisions and transfer coverage gate; prior approvals invalidated. Fix 3 implemented: objective-alignment inventory and revised unpublished questions. Fix 4 implemented: independent progress freshness. Fix 5 implemented: bilingual descriptions and candidate generation support. Fix 6 implemented: structured feedback on both clients and regenerated contracts/unpublished candidate artifacts. Fix 7 implemented: account recovery/resend; provider configuration and delivery acceptance deferred. Exact next action: implement fix 8, then hand off for deferred verification. Nothing in this entry claims tested or release-ready behavior.
 
 ## Cold-start correction merged and live — 10 October 2026
 

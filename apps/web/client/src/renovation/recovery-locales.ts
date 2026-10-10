@@ -1,0 +1,26 @@
+export const recoveryCopy = {
+  en: {
+    forgot: 'Forgot password?', resend: 'Resend confirmation email', email: 'Email', send: 'Send email',
+    resetTitle: 'Reset your password', resendTitle: 'Confirm your email',
+    sent: 'If this address is eligible, an email is on its way. Check your inbox and spam folder. Open the link in this browser.',
+    sending: 'Sending…', failed: 'We could not finish this request. Please wait a moment and try again.',
+    wait: 'Please wait before sending another email.', back: 'Back to sign in',
+    waiting: 'Opening your recovery link…', invalid: 'This link has expired or could not be opened. Request a new email and open it in the same browser.',
+    newPassword: 'New password', confirmPassword: 'Repeat new password', save: 'Save new password',
+    mismatch: 'The passwords do not match.', saving: 'Updating your password…',
+    complete: 'Your password has been updated.', continue: 'Continue to your account',
+    savedWork: 'Your saved practice stays on this device.',
+  },
+  de: {
+    forgot: 'Passwort vergessen?', resend: 'Bestätigungs-E-Mail erneut senden', email: 'E-Mail', send: 'E-Mail senden',
+    resetTitle: 'Passwort zurücksetzen', resendTitle: 'E-Mail bestätigen',
+    sent: 'Wenn die Adresse dafür infrage kommt, erhältst du eine E-Mail. Prüfe auch den Spamordner. Öffne den Link in diesem Browser.',
+    sending: 'Wird gesendet…', failed: 'Die Anfrage konnte nicht abgeschlossen werden. Warte kurz und versuche es erneut.',
+    wait: 'Warte bitte, bevor du eine weitere E-Mail anforderst.', back: 'Zurück zur Anmeldung',
+    waiting: 'Dein Link wird geöffnet…', invalid: 'Dieser Link ist abgelaufen oder konnte nicht geöffnet werden. Fordere eine neue E-Mail an und öffne sie im selben Browser.',
+    newPassword: 'Neues Passwort', confirmPassword: 'Neues Passwort wiederholen', save: 'Neues Passwort speichern',
+    mismatch: 'Die Passwörter stimmen nicht überein.', saving: 'Dein Passwort wird geändert…',
+    complete: 'Dein Passwort wurde geändert.', continue: 'Weiter zu deinem Konto',
+    savedWork: 'Deine gespeicherten Übungen bleiben auf diesem Gerät.',
+  },
+};

@@ -4,6 +4,7 @@ import { localLearnerApi } from './api';
 import { browserStorage, type JourneyStorage } from './storage';
 import { LearnerIdentityDeletion, type IdentityDeletionTransport } from './identity-deletion';
 import { IdentityDeletionBeginSchema, IdentityDeletionResponseSchema } from '@german-master/contracts';
+import { AccountRecovery } from './account-recovery';
 
 type Auth = Pick<SupabaseClient['auth'], 'getSession' | 'getUser' | 'signOut'>;
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -180,6 +181,8 @@ export function createLearnerProvider(projectRef: string, publishableKey: string
     global: { fetch: (url, options) => fetch(url,{...options,signal:AbortSignal.timeout(10000),cache:'no-store',redirect:'error'}) },
   });
   const provider = new VerifiedLearnerProvider(client.auth, projectRef);
-  const { data } = client.auth.onAuthStateChange((event, session) => { provider.observeAuthEvent(event, session); });
-  return { client, provider, dispose: async () => { data.subscription.unsubscribe(); provider.invalidate(); await client.auth.dispose(); } };
+  const recovery = new AccountRecovery(client.auth);
+  const { data } = client.auth.onAuthStateChange((event, session) => { recovery.observe(event, session); provider.observeAuthEvent(event, session); });
+  void client.auth.initialize().then(({ error }) => { if(error)recovery.initializationFailed(); }).catch(() => recovery.initializationFailed());
+  return { client, provider, recovery, dispose: async () => { data.subscription.unsubscribe(); provider.invalidate(); await client.auth.dispose(); } };
 }

@@ -11,8 +11,8 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 | 3 | Audited 60 objectives; rewrote connector/collocation choices, removed ordering-rule and title leakage | Implemented, unverified | `6af2218` | German editorial review and client exercise previews |
 | 4 | Dedicated progress freshness, retained across local operations and cleared only by successful snapshot refresh | Implemented, unverified | `239128d` | Failed refresh followed by local edits and navigation |
 | 5 | Authored bilingual descriptions and examples for 60 targets; candidate builder uses descriptions | Implemented, unverified | `7785e36` | Catalog generation and both-client detail screens |
-| 6 | Optional versioned rubric/evaluation feedback parts, generated TS/Kotlin contracts, web/native rendering and offline propagation | Implemented, unverified | This slice | Contract conformance, both clients, old-content fallback |
-| 7 | Password recovery and confirmation resend | Pending | — | Recovery links, expired links, identity isolation, delivery |
+| 6 | Optional versioned rubric/evaluation feedback parts, generated TS/Kotlin contracts, web/native rendering and offline propagation | Implemented, unverified | `956c90a` | Contract conformance, both clients, old-content fallback |
+| 7 | Localized recovery/resend forms, PKCE callback screen, verified-subject password update, expiry/error states | Implemented, unverified | This slice | Recovery links, expired links, identity isolation, delivery |
 | 8 | Native learner terminology | Pending | — | English/German native journeys and recovery states |
 
 ## Implementation notes
@@ -22,3 +22,5 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 
 - Fix 6 adds optional `completedAnswer` to v2 evaluations/offline rubrics, with schema version 1 and text/emphasis parts. Solutions remain in rubrics and feedback, not online question payloads. Older content keeps its existing answer display. Kotlin optional fields default to null; wire omission is accepted, explicit null is rejected by shape parsing.
 - Contract code generation and unpublished candidate artifact generation were performed as implementation steps. The candidate writer used `--write-only`, skipping candidate SQL execution. No tests, builds, lint, browser or device verification were run. Production catalogs and SQL remain untouched. Source approvals are pending.
+
+- Fix 7 provider redirect allowlisting and delivered-email behavior remain unverified. Consumed recovery links require a fresh email after reload. See `account-recovery.md`. No live emails or auth writes were made.
