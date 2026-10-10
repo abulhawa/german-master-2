@@ -1,10 +1,14 @@
 # German Master 2.0 renovation checkpoint
 
-## Consultant fixes — 10 October 2026 (implementation only)
+## Consultant fixes — 10 October 2026 (implemented, unverified)
 
-- Owner explicitly requested local commits after each fix with all testing and verification deferred. The tracked list is `docs/operations/consultant-fix-list.md`.
-- Fix 1 implemented: history-aware server variant selection, missing-evidence preference and unchanged frozen replay. Integrated PR #16 WIP locally with the previous local evidence commit preserved. No GitHub merge or push.
-- M1 remains active. Fix 2 implemented: unpublished grammar revisions and transfer coverage gate; prior approvals invalidated. Fix 3 implemented: objective-alignment inventory and revised unpublished questions. Fix 4 implemented: independent progress freshness. Fix 5 implemented: bilingual descriptions and candidate generation support. Fix 6 implemented: structured feedback on both clients and regenerated contracts/unpublished candidate artifacts. Fix 7 implemented: account recovery/resend; provider configuration and delivery acceptance deferred. Fix 8 implemented: native learner terminology. Exact next action: record final commit references and hand off for deferred verification, then hand off for deferred verification. Nothing in this entry claims tested or release-ready behavior.
+- Owner explicitly requested implementation and a local commit after each fix, with tests, builds, lint and browser/device verification deferred. All eight rows in [the fix list](docs/operations/consultant-fix-list.md) are implemented, unverified.
+- Branch: `fix/consultant-review`. PR #16 at `dd23fed` was integrated locally as `111c9ee`, preserving prior local cold-start evidence. No GitHub merge, push or deployment was performed. PR #15 is already merged remotely; older pending-PR wording below is historical.
+- Commits: variant selection `f0a9554`; transfer contexts `b9f4833`; assessment alignment `6af2218`; progress freshness `239128d`; bilingual descriptions `7785e36`; completed-answer feedback `956c90a`; account recovery `2cad943`; native terminology `e69b4f3`.
+- Generated TypeScript/Kotlin contracts and unpublished candidate artifacts as implementation steps. Candidate generation used `--write-only` to skip candidate SQL execution. Existing production content and releases remain untouched. All 60 edited draft target approvals are pending; historical review workbooks/approvals do not approve these changes.
+- No tests, builds, lint, browser/device acceptance, live email/auth writes, Groq/AI service calls, publication or store release were performed. Recovery redirect configuration and real email delivery remain unverified; a consumed recovery link requires a new email after reload.
+- M1 remains the only active milestone. Bootstrap is complete; the product reset and acceptance remain unfinished. Exact next action: perform the deferred verification backlog in the fix list, repair any failures, and complete existing M1 acceptance before any separately authorized release operation.
+- Commit message: `docs: hand off eight implemented fixes for deferred verification`.
 
 ## Cold-start correction merged and live — 10 October 2026
 

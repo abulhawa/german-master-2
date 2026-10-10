@@ -14,6 +14,8 @@ The repository contains the durable state. A new chat need not have access to th
 
 ## Current shared priority — 10 October 2026
 
+Latest local work: `fix/consultant-review` contains all eight consultant fixes and locally integrated PR #16 WIP. The owner explicitly deferred tests, builds, lint and browser/device verification. See [the fix list](consultant-fix-list.md) for commit references and the required verification backlog. Treat every new fix as implemented, unverified. Do not publish the changed candidate: all 60 edited target approvals are pending. M1 stays active. The exact next action is deferred verification and repair, not another feature slice. Earlier release and PR statuses below describe the prior checkpoint.
+
 PR #13 was owner-authorized, merged and deployed; a cold-start readiness regression was then reproduced from the owner's screenshot. PR #14 corrects the readiness transition without remounting navigation and is merged as `086e9ae`, deployed and verified on the canonical site with delayed cold-start and controlling-worker reload/tab-return fixtures. See [tab-return investigation](web-tab-return-navigation.md) and the newest checkpoint. The final test/evidence-only commit is local. Post-merge checks pass. Next: owner review of the corrected live app and the prior M1 design/manual accessibility gates.
 
 The separate Android v2-only launch/release-configuration work from PR #12 is already merged and preserved. Android Studio versionCode/versionName and signing remain owner-managed; no Play release is authorized by the web correction.
