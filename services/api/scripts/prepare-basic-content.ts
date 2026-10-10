@@ -28,7 +28,7 @@ try {
   writeFileSync(publication?new URL('../../../db/seed/production-basics.sql',import.meta.url):new URL('seed.sql',directory),candidate.sql);
   const reviewed=validateDraftCatalog(input);
   const lines=['# Basic practice candidate: editorial review','',
-    '65 targets / 125 exercises: existing five B1 exercises and 120 authored B1/B2 revisions. Review status below is taken from current source. Edited revisions are unverified and require new hash-bound editorial approval. Historical approvals do not approve changed content. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.', '',
+    `65 targets / 125 exercises: existing five B1 exercises and 120 authored B1/B2 revisions. Current hash-bound AI editorial approvals: ${reviewed.editoriallyApproved}/${reviewed.targets} targets. Review status below is taken from current source; historical approvals do not approve changed content. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.`, '',
     'The B2 label selects a scaffolded practice pack for B2 learners; it is not a claim that every individual form is exclusive to B2 or that this assesses proficiency.', '',
     'Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record the AI editor, dated checklist and content hash in source JSON. This is owner-accepted AI editorial approval, not human certification. The SQL installs only drafts in an isolated review database; do not use it to activate production.', '',
     '## Additions', ''];

@@ -1,6 +1,6 @@
 # Account recovery implementation
 
-Status: implemented, unverified, 10 October 2026. No live emails, account writes or provider configuration changes were performed during implementation.
+Status: implemented and hosted regressions passed through PR #18; delivered recovery accepted on 10 October 2026. See [acceptance evidence](m1-acceptance-2026-10-10.md). The owner-designated account received the email, same-browser PKCE opened the password form, owner submission returned to signed-in Home, and consumed-link reuse was rejected. No provider configuration change was needed or performed. The notes below describe the initial implementation and its originally deferred checks.
 
 - The sign-in screen exposes password reset and signup-confirmation resend with localized pending/success/failure states and a local resend cooldown. Responses avoid promising that an email address exists.
 - Email redirects use the frontend origin. Recovery uses `/?auth=recovery`; confirmation uses `/`. The provider's redirect allowlist must permit the deployed frontend recovery URL before release. Configuration inspection and delivered-email acceptance are deferred.

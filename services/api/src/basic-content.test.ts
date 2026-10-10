@@ -37,7 +37,9 @@ it('installs an additive draft with an exact manifest, retains old revisions and
     expect(await runtimeMembers(db,previous.releaseId)).toEqual(old);
     expect(rows.filter(r=>r.level==='B2')).toHaveLength(60);
     const b2Rows = rows.filter(r => r.level === 'B2');
-    expect(b2Rows.every(r => r.revision === (b2.targets.find(t => t.variants.some(v => v.exercise.id === r.exercise_id))?.category === 'connectors' ? 5 : 4) && (r.payload as Exercise).type === 'gap_choice')).toBe(true);
+    expect(b2Rows.every(r => r.revision === b2.targets.flatMap(t => t.variants)
+      .find(v => v.exercise.id === r.exercise_id)?.exercise.revision &&
+      (r.payload as Exercise).type === 'gap_choice')).toBe(true);
     expect(b2Rows.filter(r => r.review_status === 'pending')).toHaveLength(60);
     expect(rows.filter(r=>r.review_status==='pending')).toHaveLength(120);
     const converted=rows.filter(r=>r.revision>=3 && r.level==='B1');

@@ -12,15 +12,15 @@ Target: 10000000-0000-4000-8000-000000000000 · B1 · plural
 
 Choose the standard plural of der Antrag.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
+Content SHA-256 for sign-off: 69d93ca7e7e1676505e2066e50d72c09774d8b95b82a49433c26625da95a6228
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-0-0
 
-Revision: 10000000-0000-4000-8000-000000001000@2; context: context-0-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001000@3; context: context-0-0; transfer: none
 
 Was ist der Plural von „der Antrag“?
 
@@ -31,7 +31,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001000",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000000",
   "prompt": "Was ist der Plural von „der Antrag“?",
   "instruction": {
@@ -80,7 +80,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-0-1
 
-Revision: 10000000-0000-4000-8000-000000001001@2; context: context-0-1; transfer: transfer-0
+Revision: 10000000-0000-4000-8000-000000001001@3; context: context-0-1; transfer: transfer-0
 
 Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)
 
@@ -91,7 +91,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001001",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000000",
   "prompt": "Für die Förderung liegen mehrere ___ vor. (Plural von „der Antrag“)",
   "instruction": {
@@ -144,15 +144,15 @@ Target: 10000000-0000-4000-8000-000000000001 · B1 · plural
 
 Choose the standard plural of die Rechnung.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
+Content SHA-256 for sign-off: cb173cc77d163548d62d559e129a5e688440f171bce1d203a828a358c0390f1d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-1-0
 
-Revision: 10000000-0000-4000-8000-000000001002@2; context: context-1-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001002@3; context: context-1-0; transfer: none
 
 Was ist der Plural von „die Rechnung“?
 
@@ -163,7 +163,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001002",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000001",
   "prompt": "Was ist der Plural von „die Rechnung“?",
   "instruction": {
@@ -212,7 +212,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-1-1
 
-Revision: 10000000-0000-4000-8000-000000001003@2; context: context-1-1; transfer: transfer-1
+Revision: 10000000-0000-4000-8000-000000001003@3; context: context-1-1; transfer: transfer-1
 
 Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)
 
@@ -223,7 +223,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001003",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000001",
   "prompt": "Im Ordner liegen noch drei offene ___. (Plural von „die Rechnung“)",
   "instruction": {
@@ -276,15 +276,15 @@ Target: 10000000-0000-4000-8000-000000000002 · B1 · plural
 
 Choose the standard plural of der Termin.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
+Content SHA-256 for sign-off: fb1417be082a98872d2fe72d9221b290270c3554d19f5af16b7df88ec588b538
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-2-0
 
-Revision: 10000000-0000-4000-8000-000000001004@2; context: context-2-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001004@3; context: context-2-0; transfer: none
 
 Was ist der Plural von „der Termin“?
 
@@ -295,7 +295,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001004",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000002",
   "prompt": "Was ist der Plural von „der Termin“?",
   "instruction": {
@@ -344,7 +344,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-2-1
 
-Revision: 10000000-0000-4000-8000-000000001005@2; context: context-2-1; transfer: transfer-2
+Revision: 10000000-0000-4000-8000-000000001005@3; context: context-2-1; transfer: transfer-2
 
 Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)
 
@@ -355,7 +355,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001005",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000002",
   "prompt": "Nächste Woche habe ich zwei wichtige ___. (Plural von „der Termin“)",
   "instruction": {
@@ -408,15 +408,15 @@ Target: 10000000-0000-4000-8000-000000000003 · B1 · plural
 
 Choose the standard plural of das Gespräch.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
+Content SHA-256 for sign-off: 599d3b75aadb84e8652a08f32a7c687ce2abd8f7a38622a792170a8b2574eb95
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-3-0
 
-Revision: 10000000-0000-4000-8000-000000001006@2; context: context-3-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001006@3; context: context-3-0; transfer: none
 
 Was ist der Plural von „das Gespräch“?
 
@@ -427,7 +427,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001006",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000003",
   "prompt": "Was ist der Plural von „das Gespräch“?",
   "instruction": {
@@ -476,7 +476,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-3-1
 
-Revision: 10000000-0000-4000-8000-000000001007@2; context: context-3-1; transfer: transfer-3
+Revision: 10000000-0000-4000-8000-000000001007@3; context: context-3-1; transfer: transfer-3
 
 Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)
 
@@ -487,7 +487,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001007",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000003",
   "prompt": "Heute stehen noch zwei schwierige ___ an. (Plural von „das Gespräch“)",
   "instruction": {
@@ -540,15 +540,15 @@ Target: 10000000-0000-4000-8000-000000000004 · B1 · plural
 
 Choose the standard plural of der Vertrag.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
+Content SHA-256 for sign-off: 9d512b7d7b0d353258574fb2f21fc696c928b8aa599e1243bef27f61ffe73475
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-4-0
 
-Revision: 10000000-0000-4000-8000-000000001008@2; context: context-4-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001008@3; context: context-4-0; transfer: none
 
 Was ist der Plural von „der Vertrag“?
 
@@ -559,7 +559,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001008",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000004",
   "prompt": "Was ist der Plural von „der Vertrag“?",
   "instruction": {
@@ -608,7 +608,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-4-1
 
-Revision: 10000000-0000-4000-8000-000000001009@2; context: context-4-1; transfer: transfer-4
+Revision: 10000000-0000-4000-8000-000000001009@3; context: context-4-1; transfer: transfer-4
 
 Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)
 
@@ -619,7 +619,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001009",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000004",
   "prompt": "Die Firma hat mehrere neue ___ abgeschlossen. (Plural von „der Vertrag“)",
   "instruction": {
@@ -672,15 +672,15 @@ Target: 10000000-0000-4000-8000-000000000005 · B1 · plural
 
 Choose the standard plural of die Erfahrung.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
+Content SHA-256 for sign-off: 209ae513b175ef914ee0ad01fd40be67d5cbc3b79ecbe34af3981643b104ce3e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-5-0
 
-Revision: 10000000-0000-4000-8000-000000001010@2; context: context-5-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001010@3; context: context-5-0; transfer: none
 
 Was ist der Plural von „die Erfahrung“?
 
@@ -691,7 +691,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001010",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000005",
   "prompt": "Was ist der Plural von „die Erfahrung“?",
   "instruction": {
@@ -740,7 +740,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-5-1
 
-Revision: 10000000-0000-4000-8000-000000001011@2; context: context-5-1; transfer: transfer-5
+Revision: 10000000-0000-4000-8000-000000001011@3; context: context-5-1; transfer: transfer-5
 
 Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)
 
@@ -751,7 +751,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001011",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000005",
   "prompt": "Im Lebenslauf beschreibt sie ihre beruflichen ___. (Plural von „die Erfahrung“)",
   "instruction": {
@@ -804,15 +804,15 @@ Target: 10000000-0000-4000-8000-000000000006 · B1 · plural
 
 Choose the standard plural of das Angebot.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
+Content SHA-256 for sign-off: 7f23c5ed80e8352665455e04e596759db6348de2bd7e8f463d14a660c585275e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-6-0
 
-Revision: 10000000-0000-4000-8000-000000001012@2; context: context-6-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001012@3; context: context-6-0; transfer: none
 
 Was ist der Plural von „das Angebot“?
 
@@ -823,7 +823,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001012",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000006",
   "prompt": "Was ist der Plural von „das Angebot“?",
   "instruction": {
@@ -872,7 +872,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-6-1
 
-Revision: 10000000-0000-4000-8000-000000001013@2; context: context-6-1; transfer: transfer-6
+Revision: 10000000-0000-4000-8000-000000001013@3; context: context-6-1; transfer: transfer-6
 
 Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)
 
@@ -883,7 +883,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001013",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000006",
   "prompt": "Wir vergleichen drei verschiedene ___. (Plural von „das Angebot“)",
   "instruction": {
@@ -936,15 +936,15 @@ Target: 10000000-0000-4000-8000-000000000007 · B1 · plural
 
 Choose the standard plural of die Entscheidung.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
+Content SHA-256 for sign-off: 25efea61e84578a423b3325bdf437f94d208ca7ce4ace7bde1b388e7c1fc8858
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-7-0
 
-Revision: 10000000-0000-4000-8000-000000001014@2; context: context-7-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001014@3; context: context-7-0; transfer: none
 
 Was ist der Plural von „die Entscheidung“?
 
@@ -955,7 +955,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001014",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000007",
   "prompt": "Was ist der Plural von „die Entscheidung“?",
   "instruction": {
@@ -1004,7 +1004,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-7-1
 
-Revision: 10000000-0000-4000-8000-000000001015@2; context: context-7-1; transfer: transfer-7
+Revision: 10000000-0000-4000-8000-000000001015@3; context: context-7-1; transfer: transfer-7
 
 Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)
 
@@ -1015,7 +1015,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001015",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000007",
   "prompt": "Das Team muss heute mehrere wichtige ___ treffen. (Plural von „die Entscheidung“)",
   "instruction": {
@@ -1068,15 +1068,15 @@ Target: 10000000-0000-4000-8000-000000000008 · B1 · plural
 
 Choose the standard plural of die Voraussetzung.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
+Content SHA-256 for sign-off: f75d4ad0e4ac8065821ed84c63a9d335a54036ac7289eb8868656bc4f0d6787d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-8-0
 
-Revision: 10000000-0000-4000-8000-000000001016@2; context: context-8-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001016@3; context: context-8-0; transfer: none
 
 Was ist der Plural von „die Voraussetzung“?
 
@@ -1087,7 +1087,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001016",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000008",
   "prompt": "Was ist der Plural von „die Voraussetzung“?",
   "instruction": {
@@ -1136,7 +1136,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-8-1
 
-Revision: 10000000-0000-4000-8000-000000001017@2; context: context-8-1; transfer: transfer-8
+Revision: 10000000-0000-4000-8000-000000001017@3; context: context-8-1; transfer: transfer-8
 
 Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)
 
@@ -1147,7 +1147,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001017",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000008",
   "prompt": "Für die Stelle musst du mehrere ___ erfüllen. (Plural von „die Voraussetzung“)",
   "instruction": {
@@ -1200,15 +1200,15 @@ Target: 10000000-0000-4000-8000-000000000009 · B1 · plural
 
 Choose the standard plural of der Vorschlag.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
+Content SHA-256 for sign-off: ba4e56601a1583634ca9357dde7d03ab8dd614699ac00729198daa9646feb8e1
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-9-0
 
-Revision: 10000000-0000-4000-8000-000000001018@2; context: context-9-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001018@3; context: context-9-0; transfer: none
 
 Was ist der Plural von „der Vorschlag“?
 
@@ -1219,7 +1219,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001018",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000009",
   "prompt": "Was ist der Plural von „der Vorschlag“?",
   "instruction": {
@@ -1268,7 +1268,7 @@ Ambiguity: The singular lemma and requested plural are explicit. Distractors mod
 
 ### v-9-1
 
-Revision: 10000000-0000-4000-8000-000000001019@2; context: context-9-1; transfer: transfer-9
+Revision: 10000000-0000-4000-8000-000000001019@3; context: context-9-1; transfer: transfer-9
 
 Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)
 
@@ -1279,7 +1279,7 @@ Wähle die Standardpluralform. Achte auf die Endung und einen möglichen Umlaut.
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001019",
-  "revision": 2,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000009",
   "prompt": "Im Meeting wurden drei konkrete ___ gemacht. (Plural von „der Vorschlag“)",
   "instruction": {
@@ -1332,15 +1332,15 @@ Target: 10000000-0000-4000-8000-000000000010 · B1 · preposition
 
 Choose the definite singular article after mit, using the dative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
+Content SHA-256 for sign-off: 0fdeea580300dd04dc267ae0eb261b0847c48899ead5438a4f508fbb9452f0d6
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-10-0
 
-Revision: 10000000-0000-4000-8000-000000001020@1; context: context-10-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001020@3; context: context-10-0; transfer: initial-30-10-core-use
 
 Ich bespreche die Ergebnisse mit ___ Arzt. (der Arzt)
 
@@ -1351,7 +1351,7 @@ Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001020",
-  "revision": 1,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000010",
   "prompt": "Ich bespreche die Ergebnisse mit ___ Arzt. (der Arzt)",
   "instruction": {
@@ -1400,13 +1400,13 @@ Accepted answers (editorial only):
 
 „mit“ verlangt den Dativ. „der Arzt“ ist maskulin; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-10-1
 
-Revision: 10000000-0000-4000-8000-000000001021@1; context: context-10-1; transfer: transfer-10
+Revision: 10000000-0000-4000-8000-000000001021@4; context: context-10-1; transfer: initial-30-10-applied-context
 
-Morgen fahre ich mit ___ Zug nach Hamburg. (der Zug)
+Nach dem Unfall telefoniert sie mit ___ Anwalt. (der Anwalt)
 
 Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen passt.
 
@@ -1415,9 +1415,9 @@ Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001021",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000010",
-  "prompt": "Morgen fahre ich mit ___ Zug nach Hamburg. (der Zug)",
+  "prompt": "Nach dem Unfall telefoniert sie mit ___ Anwalt. (der Anwalt)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “mit”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „mit“ zum Nomen passt."
@@ -1462,9 +1462,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-„mit“ verlangt den Dativ. „der Zug“ ist maskulin; im Dativ Singular lautet der bestimmte Artikel „dem“.
+„mit“ verlangt den Dativ. „der Anwalt“ ist maskulin; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Dativartikel nach „bei“
 
@@ -1472,15 +1472,15 @@ Target: 10000000-0000-4000-8000-000000000011 · B1 · preposition
 
 Choose the definite singular article after bei, using the dative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
+Content SHA-256 for sign-off: 8efa423fbb9bb06c711e316ed7d6e9d604bdca09ce84f9891c49ed082a3678b1
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-11-0
 
-Revision: 10000000-0000-4000-8000-000000001022@1; context: context-11-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001022@3; context: context-11-0; transfer: initial-30-11-core-use
 
 Wegen der Schmerzen bin ich heute bei ___ Ärztin. (die Ärztin)
 
@@ -1491,7 +1491,7 @@ Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001022",
-  "revision": 1,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000011",
   "prompt": "Wegen der Schmerzen bin ich heute bei ___ Ärztin. (die Ärztin)",
   "instruction": {
@@ -1540,13 +1540,13 @@ Accepted answers (editorial only):
 
 „bei“ verlangt den Dativ. „die Ärztin“ ist feminin; im Dativ Singular lautet der bestimmte Artikel „der“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-11-1
 
-Revision: 10000000-0000-4000-8000-000000001023@1; context: context-11-1; transfer: transfer-11
+Revision: 10000000-0000-4000-8000-000000001023@4; context: context-11-1; transfer: initial-30-11-applied-context
 
-Wir brauchen Hilfe bei ___ Vorbereitung der Präsentation. (die Vorbereitung)
+Bei ___ Anmeldung musst du deinen Ausweis zeigen. (die Anmeldung)
 
 Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen passt.
 
@@ -1555,9 +1555,9 @@ Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001023",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000011",
-  "prompt": "Wir brauchen Hilfe bei ___ Vorbereitung der Präsentation. (die Vorbereitung)",
+  "prompt": "Bei ___ Anmeldung musst du deinen Ausweis zeigen. (die Anmeldung)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “bei”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „bei“ zum Nomen passt."
@@ -1602,9 +1602,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-„bei“ verlangt den Dativ. „die Vorbereitung“ ist feminin; im Dativ Singular lautet der bestimmte Artikel „der“.
+„bei“ verlangt den Dativ. „die Anmeldung“ ist feminin; im Dativ Singular lautet der bestimmte Artikel „der“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Akkusativartikel nach „für“
 
@@ -1612,15 +1612,15 @@ Target: 10000000-0000-4000-8000-000000000012 · B1 · preposition
 
 Choose the definite singular article after für, using the accusative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: b87d576dc52bea0f1feadc24b636e60e9d1c95315c3a708b20a8a89daa14dfe7
+Content SHA-256 for sign-off: badda04c0b88745403f74c1fec806a7a94a6a45dae148a267cecda2abefe56e4
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-12-0
 
-Revision: 10000000-0000-4000-8000-000000001024@1; context: context-12-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001024@3; context: context-12-0; transfer: initial-30-12-core-use
 
 Dieses Formular ist für ___ Kunden am Schalter. (der Kunde, Singular)
 
@@ -1631,7 +1631,7 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001024",
-  "revision": 1,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000012",
   "prompt": "Dieses Formular ist für ___ Kunden am Schalter. (der Kunde, Singular)",
   "instruction": {
@@ -1680,13 +1680,13 @@ Accepted answers (editorial only):
 
 „für“ verlangt den Akkusativ. „der Kunde“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-12-1
 
-Revision: 10000000-0000-4000-8000-000000001025@1; context: context-12-1; transfer: transfer-12
+Revision: 10000000-0000-4000-8000-000000001025@4; context: context-12-1; transfer: initial-30-12-applied-context
 
-Ich buche den Raum für ___ Kurs am Abend. (der Kurs)
+Für ___ Ausflug brauchen wir feste Schuhe. (der Ausflug)
 
 Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt.
 
@@ -1695,9 +1695,9 @@ Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen pas
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001025",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000012",
-  "prompt": "Ich buche den Raum für ___ Kurs am Abend. (der Kurs)",
+  "prompt": "Für ___ Ausflug brauchen wir feste Schuhe. (der Ausflug)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “für”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „für“ zum Nomen passt."
@@ -1742,9 +1742,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-„für“ verlangt den Akkusativ. „der Kurs“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
+„für“ verlangt den Akkusativ. „der Ausflug“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Akkusativartikel nach „ohne“
 
@@ -1752,15 +1752,15 @@ Target: 10000000-0000-4000-8000-000000000013 · B1 · preposition
 
 Choose the definite singular article after ohne, using the accusative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
+Content SHA-256 for sign-off: d0273e098655276f7e31af8a51b00f14b140288fc3614244aaa6b88bd9247995
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-13-0
 
-Revision: 10000000-0000-4000-8000-000000001026@1; context: context-13-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001026@3; context: context-13-0; transfer: initial-30-13-core-use
 
 Sie geht nie ohne ___ Tasche aus dem Haus. (die Tasche)
 
@@ -1771,7 +1771,7 @@ Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen pas
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001026",
-  "revision": 1,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000013",
   "prompt": "Sie geht nie ohne ___ Tasche aus dem Haus. (die Tasche)",
   "instruction": {
@@ -1820,13 +1820,13 @@ Accepted answers (editorial only):
 
 „ohne“ verlangt den Akkusativ. „die Tasche“ ist feminin; im Akkusativ Singular bleibt der bestimmte Artikel „die“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-13-1
 
-Revision: 10000000-0000-4000-8000-000000001027@1; context: context-13-1; transfer: transfer-13
+Revision: 10000000-0000-4000-8000-000000001027@4; context: context-13-1; transfer: initial-30-13-applied-context
 
-Wir dürfen das nicht ohne ___ Zustimmung veröffentlichen. (die Zustimmung)
+Ohne ___ Genehmigung dürfen die Bauarbeiten nicht beginnen. (die Genehmigung)
 
 Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen passt.
 
@@ -1835,9 +1835,9 @@ Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen pas
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001027",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000013",
-  "prompt": "Wir dürfen das nicht ohne ___ Zustimmung veröffentlichen. (die Zustimmung)",
+  "prompt": "Ohne ___ Genehmigung dürfen die Bauarbeiten nicht beginnen. (die Genehmigung)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “ohne”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „ohne“ zum Nomen passt."
@@ -1882,9 +1882,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-„ohne“ verlangt den Akkusativ. „die Zustimmung“ ist feminin; im Akkusativ Singular bleibt der bestimmte Artikel „die“.
+„ohne“ verlangt den Akkusativ. „die Genehmigung“ ist feminin; im Akkusativ Singular bleibt der bestimmte Artikel „die“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Dativartikel nach „aus“
 
@@ -1892,15 +1892,15 @@ Target: 10000000-0000-4000-8000-000000000014 · B1 · preposition
 
 Choose the definite singular article after aus, using the dative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
+Content SHA-256 for sign-off: 78fdb4e1066107dead36f18c09cc5bf79e33ee0d5d3348fb6826c7c24d3b44f7
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-14-0
 
-Revision: 10000000-0000-4000-8000-000000001028@1; context: context-14-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001028@3; context: context-14-0; transfer: initial-30-14-core-use
 
 Die Unterlagen kommen aus ___ Büro im Erdgeschoss. (das Büro)
 
@@ -1911,7 +1911,7 @@ Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001028",
-  "revision": 1,
+  "revision": 3,
   "targetId": "10000000-0000-4000-8000-000000000014",
   "prompt": "Die Unterlagen kommen aus ___ Büro im Erdgeschoss. (das Büro)",
   "instruction": {
@@ -1960,13 +1960,13 @@ Accepted answers (editorial only):
 
 „aus“ verlangt den Dativ. „das Büro“ ist neutral; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-14-1
 
-Revision: 10000000-0000-4000-8000-000000001029@1; context: context-14-1; transfer: transfer-14
+Revision: 10000000-0000-4000-8000-000000001029@4; context: context-14-1; transfer: initial-30-14-applied-context
 
-Wir hören Musik aus ___ Haus nebenan. (das Haus)
+Aus ___ Krankenhaus kam heute eine Nachricht. (das Krankenhaus)
 
 Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen passt.
 
@@ -1975,9 +1975,9 @@ Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen pass
   "type": "choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001029",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000014",
-  "prompt": "Wir hören Musik aus ___ Haus nebenan. (das Haus)",
+  "prompt": "Aus ___ Krankenhaus kam heute eine Nachricht. (das Krankenhaus)",
   "instruction": {
     "en": "Choose only the definite singular article that fits the noun after “aus”.",
     "de": "Wähle nur den bestimmten Artikel im Singular, der nach „aus“ zum Nomen passt."
@@ -2022,9 +2022,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-„aus“ verlangt den Dativ. „das Haus“ ist neutral; im Dativ Singular lautet der bestimmte Artikel „dem“.
+„aus“ verlangt den Dativ. „das Krankenhaus“ ist neutral; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-Ambiguity: The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Adjektivendung: Maskulinum im Nominativ nach „der“
 
@@ -2032,15 +2032,15 @@ Target: 10000000-0000-4000-8000-000000000015 · B1 · adjective
 
 Choose the weak adjective ending after der in masculine nominative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
+Content SHA-256 for sign-off: 57762ed69360a13aa8f013d23b3389f858c2d430a063bd47f89e6f5ba382b411
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-15-0
 
-Revision: 10000000-0000-4000-8000-000000001030@2; context: context-15-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001030@4; context: context-15-0; transfer: initial-30-15-core-use
 
 Der neu___ Kollege beginnt heute.
 
@@ -2051,7 +2051,7 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001030",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000015",
   "prompt": "Der neu___ Kollege beginnt heute.",
   "instruction": {
@@ -2111,13 +2111,13 @@ Accepted answers (editorial only):
 
 Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-15-1
 
-Revision: 10000000-0000-4000-8000-000000001031@2; context: context-15-1; transfer: transfer-15
+Revision: 10000000-0000-4000-8000-000000001031@4; context: context-15-1; transfer: initial-30-15-applied-context
 
-Der freundlich___ Kunde wartet am Empfang.
+Der beschädigt___ Koffer liegt noch am Flughafen.
 
 Wähle die fehlende Adjektivendung.
 
@@ -2126,9 +2126,9 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001031",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000015",
-  "prompt": "Der freundlich___ Kunde wartet am Empfang.",
+  "prompt": "Der beschädigt___ Koffer liegt noch am Flughafen.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
@@ -2186,7 +2186,7 @@ Accepted answers (editorial only):
 
 Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Adjektivendung: Femininum im Nominativ nach „die“
 
@@ -2194,15 +2194,15 @@ Target: 10000000-0000-4000-8000-000000000016 · B1 · adjective
 
 Choose the weak adjective ending after die in feminine nominative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
+Content SHA-256 for sign-off: 455049fb5acc52fb04420da7a9693199641ab4732b73442c4ad52d7e399d8192
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-16-0
 
-Revision: 10000000-0000-4000-8000-000000001032@2; context: context-16-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001032@4; context: context-16-0; transfer: initial-30-16-core-use
 
 Die neu___ Kollegin arbeitet im Vertrieb.
 
@@ -2213,7 +2213,7 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001032",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000016",
   "prompt": "Die neu___ Kollegin arbeitet im Vertrieb.",
   "instruction": {
@@ -2273,13 +2273,13 @@ Accepted answers (editorial only):
 
 Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-16-1
 
-Revision: 10000000-0000-4000-8000-000000001033@2; context: context-16-1; transfer: transfer-16
+Revision: 10000000-0000-4000-8000-000000001033@4; context: context-16-1; transfer: initial-30-16-applied-context
 
-Die wichtig___ Frage bleibt offen.
+Die dringend___ Reparatur beginnt morgen.
 
 Wähle die fehlende Adjektivendung.
 
@@ -2288,9 +2288,9 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001033",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000016",
-  "prompt": "Die wichtig___ Frage bleibt offen.",
+  "prompt": "Die dringend___ Reparatur beginnt morgen.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
@@ -2348,7 +2348,7 @@ Accepted answers (editorial only):
 
 Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Adjektivendung: Neutrum im Nominativ nach „das“
 
@@ -2356,15 +2356,15 @@ Target: 10000000-0000-4000-8000-000000000017 · B1 · adjective
 
 Choose the weak adjective ending after das in neuter nominative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
+Content SHA-256 for sign-off: 7f0f853d430432ad0c2189347355ec49155d18ef40c247b6809aede56ea2a9ff
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-17-0
 
-Revision: 10000000-0000-4000-8000-000000001034@2; context: context-17-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001034@4; context: context-17-0; transfer: initial-30-17-core-use
 
 Das klein___ Büro ist frei.
 
@@ -2375,7 +2375,7 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001034",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000017",
   "prompt": "Das klein___ Büro ist frei.",
   "instruction": {
@@ -2435,13 +2435,13 @@ Accepted answers (editorial only):
 
 Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-17-1
 
-Revision: 10000000-0000-4000-8000-000000001035@2; context: context-17-1; transfer: transfer-17
+Revision: 10000000-0000-4000-8000-000000001035@4; context: context-17-1; transfer: initial-30-17-applied-context
 
-Das neu___ Gerät funktioniert gut.
+Das gemeinsam___ Abendessen fällt heute aus.
 
 Wähle die fehlende Adjektivendung.
 
@@ -2450,9 +2450,9 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001035",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000017",
-  "prompt": "Das neu___ Gerät funktioniert gut.",
+  "prompt": "Das gemeinsam___ Abendessen fällt heute aus.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
@@ -2510,7 +2510,7 @@ Accepted answers (editorial only):
 
 Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Adjektivendung: Maskulinum im Akkusativ nach „den“
 
@@ -2518,15 +2518,15 @@ Target: 10000000-0000-4000-8000-000000000018 · B1 · adjective
 
 Choose the weak adjective ending after den in masculine accusative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
+Content SHA-256 for sign-off: 5b2dbb8d0202664863353780394893217960179878ef5ac6dc71f19bb7be8b50
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-18-0
 
-Revision: 10000000-0000-4000-8000-000000001036@2; context: context-18-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001036@4; context: context-18-0; transfer: initial-30-18-core-use
 
 Ich sehe den neu___ Kollegen.
 
@@ -2537,7 +2537,7 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001036",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000018",
   "prompt": "Ich sehe den neu___ Kollegen.",
   "instruction": {
@@ -2597,13 +2597,13 @@ Accepted answers (editorial only):
 
 Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-18-1
 
-Revision: 10000000-0000-4000-8000-000000001037@2; context: context-18-1; transfer: transfer-18
+Revision: 10000000-0000-4000-8000-000000001037@4; context: context-18-1; transfer: initial-30-18-applied-context
 
-Wir begrüßen den wichtig___ Kunden.
+Bitte unterschreiben Sie den beigefügt___ Antrag.
 
 Wähle die fehlende Adjektivendung.
 
@@ -2612,9 +2612,9 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001037",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000018",
-  "prompt": "Wir begrüßen den wichtig___ Kunden.",
+  "prompt": "Bitte unterschreiben Sie den beigefügt___ Antrag.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
@@ -2672,7 +2672,7 @@ Accepted answers (editorial only):
 
 Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Adjektivendung: Dativ nach bestimmtem Artikel
 
@@ -2680,15 +2680,15 @@ Target: 10000000-0000-4000-8000-000000000019 · B1 · adjective
 
 Choose the weak adjective ending after a definite article in the dative.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
+Content SHA-256 for sign-off: 4ac52751faff45f61cf100b6d9c34a950843bc17f9bef048d66bddcdf5c917b9
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-19-0
 
-Revision: 10000000-0000-4000-8000-000000001038@2; context: context-19-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001038@4; context: context-19-0; transfer: initial-30-19-core-use
 
 Ich spreche mit dem nett___ Kollegen.
 
@@ -2699,7 +2699,7 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001038",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000019",
   "prompt": "Ich spreche mit dem nett___ Kollegen.",
   "instruction": {
@@ -2759,13 +2759,13 @@ Accepted answers (editorial only):
 
 Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-19-1
 
-Revision: 10000000-0000-4000-8000-000000001039@2; context: context-19-1; transfer: transfer-19
+Revision: 10000000-0000-4000-8000-000000001039@4; context: context-19-1; transfer: initial-30-19-applied-context
 
-Sie arbeitet mit der erfahren___ Ärztin.
+Nach der lang___ Besprechung gehen alle nach Hause.
 
 Wähle die fehlende Adjektivendung.
 
@@ -2774,9 +2774,9 @@ Wähle die fehlende Adjektivendung.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001039",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000019",
-  "prompt": "Sie arbeitet mit der erfahren___ Ärztin.",
+  "prompt": "Nach der lang___ Besprechung gehen alle nach Hause.",
   "instruction": {
     "en": "Choose the missing adjective ending.",
     "de": "Wähle die fehlende Adjektivendung."
@@ -2834,7 +2834,7 @@ Accepted answers (editorial only):
 
 Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-Ambiguity: This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Präsens: fahren (du/er)
 
@@ -2842,15 +2842,15 @@ Target: 10000000-0000-4000-8000-000000000020 · B1 · verb
 
 Choose the second- and third-person singular present forms of fahren.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
+Content SHA-256 for sign-off: b1cf74d139f410ba792e54567a5301b6e8cd147bc7d5d8b0e27233d6beccdbe3
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-20-0
 
-Revision: 10000000-0000-4000-8000-000000001040@2; context: context-20-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001040@4; context: context-20-0; transfer: initial-30-20-core-use
 
 Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.
 
@@ -2861,7 +2861,7 @@ Wähle beide Präsensformen von „fahren“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001040",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000020",
   "prompt": "Du ___ jeden Morgen mit dem Bus. Er ___ heute mit dem Zug.",
   "instruction": {
@@ -2943,13 +2943,13 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-20-1
 
-Revision: 10000000-0000-4000-8000-000000001041@2; context: context-20-1; transfer: transfer-20
+Revision: 10000000-0000-4000-8000-000000001041@4; context: context-20-1; transfer: initial-30-20-applied-context
 
-Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.
+Du ___ bei Regen besonders vorsichtig. Er ___ das Auto in die Garage.
 
 Wähle beide Präsensformen von „fahren“.
 
@@ -2958,9 +2958,9 @@ Wähle beide Präsensformen von „fahren“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001041",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000020",
-  "prompt": "Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.",
+  "prompt": "Du ___ bei Regen besonders vorsichtig. Er ___ das Auto in die Garage.",
   "instruction": {
     "en": "Choose both present-tense forms of fahren.",
     "de": "Wähle beide Präsensformen von „fahren“."
@@ -3040,7 +3040,7 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Präsens: lesen (du/er)
 
@@ -3048,15 +3048,15 @@ Target: 10000000-0000-4000-8000-000000000021 · B1 · verb
 
 Choose the second- and third-person singular present forms of lesen.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
+Content SHA-256 for sign-off: f849f49ff6c73e3822b8922068cc6c73c4eeb54245e76df108f7b946912e7360
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-21-0
 
-Revision: 10000000-0000-4000-8000-000000001042@2; context: context-21-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001042@4; context: context-21-0; transfer: initial-30-21-core-use
 
 Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.
 
@@ -3067,7 +3067,7 @@ Wähle beide Präsensformen von „lesen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001042",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000021",
   "prompt": "Du ___ gerade den Bericht. Er ___ jeden Morgen die Zeitung.",
   "instruction": {
@@ -3149,13 +3149,13 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-21-1
 
-Revision: 10000000-0000-4000-8000-000000001043@2; context: context-21-1; transfer: transfer-21
+Revision: 10000000-0000-4000-8000-000000001043@4; context: context-21-1; transfer: initial-30-21-applied-context
 
-Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.
+Du ___ die Zutaten auf der Packung. Er ___ den Kindern eine Geschichte vor.
 
 Wähle beide Präsensformen von „lesen“.
 
@@ -3164,9 +3164,9 @@ Wähle beide Präsensformen von „lesen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001043",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000021",
-  "prompt": "Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.",
+  "prompt": "Du ___ die Zutaten auf der Packung. Er ___ den Kindern eine Geschichte vor.",
   "instruction": {
     "en": "Choose both present-tense forms of lesen.",
     "de": "Wähle beide Präsensformen von „lesen“."
@@ -3246,7 +3246,7 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Präsens: geben (du/er)
 
@@ -3254,15 +3254,15 @@ Target: 10000000-0000-4000-8000-000000000022 · B1 · verb
 
 Choose the second- and third-person singular present forms of geben.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
+Content SHA-256 for sign-off: 369da24132e77cb0955538c7625651f103f8c0a9c08dd11eb260a59229dc0cf8
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-22-0
 
-Revision: 10000000-0000-4000-8000-000000001044@2; context: context-22-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001044@4; context: context-22-0; transfer: initial-30-22-core-use
 
 Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.
 
@@ -3273,7 +3273,7 @@ Wähle beide Präsensformen von „geben“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001044",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000022",
   "prompt": "Du ___ mir bitte den Schlüssel. Er ___ der Kollegin die Unterlagen.",
   "instruction": {
@@ -3355,13 +3355,13 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-22-1
 
-Revision: 10000000-0000-4000-8000-000000001045@2; context: context-22-1; transfer: transfer-22
+Revision: 10000000-0000-4000-8000-000000001045@4; context: context-22-1; transfer: initial-30-22-applied-context
 
-Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.
+Du ___ dem Gast deine Telefonnummer. Er ___ seinem Nachbarn einen Rat.
 
 Wähle beide Präsensformen von „geben“.
 
@@ -3370,9 +3370,9 @@ Wähle beide Präsensformen von „geben“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001045",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000022",
-  "prompt": "Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.",
+  "prompt": "Du ___ dem Gast deine Telefonnummer. Er ___ seinem Nachbarn einen Rat.",
   "instruction": {
     "en": "Choose both present-tense forms of geben.",
     "de": "Wähle beide Präsensformen von „geben“."
@@ -3452,7 +3452,7 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Präsens: nehmen (du/er)
 
@@ -3460,15 +3460,15 @@ Target: 10000000-0000-4000-8000-000000000023 · B1 · verb
 
 Choose the second- and third-person singular present forms of nehmen.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
+Content SHA-256 for sign-off: 416277077f50d6805fcd5be195a226ede47aac0242104693f10c71f86fb2d6ab
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-23-0
 
-Revision: 10000000-0000-4000-8000-000000001046@2; context: context-23-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001046@5; context: context-23-0; transfer: initial-30-23-core-use
 
 Du ___ morgens den Bus. Er ___ lieber das Fahrrad.
 
@@ -3479,7 +3479,7 @@ Wähle beide Präsensformen von „nehmen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001046",
-  "revision": 2,
+  "revision": 5,
   "targetId": "10000000-0000-4000-8000-000000000023",
   "prompt": "Du ___ morgens den Bus. Er ___ lieber das Fahrrad.",
   "instruction": {
@@ -3559,15 +3559,15 @@ Accepted answers (editorial only):
 ]
 ```
 
-Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
+In den Formen mit du und er lautet der Stamm nimm-: du nimmst, er nimmt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-23-1
 
-Revision: 10000000-0000-4000-8000-000000001047@2; context: context-23-1; transfer: transfer-23
+Revision: 10000000-0000-4000-8000-000000001047@5; context: context-23-1; transfer: initial-30-23-applied-context
 
-Du ___ noch einen Kaffee. Er ___ die letzte Tablette.
+Du ___ den nächsten Ausgang. Er ___ sich am Sonntag Zeit für die Familie.
 
 Wähle beide Präsensformen von „nehmen“.
 
@@ -3576,9 +3576,9 @@ Wähle beide Präsensformen von „nehmen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001047",
-  "revision": 2,
+  "revision": 5,
   "targetId": "10000000-0000-4000-8000-000000000023",
-  "prompt": "Du ___ noch einen Kaffee. Er ___ die letzte Tablette.",
+  "prompt": "Du ___ den nächsten Ausgang. Er ___ sich am Sonntag Zeit für die Familie.",
   "instruction": {
     "en": "Choose both present-tense forms of nehmen.",
     "de": "Wähle beide Präsensformen von „nehmen“."
@@ -3656,9 +3656,9 @@ Accepted answers (editorial only):
 ]
 ```
 
-Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
+In den Formen mit du und er lautet der Stamm nimm-: du nimmst, er nimmt.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Präsens: sprechen (du/er)
 
@@ -3666,15 +3666,15 @@ Target: 10000000-0000-4000-8000-000000000024 · B1 · verb
 
 Choose the second- and third-person singular present forms of sprechen.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
+Content SHA-256 for sign-off: 2914d2e3cb99b9f9f46278d1f056a7ca8ff2e9ff1b7ff5fd8661567b4f05f776
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-24-0
 
-Revision: 10000000-0000-4000-8000-000000001048@2; context: context-24-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001048@4; context: context-24-0; transfer: initial-30-24-core-use
 
 Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.
 
@@ -3685,7 +3685,7 @@ Wähle beide Präsensformen von „sprechen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001048",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000024",
   "prompt": "Du ___ sehr gut Deutsch. Er ___ heute mit der Ärztin.",
   "instruction": {
@@ -3767,13 +3767,13 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-24-1
 
-Revision: 10000000-0000-4000-8000-000000001049@2; context: context-24-1; transfer: transfer-24
+Revision: 10000000-0000-4000-8000-000000001049@4; context: context-24-1; transfer: initial-30-24-applied-context
 
-Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.
+Du ___ am Telefon sehr leise. Er ___ vor einem großen Publikum.
 
 Wähle beide Präsensformen von „sprechen“.
 
@@ -3782,9 +3782,9 @@ Wähle beide Präsensformen von „sprechen“.
   "type": "gap_choice",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001049",
-  "revision": 2,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000024",
-  "prompt": "Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.",
+  "prompt": "Du ___ am Telefon sehr leise. Er ___ vor einem großen Publikum.",
   "instruction": {
     "en": "Choose both present-tense forms of sprechen.",
     "de": "Wähle beide Präsensformen von „sprechen“."
@@ -3864,7 +3864,7 @@ Accepted answers (editorial only):
 
 Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Ambiguity: Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Nebensatz mit „weil“
 
@@ -3872,31 +3872,31 @@ Target: 10000000-0000-4000-8000-000000000025 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by weil.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
+Content SHA-256 for sign-off: f7b951d9dda441132c6aed3b2e9b66dd6a9ee3abb0071e9dfddb510e5361f0b8
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-25-0
 
-Revision: 10000000-0000-4000-8000-000000001050@1; context: context-25-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001050@4; context: context-25-0; transfer: initial-30-25-core-use
 
 arbeite / weil / heute / ich
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001050",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000025",
   "prompt": "arbeite / weil / heute / ich",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After weil, the finite verb belongs at the end of the clause.",
@@ -3941,27 +3941,27 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: weil ich heute arbeite.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-25-1
 
-Revision: 10000000-0000-4000-8000-000000001051@1; context: context-25-1; transfer: transfer-25
+Revision: 10000000-0000-4000-8000-000000001051@4; context: context-25-1; transfer: initial-30-25-applied-context
 
 braucht / weil / Hilfe / sie
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001051",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000025",
   "prompt": "braucht / weil / Hilfe / sie",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After weil, the finite verb belongs at the end of the clause.",
@@ -4006,7 +4006,7 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: weil sie Hilfe braucht.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Nebensatz mit „dass“
 
@@ -4014,31 +4014,31 @@ Target: 10000000-0000-4000-8000-000000000026 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by dass.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
+Content SHA-256 for sign-off: a6ca086b93b3363424f9049a6cb01dfae409be15d8a494dc66bf11a2efa075f0
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-26-0
 
-Revision: 10000000-0000-4000-8000-000000001052@1; context: context-26-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001052@4; context: context-26-0; transfer: initial-30-26-core-use
 
 starten / dass / morgen / wir
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001052",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000026",
   "prompt": "starten / dass / morgen / wir",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After dass, the finite verb belongs at the end of the clause.",
@@ -4083,27 +4083,27 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: dass wir morgen starten.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-26-1
 
-Revision: 10000000-0000-4000-8000-000000001053@1; context: context-26-1; transfer: transfer-26
+Revision: 10000000-0000-4000-8000-000000001053@4; context: context-26-1; transfer: initial-30-26-applied-context
 
 bestätigt / dass / den Termin / er
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001053",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000026",
   "prompt": "bestätigt / dass / den Termin / er",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After dass, the finite verb belongs at the end of the clause.",
@@ -4148,7 +4148,7 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: dass er den Termin bestätigt.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Nebensatz mit „obwohl“
 
@@ -4156,31 +4156,31 @@ Target: 10000000-0000-4000-8000-000000000027 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by obwohl.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
+Content SHA-256 for sign-off: 59c2aae19ec4d1babe3cd959b4281909f841a06a41d44cb505192eced7ec0643
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-27-0
 
-Revision: 10000000-0000-4000-8000-000000001054@1; context: context-27-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001054@4; context: context-27-0; transfer: initial-30-27-core-use
 
 bin / obwohl / müde / ich
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001054",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000027",
   "prompt": "bin / obwohl / müde / ich",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After obwohl, the finite verb belongs at the end of the clause.",
@@ -4225,27 +4225,27 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: obwohl ich müde bin.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-27-1
 
-Revision: 10000000-0000-4000-8000-000000001055@1; context: context-27-1; transfer: transfer-27
+Revision: 10000000-0000-4000-8000-000000001055@4; context: context-27-1; transfer: initial-30-27-applied-context
 
 hat / obwohl / wenig Zeit / sie
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001055",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000027",
   "prompt": "hat / obwohl / wenig Zeit / sie",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After obwohl, the finite verb belongs at the end of the clause.",
@@ -4290,7 +4290,7 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: obwohl sie wenig Zeit hat.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Nebensatz mit „wenn“
 
@@ -4298,31 +4298,31 @@ Target: 10000000-0000-4000-8000-000000000028 · B1 · word-order
 
 Place the finite verb at the end of a subordinate clause introduced by wenn.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
+Content SHA-256 for sign-off: 6b7ddf9f72ffb12e4056b28b3c8491d6bce98381af4443b7d39e22f4672cde74
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-28-0
 
-Revision: 10000000-0000-4000-8000-000000001056@1; context: context-28-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001056@4; context: context-28-0; transfer: initial-30-28-core-use
 
 habe / wenn / Zeit / ich
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001056",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000028",
   "prompt": "habe / wenn / Zeit / ich",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After wenn, the finite verb belongs at the end of the clause.",
@@ -4367,27 +4367,27 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: wenn ich Zeit habe.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-28-1
 
-Revision: 10000000-0000-4000-8000-000000001057@1; context: context-28-1; transfer: transfer-28
+Revision: 10000000-0000-4000-8000-000000001057@4; context: context-28-1; transfer: initial-30-28-applied-context
 
 kommt / wenn / pünktlich / der Zug
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001057",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000028",
   "prompt": "kommt / wenn / pünktlich / der Zug",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After wenn, the finite verb belongs at the end of the clause.",
@@ -4432,7 +4432,7 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: wenn der Zug pünktlich kommt.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ## Indirekte Frage mit „ob“
 
@@ -4440,31 +4440,31 @@ Target: 10000000-0000-4000-8000-000000000029 · B1 · word-order
 
 Place the finite verb at the end of an indirect yes/no question introduced by ob.
 
-Review: approved; reviewer: ChatGPT GPT-6 (AI editorial)
+Review: approved; reviewer: Codex (GPT-6), AI editorial review
 
-Content SHA-256 for sign-off: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
+Content SHA-256 for sign-off: 288e8e6332237d0d9b44e74b9d6470119a0f97624685965dd6567689d633d6e6
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
 ### v-29-0
 
-Revision: 10000000-0000-4000-8000-000000001058@1; context: context-29-0; transfer: none
+Revision: 10000000-0000-4000-8000-000000001058@4; context: context-29-0; transfer: initial-30-29-core-use
 
 kommst / ob / morgen / du
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001058",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000029",
   "prompt": "kommst / ob / morgen / du",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After ob, the finite verb belongs at the end of the clause.",
@@ -4509,27 +4509,27 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: ob du morgen kommst.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.
 
 ### v-29-1
 
-Revision: 10000000-0000-4000-8000-000000001059@1; context: context-29-1; transfer: transfer-29
+Revision: 10000000-0000-4000-8000-000000001059@4; context: context-29-1; transfer: initial-30-29-applied-context
 
 hat / ob / genug Zeit / sie
 
-Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb.
+Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung.
 
 ```json
 {
   "type": "word_order",
   "schemaVersion": 1,
   "id": "10000000-0000-4000-8000-000000001059",
-  "revision": 1,
+  "revision": 4,
   "targetId": "10000000-0000-4000-8000-000000000029",
   "prompt": "hat / ob / genug Zeit / sie",
   "instruction": {
-    "en": "Build the clause in this order: conjunction, subject, remaining phrase, finite verb.",
-    "de": "Bilde den Satz in dieser Reihenfolge: Konjunktion, Subjekt, übriger Satzteil, finites Verb."
+    "en": "Arrange the words into a subordinate clause. Use neutral word order.",
+    "de": "Ordne die Wörter zu einem Nebensatz. Verwende die neutrale Wortstellung."
   },
   "hint": {
     "en": "After ob, the finite verb belongs at the end of the clause.",
@@ -4574,4 +4574,4 @@ Accepted answers (editorial only):
 
 Das finite Verb steht am Ende: ob sie genug Zeit hat.
 
-Ambiguity: German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Ambiguity: AI reviewed 10 October 2026: the supplied choices have one answer for the explicitly requested form or semantic relationship. Distinct authored contexts are editorial transfer opportunities, not measured learner transfer.

@@ -1,5 +1,7 @@
 # Consultant fixes — 10 October 2026
 
+**Current follow-up:** the eight fixes and subsequent corrections are merged through PR #18 (`f1ef138`). All reported PR checks and merge-commit Web, Android, accessibility, safety and CodeQL checks pass. Fresh hash-bound AI editorial review, delivered-auth evidence and owner design/manual web accessibility acceptance are recorded in [the 10 October follow-up](m1-acceptance-2026-10-10.md). The implemented/unverified rows below describe the original deferred-verification handoff; they are not the current blanket status. Source editorial approvals do not authorize publication.
+
 Owner instruction: implement and commit each slice without running tests, builds, lint or browser/device verification. All implementation below is **unverified**. M1 stays active; later milestone work remains queued. No publication, deployment, push or release is included.
 
 PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving the prior cold-start evidence commit. No GitHub merge was performed.
