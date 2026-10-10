@@ -10,7 +10,7 @@ export const shellCopy = {
     account: 'Account', workspace: 'Your German practice', tagline: 'A little practice. Lasting progress.',
     accountIntro: 'Your preferences, saved practice and account controls, all in one place.',
     nextFocus: 'Your next focus', nextFocusNote: 'Choose a skill to practise next.',
-    emptyTitle: 'Your progress starts with practice', emptyBody: 'Complete a session to see what you're improving and what to review next.',
+    emptyTitle: 'Your progress starts with practice', emptyBody: 'Complete a session to see what you are improving and what to review next.',
     topicsIntro: 'Choose a topic or start a mixed session.',
     noQuestions: 'No questions are available at your selected level yet. Open practice preferences to choose an available level.',
     confirmed: 'Progress saved', refresh: 'Refresh', review: 'Review your practice preferences',
