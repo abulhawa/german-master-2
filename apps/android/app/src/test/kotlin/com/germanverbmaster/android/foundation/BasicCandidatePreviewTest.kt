@@ -38,16 +38,18 @@ class BasicCandidatePreviewTest {
             assertEquals(120, variants.size)
             var exercise by mutableStateOf(variants.first().first)
             var draft by mutableStateOf<Answer?>(null)
+            var order by mutableStateOf<List<String>>(emptyList())
             compose.setContent {
                 val density = LocalDensity.current
                 CompositionLocalProvider(LocalDensity provides Density(density.density, 2f)) {
                     FoundationTheme { Column(Modifier.width(320.dp).verticalScroll(rememberScrollState())) {
-                        LowTypingInput(exercise, draft, german = true, onDraft = { draft = it })
+                        LowTypingInput(exercise, draft, order = order, german = true,
+                            onDraft = { draft = it }, onOrder = { order = it; draft = AnswerWordOrder(it) })
                     } }
                 }
             }
             for ((question, rubric) in variants) {
-                compose.runOnIdle { exercise = question; draft = null }
+                compose.runOnIdle { exercise = question; draft = null; order = emptyList() }
                 assertFalse(nativeAnswerReady(question, draft))
                 when (val answer = rubric.acceptedAnswers.first()) {
                     is AnswerChoice -> {
@@ -64,7 +66,13 @@ class BasicCandidatePreviewTest {
                         node.performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp).performClick()
                         if (index < answer.selections.lastIndex) assertFalse(nativeAnswerReady(question, draft))
                     }
-                    else -> error("Unexpected converted answer")
+                    is AnswerWordOrder -> answer.tokenIds.forEach { id ->
+                        val token = (question as ExerciseWordOrder).tokens.single { it.id == id }
+                        compose.onNodeWithText(token.text).performScrollTo().assertIsDisplayed()
+                            .assertHeightIsAtLeast(48.dp).performClick()
+                    }
+                    else -> error("Unexpected authored answer")
+
                 }
                 compose.runOnIdle {
                     assertTrue(nativeAnswerReady(question, draft))
