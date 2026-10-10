@@ -26,3 +26,24 @@ it("bounds backlog urgency, uses stable ties and never manufactures duplicate ta
   const input = [candidate("b", "mastered", "2020-01-01T00:00:00Z"), candidate("a", "mastered", "2026-08-01T00:00:00Z")];
   expect(selectQuestions([...input, { ...input[0], exerciseId: "variant" }], 10, now).map(c => c.targetId)).toEqual(["a", "b"]);
 });
+
+it("prioritizes missing transfer evidence before presentation history within a target", () => {
+  const state = candidate("grammar", "learning", now);
+  const qualified = [{variantKey:"seen",contextKey:"known",transferKey:"transfer-a"}];
+  const choices: SelectionCandidate[] = [
+    {...state,exerciseId:"seen",variantKey:"seen",contextKey:"known",targetKind:"grammar",
+      transferKey:"transfer-a",qualifyingChecks:qualified,presentationCount:0},
+    {...state,exerciseId:"unseen",variantKey:"fresh",contextKey:"new",targetKind:"grammar",
+      transferKey:"transfer-b",qualifyingChecks:qualified,presentationCount:4},
+  ];
+  expect(selectQuestions(choices,1,now)[0].exerciseId).toBe("unseen");
+  expect(selectQuestions([...choices].reverse(),1,now)[0].exerciseId).toBe("unseen");
+  const complete=choices.map(c=>({...c,qualifyingChecks:[...qualified,{variantKey:"fresh",contextKey:"new",transferKey:"transfer-b"}]}));
+  expect(selectQuestions(complete,1,now)[0].exerciseId).toBe("seen");
+});
+it("does not claim another variant supplies lexical context evidence", () => {
+  const first={...candidate("lexical"),exerciseId:"old",variantKey:"old",contextKey:"context-a",
+    targetKind:"lexical",qualifyingChecks:[{variantKey:"old",contextKey:"context-a"}],presentationCount:0};
+  const second={...first,exerciseId:"new",variantKey:"new",contextKey:"context-b",presentationCount:2};
+  expect(selectQuestions([first,second],1,now)[0].exerciseId).toBe("new");
+});

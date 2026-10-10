@@ -67,6 +67,6 @@ export function RecoveryPassword({ recovery, state, locale, finish }: {
       <button className="gm-button" type="submit" disabled={busy}>{busy ? c.saving : c.save}</button>
     </form>}
     {error && <p role="alert">{c[error]}</p>}<p>{c.savedWork}</p>
-    {(state.stage === 'invalid' || state.stage === 'complete') && <FoundationButton onClick={finish}>{state.stage === 'complete' ? c.continue : c.back}</FoundationButton>}
+    {(state.stage === 'invalid' || state.stage === 'complete') && <FoundationButton onClick={finish}>{state.stage === 'complete' ? c.continue : c.requestAgain}</FoundationButton>}
   </PracticeCard></div></main>;
 }

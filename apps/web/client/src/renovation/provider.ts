@@ -183,6 +183,6 @@ export function createLearnerProvider(projectRef: string, publishableKey: string
   const provider = new VerifiedLearnerProvider(client.auth, projectRef);
   const recovery = new AccountRecovery(client.auth);
   const { data } = client.auth.onAuthStateChange((event, session) => { recovery.observe(event, session); provider.observeAuthEvent(event, session); });
-  void client.auth.initialize().then(({ error }) => { if(error)recovery.initializationFailed(); }).catch(() => recovery.initializationFailed());
+  void client.auth.initialize().then(() => recovery.initializationFinished()).catch(() => recovery.initializationFinished());
   return { client, provider, recovery, dispose: async () => { data.subscription.unsubscribe(); provider.invalidate(); await client.auth.dispose(); } };
 }

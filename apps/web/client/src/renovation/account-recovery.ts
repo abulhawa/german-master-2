@@ -22,14 +22,12 @@ export class AccountRecovery {
   observe(event: AuthChangeEvent, session: Session | null) {
     if (event === 'PASSWORD_RECOVERY') {
       this.set(session ? 'ready' : 'invalid', session?.user.id ?? null);
-    } else if (this.state.stage === 'waiting' && event === 'INITIAL_SESSION') {
-      // A failed/expired PKCE exchange must not fall back to a previously signed-in account.
-      this.set('invalid', null);
     } else if (this.state.stage === 'ready' && (!session || session.user.id !== this.state.subject)) {
       this.set('invalid', null);
     }
   }
-  initializationFailed() { if (this.state.stage === 'waiting') this.set('invalid', null); }
+  // INITIAL_SESSION may precede PASSWORD_RECOVERY. Decide only after the SDK finishes its exchange.
+  initializationFinished() { if (this.state.stage === 'waiting') this.set('invalid', null); }
   async update(password: string) {
     const subject = this.state.stage === 'ready' ? this.state.subject : null;
     if (!subject) throw Error('recovery_expired');

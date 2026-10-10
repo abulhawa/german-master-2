@@ -57,7 +57,7 @@ it('registers without binding an unconfirmed identity or retaining its password'
   fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
   fireEvent.submit(screen.getByRole('button',{name:'Register'}).closest('form')!);
   await screen.findByText('Check your email to confirm your account, then sign in.');
-  expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password',options:{emailRedirectTo:'https://api.example'}});
+  expect(f.auth.signUp).toHaveBeenCalledWith({email:'disposable@example.test',password:'synthetic-test-password',options:{emailRedirectTo:new URL('/',window.location.origin).href}});
   expect(screen.queryByText(/Bound learner/)).toBeNull();
   expect(screen.getByLabelText('Password')).toHaveValue('');
 });
