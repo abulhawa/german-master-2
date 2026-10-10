@@ -122,8 +122,8 @@ for (const [family, targetId, level] of [
       expect(readJourney(storage).practice!.evaluation?.outcome).toBe('correct');
       expect((await preview.db.query('SELECT id FROM gm.accepted_evidence')).rows).toHaveLength(1);
       fireEvent.click(screen.getByRole('button',{name:'Continue',exact:true}));
-      await waitFor(()=>expect(screen.getByRole('button',{name:'Confirm session completion',exact:true})).toBeEnabled());
-      fireEvent.click(screen.getByRole('button',{name:'Confirm session completion',exact:true}));
+      await waitFor(()=>expect(screen.getByRole('button',{name:'Finish session',exact:true})).toBeEnabled());
+      fireEvent.click(screen.getByRole('button',{name:'Finish session',exact:true}));
       await waitFor(()=>expect(readJourney(storage).practice!.completionReceipt).toMatchObject({mode:'full',gradedCount:1,correctCount:1}));
     } finally { cleanup(); await db.delete(); await new Promise<void>(resolve=>server.close(()=>resolve())); await preview.db.close(); }
   });
