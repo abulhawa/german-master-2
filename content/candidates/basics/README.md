@@ -1,3 +1,5 @@
+> 10 October 2026: consultant fixes are unverified. Changed source approvals are pending. Candidate artifacts and workbooks must be regenerated from the final edited sources before review; historical approval statements below do not approve these edits. Production artifacts remain unchanged.
+
 # Basic practice integration
 
 This candidate addresses the empty B2 catalog and the tiny B1 starter. It adds

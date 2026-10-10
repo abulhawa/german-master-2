@@ -35,7 +35,9 @@ export function validateDraftCatalog(input: unknown) {
       throw new Error('approval requires named editor (human or AI), date, checklist notes and matching content hash');
     const contexts = new Set<string>();
     const prompts = new Set<string>();
+    const transfers = new Set<string>();
     for (const variant of target.variants) {
+      if (variant.transferKey) transfers.add(variant.transferKey);
       const e = variant.exercise;
       if (e.targetId !== target.id) throw new Error('wrong target linkage');
       if (exerciseIds.has(e.id) || variantKeys.has(variant.variantKey)) throw new Error('duplicate exercise or variant identity');
@@ -57,6 +59,10 @@ export function validateDraftCatalog(input: unknown) {
       for (const answer of variant.rubric.acceptedAnswers)
         if (grade(e, variant.rubric, answer, []).outcome !== 'correct') throw new Error('rubric conformance failed');
     }
+    // Matches the grammar/concept classification in buildBasicCandidate. Distinct
+    // identities are necessary, not sufficient: meaningful transfer needs editorial review.
+    if (!['plural', 'work_vocabulary'].includes(target.category) && transfers.size < 2)
+      throw new Error(`Grammar target ${target.id} requires two reviewed transfer contexts`);
   }
   for (const form of ['choice','gap_choice','word_order'])
     if (!forms.has(form)) throw new Error(`missing intended draft form: ${form}`);
