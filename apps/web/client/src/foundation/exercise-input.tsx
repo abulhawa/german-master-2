@@ -34,12 +34,15 @@ export function ExerciseInput({
   onAnswer,
   initialAnswer,
   onDraft,
+  suggestions,
 }: {
   exercise: Exercise;
   locale: Locale;
   onAnswer: (answer: Answer | null) => void;
   initialAnswer?: Answer | null;
   onDraft?: (answer: Answer | null) => boolean | void;
+  /** Optional tap choices for an otherwise free-text exercise; answer schema and grading stay unchanged. */
+  suggestions?: Record<string, string[]>;
 }) {
   const [text, setText] = useState(() => initialAnswer?.type === "short_answer" ? initialAnswer.text : initialAnswer?.type === "choice" ? initialAnswer.optionId : "");
   const [values, setValues] = useState<Record<string, string>>(() => initialAnswer?.type === "cloze" || initialAnswer?.type === "multi_slot" ? Object.fromEntries(initialAnswer.values.map(v => [v.slotId, v.text])) : {});
@@ -117,7 +120,13 @@ export function ExerciseInput({
   }
   if (exercise.type === "short_answer")
     return (
-      <AnswerField
+      <div className="gm-quick-entry">
+        {suggestions?.answer && <fieldset className="gm-choices gm-quick-choices"><legend>{c.answer}</legend>
+          {suggestions.answer.map(option => <label key={option}><input type="radio" name={`${exercise.id}-quick`} checked={text === option}
+            onChange={() => { const answer: Answer = { type: "short_answer", text: option }; if (onDraft?.(answer) === false) return; setText(option); onAnswer(answer); }} />
+            <span lang="de">{option}</span></label>)}
+        </fieldset>}
+        <AnswerField
         id={`answer-${exercise.id}`}
         label={c.answer}
         value={text}
@@ -127,6 +136,7 @@ export function ExerciseInput({
           onAnswer(v.trim() ? { type: exercise.type, text: v } : null);
         }}
       />
+      </div>
     );
   if (exercise.type === "choice")
     return (
@@ -154,8 +164,13 @@ export function ExerciseInput({
     return (
       <>
         {exercise.slots.map((slot) => (
-          <AnswerField
-            key={slot.id}
+          <div key={slot.id} className="gm-quick-entry">
+            {suggestions?.[slot.id] && <fieldset className="gm-choices gm-quick-choices"><legend lang="de">{slot.label}</legend>
+              {suggestions[slot.id].map(option => <label key={option}><input type="radio" name={`${exercise.id}-${slot.id}-quick`} checked={values[slot.id] === option}
+                onChange={() => { const next = { ...values, [slot.id]: option }; const answer: Answer = { type: exercise.type, values: exercise.slots.map(s => ({ slotId: s.id, text: next[s.id] ?? "" })) }; if (onDraft?.(answer) === false) return; setValues(next); onAnswer(exercise.slots.every(s => next[s.id]?.trim()) ? answer : null); }} />
+                <span lang="de">{option}</span></label>)}
+            </fieldset>}
+            <AnswerField
             id={`${exercise.id}-${slot.id}`}
             label={slot.label}
             value={values[slot.id] ?? ""}
@@ -176,6 +191,7 @@ export function ExerciseInput({
               );
             }}
           />
+          </div>
         ))}
       </>
     );

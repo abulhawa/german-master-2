@@ -187,3 +187,23 @@
  .gm-nav-item, .gm-topic-tile, .gm-start-action { transition: background-color .16s ease, transform .16s ease; }
  .gm-topic-tile:hover { transform: translateY(-2px); }
 }
+
+/* First-session and topic details preserve the blue-panel hierarchy without a new design system. */
+.gm-quick-entry { display: grid; gap: 12px; }
+.gm-quick-choices { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.gm-quick-choices legend { width: 100%; margin-bottom: 8px; font-size: .875rem; color: var(--gm-secondary); }
+.gm-quick-choices label { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; flex: 1 1 auto; justify-content: center; }
+.gm-quick-choices label:has(input:checked) { border-color: var(--gm-primary); }
+.gm-collection { display: grid; gap: 12px; }
+.gm-workspace .gm-collection li { padding: 12px; border: 1px solid var(--gm-border); border-radius: 14px; background: var(--gm-surface); }
+.gm-workspace .gm-collection li .gm-button { width: 100%; min-height: 48px; }
+.gm-topic-description { color: var(--gm-secondary); margin-top: 0; }
+.gm-progress-overview { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: -8px 0 24px; }
+.gm-progress-stat { display: grid; gap: 6px; padding: 20px; background: var(--gm-surface); border: 1px solid var(--gm-border); border-radius: 14px; }
+.gm-progress-stat strong { font-size: 2rem; line-height: 1.2; color: var(--gm-primary); font-variant-numeric: tabular-nums; }
+.gm-progress-stat span { font-size: .875rem; color: var(--gm-secondary); }
+@media (max-width: 639px) {
+  .gm-progress-stat { padding: 12px; }
+  .gm-progress-stat strong { font-size: 1.5rem; }
+  .gm-progress-stat span { font-size: .75rem; }
+}
