@@ -17,7 +17,7 @@ describe('initial editorial workspace', () => {
     if (mode === 'duplicate') data.targets[1].id = target.id;
     if (mode === 'answer') Object.assign(variant.rubric.acceptedAnswers[0], {type:'choice',optionId:'unknown'});
     if (mode === 'context') target.variants[1].contextKey = variant.contextKey;
-    if (mode === 'approval') { target.review.status = 'approved'; target.review.reviewedHash = '0'.repeat(64); }
+    if (mode === 'approval') { Object.assign(target.review,{status:'approved',reviewedHash:'0'.repeat(64)}); }
     if (mode === 'publication') data.publicationApproved = true;
     if (mode === 'solution') Object.assign(variant.exercise,{acceptedAnswer:'leaked'});
     expect(() => validateDraftCatalog(data)).toThrow();

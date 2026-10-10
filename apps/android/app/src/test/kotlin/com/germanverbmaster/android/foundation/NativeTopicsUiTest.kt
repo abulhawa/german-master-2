@@ -42,7 +42,7 @@ class NativeTopicsUiTest {
         compose.onNodeWithText("Grammar").performScrollTo().performClick()
         compose.onNodeWithText("Nouns · B1").performScrollTo().performClick()
         compose.onNodeWithText("Noun description").assertExists()
-        compose.onNodeWithText("No confirmed practice yet.").assertExists()
+        compose.onNodeWithText("No practice results to show yet.").assertExists()
         compose.onNodeWithText("Practise this (1)").performScrollTo().performClick()
         compose.waitUntil(10000) { repo.state.practice?.session != null }
         compose.waitForIdle()
@@ -67,10 +67,10 @@ class NativeTopicsUiTest {
             catalog = Catalog("v2", id, "unpublished_local_draft", listOf(CatalogTopic(id, title)), listOf(CatalogTarget(id, id, title, title, "B1", 0))),
             targets = listOf(ConfirmedTarget(id, "retained-evidence-v1", "mastered", 8, 3, true, 0, 8, listOf(TargetSchedule("2026-10-04T10:00:00Z", 1, 3)), true)))
         compose.setContent { FoundationTheme { NativeTopicsView(cache, "target", id, true, false, { _, _ -> }, {}, { error("Unavailable focus must not start") }) } }
-        compose.onNodeWithText("Bestätigter Stand: Beherrscht").assertExists()
-        compose.onNodeWithText("Qualifizierte Prüfungen: 3").assertExists()
+        compose.onNodeWithText("Dein Lernstand: Sicher").assertExists()
+        compose.onNodeWithText("Wiederholungsprüfungen: 3").assertExists()
         compose.onNodeWithText("Wiederholung: 2026-10-04 12:00 (Europe/Berlin)").assertExists()
-        compose.onNodeWithText("Im gespeicherten Datenstand fällig").assertExists()
+        compose.onNodeWithText("Laut gespeichertem Lernstand zur Wiederholung fällig").assertExists()
         compose.onNodeWithText("Für diese Einstellungen sind keine Fragen verfügbar.").assertExists()
         compose.onNodeWithText("Gezielt üben (1)").assertIsNotEnabled()
     }

@@ -207,7 +207,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     if(p.offlinePack == null) {
     var confirm by remember { mutableStateOf(false) }
     var recoveryOpen by remember { mutableStateOf(false) }
-    TextButton(onClick = { recoveryOpen = !recoveryOpen }) { Text(text("Session recovery", "Sitzung wiederherstellen")) }
+    TextButton(onClick = { recoveryOpen = !recoveryOpen }) { Text(text("Saved practice options", "Optionen für gespeicherte Übungen")) }
     if (recoveryOpen) button(text("Discard local session…", "Lokale Sitzung verwerfen…")) { confirm = true }
     if(confirm) AlertDialog(onDismissRequest = { confirm = false }, title = { Text(text("Discard saved practice?", "Gespeicherte Übung verwerfen?")) }, text = { Text(text("Pending work and drafts will be removed from this device.", "Ausstehende Daten und Entwürfe werden auf diesem Gerät entfernt.")) }, confirmButton = { TextButton(onClick = { action { repository.discardPractice() }; close() }) { Text(text("Discard", "Verwerfen")) } }, dismissButton = { TextButton(onClick = { confirm = false }) { Text(text("Cancel", "Abbrechen")) } })
     }

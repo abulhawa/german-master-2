@@ -52,7 +52,7 @@ class LearnerShellTest {
         compose.onNodeWithText("No questions available for these preferences.").assertExists()
         compose.onNodeWithText("Progress").performClick()
         compose.onNodeWithText("Needs practice (1)").performScrollTo().assertExists()
-        compose.onNodeWithText("Qualifying checks: 0").performScrollTo().assertExists()
+        compose.onNodeWithText("Review checks: 0").performScrollTo().assertExists()
     }
     @Test fun pendingSetupBlocksEditingAndExposesExplicitRecovery() {
         val repo = repository(false, true)
