@@ -1,4 +1,4 @@
-> 10 October 2026: consultant fixes are unverified. Changed source approvals are pending. Candidate artifacts and workbooks must be regenerated from the final edited sources before review; historical approval statements below do not approve these edits. Production artifacts remain unchanged.
+> 10 October 2026: consultant fixes are unverified. Changed source approvals are pending. Candidate artifacts were regenerated after structured feedback authoring; the separate historical draft workbook still needs regeneration before editorial review; historical approval statements below do not approve these edits. Production artifacts remain unchanged.
 
 # Basic practice integration
 

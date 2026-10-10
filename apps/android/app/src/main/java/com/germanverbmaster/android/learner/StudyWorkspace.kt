@@ -19,6 +19,11 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
+import com.germanverbmaster.android.foundation.contract.CompletedAnswer
 import com.germanverbmaster.android.R
 import com.germanverbmaster.android.foundation.FoundationTokens
 import java.util.Locale
@@ -98,7 +103,7 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
 
 @Composable
 internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boolean, answer: String?, accepted: String,
-                           explanation: String, assisted: Boolean, busy: Boolean, next: () -> Unit) {
+                           explanation: String, assisted: Boolean, busy: Boolean, completedAnswer: CompletedAnswer? = null, next: () -> Unit) {
     val c = studyCopy(german)
     val tokens = if (isSystemInDarkTheme()) FoundationTokens.dark else FoundationTokens.light
     val tone = if (correct) tokens.success else tokens.attention
@@ -116,7 +121,14 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
                     .semantics { liveRegion = androidx.compose.ui.semantics.LiveRegionMode.Polite })
             if (assisted) Text(c(R.string.study_assisted), color = MaterialTheme.colorScheme.onSurfaceVariant)
             answer?.let { Text("${c(R.string.study_your_answer)}: $it") }
-            Text("${c(R.string.study_accepted)}: $accepted")
+            if (completedAnswer == null) Text("${c(R.string.study_accepted)}: $accepted")
+            else Text(buildAnnotatedString {
+                append("${c(R.string.study_accepted)}: ")
+                completedAnswer.parts.forEach { part ->
+                    if (part.emphasis) withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(part.text) }
+                    else append(part.text)
+                }
+            })
             Text(explanation)
             if (provisional) Text(c(R.string.study_confirmation_note), color = MaterialTheme.colorScheme.onSurfaceVariant)
         }

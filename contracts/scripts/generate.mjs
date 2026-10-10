@@ -34,10 +34,10 @@ function assertSubset(schema) {
   if (schema.type === "object") {
     if (
       schema.additionalProperties !== false ||
-      JSON.stringify(schema.required) !==
-        JSON.stringify(Object.keys(schema.properties))
+      !Array.isArray(schema.required) ||
+      schema.required.some(key => !(key in schema.properties))
     )
-      throw Error("Generator requires closed objects with all fields required");
+      throw Error("Generator requires closed objects with declared required fields");
     Object.values(schema.properties).forEach(assertSubset);
   }
   if (schema.items) assertSubset(schema.items);
@@ -55,7 +55,7 @@ function z(s) {
     return `z.discriminatedUnion(${q(s.discriminator.propertyName)}, [${s.oneOf.map(z).join(", ")}])`;
   if (s.type === "object")
     return `z.strictObject({\n${Object.entries(s.properties)
-      .map(([k, v]) => `  ${k}: ${z(v)},`)
+      .map(([k, v]) => `  ${k}: ${z(v)}${s.required.includes(k) ? '' : '.optional()'},`)
       .join("\n")}\n})`;
   if ("const" in s) return `z.literal(${q(s.const)})`;
   let v =
@@ -146,7 +146,7 @@ for (const [n, s] of Object.entries(defs)) {
         ),
       )
     : [];
-  kotlin += `@Serializable\n${parent ? `@SerialName(${q(s.properties[parent[1].discriminator.propertyName].const ?? s.properties[parent[1].discriminator.propertyName].enum?.[0])})\n` : ""}data class ${n}(\n${props.map(([k, v]) => `    ${common.includes(k) ? "override " : ""}val ${k}: ${kt(v)}`).join(",\n")}\n)${parent ? ` : ${parent[0]}()` : ""} {\n    init {\n${props.flatMap(([k, v]) => checks(k, v).map((c) => `        require(${c}) { ${q("Invalid " + n + "." + k)} }`)).join("\n")}\n    }\n}\n\n`;
+  kotlin += `@Serializable\n${parent ? `@SerialName(${q(s.properties[parent[1].discriminator.propertyName].const ?? s.properties[parent[1].discriminator.propertyName].enum?.[0])})\n` : ""}data class ${n}(\n${props.map(([k, v]) => `    ${common.includes(k) ? "override " : ""}val ${k}: ${kt(v)}${s.required.includes(k) ? '' : '? = null'}`).join(",\n")}\n)${parent ? ` : ${parent[0]}()` : ""} {\n    init {\n${props.flatMap(([k, v]) => checks(k, v).map((c) => `        require(${s.required.includes(k) ? c : `${k} == null || (${c})`}) { ${q("Invalid " + n + "." + k)} }`)).join("\n")}\n    }\n}\n\n`;
 }
 
 function shape(e, s) {
@@ -154,10 +154,10 @@ function shape(e, s) {
   if (s.oneOf)
     return `run { val o = ${e} as? JsonObject ?: error("Expected object"); val tag=o[${q(s.discriminator.propertyName)}] as? JsonPrimitive ?: error("Missing discriminator"); require(tag.isString); when(tag.content) { ${s.oneOf.map((x) => `${q(defs[ref(x)].properties[s.discriminator.propertyName].const)} -> check${ref(x)}(${e})`).join("; ")}; else -> error("Unsupported discriminator") } }`;
   if (s.type === "object")
-    return `run { val o = ${e} as? JsonObject ?: error("Expected object"); require(o.keys == setOf(${Object.keys(s.properties).map(q).join(", ")})); ${Object.entries(
+    return `run { val o = ${e} as? JsonObject ?: error("Expected object"); require(o.keys.containsAll(setOf(${s.required.map(q).join(", ")})) && setOf(${Object.keys(s.properties).map(q).join(", ")}).containsAll(o.keys)); ${Object.entries(
       s.properties,
     )
-      .map(([k, v]) => shape(`o.getValue(${q(k)})`, v))
+      .map(([k, v]) => s.required.includes(k) ? shape(`o.getValue(${q(k)})`, v) : `if (o.containsKey(${q(k)})) { ${shape(`o.getValue(${q(k)})`, v)} }`)
       .join("; ")} }`;
   if (s.type === "array")
     return `run { val a = ${e} as? JsonArray ?: error("Expected array"); a.forEach { item -> ${shape("item", s.items)} } }`;

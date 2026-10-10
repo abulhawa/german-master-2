@@ -10,8 +10,8 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 | 2 | Authored applied contexts, two transfer identities per grammar target, and structural coverage gate | Implemented, unverified | `b9f4833` | Content review, transfer reachability, immutable releases |
 | 3 | Audited 60 objectives; rewrote connector/collocation choices, removed ordering-rule and title leakage | Implemented, unverified | `6af2218` | German editorial review and client exercise previews |
 | 4 | Dedicated progress freshness, retained across local operations and cleared only by successful snapshot refresh | Implemented, unverified | `239128d` | Failed refresh followed by local edits and navigation |
-| 5 | Authored bilingual descriptions and examples for 60 targets; candidate builder uses descriptions | Implemented, unverified | This slice | Catalog generation and both-client detail screens |
-| 6 | Structured completed-sentence feedback | Pending | — | Contract conformance, both clients, old-content fallback |
+| 5 | Authored bilingual descriptions and examples for 60 targets; candidate builder uses descriptions | Implemented, unverified | `7785e36` | Catalog generation and both-client detail screens |
+| 6 | Optional versioned rubric/evaluation feedback parts, generated TS/Kotlin contracts, web/native rendering and offline propagation | Implemented, unverified | This slice | Contract conformance, both clients, old-content fallback |
 | 7 | Password recovery and confirmation resend | Pending | — | Recovery links, expired links, identity isolation, delivery |
 | 8 | Native learner terminology | Pending | — | English/German native journeys and recovery states |
 
@@ -19,3 +19,6 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 
 - Selection policy becomes `mixed-selection-v2`. Existing sessions keep their pinned questions and version. Presentation history includes issued sessions/packs so unanswered or reserved variants do not monopolize selection.
 - Regression tests and all execution verification are deliberately deferred, not passed or waived for release.
+
+- Fix 6 adds optional `completedAnswer` to v2 evaluations/offline rubrics, with schema version 1 and text/emphasis parts. Solutions remain in rubrics and feedback, not online question payloads. Older content keeps its existing answer display. Kotlin optional fields default to null; wire omission is accepted, explicit null is rejected by shape parsing.
+- Contract code generation and unpublished candidate artifact generation were performed as implementation steps. The candidate writer used `--write-only`, skipping candidate SQL execution. No tests, builds, lint, browser or device verification were run. Production catalogs and SQL remain untouched. Source approvals are pending.

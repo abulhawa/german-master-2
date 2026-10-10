@@ -82,7 +82,8 @@ object OfflineGrader {
         return Evaluation(
             outcome = if (rubric.acceptedAnswers.any { equivalent(answer, it, rubric.normalizationVersion) }) "correct" else "incorrect",
             policyVersion = "$EVALUATOR/${rubric.normalizationVersion}",
-            explanation = rubric.explanation, acceptedAnswer = rubric.acceptedAnswers.first(), assisted = assistance.isNotEmpty()
+            explanation = rubric.explanation, acceptedAnswer = rubric.acceptedAnswers.first(), assisted = assistance.isNotEmpty(),
+            completedAnswer = rubric.completedAnswer
         )
     }
 }

@@ -184,7 +184,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             val shown = confirmed ?: evaluation
             StudyFeedback(shown.outcome == "correct", p.offlinePack != null && confirmed == null, german,
                 p.draft?.let { foundationAnswerText(it, exercise) }, foundationAnswerText(shown.acceptedAnswer, exercise),
-                if (german) shown.explanation.de else shown.explanation.en, shown.assisted, busy) { action { repository.continuePractice() } }
+                if (german) shown.explanation.de else shown.explanation.en, shown.assisted, busy, shown.completedAnswer) { action { repository.continuePractice() } }
         }
         if(p.rejected) Text(text("Submission rejected. Saved work remains; discard only to recover after a fixture reset.", "Übermittlung abgelehnt. Daten bleiben gespeichert; nach Zurücksetzen des Testservers verwerfen."))
     }

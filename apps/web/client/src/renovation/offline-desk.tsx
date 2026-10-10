@@ -159,7 +159,7 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
           })}>{c.hint}</FoundationButton>}
           {practice!.assisted && <p>{question!.exercise.hint?.[locale]}</p>}
         </fieldset>
-        {feedback && <PracticeFeedback regionRef={feedbackRegion} correct={feedback.outcome === 'correct'}
+        {feedback && <PracticeFeedback completedAnswer={feedback.completedAnswer} regionRef={feedbackRegion} correct={feedback.outcome === 'correct'}
           outcome={feedback.outcome === 'correct' ? c.locallyCorrect : c.locallyIncorrect}
           answer={answerText(practice!.draft as Answer, active.session, practice!.index)} accepted={answerText(feedback.acceptedAnswer, active.session, practice!.index)}
           answerLabel={c.yourAnswer} acceptedLabel={c.accepted}

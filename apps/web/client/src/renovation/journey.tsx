@@ -429,7 +429,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
               {p.pendingExposure && <p role="status">{c.skipPending}</p>}
               {p.pending && !p.evaluation && <p role="status">{c.pending}</p>}
               {p.rejected && <p role="alert">{p.pendingExposure ? c.skipRejected : c.rejected} {c.discardNote}</p>}
-              {p.evaluation && p.pending && <PracticeFeedback regionRef={feedback} correct={p.evaluation.outcome === "correct"}
+              {p.evaluation && p.pending && <PracticeFeedback completedAnswer={p.evaluation.completedAnswer} regionRef={feedback} correct={p.evaluation.outcome === "correct"}
                 outcome={`${p.evaluation.outcome === "correct" ? c.correct : c.incorrect}${p.evaluation.assisted ? ` · ${c.assisted}` : ""}`}
                 answer={answerText(p.pending.answer, p.session, p.index)} accepted={answerText(p.evaluation.acceptedAnswer, p.session, p.index)}
                 answerLabel={c.yourAnswer} acceptedLabel={c.acceptedAnswer} explanation={p.evaluation.explanation[state.locale]}

@@ -1,11 +1,12 @@
 import { z } from 'zod';
 import { createHash } from 'node:crypto';
-import { ExerciseSchema, AnswerSchema } from '@german-master/contracts';
+import { ExerciseSchema, AnswerSchema, CompletedAnswerSchema } from '@german-master/contracts';
 import { grade } from './index';
 
 const localized = z.object({ en: z.string().trim().min(1), de: z.string().trim().min(1) }).strict();
 const rubric = z.object({ normalizationVersion: z.literal('de-nfc-trim-v1'),
-  acceptedAnswers: z.array(AnswerSchema).min(1), explanation: localized }).strict();
+  acceptedAnswers: z.array(AnswerSchema).min(1), explanation: localized,
+  completedAnswer: CompletedAnswerSchema.optional() }).strict();
 const review = z.object({ status: z.enum(['pending', 'changes-requested', 'approved']),
   reviewer: z.string().trim().min(1).nullable(), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(), notes: z.string(), reviewedHash: z.string().regex(/^[a-f0-9]{64}$/).nullable() }).strict();
 const catalogSchema = z.object({ schemaVersion: z.literal(1), status: z.literal('agent-authored-draft'),
