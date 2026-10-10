@@ -440,7 +440,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           </div>}
           <PracticeCard>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
-          {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p>{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
+          {!confirmed ? <p>{c.empty}</p> : <>{error === "unavailable" && <p className="gm-meta">{c.stale}</p>}{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
             <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p className="gm-state-badge" data-state={t.state}>{c.states[t.state]}</p>
             {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
             <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
@@ -466,7 +466,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <p>{selectedTarget.level} · {selectedTarget.description[state.locale]}</p>
             {targetState ? <><p>{c.states[targetState.state]}</p><p>{c.checks}: {targetState.qualifyingCheckCount}</p>
               {targetState.schedule[0] && <p>{targetState.isDue ? c.due : c.later}: <time dateTime={targetState.schedule[0].dueAt}>{new Date(targetState.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
-              <p className="gm-meta">{c.stale}</p></> : <p>{c.empty}</p>}
+              {error === "unavailable" && <p className="gm-meta">{c.stale}</p>}</> : <p>{c.empty}</p>}
             <p>{c.retentionNote}</p>
             {focusAction({ type: "target", id: selectedTarget.id }, selectedTarget.availableQuestionCount)}
           </>}
