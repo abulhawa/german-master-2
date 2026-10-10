@@ -1190,8 +1190,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000008",
       "title": {
-        "en": "Concession with obwohl",
-        "de": "Gegensatz mit obwohl"
+        "en": "Expressing concession",
+        "de": "Einen Gegensatz ausdrücken"
       },
       "objective": "Concession with obwohl",
       "category": "connectors",
@@ -1201,7 +1201,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "Content changed on 10 October 2026; previous hash-bound approval invalidated. Transfer adequacy and German editorial review deferred by owner.",
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
         "reviewedHash": null
       },
       "variants": [
@@ -1212,41 +1212,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001016",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000008",
             "type": "gap_choice",
-            "prompt": "Obwohl es stark ___, fahren wir mit dem Rad. (regnen, Präsens)",
+            "prompt": "Es regnet stark. Wir fahren trotzdem mit dem Rad. ___ es stark regnet, fahren wir mit dem Rad.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "regnet",
-                    "text": "regnet"
+                    "id": "Obwohl",
+                    "text": "Obwohl"
                   },
                   {
-                    "id": "regnen",
-                    "text": "regnen"
+                    "id": "Weil",
+                    "text": "Weil"
                   },
                   {
-                    "id": "regnete",
-                    "text": "regnete"
+                    "id": "Wenn",
+                    "text": "Wenn"
                   },
                   {
-                    "id": "regnest",
-                    "text": "regnest"
+                    "id": "Damit",
+                    "text": "Damit"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Obwohl introduces a subordinate clause.",
-              "de": "Obwohl leitet einen Nebensatz ein."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1257,17 +1257,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "regnet"
+                    "optionId": "Obwohl"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "After obwohl the conjugated verb goes to the end: obwohl … regnet / … ist.",
-              "de": "Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist."
+              "en": "Obwohl introduces a fact that contrasts with the expected outcome; the verb comes last.",
+              "de": "Obwohl drückt einen Gegensatz zur Erwartung aus. Das finite Verb steht am Ende."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-8-1",
@@ -1276,41 +1276,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001017",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000008",
             "type": "gap_choice",
-            "prompt": "Obwohl der Weg sehr lang ___, gehen wir zu Fuß. (sein, Präsens)",
+            "prompt": "Der Weg ist sehr lang. Wir gehen trotzdem zu Fuß. ___ der Weg sehr lang ist, gehen wir zu Fuß.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "war",
-                    "text": "war"
+                    "id": "Wenn",
+                    "text": "Wenn"
                   },
                   {
-                    "id": "ist",
-                    "text": "ist"
+                    "id": "Damit",
+                    "text": "Damit"
                   },
                   {
-                    "id": "sind",
-                    "text": "sind"
+                    "id": "Obwohl",
+                    "text": "Obwohl"
                   },
                   {
-                    "id": "sei",
-                    "text": "sei"
+                    "id": "Weil",
+                    "text": "Weil"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Obwohl introduces a subordinate clause.",
-              "de": "Obwohl leitet einen Nebensatz ein."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1321,25 +1321,25 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "ist"
+                    "optionId": "Obwohl"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "After obwohl the conjugated verb goes to the end: obwohl … regnet / … ist.",
-              "de": "Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist."
+              "en": "Obwohl introduces a fact that contrasts with the expected outcome; the verb comes last.",
+              "de": "Obwohl drückt einen Gegensatz zur Erwartung aus. Das finite Verb steht am Ende."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
     {
       "id": "40000000-0000-4000-8000-000000000009",
       "title": {
-        "en": "Cause with da",
-        "de": "Begründung mit da"
+        "en": "Giving a reason",
+        "de": "Einen Grund nennen"
       },
       "objective": "Cause with da",
       "category": "connectors",
@@ -1349,7 +1349,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "Content changed on 10 October 2026; previous hash-bound approval invalidated. Transfer adequacy and German editorial review deferred by owner.",
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
         "reviewedHash": null
       },
       "variants": [
@@ -1360,41 +1360,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001018",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000009",
             "type": "gap_choice",
-            "prompt": "Da die Kollegin heute ___, übernimmt Tim ihre Aufgaben. (fehlen, Präsens)",
+            "prompt": "Die Kollegin fehlt heute. Das ist der Grund für Tims Vertretung. ___ die Kollegin heute fehlt, übernimmt Tim ihre Aufgaben.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "fehlen",
-                    "text": "fehlen"
+                    "id": "Falls",
+                    "text": "Falls"
                   },
                   {
-                    "id": "fehlte",
-                    "text": "fehlte"
+                    "id": "Obwohl",
+                    "text": "Obwohl"
                   },
                   {
-                    "id": "fehlt",
-                    "text": "fehlt"
+                    "id": "Da",
+                    "text": "Da"
                   },
                   {
-                    "id": "fehlst",
-                    "text": "fehlst"
+                    "id": "Damit",
+                    "text": "Damit"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Da introduces a reason and places the verb last.",
-              "de": "Da leitet eine Begründung ein; das Verb steht am Ende."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1405,17 +1405,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "fehlt"
+                    "optionId": "Da"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "In a da clause the conjugated verb stands last.",
-              "de": "Im Nebensatz mit da steht das konjugierte Verb am Ende."
+              "en": "Da introduces the stated reason for the action in the main clause.",
+              "de": "Da nennt den feststehenden Grund für die Handlung im Hauptsatz."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-9-1",
@@ -1424,41 +1424,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001019",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000009",
             "type": "gap_choice",
-            "prompt": "Da die Heizung nicht ___, rufen wir den Hausmeister an. (funktionieren, Präsens)",
+            "prompt": "Die Heizung funktioniert nicht. Deshalb rufen wir den Hausmeister an. ___ die Heizung nicht funktioniert, rufen wir den Hausmeister an.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "funktionieren",
-                    "text": "funktionieren"
+                    "id": "Da",
+                    "text": "Da"
                   },
                   {
-                    "id": "funktionierte",
-                    "text": "funktionierte"
+                    "id": "Damit",
+                    "text": "Damit"
                   },
                   {
-                    "id": "funktionierst",
-                    "text": "funktionierst"
+                    "id": "Falls",
+                    "text": "Falls"
                   },
                   {
-                    "id": "funktioniert",
-                    "text": "funktioniert"
+                    "id": "Obwohl",
+                    "text": "Obwohl"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Da introduces a reason and places the verb last.",
-              "de": "Da leitet eine Begründung ein; das Verb steht am Ende."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1469,25 +1469,25 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "funktioniert"
+                    "optionId": "Da"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "In a da clause the conjugated verb stands last.",
-              "de": "Im Nebensatz mit da steht das konjugierte Verb am Ende."
+              "en": "Da introduces the stated reason for the action in the main clause.",
+              "de": "Da nennt den feststehenden Grund für die Handlung im Hauptsatz."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
     {
       "id": "40000000-0000-4000-8000-000000000010",
       "title": {
-        "en": "Consequence with sodass",
-        "de": "Folge mit sodass"
+        "en": "Expressing a consequence",
+        "de": "Eine Folge ausdrücken"
       },
       "objective": "Consequence with sodass",
       "category": "connectors",
@@ -1497,7 +1497,7 @@
         "status": "pending",
         "reviewer": null,
         "date": null,
-        "notes": "Content changed on 10 October 2026; previous hash-bound approval invalidated. Transfer adequacy and German editorial review deferred by owner.",
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
         "reviewedHash": null
       },
       "variants": [
@@ -1508,41 +1508,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001020",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000010",
             "type": "gap_choice",
-            "prompt": "Der Zug hatte Verspätung, sodass ich zu spät ___. (ankommen, Präteritum)",
+            "prompt": "Der Zug hatte Verspätung. Die Folge: Ich kam zu spät. Der Zug hatte Verspätung, ___ ich zu spät kam.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "ankam",
-                    "text": "ankam"
+                    "id": "obwohl",
+                    "text": "obwohl"
                   },
                   {
-                    "id": "ankomme",
-                    "text": "ankomme"
+                    "id": "sodass",
+                    "text": "sodass"
                   },
                   {
-                    "id": "ankäme",
-                    "text": "ankäme"
+                    "id": "bevor",
+                    "text": "bevor"
                   },
                   {
-                    "id": "ankommen",
-                    "text": "ankommen"
+                    "id": "falls",
+                    "text": "falls"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Sodass introduces the consequence in a subordinate clause.",
-              "de": "Sodass leitet die Folge in einem Nebensatz ein."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1553,17 +1553,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "ankam"
+                    "optionId": "sodass"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "A sodass clause places the conjugated verb at the end.",
-              "de": "Im Nebensatz mit sodass steht das konjugierte Verb am Ende."
+              "en": "Sodass introduces a consequence. The finite verb comes at the end of the subordinate clause.",
+              "de": "Sodass leitet eine Folge ein. Das finite Verb steht am Ende des Nebensatzes."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-10-1",
@@ -1572,41 +1572,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001021",
-            "revision": 3,
+            "revision": 4,
             "targetId": "40000000-0000-4000-8000-000000000010",
             "type": "gap_choice",
-            "prompt": "Die Wegbeschreibung war genau, sodass alle den Treffpunkt ___. (finden, Präteritum)",
+            "prompt": "Die Wegbeschreibung war genau. Die Folge: Alle fanden den Treffpunkt. Die Wegbeschreibung war genau, ___ alle den Treffpunkt fanden.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verbindung",
                 "options": [
                   {
-                    "id": "fanden",
-                    "text": "fanden"
+                    "id": "bevor",
+                    "text": "bevor"
                   },
                   {
-                    "id": "fand",
-                    "text": "fand"
+                    "id": "falls",
+                    "text": "falls"
                   },
                   {
-                    "id": "gefunden",
-                    "text": "gefunden"
+                    "id": "obwohl",
+                    "text": "obwohl"
                   },
                   {
-                    "id": "finden",
-                    "text": "finden"
+                    "id": "sodass",
+                    "text": "sodass"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Sodass introduces the consequence in a subordinate clause.",
-              "de": "Sodass leitet die Folge in einem Nebensatz ein."
+              "en": "Look at the relationship between the two ideas.",
+              "de": "Achte auf den Zusammenhang zwischen den beiden Aussagen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -1617,17 +1617,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "fanden"
+                    "optionId": "sodass"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "A sodass clause places the conjugated verb at the end.",
-              "de": "Im Nebensatz mit sodass steht das konjugierte Verb am Ende."
+              "en": "Sodass introduces a consequence. The finite verb comes at the end of the subordinate clause.",
+              "de": "Sodass leitet eine Folge ein. Das finite Verb steht am Ende des Nebensatzes."
             }
           },
-          "ambiguityNotes": "Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
@@ -2966,8 +2966,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000020",
       "title": {
-        "en": "Depend on: abhängen von",
-        "de": "Abhängen von"
+        "en": "Preposition with abhängen",
+        "de": "Präposition bei abhängen"
       },
       "objective": "Depend on: abhängen von",
       "category": "verb_preposition",
@@ -3114,8 +3114,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000021",
       "title": {
-        "en": "Participate: teilnehmen an",
-        "de": "Teilnehmen an"
+        "en": "Preposition with teilnehmen",
+        "de": "Präposition bei teilnehmen"
       },
       "objective": "Participate: teilnehmen an",
       "category": "verb_preposition",
@@ -3262,8 +3262,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000022",
       "title": {
-        "en": "Convince: überzeugen von",
-        "de": "Überzeugen von"
+        "en": "Preposition with überzeugen",
+        "de": "Präposition bei überzeugen"
       },
       "objective": "Convince: überzeugen von",
       "category": "verb_preposition",
@@ -3410,8 +3410,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000023",
       "title": {
-        "en": "Deal with: sich befassen mit",
-        "de": "Sich befassen mit"
+        "en": "Preposition with sich befassen",
+        "de": "Präposition bei sich befassen"
       },
       "objective": "Deal with: sich befassen mit",
       "category": "verb_preposition",
@@ -3558,8 +3558,8 @@
     {
       "id": "40000000-0000-4000-8000-000000000024",
       "title": {
-        "en": "Result from: sich ergeben aus",
-        "de": "Sich ergeben aus"
+        "en": "Preposition with sich ergeben",
+        "de": "Präposition bei sich ergeben"
       },
       "objective": "Result from: sich ergeben aus",
       "category": "verb_preposition",
@@ -3714,11 +3714,11 @@
       "level": "B2",
       "provenance": "Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.",
       "review": {
-        "status": "approved",
-        "reviewer": "ChatGPT GPT-6 (AI editorial)",
-        "date": "2026-10-09",
-        "notes": "GPT-6 AI editorial approval under the owner's decision of 9 October 2026. Checked grammar, naturalness, keyed answers and alternatives, distractors, hints, explanations, context and level framing. No independent human review is claimed.",
-        "reviewedHash": "0dd6f23d8d985c1f3119323d2b96c95469f5006730bc5c32a40fc61fda1d4d9c"
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
+        "reviewedHash": null
       },
       "variants": [
         {
@@ -3728,41 +3728,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001050",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000025",
             "type": "gap_choice",
-            "prompt": "Ich ___ einen Antrag auf Förderung. (stellen, Präsens)",
+            "prompt": "Für die Förderung möchte ich einen Antrag ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
+                  {
+                    "id": "treffen",
+                    "text": "treffen"
+                  },
+                  {
+                    "id": "leisten",
+                    "text": "leisten"
+                  },
+                  {
+                    "id": "führen",
+                    "text": "führen"
+                  },
                   {
                     "id": "stellen",
                     "text": "stellen"
-                  },
-                  {
-                    "id": "stellt",
-                    "text": "stellt"
-                  },
-                  {
-                    "id": "stelle",
-                    "text": "stelle"
-                  },
-                  {
-                    "id": "stellst",
-                    "text": "stellst"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Use the specified verb in the present tense.",
-              "de": "Setze das angegebene Verb ins Präsens."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -3773,17 +3773,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "stelle"
+                    "optionId": "stellen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Einen Antrag stellen is the conventional expression for applying formally.",
-              "de": "Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen."
+              "en": "The fixed expression is einen Antrag stellen: to apply formally for something.",
+              "de": "Die feste Verbindung lautet einen Antrag stellen: etwas offiziell beantragen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-25-1",
@@ -3792,41 +3792,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001051",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000025",
             "type": "gap_choice",
-            "prompt": "Sie ___ einen Antrag auf Weiterbildung. (stellen, Präsens, 3. Person Singular)",
+            "prompt": "Für die Weiterbildung muss sie einen Antrag ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
+                  {
+                    "id": "führen",
+                    "text": "führen"
+                  },
                   {
                     "id": "stellen",
                     "text": "stellen"
                   },
                   {
-                    "id": "stelle",
-                    "text": "stelle"
+                    "id": "treffen",
+                    "text": "treffen"
                   },
                   {
-                    "id": "stellst",
-                    "text": "stellst"
-                  },
-                  {
-                    "id": "stellt",
-                    "text": "stellt"
+                    "id": "leisten",
+                    "text": "leisten"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Use the specified verb in the present tense.",
-              "de": "Setze das angegebene Verb ins Präsens."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -3837,17 +3837,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "stellt"
+                    "optionId": "stellen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Einen Antrag stellen is the conventional expression for applying formally.",
-              "de": "Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen."
+              "en": "The fixed expression is einen Antrag stellen: to apply formally for something.",
+              "de": "Die feste Verbindung lautet einen Antrag stellen: etwas offiziell beantragen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
@@ -3862,11 +3862,11 @@
       "level": "B2",
       "provenance": "Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.",
       "review": {
-        "status": "approved",
-        "reviewer": "ChatGPT GPT-6 (AI editorial)",
-        "date": "2026-10-09",
-        "notes": "GPT-6 AI editorial approval under the owner's decision of 9 October 2026. Checked grammar, naturalness, keyed answers and alternatives, distractors, hints, explanations, context and level framing. No independent human review is claimed.",
-        "reviewedHash": "1006acf2a32d032be7bf30fa0e39a387071d0c83b775972924752ecdda0e4a90"
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
+        "reviewedHash": null
       },
       "variants": [
         {
@@ -3876,41 +3876,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001052",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000026",
             "type": "gap_choice",
-            "prompt": "Der Vorstand ___ morgen eine Entscheidung. (treffen, Präsens)",
+            "prompt": "Der Vorstand muss morgen eine Entscheidung ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "trifft",
-                    "text": "trifft"
+                    "id": "stellen",
+                    "text": "stellen"
                   },
                   {
                     "id": "treffen",
                     "text": "treffen"
                   },
                   {
-                    "id": "triffst",
-                    "text": "triffst"
+                    "id": "leisten",
+                    "text": "leisten"
                   },
                   {
-                    "id": "treffe",
-                    "text": "treffe"
+                    "id": "führen",
+                    "text": "führen"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Treffen changes its stem vowel in the singular.",
-              "de": "Treffen verändert im Singular seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -3921,17 +3921,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "trifft"
+                    "optionId": "treffen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Eine Entscheidung treffen is a fixed collocation. The singular forms are trifft and triffst.",
-              "de": "Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst."
+              "en": "Eine Entscheidung treffen means to make a decision.",
+              "de": "Eine Entscheidung treffen bedeutet, sich zu entscheiden."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-26-1",
@@ -3940,41 +3940,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001053",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000026",
             "type": "gap_choice",
-            "prompt": "Du ___ die Entscheidung selbst. (treffen, Präsens)",
+            "prompt": "Vor dem Umzug müssen wir eine Entscheidung ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "trifft",
-                    "text": "trifft"
+                    "id": "leisten",
+                    "text": "leisten"
                   },
                   {
-                    "id": "triffst",
-                    "text": "triffst"
+                    "id": "führen",
+                    "text": "führen"
+                  },
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
                   },
                   {
                     "id": "treffen",
                     "text": "treffen"
-                  },
-                  {
-                    "id": "trefft",
-                    "text": "trefft"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Treffen changes its stem vowel in the singular.",
-              "de": "Treffen verändert im Singular seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -3985,17 +3985,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "triffst"
+                    "optionId": "treffen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Eine Entscheidung treffen is a fixed collocation. The singular forms are trifft and triffst.",
-              "de": "Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst."
+              "en": "Eine Entscheidung treffen means to make a decision.",
+              "de": "Eine Entscheidung treffen bedeutet, sich zu entscheiden."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
@@ -4010,11 +4010,11 @@
       "level": "B2",
       "provenance": "Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.",
       "review": {
-        "status": "approved",
-        "reviewer": "ChatGPT GPT-6 (AI editorial)",
-        "date": "2026-10-09",
-        "notes": "GPT-6 AI editorial approval under the owner's decision of 9 October 2026. Checked grammar, naturalness, keyed answers and alternatives, distractors, hints, explanations, context and level framing. No independent human review is claimed.",
-        "reviewedHash": "3ef96fb8eb5fefab36cd5e2d1ef0039bbc8f31ce5339b3d4a9090db7c2645a43"
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
+        "reviewedHash": null
       },
       "variants": [
         {
@@ -4024,41 +4024,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001054",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000027",
             "type": "gap_choice",
-            "prompt": "Die Leiterin ___ die Verantwortung für das Projekt. (übernehmen, Präsens)",
+            "prompt": "Die Leiterin will die Verantwortung für das Projekt ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "übernehme",
-                    "text": "übernehme"
+                    "id": "erfüllen",
+                    "text": "erfüllen"
+                  },
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
                   },
                   {
                     "id": "übernehmen",
                     "text": "übernehmen"
                   },
                   {
-                    "id": "übernimmt",
-                    "text": "übernimmt"
-                  },
-                  {
-                    "id": "übernimmst",
-                    "text": "übernimmst"
+                    "id": "treffen",
+                    "text": "treffen"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Übernehmen changes its stem vowel in the singular.",
-              "de": "Übernehmen verändert im Singular seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4069,17 +4069,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "übernimmt"
+                    "optionId": "übernehmen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Verantwortung übernehmen means to take responsibility; use übernimmt / übernimmst.",
-              "de": "Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst."
+              "en": "Verantwortung übernehmen means to accept responsibility for something.",
+              "de": "Verantwortung übernehmen bedeutet, für etwas einzustehen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-27-1",
@@ -4088,41 +4088,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001055",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000027",
             "type": "gap_choice",
-            "prompt": "Du ___ die Verantwortung für die Abrechnung. (übernehmen, Präsens)",
+            "prompt": "Nach dem Fehler muss jemand die Verantwortung ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
-                  {
-                    "id": "übernimmt",
-                    "text": "übernimmt"
-                  },
                   {
                     "id": "übernehmen",
                     "text": "übernehmen"
                   },
                   {
-                    "id": "übernehmt",
-                    "text": "übernehmt"
+                    "id": "treffen",
+                    "text": "treffen"
                   },
                   {
-                    "id": "übernimmst",
-                    "text": "übernimmst"
+                    "id": "erfüllen",
+                    "text": "erfüllen"
+                  },
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Übernehmen changes its stem vowel in the singular.",
-              "de": "Übernehmen verändert im Singular seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4133,17 +4133,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "übernimmst"
+                    "optionId": "übernehmen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Verantwortung übernehmen means to take responsibility; use übernimmt / übernimmst.",
-              "de": "Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst."
+              "en": "Verantwortung übernehmen means to accept responsibility for something.",
+              "de": "Verantwortung übernehmen bedeutet, für etwas einzustehen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
@@ -4158,11 +4158,11 @@
       "level": "B2",
       "provenance": "Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.",
       "review": {
-        "status": "approved",
-        "reviewer": "ChatGPT GPT-6 (AI editorial)",
-        "date": "2026-10-09",
-        "notes": "GPT-6 AI editorial approval under the owner's decision of 9 October 2026. Checked grammar, naturalness, keyed answers and alternatives, distractors, hints, explanations, context and level framing. No independent human review is claimed.",
-        "reviewedHash": "512a2ec6eb5a3cd45ad8e07c03b3050795015784380521c2b79b39a868742273"
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
+        "reviewedHash": null
       },
       "variants": [
         {
@@ -4172,41 +4172,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001056",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000028",
             "type": "gap_choice",
-            "prompt": "Das Team ___ die Frist ein. (einhalten, Präsens; nur der konjugierte Teil)",
+            "prompt": "Das Team muss die vereinbarte Frist ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "hält",
-                    "text": "hält"
+                    "id": "einhalten",
+                    "text": "einhalten"
                   },
                   {
-                    "id": "halte",
-                    "text": "halte"
+                    "id": "teilnehmen",
+                    "text": "teilnehmen"
                   },
                   {
-                    "id": "hältst",
-                    "text": "hältst"
+                    "id": "vorbereiten",
+                    "text": "vorbereiten"
                   },
                   {
-                    "id": "halten",
-                    "text": "halten"
+                    "id": "beantragen",
+                    "text": "beantragen"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Einhalten is separable and changes its stem vowel.",
-              "de": "Einhalten ist trennbar und verändert seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4217,17 +4217,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "hält"
+                    "optionId": "einhalten"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Eine Frist einhalten means to meet a deadline. The singular stem is hält / hältst.",
-              "de": "„Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst."
+              "en": "Eine Frist einhalten means to finish or submit something by its deadline.",
+              "de": "Eine Frist einhalten bedeutet, etwas rechtzeitig zu erledigen oder abzugeben."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-28-1",
@@ -4236,41 +4236,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001057",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000028",
             "type": "gap_choice",
-            "prompt": "Du ___ die vereinbarte Frist ein. (einhalten, Präsens; nur der konjugierte Teil)",
+            "prompt": "Bitte schicken Sie die Unterlagen rechtzeitig ab, damit wir die Frist ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "hält",
-                    "text": "hält"
+                    "id": "vorbereiten",
+                    "text": "vorbereiten"
                   },
                   {
-                    "id": "hältst",
-                    "text": "hältst"
+                    "id": "beantragen",
+                    "text": "beantragen"
                   },
                   {
-                    "id": "haltet",
-                    "text": "haltet"
+                    "id": "einhalten",
+                    "text": "einhalten"
                   },
                   {
-                    "id": "halten",
-                    "text": "halten"
+                    "id": "teilnehmen",
+                    "text": "teilnehmen"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Einhalten is separable and changes its stem vowel.",
-              "de": "Einhalten ist trennbar und verändert seinen Stammvokal."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4281,17 +4281,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "hältst"
+                    "optionId": "einhalten"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Eine Frist einhalten means to meet a deadline. The singular stem is hält / hältst.",
-              "de": "„Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst."
+              "en": "Eine Frist einhalten means to finish or submit something by its deadline.",
+              "de": "Eine Frist einhalten bedeutet, etwas rechtzeitig zu erledigen oder abzugeben."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     },
@@ -4306,11 +4306,11 @@
       "level": "B2",
       "provenance": "Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.",
       "review": {
-        "status": "approved",
-        "reviewer": "ChatGPT GPT-6 (AI editorial)",
-        "date": "2026-10-09",
-        "notes": "GPT-6 AI editorial approval under the owner's decision of 9 October 2026. Checked grammar, naturalness, keyed answers and alternatives, distractors, hints, explanations, context and level framing. No independent human review is claimed.",
-        "reviewedHash": "5b93004e3866c735f55d84c14a7cdc9113ca238f093483d07253bb7748ac95a5"
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Objective-aligned revision authored 10 October 2026. German editorial and runtime verification deferred.",
+        "reviewedHash": null
       },
       "variants": [
         {
@@ -4320,41 +4320,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001058",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000029",
             "type": "gap_choice",
-            "prompt": "Ich ___ alle Voraussetzungen für die Stelle. (erfüllen, Präsens)",
+            "prompt": "Für diese Stelle muss ich alle fachlichen Voraussetzungen ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "erfüllt",
-                    "text": "erfüllt"
-                  },
-                  {
-                    "id": "erfüllst",
-                    "text": "erfüllst"
-                  },
-                  {
-                    "id": "erfülle",
-                    "text": "erfülle"
+                    "id": "treffen",
+                    "text": "treffen"
                   },
                   {
                     "id": "erfüllen",
                     "text": "erfüllen"
+                  },
+                  {
+                    "id": "stellen",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "leisten",
+                    "text": "leisten"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Use the specified verb in the present tense.",
-              "de": "Setze das angegebene Verb ins Präsens."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4365,17 +4365,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "erfülle"
+                    "optionId": "erfüllen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Voraussetzungen erfüllen means to meet the prerequisites for something.",
-              "de": "„Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen."
+              "en": "Voraussetzungen erfüllen means to meet the necessary conditions.",
+              "de": "Voraussetzungen erfüllen bedeutet, die nötigen Bedingungen zu erfüllen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         },
         {
           "variantKey": "b2-29-1",
@@ -4384,41 +4384,41 @@
           "exercise": {
             "schemaVersion": 1,
             "id": "40000000-0000-4000-8000-000000001059",
-            "revision": 2,
+            "revision": 3,
             "targetId": "40000000-0000-4000-8000-000000000029",
             "type": "gap_choice",
-            "prompt": "Die Bewerberin ___ die fachlichen Voraussetzungen. (erfüllen, Präsens)",
+            "prompt": "Für die Zulassung müssen Bewerber die Voraussetzungen ___.",
             "slots": [
               {
                 "id": "form",
-                "label": "Form",
+                "label": "Verb",
                 "options": [
                   {
-                    "id": "erfülle",
-                    "text": "erfülle"
+                    "id": "stellen",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "leisten",
+                    "text": "leisten"
+                  },
+                  {
+                    "id": "treffen",
+                    "text": "treffen"
                   },
                   {
                     "id": "erfüllen",
                     "text": "erfüllen"
-                  },
-                  {
-                    "id": "erfüllst",
-                    "text": "erfüllst"
-                  },
-                  {
-                    "id": "erfüllt",
-                    "text": "erfüllt"
                   }
                 ]
               }
             ],
             "hint": {
-              "en": "Use the specified verb in the present tense.",
-              "de": "Setze das angegebene Verb ins Präsens."
+              "en": "Think of the fixed expression used with this noun.",
+              "de": "Denke an die feste Verbindung mit diesem Nomen."
             },
             "instruction": {
-              "en": "Choose the form that correctly completes the sentence.",
-              "de": "Wähle die Form, die den Satz richtig ergänzt."
+              "en": "Choose the word that expresses the intended meaning.",
+              "de": "Wähle das Wort, das die gemeinte Bedeutung ausdrückt."
             }
           },
           "rubric": {
@@ -4429,17 +4429,17 @@
                 "selections": [
                   {
                     "slotId": "form",
-                    "optionId": "erfüllt"
+                    "optionId": "erfüllen"
                   }
                 ]
               }
             ],
             "explanation": {
-              "en": "Voraussetzungen erfüllen means to meet the prerequisites for something.",
-              "de": "„Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen."
+              "en": "Voraussetzungen erfüllen means to meet the necessary conditions.",
+              "de": "Voraussetzungen erfüllen bedeutet, die nötigen Bedingungen zu erfüllen."
             }
           },
-          "ambiguityNotes": "Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed."
+          "ambiguityNotes": "Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review."
         }
       ]
     }

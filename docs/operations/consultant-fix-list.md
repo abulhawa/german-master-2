@@ -7,8 +7,8 @@ PR #16 at `dd23fed` and its PR #15 baseline are integrated locally, preserving t
 | # | Fix | Status | Commit | Deferred verification |
 | --- | --- | --- | --- | --- |
 | 1 | History-aware variant selection; prefer missing qualifying contexts, then least-presented variants; frozen replay preserved | Implemented, unverified | `f0a9554` | Multi-session mastery reachability, prepared packs, SQL adapters, replay |
-| 2 | Authored applied contexts, two transfer identities per grammar target, and structural coverage gate | Implemented, unverified | This slice | Content review, transfer reachability, immutable releases |
-| 3 | Align all authored assessments with their objectives | Pending | — | German editorial review and client exercise previews |
+| 2 | Authored applied contexts, two transfer identities per grammar target, and structural coverage gate | Implemented, unverified | `b9f4833` | Content review, transfer reachability, immutable releases |
+| 3 | Audited 60 objectives; rewrote connector/collocation choices, removed ordering-rule and title leakage | Implemented, unverified | This slice | German editorial review and client exercise previews |
 | 4 | Independent progress freshness | Pending | — | Failed refresh followed by local edits and navigation |
 | 5 | Bilingual objectives and examples | Pending | — | Catalog generation and both-client detail screens |
 | 6 | Structured completed-sentence feedback | Pending | — | Contract conformance, both clients, old-content fallback |
