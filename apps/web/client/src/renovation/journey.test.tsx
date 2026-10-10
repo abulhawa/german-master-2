@@ -190,6 +190,22 @@ it("Close preserves assisted drafts; partial completion retries the frozen reque
   expect(readJourney(localStorage).practice!.draft).toEqual(before.draft);
   expect(api.submit).not.toHaveBeenCalled(); expect(api.expose).not.toHaveBeenCalled();
 });
+it("keeps the saved-progress warning after local practice saves until a successful refresh", async () => {
+  const api=apiFixture();
+  const confirmed=await snapshot(api);
+  saveJourney(localStorage,{...emptyJourney(),confirmed});
+  vi.mocked(api.targets).mockRejectedValueOnce(Error("offline"));
+  render(<LearnerJourney api={api} />);
+  await screen.findByText("Your progress could not be updated. Previously saved results are still available, if any.");
+  fireEvent.click(await screen.findByRole("button",{name:"Start short practice"}));
+  fireEvent.change(await screen.findByLabelText("Your answer"),{target:{value:"locally saved draft"}});
+  fireEvent.click(screen.getByRole("button",{name:"Close practice"}));
+  fireEvent.click(screen.getByRole("button",{name:"Save and return Home"}));
+  fireEvent.click(screen.getByRole("button",{name:"Progress"}));
+  expect(screen.getByText("Showing your last saved progress. Try refreshing when online.")).toBeVisible();
+  fireEvent.click(screen.getByRole("button",{name:"Refresh progress"}));
+  await waitFor(()=>expect(screen.queryByText("Showing your last saved progress. Try refreshing when online.")).toBeNull());
+});
 it("keeps a failed refresh visible when background profile loading finishes later", async () => {
   const api = apiFixture();
   const profile = await api.profile();

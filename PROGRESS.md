@@ -1,3 +1,11 @@
+## Post-consultant corrective review — 10 October 2026 (draft PR #18)
+
+- Branch `fix/post-consultant-verification-20261010` contains focused corrections to the eight fixes merged at `11ca27c`. No merge, content publication, production config update, deployment or Android release.
+- Initial GitHub Actions on main failed Web typecheck and 8 backend tests; Android had 8 unit failures. These included outdated editorial/revision assertions and a real native HTTP preview defect: the preview exported only obsolete revision-2 questions, excluding all current authored revisions 3–5.
+- The correction branch fixes registration email redirect to the frontend rather than API origin, handles recovery initialization event ordering, provides a direct expired-link re-request path, refreshes web and native test expectations without accepting changed content, and fixes the native preview selector. Added focused regressions for recovery subject isolation, variant selection and stale-progress persistence after local saves.
+- Hosted PR checks are the acceptance evidence; passing builds or copied assertions alone do not close M1. Real delivered confirmation/recovery links and redirect allowlist, mobile/web visual acceptance and new hash-bound editorial review of all 60 draft targets remain pending.
+- Proposed handoff after checks: correct any branch failures, review the full CI logs, then decide whether to advance PR #18. M1 stays active.
+
 # German Master 2.0 renovation checkpoint
 
 ## Consultant fix branch push authorized — 10 October 2026
