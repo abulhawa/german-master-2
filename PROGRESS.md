@@ -1,5 +1,11 @@
 # German Master 2.0 renovation checkpoint
 
+## Consultant fixes — 10 October 2026 (implementation only)
+
+- Owner explicitly requested local commits after each fix with all testing and verification deferred. The tracked list is `docs/operations/consultant-fix-list.md`.
+- Fix 1 implemented: history-aware server variant selection, missing-evidence preference and unchanged frozen replay. Integrated PR #16 WIP locally with the previous local evidence commit preserved. No GitHub merge or push.
+- M1 remains active. Exact next action: implement fixes 2–8, then hand off for deferred verification. Nothing in this entry claims tested or release-ready behavior.
+
 ## Cold-start correction merged and live — 10 October 2026
 
 - PR #14 head `86e3859` passed Web (including offline shell), accessibility, safety, CodeQL and Vercel checks. Under the owner's ongoing merge/deploy authorization, merged it as `086e9ae` at 00:17 Europe/Berlin. Production deployment `dpl_8TKhmvpxo7NGJBq6suYh4xGxWkDV` is READY for that exact commit; the canonical site serves `index-Cn1Bd8Nj.js` with unchanged stylesheet. Local main fast-forwarded without discarding work.

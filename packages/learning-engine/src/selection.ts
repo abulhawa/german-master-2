@@ -1,9 +1,14 @@
 import type { LearningState } from "./evidence";
 
-export const SELECTION_POLICY_VERSION = "mixed-selection-v1";
+export const SELECTION_POLICY_VERSION = "mixed-selection-v2";
 export type SelectionCandidate = {
   targetId: string; exerciseId: string; revision: number;
   state: LearningState; dueAt: string | null; lastInformativeAt: string | null;
+  /** Server-owned history; absent only for legacy fixtures. */
+  variantKey?: string; contextKey?: string; transferKey?: string | null;
+  targetKind?: string;
+  qualifyingChecks?: { variantKey: string; contextKey: string; transferKey?: string }[];
+  presentationCount?: number; lastPresentedAt?: string | null;
 };
 type Pool = "weak" | "due" | "new" | "extra";
 /** Small-catalog policy: one question per target, no invented variants or repetition.
@@ -23,9 +28,19 @@ export function selectQuestions(candidates: readonly SelectionCandidate[], count
     return c.state === "new" ? "new" : "extra";
   };
   const urgency = (c: SelectionCandidate) => Math.min(30, Math.max(0, (clock - (deadline(c.dueAt) ?? clock)) / 86400000));
+  const missingEvidence = (c: SelectionCandidate) => {
+    const checks = c.qualifyingChecks ?? [];
+    if (c.targetKind && c.targetKind !== "lexical")
+      return !!c.transferKey && !checks.some(check => check.transferKey === c.transferKey);
+    return !!c.variantKey && !checks.some(check => check.variantKey === c.variantKey) ||
+      !!c.contextKey && !checks.some(check => check.contextKey === c.contextKey);
+  };
   const ranked = [...candidates].sort((a, b) => urgency(b) - urgency(a) ||
     (deadline(a.lastInformativeAt) ?? -Infinity) - (deadline(b.lastInformativeAt) ?? -Infinity) ||
-    a.targetId.localeCompare(b.targetId) || a.exerciseId.localeCompare(b.exerciseId) || a.revision - b.revision);
+    a.targetId.localeCompare(b.targetId) || Number(missingEvidence(b)) - Number(missingEvidence(a)) ||
+    (a.presentationCount ?? 0) - (b.presentationCount ?? 0) ||
+    (deadline(a.lastPresentedAt ?? null) ?? -Infinity) - (deadline(b.lastPresentedAt ?? null) ?? -Infinity) ||
+    a.exerciseId.localeCompare(b.exerciseId) || a.revision - b.revision);
   const pools: Record<Pool, SelectionCandidate[]> = { weak: [], due: [], new: [], extra: [] };
   const seen = new Set<string>();
   for (const c of ranked) {
