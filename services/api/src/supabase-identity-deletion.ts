@@ -64,7 +64,7 @@ export function supabaseIdentityDeletionProvider(admin:Admin,
  * starts a worker/listener, exposes the secret to clients or changes auth. */
 export function createSupabaseIdentityDeletionProvider(projectRef:string,secretKey:string,
   db:Pick<SqlTransaction,'query'>, privateViews=false):IdentityDeletionProvider {
-  if(projectRef!=='zgmyrpzwgtydwlzponih' || !secretKey.startsWith('sb_secret_'))
+  if(!['zgmyrpzwgtydwlzponih','sqgjsmiaprsuilcjmaav'].includes(projectRef) || !secretKey.startsWith('sb_secret_'))
     throw Error('Dedicated v2 project and server secret key required');
   const client=createClient(`https://${projectRef}.supabase.co`,secretKey,{
     auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},

@@ -1,6 +1,6 @@
+import {initialSchemaSection} from '../../../../../services/api/src/initial-schema';
 import {it,expect,vi} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {FoundationStore} from '../../../../../services/api/src/store';
 import {createApi} from '../../../../../services/api/src/server';
@@ -12,7 +12,7 @@ import type {SupabaseClient} from '@supabase/supabase-js';
 
 it('client recovers admitted HTTP deletion after lost response and restart without any provider reads',async()=>{
  const db=new PGlite(),store=new FoundationStore(db);await store.initialize();
- await db.exec(await readFile(new URL('../../../../../db/baseline/identity-deletion.sql',import.meta.url),'utf8'));
+ await db.exec(await initialSchemaSection('identity-deletion.sql'));
  const subject=randomUUID(),project='zgmyrpzwgtydwlzponih';let exists=true;
  const service=new IdentityDeletionService(db,()=>store,{inspect:async()=>({exists,activeSessions:exists}),remove:async()=>{exists=false;}},async()=>({subject,authenticatedAt:Date.now()}));
  const auth=async()=>exists?subject:null;

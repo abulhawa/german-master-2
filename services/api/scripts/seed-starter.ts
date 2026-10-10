@@ -1,5 +1,5 @@
+import {initialSchemaSection} from '../src/initial-schema';
 import { PGlite } from '@electric-sql/pglite';
-import { readFile } from 'node:fs/promises';
 import { foundationCatalog } from '../src/catalog';
 import metadata from '../../../content/foundation/metadata.json';
 import editorial from '../../../content/foundation/review.json';
@@ -16,7 +16,7 @@ const literal = (value: unknown) => value === null ? 'NULL' : typeof value === '
   : `'${(typeof value === 'object' ? JSON.stringify(value) : String(value)).replaceAll("'", "''")}'`;
 const db = new PGlite();
 try {
-  await db.exec(await readFile(new URL('../../../db/baseline/v2.sql', import.meta.url), 'utf8'));
+  await db.exec(await initialSchemaSection('v2.sql'));
   const { session, rubrics } = foundationCatalog();
   const releaseId = remap(session.contentReleaseId);
   const targets = metadata.targets.map(target => {

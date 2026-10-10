@@ -1,6 +1,6 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect,vi} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID,randomBytes} from 'node:crypto';
 import {createApi} from './server';
 import {FoundationStore} from './store';
@@ -9,7 +9,7 @@ import {identityDeletionHttp,serializedDeletionWorker} from './identity-deletion
 
 it('recovers a lost HTTP receipt without provider auth and never runs a worker from recovery',async()=> {
   const db=new PGlite(),store=new FoundationStore(db);await store.initialize();
-  await db.exec(await readFile(new URL('../../../db/baseline/identity-deletion.sql',import.meta.url),'utf8'));
+  await db.exec(await initialSchemaSection('identity-deletion.sql'));
   const subject=randomUUID(),requestId=randomUUID(),recoveryCapability=randomBytes(32).toString('base64url');
   let exists=true;const remove=vi.fn(async()=>{exists=false;});
   const service=new IdentityDeletionService(db,()=>store,{inspect:async()=>({exists,activeSessions:exists}),remove},

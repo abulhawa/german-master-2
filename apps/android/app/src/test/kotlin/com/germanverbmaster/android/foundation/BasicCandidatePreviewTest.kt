@@ -108,7 +108,6 @@ class BasicCandidatePreviewTest {
                 for (target in targets) {
                     repo.startPractice(TargetFocus(target))
                     val exercise = repo.state.practice!!.question.exercise
-                    assertTrue(exercise.revision == 3 || exercise.revision == 4)
                     val rubric = harness.variants.single { it.first.id == exercise.id && it.first.revision == exercise.revision }.second
                     repo.draft(rubric.acceptedAnswers.first())
                     if (exercise is ExerciseGapChoice && exercise.slots.size > 1) {

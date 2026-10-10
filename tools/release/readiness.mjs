@@ -13,12 +13,12 @@ const outputPath =
 const requiredFiles = {
   androidGradle: "apps/android/app/build.gradle",
   webVercel: "apps/web/vercel.json",
-  stagingPlan: "docs/operations/v2-staging-plan.json",
-  baseline: "db/baseline/v2.sql",
-  backendAccess: "db/baseline/backend-access.sql",
-  authAccess: "db/baseline/auth-session-access.sql",
-  identityDeletion: "db/baseline/identity-deletion.sql",
-  identityVerifier: "db/baseline/identity-verifier-access.sql",
+  stagingPlan: "docs/operations/replacement-database-plan.json",
+  baseline: "db/0001_initial_schema.sql",
+  backendAccess: "db/0001_initial_schema.sql",
+  authAccess: "db/0001_initial_schema.sql",
+  identityDeletion: "db/0001_initial_schema.sql",
+  identityVerifier: "db/0001_initial_schema.sql",
   gitignore: ".gitignore",
 };
 
@@ -83,11 +83,11 @@ requireInvariant(
   "Android versionCode must be a positive integer",
 );
 requireInvariant(
-  stagingPlan.projectName === "german-master-v2-staging",
+  stagingPlan.projectName === "german-master-v2-clean",
   "Staging project name changed unexpectedly",
 );
 requireInvariant(
-  stagingPlan.projectRef === "zgmyrpzwgtydwlzponih",
+  stagingPlan.projectRef === "sqgjsmiaprsuilcjmaav",
   "Staging project reference changed unexpectedly",
 );
 requireInvariant(
@@ -178,11 +178,11 @@ const manifest = {
   },
   immutableInputs: hashes,
   unresolvedExternalGates: [
-    "live Play published maximum versionCode and signing/key custody",
-    "approved staging credentials and clean schema application",
-    "live staging connection, advisors, contention and load acceptance",
-    "independent German content and design review",
-    "private off-machine backup and full restore rehearsal",
+    "owner verification of live Play maximum versionCode before store upload",
+    "replacement Auth/SMTP callbacks and complete both-client lifecycle acceptance",
+    "replacement performance-advisor assessment and independent-connection contention/load acceptance",
+    "explicit content publication for the replacement environment",
+    "replacement cutover rollback preparation and verification",
     "deployment, store upload and production cutover approval",
   ],
   failures,

@@ -1,9 +1,9 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect,vi} from 'vitest';
 import type {IncomingMessage} from 'node:http';
 import {verifiedSupabaseAuth,createSupabaseAuthenticate} from './supabase-auth';
 import {currentAuthSession} from './supabase-auth';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 const project='zgmyrpzwgtydwlzponih',subject='aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',session='bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
 const claims={iss:`https://${project}.supabase.co/auth/v1`,aud:'authenticated',role:'authenticated',sub:subject,session_id:session,exp:2000000000};
 function request(overrides:Record<string,unknown>={}) {
@@ -36,7 +36,7 @@ it('session verifier reads only current owned session identifiers and cannot rea
     // Minimal isolated auth-session shape; not a claim of Supabase schema parity.
     await db.exec('CREATE SCHEMA auth; CREATE TABLE auth.sessions(id uuid PRIMARY KEY,user_id uuid,not_after timestamptz,refresh_secret text)');
     await db.exec('ALTER TABLE auth.sessions ENABLE ROW LEVEL SECURITY');
-    await db.exec(await readFile(new URL('../../../db/baseline/auth-session-access.sql',import.meta.url),'utf8'));
+    await db.exec(await initialSchemaSection('auth-session-access.sql'));
     await db.query('INSERT INTO auth.sessions VALUES($1,$2,NULL,$3)',[session,subject,'synthetic-test-only']);
     const scoped={query:<T>(sql:string,values?:unknown[])=>db.transaction(async tx=> {
       await tx.exec('SET LOCAL ROLE gm_auth_verifier');return tx.query<T>(sql,values);

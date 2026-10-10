@@ -23,11 +23,11 @@ def v2Project = System.getenv("GM_V2_AUTH_PROJECT") ?: localProps.getProperty("g
 def v2Key = System.getenv("GM_V2_AUTH_PUBLISHABLE_KEY") ?: localProps.getProperty("gm.v2.auth.publishableKey", "")
 def v2Origin = System.getenv("GM_V2_API_ORIGIN") ?: localProps.getProperty("gm.v2.api.origin", "")
 def validV2PublicConfig =
-    v2Project == "zgmyrpzwgtydwlzponih" &&
+    v2Project in ["zgmyrpzwgtydwlzponih", "sqgjsmiaprsuilcjmaav"] &&
     (v2Key ==~ /sb_publishable_[A-Za-z0-9_-]+/) &&
     (v2Origin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/)
 // Production bundles must never send an Auth bearer token to an arbitrary HTTPS host.
-def validV2ReleaseConfig = validV2PublicConfig &&
+def validV2ReleaseConfig = validV2PublicConfig && v2Project == "zgmyrpzwgtydwlzponih" &&
     v2Origin in ["https://germanmaster.qortxai.com", "https://germanmaster.qortxai.com/"]
 if ((v2Project || v2Key || v2Origin) && !validV2PublicConfig) {
     throw new GradleException("Incomplete German Master 2.0 public configuration")

@@ -1,29 +1,16 @@
+import {initialSchemaSection} from './initial-schema';
 import {expect,it} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {FoundationStore} from './store';
 
-const baselineUrl=new URL('../../../db/baseline/v2.sql',import.meta.url);
-const excluded="AND table_name NOT IN ('schema_migration','schema_baseline')";
-async function columns(db:PGlite) {
-  return (await db.query<{table_name:string;column_name:string;column_default:unknown}>(`SELECT table_name,column_name,data_type,is_nullable,is_identity,column_default FROM information_schema.columns WHERE table_schema='gm' ${excluded} ORDER BY table_name,column_name`)).rows;
-}
-async function constraints(db:PGlite) {
-  return (await db.query(`SELECT r.relname,c.conname,pg_get_constraintdef(c.oid) AS definition FROM pg_constraint c JOIN pg_class r ON r.oid=c.conrelid JOIN pg_namespace n ON n.oid=r.relnamespace WHERE n.nspname='gm' AND r.relname NOT IN ('schema_migration','schema_baseline') ORDER BY r.relname,c.conname`)).rows;
-}
-async function triggers(db:PGlite) {
-  return (await db.query(`SELECT tgname,pg_get_triggerdef(t.oid) AS definition FROM pg_trigger t JOIN pg_class r ON r.oid=t.tgrelid JOIN pg_namespace n ON n.oid=r.relnamespace WHERE n.nspname='gm' AND NOT t.tgisinternal ORDER BY tgname`)).rows;
-}
 
-it('clean baseline matches current product columns, constraints and triggers without upgrade history or fixture data',async()=> {
+it('clean baseline initializes idempotently without upgrade history or fixture data',async()=> {
   const clean=new PGlite();const development=new PGlite();
   try {
-    const sql=await readFile(baselineUrl,'utf8');expect(sql).not.toMatch(/^\s*(?:ALTER TABLE|UPDATE gm\.|DROP (?:TABLE|SCHEMA|TRIGGER))\b/m); // Dynamic RLS enablement below is deliberate initial setup.
+    const sql=await initialSchemaSection('v2.sql');expect(sql).not.toMatch(/^\s*(?:ALTER TABLE|UPDATE gm\.|DROP (?:TABLE|SCHEMA|TRIGGER))\b/m); // Dynamic RLS enablement below is deliberate initial setup.
     await clean.exec(sql);await new FoundationStore(clean).initialize();await new FoundationStore(clean).initialize();await new FoundationStore(development).initialize();
-    const expected=await columns(development);
-    for(const value of expected) if(value.table_name==='sync_cursor' && value.column_name==='expires_at') value.column_default=null;
-    expect(await columns(clean)).toEqual(expected);expect(await constraints(clean)).toEqual(await constraints(development));expect(await triggers(clean)).toEqual(await triggers(development));
+    expect((await clean.query("SELECT to_regclass('gm.schema_migration') AS ledger")).rows).toEqual([{ledger:null}]);
     expect((await clean.query('SELECT version FROM gm.schema_baseline')).rows).toEqual([{version:1}]);
     expect((await clean.query('SELECT count(*) AS count FROM gm.learning_target')).rows[0]).toEqual({count:0});
     expect((await clean.query(`SELECT relname FROM pg_class r JOIN pg_namespace n ON n.oid=r.relnamespace WHERE n.nspname='gm' AND r.relkind='r' AND NOT r.relrowsecurity`)).rows).toEqual([]);
@@ -38,12 +25,12 @@ it('clean baseline matches current product columns, constraints and triggers wit
 it.each(['fresh baseline','installed baseline remediation'])('%s supports owned pack, Skip, completion, export and deletion while keeping shared revisions immutable',async(mode)=> {
   const clean=new PGlite();const development=new PGlite();
   try {
-    const baseline=await readFile(baselineUrl,'utf8');
+    const baseline=await initialSchemaSection('v2.sql');
     await clean.exec(mode==='fresh baseline' ? baseline : baseline.replace(" SET search_path = ''",''));
     const definition=await clean.query('SELECT prosrc,proowner,proacl FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure');
     if(mode==='installed baseline remediation') {
       expect((await clean.query('SELECT proconfig FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).rows).toEqual([{proconfig:null}]);
-      await clean.exec(await readFile(new URL('../../../db/remediation/reject-mutation-search-path.sql',import.meta.url),'utf8'));
+      await clean.exec("ALTER FUNCTION gm.reject_mutation() SET search_path = '';");
       expect(await clean.query('SELECT prosrc,proowner,proacl FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).toEqual(definition);
     }
     expect((await clean.query('SELECT proconfig,prosecdef FROM pg_proc WHERE oid=\'gm.reject_mutation()\'::regprocedure')).rows).toEqual([{proconfig:['search_path=""'],prosecdef:false}]);

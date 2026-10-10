@@ -1,6 +1,6 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect,vi} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {identityPresence,supabaseIdentityDeletionProvider,createSupabaseIdentityDeletionProvider} from './supabase-identity-deletion';
 import {IdentityDeletionService} from './identity-deletion';
@@ -10,11 +10,11 @@ it('reads only identity/session presence through a separate role and observes re
   const db=new PGlite();const subject=randomUUID(),requestId=randomUUID(),other=randomUUID();
   try {
     const store=new FoundationStore(db);await store.initialize();
-    await db.exec(await readFile(new URL('../../../db/baseline/identity-deletion.sql',import.meta.url),'utf8'));
+    await db.exec(await initialSchemaSection('identity-deletion.sql'));
     await db.exec(`CREATE SCHEMA auth; CREATE TABLE auth.users(id uuid PRIMARY KEY,email text);
       CREATE TABLE auth.sessions(id uuid PRIMARY KEY,user_id uuid REFERENCES auth.users ON DELETE CASCADE,refresh_secret text)`);
     await db.exec('ALTER TABLE auth.users ENABLE ROW LEVEL SECURITY; ALTER TABLE auth.sessions ENABLE ROW LEVEL SECURITY');
-    await db.exec(await readFile(new URL('../../../db/baseline/identity-verifier-access.sql',import.meta.url),'utf8'));
+    await db.exec(await initialSchemaSection('identity-verifier-access.sql'));
     await db.query('INSERT INTO auth.users VALUES($1,$2),($3,$4)',[subject,'synthetic@example.invalid',other,'other@example.invalid']);
     await db.query('INSERT INTO auth.sessions VALUES($1,$2,$3)',[randomUUID(),subject,'synthetic-secret']);
     const scoped={query:<T>(sql:string,values?:unknown[])=>db.transaction(async tx=>{

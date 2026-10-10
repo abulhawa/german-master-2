@@ -1,5 +1,5 @@
 import type { SqlDatabase, SqlTransaction as Transaction } from "./database";
-import { readFile } from "node:fs/promises";
+import { initialSchemaSection } from "./initial-schema";
 import { randomUUID, createHash } from "node:crypto";
 import { SessionSchema, GuestAttachmentRequestSchema, type GuestAttachmentRequest, type GuestAttempt, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
@@ -76,14 +76,12 @@ export class FoundationStore {
     }
     if (exists.rows[0].present) {
       const baseline = await this.db.query<{present:boolean}>("SELECT to_regclass('gm.schema_baseline') IS NOT NULL AS present");
-      if(baseline.rows[0].present) {
-        const versions=await this.db.query<{version:number}>('SELECT version FROM gm.schema_baseline');
-        if(versions.rows.length!==1 || versions.rows[0].version!==1) throw Error('Unsupported v2 schema baseline');
-        return; // A real baseline never runs fixture backfills or imports draft content.
-      }
-      await this.upgradeEvidence(); await this.upgradeReads(); await this.upgradeProfile(); return;
+      if(!baseline.rows[0].present) throw Error('Development schema is unsupported; recreate the disposable fixture database');
+      const versions=await this.db.query<{version:number}>('SELECT version FROM gm.schema_baseline');
+      if(versions.rows.length!==1 || versions.rows[0].version!==1) throw Error('Unsupported v2 schema baseline');
+      return;
     }
-    const migration = await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8");
+    const migration = await initialSchemaSection('v2.sql');
     const catalog = foundationCatalog();
     await this.db.transaction(async tx => {
       await tx.exec(migration);
@@ -100,42 +98,11 @@ export class FoundationStore {
           [exercise.id, exercise.revision, exercise.type, exercise, rubric, rubric.normalizationVersion, editorial.provenance, editorial.status]);
         await tx.query("INSERT INTO gm.content_release_exercise VALUES ($1,$2,$3)", [catalog.session.contentReleaseId, exercise.id, exercise.revision]);
       }
-    });
-    await this.upgradeEvidence();
-    await this.upgradeReads();
-    await this.upgradeProfile();
-  }
-
-  private async upgradeReads() {
-    await this.db.transaction(async tx => {
-      const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=3");
-      if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/003_owned_reads.sql", import.meta.url), "utf8"));
-      const expiry = await tx.query("SELECT version FROM gm.schema_migration WHERE version=5");
-      if (!expiry.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/005_cursor_expiry.sql", import.meta.url), "utf8"));
-      const retention = await tx.query("SELECT version FROM gm.schema_migration WHERE version=6");
-      if (!retention.rows.length) {
-        await tx.exec(await readFile(new URL("../../../db/migrations/006_read_retention.sql", import.meta.url), "utf8"));
-        // Undated legacy pages receive one bounded upgrade grace period.
-        await tx.query('ALTER TABLE gm.target_page DISABLE TRIGGER immutable_target_page');
-        await tx.query('UPDATE gm.target_page SET expires_at=$1', [new Date(this.clock().getTime() + this.pageLifetimeMs)]);
-        await tx.query('ALTER TABLE gm.target_page ENABLE TRIGGER immutable_target_page');
-        await tx.query('ALTER TABLE gm.target_page ALTER COLUMN expires_at DROP DEFAULT');
+      for (const target of editorial.targets) {
+        const identity=target.evidenceIdentity;
+        await tx.query('INSERT INTO gm.revision_evidence_identity VALUES ($1,$2,$3,$4,$5)',
+          [target.exerciseId,target.revision,identity.variantKey,identity.contextKey,identity.transferKey]);
       }
-    });
-  }
-
-  private async upgradeProfile() {
-    await this.db.transaction(async tx => {
-      const found = await tx.query("SELECT version FROM gm.schema_migration WHERE version=4");
-      if (!found.rows.length) await tx.exec(await readFile(new URL("../../../db/migrations/004_owned_profile.sql", import.meta.url), "utf8"));
-      const reports = await tx.query('SELECT version FROM gm.schema_migration WHERE version=7');
-      if (!reports.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/007_content_reports.sql', import.meta.url), 'utf8'));
-      const completions = await tx.query('SELECT version FROM gm.schema_migration WHERE version=8');
-      if (!completions.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/008_session_completion.sql', import.meta.url), 'utf8'));
-      const packs = await tx.query('SELECT version FROM gm.schema_migration WHERE version=9');
-      if (!packs.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/009_prepared_packs.sql', import.meta.url), 'utf8'));
-      const privacy = await tx.query('SELECT version FROM gm.schema_migration WHERE version=10');
-      if (!privacy.rows.length) await tx.exec(await readFile(new URL('../../../db/migrations/010_owned_privacy.sql', import.meta.url), 'utf8'));
     });
   }
 
@@ -448,34 +415,6 @@ export class FoundationStore {
   /** Read-only replay. Stored event timezones/editorial identities remain authoritative. */
   async rebuild(userId: string, targetId: string) {
     return this.db.transaction(tx => this.rebuildIn(tx, userId, targetId, this.clock().toISOString()));
-  }
-
-  private async upgradeEvidence() {
-    await this.db.transaction(async tx => {
-      const exists = await tx.query<{ present: boolean }>("SELECT to_regclass('gm.schema_migration') IS NOT NULL AS present");
-      if (exists.rows[0].present) return;
-      await tx.exec(await readFile(new URL("../../../db/migrations/002_evidence_projection.sql", import.meta.url), "utf8"));
-      for (const target of editorial.targets) {
-        const identity = target.evidenceIdentity;
-        await tx.query("INSERT INTO gm.revision_evidence_identity VALUES ($1,$2,$3,$4,$5)",
-          [target.exerciseId, target.revision, identity.variantKey, identity.contextKey, identity.transferKey]);
-      }
-      const old = await tx.query<{ user_id: string; id: string; payload: Attempt; received_at: Date; evaluation: AttemptAcknowledgment["evaluation"] }>(
-        `SELECT a.*,e.evaluation FROM gm.attempt a JOIN gm.attempt_evaluation e
-         ON e.user_id=a.user_id AND e.attempt_id=a.id ORDER BY a.received_sequence`);
-      for (const row of old.rows) {
-        const pinned = await this.pinnedQuestion(tx, row.user_id, row.payload.sessionQuestionId, row.payload.exerciseRevision);
-        // Prior sessions lack reliable issuance metadata. Keep outcomes/exposure,
-        // but never retrospectively grant spaced-success credit.
-        await this.saveEvidence(tx, row.user_id, row.id, pinned, new Date(row.received_at).toISOString(), {
-          kind: pinned.evidence_role, outcome: row.evaluation.outcome as "correct" | "incorrect",
-          assisted: row.evaluation.assisted, evaluationVersion: row.evaluation.policyVersion,
-          variantKey: pinned.variant_key, contextKey: pinned.context_key,
-          ...(pinned.transfer_key ? { transferKey: pinned.transfer_key } : {}),
-        }, "attempt");
-      }
-      await tx.query("INSERT INTO gm.schema_migration VALUES (2)");
-    });
   }
 
   async expose(userId: string, event: ExposureEvent, requestId: string): Promise<ExposureAcknowledgment> {

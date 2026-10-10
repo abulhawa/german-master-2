@@ -102,3 +102,69 @@ Scoped server login provisioning, Auth/SMTP/callback setup, replacement API/clie
 configuration, content setup and complete both-client lifecycle acceptance remain
 unfinished. The existing production project remains unchanged. This installation
 is not production cutover or readiness acceptance.
+## Consolidation and scoped runtime verification
+
+The repository now uses only `db/0001_initial_schema.sql` for the v2 schema.
+Development migrations, split SQL and the standalone remediation were removed.
+Fixtures install the provider-independent section, seed unpublished foundation
+content and evidence identities atomically, and reopen baseline 1 without
+replaying seeds. Development schemas fail with a recreate-disposable-fixture
+instruction. Role/Auth/privacy tests and release tooling read the same source.
+Legacy imported SQL remains preserved provenance rather than a v2 migration path.
+
+Four separate restricted server logins were generated on the replacement. Their
+passwords were transferred encrypted into ignored private storage; server key
+configuration was likewise transferred privately. No credentials are tracked.
+Independent TLS connections passed for learning, Auth verification, privacy and
+identity observation. A rollback-only learning probe verified own-profile access,
+cross-subject hiding and denial of schema creation. The connector itself could
+not assume the backend role; restricted real connections supplied this evidence.
+The unsuccessful connector probe rolled back and left zero learner profiles.
+
+Server-key read-only Auth administration returns HTTP 200 with zero users.
+Provider settings confirm email confirmation required, email provider enabled
+and signup enabled. Replacement URL configuration still has the default local
+site URL and no explicit redirect allowlist; it is not production-ready.
+
+The API supports explicit `replacement-verification` mode bound to the new
+project. Its compiled loopback runtime connects and returns HTTP 401 for an
+unauthenticated profile request. This is composition/auth-denial evidence,
+not signed-in or practice lifecycle acceptance. Web accepts the explicitly
+selected replacement project. Android debug configuration accepts it, while
+release configuration retains the current production project and canonical
+origin. No deployed production configuration or release was switched.
+
+SMTP preparation found that the existing production sender uses Resend at
+`smtp.resend.com:465`, with a 60-second per-user interval. Its stored password
+is hidden and cannot be recovered from the dashboard. Matching non-secret
+replacement fields were prepared, unsaved. Password entry/submission requires
+owner handoff under browser credential rules. No SMTP settings changed on
+production, no new email key created and no real test email sent.
+
+Remaining work: owner SMTP credential handoff; exact isolated callback/API origin
+setup; replacement content setup with explicit publication authorization;
+signed-in registration/recovery/practice/offline/export/deletion journeys on both
+clients; independent-connection contention/load and advisor remediation. The
+replacement remains empty. Cutover and retirement remain separate controlled
+steps. M2 remains active, with no later milestone advanced.
+
+Verification follow-up: root offline dependency installation, generated/type
+checks and production learner/API builds pass. Full backend: 194 tests; full
+Node 24 web: 423 tests plus three new focused configuration tests; HTTP: 20.
+Staged secret scan reports no findings. Android lint/debug assembly pass with
+replacement public config and a non-routable verification origin. The full native
+unit run passed 167/168; one obsolete revision bound rejected authored B1 revision
+5. Its exact authored id/revision lookup remains, and the corrected real-HTTP/
+AtomicFile restart test passes on targeted rerun. This does not claim a fresh
+168-test aggregate run or native device/live backend lifecycle acceptance.
+The native production-release guard rejects replacement-project configuration.
+
+The owner reports creating a new Resend sending-only key restricted to the
+verified sender domain and saving replacement SMTP. Verify persistence next;
+no delivered confirmation/recovery email is yet claimed. Existing keys remain.
+
+Reload verification returned custom SMTP disabled despite the owner's completion
+report. Saving did not persist. The replacement non-secret SMTP form was restored;
+owner must enter the new Resend key into Password and submit Save changes. The
+stored production SMTP secret was not retrieved or changed. No SMTP delivery
+acceptance is claimed. All completed code is committed before this handoff.

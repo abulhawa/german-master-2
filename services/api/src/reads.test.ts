@@ -22,25 +22,6 @@ it('validates shared transport fixtures and rejects invalid instants and client 
 
 const user = randomUUID(), other = randomUUID();
 const request = (): SessionRequest => ({ apiVersion: 'v2', requestId: randomUUID(), questionCount: 1, capabilities: ['short_answer@1'] });
-it('bounds undated legacy page grace once across repeated initialization', async () => {
-  const db = new PGlite(); let now = Date.parse('2026-10-04T12:00:00Z');
-  const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
-  try {
-    await store.initialize(); const snapshot = await store.targets(user, 1);
-    const frozen = await store.targets(user, 1, snapshot.nextPageCursor);
-    await db.exec(`ALTER TABLE gm.target_page DROP COLUMN expires_at;
-      DROP INDEX gm.sync_cursor_expiry;
-      DELETE FROM gm.schema_migration WHERE version=6;`);
-    now += 10000; await store.initialize();
-    expect(await store.targets(user, 1, snapshot.nextPageCursor)).toEqual(frozen);
-    now += 1999; await store.initialize();
-    expect(await store.targets(user, 1, snapshot.nextPageCursor)).toEqual(frozen);
-    now += 1;
-    await expect(store.targets(user, 1, snapshot.nextPageCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
-    await store.cleanupReads();
-    expect((await db.query('SELECT * FROM gm.target_page')).rows).toEqual([]);
-  } finally { await db.close(); }
-});
 it('prunes only expired transport records atomically while active pages and evidence survive', async () => {
   const db = new PGlite(); let now = Date.parse('2026-10-04T12:00:00Z');
   const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
@@ -219,26 +200,6 @@ it('expires at the exact HTTP boundary, recovers a frozen snapshot and accepts p
     expect((await get('/v2/targets')).status).toBe(200);
     expect((await (await submit()).json()).acknowledgments[0].status).toBe('duplicate');
   } finally { await new Promise<void>(resolve => server.close(() => resolve())); await db.close(); }
-});
-
-it('upgrades undated legacy cursor records without changing frozen pages or evidence', async () => {
-  const db = new PGlite(); const now = new Date('2026-10-04T12:00:00Z');
-  const store = new FoundationStore(db, () => now);
-  try {
-    await store.initialize(); const snapshot = await store.targets(user, 1);
-    const page = await store.targets(user, 1, snapshot.nextPageCursor);
-    // Reconstruct migration-004 cursor layout in this isolated database.
-    await db.exec(`ALTER TABLE gm.sync_cursor DROP COLUMN expires_at;
-      ALTER TABLE gm.sync_cursor ADD UNIQUE (user_id,sequence);
-      DELETE FROM gm.schema_migration WHERE version=5;`);
-    await store.initialize(); await store.initialize();
-    await expect(store.sync(user, 1, snapshot.syncCursor)).rejects.toMatchObject({ code: 'invalid_cursor' });
-    expect(await store.targets(user, 1, snapshot.nextPageCursor)).toEqual(page);
-    const fresh = await store.targets(user);
-    expect(fresh.syncCursor).not.toBe(snapshot.syncCursor);
-    expect((await store.sync(user, 1, fresh.syncCursor)).changes).toEqual([]);
-    expect((await db.query('SELECT * FROM gm.accepted_evidence')).rows).toEqual([]);
-  } finally { await db.close(); }
 });
 
 it('validates authenticated HTTP reads, pagination bounds and unknown or repeated parameters', async () => {

@@ -1,6 +1,6 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {currentAuthSession} from './supabase-auth';
 import {identityPresence} from './supabase-identity-deletion';
 
@@ -11,7 +11,7 @@ it('private invoker views work without auth schema lookup access and retain colu
       CREATE TABLE auth.sessions(id uuid PRIMARY KEY,user_id uuid,not_after timestamptz,refresh_secret text);
       ALTER TABLE auth.users ENABLE ROW LEVEL SECURITY;ALTER TABLE auth.sessions ENABLE ROW LEVEL SECURITY;`);
     for(const file of ['auth-session-access.sql','identity-verifier-access.sql','auth-verifier-views.sql'])
-      await db.exec(await readFile(new URL(`../../../db/baseline/${file}`,import.meta.url),'utf8'));
+      await db.exec(await initialSchemaSection(file));
     await db.exec('REVOKE USAGE ON SCHEMA auth FROM gm_auth_verifier,gm_identity_verifier');
     await db.query('INSERT INTO auth.users VALUES($1,$2)',[subject,'disposable@example.test']);
     await db.query('INSERT INTO auth.sessions VALUES($1,$2,NULL,$3)',[session,subject,'test-only']);

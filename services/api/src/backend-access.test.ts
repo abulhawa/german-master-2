@@ -1,6 +1,6 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import {FoundationStore} from './store';
 import type {SqlDatabase,SqlTransaction} from './database';
@@ -11,8 +11,8 @@ import editorial from '../../../content/foundation/review.json';
 it('backend role serves only its verified subject and cannot modify shared content or escape ownership',async()=> {
   const db=new PGlite();const a=randomUUID(),b=randomUUID();
   try {
-    await db.exec(await readFile(new URL('../../../db/baseline/v2.sql',import.meta.url),'utf8'));
-    await db.exec(await readFile(new URL('../../../db/baseline/backend-access.sql',import.meta.url),'utf8'));
+    await db.exec(await initialSchemaSection('v2.sql'));
+    await db.exec(await initialSchemaSection('backend-access.sql'));
     const fixture=new PGlite();
     try {
       await new FoundationStore(fixture).initialize();

@@ -1,13 +1,13 @@
+import {initialSchemaSection} from './initial-schema';
 import {it,expect,vi} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
-import {readFile} from 'node:fs/promises';
 import {randomUUID,randomBytes} from 'node:crypto';
 import {FoundationStore} from './store';
 import {IdentityDeletionService,type IdentityDeletionProvider} from './identity-deletion';
 
 async function fixture() {
   const db=new PGlite();const store=new FoundationStore(db);await store.initialize();
-  await db.exec(await readFile(new URL('../../../db/baseline/identity-deletion.sql',import.meta.url),'utf8'));
+  await db.exec(await initialSchemaSection('identity-deletion.sql'));
   const subject=randomUUID(),other=randomUUID(),requestId=randomUUID(),capability=randomBytes(32).toString('base64url');
   await store.profile(subject);await store.profile(other);
   let now=Date.parse('2026-10-05T12:00:00Z');let exists=true,sessions=true;
@@ -96,7 +96,7 @@ it('blocks identity mutation on failed learning deletion and expires only comple
 
 it('keeps private job capabilities away from learning and client roles',async()=>{
   const f=await fixture();try {
-    await f.db.exec(await readFile(new URL('../../../db/baseline/backend-access.sql',import.meta.url),'utf8'));
+    await f.db.exec(await initialSchemaSection('backend-access.sql'));
     await f.db.exec('CREATE ROLE privacy_client NOLOGIN');
     for(const role of ['gm_backend','privacy_client']) {
       expect((await f.db.query(`SELECT has_schema_privilege($1,'gm_privacy','USAGE') AS allowed`,[role])).rows).toEqual([{allowed:false}]);

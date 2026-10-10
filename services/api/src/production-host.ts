@@ -10,7 +10,10 @@ import { createSupabaseIdentityDeletionProvider } from './supabase-identity-dele
 import catalog from '../../../content/production/catalog.json';
 import { RuntimeCatalogSchema } from './runtime-catalog';
 
-const project = 'zgmyrpzwgtydwlzponih';
+// Verification is explicitly bound to the replacement; production defaults stay
+// on the current project until the separately approved cutover.
+const verification = process.env.GM_ENVIRONMENT === 'replacement-verification';
+const project = verification ? 'sqgjsmiaprsuilcjmaav' : 'zgmyrpzwgtydwlzponih';
 function required(name: string) {
   const value = process.env[name];
   if (!value) throw Error(`Missing production configuration: ${name}`);
@@ -26,7 +29,7 @@ function connect(name: string) {
   return PostgresDatabase.connect({ connectionString, ssl: { rejectUnauthorized: true, ca }, max: 2 });
 }
 async function compose() {
-  if (required('GM_ENVIRONMENT') !== 'production' || required('VITE_V2_AUTH_PROJECT') !== project)
+  if (required('GM_ENVIRONMENT') !== (verification ? 'replacement-verification' : 'production') || required('VITE_V2_AUTH_PROJECT') !== project)
     throw Error('Dedicated production environment required');
   const runtimeCatalog = RuntimeCatalogSchema.parse(catalog);
   const learning = connect('GM_DATABASE_URL');

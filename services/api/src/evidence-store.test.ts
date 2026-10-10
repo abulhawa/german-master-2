@@ -1,7 +1,7 @@
 import { beforeEach, afterEach, it, expect } from "vitest";
 import { PGlite } from "@electric-sql/pglite";
 import { randomUUID } from "node:crypto";
-import { readFile, mkdtemp, rm } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import type { AddressInfo } from "node:net";
@@ -198,28 +198,6 @@ it("validates the exposure HTTP contract and rejects client mastery metadata", a
     expect((await post({ ...batch, events: Array(51).fill(event) })).status).toBe(400);
     expect((await post(batch, "invalid")).status).toBe(401);
   } finally { await new Promise<void>(resolve => server.close(() => resolve())); }
-});
-
-it("upgrades an old saved database conservatively and does not duplicate migrated evidence", async () => {
-  const input = await attempt(); await store.submit(user, input, randomUUID());
-  // Reconstruct the prior schema in another embedded database, retaining real fixture rows.
-  const old = new PGlite();
-  try {
-    await old.exec(await readFile(new URL("../../../db/migrations/001_target_foundation.sql", import.meta.url), "utf8"));
-    const tables = ["topic", "skill", "learning_target", "exercise", "exercise_revision", "content_release",
-      "content_release_exercise", "learner_profile", "device", "practice_session", "session_question", "attempt", "attempt_evaluation"];
-    for (const table of tables) {
-      const columns = (await old.query<{ column_name: string }>("SELECT column_name FROM information_schema.columns WHERE table_schema='gm' AND table_name=$1 ORDER BY ordinal_position", [table])).rows.map(r => r.column_name);
-      const rows = (await db.query<Record<string, unknown>>(`SELECT ${columns.join(",")} FROM gm.${table}`)).rows;
-      for (const row of rows) await old.query(`INSERT INTO gm.${table} (${columns.join(",")}) OVERRIDING SYSTEM VALUE VALUES (${columns.map((_, i) => `$${i + 1}`).join(",")})`, columns.map(c => row[c]));
-    }
-    const migrated = new FoundationStore(old, () => new Date(now)); await migrated.initialize();
-    const target = (await old.query<{ target_id: string }>("SELECT target_id FROM gm.accepted_evidence")).rows[0].target_id;
-    expect(await migrated.rebuild(user, target)).toMatchObject({ state: "learning", qualifyingChecks: [], exposureCount: 1 });
-    await migrated.initialize();
-    expect((await old.query("SELECT id FROM gm.accepted_evidence")).rows).toHaveLength(1);
-    expect((await migrated.submit(user, input, randomUUID())).status).toBe("duplicate");
-  } finally { await old.close(); }
 });
 
 it("persists projections, schedules and acknowledgment identity through close/reopen", async () => {

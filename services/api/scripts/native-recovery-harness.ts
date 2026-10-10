@@ -1,10 +1,10 @@
+import {initialSchemaSection} from '../src/initial-schema';
 // Disposable authoritative service for JVM integration. Controls use stdin, never HTTP.
 import { PGlite } from '@electric-sql/pglite';
 import { createInterface } from 'node:readline';
 import type { AddressInfo } from 'node:net';
 import { FoundationStore } from '../src/store';
 import { createApi } from '../src/server';
-import {readFile} from 'node:fs/promises';
 import {IdentityDeletionService} from '../src/identity-deletion';
 import {identityDeletionHttp,serializedDeletionWorker} from '../src/identity-deletion-http';
 
@@ -14,7 +14,7 @@ let expirePage = false;
 const calls: string[] = [];
 const store = new FoundationStore(db, () => new Date(now), 1000, 2000);
 await store.initialize();
-await db.exec(await readFile(new URL('../../../db/baseline/identity-deletion.sql',import.meta.url),'utf8'));
+await db.exec(await initialSchemaSection('identity-deletion.sql'));
 let identityExists=true;
 const identityService=new IdentityDeletionService(db,()=>store,{inspect:async()=>({exists:identityExists,activeSessions:identityExists}),remove:async()=>{identityExists=false;}},
   async proof=>(proof as {password:string}).password==='fresh-test-proof'?{subject:'00000000-0000-4000-8000-000000000010',authenticatedAt:Date.now()}:null);
