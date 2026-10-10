@@ -61,7 +61,7 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
     if(targetIds.has(target.id)) throw Error('Target collides with previous release');
     targetIds.add(target.id);
     const topic = topicIndex(target.category), topicId=id(600+topic), skillId=id(2000+n);
-    targets.push({id:target.id,topicId,title:target.title,description:target.title,level:target.level});
+    targets.push({id:target.id,topicId,title:target.title,description:target.description,level:target.level});
     sql.push(insert('skill',['id','topic_id','title','parent_id'],[skillId,topicId,target.objective,null]),
       insert('learning_target',['id','skill_id','kind','level','objective','status'],[target.id,skillId,
         target.category==='plural'||target.category==='work_vocabulary'?'lexical':'grammar',target.level,target.objective,targetStatus]));

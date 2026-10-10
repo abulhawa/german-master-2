@@ -12,21 +12,23 @@ const b1=JSON.parse(read('../../../content/drafts/initial-30.json'));
 const b2=JSON.parse(read('../../../content/drafts/b2-basics.json'));
 const input={...b1,targets:[...b1.targets,...b2.targets]};
 const previous=RuntimeCatalogSchema.parse(previousJson);
-const publishPath=process.argv[2];
+const writeOnly=process.argv.includes('--write-only');
+const publishPath=process.argv.slice(2).find(arg=>arg!=='--write-only');
+if(writeOnly && publishPath) throw Error('Write-only generation is limited to unpublished candidates');
 const publication=publishPath?JSON.parse(readFileSync(publishPath,'utf8')) as BasicPublicationAuthorization:undefined;
 const db=new PGlite();
 try {
   await new FoundationStore(db).initialize();
   await db.exec(read('../../../db/seed/production-starter.sql'));
   const candidate=buildBasicCandidate(input,previous,await runtimeMembers(db,previous.releaseId),publication);
-  await db.exec(candidate.sql);
+  if(!writeOnly) await db.exec(candidate.sql);
   const directory=new URL('../../../content/candidates/basics/',import.meta.url);
   mkdirSync(directory,{recursive:true});
   writeFileSync(publication?new URL('../../../content/production/basics-catalog.json',import.meta.url):new URL('catalog.json',directory),JSON.stringify(candidate.config,null,2)+'\n');
   writeFileSync(publication?new URL('../../../db/seed/production-basics.sql',import.meta.url):new URL('seed.sql',directory),candidate.sql);
   const reviewed=validateDraftCatalog(input);
   const lines=['# Basic practice candidate: editorial review','',
-    '65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. Source drafts carry GPT-6 AI editorial approval recorded by content hash (9 October 2026); no human review is claimed. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.', '',
+    '65 targets / 125 exercises: existing five B1 exercises and 120 authored B1/B2 revisions. Review status below is taken from current source. Edited revisions are unverified and require new hash-bound editorial approval. Historical approvals do not approve changed content. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.', '',
     'The B2 label selects a scaffolded practice pack for B2 learners; it is not a claim that every individual form is exclusive to B2 or that this assesses proficiency.', '',
     'Check naturalness, requested form, alternatives, hint leakage, explanation, level suitability and context variation. Record the AI editor, dated checklist and content hash in source JSON. This is owner-accepted AI editorial approval, not human certification. The SQL installs only drafts in an isolated review database; do not use it to activate production.', '',
     '## Additions', ''];
