@@ -33,10 +33,11 @@ permissions:
 
 concurrency:
   group: web-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  verify:
+  tests:
+    name: Web tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -56,6 +57,22 @@ jobs:
       - name: Unit and integration tests with local mocks
         if: ${{ !cancelled() }}
         run: npm test
+  build_browser:
+    name: Web builds and browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TEST_USE_GROQ: '0'
+      TEST_DATABASE_URL: ''
+      GROQ_API_KEY: ''
+      NODE_ENV: development
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
       - name: Build without production configuration
         if: ${{ !cancelled() }}
         run: npm run build
@@ -71,3 +88,17 @@ jobs:
       - name: Offline shell cold launch and late sync
         if: ${{ !cancelled() }}
         run: npm run test:offline-shell
+  verify:
+    name: verify
+    if: ${{ always() && !cancelled() }}
+    needs: [tests, build_browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require successful test and browser/build jobs
+        env:
+          TESTS_RESULT: ${{ needs.tests.result }}
+          BUILD_RESULT: ${{ needs.build_browser.result }}
+        run: |
+          test "$TESTS_RESULT" = success
+          test "$BUILD_RESULT" = success
