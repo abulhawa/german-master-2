@@ -1,5 +1,12 @@
 # German Master 2.0 renovation checkpoint
 
+## Consultant fix branch push authorized — 10 October 2026
+
+- Owner explicitly authorized pushing all local consultant fixes, including incorporated PR #16. Push target: `origin/fix/consultant-review`; PR #16 history is already included through local merge `111c9ee`.
+- This checkpoint records authorization before the push; the command outcome is reported in the handoff. No merge into main or production deployment is requested. Hosted integrations may run branch checks or previews.
+- All eight fixes remain implemented, unverified. M1 remains active. Exact next action after push: perform the deferred verification backlog in `docs/operations/consultant-fix-list.md`.
+
+
 ## Consultant fixes — 10 October 2026 (implemented, unverified)
 
 - Owner explicitly requested implementation and a local commit after each fix, with tests, builds, lint and browser/device verification deferred. All eight rows in [the fix list](docs/operations/consultant-fix-list.md) are implemented, unverified.
