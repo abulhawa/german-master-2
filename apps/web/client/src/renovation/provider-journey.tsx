@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import LearnerJourney from './journey';
 import type { AccountBinding } from './account';
 import { createLearnerProvider } from './provider';
@@ -10,6 +10,9 @@ import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, gu
 import { providerCopy as copy } from './provider-locales';
 import { StudyArt } from './study-art';
 import { shellCopy } from './shell-locales';
+import { AccountRecovery } from './account-recovery';
+import { RecoveryEmail, RecoveryPassword } from './account-recovery-ui';
+import { recoveryCopy } from './recovery-locales';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
@@ -24,6 +27,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [email,setEmail] = useState(''); const [password,setPassword] = useState('');
   const [register,setRegister] = useState(false);
   const [confirmation,setConfirmation] = useState(false);
+  const [emailHelp,setEmailHelp] = useState<'reset'|'resend'|null>(null);
+  const recovery = useMemo(()=>host.recovery ?? new AccountRecovery(host.client.auth),[host]);
+  const recoveryState = useSyncExternalStore(recovery.subscribe,recovery.getSnapshot);
   const [attachDismissed,setAttachDismissed] = useState(false);
   const [attachBusy,setAttachBusy] = useState(false);
   const [attachFailed,setAttachFailed] = useState(false);
@@ -39,14 +45,15 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   },[]);
   useEffect(()=> {
     let alive=true; let ticket=0;
-    try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);}} catch {setFailed(true);}
+    if(recovery.getSnapshot().stage==='none')try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);}} catch {setFailed(true);}
     function verify(allowLocal=false, resume=false, retain=false) {
+      if(recovery.getSnapshot().stage!=='none')return;
       const current=++ticket;if(!retain)setAccount(null);setBusy(true);setFailed(false);
       if(allowLocal) {
         try {const saved=host.provider.localBinding();if(saved){setAccount(saved);setLocal(true);}} catch {setFailed(true);}
       }
       void host.provider.bind().then(binding=> {
-        if(!alive || current!==ticket) return;
+        if(!alive || current!==ticket || recovery.getSnapshot().stage!=='none') return;
         // A fresh, verified same-subject sign-in can resume a completed sign-out.
         const saved=new LearnerSignOut(binding,binding.storage(browserStorage));
         if(resume && saved.read()?.complete) saved.resume();
@@ -59,6 +66,8 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     }
     const {data}=host.client.auth.onAuthStateChange((event,session)=> {
       if(!alive) return;
+      recovery.observe(event,session);
+      if(recovery.getSnapshot().stage!=='none') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');return;}
       if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
       else if(event==='INITIAL_SESSION'||event==='SIGNED_IN'||event==='USER_UPDATED'||event==='TOKEN_REFRESHED') {
         // SDK callbacks hold the auth lock; schedule provider reads after callback return.
@@ -68,7 +77,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       }
     });
     return ()=> {alive=false;++ticket;data.subscription.unsubscribe();host.provider.invalidate();};
-  },[host,retry]);
+  },[host,retry,recovery]);
   // Retaining the account on cold local -> verified recovery must still notify
   // the learner to retry its initially blocked reads, without remounting it.
   const api=useMemo(()=>account ? host.provider.api(account,origin) : undefined,[host,account,origin,local]);
@@ -105,8 +114,12 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     catch {setFailed(true);}
   }
   function openAuth(mode:'sign-in'|'register') {
-    setRegister(mode==='register');setConfirmation(false);setFailed(false);setShowLogin(true);
+    setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
   }
+  if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
+    const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
+  }}/>;
+  if(emailHelp) return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} back={()=>setEmailHelp(null)}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
   if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
@@ -138,6 +151,8 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       <button className="gm-button" type="submit" disabled={busy}>{register?c.register:c.signIn}</button>
     </form>
     <FoundationButton disabled={busy} onClick={()=>{setRegister(value=>!value);setPassword('');setConfirmation(false);setFailed(false);}}>{register?c.backToSignIn:c.createAccount}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('reset');}}>{recoveryCopy[locale].forgot}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('resend');}}>{recoveryCopy[locale].resend}</FoundationButton>
     {confirmation&&<p role="status">{c.confirmation}</p>}
     {busy&&<p role="status">{c.checking}</p>}{failed&&<><p role="alert">{c.failed}</p><FoundationButton disabled={busy} onClick={()=>setRetry(v=>v+1)}>{c.retry}</FoundationButton></>}
   </PracticeCard></div></main>;

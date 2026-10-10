@@ -1,5 +1,38 @@
 # German Master 2.0 renovation checkpoint
 
+## Consultant fix branch push authorized — 10 October 2026
+
+- Owner explicitly authorized pushing all local consultant fixes, including incorporated PR #16. Push target: `origin/fix/consultant-review`; PR #16 history is already included through local merge `111c9ee`.
+- This checkpoint records authorization before the push; the command outcome is reported in the handoff. No merge into main or production deployment is requested. Hosted integrations may run branch checks or previews.
+- All eight fixes remain implemented, unverified. M1 remains active. Exact next action after push: perform the deferred verification backlog in `docs/operations/consultant-fix-list.md`.
+
+
+## Consultant fixes — 10 October 2026 (implemented, unverified)
+
+- Owner explicitly requested implementation and a local commit after each fix, with tests, builds, lint and browser/device verification deferred. All eight rows in [the fix list](docs/operations/consultant-fix-list.md) are implemented, unverified.
+- Branch: `fix/consultant-review`. PR #16 at `dd23fed` was integrated locally as `111c9ee`, preserving prior local cold-start evidence. No GitHub merge, push or deployment was performed. PR #15 is already merged remotely; older pending-PR wording below is historical.
+- Commits: variant selection `f0a9554`; transfer contexts `b9f4833`; assessment alignment `6af2218`; progress freshness `239128d`; bilingual descriptions `7785e36`; completed-answer feedback `956c90a`; account recovery `2cad943`; native terminology `e69b4f3`.
+- Generated TypeScript/Kotlin contracts and unpublished candidate artifacts as implementation steps. Candidate generation used `--write-only` to skip candidate SQL execution. Existing production content and releases remain untouched. All 60 edited draft target approvals are pending; historical review workbooks/approvals do not approve these changes.
+- No tests, builds, lint, browser/device acceptance, live email/auth writes, Groq/AI service calls, publication or store release were performed. Recovery redirect configuration and real email delivery remain unverified; a consumed recovery link requires a new email after reload.
+- M1 remains the only active milestone. Bootstrap is complete; the product reset and acceptance remain unfinished. Exact next action: perform the deferred verification backlog in the fix list, repair any failures, and complete existing M1 acceptance before any separately authorized release operation.
+- Commit message: `docs: hand off eight implemented fixes for deferred verification`.
+
+## Cold-start correction merged and live — 10 October 2026
+
+- PR #14 head `86e3859` passed Web (including offline shell), accessibility, safety, CodeQL and Vercel checks. Under the owner's ongoing merge/deploy authorization, merged it as `086e9ae` at 00:17 Europe/Berlin. Production deployment `dpl_8TKhmvpxo7NGJBq6suYh4xGxWkDV` is READY for that exact commit; the canonical site serves `index-Cn1Bd8Nj.js` with unchanged stylesheet. Local main fast-forwarded without discarding work.
+- Full local verification passed 193 backend, 411 web and 20 HTTP tests, generated/type checks and both builds. The 21 focused regressions cover readiness and account/session security. Final production Chromium runs use public deployed assets with synthetic local auth/API fixtures: delayed saved-subject cold start and controlling-worker reload automatically load preferences/catalog/progress, enable practice and remove retry controls; controlling-worker hidden → visible return retains the topic, generation and component instances without a document reload. These are deployed-client fixture checks, not production account/backend journey acceptance.
+- The browser load-only assertion was refined to wait for practice readiness because catalog can arrive before the concurrent profile/progress responses. This is test/evidence-only work after the deployed product commit. Detailed ignored traces are retained; no credential logs, production account writes, content/schema changes, Android release or Groq/live AI use. Post-merge Web, accessibility, safety and the main analysis workflow have now passed; the exact PR-head checks are also green.
+- M1 remains active with the existing owner design/manual accessibility gates. Exact next action: owner reload/review of the corrected live app and remaining M1 acceptance. This final evidence/test-only commit stays local to avoid another automatic production build.
+- Commit message: `test(web): record deployed cold-start and worker acceptance`.
+
+## Plain-language learner UX audit — 10 October 2026 (draft PR #16)
+
+- Current source and published product baseline were reviewed from the connected GitHub and Vercel repositories. The canonical web artifact is built from `apps/web/learner-product`; the legacy `apps/web/client/src/App.tsx` is not the production learner entrypoint. Actual interactive browser and native-device acceptance were not available during this review.
+- Draft PR #16 / branch `audit/learner-experience-20261010` updates the real learner UI: removes “server-confirmed progress” and repeated snapshot notices, clarifies home/progress/skills language, rewrites pending/retry/confirmation/account/export copy, makes German informal learner wording more consistent, and adds accurate v2 HTML metadata. No practice grading, exercise revision, schema, backend, or Android behavior is changed.
+- A redundant stale-progress label is shown only when a refresh fails and previous saved progress is being displayed. Guest attachment remains opt-in, and export/downloading still distinguishes synced account data from drafts stored locally.
+- Adjusted existing journey and privacy test expectations. Design review: unchanged accessible controls, learner navigation, tokens, focused practice layout and dual English/German copy. See `docs/product/learner-experience-audit-2026-10-10.md`.
+- As of writing, this branch is **not merged, deployed or production/browser accepted**. Wait for final-head hosted checks, then perform browser-based wide/narrow-screen, guest, sign-in, error-state and browser-history acceptance. Production deployment and Android release remain separate approvals. M1 status is not advanced.
+
 ## First-visit web UX improvements — 10 October 2026 (PR #15, unmerged)
 
 - Owner requested fixes to all findings in the first-time visitor walkthrough. Branch `fix/first-visit-ux-review-20261010` / PR #15 updates web UI only; production `main` is unchanged.

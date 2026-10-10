@@ -2,6 +2,46 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://german-master.invalid/contracts/v2/schema.json",
   "$defs": {
+    "CompletedAnswerPart": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "emphasis": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "text",
+        "emphasis"
+      ]
+    },
+    "CompletedAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "const": 1
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CompletedAnswerPart"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "parts"
+      ]
+    },
     "ContentReportRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -1097,6 +1137,9 @@
         },
         "assisted": {
           "type": "boolean"
+        },
+        "completedAnswer": {
+          "$ref": "#/$defs/CompletedAnswer"
         }
       },
       "required": [
@@ -1971,6 +2014,9 @@
         },
         "explanation": {
           "$ref": "#/$defs/LocalizedText"
+        },
+        "completedAnswer": {
+          "$ref": "#/$defs/CompletedAnswer"
         }
       },
       "required": [

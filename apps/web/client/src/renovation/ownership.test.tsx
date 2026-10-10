@@ -110,7 +110,7 @@ it("fails closed without browser coordination, preserving storage and sending no
   vi.stubGlobal("navigator", {});
   const api = fixture(); const before = localStorage.length;
   const view = render(<LearnerJourney api={api} />);
-  expect(within(view.container).getByRole("alert")).toHaveTextContent("Web Locks");
+  expect(within(view.container).getByRole("alert")).toHaveTextContent("could not be opened safely");
   expect(api.profile).not.toHaveBeenCalled(); expect(localStorage.length).toBe(before);
 });
 it("hands off a lost-response attempt without generating another session or answer ID", async () => {

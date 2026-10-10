@@ -15,13 +15,13 @@ it('uses explicit export choices, blocks duplicate clicks and preserves retry af
   let finish!:(value:LearnerExport)=>void;
   const exportData=vi.fn(()=>new Promise<LearnerExport>(resolve=>{finish=resolve;}));
   render(<PrivacyExport locale="en" blocked={false} exportData={exportData}/>);
-  fireEvent.click(screen.getByRole('button',{name:'Sync saved work and download data'}));
-  fireEvent.click(screen.getByRole('button',{name:'Download confirmed data'}));
+  fireEvent.click(screen.getByRole('button',{name:'Sync my work and download data'}));
+  fireEvent.click(screen.getByRole('button',{name:'Download my learning data'}));
   expect(exportData).toHaveBeenCalledExactlyOnceWith(true);
   finish(data);await waitFor(()=>expect(screen.getByRole('status')).toHaveTextContent('Export downloaded'));
   expect(create).toHaveBeenCalledOnce();
   exportData.mockRejectedValueOnce(Error('offline'));
-  fireEvent.click(screen.getByRole('button',{name:'Download confirmed data'}));
+  fireEvent.click(screen.getByRole('button',{name:'Download my learning data'}));
   await waitFor(()=>expect(screen.getByRole('alert')).toHaveTextContent('Saved work remains'));
   expect(exportData).toHaveBeenLastCalledWith(false);
 });

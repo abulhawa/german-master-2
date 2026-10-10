@@ -578,7 +578,14 @@ export class FoundationStore {
         const eligible = await tx.query<SelectionCandidate>(
           `SELECT e.target_id AS "targetId",r.exercise_id AS "exerciseId",r.revision,
             COALESCE(st.snapshot->>'state','new') AS state,sc.due_at AS "dueAt",
-            st.snapshot->>'lastInformativeAt' AS "lastInformativeAt"
+            st.snapshot->>'lastInformativeAt' AS "lastInformativeAt",
+            i.variant_key AS "variantKey",i.context_key AS "contextKey",i.transfer_key AS "transferKey",
+            t.kind AS "targetKind",st.snapshot->'qualifyingChecks' AS "qualifyingChecks",
+            (SELECT count(*)::integer FROM gm.session_question history
+              WHERE history.user_id=$1 AND history.exercise_id=r.exercise_id) AS "presentationCount",
+            (SELECT max(s.issued_at) FROM gm.session_question history
+              JOIN gm.practice_session s ON s.id=history.session_id AND s.user_id=history.user_id
+              WHERE history.user_id=$1 AND history.exercise_id=r.exercise_id) AS "lastPresentedAt"
            FROM gm.content_release_exercise cr JOIN gm.exercise_revision r
              ON r.exercise_id=cr.exercise_id AND r.revision=cr.revision
            JOIN gm.exercise e ON e.id=r.exercise_id
@@ -591,6 +598,8 @@ export class FoundationStore {
                OR ($4='topic' AND t.skill_id IN (SELECT id FROM gm.skill WHERE topic_id=$5::uuid)))`,
           [userId, releaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null, profile.preferences.level]);
         const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
+          qualifyingChecks: c.qualifyingChecks ?? [],
+          lastPresentedAt: c.lastPresentedAt ? new Date(c.lastPresentedAt).toISOString() : null,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);
         if (questions.length < request.questionCount) throw new ApiFailure("insufficient_content", 409);
         sessionId = randomUUID();

@@ -139,6 +139,8 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const [syncRevision, setSyncRevision] = useState(0);
   const lock = useRef(false);
   const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
+  // Freshness belongs to the saved progress, not the last unrelated operation.
+  const [progressStale, setProgressStale] = useState(!!loaded.state.confirmed);
   const heading = useRef<HTMLHeadingElement>(null);
   const feedback = useRef<HTMLDivElement>(null);
   const c = {...learnerCopy[state.locale],...(authenticated?accountLearnerCopy[state.locale]:{})};
@@ -165,10 +167,13 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   }
   async function refresh() {
     await run(async () => {
+      try {
       const confirmed = current.current.confirmed;
       if (confirmed) await pull(api, confirmed, value => commit({ ...current.current, confirmed: value }));
       const fresh = await snapshot(api);
       commit({ ...current.current, confirmed: fresh });
+      setProgressStale(false);
+      } catch (error) { setProgressStale(true); throw error; }
     }, "unavailable");
   }
   async function loadCatalog() {
@@ -185,7 +190,10 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     try { account.assertCurrent(); await syncSavedWork(api, storage, db); account.assertCurrent(); }
     finally { const saved = readJourney(storage); current.current = saved; setState(saved); setSyncRevision(v => v + 1); }
     const value = await api.profile(); setProfile(value); setEditingSetup(false); await loadCatalog();
-    const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
+    try {
+      const confirmed = await snapshot(api); commit({ ...current.current, confirmed });
+      setProgressStale(false);
+    } catch (error) { setProgressStale(true); throw error; }
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
   useEffect(() => {
@@ -421,7 +429,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
               {p.pendingExposure && <p role="status">{c.skipPending}</p>}
               {p.pending && !p.evaluation && <p role="status">{c.pending}</p>}
               {p.rejected && <p role="alert">{p.pendingExposure ? c.skipRejected : c.rejected} {c.discardNote}</p>}
-              {p.evaluation && p.pending && <PracticeFeedback regionRef={feedback} correct={p.evaluation.outcome === "correct"}
+              {p.evaluation && p.pending && <PracticeFeedback completedAnswer={p.evaluation.completedAnswer} regionRef={feedback} correct={p.evaluation.outcome === "correct"}
                 outcome={`${p.evaluation.outcome === "correct" ? c.correct : c.incorrect}${p.evaluation.assisted ? ` · ${c.assisted}` : ""}`}
                 answer={answerText(p.pending.answer, p.session, p.index)} accepted={answerText(p.evaluation.acceptedAnswer, p.session, p.index)}
                 answerLabel={c.yourAnswer} acceptedLabel={c.acceptedAnswer} explanation={p.evaluation.explanation[state.locale]}
@@ -440,7 +448,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           </div>}
           <PracticeCard>
           <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void refresh()}>{c.refresh}</FoundationButton>
-          {!confirmed ? <p>{c.empty}</p> : <><p className="gm-meta">{c.stale}</p>{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
+          {!confirmed ? <p>{c.empty}</p> : <>{progressStale && <p className="gm-meta">{c.stale}</p>}{confirmed.targets.length === 0 && <p>{s.emptyBody}</p>}<ul className="gm-targets">{confirmed.targets.map(t => <li key={t.targetId}>
             <FoundationButton className="gm-secondary" onClick={() => showTarget(t.targetId)}>{catalog?.targets.find(m => m.id === t.targetId)?.title[state.locale] ?? c.unknown}</FoundationButton><p className="gm-state-badge" data-state={t.state}>{c.states[t.state]}</p>
             {t.schedule[0] && <p>{t.isDue ? c.due : c.later}: <time dateTime={t.schedule[0].dueAt}>{new Date(t.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
             <details><summary>{c.checks}: {t.qualifyingCheckCount}</summary><p>{c.retentionNote}</p></details>
@@ -466,7 +474,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <p>{selectedTarget.level} · {selectedTarget.description[state.locale]}</p>
             {targetState ? <><p>{c.states[targetState.state]}</p><p>{c.checks}: {targetState.qualifyingCheckCount}</p>
               {targetState.schedule[0] && <p>{targetState.isDue ? c.due : c.later}: <time dateTime={targetState.schedule[0].dueAt}>{new Date(targetState.schedule[0].dueAt).toLocaleDateString(state.locale, { timeZone: profile?.preferences.timezone ?? "Europe/Berlin" })}</time></p>}
-              <p className="gm-meta">{c.stale}</p></> : <p>{c.empty}</p>}
+              {progressStale && <p className="gm-meta">{c.stale}</p>}</> : <p>{c.empty}</p>}
             <p>{c.retentionNote}</p>
             {focusAction({ type: "target", id: selectedTarget.id }, selectedTarget.availableQuestionCount)}
           </>}

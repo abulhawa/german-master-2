@@ -1,6 +1,6 @@
 # Basic practice candidate: editorial review
 
-65 targets / 125 exercises: existing five B1 exercises, 60 prepared ChatGPT B1 exercises, 60 new Codex B2 exercises. Source drafts carry GPT-6 AI editorial approval recorded by content hash (9 October 2026); no human review is claimed. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.
+65 targets / 125 exercises: existing five B1 exercises and 120 authored B1/B2 revisions. Review status below is taken from current source. Edited revisions are unverified and require new hash-bound editorial approval. Historical approvals do not approve changed content. The separately owner-authorized live release is recorded in docs/operations/basic-content-release.md.
 
 The B2 label selects a scaffolded practice pack for B2 learners; it is not a claim that every individual form is exclusive to B2 or that this assesses proficiency.
 
@@ -10,9 +10,9 @@ Check naturalness, requested form, alternatives, hint leakage, explanation, leve
 
 ### B1: Plural: der Antrag
 
-Target: 10000000-0000-4000-8000-000000000000; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000000; category: plural; review: pending.
 
-Content hash: 6017a5b43890a480fdf54f90cf85442b4da8302ba97a7ab4973316e9962fb9d7
+Content hash: 69d93ca7e7e1676505e2066e50d72c09774d8b95b82a49433c26625da95a6228
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -38,9 +38,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Rechnung
 
-Target: 10000000-0000-4000-8000-000000000001; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000001; category: plural; review: pending.
 
-Content hash: 8402cfe9fec48896b8bee44a787076ecfb1d32e1a6bb52db03d333bd939b127a
+Content hash: cb173cc77d163548d62d559e129a5e688440f171bce1d203a828a358c0390f1d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -66,9 +66,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Termin
 
-Target: 10000000-0000-4000-8000-000000000002; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000002; category: plural; review: pending.
 
-Content hash: 45ac18662c7cff0e3fe4e019a28fb6fe535bf924db38210864a43d0d61a9961b
+Content hash: fb1417be082a98872d2fe72d9221b290270c3554d19f5af16b7df88ec588b538
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -94,9 +94,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: das Gespräch
 
-Target: 10000000-0000-4000-8000-000000000003; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000003; category: plural; review: pending.
 
-Content hash: 7a9123328dd810847fae7be4691134c04730305d139783fc39248d804cf5a6ad
+Content hash: 599d3b75aadb84e8652a08f32a7c687ce2abd8f7a38622a792170a8b2574eb95
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -122,9 +122,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Vertrag
 
-Target: 10000000-0000-4000-8000-000000000004; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000004; category: plural; review: pending.
 
-Content hash: 1c8075fc0090a8fa85c288c84735aac278db2ac38df77660c167526aa45699c1
+Content hash: 9d512b7d7b0d353258574fb2f21fc696c928b8aa599e1243bef27f61ffe73475
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -150,9 +150,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Erfahrung
 
-Target: 10000000-0000-4000-8000-000000000005; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000005; category: plural; review: pending.
 
-Content hash: ad3143936ca9e3d120c46397a98b52129697521af208320a3dc38c586ca13652
+Content hash: 209ae513b175ef914ee0ad01fd40be67d5cbc3b79ecbe34af3981643b104ce3e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -178,9 +178,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: das Angebot
 
-Target: 10000000-0000-4000-8000-000000000006; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000006; category: plural; review: pending.
 
-Content hash: ae4660eba5ce8eb51d4da0929cfa1e6e2890f7c025ada771238d600281440aba
+Content hash: 7f23c5ed80e8352665455e04e596759db6348de2bd7e8f463d14a660c585275e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -206,9 +206,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Entscheidung
 
-Target: 10000000-0000-4000-8000-000000000007; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000007; category: plural; review: pending.
 
-Content hash: 1b21224058808b2658500466278b20769ec3bc6f2495edac85a07da01506fb1a
+Content hash: 25efea61e84578a423b3325bdf437f94d208ca7ce4ace7bde1b388e7c1fc8858
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -234,9 +234,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: die Voraussetzung
 
-Target: 10000000-0000-4000-8000-000000000008; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000008; category: plural; review: pending.
 
-Content hash: 61700bb828d16a89c57592dc3d1ed71a683b05fc08542590b07efe9eb3e2b367
+Content hash: f75d4ad0e4ac8065821ed84c63a9d335a54036ac7289eb8868656bc4f0d6787d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -262,9 +262,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Plural: der Vorschlag
 
-Target: 10000000-0000-4000-8000-000000000009; category: plural; review: approved.
+Target: 10000000-0000-4000-8000-000000000009; category: plural; review: pending.
 
-Content hash: 4aca1333c8f87a7003fc78d9e0f83ab94469502db772f8adea8aeb077353563f
+Content hash: ba4e56601a1583634ca9357dde7d03ab8dd614699ac00729198daa9646feb8e1
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -290,9 +290,9 @@ The singular lemma and requested plural are explicit. Distractors model common l
 
 ### B1: Dativartikel nach „mit“
 
-Target: 10000000-0000-4000-8000-000000000010; category: preposition; review: approved.
+Target: 10000000-0000-4000-8000-000000000010; category: preposition; review: pending.
 
-Content hash: 7c4c1fc924f5b49df585b0ebba26a54e90ed56b4c00ae708f9044db4c507d18c
+Content hash: 1fd5f1f91128878f8e01c5ff95035aac3008ffcfcc4991d26b9f90ee8bd37915
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -304,9 +304,9 @@ Hint: „mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „mit“ verlangt den Dativ. „der Arzt“ ist maskulin; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-10-1** — Morgen fahre ich mit ___ Zug nach Hamburg. (der Zug)
+**v-10-1** — Nach dem Unfall telefoniert sie mit ___ Anwalt. (der Anwalt)
 
 Accepted: `[{"type":"choice","optionId":"dem"}]`
 
@@ -314,13 +314,13 @@ Hint: „mit“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „mit“ verlangt den Dativ. „der Zug“ ist maskulin; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Dativartikel nach „bei“
 
-Target: 10000000-0000-4000-8000-000000000011; category: preposition; review: approved.
+Target: 10000000-0000-4000-8000-000000000011; category: preposition; review: pending.
 
-Content hash: 05b8deded4c1004208e3cca0d44f6a7be54f860104d5d0ec5368726c2b11f5a7
+Content hash: 8d018a484538620c7f5351c5e269b92d0348b523776bbd4741f89c83c64ed5e3
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -332,9 +332,9 @@ Hint: „bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „bei“ verlangt den Dativ. „die Ärztin“ ist feminin; im Dativ Singular lautet der bestimmte Artikel „der“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-11-1** — Wir brauchen Hilfe bei ___ Vorbereitung der Präsentation. (die Vorbereitung)
+**v-11-1** — Bei ___ Anmeldung musst du deinen Ausweis zeigen. (die Anmeldung)
 
 Accepted: `[{"type":"choice","optionId":"der"}]`
 
@@ -342,13 +342,13 @@ Hint: „bei“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „bei“ verlangt den Dativ. „die Vorbereitung“ ist feminin; im Dativ Singular lautet der bestimmte Artikel „der“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Akkusativartikel nach „für“
 
-Target: 10000000-0000-4000-8000-000000000012; category: preposition; review: approved.
+Target: 10000000-0000-4000-8000-000000000012; category: preposition; review: pending.
 
-Content hash: b87d576dc52bea0f1feadc24b636e60e9d1c95315c3a708b20a8a89daa14dfe7
+Content hash: 8e1119fc864cde6c7b548c2f1ac9dab527b426fc67acbfdc0315105b72d5491e
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -360,9 +360,9 @@ Hint: Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des
 
 Explanation: „für“ verlangt den Akkusativ. „der Kunde“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-12-1** — Ich buche den Raum für ___ Kurs am Abend. (der Kurs)
+**v-12-1** — Für ___ Ausflug brauchen wir feste Schuhe. (der Ausflug)
 
 Accepted: `[{"type":"choice","optionId":"den"}]`
 
@@ -370,13 +370,13 @@ Hint: Auf die Präposition „für“ folgt der Akkusativ. Beachte das Genus des
 
 Explanation: „für“ verlangt den Akkusativ. „der Kurs“ ist maskulin; im Akkusativ Singular lautet der bestimmte Artikel „den“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Akkusativartikel nach „ohne“
 
-Target: 10000000-0000-4000-8000-000000000013; category: preposition; review: approved.
+Target: 10000000-0000-4000-8000-000000000013; category: preposition; review: pending.
 
-Content hash: 7b4c56ccd06c51583c094041cf4127063aaacc0602b264dafbcfd1e855cdf7b9
+Content hash: f6332b01a70c6b13c14c48c785e70da4269edb1a247f06c5da323c9500326b65
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -388,9 +388,9 @@ Hint: „ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus de
 
 Explanation: „ohne“ verlangt den Akkusativ. „die Tasche“ ist feminin; im Akkusativ Singular bleibt der bestimmte Artikel „die“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-13-1** — Wir dürfen das nicht ohne ___ Zustimmung veröffentlichen. (die Zustimmung)
+**v-13-1** — Ohne ___ Genehmigung dürfen die Bauarbeiten nicht beginnen. (die Genehmigung)
 
 Accepted: `[{"type":"choice","optionId":"die"}]`
 
@@ -398,13 +398,13 @@ Hint: „ohne“ verlangt immer den Akkusativ. Passe den Artikel an das Genus de
 
 Explanation: „ohne“ verlangt den Akkusativ. „die Zustimmung“ ist feminin; im Akkusativ Singular bleibt der bestimmte Artikel „die“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Dativartikel nach „aus“
 
-Target: 10000000-0000-4000-8000-000000000014; category: preposition; review: approved.
+Target: 10000000-0000-4000-8000-000000000014; category: preposition; review: pending.
 
-Content hash: 5e99de0a26a422c7fb0b50551fa8c7f219bfe526241154f316939540a2e6086d
+Content hash: 24fdadf0fd0640d8ec86749b84d0fc43b4e44735a681dc70b47e17eec6d40f1f
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -416,9 +416,9 @@ Hint: „aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „aus“ verlangt den Dativ. „das Büro“ ist neutral; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-14-1** — Wir hören Musik aus ___ Haus nebenan. (das Haus)
+**v-14-1** — Aus ___ Krankenhaus kam heute eine Nachricht. (das Krankenhaus)
 
 Accepted: `[{"type":"choice","optionId":"dem"}]`
 
@@ -426,13 +426,13 @@ Hint: „aus“ verlangt immer den Dativ. Passe den Artikel an das Genus des Nom
 
 Explanation: „aus“ verlangt den Dativ. „das Haus“ ist neutral; im Dativ Singular lautet der bestimmte Artikel „dem“.
 
-The prompt names the noun and asks specifically for a separate definite singular article, so contractions and indefinite articles are outside the task.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Adjektivendung: Maskulinum im Nominativ nach „der“
 
-Target: 10000000-0000-4000-8000-000000000015; category: adjective; review: approved.
+Target: 10000000-0000-4000-8000-000000000015; category: adjective; review: pending.
 
-Content hash: 566fca9b915aac35bef3380e9e29236f3153a901126ef3d9f5221515fa45ab10
+Content hash: e6bac45ea68af73e28a38d76ed9dfa765d082d5851a5b9e9ff976b80dfbaee60
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -444,9 +444,9 @@ Hint: Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjek
 
 Explanation: Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-15-1** — Der freundlich___ Kunde wartet am Empfang.
+**v-15-1** — Der beschädigt___ Koffer liegt noch am Flughafen.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"ending","optionId":"e"}]}]`
 
@@ -454,13 +454,13 @@ Hint: Der bestimmte Artikel markiert bereits Maskulinum und Nominativ; das Adjek
 
 Explanation: Nach „der“ im maskulinen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Adjektivendung: Femininum im Nominativ nach „die“
 
-Target: 10000000-0000-4000-8000-000000000016; category: adjective; review: approved.
+Target: 10000000-0000-4000-8000-000000000016; category: adjective; review: pending.
 
-Content hash: 6c8a276eb3e644b7b76620c1957ac8b4f5c3a6b351b634e165cb97aab4a05451
+Content hash: a90bb1b87ac07486e02ad6c298e836fc3811b99366ce670f4cf0484dd79bd86f
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -472,9 +472,9 @@ Hint: Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjekt
 
 Explanation: Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-16-1** — Die wichtig___ Frage bleibt offen.
+**v-16-1** — Die dringend___ Reparatur beginnt morgen.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"ending","optionId":"e"}]}]`
 
@@ -482,13 +482,13 @@ Hint: Der bestimmte Artikel markiert bereits Femininum und Nominativ; das Adjekt
 
 Explanation: Nach „die“ im femininen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Adjektivendung: Neutrum im Nominativ nach „das“
 
-Target: 10000000-0000-4000-8000-000000000017; category: adjective; review: approved.
+Target: 10000000-0000-4000-8000-000000000017; category: adjective; review: pending.
 
-Content hash: 677ec710c57a74a8f2ebd66384624ee6b5e966a6d014e12b889db682a812a4e8
+Content hash: a4e456524f9399c900ea7cee05bcebce3594a2c714995c65e6f4130be060aa3c
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -500,9 +500,9 @@ Hint: Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv
 
 Explanation: Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-17-1** — Das neu___ Gerät funktioniert gut.
+**v-17-1** — Das gemeinsam___ Abendessen fällt heute aus.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"ending","optionId":"e"}]}]`
 
@@ -510,13 +510,13 @@ Hint: Der bestimmte Artikel markiert bereits Neutrum und Nominativ; das Adjektiv
 
 Explanation: Nach „das“ im neutralen Nominativ bekommt ein schwach dekliniertes Adjektiv die Endung -e.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Adjektivendung: Maskulinum im Akkusativ nach „den“
 
-Target: 10000000-0000-4000-8000-000000000018; category: adjective; review: approved.
+Target: 10000000-0000-4000-8000-000000000018; category: adjective; review: pending.
 
-Content hash: 8bdeaf0138c9c856712853f5c733998efa428490808058621ac21885fbfc2ad6
+Content hash: db6836f3a543d1ac3a4bb9b241329a4c4cacbb925ea614567dc45a8077151050
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -528,9 +528,9 @@ Hint: Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv d
 
 Explanation: Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-18-1** — Wir begrüßen den wichtig___ Kunden.
+**v-18-1** — Bitte unterschreiben Sie den beigefügt___ Antrag.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"ending","optionId":"en"}]}]`
 
@@ -538,13 +538,13 @@ Hint: Nach einem bestimmten Artikel im maskulinen Akkusativ folgt das Adjektiv d
 
 Explanation: Nach „den“ im maskulinen Akkusativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Adjektivendung: Dativ nach bestimmtem Artikel
 
-Target: 10000000-0000-4000-8000-000000000019; category: adjective; review: approved.
+Target: 10000000-0000-4000-8000-000000000019; category: adjective; review: pending.
 
-Content hash: 2827190edba3bc4ab911dbda6171ad8e2f1b779bdec88787dc47d2cf9795bb86
+Content hash: fea5c2eaf288452934e437b69564d2e626b22cc6e7ef8864f884fb6dbf094c3d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -556,9 +556,9 @@ Hint: Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive
 
 Explanation: Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-19-1** — Sie arbeitet mit der erfahren___ Ärztin.
+**v-19-1** — Nach der lang___ Besprechung gehen alle nach Hause.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"ending","optionId":"en"}]}]`
 
@@ -566,13 +566,13 @@ Hint: Nach einem bestimmten Artikel im Dativ haben schwach deklinierte Adjektive
 
 Explanation: Nach einem bestimmten Artikel im Dativ bekommt ein schwach dekliniertes Adjektiv die Endung -en.
 
-This revision measures recognition of the weak adjective ending in an explicit case/gender context. The distractors are authored German adjective endings; it does not claim unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Präsens: fahren (du/er)
 
-Target: 10000000-0000-4000-8000-000000000020; category: verb; review: approved.
+Target: 10000000-0000-4000-8000-000000000020; category: verb; review: pending.
 
-Content hash: 7f40f83d39c66f71c4488318f198492895eb47f15f95a5bef160383bef445035
+Content hash: ea1665b8c508ad85d8ab891242fda93eacb910c756ebf0576d735d90a2565a14
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -584,9 +584,9 @@ Hint: Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvok
 
 Explanation: Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-20-1** — Du ___ morgen nach Leipzig. Er ___ am Wochenende zu seinen Eltern.
+**v-20-1** — Du ___ bei Regen besonders vorsichtig. Er ___ das Auto in die Garage.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"fährst"},{"slotId":"er","optionId":"fährt"}]}]`
 
@@ -594,13 +594,13 @@ Hint: Bei „fahren“ wird in den Formen mit „du“ und „er“ der Stammvok
 
 Explanation: Der Stammvokal wechselt a → ä: du fährst, er fährt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Präsens: lesen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000021; category: verb; review: approved.
+Target: 10000000-0000-4000-8000-000000000021; category: verb; review: pending.
 
-Content hash: 1101b7f2be839db334e2161c1536dcacb5f447acbfd182b4e76267ce0ca0f9af
+Content hash: a8bfddb3c752685324b0fe37463e91f43a9b7419785913847cd080f64e11aa7d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -612,9 +612,9 @@ Hint: Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie.
 
 Explanation: Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-21-1** — Du ___ die Nachricht noch einmal. Er ___ oft deutsche Romane.
+**v-21-1** — Du ___ die Zutaten auf der Packung. Er ___ den Kindern eine Geschichte vor.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"liest"},{"slotId":"er","optionId":"liest"}]}]`
 
@@ -622,13 +622,13 @@ Hint: Bei „lesen“ wird in den Formen mit „du“ und „er“ e zu ie.
 
 Explanation: Der Stammvokal wechselt e → ie; beide Formen lauten „liest“: du liest, er liest.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Präsens: geben (du/er)
 
-Target: 10000000-0000-4000-8000-000000000022; category: verb; review: approved.
+Target: 10000000-0000-4000-8000-000000000022; category: verb; review: pending.
 
-Content hash: bc0c2feaf57c09f2a3c72c6527ab035d2e71daf8635f50fb39c9fd3eb7512e96
+Content hash: 73dddc87e54639c351b9b1fa9442b2cfb53d614d29aa062de01f2a3dc24343bc
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -640,9 +640,9 @@ Hint: Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-22-1** — Du ___ dem Kind Wasser. Er ___ uns eine klare Antwort.
+**v-22-1** — Du ___ dem Gast deine Telefonnummer. Er ___ seinem Nachbarn einen Rat.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"gibst"},{"slotId":"er","optionId":"gibt"}]}]`
 
@@ -650,13 +650,13 @@ Hint: Bei „geben“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du gibst, er gibt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Präsens: nehmen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000023; category: verb; review: approved.
+Target: 10000000-0000-4000-8000-000000000023; category: verb; review: pending.
 
-Content hash: e23fe98b36eaa3172d9163aa360a33a4f98d5ba4d6c91bae0bf81ec17ef8695e
+Content hash: eb9e5d7eda310dc1b4e9deee968245db9379a1b86ffd87fbad080665e369c06a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -668,9 +668,9 @@ Hint: Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm 
 
 Explanation: Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-23-1** — Du ___ noch einen Kaffee. Er ___ die letzte Tablette.
+**v-23-1** — Du ___ den nächsten Ausgang. Er ___ sich am Sonntag Zeit für die Familie.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"nimmst"},{"slotId":"er","optionId":"nimmt"}]}]`
 
@@ -678,13 +678,13 @@ Hint: Die Formen mit „du“ und „er“ verwenden den unregelmäßigen Stamm 
 
 Explanation: Im Singular lautet der Stamm „nimm-“: du nimmst, er nimmt.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Präsens: sprechen (du/er)
 
-Target: 10000000-0000-4000-8000-000000000024; category: verb; review: approved.
+Target: 10000000-0000-4000-8000-000000000024; category: verb; review: pending.
 
-Content hash: 29cdfebfe065610f81f4cda6984938d12afef22c681c30f144d6d11d425e441e
+Content hash: 0b0129b69bfda6d66b302e9be28d9a6a5092103d3b24a2d1d9a1476f8472711a
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -696,9 +696,9 @@ Hint: Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**v-24-1** — Du ___ morgen mit deinem Chef. Er ___ oft über seine Arbeit.
+**v-24-1** — Du ___ am Telefon sehr leise. Er ___ vor einem großen Publikum.
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"du","optionId":"sprichst"},{"slotId":"er","optionId":"spricht"}]}]`
 
@@ -706,13 +706,13 @@ Hint: Bei „sprechen“ wird in den Formen mit „du“ und „er“ e zu i.
 
 Explanation: Der Stammvokal wechselt e → i: du sprichst, er spricht.
 
-Both subjects and the infinitive are explicit. This low-typing revision measures recognition of the correct finite forms, not unrestricted written production.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B1: Nebensatz mit „weil“
 
-Target: 10000000-0000-4000-8000-000000000025; category: word-order; review: approved.
+Target: 10000000-0000-4000-8000-000000000025; category: word-order; review: pending.
 
-Content hash: 6a831b4165c1c0c550d0bc06c0ccfb38e48c71ae1638108b26011474154bfcd7
+Content hash: 956983e11f3e6eed16548dfab86d0cb68d982e1bc0be1e8a3567a6f228fed15b
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -724,7 +724,7 @@ Hint: Nach „weil“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: weil ich heute arbeite.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 **v-25-1** — braucht / weil / Hilfe / sie
 
@@ -734,13 +734,13 @@ Hint: Nach „weil“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: weil sie Hilfe braucht.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 ### B1: Nebensatz mit „dass“
 
-Target: 10000000-0000-4000-8000-000000000026; category: word-order; review: approved.
+Target: 10000000-0000-4000-8000-000000000026; category: word-order; review: pending.
 
-Content hash: a13ed62d1c6010bc59ac1a63482e61c060f727da9f2c872347db77039832d166
+Content hash: 71c38095b2232f8f015ad80c75d069a57ca3732998cf5437418e018d5777122d
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -752,7 +752,7 @@ Hint: Nach „dass“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: dass wir morgen starten.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 **v-26-1** — bestätigt / dass / den Termin / er
 
@@ -762,13 +762,13 @@ Hint: Nach „dass“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: dass er den Termin bestätigt.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 ### B1: Nebensatz mit „obwohl“
 
-Target: 10000000-0000-4000-8000-000000000027; category: word-order; review: approved.
+Target: 10000000-0000-4000-8000-000000000027; category: word-order; review: pending.
 
-Content hash: 44349f9b0efaa9fb61a1f0133bd07db119e444052c43485332a59ad7a3626044
+Content hash: 063fe2e18e7daf8ca0baba2b44921ba4c615ebba0e57f5ed3dad1df315c77059
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -780,7 +780,7 @@ Hint: Nach „obwohl“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: obwohl ich müde bin.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 **v-27-1** — hat / obwohl / wenig Zeit / sie
 
@@ -790,13 +790,13 @@ Hint: Nach „obwohl“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: obwohl sie wenig Zeit hat.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 ### B1: Nebensatz mit „wenn“
 
-Target: 10000000-0000-4000-8000-000000000028; category: word-order; review: approved.
+Target: 10000000-0000-4000-8000-000000000028; category: word-order; review: pending.
 
-Content hash: d6c0468cf13bf17e0ba052e1c7ce560cd8b646d48487397c1767db3bbd195239
+Content hash: 6a76c6177cd86c13a6fcd7006d22e8378cb16dffeed5cc11ccd565b7f01f7666
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -808,7 +808,7 @@ Hint: Nach „wenn“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: wenn ich Zeit habe.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 **v-28-1** — kommt / wenn / pünktlich / der Zug
 
@@ -818,13 +818,13 @@ Hint: Nach „wenn“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: wenn der Zug pünktlich kommt.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 ### B1: Indirekte Frage mit „ob“
 
-Target: 10000000-0000-4000-8000-000000000029; category: word-order; review: approved.
+Target: 10000000-0000-4000-8000-000000000029; category: word-order; review: pending.
 
-Content hash: d3d07ba4070afcce369c77d5c32a9837be96c831c2b7446224bd2be0af6d4378
+Content hash: 5788a9b0494d512d68ce61cdd79ef3ecca55ad6c9451de1067cacd74a7a2b266
 
 Original agent-authored examples for German Master 2.0; no imported dataset.
 
@@ -836,7 +836,7 @@ Hint: Nach „ob“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: ob du morgen kommst.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 **v-29-1** — hat / ob / genug Zeit / sie
 
@@ -846,13 +846,13 @@ Hint: Nach „ob“ steht das finite Verb am Ende des Satzes.
 
 Explanation: Das finite Verb steht am Ende: ob sie genug Zeit hat.
 
-German can allow marked constituent orders, but this exercise explicitly fixes conjunction → subject → remaining phrase → finite verb to isolate verb-final placement.
+Unverified revision: the unassisted instruction no longer supplies the tested word-order rule. Marked contrastive orders are outside the requested neutral order; acceptable neutral alternatives need editorial review.
 
 ### B2: Passiv im Präsens
 
-Target: 40000000-0000-4000-8000-000000000000; category: passive; review: approved.
+Target: 40000000-0000-4000-8000-000000000000; category: passive; review: pending.
 
-Content hash: e3287d09c98c9fc7bb94148e7203c7d9c550a86260d54ba86315d152c7187149
+Content hash: 32850e4d954aa17328ee0c903c38db1866a9fa01613aa7c66a44e187e87d3933
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -864,9 +864,9 @@ Hint: Verwende werden und das Partizip II.
 
 Explanation: Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-0-1** — Die Rechnung ___ heute bearbeitet. (werden, Präsens)
+**b2-0-1** — Die Heizung ___ gerade vom Hausmeister repariert. (werden, Präsens)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"wird"}]}]`
 
@@ -874,13 +874,13 @@ Hint: Verwende werden und das Partizip II.
 
 Explanation: Das Vorgangspassiv im Präsens besteht aus werden und dem Partizip II: wird geprüft / wird bearbeitet.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Passiv im Präteritum
 
-Target: 40000000-0000-4000-8000-000000000001; category: passive; review: approved.
+Target: 40000000-0000-4000-8000-000000000001; category: passive; review: pending.
 
-Content hash: 9b3f0ccd97b702454624d2ae904cbdfa4f6eb935ec28afcf9673b9cacb785cfc
+Content hash: e7f5d146aea04f266426a1452ee8a79e94346a730bacc242b15921e9d9031f64
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -892,9 +892,9 @@ Hint: Setze werden ins Präteritum.
 
 Explanation: Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-1-1** — Die Lieferung ___ letzte Woche verschickt. (werden, Präteritum)
+**b2-1-1** — Die Straße ___ nach dem Unfall gesperrt. (werden, Präteritum)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"wurde"}]}]`
 
@@ -902,13 +902,13 @@ Hint: Setze werden ins Präteritum.
 
 Explanation: Im Präteritum steht bei einem Subjekt im Singular wurde und im Plural wurden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Passiv im Perfekt
 
-Target: 40000000-0000-4000-8000-000000000002; category: passive; review: approved.
+Target: 40000000-0000-4000-8000-000000000002; category: passive; review: pending.
 
-Content hash: c805c8f240aea7b192dd00b51868475c891721b615721e1bccadffa3a1959586
+Content hash: 092aa2173a2ac1eb611b5970a33da4e4f7923d05dd977d6de6301e8f6d8457de
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -920,9 +920,9 @@ Hint: Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs we
 
 Explanation: Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-2-1** — Die Geräte sind repariert ___. (Passiv, Perfekt)
+**b2-2-1** — Die Wohnung ist gestern gestrichen ___. (Passiv, Perfekt)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"worden"}]}]`
 
@@ -930,13 +930,13 @@ Hint: Unterscheide das Perfekt des Vorgangspassivs vom Partizip des Vollverbs we
 
 Explanation: Das Passiv im Perfekt wird mit sein, Partizip II und worden gebildet. Geworden gehört zum Vollverb werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Passiv mit Modalverb
 
-Target: 40000000-0000-4000-8000-000000000003; category: passive; review: approved.
+Target: 40000000-0000-4000-8000-000000000003; category: passive; review: pending.
 
-Content hash: 2840767f5d86823c0942e2156741ca7f6e964691316b3c2fd466bb3c17d77c26
+Content hash: 87bca3dd46cc3e5b1f12882db33f909cdea9b3b4d5bbfa4c0a964c2b7dbfcf18
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -948,9 +948,9 @@ Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit M
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-3-1** — Die Daten können digital übermittelt ___. (Passivinfinitiv)
+**b2-3-1** — Die Fahrkarten können am Automaten gekauft ___. (Passivinfinitiv)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"werden"}]}]`
 
@@ -958,13 +958,13 @@ Hint: Achte auf die Verbform nach dem Partizip in einer Passivkonstruktion mit M
 
 Explanation: Beim Passiv mit Modalverb folgt werden auf das Partizip: muss geprüft werden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Irreale Bedingungen mit hätte
 
-Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: approved.
+Target: 40000000-0000-4000-8000-000000000004; category: conditional; review: pending.
 
-Content hash: 51f14091cbaf4a8808893f077b100b50f2d67b3c2d602517ed25610fccff6659
+Content hash: 1e436a88ee81fc73cdae432513c2dfc6eb2c5083dd7f1825fc2409b36b505039
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -976,9 +976,9 @@ Hint: Verwende den Konjunktiv II von haben.
 
 Explanation: Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-4-1** — Wenn sie einen Führerschein ___, könnte sie zur Arbeit fahren. (haben, Konjunktiv II)
+**b2-4-1** — Wenn meine Schwester eine größere Wohnung ___, könnten wir bei ihr übernachten. (haben, Konjunktiv II)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hätte"}]}]`
 
@@ -986,13 +986,13 @@ Hint: Verwende den Konjunktiv II von haben.
 
 Explanation: Hätte drückt eine irreale Bedingung aus: Wenn ich mehr Zeit hätte …
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Höfliche Bitten mit könnte
 
-Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: approved.
+Target: 40000000-0000-4000-8000-000000000005; category: conditional; review: pending.
 
-Content hash: e9cd2f429008f27b01b0515ef2b4818f520203d8f1e1cb5b0ee4aa47718a370b
+Content hash: 98d2af32119b3472e805e4c982415bcc4ae66c96ea6fcf89ebf2d99a37c4d277
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1004,9 +1004,9 @@ Hint: Verwende den Konjunktiv II von können.
 
 Explanation: Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-5-1** — ___ du mir kurz helfen? (können, Konjunktiv II)
+**b2-5-1** — ___ du bitte das Fenster schließen? (können, Konjunktiv II)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"Könntest"}]}]`
 
@@ -1014,13 +1014,13 @@ Hint: Verwende den Konjunktiv II von können.
 
 Explanation: Könnten Sie … ist eine höfliche Bitte. Könntest du … richtet sich an eine vertraute Person.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Irreale Vergangenheit mit hätte
 
-Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: approved.
+Target: 40000000-0000-4000-8000-000000000006; category: conditional; review: pending.
 
-Content hash: cc7c56299d9ed104f6200f65d05a544a8ef2310bde75b4a67de1eb2040c0c973
+Content hash: 05c98ea271056210210ca2500f482197125d4f7fc7e720654789f7ab113d69ae
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1032,9 +1032,9 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und le
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-6-1** — Wenn er die Nachricht gelesen ___, hätte er geantwortet. (haben, Konjunktiv II)
+**b2-6-1** — Wenn sie rechtzeitig reserviert ___, hätte sie noch einen Platz bekommen. (haben, Konjunktiv II)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hätte"}]}]`
 
@@ -1042,13 +1042,13 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei lernen und le
 
 Explanation: Hätte und Partizip II beschreiben ein irreales Ereignis in der Vergangenheit bei Verben mit haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Irreale Vergangenheit mit wäre
 
-Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: approved.
+Target: 40000000-0000-4000-8000-000000000007; category: conditional; review: pending.
 
-Content hash: 0d9324967c1130f37a18c013685449ebb171ba4145f5abcc7c31b6fc152b31e3
+Content hash: fba8b07c2b9658bd736fd438d2318c4eb289b7e08113530e4611f7d7508dcfaf
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1060,9 +1060,9 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fa
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-7-1** — Wenn ich früher losgefahren ___, hätte ich den Termin geschafft. (sein, Konjunktiv II)
+**b2-7-1** — Wenn er zu Hause geblieben ___, hätte er das Paket annehmen können. (sein, Konjunktiv II)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"wäre"}]}]`
 
@@ -1070,97 +1070,97 @@ Hint: Bilde die irreale Vergangenheitsform des Hilfsverbs, das bei kommen und fa
 
 Explanation: Wäre und Partizip II beschreiben ein irreales vergangenes Ereignis mit Verben wie kommen und fahren.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Gegensatz mit obwohl
+### B2: Einen Gegensatz ausdrücken
 
-Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: approved.
+Target: 40000000-0000-4000-8000-000000000008; category: connectors; review: pending.
 
-Content hash: 9657a66b362fb1b1a16e159591997f6a6c443270194869716d0df1c395353bed
-
-Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
-
-**b2-8-0** — Obwohl es stark ___, fahren wir mit dem Rad. (regnen, Präsens)
-
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"regnet"}]}]`
-
-Hint: Obwohl leitet einen Nebensatz ein.
-
-Explanation: Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist.
-
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
-
-**b2-8-1** — Obwohl die Aufgabe schwierig ___, geben wir nicht auf. (sein, Präsens)
-
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"ist"}]}]`
-
-Hint: Obwohl leitet einen Nebensatz ein.
-
-Explanation: Nach obwohl steht das konjugierte Verb am Ende: obwohl … regnet / … ist.
-
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
-
-### B2: Begründung mit da
-
-Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: approved.
-
-Content hash: 86f0b07985cdd4d309161ca30dda830bb2e2273681b2a73cbeb6df161f4e94e7
+Content hash: 7be8c2c2d18120f0b25b370f904a5b21d85df4d895ae135fe573ac4771aeb7bc
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-9-0** — Da die Kollegin heute ___, übernimmt Tim ihre Aufgaben. (fehlen, Präsens)
+**b2-8-0** — Es regnet stark. Wir fahren trotzdem mit dem Rad. ___ es stark regnet, fahren wir mit dem Rad.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"fehlt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"Obwohl"}]}]`
 
-Hint: Da leitet eine Begründung ein; das Verb steht am Ende.
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
 
-Explanation: Im Nebensatz mit da steht das konjugierte Verb am Ende.
+Explanation: Obwohl drückt einen Gegensatz zur Erwartung aus. Das finite Verb steht am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-9-1** — Da der Drucker nicht ___, schicken wir die Datei per E-Mail. (funktionieren, Präsens)
+**b2-8-1** — Der Weg ist sehr lang. Wir gehen trotzdem zu Fuß. ___ der Weg sehr lang ist, gehen wir zu Fuß.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"funktioniert"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"Obwohl"}]}]`
 
-Hint: Da leitet eine Begründung ein; das Verb steht am Ende.
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
 
-Explanation: Im Nebensatz mit da steht das konjugierte Verb am Ende.
+Explanation: Obwohl drückt einen Gegensatz zur Erwartung aus. Das finite Verb steht am Ende.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-### B2: Folge mit sodass
+### B2: Einen Grund nennen
 
-Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: approved.
+Target: 40000000-0000-4000-8000-000000000009; category: connectors; review: pending.
 
-Content hash: 09ddf77f491b06b4b55ed107dbd2d0ff7a0accd414898d5188fc25eebb1826c3
+Content hash: 29658314ba053285dd0fefb233cd9f546c12df9823a7ca1d9fa9665518311cb7
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-10-0** — Der Zug hatte Verspätung, sodass ich zu spät ___. (ankommen, Präteritum)
+**b2-9-0** — Die Kollegin fehlt heute. Das ist der Grund für Tims Vertretung. ___ die Kollegin heute fehlt, übernimmt Tim ihre Aufgaben.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"ankam"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"Da"}]}]`
 
-Hint: Sodass leitet die Folge in einem Nebensatz ein.
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
 
-Explanation: Im Nebensatz mit sodass steht das konjugierte Verb am Ende.
+Explanation: Da nennt den feststehenden Grund für die Handlung im Hauptsatz.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-10-1** — Die Erklärung war klar, sodass alle den Ablauf ___. (verstehen, Präteritum)
+**b2-9-1** — Die Heizung funktioniert nicht. Deshalb rufen wir den Hausmeister an. ___ die Heizung nicht funktioniert, rufen wir den Hausmeister an.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"verstanden"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"Da"}]}]`
 
-Hint: Sodass leitet die Folge in einem Nebensatz ein.
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
 
-Explanation: Im Nebensatz mit sodass steht das konjugierte Verb am Ende.
+Explanation: Da nennt den feststehenden Grund für die Handlung im Hauptsatz.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
+
+### B2: Eine Folge ausdrücken
+
+Target: 40000000-0000-4000-8000-000000000010; category: connectors; review: pending.
+
+Content hash: fe87ba6082f36d2777706c6ee2e9908d9f85951334843774a72ea4b8ed06f528
+
+Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
+
+**b2-10-0** — Der Zug hatte Verspätung. Die Folge: Ich kam zu spät. Der Zug hatte Verspätung, ___ ich zu spät kam.
+
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"sodass"}]}]`
+
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
+
+Explanation: Sodass leitet eine Folge ein. Das finite Verb steht am Ende des Nebensatzes.
+
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
+
+**b2-10-1** — Die Wegbeschreibung war genau. Die Folge: Alle fanden den Treffpunkt. Die Wegbeschreibung war genau, ___ alle den Treffpunkt fanden.
+
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"sodass"}]}]`
+
+Hint: Achte auf den Zusammenhang zwischen den beiden Aussagen.
+
+Explanation: Sodass leitet eine Folge ein. Das finite Verb steht am Ende des Nebensatzes.
+
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
 ### B2: Absicht mit um … zu
 
-Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: approved.
+Target: 40000000-0000-4000-8000-000000000011; category: infinitive; review: pending.
 
-Content hash: d08a49a06ae520731eae7043396f1f14dc49af85c64f52a13f705bf270fda7c8
+Content hash: 0f1ace941503c6af7b4d8a06f3a5f9aacac2215880c459c02aea06713ebd3f44
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1172,9 +1172,9 @@ Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partike
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-11-1** — Sie spart Geld, um eine Weiterbildung ___ finanzieren. (Infinitivpartikel)
+**b2-11-1** — Er macht jeden Tag Übungen, um seinen Rücken ___ stärken. (Infinitivpartikel)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"zu"}]}]`
 
@@ -1182,13 +1182,13 @@ Hint: In einem Finalsatz mit um steht unmittelbar vor dem Infinitiv eine Partike
 
 Explanation: Um … zu beschreibt eine Absicht, wenn beide Satzteile dasselbe Subjekt haben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Infinitiv mit zu bei trennbaren Verben
 
-Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: approved.
+Target: 40000000-0000-4000-8000-000000000012; category: infinitive; review: pending.
 
-Content hash: 9aa26c79bed31cd267fd10e53dfd02ab24b6e3bab988c3a9651bb9152b5a3c8d
+Content hash: 675e11e06fccf387e6322a7d7bd75ede5803d2a979c1e1e8608bfc426b0e6b0c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1200,9 +1200,9 @@ Hint: Setze zu zwischen Vorsilbe und Verbstamm.
 
 Explanation: Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-12-1** — Sie hat beschlossen, am Seminar ___. (teilnehmen, Infinitiv mit zu)
+**b2-12-1** — Er hofft, am Austauschprogramm ___. (teilnehmen, Infinitiv mit zu)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"teilzunehmen"}]}]`
 
@@ -1210,13 +1210,13 @@ Hint: Setze zu zwischen Vorsilbe und Verbstamm.
 
 Explanation: Bei trennbaren Verben steht zu im Wort: vorbereiten → vorzubereiten; teilnehmen → teilzunehmen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Relativpronomen im Akkusativ
 
-Target: 40000000-0000-4000-8000-000000000013; category: relative; review: approved.
+Target: 40000000-0000-4000-8000-000000000013; category: relative; review: pending.
 
-Content hash: daace6b7b59df841da41b2ba169a28142c10bfcd015ad06566a2d994e93aeb15
+Content hash: a76d1d48905b285679b9a0cb26aa382b5fc37a3f14d436feb188cb9e59a7cc85
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1228,9 +1228,9 @@ Hint: Das Relativpronomen ist das Objekt im Relativsatz.
 
 Explanation: Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-13-1** — Das Angebot, ___ wir erhalten haben, ist günstig. (Relativpronomen)
+**b2-13-1** — Das Paket, ___ wir gestern abgeholt haben, gehört der Nachbarin. (Relativpronomen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"das"}]}]`
 
@@ -1238,13 +1238,13 @@ Hint: Das Relativpronomen ist das Objekt im Relativsatz.
 
 Explanation: Im Akkusativ steht bei einem maskulinen Bezugswort den, bei einem neutralen das.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Relativpronomen im Dativ
 
-Target: 40000000-0000-4000-8000-000000000014; category: relative; review: approved.
+Target: 40000000-0000-4000-8000-000000000014; category: relative; review: pending.
 
-Content hash: 7170d01e4ccd81cdbaff12a58315a8c64883e2cae0589fc618573e5f4dc421be
+Content hash: 53a5d64007668a95e8086a6650610f411d910877111799903abae25341ff4609
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1256,9 +1256,9 @@ Hint: Helfen und mit verlangen den Dativ.
 
 Explanation: Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-14-1** — Der Kunde, mit ___ ich gesprochen habe, kommt morgen. (Relativpronomen)
+**b2-14-1** — Der Nachbar, mit ___ ich die Küche renoviert habe, zieht um. (Relativpronomen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"dem"}]}]`
 
@@ -1266,13 +1266,13 @@ Hint: Helfen und mit verlangen den Dativ.
 
 Explanation: Im Dativ lauten die Relativpronomen dem bei maskulinen und neutralen, der bei femininen Bezugswörtern.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Relativpronomen im Genitiv
 
-Target: 40000000-0000-4000-8000-000000000015; category: relative; review: approved.
+Target: 40000000-0000-4000-8000-000000000015; category: relative; review: pending.
 
-Content hash: 9c7cd5004ef02e06fd817bdb223e9dcaf71de081b30ac8919ba8b76e48e00be6
+Content hash: 6336e8599773440209ccccfb66816ed8a64804ac368db22ccf9231b43c7ef989
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1284,9 +1284,9 @@ Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem No
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-15-1** — Die Firma, ___ Produkte wir verkaufen, hat ihren Sitz in Köln. (Relativpronomen im Genitiv)
+**b2-15-1** — Die Autorin, ___ Bücher wir gelesen haben, besucht unsere Schule. (Relativpronomen im Genitiv)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"deren"}]}]`
 
@@ -1294,13 +1294,13 @@ Hint: Das Relativpronomen drückt hier Zugehörigkeit aus und steht vor einem No
 
 Explanation: Dessen bezieht sich auf ein maskulines oder neutrales Bezugswort, deren auf ein feminines Bezugswort oder den Plural.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Genitiv nach trotz
 
-Target: 40000000-0000-4000-8000-000000000016; category: cases; review: approved.
+Target: 40000000-0000-4000-8000-000000000016; category: cases; review: pending.
 
-Content hash: 3d7c0302a18ba429917f8d4334fcc65b975ee8eff480857739bfe6e9114b5109
+Content hash: c435b2ad122c0a6ff25d55d93a227c885c124f06d670049b77c4e2bfb013a043
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1312,9 +1312,9 @@ Hint: Verwende den Genitiv der Standardschriftsprache.
 
 Explanation: In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-16-1** — Trotz ___ Verspätung erreichten wir den Anschluss. (die, Genitiv)
+**b2-16-1** — Trotz ___ Erkältung ging sie zur Arbeit. (die, Genitiv)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"der"}]}]`
 
@@ -1322,13 +1322,13 @@ Hint: Verwende den Genitiv der Standardschriftsprache.
 
 Explanation: In der Standardschriftsprache steht trotz meist mit Genitiv: trotz des Regens / der Verspätung.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Genitiv nach während
 
-Target: 40000000-0000-4000-8000-000000000017; category: cases; review: approved.
+Target: 40000000-0000-4000-8000-000000000017; category: cases; review: pending.
 
-Content hash: 6b85b4abd37063d8e6b440afc056e0584537e92fb41cd3d74c9b6e48b516a3f8
+Content hash: 4e224a5934c776755c7d772b9a8f765cdf2637639b4cc7315abd34d1404414ec
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1340,9 +1340,9 @@ Hint: Hier ist während eine Präposition und keine Konjunktion.
 
 Explanation: Als Präposition steht während in der Standardschriftsprache mit dem Genitiv.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-17-1** — Während ___ Besprechung machen wir Notizen. (die, Genitiv)
+**b2-17-1** — Während ___ Renovierung wohnen wir bei Freunden. (die, Genitiv)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"der"}]}]`
 
@@ -1350,13 +1350,13 @@ Hint: Hier ist während eine Präposition und keine Konjunktion.
 
 Explanation: Als Präposition steht während in der Standardschriftsprache mit dem Genitiv.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Adjektive im Genitiv
 
-Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: approved.
+Target: 40000000-0000-4000-8000-000000000018; category: adjective; review: pending.
 
-Content hash: bae2e8cbd0f9f91488d9f8a8338d33db204b2828ad52916e800943c50959bdb2
+Content hash: 19b8ba434a815340fc4ec2a22cca2b27c690a4b744c2bdb274d342a6d50e4ef5
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1368,23 +1368,23 @@ Hint: Nach dem bestimmten Artikel endet das Adjektiv hier auf -en.
 
 Explanation: Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-18-1** — Die Folgen des ___ Fehlers verursachten hohe Kosten. (technisch)
+**b2-18-1** — Die Reparatur des ___ Geräts dauert zwei Tage. (defekt)
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"technischen"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"defekten"}]}]`
 
 Hint: Nach dem bestimmten Artikel endet das Adjektiv hier auf -en.
 
 Explanation: Nach des erhält das Adjektiv in diesen Genitivgruppen die schwache Endung -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Adjektive ohne Artikel
 
-Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: approved.
+Target: 40000000-0000-4000-8000-000000000019; category: adjective; review: pending.
 
-Content hash: 1ae4dcc1f8da4b4fbb7af676e2a37c624c011fbfff3bc39abb27574554adf7ff
+Content hash: eb95159aefca121b3acc43ec59a469e5624dfb7003ef1a1a637927fa0d2b1a52
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1396,9 +1396,9 @@ Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
 Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-19-1** — Mit ___ Kolleginnen aus anderen Abteilungen arbeiten wir gern zusammen. (zuverlässig)
+**b2-19-1** — Mit ___ Helferinnen gelang der Umzug schnell. (zuverlässig)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"zuverlässigen"}]}]`
 
@@ -1406,13 +1406,13 @@ Hint: Ohne Artikel werden Adjektive stark dekliniert.
 
 Explanation: Ohne Artikel endet das Adjektiv im Dativ Singular (Maskulinum und Neutrum) auf -em, im Dativ Plural auf -en.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Abhängen von
+### B2: Präposition bei abhängen
 
-Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: approved.
+Target: 40000000-0000-4000-8000-000000000020; category: verb_preposition; review: pending.
 
-Content hash: 71a37284f9556f26e90e79ddf6144a5dd8e2f1159577f353f57f640a3b36a101
+Content hash: ffde12ba16d6d888c2cd89a6580efec675fe468e1f6ce3c8ae1167327181e0d0
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1424,9 +1424,9 @@ Hint: Lerne die feste Präposition zu abhängen.
 
 Explanation: Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-20-1** — Unsere Planung hängt ___ dem Wetter ab. (Präposition zu abhängen)
+**b2-20-1** — Die Wahl der Kleidung hängt ___ dem Wetter ab. (Präposition zu abhängen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"von"}]}]`
 
@@ -1434,13 +1434,13 @@ Hint: Lerne die feste Präposition zu abhängen.
 
 Explanation: Abhängen steht mit von und Dativ: von der Erfahrung / vom Wetter.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Teilnehmen an
+### B2: Präposition bei teilnehmen
 
-Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: approved.
+Target: 40000000-0000-4000-8000-000000000021; category: verb_preposition; review: pending.
 
-Content hash: 8bcbaf80de2c9f6cae9ffa70152a049fe3d449116f8d1dc6e2b841f6a9a73c95
+Content hash: eca2dd25b6bae399485992492d1f6a6d18b75f99e6ef008d07e3d163fd63d30d
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1452,9 +1452,9 @@ Hint: Lerne die feste Präposition zu teilnehmen.
 
 Explanation: Teilnehmen steht mit an und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-21-1** — Wir nehmen ___ dem Projekt teil. (Präposition zu teilnehmen)
+**b2-21-1** — Viele Nachbarn nehmen ___ dem Straßenfest teil. (Präposition zu teilnehmen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"an"}]}]`
 
@@ -1462,13 +1462,13 @@ Hint: Lerne die feste Präposition zu teilnehmen.
 
 Explanation: Teilnehmen steht mit an und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Überzeugen von
+### B2: Präposition bei überzeugen
 
-Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: approved.
+Target: 40000000-0000-4000-8000-000000000022; category: verb_preposition; review: pending.
 
-Content hash: ce390351e9924b7adfee0a9d26d201d71f9fe8cddb882ac41359997fb09b11fe
+Content hash: 1110efa30843ad2e73367267933918d222d133d79e7b113b0603d0ce5af2b421
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1480,9 +1480,9 @@ Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem A
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-22-1** — Sie überzeugt das Team ___ ihrem Vorschlag. (Präposition zu überzeugen)
+**b2-22-1** — Die Ärztin überzeugt mich ___ ihrem Behandlungsvorschlag. (Präposition zu überzeugen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"von"}]}]`
 
@@ -1490,13 +1490,13 @@ Hint: Ergänze die feste Präposition zwischen der überzeugten Person und dem A
 
 Explanation: Überzeugen hat ein Akkusativobjekt für die Person; die Sache folgt mit von und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Sich befassen mit
+### B2: Präposition bei sich befassen
 
-Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: approved.
+Target: 40000000-0000-4000-8000-000000000023; category: verb_preposition; review: pending.
 
-Content hash: ff351d8ec9a541a9f4bf489e258df725a10dc48bad6dd3497ec8d784b5b2a057
+Content hash: 854e1e6e6cc7048c32b31be22f65ee8b7c4da391636e551f14f8884eb4e1f5b3
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1508,9 +1508,9 @@ Hint: Lerne die feste Präposition zu sich befassen.
 
 Explanation: Sich befassen steht mit mit und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-23-1** — Er befasst sich ___ der Auswertung. (Präposition zu sich befassen)
+**b2-23-1** — Im Verein befasst er sich ___ der Jugendarbeit. (Präposition zu sich befassen)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"mit"}]}]`
 
@@ -1518,13 +1518,13 @@ Hint: Lerne die feste Präposition zu sich befassen.
 
 Explanation: Sich befassen steht mit mit und Dativ.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-### B2: Sich ergeben aus
+### B2: Präposition bei sich ergeben
 
-Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: approved.
+Target: 40000000-0000-4000-8000-000000000024; category: verb_preposition; review: pending.
 
-Content hash: 886c268e4637033a2428efe18213df49a9a3661c2dfa460eb8e209ddec5cab1a
+Content hash: a142e26b638932f365591251e6b00e32116fb62dc5044c4f77a79683bb9d5a02
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
@@ -1536,9 +1536,9 @@ Hint: Ergeben bedeutet hier resultieren, nicht kapitulieren.
 
 Explanation: Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
-**b2-24-1** — Die nächsten Schritte ergeben sich ___ der Analyse. (Präposition zu sich ergeben)
+**b2-24-1** — Die Zutaten ergeben sich ___ dem Rezept. (Präposition zu sich ergeben)
 
 Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"aus"}]}]`
 
@@ -1546,145 +1546,145 @@ Hint: Ergeben bedeutet hier resultieren, nicht kapitulieren.
 
 Explanation: Sich aus etwas ergeben bedeutet daraus resultieren: Möglichkeiten ergeben sich aus dem Gespräch.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified revision prepared 10 October 2026. Two authored contexts apply the same target to different lexical or communicative situations; these are editorial transfer identities, not evidence of learner transfer. German editorial review and objective alignment are pending.
 
 ### B2: Einen Antrag stellen
 
-Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: approved.
+Target: 40000000-0000-4000-8000-000000000025; category: work_vocabulary; review: pending.
 
-Content hash: 0dd6f23d8d985c1f3119323d2b96c95469f5006730bc5c32a40fc61fda1d4d9c
+Content hash: d1c3fe077d5b1d7c961dd2e8785aa5b21abf748470fce88ee76c47943a4ca5b1
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-25-0** — Ich ___ einen Antrag auf Förderung. (stellen, Präsens)
+**b2-25-0** — Für die Förderung möchte ich einen Antrag ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stelle"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stellen"}]}]`
 
-Hint: Setze das angegebene Verb ins Präsens.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
+Explanation: Die feste Verbindung lautet einen Antrag stellen: etwas offiziell beantragen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-25-1** — Sie ___ einen Antrag auf Weiterbildung. (stellen, Präsens, 3. Person Singular)
+**b2-25-1** — Für die Weiterbildung muss sie einen Antrag ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stellt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"stellen"}]}]`
 
-Hint: Setze das angegebene Verb ins Präsens.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Die Wendung „einen Antrag stellen“ bedeutet, etwas offiziell zu beantragen.
+Explanation: Die feste Verbindung lautet einen Antrag stellen: etwas offiziell beantragen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
 ### B2: Eine Entscheidung treffen
 
-Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: approved.
+Target: 40000000-0000-4000-8000-000000000026; category: work_vocabulary; review: pending.
 
-Content hash: 1006acf2a32d032be7bf30fa0e39a387071d0c83b775972924752ecdda0e4a90
+Content hash: d8391663adcd724c6582890511b803099b425f4b2b495b9ae97dceeb5bb2cd9b
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-26-0** — Der Vorstand ___ morgen eine Entscheidung. (treffen, Präsens)
+**b2-26-0** — Der Vorstand muss morgen eine Entscheidung ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"trifft"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"treffen"}]}]`
 
-Hint: Treffen verändert im Singular seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst.
+Explanation: Eine Entscheidung treffen bedeutet, sich zu entscheiden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-26-1** — Du ___ die Entscheidung selbst. (treffen, Präsens)
+**b2-26-1** — Vor dem Umzug müssen wir eine Entscheidung ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"triffst"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"treffen"}]}]`
 
-Hint: Treffen verändert im Singular seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Eine Entscheidung treffen ist eine feste Verbindung. Die Singularformen lauten trifft und triffst.
+Explanation: Eine Entscheidung treffen bedeutet, sich zu entscheiden.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
 ### B2: Verantwortung übernehmen
 
-Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: approved.
+Target: 40000000-0000-4000-8000-000000000027; category: work_vocabulary; review: pending.
 
-Content hash: 3ef96fb8eb5fefab36cd5e2d1ef0039bbc8f31ce5339b3d4a9090db7c2645a43
+Content hash: ef06bfcd4d4da69dbbd9b900df213197c26dda04744114b8dc51eca101922041
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-27-0** — Die Leiterin ___ die Verantwortung für das Projekt. (übernehmen, Präsens)
+**b2-27-0** — Die Leiterin will die Verantwortung für das Projekt ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übernimmt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übernehmen"}]}]`
 
-Hint: Übernehmen verändert im Singular seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
+Explanation: Verantwortung übernehmen bedeutet, für etwas einzustehen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-27-1** — Du ___ die Verantwortung für die Abrechnung. (übernehmen, Präsens)
+**b2-27-1** — Nach dem Fehler muss jemand die Verantwortung ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übernimmst"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"übernehmen"}]}]`
 
-Hint: Übernehmen verändert im Singular seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: Die Wendung „Verantwortung übernehmen“ bedeutet, für etwas verantwortlich zu werden; die Formen lauten übernimmt / übernimmst.
+Explanation: Verantwortung übernehmen bedeutet, für etwas einzustehen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
 ### B2: Eine Frist einhalten
 
-Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: approved.
+Target: 40000000-0000-4000-8000-000000000028; category: work_vocabulary; review: pending.
 
-Content hash: 512a2ec6eb5a3cd45ad8e07c03b3050795015784380521c2b79b39a868742273
+Content hash: b04402523b3865db74ec758fc16b9ef8080bbb2b7f2efe2c1233be919b525a44
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-28-0** — Das Team ___ die Frist ein. (einhalten, Präsens; nur der konjugierte Teil)
+**b2-28-0** — Das Team muss die vereinbarte Frist ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hält"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"einhalten"}]}]`
 
-Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
+Explanation: Eine Frist einhalten bedeutet, etwas rechtzeitig zu erledigen oder abzugeben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-28-1** — Du ___ die vereinbarte Frist ein. (einhalten, Präsens; nur der konjugierte Teil)
+**b2-28-1** — Bitte schicken Sie die Unterlagen rechtzeitig ab, damit wir die Frist ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"hältst"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"einhalten"}]}]`
 
-Hint: Einhalten ist trennbar und verändert seinen Stammvokal.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: „Eine Frist einhalten“ bedeutet, etwas innerhalb der vereinbarten Zeit zu erledigen. Im Singular stehen hält / hältst.
+Explanation: Eine Frist einhalten bedeutet, etwas rechtzeitig zu erledigen oder abzugeben.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
 ### B2: Voraussetzungen erfüllen
 
-Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: approved.
+Target: 40000000-0000-4000-8000-000000000029; category: work_vocabulary; review: pending.
 
-Content hash: 5b93004e3866c735f55d84c14a7cdc9113ca238f093483d07253bb7748ac95a5
+Content hash: 4137cf0ee987f513ed9293918b6fdccf0273cfb39a5a5b089a866968aaa1be1c
 
 Original Codex-authored controlled examples, 7 October 2026; AI editorial assistance, not independent German review. No legacy sentences imported.
 
-**b2-29-0** — Ich ___ alle Voraussetzungen für die Stelle. (erfüllen, Präsens)
+**b2-29-0** — Für diese Stelle muss ich alle fachlichen Voraussetzungen ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erfülle"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erfüllen"}]}]`
 
-Hint: Setze das angegebene Verb ins Präsens.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
+Explanation: Voraussetzungen erfüllen bedeutet, die nötigen Bedingungen zu erfüllen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 
-**b2-29-1** — Die Bewerberin ___ die fachlichen Voraussetzungen. (erfüllen, Präsens)
+**b2-29-1** — Für die Zulassung müssen Bewerber die Voraussetzungen ___.
 
-Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erfüllt"}]}]`
+Accepted: `[{"type":"gap_choice","selections":[{"slotId":"form","optionId":"erfüllen"}]}]`
 
-Hint: Setze das angegebene Verb ins Präsens.
+Hint: Denke an die feste Verbindung mit diesem Nomen.
 
-Explanation: „Voraussetzungen erfüllen“ bedeutet, die gestellten Anforderungen zu erfüllen.
+Explanation: Voraussetzungen erfüllen bedeutet, die nötigen Bedingungen zu erfüllen.
 
-Revision 2 measures recognition through an authored gap choice. Distractors model typical inflection, tense, case or fixed-preposition errors. The parenthetical cue constrains the requested form. GPT-6 AI editorial review covered alternatives, level framing and answer leakage on 9 October 2026; no human certification is claimed.
+Unverified objective-alignment edit: select the semantic connector or lexical collocation, not a supplied verb conjugation. Alternatives, naturalness and distractor uniqueness require editorial review.
 

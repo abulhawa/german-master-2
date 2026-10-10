@@ -1,4 +1,4 @@
-import { AnswerSchema, EvaluationSchema, type Answer, type Evaluation, type Exercise, type LocalizedText } from "@german-master/contracts";
+import { AnswerSchema, EvaluationSchema, type Answer, type Evaluation, type Exercise, type LocalizedText, type CompletedAnswer } from "@german-master/contracts";
 export * from "./evidence";
 export * from "./selection";
 export * from "./offline-pack";
@@ -9,6 +9,7 @@ export type Rubric = {
   normalizationVersion: typeof NORMALIZATION_VERSION;
   acceptedAnswers: Answer[];
   explanation: LocalizedText;
+  completedAnswer?: CompletedAnswer;
 };
 
 export class GradingError extends Error {
@@ -105,5 +106,6 @@ export function grade(exercise: Exercise, rubric: Rubric, input: unknown, assist
     assisted: assistance.length > 0,
     explanation: rubric.explanation,
     acceptedAnswer: rubric.acceptedAnswers[0],
+    ...(rubric.completedAnswer ? { completedAnswer: rubric.completedAnswer } : {}),
   });
 }

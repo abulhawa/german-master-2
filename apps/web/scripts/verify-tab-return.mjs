@@ -116,6 +116,9 @@ try {
   let heading;
   if(loadOnly){
     await page.getByRole('button',{name:'Browse topics',exact:true}).waitFor();
+    // Catalog can arrive before profile/progress; wait for the practice-ready
+    // state rather than asserting in the middle of those concurrent reads.
+    await page.waitForFunction(()=>Array.from(document.querySelectorAll('button')).some(button=>button.textContent?.includes('Start short practice')&&!button.disabled));
     await page.waitForFunction(()=>!document.querySelector('[role="alert"]'));
     assert.ok(await page.getByRole('button',{name:'Start short practice',exact:true}).isEnabled());
     assert.equal(await page.getByRole('button',{name:'Reload topics',exact:true}).count(),0);

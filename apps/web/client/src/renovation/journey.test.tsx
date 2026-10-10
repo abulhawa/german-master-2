@@ -108,7 +108,7 @@ describe('Home screen handoff', () => {
     render(<LearnerJourney api={api} />);
     await screen.findByText('Needs practice: 1 · Retention checks: 1');
     expect(screen.getByRole('heading', { name: 'Practice what needs attention' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Improving targets' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Getting stronger' })).toBeInTheDocument();
   });
   it('offers voluntary practice and topic navigation when confirmed work is not due', async () => {
     const api = apiFixture();
@@ -133,10 +133,10 @@ describe('Home screen handoff', () => {
     const api = apiFixture();
     api.targets = vi.fn(async () => { throw Error('offline'); });
     render(<LearnerJourney api={api} />);
-    await screen.findByText('Confirmed progress is unavailable. Refresh to check what needs practice.');
+    await screen.findByText('Your progress could not be loaded. You can still choose a topic or try again.');
     expect(screen.queryByText('Nothing urgent right now')).toBeNull();
     expect(screen.queryByText('Let’s find what to practise')).toBeNull();
-    expect(screen.getByRole('button', { name: 'Refresh confirmed progress' })).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Refresh progress' })).toBeEnabled();
   });
 });
 it('sign-out choices require explicit removal and resume retained work only for the same local learner',async()=> {
@@ -177,15 +177,15 @@ it("Close preserves assisted drafts; partial completion retries the frozen reque
   expect(await screen.findByLabelText('Your answer')).toHaveValue('saved draft');
   expect(api.complete).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText('Close practice')); fireEvent.click(screen.getByText('End session'));
-  await screen.findByText('Retry saved completion');
+  await screen.findByText('Try saving session again');
   const frozen = readJourney(localStorage).practice!.completion!;
   expect(frozen.mode).toBe('partial');
   expect(readJourney(localStorage).practice).toMatchObject({draft:before.draft,assisted:before.assisted});
   rendered.unmount(); render(<LearnerJourney api={api} />);
   await waitFor(() => expect(screen.getByText('Start short practice')).toBeEnabled());
   fireEvent.click(screen.getByText('Start short practice'));
-  fireEvent.click(await screen.findByText('Retry saved completion'));
-  await screen.findByText('Session end confirmed by the server.');
+  fireEvent.click(await screen.findByText('Try saving session again'));
+  await screen.findByText('Session saved to your progress.');
   expect(api.complete).toHaveBeenLastCalledWith(session.id,frozen);
   expect(readJourney(localStorage).practice!.draft).toEqual(before.draft);
   expect(api.submit).not.toHaveBeenCalled(); expect(api.expose).not.toHaveBeenCalled();
@@ -197,12 +197,12 @@ it("keeps a failed refresh visible when background profile loading finishes late
   api.profile = vi.fn(() => new Promise(resolve => { finishProfile = resolve; }));
   vi.mocked(api.targets).mockRejectedValueOnce(Error("Unavailable snapshot"));
   render(<LearnerJourney api={api} />);
-  const message = "Could not refresh confirmed progress. Previously confirmed data stays available.";
+  const message = "Your progress could not be updated. Previously saved results are still available, if any.";
   await screen.findByText(message);
   finishProfile(profile);
   await waitFor(() => expect(screen.getByText("Start short practice")).toBeEnabled());
   expect(screen.getByText(message)).toBeVisible();
-  fireEvent.click(screen.getByText("Refresh confirmed progress"));
+  fireEvent.click(screen.getByText("Refresh progress"));
   await waitFor(() => expect(readJourney(localStorage).confirmed).not.toBeNull());
   expect(screen.queryByText(message)).toBeNull();
 });
@@ -220,15 +220,15 @@ it.each(['freeze','receipt'])("completion %s save failure preserves practice and
   fireEvent.click(screen.getByText('Close practice'));
   if(failure === 'freeze') fail = true;
   fireEvent.click(screen.getByText('End session'));
-  await screen.findByText(/Could not save practice on this device/);
+  await screen.findByText(/Your answer could not be saved on this device/);
   expect(api.complete).toHaveBeenCalledTimes(failure === 'freeze' ? 0 : 1);
   expect(readJourney(localStorage).practice!.completionReceipt).toBeUndefined();
   fail = false;
   if(failure === 'receipt') {
     const frozen = readJourney(localStorage).practice!.completion;
     api.complete = vi.fn(async (sessionId,request)=>({apiVersion:'v2',requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:0,skippedCount:0,correctCount:0,completedAt:'2026-10-05T10:00:00Z'}));
-    fireEvent.click(screen.getByText('Retry saved completion'));
-    await screen.findByText('Session end confirmed by the server.');
+    fireEvent.click(screen.getByText('Try saving session again'));
+    await screen.findByText('Session saved to your progress.');
     expect(api.complete).toHaveBeenCalledWith(session.id,frozen);
   }
 });
@@ -336,7 +336,7 @@ it("blocks skip before HTTP when storage fails", async () => {
   fireEvent.click(screen.getByText("Start short practice"));
   await screen.findByLabelText("Your answer");
   fail = true; fireEvent.click(screen.getByText("Skip"));
-  expect(await screen.findByRole("alert")).toHaveTextContent("Could not save practice");
+  expect(await screen.findByRole("alert")).toHaveTextContent("Your answer could not be saved");
   expect(api.expose).not.toHaveBeenCalled();
   expect(readJourney(localStorage).practice!.index).toBe(0);
 });
@@ -384,7 +384,7 @@ it("counts graded and skipped questions separately and refreshes confirmed targe
     await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(index + 1));
   }
   expect(screen.getByText("Questions skipped: 4")).toBeInTheDocument();
-  expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 1 / 5");
+  expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 1 / 5");
   expect(screen.getByText("Correct answers: 1")).toBeInTheDocument();
   await waitFor(() => expect(vi.mocked(api.targets).mock.calls.length).toBeGreaterThan(reads));
 });
@@ -406,7 +406,7 @@ async function start(api = apiFixture()) {
   render(<LearnerJourney api={api} />);
   await waitFor(() => expect(screen.getByText(/Start short practice|Continue practice/)).toBeEnabled());
   fireEvent.click(screen.getByText(/Start short practice|Continue practice/));
-  await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
+  await waitFor(() => expect(screen.getByText("Discard unfinished session")).toBeEnabled());
   return api;
 }
 it("requires setup, confirms preferences and reports unavailable B2 drafts", async () => {
@@ -463,7 +463,7 @@ it("blocks setup writes when local pending storage fails", async () => {
   const storage = { getItem: () => null, setItem: (key: string) => { if (key === PROFILE_PENDING_KEY) throw Error("disk full"); } };
   render(<LearnerJourney api={api} storage={storage} />);
   fireEvent.click(await screen.findByText("Save preferences"));
-  expect(await screen.findByRole("alert")).toHaveTextContent("Preferences could not be confirmed");
+  expect(await screen.findByRole("alert")).toHaveTextContent("Your preferences could not be saved");
   expect(api.saveProfile).not.toHaveBeenCalled();
 });
 
@@ -519,7 +519,7 @@ describe("isolated learner journey", () => {
     fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
     fireEvent.click(screen.getByText("Check answer"));
     fireEvent.click(await screen.findByText("Continue"));
-    expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 1 / 1");
+    expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 1 / 1");
   });
   it("starts topic focus and preserves unfinished practice when browsing another target", async () => {
     const api = apiFixture();
@@ -544,7 +544,7 @@ describe("isolated learner journey", () => {
     const api = apiFixture(); api.catalog = vi.fn().mockRejectedValueOnce(Error("offline")).mockResolvedValue(catalog);
     render(<LearnerJourney api={api} />);
     fireEvent.click(screen.getByRole("button", { name: "Topics" }));
-    expect(await screen.findByRole("alert")).toHaveTextContent("Topic information is unavailable");
+    expect(await screen.findByRole("alert")).toHaveTextContent("Topics could not be loaded");
     fireEvent.click(screen.getByRole("button", { name: "Reload topics" }));
     await screen.findByRole("button", { name: "German in everyday work" });
     fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
@@ -601,11 +601,11 @@ describe("isolated learner journey", () => {
       await screen.findByText("Continue");
       fireEvent.click(screen.getByText("Continue"));
     }
-    expect(screen.getByRole("status")).toHaveTextContent("Answers confirmed: 5 / 5");
+    expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 5 / 5");
     expect(screen.getByRole("heading", { name: "Targets covered" })).toBeInTheDocument();
     expect(screen.getByText("Word order after weil")).toBeInTheDocument();
     await waitFor(() => expect(api.sync).toHaveBeenCalled());
-    await waitFor(() => expect(screen.getByText("Discard this preview session")).toBeEnabled());
+    await waitFor(() => expect(screen.getByText("Discard unfinished session")).toBeEnabled());
     fireEvent.click(screen.getByText("Progress"));
     expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
     expect(screen.getByText("Needs practice", { selector: ".gm-state-badge" })).toBeInTheDocument();
@@ -642,7 +642,7 @@ describe("isolated learner journey", () => {
   it("preserves a corrupt record and blocks mutation", () => {
     localStorage.setItem(STORAGE_KEY, "corrupt");
     const api = apiFixture(); render(<LearnerJourney api={api} />);
-    expect(screen.getByRole("alert")).toHaveTextContent("preserved");
+    expect(screen.getByRole("alert")).toHaveTextContent("was not deleted");
     expect(localStorage.getItem(STORAGE_KEY)).toBe("corrupt"); expect(api.targets).not.toHaveBeenCalled();
   });
   it("handles denied browser storage access without mounting the practice flow", () => {

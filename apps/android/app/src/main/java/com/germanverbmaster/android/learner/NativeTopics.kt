@@ -23,7 +23,7 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
     }
     val catalog = cache.catalog
     if (catalog == null) {
-        Text(text("Catalog unavailable. Refresh to retry.", "Katalog nicht verfügbar. Bitte erneut aktualisieren."))
+        Text(text("Topics could not be loaded. Try refreshing.", "Die Themen konnten nicht geladen werden. Versuche es erneut."))
         return
     }
     if (cache.practice != null) {
@@ -31,7 +31,7 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
         button(text("Continue practice", "Übung fortsetzen"), action = resume)
     }
     @Composable fun focused(focus: PracticeFocus, available: Int) {
-        Text(text("$available draft questions available.", "$available Entwurfsfragen verfügbar."))
+        Text(text("$available questions available.", "$available Aufgaben verfügbar."))
         if (available == 0) Text(text("No questions available for these preferences.", "Für diese Einstellungen sind keine Fragen verfügbar."))
         val count = if (focus is TargetFocus) 1 else minOf(5, available)
         button(text("Practise this ($count)", "Gezielt üben ($count)"), !busy && available > 0 && cache.practice == null && cache.pending == null && cache.profile?.setupCompleted == true) { start(focus) }
@@ -42,7 +42,7 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
             catalog.topics.forEach { topic ->
                 button(localized(topic.title)) { open("topic", topic.id) }
                 val targets = catalog.targets.filter { it.topicId == topic.id }
-                Text(text("${targets.sumOf { it.availableQuestionCount }} draft questions available.", "${targets.sumOf { it.availableQuestionCount }} Entwurfsfragen verfügbar."))
+                Text(text("${targets.sumOf { it.availableQuestionCount }} questions available.", "${targets.sumOf { it.availableQuestionCount }} Aufgaben verfügbar."))
             }
         }
         "topic" -> {
@@ -58,7 +58,7 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
         "target" -> {
             val target = catalog.targets.find { it.id == id }
             val confirmed = cache.targets.find { it.targetId == id }
-            if (target == null) Text(text("Target metadata unavailable. Refresh to retry.", "Lernzielinformationen nicht verfügbar. Bitte erneut aktualisieren."))
+            if (target == null) Text(text("Skill details could not be loaded. Try refreshing.", "Die Informationen zu dieser Fähigkeit konnten nicht geladen werden. Versuche es erneut."))
             else {
                 Text(localized(target.title), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                 Text(localized(target.description))
@@ -66,17 +66,17 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
                 catalog.topics.find { it.id == target.topicId }?.let { topic -> button(localized(topic.title)) { open("topic", topic.id) } }
                 focused(TargetFocus(id), target.availableQuestionCount)
             }
-            if (confirmed == null) Text(text("No confirmed practice yet.", "Noch keine bestätigte Übung."))
+            if (confirmed == null) Text(text("No practice results to show yet.", "Noch keine Übungsergebnisse vorhanden."))
             else {
-                Text(text("Confirmed state", "Bestätigter Stand") + ": " + when (confirmed.state) {
-                    "needs_practice" -> text("Needs practice", "Übungsbedarf")
-                    "improving" -> text("Improving", "Verbessert")
-                    "mastered" -> text("Mastered", "Beherrscht")
-                    "new" -> text("New", "Neu")
-                    else -> text("Learning", "Im Lernen")
+                Text(text("Your progress", "Dein Lernstand") + ": " + when (confirmed.state) {
+                    "needs_practice" -> text("Needs practice", "Braucht Übung")
+                    "improving" -> text("Improving", "Wird sicherer")
+                    "mastered" -> text("Mastered", "Sicher")
+                    "new" -> text("Not started", "Neu")
+                    else -> text("Getting started", "Im Aufbau")
                 })
-                Text(text("Qualifying checks", "Qualifizierte Prüfungen") + ": ${confirmed.qualifyingCheckCount}")
-                if (confirmed.isDue) Text(text("Due in saved snapshot", "Im gespeicherten Datenstand fällig"))
+                Text(text("Review checks", "Wiederholungsprüfungen") + ": ${confirmed.qualifyingCheckCount}")
+                if (confirmed.isDue) Text(text("Review due in your saved progress", "Laut gespeichertem Lernstand zur Wiederholung fällig"))
                 confirmed.schedule.forEach { schedule ->
                     val timezone = cache.profile?.preferences?.timezone ?: "UTC"
                     val date = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(ZoneId.of(timezone)).format(Instant.parse(schedule.dueAt))

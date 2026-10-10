@@ -529,7 +529,7 @@ export function GuestStarterJourney({
       </fieldset>
       {!state.feedback && <><FoundationButton disabled={storageError || !readyAnswer(question.exercise, state.draft as Answer | null)} onClick={check}>{c.check}</FoundationButton>
         <FoundationButton className="gm-secondary" disabled={storageError} onClick={skip}>{c.skip}</FoundationButton></>}
-      {state.feedback && <PracticeFeedback correct={state.feedback.outcome === "correct"}
+      {state.feedback && <PracticeFeedback completedAnswer={state.feedback.completedAnswer} correct={state.feedback.outcome === "correct"}
         outcome={`${state.feedback.outcome === "correct" ? c.correct : c.incorrect}${state.feedback.assisted ? ` · ${c.assisted}` : ""}`}
         answer={answerText(state.draft as Answer, state.session!, state.index)} accepted={answerText(state.feedback.acceptedAnswer, state.session!, state.index)}
         answerLabel={c.yourAnswer} acceptedLabel={c.accepted} explanation={state.feedback.explanation[state.locale]}
