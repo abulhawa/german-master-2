@@ -76,7 +76,6 @@ it("renders the five forms, prepares answers and clears state between exercises"
   expect(screen.getByText("Inspect answer")).not.toBeDisabled();
   cleanup();
 });
-
 it("keeps editorial answers linked to immutable revisions and valid controls", () => {
   const skills = new Set(editorial.skills.map((s) => s.id));
   const topics = new Set(editorial.topics.map((t) => t.id));
@@ -106,7 +105,6 @@ it("keeps editorial answers linked to immutable revisions and valid controls", (
   }
   expect(editorial.publicationApproved).toBe(false);
 });
-
 it("reorders token identities without submitting and keeps order unchanged when saving fails", () => {
   const exercise = SessionSchema.parse(session).questions[3].exercise;
   if (exercise.type !== "word_order") throw Error("Expected word order fixture");

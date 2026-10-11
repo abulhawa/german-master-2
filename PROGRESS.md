@@ -1,3 +1,12 @@
+## Word-order interaction redesign — 11 October 2026
+
+- Replaced the large per-word remove/left/right control cluster in the web answer line with selected-word chips on one wrapping answer line. Mouse users can drag/drop tokens; touch users can drag between chips; tapping a selected token removes it. Compact labeled move-left/right buttons remain for keyboard and assistive-technology use. Scrambled bank selection and Reset order remain intact.
+- Android now presents the answer as a horizontally scrollable token line. Long-press and drag reorders; tap removes; TalkBack receives a labeled button action and an ordered live-region description. Existing accessible move actions remain available.
+- Evidence: `npm run check` equivalent (`node node_modules/typescript/bin/tsc -p apps/web/tsconfig.json --noEmit`) passes using the bundled Node 24 runtime. Focused Vitest is blocked before tests execute by pre-existing JSX in `apps/web/client/src/foundation/foundation.test.tsx` being parsed without a JSX transform (`Unexpected JSX expression` at line 39). `npm` shim and Java are absent from PATH; Android Gradle tests/build were not run. No runtime/device acceptance claimed. The web AGENTS.md references `docs/ui-ux-guidelines.md`, but that file is absent in this checkout; related learner UX guidance and ADR 033 were reviewed.
+- No milestone advancement: M2 remains active; this is a contained learner UI improvement. No production changes or external calls.
+- Exact next action: resolve the local Vitest transform problem or move an interaction regression into a working JSX-enabled test location; run Android unit/lint/debug assembly with Java/Gradle available; inspect both client layouts on touch and desktop and refine based on runtime evidence.
+- Proposed commit message: `feat: add direct manipulation to word ordering`
+
 ## Consolidated schema and replacement runtime — 10 October 2026
 
 - Completed repository consolidation onto `db/0001_initial_schema.sql`: removed ten development migrations, six split SQL files and standalone remediation; removed upgrade/backfill code and three development-only upgrade tests. Fixtures seed schema/content/evidence identities atomically, reopen baseline 1 without reseeding, and reject unsupported disposable development layouts. Role/Auth/privacy tests, seed tools, release manifest and CI path filters use the sole source. Imported legacy provenance remains preserved.

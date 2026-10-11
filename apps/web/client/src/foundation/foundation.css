@@ -183,6 +183,13 @@
   padding-left: var(--gm-space-24);
 }
 .gm-order li { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.gm-order .gm-order-line { gap: var(--gm-space-8); list-style: none; padding: var(--gm-space-8); margin: 0; min-height: var(--gm-control-min); border: 1px solid var(--gm-border); border-radius: var(--gm-space-8); align-items: center; }
+.gm-order-line li { display: inline-flex; align-items: center; gap: 2px; }
+.gm-order-line li[draggable="true"] { cursor: grab; touch-action: none; }
+.gm-order-line li[draggable="true"]:active { cursor: grabbing; }
+.gm-order-line .gm-order-token { min-height: 44px; padding-inline: var(--gm-space-12); }
+.gm-order-actions { display: inline-flex; gap: 2px; }
+.gm-order-actions .gm-button { min-width: 36px; min-height: 36px; padding: 2px; }
 .gm-order li > span { display: block; margin-bottom: var(--gm-space-8); }
 .gm-order li .gm-button { display: inline-flex; min-width: var(--gm-control-min); padding-inline: var(--gm-space-8); margin-inline-end: var(--gm-space-4); }
 .gm-feedback {

@@ -2,7 +2,11 @@ package com.germanverbmaster.android.foundation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.Alignment
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -99,12 +103,29 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
             }
         }
         is ExerciseWordOrder -> {
-            Text(order.joinToString(" ") { id -> exercise.tokens.first { it.id == id }.text },
-                Modifier.semantics { liveRegion = LiveRegionMode.Polite })
-            order.forEachIndexed { index, id -> key(id) {
+            LazyRow(Modifier.fillMaxWidth().semantics { liveRegion = LiveRegionMode.Polite; contentDescription = order.mapIndexed { index, id -> "${index + 1}. ${exercise.tokens.first { it.id == id }.text}" }.joinToString(", ") }, horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                order.forEachIndexed { index, id -> key(id) {
+                    val word = exercise.tokens.first { it.id == id }.text
+                    Surface(shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.secondaryContainer,
+                        modifier = Modifier.pointerInput(order, readOnly) {
+                            var deltaX = 0f
+                            detectDragGesturesAfterLongPress(onDragStart = { deltaX = 0f }, onDrag = { change, drag ->
+                                change.consume(); deltaX += drag.x
+                            }, onDragEnd = {
+                                val shift = (deltaX / 72.dp.toPx()).toInt()
+                                val destination = (index + shift).coerceIn(0, order.lastIndex)
+                                if (!readOnly && destination != index) {
+                                    val next = order.toMutableList(); val token = next.removeAt(index); next.add(destination, token); onOrder(next)
+                                }
+                            })
+                        }.clickable(enabled = !readOnly) { onOrder(order.filter { it != id }) }
+                            .semantics { role = Role.Button; onClick(label = "$remove: $word (${index + 1})") { if (!readOnly) { onOrder(order.filter { it != id }); true } else false } }) {
+                        Text(word, Modifier.padding(horizontal = 14.dp, vertical = 11.dp), color = MaterialTheme.colorScheme.onSecondaryContainer)
+                    }
+                } }
+            }
+            order.forEachIndexed { index, id -> key("move-$id") {
                 val word = exercise.tokens.first { it.id == id }.text
-                Text("${index + 1}. $word")
-                option("$remove: $word (${index + 1})") { onOrder(order.filter { it != id }) }
                 fun move(delta: Int) {
                     val next = order.toMutableList(); val destination = index + delta
                     next[index] = next[destination]; next[destination] = id; onOrder(next)
@@ -112,6 +133,20 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
                 option("$moveLeft: $word (${index + 1})", enabled = index > 0) { move(-1) }
                 option("$moveRight: $word (${index + 1})", enabled = index < order.lastIndex) { move(1) }
             } }
+            if (order.isNotEmpty()) {
+                var showAccessibleMoves by remember(exercise.id) { mutableStateOf(false) }
+                TextButton(onClick = { showAccessibleMoves = !showAccessibleMoves }) {
+                    Text(if (showAccessibleMoves) stringResource(R.string.practice_hide_moves) else stringResource(R.string.practice_accessible_moves))
+                }
+                if (showAccessibleMoves) order.forEachIndexed { index, id -> key("access-move-$id") {
+                    val word = exercise.tokens.first { it.id == id }.text
+                    Text("${index + 1}. $word")
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        TextButton(enabled = index > 0 && !readOnly, onClick = { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index - 1, item); onOrder(next) }) { Text(moveLeft) }
+                        TextButton(enabled = index < order.lastIndex && !readOnly, onClick = { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index + 1, item); onOrder(next) }) { Text(moveRight) }
+                    }
+                } }
+            }
             exercise.tokens.filter { it.id !in order }.forEach { item -> option(item.text) { onOrder(order + item.id) } }
             option(stringResource(R.string.foundation_reset), enabled = order.isNotEmpty()) { onOrder(emptyList()) }
         }
