@@ -123,12 +123,10 @@ class NativePracticeUiTest {
                     (answers[3].answer as AnswerWordOrder).tokenIds.forEach { id -> compose.onNodeWithText((session.questions[3].exercise as ExerciseWordOrder).tokens.first { it.id == id }.text, substring = false).performScrollTo().performClick() }
                     val ordered = (answers[3].answer as AnswerWordOrder).tokenIds
                     val firstWord = (session.questions[3].exercise as ExerciseWordOrder).tokens.first { it.id == ordered[0] }.text
-                    compose.onNodeWithText("Move left: $firstWord (1)").assertIsNotEnabled()
-                    compose.onNodeWithText("Move right: $firstWord (1)").performScrollTo().performClick()
-                    assertEquals(listOf(ordered[1], ordered[0]) + ordered.drop(2), repo.state.practice!!.order)
+                    compose.onNodeWithContentDescription("1. $firstWord").assertExists()
+                    compose.onNodeWithText("Move right: $firstWord").assertDoesNotExist()
                     assertEquals(repo.state.practice, LearnerRepository(api, store).state.practice)
-                    compose.onNodeWithText("Move left: $firstWord (2)").performScrollTo().performClick()
-                    assertEquals(ordered, (repo.state.practice!!.draft as AnswerWordOrder).tokenIds)
+                    compose.onNodeWithText("Move left: $firstWord").assertDoesNotExist()
                 }
                 4 -> {
                     compose.onNodeWithText("du").performScrollTo().performTextInput("arbeitest")

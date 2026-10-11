@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import {
   SessionSchema,
   AttemptBatchSchema,
@@ -10,7 +10,7 @@ import session from "@german-master/contracts/examples/session.json";
 import response from "@german-master/contracts/examples/attempt-response.json";
 import corpus from "@german-master/contracts/examples/conformance.json";
 import batch from "@german-master/contracts/examples/attempt-batch.json";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup, within } from "@testing-library/react";
 import Preview, { ExerciseInput } from "./preview";
 
 describe("shared v2 contract", () => {
@@ -105,7 +105,7 @@ it("keeps editorial answers linked to immutable revisions and valid controls", (
   }
   expect(editorial.publicationApproved).toBe(false);
 });
-it("reorders token identities without submitting and keeps order unchanged when saving fails", () => {
+it("reorders token identities by drag and keeps order unchanged when saving fails", () => {
   const exercise = SessionSchema.parse(session).questions[3].exercise;
   if (exercise.type !== "word_order") throw Error("Expected word order fixture");
   const ids = exercise.tokens.map(t => t.id);
@@ -117,18 +117,24 @@ it("reorders token identities without submitting and keeps order unchanged when 
     onAnswer={value => { answer = value; }} />;
   render(input());
   const first = exercise.tokens[0].text;
-  expect(screen.getByRole("button", { name: `Move left: ${first} (1)` })).toBeDisabled();
-  expect(screen.getByRole("button", { name: `Move right: ${exercise.tokens.at(-1)!.text} (${ids.length})` })).toBeDisabled();
-  fireEvent.click(screen.getByRole("button", { name: `Move right: ${first} (1)` }));
+  const line = screen.getByRole("list", { name: "Your answer" });
+  const items = within(line).getAllByRole("listitem");
+  const transfer = { setData: vi.fn(), getData: () => "0", effectAllowed: "none" };
+  fireEvent.dragStart(items[0], { dataTransfer: transfer });
+  fireEvent.dragOver(items[1], { dataTransfer: transfer });
+  fireEvent.drop(items[1], { dataTransfer: transfer });
   expect(saved).toEqual([ids[1], ids[0], ...ids.slice(2)]);
+  expect(screen.queryByRole("button", { name: new RegExp(`Move (left|right): ${first}`) })).toBeNull();
   expect(answer).toEqual({ type: "word_order", tokenIds: saved });
   cleanup(); render(input()); // Restored order after remount.
   failed = true;
-  fireEvent.click(screen.getByRole("button", { name: `Move left: ${first} (2)` }));
+  const restoredItems = within(screen.getByRole("list", { name: "Your answer" })).getAllByRole("listitem");
+  fireEvent.dragStart(restoredItems[1], { dataTransfer: { ...transfer, getData: () => "1" } });
+  fireEvent.drop(restoredItems[0], { dataTransfer: { ...transfer, getData: () => "1" } });
   expect(saved[0]).toBe(ids[1]);
-  expect(screen.getByRole("button", { name: `Move left: ${first} (2)` })).toBeEnabled();
+  expect(within(screen.getByRole("list", { name: "Your answer" })).getAllByRole("listitem")[0]).toHaveAttribute("aria-label", `1. ${exercise.tokens[1].text}`);
   failed = false;
-  fireEvent.click(screen.getByRole("button", { name: `Move left: ${first} (2)` }));
+  fireEvent.drop(restoredItems[0], { dataTransfer: { ...transfer, getData: () => "1" } });
   expect(saved).toEqual(ids);
   cleanup();
 });

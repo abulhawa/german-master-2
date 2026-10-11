@@ -1,3 +1,11 @@
+## Word-order checks repaired — 11 October 2026
+
+- Resolved the prior verification blockers. Vitest had been run from the monorepo root, so the workspace's JSX transform and test working directory were not applied; running with `apps/web/vite.config.ts` from `apps/web` resolves both. Updated stale web assertions to exercise drag reordering and the arrow-free chip UI. The full workspace suite passes 95 files / 426 tests.
+- Android SDK was present at the standard per-user Android Studio SDK location; provided `ANDROID_HOME`/`ANDROID_SDK_ROOT` for the check without creating local.properties. Corrected Compose LazyRow keyed item usage and string capture. Native UI test now verifies arrow-free chips and updated semantics. Focused and full Android unit runs pass (168 tests); `lintDebug` and `assembleDebug` pass. No local.properties or credentials were written.
+- `contracts/scripts/generate.mjs --check`, `design/generate.mjs --check`, Web TypeScript and backend TypeScript checks pass. No production calls or device runtime check.
+- Exact next action: commit the verified test/Compose corrections.
+- Proposed commit message: `test: align word-order coverage with drag chips`
+
 ## Word-order direct manipulation follow-up — 11 October 2026
 
 - Removed visible left/right arrow buttons from each web and Android word chip. Android word chips are a single horizontal drag line; TalkBack exposes each chip as an ordered button with a custom Remove action. Web chips retain keyboard focus, Alt+Left/Right reorder shortcuts, Delete/Backspace removal, HTML drag/drop, touch drop targeting and a grab/grabbing cursor. Selected chips remain removable by tapping/clicking. Scrambled selection and reset are unchanged.

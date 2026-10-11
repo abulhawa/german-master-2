@@ -52,9 +52,9 @@ it('orders repeated words by ID, removes one word and restores a partial order',
   let saved: Answer | null = {type:'word_order',tokenIds:['2','4','3','1','5','0']};
   let ready: Answer | null = saved;
   const view = render(<ExerciseInput exercise={exercise} locale="en" initialAnswer={saved} onDraft={draft=>{saved=draft;}} onAnswer={a=>{ready=a;}} />);
-  fireEvent.click(screen.getByRole('button',{name:'Remove: sie (4)'}));
+  fireEvent.click(screen.getByRole('button',{name:'sie, 4. Remove'}));
   expect(ready).toBeNull();
-  expect(document.activeElement).toHaveAttribute('aria-label','Remove: Ich (1)');
+  expect(document.activeElement).toHaveAttribute('aria-label','Ich, 1. Remove');
   expect(saved).toEqual({type:'word_order',tokenIds:['2','4','3','5','0']});
   view.unmount();
   render(<ExerciseInput exercise={exercise} locale="en" initialAnswer={saved} onAnswer={a=>{ready=a;}} />);
