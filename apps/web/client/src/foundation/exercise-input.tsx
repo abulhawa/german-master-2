@@ -109,16 +109,6 @@ export function ExerciseInput({
     </div>;
   }
 
-  function moveToken(index: number, direction: -1 | 1) {
-    if (exercise.type !== "word_order") return;
-    const destination = index + direction;
-    if (destination < 0 || destination >= order.length) return;
-    const next = [...order];
-    [next[index], next[destination]] = [next[destination], next[index]];
-    if (onDraft?.({ type: "word_order", tokenIds: next }) === false) return;
-    setOrder(next);
-    onAnswer(next.length === exercise.tokens.length ? { type: "word_order", tokenIds: next } : null);
-  }
   function placeToken(source: number, destination: number) {
     if (exercise.type !== "word_order" || source === destination) return;
     const next = [...order];
@@ -211,21 +201,26 @@ export function ExerciseInput({
       <ol ref={selectedWords} className="gm-order-line" aria-label={c.answer} aria-live="polite" onDragOver={event => event.preventDefault()}>
         {order.map((id, index) => {
           const word = exercise.tokens.find(t => t.id === id)?.text;
-          return <li key={id} draggable onDragStart={event => { event.dataTransfer.setData("text/plain", String(index)); event.dataTransfer.effectAllowed = "move"; }} onDragOver={event => { event.preventDefault(); event.currentTarget.dataset.dragOver = "true"; }} onDragLeave={event => { delete event.currentTarget.dataset.dragOver; }} onDrop={event => { event.preventDefault(); delete event.currentTarget.dataset.dragOver; const source = Number(event.dataTransfer.getData("text/plain")); if (Number.isInteger(source)) placeToken(source, index); }}>
-            <FoundationButton type="button" className="gm-order-token" aria-label={`${word}, ${index + 1}. ${c.remove}`} onPointerDown={event => { if (event.pointerType !== "mouse") pointerSource.current = index; }} onPointerUp={event => {
-              const source = pointerSource.current; pointerSource.current = null;
-              if (source !== null && source !== index) { placeToken(source, index); event.preventDefault(); }
-            }} onClick={() => {
-              if (pointerSource.current === -1) { pointerSource.current = null; return; }
-              pointerSource.current = -1;
+          return <li key={id} draggable role="listitem" aria-label={`${index + 1}. ${word}`} onDragStart={event => { event.dataTransfer.setData("text/plain", String(index)); event.dataTransfer.effectAllowed = "move"; }} onDragOver={event => { event.preventDefault(); event.currentTarget.dataset.dragOver = "true"; }} onDragLeave={event => { delete event.currentTarget.dataset.dragOver; }} onDrop={event => { event.preventDefault(); delete event.currentTarget.dataset.dragOver; const source = Number(event.dataTransfer.getData("text/plain")); if (Number.isInteger(source)) placeToken(source, index); }} onKeyDown={event => {
+            if ((event.altKey && event.key === "ArrowLeft") || (event.altKey && event.key === "ArrowRight")) {
+              event.preventDefault(); placeToken(index, Math.max(0, Math.min(order.length - 1, index + (event.key === "ArrowLeft" ? -1 : 1))));
+            } else if (event.key === "Backspace" || event.key === "Delete") {
+              event.preventDefault(); const next = order.filter(t => t !== id);
+              if (onDraft?.({ type: "word_order", tokenIds: next }) !== false) { setOrder(next); onAnswer(null); }
+            }
+          }} tabIndex={0} onTouchStart={event => { pointerSource.current = index; }} onTouchEnd={event => {
+            const source = pointerSource.current; pointerSource.current = null;
+            if (source === null) return;
+            const touch = event.changedTouches[0];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY)?.closest(".gm-order-line li");
+            const destination = target ? Array.from(target.parentElement?.children ?? []).indexOf(target) : -1;
+            if (destination >= 0) placeToken(source, destination);
+          }}>
+            <FoundationButton type="button" className="gm-order-token" aria-label={`${word}, ${index + 1}. ${c.remove}`} onClick={() => {
               const next = order.filter(t => t !== id);
               if (onDraft?.({ type: "word_order", tokenIds: next }) === false) return;
               setOrder(next); onAnswer(null); setFocusDestination({group: next.length ? "selected" : "bank"});
             }}>{word}</FoundationButton>
-            <span className="gm-order-actions"><FoundationButton type="button" disabled={index === 0}
-              aria-label={`${c.moveLeft}: ${word} (${index + 1})`} onClick={() => moveToken(index, -1)}>←</FoundationButton>
-            <FoundationButton type="button" disabled={index === order.length - 1}
-              aria-label={`${c.moveRight}: ${word} (${index + 1})`} onClick={() => moveToken(index, 1)}>→</FoundationButton></span>
           </li>;
         })}
       </ol>

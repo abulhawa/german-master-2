@@ -187,9 +187,8 @@
 .gm-order-line li { display: inline-flex; align-items: center; gap: 2px; }
 .gm-order-line li[draggable="true"] { cursor: grab; touch-action: none; }
 .gm-order-line li[draggable="true"]:active { cursor: grabbing; }
-.gm-order-line .gm-order-token { min-height: 44px; padding-inline: var(--gm-space-12); }
-.gm-order-actions { display: inline-flex; gap: 2px; }
-.gm-order-actions .gm-button { min-width: 36px; min-height: 36px; padding: 2px; }
+.gm-order-line .gm-order-token { min-height: 44px; padding-inline: var(--gm-space-12); cursor: grab; }
+.gm-order-line .gm-order-token:active { cursor: grabbing; }
 .gm-order li > span { display: block; margin-bottom: var(--gm-space-8); }
 .gm-order li .gm-button { display: inline-flex; min-width: var(--gm-control-min); padding-inline: var(--gm-space-8); margin-inline-end: var(--gm-space-4); }
 .gm-feedback {

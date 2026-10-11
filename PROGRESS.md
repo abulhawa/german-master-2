@@ -1,3 +1,11 @@
+## Word-order direct manipulation follow-up — 11 October 2026
+
+- Removed visible left/right arrow buttons from each web and Android word chip. Android word chips are a single horizontal drag line; TalkBack exposes each chip as an ordered button with a custom Remove action. Web chips retain keyboard focus, Alt+Left/Right reorder shortcuts, Delete/Backspace removal, HTML drag/drop, touch drop targeting and a grab/grabbing cursor. Selected chips remain removable by tapping/clicking. Scrambled selection and reset are unchanged.
+- Verification: web TypeScript check passes (`node node_modules/typescript/bin/tsc -p apps/web/tsconfig.json --noEmit`). `git diff --check` passes. Full Vitest run fails broadly on pre-existing JSX transform parse errors and unrelated API/database fixture failures; it was stopped after representative failures. Android wrapper test/lint/debug assembly could not configure because Android SDK location is not set (`ANDROID_HOME`/`sdk.dir` unavailable). No device/runtime acceptance claimed.
+- M2 remains active; no milestone advancement or production action. UI acceptance still needs normal Android SDK builds and interaction verification on both clients.
+- Exact next action: restore passing test infrastructure for the existing web suite and configure Android SDK, then run focused word-order coverage and device/touch verification.
+- Commit message: `feat: simplify word-order chip interaction`
+
 ## Word-order interaction redesign — 11 October 2026
 
 - Replaced the large per-word remove/left/right control cluster in the web answer line with selected-word chips on one wrapping answer line. Mouse users can drag/drop tokens; touch users can drag between chips; tapping a selected token removes it. Compact labeled move-left/right buttons remain for keyboard and assistive-technology use. Scrambled bank selection and Reset order remain intact.

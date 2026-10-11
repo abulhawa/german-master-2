@@ -34,8 +34,6 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
     }
     fun stringResource(id: Int) = strings.getString(id)
     val remove = stringResource(R.string.practice_remove)
-    val moveLeft = stringResource(R.string.practice_move_left)
-    val moveRight = stringResource(R.string.practice_move_right)
     @Composable fun option(label: String, selected: Boolean = false, enabled: Boolean = true, choice: Boolean = false, click: () -> Unit) {
         val colors = MaterialTheme.colorScheme
         OutlinedButton(onClick = click, enabled = enabled && !readOnly, shape = RoundedCornerShape(14.dp),
@@ -119,31 +117,14 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
                                 }
                             })
                         }.clickable(enabled = !readOnly) { onOrder(order.filter { it != id }) }
-                            .semantics { role = Role.Button; onClick(label = "$remove: $word (${index + 1})") { if (!readOnly) { onOrder(order.filter { it != id }); true } else false } }) {
+                            .semantics {
+                                role = Role.Button
+                                contentDescription = "${index + 1}. $word"
+                                customActions = listOf(CustomAccessibilityAction("$remove: $word") {
+                                    if (!readOnly) { onOrder(order.filter { it != id }); true } else false
+                                })
+                            }) {
                         Text(word, Modifier.padding(horizontal = 14.dp, vertical = 11.dp), color = MaterialTheme.colorScheme.onSecondaryContainer)
-                    }
-                } }
-            }
-            order.forEachIndexed { index, id -> key("move-$id") {
-                val word = exercise.tokens.first { it.id == id }.text
-                fun move(delta: Int) {
-                    val next = order.toMutableList(); val destination = index + delta
-                    next[index] = next[destination]; next[destination] = id; onOrder(next)
-                }
-                option("$moveLeft: $word (${index + 1})", enabled = index > 0) { move(-1) }
-                option("$moveRight: $word (${index + 1})", enabled = index < order.lastIndex) { move(1) }
-            } }
-            if (order.isNotEmpty()) {
-                var showAccessibleMoves by remember(exercise.id) { mutableStateOf(false) }
-                TextButton(onClick = { showAccessibleMoves = !showAccessibleMoves }) {
-                    Text(if (showAccessibleMoves) stringResource(R.string.practice_hide_moves) else stringResource(R.string.practice_accessible_moves))
-                }
-                if (showAccessibleMoves) order.forEachIndexed { index, id -> key("access-move-$id") {
-                    val word = exercise.tokens.first { it.id == id }.text
-                    Text("${index + 1}. $word")
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        TextButton(enabled = index > 0 && !readOnly, onClick = { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index - 1, item); onOrder(next) }) { Text(moveLeft) }
-                        TextButton(enabled = index < order.lastIndex && !readOnly, onClick = { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index + 1, item); onOrder(next) }) { Text(moveRight) }
                     }
                 } }
             }
