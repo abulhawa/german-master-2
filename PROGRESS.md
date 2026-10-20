@@ -1,3 +1,11 @@
+## Owner-requested wireless Android install — 20 October 2026
+
+- Paired the owner's Pixel 10 Pro over wireless debugging. Built `assembleLearnerPreview` offline from source commit `23aac01`, using the current production project's existing public Auth configuration and canonical API origin. Build passes; installed with replacement-in-place and launched `LearnerPreviewActivity` successfully. The app process remains running. Installed version is 29 / `0.2.08-preview`; the source version number was not changed.
+- Updated only `com.germanverbmaster.android.preview`; the original signed application was preserved. No uninstall, data clear, signing-key inspection, store upload, backend mutation or release occurred. This is build/install/launch evidence, not a new complete lifecycle or drag-interaction acceptance test. Existing unit/lint evidence remains at the preceding checkpoint; those suites were not repeated for this install.
+- Owner confirms Resend and the complete web/Android account/practice/offline/export/deletion lifecycle are working. Record this as owner-reported acceptance; no fresh replacement-provider inspection or lifecycle reproduction was performed here. M2 remains active pending reconciliation of representative independent-connection PostgreSQL concurrency/load and selection-query performance evidence.
+- Exact next action: review existing M2 performance evidence and complete missing isolated concurrency/load/query-cost verification, without reopening owner-accepted lifecycle gates. No milestone advancement or production cutover claimed.
+- Commit message: `docs: record wireless GM2 Android install and owner acceptance`
+
 ## Word-order checks repaired — 11 October 2026
 
 - Resolved the prior verification blockers. Vitest had been run from the monorepo root, so the workspace's JSX transform and test working directory were not applied; running with `apps/web/vite.config.ts` from `apps/web` resolves both. Updated stale web assertions to exercise drag reordering and the arrow-free chip UI. The full workspace suite passes 95 files / 426 tests.
