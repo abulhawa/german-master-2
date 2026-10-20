@@ -1,0 +1,116 @@
+package com.germanverbmaster.android.learner
+
+import android.util.AtomicFile
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.*
+import androidx.compose.ui.unit.dp
+import com.germanverbmaster.android.foundation.*
+import com.germanverbmaster.android.foundation.contract.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.encodeToJsonElement
+import java.io.File
+
+@Serializable
+data class GuestStarterContent(val session:Session,val suggestions:Map<String,Map<String,List<String>>>,val rubrics:List<OfflineRubric>)
+@Serializable
+data class NativeGuestState(val version:Int=1,val started:Boolean=false,val index:Int=0,val draft:Answer?=null,val order:List<String> = emptyList(),
+    val feedback:Evaluation?=null,val graded:Int=0,val correct:Int=0,val assisted:Boolean=false)
+
+/** Separate local guest record. Never supplies an identity, account outbox or confirmed mastery. */
+class NativeGuestStore(path:File) {
+    private val file=AtomicFile(path)
+    fun read():NativeGuestState {
+        val raw=try {file.openRead().use {it.readBytes().toString(Charsets.UTF_8)}} catch(_:java.io.FileNotFoundException){return NativeGuestState()}
+        return ContractReader.json.decodeFromString<NativeGuestState>(raw).also {
+            require(it.version==1 && it.index in 0..5 && it.graded in 0..5 && it.correct in 0..it.graded)
+        }
+    }
+    fun write(state:NativeGuestState) {
+        val stream=file.startWrite()
+        try {stream.write(ContractReader.json.encodeToString(state).toByteArray());file.finishWrite(stream)}
+        catch(error:Exception){file.failWrite(stream);throw error}
+    }
+}
+
+@Composable
+fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)->Unit,continueSaved:(()->Unit)?=null) {
+    val context=LocalContext.current
+    val content=remember {ContractReader.json.decodeFromString<GuestStarterContent>(context.assets.open("starter.json").bufferedReader().use {it.readText()})}
+    val store=remember(path){NativeGuestStore(path)}
+    val loaded=remember(store){runCatching {store.read()}}
+    var state by remember(store){mutableStateOf(loaded.getOrDefault(NativeGuestState()))}
+    var failed by remember {mutableStateOf(false)}
+    fun text(en:String,de:String)=if(german)de else en
+    fun commit(next:NativeGuestState) {try {store.write(next);state=next;failed=false}catch(_:Exception){failed=true}}
+    Surface(Modifier.fillMaxSize()) {
+        Column(Modifier.safeDrawingPadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+            Text("German Master",Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
+            LearnerButton("English / Deutsch",true,language)
+            Text(text("Practise German. No account needed.","Deutsch üben. Ohne Konto."),style=MaterialTheme.typography.titleLarge)
+            Text(text("Guest work stays on this device. Create an account to save progress online and sync across devices. Guest results are not confirmed account progress.","Gastübungen bleiben auf diesem Gerät. Erstelle ein Konto, um Fortschritt online zu speichern und zwischen Geräten zu synchronisieren. Gastergebnisse sind kein bestätigter Kontofortschritt."))
+            if(loaded.isFailure) {
+                Text(text("Saved guest work could not be read. It has been preserved.","Gespeicherte Gastübungen konnten nicht gelesen werden und bleiben erhalten."))
+            } else if(!state.started) {
+                LearnerButton(text("Start practising","Jetzt üben"),true){commit(state.copy(started=true))}
+            } else if(state.index>=content.session.questions.size) {
+                Text(text("Starter complete: ${state.correct} of ${state.graded} correct locally.","Einstieg abgeschlossen: ${state.correct} von ${state.graded} lokal richtig."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                LearnerButton(text("Practise again","Noch einmal üben"),true){commit(NativeGuestState(started=true))}
+            } else {
+                val exercise=content.session.questions[state.index].exercise
+                Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"))
+                PracticeHeading(exercise.prompt,exercise.id)
+                Text(if(german)exercise.instruction.de else exercise.instruction.en)
+                val feedback=state.feedback
+                if(feedback==null) {
+                    if(exercise is ExerciseChoice || exercise is ExerciseWordOrder || exercise is ExerciseGapChoice || exercise is ExerciseMatching) {
+                        LowTypingInput(exercise,state.draft,state.order,german,
+                            {commit(state.copy(draft=it))},{commit(state.copy(order=it,draft=if(it.size==(exercise as? ExerciseWordOrder)?.tokens?.size)AnswerWordOrder(it) else null))})
+                    } else {
+                        val suggestions=content.suggestions.getValue(exercise.id)
+                        suggestions.forEach {(slot,options)->
+                            Text(if(slot=="answer")text("Choose an answer","Wähle eine Antwort")else slot)
+                            options.forEach {option->
+                                TextButton(onClick={
+                                    val answer:Answer=when(exercise) {
+                                        is ExerciseShortAnswer -> AnswerShortAnswer(option)
+                                        is ExerciseCloze -> AnswerCloze(listOf(SlotValue(slot,option)))
+                                        else -> {
+                                            val existing=(state.draft as? AnswerMultiSlot)?.values.orEmpty().filter {it.slotId!=slot}
+                                            AnswerMultiSlot(existing+SlotValue(slot,option))
+                                        }
+                                    };commit(state.copy(draft=answer))
+                                }) {Text(option)}
+                            }
+                        }
+                        state.draft?.let {Text(foundationAnswerText(it,exercise))}
+                    }
+                    LearnerButton(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
+                        val rubric=content.rubrics.single {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
+                        val evaluation=OfflineGrader.grade(exercise,rubric,ContractReader.json.encodeToJsonElement<Answer>(requireNotNull(state.draft)),if(state.assisted)listOf("hint")else emptyList())
+                        commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0))
+                    }
+                    TextButton(onClick={commit(state.copy(assisted=true))}){Text(text("Hint","Hinweis"))}
+                    if(state.assisted) Text(if(german)exercise.hint.de else exercise.hint.en)
+                    TextButton(onClick={commit(state.copy(index=state.index+1,draft=null,order=emptyList(),assisted=false))}){Text(text("Skip","Überspringen"))}
+                } else {
+                    Text(if(feedback.outcome=="correct")text("Correct · local result","Richtig · lokales Ergebnis")else text("Not quite · local result","Noch nicht richtig · lokales Ergebnis"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                    Text(if(german)feedback.explanation.de else feedback.explanation.en)
+                    Text(foundationAnswerText(feedback.acceptedAnswer,exercise))
+                    LearnerButton(text("Continue","Weiter"),true){commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))}
+                }
+            }
+            if(failed) Text(text("Could not save on this device. Your last saved work is preserved. Try again.","Speichern fehlgeschlagen. Zuletzt gespeicherte Übungen bleiben erhalten. Versuche es erneut."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+            LearnerButton(text("Create account","Konto erstellen"),true){account("register")}
+            TextButton(onClick={account("sign-in")}){Text(text("Sign in","Anmelden"))}
+            TextButton(onClick={account("reset")}){Text(text("Forgot password?","Passwort vergessen?"))}
+            continueSaved?.let {LearnerButton(text("Continue saved account practice","Gespeicherte Kontoübungen fortsetzen"),true,it)}
+        }
+    }
+}

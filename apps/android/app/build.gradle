@@ -254,9 +254,11 @@ dependencies {
     androidTestImplementation(platform(libs.compose.bom))
 }
 
-// The preview packages only the solution-free session. Test fixtures stay in test resources.
+// Authenticated session examples stay solution-free. Guest-only rubrics are public,
+// matching the web starter; owned downloaded packs and account outboxes remain separate.
 def foundationAssets = tasks.register("prepareFoundationAssets", Sync) {
     from(rootProject.file("../../contracts/v2/examples")) { include("session.json", "practice-formats-session.json") }
+    from(rootProject.file("../../content/guest")) { include("starter.json") }
     into(layout.buildDirectory.dir("generated/foundationAssets"))
 }
 android.sourceSets.main.assets.srcDir(layout.buildDirectory.dir("generated/foundationAssets").get().asFile)

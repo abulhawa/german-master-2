@@ -1,0 +1,295 @@
+{
+  "session": {
+    "apiVersion": "v2",
+    "id": "30000000-0000-4000-8000-000000000001",
+    "contentReleaseId": "30000000-0000-4000-8000-000000000002",
+    "questions": [
+      {
+        "id": "30000000-0000-4000-8000-000000000300",
+        "exercise": {
+          "type": "short_answer",
+          "schemaVersion": 1,
+          "id": "30000000-0000-4000-8000-000000000100",
+          "revision": 1,
+          "targetId": "30000000-0000-4000-8000-000000000200",
+          "prompt": "Wie lautet der Plural von „der Beruf“?",
+          "instruction": {
+            "en": "Type the plural.",
+            "de": "Schreiben Sie den Plural."
+          },
+          "hint": {
+            "en": "Keep the noun capitalized.",
+            "de": "Schreiben Sie das Nomen groß."
+          }
+        }
+      },
+      {
+        "id": "30000000-0000-4000-8000-000000000301",
+        "exercise": {
+          "type": "choice",
+          "schemaVersion": 1,
+          "id": "30000000-0000-4000-8000-000000000101",
+          "revision": 1,
+          "targetId": "30000000-0000-4000-8000-000000000201",
+          "prompt": "Ich spreche mit ___ neuen Kollegen. (Ein Kollege.)",
+          "instruction": {
+            "en": "Choose the singular dative article.",
+            "de": "Wählen Sie den Artikel im Dativ Singular."
+          },
+          "hint": {
+            "en": "„Mit“ takes the dative.",
+            "de": "„Mit“ verlangt den Dativ."
+          },
+          "options": [
+            {
+              "id": "der",
+              "text": "der"
+            },
+            {
+              "id": "den",
+              "text": "den"
+            },
+            {
+              "id": "dem",
+              "text": "dem"
+            }
+          ]
+        }
+      },
+      {
+        "id": "30000000-0000-4000-8000-000000000302",
+        "exercise": {
+          "type": "cloze",
+          "schemaVersion": 1,
+          "id": "30000000-0000-4000-8000-000000000102",
+          "revision": 1,
+          "targetId": "30000000-0000-4000-8000-000000000202",
+          "prompt": "Ich fahre mit dem Bus ___ Büro.",
+          "instruction": {
+            "en": "Complete the preposition.",
+            "de": "Ergänzen Sie die Präposition."
+          },
+          "hint": {
+            "en": "Think of the destination.",
+            "de": "Denken Sie an das Ziel."
+          },
+          "slots": [
+            {
+              "id": "preposition",
+              "label": "Präposition"
+            }
+          ]
+        }
+      },
+      {
+        "id": "30000000-0000-4000-8000-000000000303",
+        "exercise": {
+          "type": "word_order",
+          "schemaVersion": 1,
+          "id": "30000000-0000-4000-8000-000000000103",
+          "revision": 1,
+          "targetId": "30000000-0000-4000-8000-000000000203",
+          "prompt": "Büro / weil / heute / ich / im / arbeite",
+          "instruction": {
+            "en": "Order the words. Put „heute“ immediately after „ich“.",
+            "de": "Ordnen Sie die Wörter. Setzen Sie „heute“ direkt nach „ich“."
+          },
+          "hint": {
+            "en": "The conjugated verb comes last.",
+            "de": "Das konjugierte Verb steht am Ende."
+          },
+          "tokens": [
+            {
+              "id": "0",
+              "text": "Büro"
+            },
+            {
+              "id": "1",
+              "text": "weil"
+            },
+            {
+              "id": "2",
+              "text": "heute"
+            },
+            {
+              "id": "3",
+              "text": "ich"
+            },
+            {
+              "id": "4",
+              "text": "im"
+            },
+            {
+              "id": "5",
+              "text": "arbeite"
+            }
+          ]
+        }
+      },
+      {
+        "id": "30000000-0000-4000-8000-000000000304",
+        "exercise": {
+          "type": "multi_slot",
+          "schemaVersion": 1,
+          "id": "30000000-0000-4000-8000-000000000104",
+          "revision": 1,
+          "targetId": "30000000-0000-4000-8000-000000000204",
+          "prompt": "Ergänzen Sie im Präsens: Du ___ früh. Ihr ___ früh.",
+          "instruction": {
+            "en": "Complete both forms of „arbeiten“.",
+            "de": "Ergänzen Sie beide Formen von „arbeiten“."
+          },
+          "hint": {
+            "en": "Watch the endings after the stem „arbeit-“.",
+            "de": "Achten Sie auf die Endungen nach dem Stamm „arbeit-“."
+          },
+          "slots": [
+            {
+              "id": "du",
+              "label": "du"
+            },
+            {
+              "id": "ihr",
+              "label": "ihr"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "suggestions": {
+    "30000000-0000-4000-8000-000000000100": {
+      "answer": [
+        "Berufen",
+        "Berufe",
+        "Berufs"
+      ]
+    },
+    "30000000-0000-4000-8000-000000000102": {
+      "preposition": [
+        "im",
+        "in",
+        "ins"
+      ]
+    },
+    "30000000-0000-4000-8000-000000000104": {
+      "du": [
+        "arbeitet",
+        "arbeitest",
+        "arbeits"
+      ],
+      "ihr": [
+        "arbeiten",
+        "arbeitet",
+        "arbeitete"
+      ]
+    }
+  },
+  "rubrics": [
+    {
+      "exerciseId": "30000000-0000-4000-8000-000000000100",
+      "exerciseRevision": 1,
+      "normalizationVersion": "de-nfc-trim-v1",
+      "acceptedAnswers": [
+        {
+          "type": "short_answer",
+          "text": "Berufe"
+        }
+      ],
+      "explanation": {
+        "en": "The plural is „Berufe“; nouns retain capitalization.",
+        "de": "Der Plural lautet „Berufe“; Nomen werden großgeschrieben."
+      }
+    },
+    {
+      "exerciseId": "30000000-0000-4000-8000-000000000101",
+      "exerciseRevision": 1,
+      "normalizationVersion": "de-nfc-trim-v1",
+      "acceptedAnswers": [
+        {
+          "type": "choice",
+          "optionId": "dem"
+        }
+      ],
+      "explanation": {
+        "en": "„Mit“ takes the dative. For one colleague, use „dem neuen Kollegen“.",
+        "de": "„Mit“ verlangt den Dativ. Bei einem Kollegen heißt es „dem neuen Kollegen“."
+      }
+    },
+    {
+      "exerciseId": "30000000-0000-4000-8000-000000000102",
+      "exerciseRevision": 1,
+      "normalizationVersion": "de-nfc-trim-v1",
+      "acceptedAnswers": [
+        {
+          "type": "cloze",
+          "values": [
+            {
+              "slotId": "preposition",
+              "text": "ins"
+            }
+          ]
+        },
+        {
+          "type": "cloze",
+          "values": [
+            {
+              "slotId": "preposition",
+              "text": "in das"
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "en": "A destination with „das Büro“ uses „in das“, usually „ins“.",
+        "de": "Ein Ziel mit „das Büro“ verlangt „in das“, meist verkürzt zu „ins“."
+      }
+    },
+    {
+      "exerciseId": "30000000-0000-4000-8000-000000000103",
+      "exerciseRevision": 1,
+      "normalizationVersion": "de-nfc-trim-v1",
+      "acceptedAnswers": [
+        {
+          "type": "word_order",
+          "tokenIds": [
+            "1",
+            "3",
+            "2",
+            "4",
+            "0",
+            "5"
+          ]
+        }
+      ],
+      "explanation": {
+        "en": "After „weil“, the conjugated verb goes to the end.",
+        "de": "Nach „weil“ steht das konjugierte Verb am Ende."
+      }
+    },
+    {
+      "exerciseId": "30000000-0000-4000-8000-000000000104",
+      "exerciseRevision": 1,
+      "normalizationVersion": "de-nfc-trim-v1",
+      "acceptedAnswers": [
+        {
+          "type": "multi_slot",
+          "values": [
+            {
+              "slotId": "du",
+              "text": "arbeitest"
+            },
+            {
+              "slotId": "ihr",
+              "text": "arbeitet"
+            }
+          ]
+        }
+      ],
+      "explanation": {
+        "en": "„Arbeiten“ adds an e before -st and -t: arbeitest, arbeitet.",
+        "de": "Bei „arbeiten“ steht vor -st und -t ein e: arbeitest, arbeitet."
+      }
+    }
+  ]
+}
