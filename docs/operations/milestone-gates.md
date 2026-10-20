@@ -1,5 +1,12 @@
 # Renovation acceptance gates
 
+**Android release HOLD — owner decision, 20 October 2026:** current Android UX is
+not accepted. The owner reports excessive help text and unexpected behaviour and
+paused the screenshot review. No Android publication/upload/promotion until a
+renewed UX review and explicit owner approval. This overrides earlier Android
+design acceptance for release readiness, without reopening TalkBack. See
+[the issue log](android-ux-release-hold-2026-10-20.md). Milestone sequencing is unchanged.
+
 Latest accepted scope, 10 October: the owner accepted current web/Android design and manual web screen-reader review. TalkBack remains accepted under the 9 October decision. These are owner acceptance statements, not agent-observed uninterrupted assistive-technology journeys or complete WCAG certification. See [M1 closure evidence](m1-acceptance-2026-10-10.md) and the newest checkpoint.
 
 Reconciled on 10 October 2026: M0 is complete under its owner-approved preservation/recovery scope. M1 closes with fresh hash-bound AI editorial review of all 60 changed targets, delivered signup/recovery acceptance, passing engineering checks and owner design/manual web accessibility acceptance. M2 is the next active milestone; M3–M5 remain queued and M6 is not started. The product reset remains unfinished.

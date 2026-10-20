@@ -16,6 +16,8 @@
 
 ## Continuing the renovation
 
+- Owner decision (20 October 2026): Android release is BLOCKED pending a renewed UX review and explicit owner approval. The owner rejects the current Android experience, specifically excessive help/explanatory text and unexpected behaviour. Stop the screenshot review for now; preserve partial artifacts and unfinished tooling. Do not treat prior design acceptance, passing tests, a debug install or screenshot generation as release approval. Do not publish/upload/promote an Android release until the owner explicitly lifts this hold. This does not reopen the accepted TalkBack scope.
+
 - Owner decision (9 October 2026): TalkBack acceptance is completed for now based on the available evidence. Stop further TalkBack testing and defer improvements until needed. Record this as owner acceptance of the current scope, not a claim that a complete uninterrupted spoken/gesture journey passed. Do not reopen this M1 gate without a new owner request or a demonstrated critical defect. Final design/web accessibility acceptance and production release approval remain separate.
 
 - Never put personal machine paths or private backup locations in tracked files, commits, or public reports. Keep those details in ignored/private recovery manifests; public evidence uses repository-relative paths or generic placeholders.

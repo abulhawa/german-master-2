@@ -1,5 +1,15 @@
 # Continuing the German Master renovation
 
+## Android review paused; release blocked — 20 October 2026
+
+The owner stopped the screenshot review and rejected the current Android UX,
+specifically excessive help/explanatory text and unexpected behaviour. Android
+release is blocked until a renewed UX review and explicit owner approval. See
+[the issue log and release hold](android-ux-release-hold-2026-10-20.md). Preserve
+partial local screenshots and unverified capture tooling; do not restart the batch
+without the owner resuming it. Earlier design acceptance does not lift this hold;
+the accepted TalkBack scope remains unchanged. M2 remains the sole active milestone.
+
 ## Owner workflow
 
 Open `<repository>` in a new Codex chat and say:
