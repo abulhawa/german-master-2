@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.learner
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.*
 import androidx.compose.material3.*
 import androidx.compose.foundation.layout.*
@@ -92,8 +93,10 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     }
     var closing by remember { mutableStateOf(false) }
     val c = studyCopy(german)
+    fun requestClose() { if(p.session == null || p.completion != null || p.index == p.session.questions.size) close() else closing = true }
+    BackHandler { if(!busy) requestClose() }
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-        TextButton(onClick = { if(p.session == null || p.completion != null || p.index == p.session.questions.size) close() else closing = true }, enabled = !busy) { Text(text("Close practice", "Übung schließen")) }
+        TextButton(onClick = { requestClose() }, enabled = !busy) { Text(text("Close practice", "Übung schließen")) }
         if (p.session != null && p.index < p.session.questions.size) Text(text("Question ${p.index + 1} of ${p.session.questions.size}", "Aufgabe ${p.index + 1} von ${p.session.questions.size}"), color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
     if (p.offlinePack != null) {
@@ -109,7 +112,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     if (closing) {
         AlertDialog(onDismissRequest = { closing = false }, title = { Text(text("End this session?", "Diese Übung beenden?")) },
             text = { Column { Text(if(p.offlinePack != null) text("Your answers, Skips and partial draft stay saved on this device. Sync later to confirm them.", "Antworten, übersprungene Aufgaben und Entwurf bleiben auf diesem Gerät gespeichert. Später synchronisieren, um sie zu bestätigen.") else text("Your saved results remain. Your unfinished session stays on this device. Retry any unfinished answer or skip before ending.", "Deine gespeicherten Ergebnisse bleiben erhalten. Die angefangene Übung bleibt auf diesem Gerät. Sende ausstehende Antworten oder übersprungene Aufgaben vor dem Beenden erneut."))
-                TextButton(enabled = !busy, onClick = { closing = false; close() }) { Text(text("Save and return Home", "Speichern und zur Startseite")) }
+                TextButton(enabled = !busy, onClick = { closing = false; close() }) { Text(text("Pause and return Home", "Pausieren und zur Startseite")) }
             } },
             confirmButton = { TextButton(enabled = !busy && (p.pending == null || p.evaluation != null) && p.exposure == null && !p.rejected, onClick = { closing = false; action { repository.finishPractice() } }) { Text(text("End session", "Übung beenden")) } },
             dismissButton = { TextButton(onClick = { closing = false }) { Text(text("Keep practising", "Weiter üben")) } })
@@ -144,7 +147,6 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         Text(if(german) exercise.instruction.de else exercise.instruction.en, style = MaterialTheme.typography.titleMedium)
         PracticeHeading(exercise.prompt, p.question.id)
         if (exercise is ExerciseChoice || exercise is ExerciseGapChoice || exercise is ExerciseWordOrder || exercise is ExerciseMatching) {
-            if (exercise is ExerciseChoice || exercise is ExerciseGapChoice) Text(c(R.string.study_selection), color = MaterialTheme.colorScheme.onSurfaceVariant)
             LowTypingInput(exercise, p.draft, p.order, german = german, readOnly = !p.editable || busy,
                 onDraft = { value -> edit { repository.draft(value) } }, onOrder = { value -> edit { repository.order(value) } })
         }
@@ -166,7 +168,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
                     } }
                 }
             }
-            button(text("Hint", "Hinweis")) { edit { repository.hint() } }
+            TextButton(onClick={ edit { repository.hint() } }, enabled=!p.assisted) { Text(text("Hint", "Hinweis")) }
         } else if (exercise !is ExerciseChoice && exercise !is ExerciseGapChoice && exercise !is ExerciseWordOrder && exercise !is ExerciseMatching) p.draft?.let { Text(foundationAnswerText(it, exercise)) }
         if(p.assisted) Text(if(german) exercise.hint.de else exercise.hint.en)
         if(p.evaluation == null && !p.rejected) {

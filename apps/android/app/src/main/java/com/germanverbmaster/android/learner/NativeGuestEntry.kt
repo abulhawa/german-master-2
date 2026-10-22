@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.learner
 
+import androidx.activity.compose.BackHandler
 import android.util.AtomicFile
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -47,21 +48,33 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     val loaded=remember(store){runCatching {store.read()}}
     var state by remember(store){mutableStateOf(loaded.getOrDefault(NativeGuestState()))}
     var failed by remember {mutableStateOf(false)}
+    var paused by remember {mutableStateOf(false)}
+    val scroll = rememberScrollState()
+    LaunchedEffect(state.index, state.feedback, paused) { scroll.scrollTo(0) }
     fun text(en:String,de:String)=if(german)de else en
     fun commit(next:NativeGuestState) {try {store.write(next);state=next;failed=false}catch(_:Exception){failed=true}}
+    @Composable fun primary(label:String, enabled:Boolean=true, action:()->Unit) {
+        Button(onClick=action,enabled=enabled,modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(label)}
+    }
+    val practising = loaded.isSuccess && state.started && state.index < content.session.questions.size && !paused
+    BackHandler(enabled=practising) { paused=true }
     Surface(Modifier.fillMaxSize()) {
-        Column(Modifier.safeDrawingPadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
-            Text("German Master",Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
-            LearnerButton("English / Deutsch",true,language)
-            Text(text("Practise German. No account needed.","Deutsch üben. Ohne Konto."),style=MaterialTheme.typography.titleLarge)
-            Text(text("Guest work stays on this device. Create an account to save progress online and sync across devices. Guest results are not confirmed account progress.","Gastübungen bleiben auf diesem Gerät. Erstelle ein Konto, um Fortschritt online zu speichern und zwischen Geräten zu synchronisieren. Gastergebnisse sind kein bestätigter Kontofortschritt."))
+        Column(Modifier.safeDrawingPadding().verticalScroll(scroll).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+                Text("German Master",Modifier.weight(1f).semantics {heading()},style=if(practising)MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineMedium)
+                if(practising) TextButton(onClick={paused=true}){Text(text("Pause","Pause"))}
+            }
+            if(!practising) TextButton(onClick=language){Text("English / Deutsch")}
+            if(!practising) {
+                Text(text("Practise German. No account needed.","Deutsch üben. Ohne Konto."),style=MaterialTheme.typography.titleLarge)
+            }
             if(loaded.isFailure) {
                 Text(text("Saved guest work could not be read. It has been preserved.","Gespeicherte Gastübungen konnten nicht gelesen werden und bleiben erhalten."))
-            } else if(!state.started) {
-                LearnerButton(text("Start practising","Jetzt üben"),true){commit(state.copy(started=true))}
+            } else if(!state.started || paused) {
+                primary(if(state.started)text("Continue practice","Weiter üben")else text("Start practising","Jetzt üben")){commit(state.copy(started=true));paused=false}
             } else if(state.index>=content.session.questions.size) {
                 Text(text("Starter complete: ${state.correct} of ${state.graded} correct locally.","Einstieg abgeschlossen: ${state.correct} von ${state.graded} lokal richtig."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-                LearnerButton(text("Practise again","Noch einmal üben"),true){commit(NativeGuestState(started=true))}
+                primary(text("Practise again","Noch einmal üben")){commit(NativeGuestState(started=true))}
             } else {
                 val exercise=content.session.questions[state.index].exercise
                 Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"))
@@ -91,7 +104,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         }
                         state.draft?.let {Text(foundationAnswerText(it,exercise))}
                     }
-                    LearnerButton(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
+                    primary(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
                         val rubric=content.rubrics.single {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
                         val evaluation=OfflineGrader.grade(exercise,rubric,ContractReader.json.encodeToJsonElement<Answer>(requireNotNull(state.draft)),if(state.assisted)listOf("hint")else emptyList())
                         commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0))
@@ -103,14 +116,17 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     Text(if(feedback.outcome=="correct")text("Correct · local result","Richtig · lokales Ergebnis")else text("Not quite · local result","Noch nicht richtig · lokales Ergebnis"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                     Text(if(german)feedback.explanation.de else feedback.explanation.en)
                     Text(foundationAnswerText(feedback.acceptedAnswer,exercise))
-                    LearnerButton(text("Continue","Weiter"),true){commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))}
+                    primary(text("Continue","Weiter")){commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))}
                 }
             }
             if(failed) Text(text("Could not save on this device. Your last saved work is preserved. Try again.","Speichern fehlgeschlagen. Zuletzt gespeicherte Übungen bleiben erhalten. Versuche es erneut."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-            LearnerButton(text("Create account","Konto erstellen"),true){account("register")}
-            TextButton(onClick={account("sign-in")}){Text(text("Sign in","Anmelden"))}
-            TextButton(onClick={account("reset")}){Text(text("Forgot password?","Passwort vergessen?"))}
-            continueSaved?.let {LearnerButton(text("Continue saved account practice","Gespeicherte Kontoübungen fortsetzen"),true,it)}
+            if(!practising) {
+                Text(text("An account saves online progress across devices. Earlier guest results stay on this device.","Ein Konto speichert Online-Fortschritt geräteübergreifend. Frühere Gastergebnisse bleiben auf diesem Gerät."))
+                TextButton(onClick={account("register")}){Text(text("Create account","Konto erstellen"))}
+                TextButton(onClick={account("sign-in")}){Text(text("Sign in","Anmelden"))}
+                TextButton(onClick={account("reset")}){Text(text("Forgot password?","Passwort vergessen?"))}
+                continueSaved?.let {LearnerButton(text("Continue saved account practice","Gespeicherte Kontoübungen fortsetzen"),true,it)}
+            }
         }
     }
 }

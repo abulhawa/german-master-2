@@ -26,12 +26,38 @@ class NativeEntryTest {
         compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {requested=it})}}
         compose.onNodeWithText("Start practising").performScrollTo().performClick()
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
+        compose.onNodeWithText("Create account").assertDoesNotExist()
+        compose.onNodeWithText("Practise German. No account needed.").assertDoesNotExist()
         assertNull(requested)
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(path).read().draft)
         compose.onNodeWithText("Check answer").performScrollTo().performClick()
         assertEquals("correct",NativeGuestStore(path).read().feedback?.outcome)
         compose.onNodeWithText("Continue").performScrollTo().performClick()
         assertEquals(1,NativeGuestStore(path).read().index)
+    }
+    @Test fun pausePreservesDraftAndResumeReturnsToQuestion() {
+        val context=ApplicationProvider.getApplicationContext<Context>()
+        val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
+        compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {})}}
+        compose.onNodeWithText("Start practising").performScrollTo().performClick()
+        compose.onNodeWithText("Berufe").performScrollTo().performClick()
+        compose.onNodeWithText("Pause").performScrollTo().performClick()
+        compose.onNodeWithText("Create account").assertExists()
+        assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(path).read().draft)
+        compose.onNodeWithText("Continue practice").performScrollTo().performClick()
+        compose.onNodeWithText("Question 1 of 5").assertExists()
+        compose.onNodeWithText("Check answer").assertIsEnabled()
+    }
+    @Test fun completionRestoresAccountActionsWithoutDiscardingResults() {
+        val context=ApplicationProvider.getApplicationContext<Context>()
+        val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
+        NativeGuestStore(path).write(NativeGuestState(started=true,index=5,graded=4,correct=3))
+        var requested:String?=null
+        compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {requested=it})}}
+        compose.onNodeWithText("Starter complete: 3 of 4 correct locally.").assertExists()
+        compose.onNodeWithText("Create account").performScrollTo().performClick()
+        assertEquals("register",requested)
+        assertEquals(3,NativeGuestStore(path).read().correct)
     }
     @Test fun resetNeedsOnlyEmailAndUsesExplicitSubmit() {
         var submitted:List<String>?=null

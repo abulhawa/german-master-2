@@ -35,7 +35,11 @@ class NativeTopicsUiTest {
             override fun write(value: LearnerCache) { cache = value }
         }
         val repo = LearnerRepository(api, store)
-        compose.setContent { FoundationTheme { LearnerShell(repo) } }
+        var back: androidx.activity.OnBackPressedDispatcher? = null
+        compose.setContent {
+            back = androidx.activity.compose.LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+            FoundationTheme { LearnerShell(repo) }
+        }
         compose.waitUntil(10000) { repo.state.profile != null }
         compose.waitForIdle()
         compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
@@ -48,8 +52,8 @@ class NativeTopicsUiTest {
         compose.waitForIdle()
         assertEquals(TargetFocus(target), requests.single().focus)
         compose.onNodeWithText("Answer", substring = false).performTextInput("saved draft")
-        compose.onNodeWithText("Close practice").performScrollTo().performClick()
-        compose.onNodeWithText("Save and return Home").performClick()
+        compose.runOnIdle { requireNotNull(back).onBackPressed() }
+        compose.onNodeWithText("Pause and return Home").performClick()
         compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
         compose.onNodeWithText("Grammar").performScrollTo().performClick()
         compose.onNodeWithText("Practise this (1)").assertIsNotEnabled()

@@ -120,7 +120,7 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
                 modifier = Modifier.bringIntoViewRequester(visibility).focusRequester(focus).focusable()
                     .semantics { liveRegion = androidx.compose.ui.semantics.LiveRegionMode.Polite })
             if (assisted) Text(c(R.string.study_assisted), color = MaterialTheme.colorScheme.onSurfaceVariant)
-            answer?.let { Text("${c(R.string.study_your_answer)}: $it") }
+            if (!correct) answer?.let { Text("${c(R.string.study_your_answer)}: $it") }
             if (completedAnswer == null) Text("${c(R.string.study_accepted)}: $accepted")
             else Text(buildAnnotatedString {
                 append("${c(R.string.study_accepted)}: ")
@@ -130,7 +130,6 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
                 }
             })
             Text(explanation)
-            if (provisional) Text(c(R.string.study_confirmation_note), color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
     Button(onClick = next, enabled = !busy, modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text(c(R.string.study_next)) }

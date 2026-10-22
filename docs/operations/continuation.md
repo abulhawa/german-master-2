@@ -1,5 +1,14 @@
 # Continuing the German Master renovation
 
+## Android UX work resumed - 22 October 2026
+
+The owner resumed work on the release blocker and authorized bounded real Pixel
+captures. Review every component for purpose, timing and predictable behaviour.
+See [the component review](android-ux-review-2026-10-22.md) and newest root
+checkpoint for implemented changes and verification. The Android release hold
+remains active until explicit owner acceptance. Earlier pause entries below are
+historical; do not restart the old screenshot batch or reopen TalkBack acceptance.
+
 ## Android review paused; release blocked — 20 October 2026
 
 The owner stopped the screenshot review and rejected the current Android UX,

@@ -1,6 +1,10 @@
 # Android UX issues and owner release hold
 
-Status: **RELEASE BLOCKED. Review paused by owner on 20 October 2026.**
+Status: **RELEASE BLOCKED. UX work resumed by owner on 22 October 2026.**
+
+The owner authorized component-purpose review and bounded connected-Pixel
+captures. See [22 October review](android-ux-review-2026-10-22.md). The earlier
+screenshot batch remains preserved; this authorization does not lift the hold.
 
 ## Owner feedback
 

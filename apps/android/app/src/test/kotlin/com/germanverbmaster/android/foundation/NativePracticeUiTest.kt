@@ -44,7 +44,8 @@ class NativePracticeUiTest {
             }
         } }
         compose.onNodeWithText("✓ Looks correct — not synced yet").assertExists()
-        compose.onNodeWithText("This answer is saved on this device. Your progress will update after it syncs.").assertExists()
+        compose.onNodeWithText("This answer is saved on this device. Your progress will update after it syncs.").assertDoesNotExist()
+        compose.onNodeWithText("Progress updates after sync").assertExists()
         val answer = rubric.acceptedAnswers.first() as AnswerChoice
         compose.onNodeWithText(exercise.options.single { it.id == answer.optionId }.text).assertIsSelected().assertIsNotEnabled()
         assertEquals(1, repo.state.practice!!.outbox.size)

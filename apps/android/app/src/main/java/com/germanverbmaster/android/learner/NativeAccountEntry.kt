@@ -36,7 +36,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
         Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
             Text(title,Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
             LearnerButton("English / Deutsch",!busy,language)
-            Text(text("Practising is free without an account. Create an account to save progress online and sync across devices.","Übe ohne Konto. Erstelle ein Konto, um Fortschritt online zu speichern und zwischen Geräten zu synchronisieren."))
+            Text(text("Save online progress across devices. Guest results stay on this device.","Speichere Online-Fortschritt geräteübergreifend. Gastergebnisse bleiben auf diesem Gerät."))
             OutlinedTextField(email,{email=it},label={Text(text("Email","E-Mail"))},singleLine=true,enabled=!busy,
                 keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Email),modifier=Modifier.fillMaxWidth())
             if(mode!="reset") {
