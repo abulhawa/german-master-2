@@ -79,7 +79,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 val exercise=content.session.questions[state.index].exercise
                 Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"))
                 PracticeHeading(exercise.prompt,exercise.id)
-                Text(if(german)exercise.instruction.de else exercise.instruction.en)
+                if(exercise !is ExerciseShortAnswer) Text(if(german)exercise.instruction.de else exercise.instruction.en)
                 val feedback=state.feedback
                 if(feedback==null) {
                     if(exercise is ExerciseChoice || exercise is ExerciseWordOrder || exercise is ExerciseGapChoice || exercise is ExerciseMatching) {

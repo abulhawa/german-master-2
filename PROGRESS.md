@@ -1,3 +1,9 @@
+## Android starter instruction matches tap input - 23 October 2026
+
+- Removed the original typed short-answer instruction from the native guest presentation, including its German equivalent. Question 1 retains the plural prompt and Choose an answer above its options; it no longer says Type the plural. Canonical starter content, immutable revisions, web rendering and grading are unchanged.
+- Generated native-starter guard passes. Offline focused checks pass 13 tests (8 entry, 5 low-typing), lintDebug and both debug/learner-preview assemblies. Full suites were not repeated. Installed preview by replacement-in-place on Pixel, preserving data and original app; physical question-one XML confirms Choose an answer present and Type the plural absent. Private capture retained.
+- Android release hold remains active; M2 remains active. Next: continue the existing dynamic UX/account-navigation review and localized slot-label follow-up. No push, production mutation, publication, store release or live AI calls. Commit message: `fix: remove typing instruction from native starter choices`.
+
 ## Pixel guest verb-choice crash repaired - 22 October 2026
 
 - Owner reported a crash on the fifth starter's du verb choice. Pixel crash evidence identifies `Invalid AnswerMultiSlot.values` in the guest tap handler: it built a one-field object although the contract requires at least two. Guest selection now represents every exercise slot in canonical order, with blank unanswered values, matching the existing signed-in partial-answer representation. Other choices are retained; Check remains disabled until complete. Contract/grading rules are unchanged.
