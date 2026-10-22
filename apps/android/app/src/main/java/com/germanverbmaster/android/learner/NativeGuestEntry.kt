@@ -94,10 +94,13 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                                     val answer:Answer=when(exercise) {
                                         is ExerciseShortAnswer -> AnswerShortAnswer(option)
                                         is ExerciseCloze -> AnswerCloze(listOf(SlotValue(slot,option)))
-                                        else -> {
-                                            val existing=(state.draft as? AnswerMultiSlot)?.values.orEmpty().filter {it.slotId!=slot}
-                                            AnswerMultiSlot(existing+SlotValue(slot,option))
+                                        is ExerciseMultiSlot -> {
+                                            val existing=(state.draft as? AnswerMultiSlot)?.values.orEmpty()
+                                            AnswerMultiSlot(exercise.slots.map { field ->
+                                                SlotValue(field.id,if(field.id==slot)option else existing.find {it.slotId==field.id}?.text.orEmpty())
+                                            })
                                         }
+                                        else -> error("Unsupported guest suggestion exercise")
                                     };commit(state.copy(draft=answer))
                                 }) {Text(option)}
                             }

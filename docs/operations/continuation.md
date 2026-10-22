@@ -1,5 +1,14 @@
 # Continuing the German Master renovation
 
+## Guest verb-choice crash repaired - 22 October 2026
+
+The fifth starter crashed on its first verb choice because the handler constructed
+an invalid one-slot multi-slot answer. All slots are now retained in partial
+drafts. Focused checks and the exact Pixel interaction/restart/completion pass;
+see [crash evidence](android-guest-multislot-crash-2026-10-22.md). Release hold
+remains active; the separate intermittent next-question focus assertion remains
+an evidence limitation.
+
 ## Android word-order interaction corrected - 22 October 2026
 
 Direct measured drag-and-drop and stable answer/bank layout are implemented and

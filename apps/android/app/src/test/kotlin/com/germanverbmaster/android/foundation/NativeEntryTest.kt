@@ -59,6 +59,35 @@ class NativeEntryTest {
         assertEquals("register",requested)
         assertEquals(3,NativeGuestStore(path).read().correct)
     }
+    @Test fun guestMultiSlotFirstChoiceSurvivesRestartAndRequiresBothSlots() {
+        val context=ApplicationProvider.getApplicationContext<Context>()
+        val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
+        NativeGuestStore(path).write(NativeGuestState(started=true,index=4))
+        var generation by mutableStateOf(0)
+        compose.setContent {key(generation) {FoundationTheme {NativeGuestEntry(path,false,{}, {})}}}
+        compose.onNodeWithText("arbeitest",substring=false).performScrollTo().performClick()
+        compose.onNodeWithText("Check answer").assertIsNotEnabled()
+        val partial=NativeGuestStore(path).read().draft as AnswerMultiSlot
+        assertEquals(listOf(SlotValue("du","arbeitest"),SlotValue("ihr","")),partial.values)
+        compose.runOnIdle {generation++}
+        compose.onNodeWithText("Check answer").assertIsNotEnabled()
+        assertEquals(partial,NativeGuestStore(path).read().draft)
+        compose.onAllNodesWithText("arbeitet",substring=false).onLast().performScrollTo().performClick()
+        compose.onNodeWithText("Check answer").assertIsEnabled().performScrollTo().performClick()
+        assertEquals("correct",NativeGuestStore(path).read().feedback?.outcome)
+    }
+    @Test fun guestMultiSlotCanStartWithSecondSlotAndChangeFirstChoice() {
+        val context=ApplicationProvider.getApplicationContext<Context>()
+        val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
+        NativeGuestStore(path).write(NativeGuestState(started=true,index=4))
+        compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {})}}
+        compose.onAllNodesWithText("arbeitet",substring=false).onLast().performScrollTo().performClick()
+        compose.onNodeWithText("Check answer").assertIsNotEnabled()
+        compose.onNodeWithText("arbeits",substring=false).performScrollTo().performClick()
+        compose.onNodeWithText("arbeitest",substring=false).performScrollTo().performClick()
+        compose.onNodeWithText("Check answer").assertIsEnabled()
+        assertEquals(listOf(SlotValue("du","arbeitest"),SlotValue("ihr","arbeitet")),(NativeGuestStore(path).read().draft as AnswerMultiSlot).values)
+    }
     @Test fun resetNeedsOnlyEmailAndUsesExplicitSubmit() {
         var submitted:List<String>?=null
         compose.setContent {FoundationTheme {NativeAccountEntry("reset",false,{}, {}, {a,e,p->submitted=listOf(a,e,p)})}}
