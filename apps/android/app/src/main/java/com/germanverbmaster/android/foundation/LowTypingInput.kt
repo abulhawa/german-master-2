@@ -2,15 +2,10 @@ package com.germanverbmaster.android.foundation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.clickable
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.Alignment
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalConfiguration
@@ -103,47 +98,8 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
                 }
             }
         }
-        is ExerciseWordOrder -> {
-            val removeLabel = stringResource(R.string.practice_remove)
-            LazyRow(Modifier.fillMaxWidth().semantics { liveRegion = LiveRegionMode.Polite; contentDescription = order.mapIndexed { index, id -> "${index + 1}. ${exercise.tokens.first { it.id == id }.text}" }.joinToString(", ") }, horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                items(order, key = { it }) { id ->
-                    val index = order.indexOf(id)
-                    val word = exercise.tokens.first { it.id == id }.text
-                    Surface(shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.secondaryContainer,
-                        modifier = Modifier.pointerInput(order, readOnly) {
-                            var deltaX = 0f
-                            detectDragGesturesAfterLongPress(onDragStart = { deltaX = 0f }, onDrag = { change, drag ->
-                                change.consume(); deltaX += drag.x
-                            }, onDragEnd = {
-                                val shift = (deltaX / 72.dp.toPx()).toInt()
-                                val destination = (index + shift).coerceIn(0, order.lastIndex)
-                                if (!readOnly && destination != index) {
-                                    val next = order.toMutableList(); val token = next.removeAt(index); next.add(destination, token); onOrder(next)
-                                }
-                            })
-                        }.clickable(enabled = !readOnly) { onOrder(order.filter { it != id }) }
-                            .semantics {
-                                role = Role.Button
-                                contentDescription = "${index + 1}. $word"
-                                customActions = buildList {
-                                    add(CustomAccessibilityAction("$removeLabel: $word") {
-                                        if (!readOnly) { onOrder(order.filter { it != id }); true } else false
-                                    })
-                                    if (index > 0) add(CustomAccessibilityAction("$moveLeft: $word") {
-                                        if (!readOnly) { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index - 1, item); onOrder(next); true } else false
-                                    })
-                                    if (index < order.lastIndex) add(CustomAccessibilityAction("$moveRight: $word") {
-                                        if (!readOnly) { val next = order.toMutableList(); val item = next.removeAt(index); next.add(index + 1, item); onOrder(next); true } else false
-                                    })
-                                }
-                            }) {
-                        Text(word, Modifier.padding(horizontal = 14.dp, vertical = 11.dp), color = MaterialTheme.colorScheme.onSecondaryContainer)
-                    }
-                }
-            }
-            exercise.tokens.filter { it.id !in order }.forEach { item -> option(item.text) { onOrder(order + item.id) } }
-            option(stringResource(R.string.foundation_reset), enabled = order.isNotEmpty()) { onOrder(emptyList()) }
-        }
+        is ExerciseWordOrder -> WordOrderInput(exercise, order, readOnly, remove, moveLeft, moveRight,
+            stringResource(R.string.foundation_reset), stringResource(R.string.foundation_answer), onOrder)
         else -> error("Expected a low-typing exercise")
     }
 }

@@ -1,5 +1,13 @@
 # Continuing the German Master renovation
 
+## Android word-order interaction corrected - 22 October 2026
+
+Direct measured drag-and-drop and stable answer/bank layout are implemented and
+verified with focused tests plus recorded Pixel gestures. See
+[word-order evidence](android-word-order-interaction-2026-10-22.md) and newest
+root checkpoint for limits. Continue dynamic checks of other components and
+signed-in/account journeys. The Android release hold remains active.
+
 ## Android UX work resumed - 22 October 2026
 
 The owner resumed work on the release blocker and authorized bounded real Pixel
