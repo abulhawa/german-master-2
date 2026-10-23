@@ -1,5 +1,20 @@
 # Continuing the German Master renovation
 
+## Read issue #20 before status or continuation - 23 October 2026
+
+Owner requested that [issue #20: backend recovery and learner simplification](https://github.com/abulhawa/german-master-2/issues/20)
+be included in future status checks. Refresh its body, comments and linked PRs
+[#21](https://github.com/abulhawa/german-master-2/pull/21) and
+[#22](https://github.com/abulhawa/german-master-2/pull/22) before reporting current
+state or implementing overlapping work. See the newest root checkpoint for the
+recorded snapshot and evidence limits. This recovery direction supersedes older
+conflicting next steps: freeze new features, verify the restored replacement's
+Auth/SMTP/redirects and isolated account lifecycle first, then simplify UX.
+Production cutover needs a separate explicit decision. Android release remains
+blocked. The issue comments report content already published; do not republish
+based on historical candidate notes. This documentation task did not retest hosted
+services or verify the current PR/CI/deployment states.
+
 ## Unified inputs and feedback - 23 October 2026
 
 The owner's web screenshot exposed duplicate choices/text fields and technical
