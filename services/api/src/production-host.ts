@@ -9,17 +9,14 @@ import { createPasswordDeletionReauthentication } from './deletion-reauthenticat
 import { createSupabaseIdentityDeletionProvider } from './supabase-identity-deletion';
 import catalog from '../../../content/production/catalog.json';
 import { RuntimeCatalogSchema } from './runtime-catalog';
+import { resolveV2Project, type V2Project } from './production-project';
 
-// Verification is explicitly bound to the replacement; production defaults stay
-// on the current project until the separately approved cutover.
-const verification = process.env.GM_ENVIRONMENT === 'replacement-verification';
-const project = verification ? 'sqgjsmiaprsuilcjmaav' : 'zgmyrpzwgtydwlzponih';
 function required(name: string) {
   const value = process.env[name];
   if (!value) throw Error(`Missing production configuration: ${name}`);
   return value;
 }
-function connect(name: string) {
+function connect(name: string, project: V2Project) {
   const connectionString = required(name);
   const url = new URL(connectionString);
   const roles: Record<string,string> = {GM_DATABASE_URL:'gm_app_backend',GM_AUTH_DATABASE_URL:'gm_app_auth',GM_PRIVACY_DATABASE_URL:'gm_app_privacy',GM_IDENTITY_DATABASE_URL:'gm_app_identity'};
@@ -29,11 +26,12 @@ function connect(name: string) {
   return PostgresDatabase.connect({ connectionString, ssl: { rejectUnauthorized: true, ca }, max: 2 });
 }
 async function compose() {
-  if (required('GM_ENVIRONMENT') !== (verification ? 'replacement-verification' : 'production') || required('VITE_V2_AUTH_PROJECT') !== project)
-    throw Error('Dedicated production environment required');
+  // Fail closed unless both client and server target an explicitly authorized project.
+  // The restricted database usernames below must independently match that same project.
+  const project = resolveV2Project(process.env);
   const runtimeCatalog = RuntimeCatalogSchema.parse(catalog);
-  const learning = connect('GM_DATABASE_URL');
-  const verifier = connect('GM_AUTH_DATABASE_URL');
+  const learning = connect('GM_DATABASE_URL', project);
+  const verifier = connect('GM_AUTH_DATABASE_URL', project);
   const sessionExists = currentAuthSession(verifier, true);
   const authenticate = createSupabaseAuthenticate(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), sessionExists);
   // Provider removal is separate from owned learning deletion and requires
@@ -41,9 +39,9 @@ async function compose() {
   let deletion: IdentityDeletionService | undefined;
   let deliver: ((requestId:string)=>Promise<unknown>) | undefined;
   if (process.env.GM_IDENTITY_DELETION === 'enabled') {
-    const worker = connect('GM_PRIVACY_DATABASE_URL');
-    const workerLock = connect('GM_PRIVACY_DATABASE_URL');
-    const observer = connect('GM_IDENTITY_DATABASE_URL');
+    const worker = connect('GM_PRIVACY_DATABASE_URL', project);
+    const workerLock = connect('GM_PRIVACY_DATABASE_URL', project);
+    const observer = connect('GM_IDENTITY_DATABASE_URL', project);
     const provider = createSupabaseIdentityDeletionProvider(project, required('GM_SUPABASE_SECRET_KEY'), observer, true);
     const reauthenticate = createPasswordDeletionReauthentication(project, required('VITE_V2_AUTH_PUBLISHABLE_KEY'), sessionExists);
     deletion = new IdentityDeletionService(worker,
