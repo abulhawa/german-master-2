@@ -280,7 +280,7 @@ function localEvaluation(exercise: Exercise, answer: Answer, assisted: boolean):
 
 const copy = {
   en: {
-    subtitle: "B1–B2 German practice",
+    subtitle: "Five-question B1 starter",
     title: "Practise what needs attention.",
     intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed.",
     language: "Interface language",
@@ -304,7 +304,7 @@ const copy = {
     close: "Close practice", leaveTitle: "Leave this session?", leaveBody: "Your answers and draft stay on this device.",
     saveHome: "Save and return Home", keep: "Keep practising",
     homeTitle: "Continue practising", homeStatus: "Your guest practice is saved on this device.",
-    continueSession: "Continue session", start: "Start practice",
+    continueSession: "Continue session", start: "Start practice", restart: "Repeat the five questions",
     saveAcross: "Save across devices",
     saveAcrossBody: "Sign in when you want to attach eligible guest attempts and build confirmed progress.",
     create: "Create account", signIn: "Sign in",
@@ -321,7 +321,7 @@ const copy = {
     b2Note: "The current starter pack contains five reviewed B1 foundation questions.",
   },
   de: {
-    subtitle: "Deutsch üben auf B1–B2",
+    subtitle: "Fünf B1-Übungsfragen",
     title: "Übe, was noch Aufmerksamkeit braucht.",
     intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto.",
     language: "Sprache der Oberfläche",
@@ -345,7 +345,7 @@ const copy = {
     close: "Übung schließen", leaveTitle: "Diese Übung verlassen?", leaveBody: "Deine Antworten und dein Entwurf bleiben auf diesem Gerät.",
     saveHome: "Speichern und zur Startseite", keep: "Weiter üben",
     homeTitle: "Weiter üben", homeStatus: "Deine Gastübungen sind auf diesem Gerät gespeichert.",
-    continueSession: "Übung fortsetzen", start: "Übung starten",
+    continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Die fünf Fragen wiederholen",
     saveAcross: "Auf mehreren Geräten speichern",
     saveAcrossBody: "Melde dich an, wenn du geeignete Gastversuche übernehmen und bestätigten Fortschritt aufbauen möchtest.",
     create: "Konto erstellen", signIn: "Anmelden",
@@ -487,10 +487,9 @@ export function GuestStarterJourney({
     <PracticeCard>
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
-      <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : c.start}</FoundationButton>
-      <FoundationButton className="gm-secondary" disabled={active} onClick={() => commit({ ...state, setupCompleted: false, session: null, index: 0, draft: null, assisted: false, feedback: null })}>{c.setupAgain}</FoundationButton>
+      <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}</FoundationButton>
     </PracticeCard>
-    {unattachedCount > 0 && <PracticeCard><h2>{c.saveAcross}</h2><p>{c.saveAcrossBody}</p>
+    {unattachedCount > 0 && !state.savePromptDismissed && <PracticeCard><h2>{c.saveAcross}</h2><p>{c.saveAcrossBody}</p>
       <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
       <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
     </PracticeCard>}
@@ -516,7 +515,7 @@ export function GuestStarterJourney({
         <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
         <FoundationButton className="gm-secondary" onClick={() => commit({ ...state, savePromptDismissed: true })}>{c.notNow}</FoundationButton>
       </div>}
-      <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.finish}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={() => { if (commit({ ...state, savePromptDismissed: true })) setView("home"); }}>{c.finish}</FoundationButton>
     </PracticeCard> : question ? <PracticeCard>
       {question.exercise.type !== "short_answer" && <p>{question.exercise.instruction[state.locale]}</p>}<h1 lang="de">{question.exercise.prompt}</h1>
       {!state.feedback && <fieldset className="gm-answer-group" disabled={storageError}>
