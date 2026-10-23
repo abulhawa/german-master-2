@@ -14,20 +14,22 @@ it("starts real guest practice without authentication and restores the saved dra
   expect(screen.queryByLabelText("Your current German level")).toBeNull();
   expect(screen.queryByLabelText("Usual session")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
-  expect(screen.getByRole("status")).toHaveTextContent("Guest practice · saved on this device");
+  expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
+  expect(screen.queryByText("Type the plural.")).toBeNull();
+  expect(screen.queryByRole("textbox")).toBeNull();
   expect(screen.queryByText(/Shorter session:/)).toBeNull();
   expect(screen.getByRole("radio", { name: "Berufe" })).toBeInTheDocument();
-  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
-  expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
+  expect(screen.getByText("Correct")).toBeInTheDocument();
   expect(screen.queryByText(/server-confirmed|confirmed mastery/i)).not.toBeInTheDocument();
   expect(guestAttemptCount()).toBe(1);
   cleanup();
 
   render(<GuestStarterJourney onAuth={onAuth} />);
   fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
-  expect(screen.getByText("Looks correct locally")).toBeInTheDocument();
-  expect(screen.getByLabelText("Your answer")).toHaveValue("Berufe");
+  expect(screen.getByText("Correct")).toBeInTheDocument();
+  expect(screen.queryByRole("textbox")).toBeNull();
   expect(onAuth).not.toHaveBeenCalled();
 });
 
@@ -35,14 +37,14 @@ it("lets a guest finish text-based exercises by tapping choices without changing
   render(<GuestStarterJourney onAuth={vi.fn()} />);
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
   fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
-  expect(screen.getByLabelText("Your answer")).toHaveValue("Berufe");
+  expect(screen.queryByRole("textbox")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   const saved = JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!);
   expect(saved.attempts[0].answer).toEqual({type:"short_answer",text:"Berufe"});
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
   fireEvent.click(screen.getByRole("button", { name: "Skip" }));
   fireEvent.click(screen.getByRole("radio", { name: "ins" }));
-  expect(screen.getByLabelText("Präposition")).toHaveValue("ins");
+  expect(screen.getByRole("radio",{name:"ins"})).toBeChecked();
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).attempts[1].answer).toEqual({type:"cloze",values:[{slotId:"preposition",text:"ins"}]});
 });
@@ -51,7 +53,7 @@ it("offers account creation only after useful guest practice and never attaches 
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
-  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
   for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
@@ -77,8 +79,11 @@ it("builds account-scoped replay-safe attachment data without trusting the local
   render(<GuestStarterJourney onAuth={vi.fn()} />);
   fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
   fireEvent.click(screen.getByRole("button", { name: "Hint" }));
-  fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  expect(screen.getByText("Correct")).toBeInTheDocument();
+  expect(screen.queryByText(/Assisted answer|Looks correct locally/)).toBeNull();
+  expect(screen.queryByRole("radio")).toBeNull();
   const request=buildGuestAttachmentRequest(subject);
   expect(request?.attempts).toHaveLength(1);
   expect(request?.attempts[0]).toMatchObject({exerciseRevision:1,answer:{type:"short_answer",text:"Berufe"},assistance:["hint"]});

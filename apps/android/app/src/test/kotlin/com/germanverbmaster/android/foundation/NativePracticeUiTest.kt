@@ -43,7 +43,7 @@ class NativePracticeUiTest {
                 NativePracticeView(repo.state.practice!!, false, false, {}, repo, { it() }, {}, {})
             }
         } }
-        compose.onNodeWithText("✓ Looks correct — not synced yet").assertExists()
+        compose.onNodeWithText("✓ Correct").assertExists()
         compose.onNodeWithText("This answer is saved on this device. Your progress will update after it syncs.").assertDoesNotExist()
         compose.onNodeWithText("Progress updates after sync").assertExists()
         val answer = rubric.acceptedAnswers.first() as AnswerChoice

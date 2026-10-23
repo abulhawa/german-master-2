@@ -22,8 +22,8 @@ const copy = {
     note: 'Only confirmed results update Progress. Retention needs later independent checks.',
     syncing: 'Saving…', old: 'Download expired or consumed. Started sessions remain saved.',
     rejected: 'A saved event was not accepted. It remains on this device for review; further sync has stopped.',
-    provisionalCorrect: 'Provisional correct', covered: 'Targets covered',
-    locallyCorrect: 'Looks correct locally', locallyIncorrect: 'Not quite — checked locally', yourAnswer: 'Your answer', accepted: 'Accepted answer',
+    provisionalCorrect: 'Correct', covered: 'Targets covered',
+    locallyCorrect: 'Correct', locallyIncorrect: 'Not quite', yourAnswer: 'Your answer', accepted: 'Accepted answer',
   },
   de: { title: 'Heruntergeladene Übungen', download: 'Zwei Sitzungen herunterladen', retry: 'Gespeicherten Download wiederholen', start: 'Heruntergeladene Übungen starten',
     available: 'Sitzungen zum Starten verfügbar', pending: 'Download-Anfrage gespeichert. Bei Verbindung erneut versuchen.',
@@ -36,8 +36,8 @@ const copy = {
     note: 'Nur bestätigte Ergebnisse aktualisieren den Fortschritt. Behalten erfordert spätere unabhängige Prüfungen.',
     syncing: 'Wird gespeichert…', old: 'Download abgelaufen oder verbraucht. Gestartete Sitzungen bleiben gespeichert.',
     rejected: 'Ein gespeichertes Ereignis wurde nicht akzeptiert. Es bleibt zur Prüfung auf diesem Gerät. Die Synchronisierung wurde angehalten.',
-    provisionalCorrect: 'Vorläufig richtig', covered: 'Behandelte Lernziele',
-    locallyCorrect: 'Lokal richtig', locallyIncorrect: 'Noch nicht ganz — lokal geprüft', yourAnswer: 'Deine Antwort', accepted: 'Akzeptierte Antwort',
+    provisionalCorrect: 'Richtig', covered: 'Behandelte Lernziele',
+    locallyCorrect: 'Richtig', locallyIncorrect: 'Noch nicht ganz', yourAnswer: 'Deine Antwort', accepted: 'Akzeptierte Antwort',
   },
 };
 
@@ -163,7 +163,7 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
           outcome={feedback.outcome === 'correct' ? c.locallyCorrect : c.locallyIncorrect}
           answer={answerText(practice!.draft as Answer, active.session, practice!.index)} accepted={answerText(feedback.acceptedAnswer, active.session, practice!.index)}
           answerLabel={c.yourAnswer} acceptedLabel={c.accepted}
-          explanation={feedback.explanation[locale]} note={c.note} nextLabel={c.next} disabled={busy}
+          explanation={feedback.explanation[locale]} nextLabel={c.next} disabled={busy}
           onNext={() => void run(async () => { await repo.next(practice!.id); await reload(practice!.id); })} />}
       </>}
       <FoundationButton disabled={busy || pending === 0} onClick={() => void run(async () => {

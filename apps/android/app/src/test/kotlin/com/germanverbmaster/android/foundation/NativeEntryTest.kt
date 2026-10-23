@@ -29,6 +29,7 @@ class NativeEntryTest {
         compose.onNodeWithText("Create account").assertDoesNotExist()
         compose.onNodeWithText("Practise German. No account needed.").assertDoesNotExist()
         assertNull(requested)
+        compose.onNodeWithText("Berufe").assertIsSelected()
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(path).read().draft)
         compose.onNodeWithText("Check answer").performScrollTo().performClick()
         assertEquals("correct",NativeGuestStore(path).read().feedback?.outcome)
@@ -54,7 +55,7 @@ class NativeEntryTest {
         NativeGuestStore(path).write(NativeGuestState(started=true,index=5,graded=4,correct=3))
         var requested:String?=null
         compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {requested=it})}}
-        compose.onNodeWithText("Starter complete: 3 of 4 correct locally.").assertExists()
+        compose.onNodeWithText("Starter complete: 3 of 4 correct.").assertExists()
         compose.onNodeWithText("Create account").performScrollTo().performClick()
         assertEquals("register",requested)
         assertEquals(3,NativeGuestStore(path).read().correct)

@@ -54,7 +54,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
     await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));expect(screen.getByText('Open saved session 1')).toBeEnabled();});
     fireEvent.click(screen.getByText('Open saved session 1'));
     await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
-    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite — checked locally');
+    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite');
     const before=await repo.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
     fireEvent.click(screen.getByText('Reconnect account'));
     fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
@@ -117,12 +117,12 @@ it('downloads once, practises all five forms without HTTP across restart, then r
       }
       await waitFor(() => expect(screen.getByText('Check answer')).toBeEnabled());
       fireEvent.click(screen.getByText('Check answer'));
-      await screen.findByText('Looks correct locally');
+      await screen.findByText('Correct');
       fireEvent.click(screen.getByText('Continue'));
       if (index < 4) await screen.findByText(`Question ${index + 2} / 5`);
     }
     await screen.findByText('Session saved');
-    expect(screen.getByText('Provisional correct: 5')).toBeVisible();
+    expect(screen.getByText('Correct: 5')).toBeVisible();
     expect(screen.getAllByRole('listitem')).toHaveLength(5);
     fireEvent.click(screen.getByText('End session'));
     await waitFor(async () => expect((await repo.read(id)).practice.ended).toBe(true));

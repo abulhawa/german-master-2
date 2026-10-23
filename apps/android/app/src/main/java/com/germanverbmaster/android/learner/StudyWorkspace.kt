@@ -103,7 +103,7 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
 
 @Composable
 internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boolean, answer: String?, accepted: String,
-                           explanation: String, assisted: Boolean, busy: Boolean, completedAnswer: CompletedAnswer? = null, next: () -> Unit) {
+                           explanation: String, busy: Boolean, completedAnswer: CompletedAnswer? = null, next: () -> Unit) {
     val c = studyCopy(german)
     val tokens = if (isSystemInDarkTheme()) FoundationTokens.dark else FoundationTokens.light
     val tone = if (correct) tokens.success else tokens.attention
@@ -119,7 +119,6 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
                 color = tone, style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.bringIntoViewRequester(visibility).focusRequester(focus).focusable()
                     .semantics { liveRegion = androidx.compose.ui.semantics.LiveRegionMode.Polite })
-            if (assisted) Text(c(R.string.study_assisted), color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (!correct) answer?.let { Text("${c(R.string.study_your_answer)}: $it") }
             if (completedAnswer == null) Text("${c(R.string.study_accepted)}: $accepted")
             else Text(buildAnnotatedString {

@@ -159,7 +159,7 @@ it('requires explicit consent after authentication and attaches guest evidence o
   vi.stubGlobal('fetch',send);
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
   fireEvent.click(await screen.findByRole('button',{name:'Try German Master'}));
-  fireEvent.change(screen.getByLabelText('Your answer'),{target:{value:'Berufe'}});
+  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
   fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
   expect(guestAttemptCount()).toBe(1);expect(guestUnattachedAttemptCount(subject)).toBe(1);
   fireEvent.click(screen.getByRole('button',{name:'Close practice'}));

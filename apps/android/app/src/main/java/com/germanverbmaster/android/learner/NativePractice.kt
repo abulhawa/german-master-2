@@ -186,7 +186,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             val shown = confirmed ?: evaluation
             StudyFeedback(shown.outcome == "correct", p.offlinePack != null && confirmed == null, german,
                 p.draft?.let { foundationAnswerText(it, exercise) }, foundationAnswerText(shown.acceptedAnswer, exercise),
-                if (german) shown.explanation.de else shown.explanation.en, shown.assisted, busy, shown.completedAnswer) { action { repository.continuePractice() } }
+                if (german) shown.explanation.de else shown.explanation.en, busy, shown.completedAnswer) { action { repository.continuePractice() } }
         }
         if(p.rejected) Text(text("This answer could not be saved to your progress. Your work is still on this device. Discarding the session removes unsynced answers.", "Diese Antwort konnte nicht in deinem Lernstand gespeichert werden. Deine Übungen bleiben auf diesem Gerät. Beim Verwerfen gehen nicht synchronisierte Antworten verloren."))
     }

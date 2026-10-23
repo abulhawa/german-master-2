@@ -121,12 +121,12 @@ export function ExerciseInput({
   if (exercise.type === "short_answer")
     return (
       <div className="gm-quick-entry">
-        {suggestions?.answer && <fieldset className="gm-choices gm-quick-choices"><legend>{c.answer}</legend>
+        {suggestions?.answer && <fieldset className="gm-choices gm-quick-choices"><legend>{c.chooseAnswer}</legend>
           {suggestions.answer.map(option => <label key={option}><input type="radio" name={`${exercise.id}-quick`} checked={text === option}
             onChange={() => { const answer: Answer = { type: "short_answer", text: option }; if (onDraft?.(answer) === false) return; setText(option); onAnswer(answer); }} />
             <span lang="de">{option}</span></label>)}
         </fieldset>}
-        <AnswerField
+        {!suggestions?.answer && <AnswerField
         id={`answer-${exercise.id}`}
         label={c.answer}
         value={text}
@@ -135,13 +135,13 @@ export function ExerciseInput({
           setText(v);
           onAnswer(v.trim() ? { type: exercise.type, text: v } : null);
         }}
-      />
+      />}
       </div>
     );
   if (exercise.type === "choice")
     return (
       <fieldset className="gm-choices">
-        <legend>{c.answer}</legend>
+        <legend>{c.chooseAnswer}</legend>
         {exercise.options.map((o) => (
           <label key={o.id}>
             <input
@@ -170,7 +170,7 @@ export function ExerciseInput({
                 onChange={() => { const next = { ...values, [slot.id]: option }; const answer: Answer = { type: exercise.type, values: exercise.slots.map(s => ({ slotId: s.id, text: next[s.id] ?? "" })) }; if (onDraft?.(answer) === false) return; setValues(next); onAnswer(exercise.slots.every(s => next[s.id]?.trim()) ? answer : null); }} />
                 <span lang="de">{option}</span></label>)}
             </fieldset>}
-            <AnswerField
+            {!suggestions?.[slot.id] && <AnswerField
             id={`${exercise.id}-${slot.id}`}
             label={slot.label}
             value={values[slot.id] ?? ""}
@@ -190,7 +190,7 @@ export function ExerciseInput({
                   : null,
               );
             }}
-          />
+          />}
           </div>
         ))}
       </>

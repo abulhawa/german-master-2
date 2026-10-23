@@ -1,5 +1,15 @@
 # Continuing the German Master renovation
 
+## Unified inputs and feedback - 23 October 2026
+
+The owner's web screenshot exposed duplicate choices/text fields and technical
+feedback. Both clients now use plain outcomes and choice-only starter input;
+all-five journeys pass in desktop/mobile browser and on Pixel. Follow the
+[unified practice presentation contract](../product/practice-presentation.md)
+and newest root checkpoint. Separate guest/account storage hosts still exist;
+this does not establish complete parity of every screen. Web changes remain
+local until an authorized deployment; Android release hold remains active.
+
 ## Guest verb-choice crash repaired - 22 October 2026
 
 The fifth starter crashed on its first verb choice because the handler constructed

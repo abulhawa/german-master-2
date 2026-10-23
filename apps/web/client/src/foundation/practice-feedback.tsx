@@ -12,7 +12,7 @@ export function PracticeFeedback({ correct, outcome, answer, accepted, answerLab
   return <>
     <div className="gm-feedback gm-practice-feedback" data-outcome={correct ? 'correct' : 'incorrect'} ref={regionRef} tabIndex={-1}>
       <p role="status"><span aria-hidden="true">{correct ? '✓' : 'ⓘ'}</span> {outcome}</p>
-      <p>{answerLabel}: <strong lang="de">{answer}</strong></p>
+      {!correct && <p>{answerLabel}: <strong lang="de">{answer}</strong></p>}
       <p>{acceptedLabel}: {completedAnswer ? <span lang="de">{completedAnswer.parts.map((part, i) =>
         part.emphasis ? <strong key={i}>{part.text}</strong> : <span key={i}>{part.text}</span>)}</span>
         : <strong lang="de">{accepted}</strong>}</p>

@@ -14,6 +14,11 @@
 - Do not use live AI services in normal checks. Groq quota and credential rules from the user's global guidance remain applicable.
 - Include a proposed commit message when reporting code changes. Distinguish completed bootstrap work from the unimplemented product reset.
 
+## Unified practice presentation
+
+- Owner direction (23 October 2026): web and Android, guest and signed-in practice must follow `docs/product/practice-presentation.md`. Authentication changes saving/sync, not exercise interactions or feedback vocabulary.
+- When choices are supplied, do not also show a textbox or typing instructions. Use plain Correct / Not quite feedback; omit locally and Assisted answer labels while retaining hint usage, provisional receipts and mastery policies internally.
+
 ## Continuing the renovation
 
 - Owner decision (20 October 2026): Android release is BLOCKED pending a renewed UX review and explicit owner approval. The owner rejects the current Android experience, specifically excessive help/explanatory text and unexpected behaviour. Stop the screenshot review for now; preserve partial artifacts and unfinished tooling. Do not treat prior design acceptance, passing tests, a debug install or screenshot generation as release approval. Do not publish/upload/promote an Android release until the owner explicitly lifts this hold. This does not reopen the accepted TalkBack scope.

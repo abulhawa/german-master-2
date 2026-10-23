@@ -298,7 +298,7 @@ const copy = {
     shorter: "This starter has five reviewed B1 questions.",
     question: "Question", of: "of",
     hint: "Hint", check: "Check answer", skip: "Skip", next: "Continue",
-    correct: "Looks correct locally", incorrect: "Not quite", assisted: "Assisted answer",
+    correct: "Correct", incorrect: "Not quite",
     yourAnswer: "Your answer", accepted: "Accepted answer",
     provisional: "This result is saved on this device. Sign in later to save eligible attempts to your account.",
     close: "Close practice", leaveTitle: "Leave this session?", leaveBody: "Your answers and draft stay on this device.",
@@ -309,7 +309,7 @@ const copy = {
     saveAcrossBody: "Sign in when you want to attach eligible guest attempts and build confirmed progress.",
     create: "Create account", signIn: "Sign in",
     complete: "Starter session complete", saved: "Session saved",
-    answered: "answered", skipped: "skipped", lookCorrect: "look correct locally",
+    answered: "answered", skipped: "skipped", lookCorrect: "correct",
     retention: "Good start. Try another short session to practise more, or save your results to track progress over time.",
     keepProgress: "Keep your progress",
     keepProgressBody: "Create an account or sign in to save this practice and use confirmed progress across devices.",
@@ -339,7 +339,7 @@ const copy = {
     shorter: "Dieser Einstieg enthält fünf geprüfte B1-Aufgaben.",
     question: "Frage", of: "von",
     hint: "Hinweis", check: "Antwort prüfen", skip: "Überspringen", next: "Weiter",
-    correct: "Sieht lokal richtig aus", incorrect: "Noch nicht ganz", assisted: "Antwort mit Hilfe",
+    correct: "Richtig", incorrect: "Noch nicht ganz",
     yourAnswer: "Deine Antwort", accepted: "Akzeptierte Antwort",
     provisional: "Dieses Ergebnis ist auf diesem Gerät gespeichert. Melde dich später an, um geeignete Versuche in deinem Konto zu speichern.",
     close: "Übung schließen", leaveTitle: "Diese Übung verlassen?", leaveBody: "Deine Antworten und dein Entwurf bleiben auf diesem Gerät.",
@@ -350,7 +350,7 @@ const copy = {
     saveAcrossBody: "Melde dich an, wenn du geeignete Gastversuche übernehmen und bestätigten Fortschritt aufbauen möchtest.",
     create: "Konto erstellen", signIn: "Anmelden",
     complete: "Erste Übung abgeschlossen", saved: "Übung gespeichert",
-    answered: "beantwortet", skipped: "übersprungen", lookCorrect: "sehen lokal richtig aus",
+    answered: "beantwortet", skipped: "übersprungen", lookCorrect: "richtig",
     retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen.",
     keepProgress: "Fortschritt behalten",
     keepProgressBody: "Erstelle ein Konto oder melde dich an, um diese Übungen zu speichern und bestätigten Fortschritt auf mehreren Geräten zu nutzen.",
@@ -502,7 +502,6 @@ export function GuestStarterJourney({
       {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
       <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
     </header>
-    <p role="status" className="gm-notice">{c.localStatus}</p>
     {storageError && <p role="alert">{c.storageError}</p>}
     {closing ? <PracticeCard><h1>{c.leaveTitle}</h1><p>{c.leaveBody}</p>
       <FoundationButton onClick={() => { setClosing(false); setView("home"); }}>{c.saveHome}</FoundationButton>
@@ -510,7 +509,7 @@ export function GuestStarterJourney({
     </PracticeCard> : complete ? <PracticeCard>
       <h1>{state.index >= starterSession.questions.length ? c.complete : c.saved}</h1>
       <p role="status">{state.graded} {c.answered} · {state.skipped} {c.skipped}</p>
-      <p>{state.correct} {c.lookCorrect}</p><p>{c.retention}</p>
+      <p>{state.correct} {c.lookCorrect}</p>
       {unattachedCount > 0 && !state.savePromptDismissed && <div className="gm-feedback">
         <h2>{c.keepProgress}</h2><p>{c.keepProgressBody}</p>
         <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
@@ -519,21 +518,21 @@ export function GuestStarterJourney({
       </div>}
       <FoundationButton className="gm-secondary" onClick={() => setView("home")}>{c.finish}</FoundationButton>
     </PracticeCard> : question ? <PracticeCard>
-      <p>{question.exercise.instruction[state.locale]}</p><h1 lang="de">{question.exercise.prompt}</h1>
-      <fieldset className="gm-answer-group" disabled={!!state.feedback || storageError}>
+      {question.exercise.type !== "short_answer" && <p>{question.exercise.instruction[state.locale]}</p>}<h1 lang="de">{question.exercise.prompt}</h1>
+      {!state.feedback && <fieldset className="gm-answer-group" disabled={storageError}>
         <ExerciseInput key={question.id} exercise={question.exercise} locale={state.locale} initialAnswer={state.draft as Answer | null}
           onAnswer={() => {}} onDraft={draft => commit({ ...state, draft })} suggestions={starterSuggestions[question.exercise.id]} />
         {!state.feedback && <FoundationButton className="gm-secondary" disabled={state.assisted || storageError}
           onClick={() => commit({ ...state, assisted: true })}>{c.hint}</FoundationButton>}
         {state.assisted && <p>{question.exercise.hint[state.locale]}</p>}
-      </fieldset>
+      </fieldset>}
       {!state.feedback && <><FoundationButton disabled={storageError || !readyAnswer(question.exercise, state.draft as Answer | null)} onClick={check}>{c.check}</FoundationButton>
         <FoundationButton className="gm-secondary" disabled={storageError} onClick={skip}>{c.skip}</FoundationButton></>}
       {state.feedback && <PracticeFeedback completedAnswer={state.feedback.completedAnswer} correct={state.feedback.outcome === "correct"}
-        outcome={`${state.feedback.outcome === "correct" ? c.correct : c.incorrect}${state.feedback.assisted ? ` · ${c.assisted}` : ""}`}
+        outcome={state.feedback.outcome === "correct" ? c.correct : c.incorrect}
         answer={answerText(state.draft as Answer, state.session!, state.index)} accepted={answerText(state.feedback.acceptedAnswer, state.session!, state.index)}
         answerLabel={c.yourAnswer} acceptedLabel={c.accepted} explanation={state.feedback.explanation[state.locale]}
-        note={c.provisional} nextLabel={c.next} onNext={next} disabled={storageError} />}
+        nextLabel={c.next} onNext={next} disabled={storageError} />}
     </PracticeCard> : null}
   </div></main>;
 }

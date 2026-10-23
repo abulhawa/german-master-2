@@ -4,6 +4,7 @@ import androidx.activity.compose.BackHandler
 import android.util.AtomicFile
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -73,7 +74,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
             } else if(!state.started || paused) {
                 primary(if(state.started)text("Continue practice","Weiter üben")else text("Start practising","Jetzt üben")){commit(state.copy(started=true));paused=false}
             } else if(state.index>=content.session.questions.size) {
-                Text(text("Starter complete: ${state.correct} of ${state.graded} correct locally.","Einstieg abgeschlossen: ${state.correct} von ${state.graded} lokal richtig."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                Text(text("Starter complete: ${state.correct} of ${state.graded} correct.","Einstieg abgeschlossen: ${state.correct} von ${state.graded} richtig."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                 primary(text("Practise again","Noch einmal üben")){commit(NativeGuestState(started=true))}
             } else {
                 val exercise=content.session.questions[state.index].exercise
@@ -88,9 +89,19 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     } else {
                         val suggestions=content.suggestions.getValue(exercise.id)
                         suggestions.forEach {(slot,options)->
-                            Text(if(slot=="answer")text("Choose an answer","Wähle eine Antwort")else slot)
+                            Text(if(slot=="answer")text("Choose an answer","Wähle eine Antwort")else when(exercise) {
+                                is ExerciseCloze -> exercise.slots.first {it.id==slot}.label
+                                is ExerciseMultiSlot -> exercise.slots.first {it.id==slot}.label
+                                else -> slot
+                            })
                             options.forEach {option->
-                                TextButton(onClick={
+                                val selected=when(val answer=state.draft) {
+                                    is AnswerShortAnswer -> answer.text==option
+                                    is AnswerCloze -> answer.values.any {it.slotId==slot && it.text==option}
+                                    is AnswerMultiSlot -> answer.values.any {it.slotId==slot && it.text==option}
+                                    else -> false
+                                }
+                                Row(Modifier.fillMaxWidth().selectable(selected=selected,role=Role.RadioButton,onClick={
                                     val answer:Answer=when(exercise) {
                                         is ExerciseShortAnswer -> AnswerShortAnswer(option)
                                         is ExerciseCloze -> AnswerCloze(listOf(SlotValue(slot,option)))
@@ -102,10 +113,12 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                                         }
                                         else -> error("Unsupported guest suggestion exercise")
                                     };commit(state.copy(draft=answer))
-                                }) {Text(option)}
+                                }).heightIn(min=48.dp),verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+                                    RadioButton(selected=selected,onClick=null)
+                                    Text(option)
+                                }
                             }
                         }
-                        state.draft?.let {Text(foundationAnswerText(it,exercise))}
                     }
                     primary(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
                         val rubric=content.rubrics.single {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
@@ -116,9 +129,9 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     if(state.assisted) Text(if(german)exercise.hint.de else exercise.hint.en)
                     TextButton(onClick={commit(state.copy(index=state.index+1,draft=null,order=emptyList(),assisted=false))}){Text(text("Skip","Überspringen"))}
                 } else {
-                    Text(if(feedback.outcome=="correct")text("Correct · local result","Richtig · lokales Ergebnis")else text("Not quite · local result","Noch nicht richtig · lokales Ergebnis"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-                    Text(if(german)feedback.explanation.de else feedback.explanation.en)
+                    Text(if(feedback.outcome=="correct")text("Correct","Richtig")else text("Not quite","Noch nicht ganz"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                     Text(foundationAnswerText(feedback.acceptedAnswer,exercise))
+                    Text(if(german)feedback.explanation.de else feedback.explanation.en)
                     primary(text("Continue","Weiter")){commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))}
                 }
             }
