@@ -101,3 +101,20 @@ it("preserves a damaged guest record until the learner explicitly resets it", ()
   expect(screen.getByRole("alert")).toHaveTextContent("has been preserved");
   expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe("{broken");
 });
+
+
+it("finishing guest practice avoids a second account prompt and honestly offers only a repeat starter", () => {
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+  for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+  expect(screen.getByRole("heading", { name: "Keep your progress" })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Finish" }));
+  expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
+  expect(screen.queryByRole("button", { name: "Change setup" })).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Repeat the five questions" }));
+  expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
+  // A new session may offer one optional account prompt when completed again.
+});
