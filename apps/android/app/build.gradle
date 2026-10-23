@@ -163,6 +163,8 @@ apply from: "../gradle/tasks/screenshots.gradle"
 tasks.withType(Test).configureEach {
     systemProperty("gm.repoRoot", rootProject.file("../..").absolutePath)
     systemProperty("gm.testNode", System.getenv("GM_TEST_NODE") ?: "node")
+    if (System.getenv("GM_REVIEW_OUTPUT")) systemProperty("gm.reviewOutput", System.getenv("GM_REVIEW_OUTPUT"))
+    if (System.getenv("GM_REVIEW_FILTER")) systemProperty("gm.reviewFilter", System.getenv("GM_REVIEW_FILTER"))
     for (def propertyName : ["roborazzi.test.record", "roborazzi.test.verify"]) {
         def propertyValue = System.getProperty(propertyName)
         if (propertyValue != null) systemProperty(propertyName, propertyValue)
@@ -247,6 +249,8 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi.junit.rule)
     testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.roborazzi.capture)
+    testImplementation(libs.espresso.core)
 
     // Instrumented Testing
     androidTestImplementation(libs.androidx.junit)

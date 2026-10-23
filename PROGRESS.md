@@ -1,3 +1,9 @@
+## Remaining working-tree changes committed at owner request - 23 October 2026
+
+- Owner requested committing all remaining changes. Preserved the unfinished opt-in AppReviewCaptureTest, review-index generator, test-only Gradle/catalog dependencies and environment forwarding, plus the pre-existing Gradle tooling-parallel setting. These are a saved tooling snapshot, not completed capture/visual-review evidence.
+- Verification for this commit: whitespace check and Node syntax check pass; a targeted secret/private-path marker scan finds no matches. Native test sources/dependencies compiled during preceding verification, but the opt-in capture scenarios and gallery generation were not executed or newly verified. Existing capture scenario/runtime limitations remain; no screenshot batch restarted.
+- No tracked secrets, private captures or ignored runtime files included. All current non-ignored changes are committed locally. No push, deployment or release. Android release hold and M2 status remain unchanged; next action remains owner review and the bounded dynamic UI/account audit from the preceding checkpoint. Commit message: `chore: preserve unfinished Android review tooling`.
+
 ## Unified starter inputs and plain feedback - 23 October 2026
 
 - Owner rejected technical Looks correct locally / Assisted answer wording and the web screenshot's duplicate choice/textbox/feedback content, then required a unified web/native and guest/signed-in practice experience. Added `docs/product/practice-presentation.md` and an AGENTS.md rule defining one input method per presentation and plain feedback. This documents the implemented scope, separate persistence hosts and remaining review limits; it is not a claim that every screen or authenticated device journey is now unified/accepted.
