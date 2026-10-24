@@ -2,7 +2,7 @@
 
 Tracking: [Issue #20](https://github.com/abulhawa/german-master-2/issues/20).
 
-Current follow-up: [24 October verification](recovery-verification-2026-10-24.md) and root `PROGRESS.md` supersede historical execution status below. Custom SMTP is now confirmed saved/enabled; leave its settings alone. The owner authorized an isolated test deployment, not production cutover. Google/Microsoft sign-in is queued for later.
+Current follow-up: [account acceptance](recovery-account-acceptance-2026-10-24.md) and [initial verification](recovery-verification-2026-10-24.md) and root `PROGRESS.md` supersede historical execution status below. Custom SMTP is now confirmed saved/enabled; leave its settings alone. The owner authorized an isolated test deployment, not production cutover. Google/Microsoft sign-in is queued for later.
 
 ## Recovery decision and deployment boundary
 

@@ -1,5 +1,7 @@
 # Recovery integration and verification - 24 October 2026
 
+Current follow-up: [account acceptance](recovery-account-acceptance-2026-10-24.md) and root `PROGRESS.md` supersede the login blocker and pre-account counts below. The isolated preview now exists, and signup/practice/sync have live evidence; production cutover remains unauthorized.
+
 Tracking: [issue #20](https://github.com/abulhawa/german-master-2/issues/20). Local integration and read-only replacement-host checks do not establish completed recovery or production acceptance.
 
 ## Integrated work
