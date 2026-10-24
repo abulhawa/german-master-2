@@ -21,6 +21,7 @@ const copy = {
     confirmed: 'Server confirmed', correction: 'Server correction', empty: 'Download while connected to prepare practice for later.',
     note: 'Only confirmed results update Progress. Retention needs later independent checks.',
     syncing: 'Saving…', old: 'Download expired or consumed. Started sessions remain saved.',
+    notYet: 'These sessions are not available to start yet.',
     rejected: 'A saved event was not accepted. It remains on this device for review; further sync has stopped.',
     provisionalCorrect: 'Correct', covered: 'Targets covered',
     locallyCorrect: 'Correct', locallyIncorrect: 'Not quite', yourAnswer: 'Your answer', accepted: 'Accepted answer',
@@ -35,6 +36,7 @@ const copy = {
     confirmed: 'Vom Server bestätigt', correction: 'Serverkorrektur', empty: 'Bei Verbindung herunterladen, um später zu üben.',
     note: 'Nur bestätigte Ergebnisse aktualisieren den Fortschritt. Behalten erfordert spätere unabhängige Prüfungen.',
     syncing: 'Wird gespeichert…', old: 'Download abgelaufen oder verbraucht. Gestartete Sitzungen bleiben gespeichert.',
+    notYet: 'Diese Sitzungen können noch nicht gestartet werden.',
     rejected: 'Ein gespeichertes Ereignis wurde nicht akzeptiert. Es bleibt zur Prüfung auf diesem Gerät. Die Synchronisierung wurde angehalten.',
     provisionalCorrect: 'Richtig', covered: 'Behandelte Lernziele',
     locallyCorrect: 'Richtig', locallyIncorrect: 'Noch nicht ganz', yourAnswer: 'Deine Antwort', accepted: 'Akzeptierte Antwort',
@@ -67,6 +69,44 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
   useEffect(() => { let alive = true; void db.status(new Date()).then(async value => {
     const list = await repo.list(); if (alive) { setReserve(value); setIds(list); }
   }).catch(() => { if (alive) setError(true); }); return () => { alive = false; }; }, [db, repo]);
+  useEffect(() => {
+    const pack = reserve?.reserve.pack;
+    if (!pack) return;
+    let alive = true;
+    let timer = 0;
+    const refresh = () => {
+      void db.status(new Date()).then(value => {
+        if (alive) setReserve(value);
+      }).catch(() => {
+        if (alive) setError(true);
+      });
+    };
+    const now = Date.now();
+    const issuedAt = Date.parse(pack.issuedAt);
+    const expiresAt = Date.parse(pack.expiresAt);
+    const currentlyValid = now >= issuedAt && now < expiresAt;
+    const cachedStatusIsStale = currentlyValid && reserve.available === 0
+      || !currentlyValid && reserve.available > 0;
+    if (cachedStatusIsStale) {
+      refresh();
+      return () => { alive = false; window.clearTimeout(timer); };
+    }
+    const nextBoundary = [Date.parse(pack.issuedAt), Date.parse(pack.expiresAt)]
+      .filter(boundary => Number.isFinite(boundary) && boundary > now)
+      .sort((left, right) => left - right)[0];
+    if (nextBoundary === undefined) return () => { alive = false; };
+
+    const refreshAtBoundary = () => {
+      const remaining = nextBoundary - Date.now();
+      if (remaining > 0) {
+        timer = window.setTimeout(refreshAtBoundary, Math.min(remaining + 1, 2_147_483_647));
+        return;
+      }
+      refresh();
+    };
+    timer = window.setTimeout(refreshAtBoundary, Math.min(nextBoundary - now + 1, 2_147_483_647));
+    return () => { alive = false; window.clearTimeout(timer); };
+  }, [db, reserve?.available, reserve?.reserve.pack?.issuedAt, reserve?.reserve.pack?.expiresAt]);
   useEffect(() => {
     if (refreshRevision === undefined) return;
     // Re-read receipts without replacing the active session or its provisional prompt.
@@ -115,7 +155,9 @@ export function OfflineDesk({ api, locale, deviceId, questionCount, blocked, own
     {!reserve && <FoundationButton disabled={busy} onClick={() => void run(() => reload())}>{c.retry}</FoundationButton>}
     {!active ? <>
       <p>{c.available}: {reserve?.available ?? 0}</p>
-      <p>{reserve?.reserve.pending ? c.pending : reserve?.reserve.pack && !reserve.available ? c.old : c.empty}</p>
+      <p>{reserve?.reserve.pending ? c.pending : reserve?.reserve.pack && !reserve.available
+        ? Date.now() < Date.parse(reserve.reserve.pack.issuedAt) ? c.notYet : c.old
+        : c.empty}</p>
       <FoundationButton disabled={busy || !reserve || !api.preparePack || questionCount < 1 && !reserve.reserve.pending}
         onClick={() => void run(async () => { await db.prepare(reserve?.reserve.pending ?? { ...sessionRequest(), questionCount }, request => api.preparePack!(request)); await reload(); })}>
         {reserve?.reserve.pending ? c.retry : c.download}
