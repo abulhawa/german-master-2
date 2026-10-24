@@ -138,6 +138,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         button(text("Finish", "Abschließen"), enabled = !busy && (p.completionReceipt != null || p.offlinePack != null && p.completion != null)) { edit { repository.discardPractice() }; close() }
     } else {
         val exercise = p.question.exercise
+        LinearProgressIndicator(progress = { p.index.toFloat() / session.questions.size }, modifier = Modifier.fillMaxWidth().height(4.dp), trackColor = MaterialTheme.colorScheme.outlineVariant)
         repository.state.catalog?.targets?.find { it.id == exercise.targetId }?.title?.let { title ->
             SuggestionChip(onClick = {}, enabled = false, label = { Text(if (german) title.de else title.en) },
                 colors = SuggestionChipDefaults.suggestionChipColors(disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant))
@@ -170,7 +171,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             }
             TextButton(onClick={ edit { repository.hint() } }, enabled=!p.assisted) { Text(text("Hint", "Hinweis")) }
         } else if (exercise !is ExerciseChoice && exercise !is ExerciseGapChoice && exercise !is ExerciseWordOrder && exercise !is ExerciseMatching) p.draft?.let { Text(foundationAnswerText(it, exercise)) }
-        if(p.assisted) Text(if(german) exercise.hint.de else exercise.hint.en)
+        if(p.assisted && p.evaluation == null) Text(if(german) exercise.hint.de else exercise.hint.en)
         if(p.evaluation == null && !p.rejected) {
             if(p.exposure == null) Button(onClick = { action { repository.answer() } }, enabled = !busy && (p.pending != null || nativeAnswerReady(exercise, p.draft)), modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text(text(if(p.pending == null) "Check" else "Retry answer", if(p.pending == null) "Prüfen" else "Antwort erneut senden")) }
             if(p.pending == null) button(text(if(p.exposure == null) "Skip" else "Retry skip", if(p.exposure == null) "Überspringen" else "Überspringen erneut senden")) { action { repository.skip() } }

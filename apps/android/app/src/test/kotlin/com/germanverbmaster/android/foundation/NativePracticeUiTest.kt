@@ -43,7 +43,7 @@ class NativePracticeUiTest {
                 NativePracticeView(repo.state.practice!!, false, false, {}, repo, { it() }, {}, {})
             }
         } }
-        compose.onNodeWithText("✓ Correct").assertExists()
+        compose.onNodeWithText("Correct").assertExists()
         compose.onNodeWithText("This answer is saved on this device. Your progress will update after it syncs.").assertDoesNotExist()
         compose.onNodeWithText("Progress updates after sync").assertExists()
         val answer = rubric.acceptedAnswers.first() as AnswerChoice
@@ -145,7 +145,10 @@ class NativePracticeUiTest {
                 compose.onNodeWithText("Continue", substring = false).performScrollTo().performClick()
             }
             compose.waitForIdle()
-            if (index < 4) compose.onNodeWithText(session.questions[index + 1].exercise.prompt).assertIsFocused()
+            if (index < 4) {
+                compose.waitUntil(10000) { repo.state.practice?.index == index + 1 }
+                compose.onNodeWithText(session.questions[index + 1].exercise.prompt).assertIsFocused()
+            }
         }
         compose.onNodeWithText("Practice summary").assertExists()
         compose.onNodeWithText("Graded: 4 · Skipped: 1 · Correct: 4").assertExists()

@@ -43,6 +43,8 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
     var fresh by remember { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf("home") }
     var detailId by rememberSaveable { mutableStateOf("") }
+    val pageScroll = rememberScrollState()
+    LaunchedEffect(screen, detailId) { pageScroll.scrollTo(0) }
     val scope = rememberCoroutineScope()
     fun run(refresh: Boolean = true, completed: () -> Unit = {}, action: suspend () -> Unit) {
         if (busy) return
@@ -91,11 +93,8 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
         }
     }) { insets ->
         Column(Modifier.padding(insets).imePadding().widthIn(max = 720.dp).fillMaxWidth()
-            .verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            if (!focused) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Text("German Master", style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
-                TextButton(onClick = { screen = "account" }, enabled = !busy) { Text(design(R.string.study_account)) }
-            }
+            .verticalScroll(pageScroll).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            if (!focused) StudyHeader(german, { screen = "account" }, enabled = !busy)
             if(screen == "account") {
                 val authCopy=providerCopy(if(german) "de" else "en")
                 if(localOnly) Text(authCopy.local)
@@ -184,7 +183,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 } else {
                     listOf("needs_practice" to label("Needs practice", "Braucht Übung"), "improving" to label("Improving", "Wird sicherer"), "mastered" to label("Mastered", "Sicher")).forEach { (state, title) ->
                         val targets = cache.targets.filter { it.state == state }
-                        Text("$title (${targets.size})", Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
+                        if(targets.isNotEmpty()) Text("$title (${targets.size})", Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                         targets.forEach { target ->
                             val metadata = cache.catalog?.targets?.find { it.id == target.targetId }
                             LearnerButton(metadata?.title?.let { if (german) it.de else it.en } ?: target.targetId, !busy) { detailId = target.targetId; screen = "target" }
@@ -195,7 +194,14 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                             }
                         }
                     }
-                    if (cache.targets.none { it.state in setOf("needs_practice", "improving", "mastered") }) Text(label("Complete some practice to see what to review next.", "Übe zuerst, um zu sehen, was du als Nächstes wiederholen kannst."))
+                    if (cache.targets.none { it.state in setOf("needs_practice", "improving", "mastered") }) StudyPanel {
+                        Text(label("Your progress starts with practice", "Dein Fortschritt beginnt mit dem Üben"),style=MaterialTheme.typography.titleLarge)
+                        Text(label("Complete some practice to see what to review next.", "Übe zuerst, um zu sehen, was du als Nächstes wiederholen kannst."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    StudyPrimary(design(if(cache.practice!=null) R.string.study_continue else R.string.study_start),
+                        !busy && (cache.practice!=null || cache.pending==null && (cache.catalog?.targets?.sumOf {it.availableQuestionCount} ?: 0)>0)) {
+                        screen="practice";run(false) {repository.startPractice()}
+                    }
                 }
             }
         }

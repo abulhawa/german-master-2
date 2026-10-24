@@ -23,6 +23,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.germanverbmaster.android.R
 import com.germanverbmaster.android.foundation.contract.*
 
@@ -32,12 +36,24 @@ fun FoundationTheme(content: @Composable () -> Unit) {
     MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme(
         primary=c.primary, onPrimary=c.onPrimary, background=c.background,
         surface=c.surface, onSurface=c.text, onBackground=c.text,
-        onSurfaceVariant=c.secondary, outline=c.controlBorder, error=c.error
+        onSurfaceVariant=c.secondary, outline=c.controlBorder, outlineVariant=c.border, error=c.error
     ) else lightColorScheme(
         primary=c.primary, onPrimary=c.onPrimary, background=c.background,
         surface=c.surface, onSurface=c.text, onBackground=c.text,
-        onSurfaceVariant=c.secondary, outline=c.controlBorder, error=c.error
-    ), content=content)
+        onSurfaceVariant=c.secondary, outline=c.controlBorder, outlineVariant=c.border, error=c.error
+    ), shapes = Shapes(small = RoundedCornerShape(8.dp), medium = RoundedCornerShape(12.dp), large = RoundedCornerShape(20.dp)),
+        typography = Typography(
+            headlineLarge = TextStyle(fontSize = 32.sp, lineHeight = 38.sp, letterSpacing = (-1).sp, fontWeight = FontWeight.SemiBold),
+            headlineMedium = TextStyle(fontSize = 28.sp, lineHeight = 34.sp, letterSpacing = (-0.7).sp, fontWeight = FontWeight.SemiBold),
+            headlineSmall = TextStyle(fontSize = 26.sp, lineHeight = 36.sp, letterSpacing = (-0.5).sp),
+            titleLarge = TextStyle(fontSize = 22.sp, lineHeight = 28.sp, letterSpacing = (-0.5).sp, fontWeight = FontWeight.SemiBold),
+            titleMedium = TextStyle(fontSize = 16.sp, lineHeight = 24.sp, fontWeight = FontWeight.Medium),
+            bodyLarge = TextStyle(fontSize = 16.sp, lineHeight = 25.sp),
+            bodyMedium = TextStyle(fontSize = 14.sp, lineHeight = 22.sp),
+            bodySmall = TextStyle(fontSize = 12.sp, lineHeight = 18.sp),
+            labelLarge = TextStyle(fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium),
+            labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 18.sp, letterSpacing = 1.sp, fontWeight = FontWeight.Medium)
+        ), content=content)
 }
 
 @Composable

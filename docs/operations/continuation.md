@@ -58,3 +58,15 @@ preview on the Pixel. Physical Home / Topics / Progress/account-gate navigation
 and preservation of the existing unfinished session passed. The app is open on
 Home. The earlier disconnected-install blocker above is resolved. See latest
 PROGRESS.md for final native checks and pending hosted Android CI/UX acceptance.
+
+## Mobile-first design implementation — 24 October 2026
+
+Owner accepted the new interactive direction and requested implementation while
+away, without a phone. Native Android and mobile web now implement that direction;
+see the latest PROGRESS.md entry and docs/product/mobile-design-2026-10-24.md.
+Final local native tests/build/lint and web checks/build pass. The preview APK is
+built with the existing production public configuration but has not been installed
+or published. Native images are Robolectric renders, not device acceptance.
+Next: owner review/device acceptance of this build, retaining the Android hold
+and outstanding lifecycle gates. No push or deployment is authorized by this
+implementation checkpoint alone.

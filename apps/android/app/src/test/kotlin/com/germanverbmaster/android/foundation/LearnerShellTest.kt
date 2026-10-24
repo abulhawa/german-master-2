@@ -72,7 +72,7 @@ class LearnerShellTest {
         compose.onNodeWithText("Start practice").performScrollTo().assertIsNotEnabled()
         compose.onNodeWithText("Sync all saved work").assertDoesNotExist()
         compose.onNodeWithText("Downloaded practice").assertDoesNotExist()
-        compose.onNodeWithText("Account").performScrollTo().performClick()
+        compose.onNodeWithContentDescription("Account").performScrollTo().performClick()
         compose.onNodeWithText("Downloaded practice").performScrollTo().assertExists()
         compose.onNodeWithText("Sync all saved work").performScrollTo().assertExists()
         compose.onNodeWithText("Edit preferences").performScrollTo().performClick()

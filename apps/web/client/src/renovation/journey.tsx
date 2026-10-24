@@ -9,6 +9,7 @@ import { homeCopy } from "./home-locales";
 import { shellCopy } from './shell-locales';
 import { providerCopy } from './provider-locales';
 import './workspace.css';
+import './mobile-design.css';
 import { StudyArt } from './study-art';
 import { AppMark } from './app-mark';
 import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, RefreshCw } from 'lucide-react';
@@ -328,6 +329,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</span>}
         <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) navigate("home"); else setClosing(true); }}>{c.close}</FoundationButton>
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
+      {view === 'practice' && p?.session && !complete && <progress className="gm-session-progress" value={p.index} max={p.session.questions.length} aria-label={`${c.question} ${p.index + 1} ${c.of} ${p.session.questions.length}`} />}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
         {accountSecurity?.(state.locale, busy || loaded.damaged)}

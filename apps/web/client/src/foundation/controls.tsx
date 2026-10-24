@@ -5,6 +5,6 @@ export function FoundationButton(
 ) {
   return <button {...props} className={`gm-button ${props.className ?? ""}`} />;
 }
-export function PracticeCard({ children }: { children: ReactNode }) {
-  return <section className="gm-card">{children}</section>;
+export function PracticeCard({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return <section className={`gm-card ${className}`}>{children}</section>;
 }

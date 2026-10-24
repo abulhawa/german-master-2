@@ -40,9 +40,8 @@ fun NativeTopicsView(cache: LearnerCache, screen: String, id: String, german: Bo
         "topics" -> {
             if (catalog.topics.isEmpty()) Text(text("No topics available.", "Keine Themen verfügbar."))
             catalog.topics.forEach { topic ->
-                button(localized(topic.title)) { open("topic", topic.id) }
                 val targets = catalog.targets.filter { it.topicId == topic.id }
-                Text(text("${targets.sumOf { it.availableQuestionCount }} questions available.", "${targets.sumOf { it.availableQuestionCount }} Aufgaben verfügbar."))
+                StudyTopicRow(localized(topic.title), text("${targets.sumOf { it.availableQuestionCount }} questions available.", "${targets.sumOf { it.availableQuestionCount }} Aufgaben verfügbar."), { open("topic", topic.id) }, !busy)
             }
         }
         "topic" -> {

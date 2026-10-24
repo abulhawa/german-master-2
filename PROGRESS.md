@@ -218,3 +218,40 @@ Next action: use owner feedback on the concrete visual proposal to refine the
 direction, then implement the agreed design across web and native Android in the
 same slice, preserving account isolation, drafts and existing practice semantics.
 The Android publication hold remains.
+
+## Approved direction implemented mobile first — 24 October 2026
+
+Owner accepted the concrete proposal and requested autonomous mobile-first
+implementation without a phone. Implemented native Android and aligned mobile
+web in the same slice. See [mobile design](docs/product/mobile-design-2026-10-24.md).
+Shared generated colours, Compose typography/shapes, compact headers, calmer Home
+cards, topic rows, answer choices, question progress and feedback now follow the
+approved direction. Sign-in and contextual account gates use the same treatment.
+Account-backed Progress has a useful empty state and the existing practice action;
+destination changes reset scroll. Drafts, grading, content revisions, account
+isolation and explicit attachment are preserved. M2 remains the active milestone.
+
+Verification: offline root dependency reinstall, generated/web/backend checks,
+production learner/API build and full root test run passed (198 backend, 434 web,
+20 HTTP tests). After final web layout refinements, checks/build and 71 mounted
+guest/account journey regressions passed again. Native final focused run passed
+35 tests across seven suites, including 11 native render cases. Debug and
+learnerPreview assembly and lint passed (zero errors, 19 existing warnings).
+Rendered light/dark, narrow German, large text, practice, Topics, authentication
+and fixture-backed Home/Progress were visually inspected. A discovered native
+scroll-retention defect and web CSS spacing conflict were corrected.
+
+Local browser verification passed the guest practice journey at 390px, German
+Home at 320px and desktop layout at 1280px, with no horizontal overflow. These are
+local real-component checks, not new production or live-account acceptance.
+The final learnerPreview APK was separately assembled with the existing clean
+production project/public key/API origin and passed the release-configuration
+guard. No private credential was used. No emulator image/device was available;
+no physical install, live native Auth or renewed TalkBack acceptance is claimed.
+No push, deployment or store publication occurred.
+
+Exact next action: review the built mobile preview with the owner; install it on
+an available device without clearing data, complete native/live account acceptance,
+then address demonstrated issues before requesting Android release approval.
+Prior export/disconnect/second-account gates remain open. Keep the approved visual
+direction and both clients aligned; do not restart broad design analysis.

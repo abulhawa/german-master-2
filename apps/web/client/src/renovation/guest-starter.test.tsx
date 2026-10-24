@@ -10,7 +10,7 @@ afterEach(() => {
 it("starts real guest practice without authentication and restores the saved draft/feedback", () => {
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
-  expect(screen.getByRole("heading", { name: "Practise German" })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "A little German. A little more confidence." })).toBeInTheDocument();
   expect(screen.queryByRole("button", { name: "Try German Master" })).toBeNull();
   expect(screen.queryByLabelText("Your current German level")).toBeNull();
   expect(screen.queryByLabelText("Usual session")).toBeNull();
@@ -139,7 +139,7 @@ it("keeps the interface language selector reachable from guest home", () => {
   const language = screen.getByRole("combobox", { name: "Interface language" });
   fireEvent.change(language, { target: { value: "de" } });
   expect(document.querySelector("main")).toHaveAttribute("lang", "de");
-  expect(screen.getByRole("heading", { name: "Deutsch üben" })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "Ein wenig Deutsch. Ein Stück sicherer." })).toBeInTheDocument();
   expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).locale).toBe("de");
 });
 

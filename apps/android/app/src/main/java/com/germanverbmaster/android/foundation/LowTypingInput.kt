@@ -33,6 +33,10 @@ fun LowTypingInput(exercise: Exercise, draft: Answer?, order: List<String> = emp
     val moveLeft = stringResource(R.string.practice_move_left)
     val moveRight = stringResource(R.string.practice_move_right)
     @Composable fun option(label: String, selected: Boolean = false, enabled: Boolean = true, choice: Boolean = false, click: () -> Unit) {
+        if (choice) {
+            ChoiceOption(label, selected, enabled && !readOnly, click)
+            return
+        }
         val colors = MaterialTheme.colorScheme
         OutlinedButton(onClick = click, enabled = enabled && !readOnly, shape = RoundedCornerShape(14.dp),
             border = BorderStroke(if (selected) 2.dp else 1.dp, if (selected) colors.primary else colors.outline),

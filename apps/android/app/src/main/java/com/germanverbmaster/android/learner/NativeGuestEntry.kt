@@ -58,12 +58,10 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     fun text(en:String,de:String)=if(german)de else en
     fun commit(next:NativeGuestState):Boolean = try {store.write(next);state=next;failed=false;true}catch(_:Exception){failed=true;false}
     @Composable fun primary(label:String,enabled:Boolean=true,action:()->Unit) {
-        Button(onClick=action,enabled=enabled,modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(label)}
+        StudyPrimary(label,enabled,action)
     }
     @Composable fun section(content:@Composable ColumnScope.()->Unit) {
-        OutlinedCard(colors=CardDefaults.outlinedCardColors(containerColor=MaterialTheme.colorScheme.surface),modifier=Modifier.fillMaxWidth()) {
-            Column(Modifier.padding(20.dp),verticalArrangement=Arrangement.spacedBy(16.dp),content=content)
-        }
+        StudyPanel(content)
     }
     val active=state.started && state.index<content.session.questions.size
     val focused=screen=="practice"
@@ -88,39 +86,44 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     }
     Scaffold(modifier=Modifier.fillMaxSize(),contentWindowInsets=WindowInsets.safeDrawing,containerColor=MaterialTheme.colorScheme.background,
         bottomBar={if(!focused) LearnerNavigation(screen,german) {returnTo="home";screen=it}}) {insets->
-        Column(Modifier.padding(insets).verticalScroll(scroll).padding(24.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
-            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
-                Text("German Master",Modifier.weight(1f),style=MaterialTheme.typography.titleLarge)
-                if(!focused) TextButton(onClick=language,modifier=Modifier.semantics {contentDescription=text("Interface language","Sprache der Oberfläche")}){Text(if(german)"DE" else "EN")}
+        Column(Modifier.padding(insets).widthIn(max=720.dp).fillMaxWidth().verticalScroll(scroll).padding(horizontal=24.dp,vertical=16.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
+            if(!focused) StudyHeader(german,{openAccount()},language)
+            else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+                TextButton(onClick={if(active)closing=true else screen="home"}){Text(text("Close practice","Übung schließen"))}
+                if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                 TextButton(onClick={openAccount()}){Text(text("Account","Konto"))}
-                if(focused) TextButton(onClick={if(active)closing=true else screen="home"}){Text(text("Close practice","Übung schließen"))}
             }
             when(screen) {
                 "home" -> {
-                    Text(text("Practise German","Deutsch üben"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
-                    Text(text("A short session, one question at a time.","Eine kurze Übung, eine Aufgabe nach der anderen."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                    StudyEyebrow(text("YOUR PRACTICE","DEINE ÜBUNG"))
+                    StudyPageTitle(text("A little German.\nA little more confidence.","Ein wenig Deutsch.\nEin Stück sicherer."))
+                    Text(text("Make time for a short, focused session.","Nimm dir Zeit für eine kurze, gezielte Übung."),color=MaterialTheme.colorScheme.onSurfaceVariant)
                     section {
-                        Text(text("Grammar foundations","Grammatik-Grundlagen"),style=MaterialTheme.typography.titleLarge)
-                        Text(text("Five B1 questions to practise the basics.","Fünf B1-Aufgaben, um die Grundlagen zu üben."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                        StudyEyebrow(text("B1 · 5 questions · Mixed practice","B1 · 5 Aufgaben · Gemischte Übung"))
+                        Text(text("Build your foundations","Festige deine Grundlagen"),style=MaterialTheme.typography.titleLarge)
+                        Text(text("Articles, plurals and the patterns that hold a sentence together.","Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
                         primary(startLabel,loaded.isSuccess){start()}
                         Text(text("Your practice is saved on this device.","Deine Übungen sind auf diesem Gerät gespeichert."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                     }
+                    Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+                        StudyEyebrow(text("IN THIS SESSION","IN DIESER ÜBUNG"))
+                        TextButton(onClick={screen="topics"}){Text(text("View topics","Themen ansehen"))}
+                    }
+                    Text(text("Noun plurals · Dative articles · Prepositions · Word order · Verb forms","Pluralformen · Dativartikel · Präpositionen · Wortstellung · Verbformen"),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
                 }
                 "topics" -> {
-                    Text(text("Topics","Themen"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
-                    Text(text("Five B1 questions to practise the basics.","Fünf B1-Aufgaben, um die Grundlagen zu üben."),color=MaterialTheme.colorScheme.onSurfaceVariant)
-                    section {
-                        Text("B1",style=MaterialTheme.typography.labelLarge,color=MaterialTheme.colorScheme.primary)
-                        Text(text("Grammar foundations","Grammatik-Grundlagen"),style=MaterialTheme.typography.titleLarge)
-                        Text(text("In this session","In dieser Übung"),style=MaterialTheme.typography.titleMedium)
+                    StudyEyebrow(text("EXPLORE · B1","ENTDECKEN · B1"))
+                    StudyPageTitle(text("Grammar foundations","Grammatik-Grundlagen"))
+                    Text(text("Five patterns. One short B1 session.","Fünf Muster. Eine kurze B1-Übung."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                    Column {
                         listOf("Noun plurals" to "Pluralformen","Dative articles" to "Dativartikel","Prepositions" to "Präpositionen","Word order" to "Wortstellung","Verb forms" to "Verbformen").forEach { (en,de)->
-                            Text("• "+text(en,de))
+                            StudyTopicRow(text(en,de))
                         }
-                        primary(startLabel,loaded.isSuccess){start()}
                     }
+                    primary(startLabel,loaded.isSuccess){start()}
                 }
                 "progress","account","downloads" -> {
-                    Text(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Account","Konto")},Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
+                    StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Account","Konto")})
                     section {
                         Text(text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                         primary(text("Sign in","Anmelden")){account("sign-in")}
@@ -146,7 +149,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     }
                 } else if(loaded.isSuccess) {
                 val exercise=content.session.questions[state.index].exercise
-                Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"))
+                LinearProgressIndicator(progress={state.index.toFloat()/content.session.questions.size},modifier=Modifier.fillMaxWidth().height(4.dp),trackColor=MaterialTheme.colorScheme.outlineVariant)
                 PracticeHeading(exercise.prompt,exercise.id)
                 if(exercise !is ExerciseShortAnswer) Text(if(german)exercise.instruction.de else exercise.instruction.en)
                 val feedback=state.feedback
@@ -169,7 +172,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                                     is AnswerMultiSlot -> answer.values.any {it.slotId==slot && it.text==option}
                                     else -> false
                                 }
-                                Row(Modifier.fillMaxWidth().selectable(selected=selected,role=Role.RadioButton,onClick={
+                                ChoiceOption(option,selected,choose={
                                     val answer:Answer=when(exercise) {
                                         is ExerciseShortAnswer -> AnswerShortAnswer(option)
                                         is ExerciseCloze -> AnswerCloze(listOf(SlotValue(slot,option)))
@@ -181,10 +184,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                                         }
                                         else -> error("Unsupported guest suggestion exercise")
                                     };commit(state.copy(draft=answer))
-                                }).heightIn(min=48.dp),verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
-                                    RadioButton(selected=selected,onClick=null)
-                                    Text(option)
-                                }
+                                })
                             }
                         }
                     }
@@ -197,10 +197,11 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     if(state.assisted) Text(if(german)exercise.hint.de else exercise.hint.en)
                     TextButton(onClick={commit(state.copy(index=state.index+1,draft=null,order=emptyList(),assisted=false))}){Text(text("Skip","Überspringen"))}
                 } else {
-                    Text(if(feedback.outcome=="correct")text("Correct","Richtig")else text("Not quite","Noch nicht ganz"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-                    Text(foundationAnswerText(feedback.acceptedAnswer,exercise))
-                    Text(if(german)feedback.explanation.de else feedback.explanation.en)
-                    primary(text("Continue","Weiter")){commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))}
+                    StudyFeedback(feedback.outcome=="correct",true,german,
+                        state.draft?.let {foundationAnswerText(it,exercise)},foundationAnswerText(feedback.acceptedAnswer,exercise),
+                        if(german)feedback.explanation.de else feedback.explanation.en,false,feedback.completedAnswer) {
+                        commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))
+                    }
                 }
                 }
             }

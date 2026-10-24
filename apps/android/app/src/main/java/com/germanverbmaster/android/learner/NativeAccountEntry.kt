@@ -34,11 +34,14 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
         "reset" -> text("Reset password","Passwort zurücksetzen")
         else -> text("Sign in","Anmelden")
     }
-    Surface(Modifier.fillMaxSize()) {
+    Surface(Modifier.fillMaxSize(),color=MaterialTheme.colorScheme.background) {
         Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
-            Text(title,Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
-            LearnerButton("English / Deutsch",!busy,language)
-            Text(text("Save online progress across devices. Earlier practice stays on this device.","Speichere Online-Fortschritt geräteübergreifend. Bisherige Übungen bleiben auf diesem Gerät."))
+            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+                TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Back to practice","Zurück zur Übung"))}
+                TextButton(onClick=language,enabled=!busy){Text("English / Deutsch")}
+            }
+            StudyPageTitle(title)
+            Text(text("Save online progress across devices. Earlier practice stays on this device.","Speichere Online-Fortschritt geräteübergreifend. Bisherige Übungen bleiben auf diesem Gerät."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
             OutlinedTextField(email,{email=it},label={Text(text("Email","E-Mail"))},singleLine=true,enabled=!busy,
                 keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Email),modifier=Modifier.fillMaxWidth())
             if(mode!="reset") {
@@ -52,7 +55,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
             } else Text(text("Open the email link to choose a new password in your browser, then return here to sign in.","Öffne den E-Mail-Link und wähle im Browser ein neues Passwort. Melde dich anschließend hier an."))
             val valid=android.util.Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches() &&
                 (mode=="reset" || password.isNotEmpty()) && (mode!="register" || password.length>=8 && password==confirmation)
-            LearnerButton(if(mode=="reset") text("Send reset email","E-Mail zum Zurücksetzen senden") else title,!busy&&(!cooldown||mode=="sign-in")&&valid) {
+            StudyPrimary(if(mode=="reset") text("Send reset email","E-Mail zum Zurücksetzen senden") else title,!busy&&(!cooldown||mode=="sign-in")&&valid) {
                 if(!busy&&(!cooldown||mode=="sign-in")) {
                     busy=true;failed=false;sent=false
                     val address=email.trim();val secret=password
@@ -73,7 +76,6 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
                 TextButton(onClick={navigate("register")},enabled=!busy){Text(text("Create account","Konto erstellen"))}
                 TextButton(onClick={navigate("reset")},enabled=!busy){Text(text("Forgot password?","Passwort vergessen?"))}
             }
-            TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Back to practice","Zurück zur Übung"))}
         }
     }
 }

@@ -9,6 +9,9 @@ import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -52,7 +55,7 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
     val hasEvidence = cache.targets.any { it.lastSequence > 0 }
     Text(c(R.string.study_tagline), style = MaterialTheme.typography.headlineLarge,
         modifier = Modifier.semantics { heading() })
-    Surface(color = colors.primary, contentColor = colors.onPrimary, shape = RoundedCornerShape(20.dp)) {
+    Surface(color = colors.surface, contentColor = colors.onSurface, shape = RoundedCornerShape(20.dp), border = BorderStroke(1.dp, colors.outlineVariant)) {
         Column(Modifier.fillMaxWidth().padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Text("${c(R.string.study_practice)} · ${cache.profile?.preferences?.level ?: "B1"}", style = MaterialTheme.typography.labelLarge)
             Text(c(if (!hasEvidence) R.string.study_discover else if (needs + due == 0) R.string.study_quiet else R.string.study_attention),
@@ -64,17 +67,14 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
                 Text("${c(R.string.study_retention)}: $due")
             }
             if (!fresh && cache.generatedAt != null) Text(c(R.string.study_saved_snapshot))
-            Button(onClick = start, enabled = !busy && (cache.practice != null || cache.pending == null && (available ?: 0) > 0),
-                colors = ButtonDefaults.buttonColors(containerColor = colors.onPrimary, contentColor = colors.primary),
-                modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) {
-                Text(c(if (cache.practice != null) R.string.study_continue else R.string.study_start))
-            }
+            StudyPrimary(c(if (cache.practice != null) R.string.study_continue else R.string.study_start),
+                !busy && (cache.practice != null || cache.pending == null && (available ?: 0) > 0), start)
             if (available == null) {
                 Text(c(R.string.study_availability_unknown))
-                TextButton(onClick = refresh, enabled = !busy, colors = ButtonDefaults.textButtonColors(contentColor = colors.onPrimary)) { Text(c(R.string.study_retry)) }
+                TextButton(onClick = refresh, enabled = !busy) { Text(c(R.string.study_retry)) }
             } else if (available == 0) {
                 Text(c(R.string.study_no_questions))
-                TextButton(onClick = preferences, enabled = !busy, colors = ButtonDefaults.textButtonColors(contentColor = colors.onPrimary)) { Text(c(R.string.study_preferences)) }
+                TextButton(onClick = preferences, enabled = !busy) { Text(c(R.string.study_preferences)) }
             }
         }
     }
@@ -82,14 +82,8 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
         Text(c(R.string.study_explore), style = MaterialTheme.typography.titleLarge, modifier = Modifier.semantics { heading() })
         Text(c(R.string.study_explore_body), color = colors.onSurfaceVariant)
         topics.forEach { topic ->
-            OutlinedButton(onClick = { openTopic(topic.id) }, enabled = !busy,
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = colors.onSurface),
-                shape = RoundedCornerShape(14.dp), modifier = Modifier.fillMaxWidth().heightIn(min = 64.dp)) {
-                Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(if (german) topic.title.de else topic.title.en, style = MaterialTheme.typography.titleMedium)
-                    Text("${cache.catalog.targets.count { it.topicId == topic.id }} ${c(R.string.study_targets)}", color = colors.onSurfaceVariant)
-                }
-            }
+            StudyTopicRow(if(german) topic.title.de else topic.title.en,
+                "${cache.catalog.targets.count { it.topicId == topic.id }} ${c(R.string.study_targets)}", {openTopic(topic.id)}, !busy)
         }
     }
     cache.targets.filter { it.state == "needs_practice" || it.isDue }.take(3).takeIf { it.isNotEmpty() }?.let { targets ->
@@ -110,15 +104,17 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
     val focus = remember { FocusRequester() }
     val visibility = remember { BringIntoViewRequester() }
     LaunchedEffect(answer, accepted, correct, provisional) { focus.requestFocus(); visibility.bringIntoView() }
-    Surface(shape = RoundedCornerShape(14.dp), color = MaterialTheme.colorScheme.surface,
-        border = BorderStroke(1.dp, tone)) {
+    Surface(shape = RoundedCornerShape(14.dp), color = androidx.compose.ui.graphics.lerp(MaterialTheme.colorScheme.surface, tone, 0.08f)) {
         Column(Modifier.fillMaxWidth().padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text((if (correct) "✓ " else "ⓘ ") + c(if (provisional) {
+            Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Icon(if(correct) Icons.Outlined.CheckCircle else Icons.Outlined.Info, contentDescription = null, tint = tone)
+            Text(c(if (provisional) {
                 if (correct) R.string.study_locally_correct else R.string.study_locally_incorrect
             } else if (correct) R.string.study_correct else R.string.study_incorrect),
                 color = tone, style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.bringIntoViewRequester(visibility).focusRequester(focus).focusable()
                     .semantics { liveRegion = androidx.compose.ui.semantics.LiveRegionMode.Polite })
+            }
             if (!correct) answer?.let { Text("${c(R.string.study_your_answer)}: $it") }
             if (completedAnswer == null) Text("${c(R.string.study_accepted)}: $accepted")
             else Text(buildAnnotatedString {
@@ -131,5 +127,5 @@ internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boole
             Text(explanation)
         }
     }
-    Button(onClick = next, enabled = !busy, modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text(c(R.string.study_next)) }
+    StudyPrimary(c(R.string.study_next), !busy, next)
 }
