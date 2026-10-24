@@ -102,6 +102,21 @@ it("preserves a damaged guest record until the learner explicitly resets it", ()
   expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe("{broken");
 });
 
+it("keeps the interface language selector reachable from guest home", () => {
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+  for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+  fireEvent.click(screen.getByRole("button", { name: "Finish" }));
+
+  const language = screen.getByRole("combobox", { name: "Interface language" });
+  fireEvent.change(language, { target: { value: "de" } });
+  expect(document.querySelector("main")).toHaveAttribute("lang", "de");
+  expect(screen.getByRole("heading", { name: "Weiter üben" })).toBeInTheDocument();
+  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).locale).toBe("de");
+});
 
 it("finishing guest practice avoids a second account prompt and honestly offers only a repeat starter", () => {
   render(<GuestStarterJourney onAuth={vi.fn()} />);
@@ -114,7 +129,15 @@ it("finishing guest practice avoids a second account prompt and honestly offers 
   fireEvent.click(screen.getByRole("button", { name: "Finish" }));
   expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
   expect(screen.queryByRole("button", { name: "Change setup" })).toBeNull();
+
+  cleanup();
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Repeat the five questions" }));
   expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
-  // A new session may offer one optional account prompt when completed again.
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+  for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+  expect(screen.getByRole("heading", { name: "Keep your progress" })).toBeInTheDocument();
 });

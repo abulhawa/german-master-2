@@ -483,7 +483,9 @@ export function GuestStarterJourney({
   </div></main>;
 
   if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master</strong></div><span>{c.subtitle}</span></header>
+    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master</strong></div><span>{c.subtitle}</span>
+      <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+    </header>
     <PracticeCard>
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
