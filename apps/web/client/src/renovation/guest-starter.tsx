@@ -292,6 +292,8 @@ const copy = {
     q10: "10 questions", q15: "15 questions", q20: "20 questions",
     lengthHelp: "About 10 minutes for 15 questions. No timer.",
     try: "Try German Master",
+    returnWelcome: "Back to German Master Home",
+    accountTitle: "Your account", accountBody: "Sign in or create an account at any time.",
     existing: "I already have an account",
     resumeAccount: "Continue saved account",
     localStatus: "Guest practice · saved on this device",
@@ -333,6 +335,8 @@ const copy = {
     q10: "10 Fragen", q15: "15 Fragen", q20: "20 Fragen",
     lengthHelp: "Etwa 10 Minuten für 15 Fragen. Ohne Zeitdruck.",
     try: "German Master ausprobieren",
+    returnWelcome: "Zur German-Master-Startseite",
+    accountTitle: "Dein Konto", accountBody: "Du kannst dich jederzeit anmelden oder ein Konto erstellen.",
     existing: "Ich habe bereits ein Konto",
     resumeAccount: "Gespeichertes Konto fortsetzen",
     localStatus: "Gastübung · auf diesem Gerät gespeichert",
@@ -376,10 +380,11 @@ export function GuestStarterJourney({
   const [state, setState] = useState(loaded.state);
   const [damaged, setDamaged] = useState(loaded.damaged);
   const [storageError, setStorageError] = useState(false);
-  const [view, setView] = useState<"home" | "practice">("home");
+  const [view, setView] = useState<"welcome" | "home" | "practice">("home");
   const [closing, setClosing] = useState(false);
   const c = copy[state.locale];
   const unattachedCount = guestUnattachedAttemptCount();
+  const showSavePrompt = unattachedCount > 0 && !state.savePromptDismissed;
   const complete = !!state.session && state.index >= state.session.questions.length;
   const active = !!state.session && !complete;
   const question = active ? state.session!.questions[state.index] : null;
@@ -465,9 +470,11 @@ export function GuestStarterJourney({
   if (damaged) return <main className="gm-foundation" lang={state.locale}><div className="gm-column"><PracticeCard>
     <h1>German Master</h1><p role="alert">{c.damaged}</p>
     <FoundationButton onClick={resetDamaged}>{c.reset}</FoundationButton>
+    <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+    <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
   </PracticeCard></div></main>;
 
-  if (!state.setupCompleted) return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
+  if (!state.setupCompleted || view === "welcome") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
     <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
       <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
     </header>
@@ -475,7 +482,7 @@ export function GuestStarterJourney({
       <p className="gm-kicker">{shellCopy[state.locale].guestLabel}</p>
       <h1>{c.title}</h1><p className="gm-welcome-intro">{c.intro}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
-      <FoundationButton className="gm-welcome-start" disabled={storageError} onClick={begin}>{c.try}<span aria-hidden="true">↗</span></FoundationButton>
+      <FoundationButton className="gm-welcome-start" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : c.try}<span aria-hidden="true">↗</span></FoundationButton>
       <p className="gm-meta">{shellCopy[state.locale].guestNote}</p>
       <FoundationButton className="gm-text-button gm-secondary" onClick={()=>onAuth('sign-in')}>{c.existing}</FoundationButton>
       {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
@@ -490,18 +497,22 @@ export function GuestStarterJourney({
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
       <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={() => setView("welcome")}>{c.returnWelcome}</FoundationButton>
     </PracticeCard>
-    {unattachedCount > 0 && !state.savePromptDismissed && <PracticeCard><h2>{c.saveAcross}</h2><p>{c.saveAcrossBody}</p>
-      <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
-    </PracticeCard>}
+    <PracticeCard><h2>{showSavePrompt ? c.saveAcross : c.accountTitle}</h2><p>{showSavePrompt ? c.saveAcrossBody : c.accountBody}</p>
+      <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
+    </PracticeCard>
     {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
   </div></main>;
 
   return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-practice-header"><strong>German Master</strong>
       {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
-      <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
+      <div className="gm-guest-practice-actions">
+        <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+        <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
+      </div>
     </header>
     {storageError && <p role="alert">{c.storageError}</p>}
     {closing ? <PracticeCard><h1>{c.leaveTitle}</h1><p>{c.leaveBody}</p>
