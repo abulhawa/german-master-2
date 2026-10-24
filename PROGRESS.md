@@ -335,3 +335,16 @@ No push, production deployment, store upload, schema/content reset or live AI ca
 occurred. Exact next action: install the preview when the phone reconnects and
 review the reference; obtain the applicable rollout decision for web. Android
 store publication and outstanding account-lifecycle gates remain held.
+
+## Grammar preview installed — 25 October 2026
+
+Owner reconnected the Pixel and requested the pending installation/status check.
+Replacement installation of the production-configured grammar-reference preview
+built from bd73a70 succeeded without uninstalling or clearing data. Explicit
+launch succeeded; device hierarchy confirmed the preview and its new Grammar
+entry. The phone auto-locked during the subsequent menu interaction, so no
+completed physical reference-browsing journey is claimed. Native/browser tests
+and render evidence remain as recorded above. Web source is aligned and tested,
+but production deployment is still outstanding; no web rollout or store release
+occurred. Next: owner review of the installed reference and the applicable web
+rollout decision. Android publication hold remains.
