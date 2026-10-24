@@ -25,6 +25,7 @@ it('client recovers admitted HTTP deletion after lost response and restart witho
  const provider=new VerifiedLearnerProvider(sdk as unknown as SupabaseClient['auth'],project,()=>1000,saved);
  let lose=true;const send:typeof fetch=async(input,init)=>{
    const url=new URL(String(input));expect(url.search).toBe('');
+   expect(init?.credentials).toBe('same-origin');
    const response=await fetch(`${base}${url.pathname}`,init);
    if(url.pathname.endsWith(':begin')&&lose){lose=false;throw Error('lost receipt');}return response;
  };

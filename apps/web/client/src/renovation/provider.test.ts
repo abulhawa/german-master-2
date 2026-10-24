@@ -87,7 +87,7 @@ it('uses verified credentials for reads and frozen submissions; never sends fixt
     expect(input.toString()).toBe('https://api.example/v2/sessions');
     expect(new Headers(init.headers).get('Authorization')).toBe(`Bearer ${f.token()}`);
     expect(new Headers(init.headers).get('X-Learner-Subject')).toBe(subject);
-    expect(init.redirect).toBe('error'); expect(init.credentials).toBe('omit');
+    expect(init.redirect).toBe('error'); expect(init.credentials).toBe('same-origin');
     expect(JSON.parse(init.body)).toEqual(request);
     return new Response('', { status: 503 });
   });
@@ -138,4 +138,19 @@ it('leaves sign-out retryable after failed revocation and preserves synced draft
   await signout.finish(false, sync, cleanup, () => {}, () => f.provider.revoke(account));
   expect(signout.read()?.complete).toBe(true); expect(sync).toHaveBeenCalledOnce(); expect(cleanup).not.toHaveBeenCalled();
   expect(f.auth.signOut).toHaveBeenLastCalledWith({ scope: 'local' }); expect(() => account.assertCurrent()).toThrow();
+});
+
+it('passes same-origin hosting protection while retaining verified bearer authority', async () => {
+  const f=fixture(), account=await f.provider.bind();
+  const send=vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+    // The protected preview rejects credential-less traffic before the API runs.
+    if(init?.credentials!=='same-origin') throw Error('Hosting protection blocked');
+    expect(new Headers(init.headers).get('Authorization')).toBe(`Bearer ${f.token()}`);
+    return new Response(JSON.stringify({apiVersion:'v2',revision:1,setupCompleted:true,preferences:{locale:'en',timezone:'Europe/Berlin',level:'B1',sessionQuestionCount:15}}));
+  });
+  const api=f.provider.api(account,'https://api.example',send);
+  expect((await api.profile()).setupCompleted).toBe(true);
+  f.provider.invalidate();
+  await expect(api.profile()).rejects.toThrow('Sign in');
+  expect(send).toHaveBeenCalledTimes(1);
 });

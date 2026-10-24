@@ -116,7 +116,9 @@ export class VerifiedLearnerProvider {
       const headers = new Headers(init?.headers);
       headers.set('Authorization', `Bearer ${credential.token}`);
       headers.set('X-Learner-Subject', account.identity.subject);
-      const response = await send(new URL(input, url), { ...init, headers, cache: 'no-store', credentials: 'omit', redirect: 'error' });
+      // Same-origin hosting protection may need its cookie; cross-origin API cookies
+      // remain excluded by fetch. Application authority still comes from the bearer.
+      const response = await send(new URL(input, url), { ...init, headers, cache: 'no-store', credentials: 'same-origin', redirect: 'error' });
       account.assertCurrent();
       new LearnerIdentityDeletion(account,account.storage(this.saved)).assertActive();
       if (response.status === 401) { this.online = false; throw Error('Sign in before syncing'); }
@@ -133,7 +135,7 @@ export class VerifiedLearnerProvider {
     if(url.protocol!=='https:' || url.username || url.password || url.pathname!=='/' || url.search || url.hash) throw Error('HTTPS API origin required');
     const request=async (path:string,body:unknown,headers:Headers)=> {
       headers.set('Content-Type','application/json');
-      const response=await send(new URL(path,url),{method:'POST',body:JSON.stringify(body),headers,cache:'no-store',credentials:'omit',redirect:'error',signal:AbortSignal.timeout(15000)});
+      const response=await send(new URL(path,url),{method:'POST',body:JSON.stringify(body),headers,cache:'no-store',credentials:'same-origin',redirect:'error',signal:AbortSignal.timeout(15000)});
       if(!response.ok)throw Error('Identity deletion unavailable');
       return IdentityDeletionResponseSchema.parse(await response.json());
     };
