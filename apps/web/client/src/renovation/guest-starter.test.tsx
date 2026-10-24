@@ -74,6 +74,61 @@ it("keeps sign-in optional before the first exercise", () => {
   expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBeNull();
 });
 
+
+it("offers a direct sign-in during Try mode and a path back to the regular Home without losing a draft", () => {
+  const onAuth = vi.fn();
+  render(<GuestStarterJourney onAuth={onAuth} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  const savedDraft = JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!);
+
+  fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
+  expect(onAuth).toHaveBeenCalledWith("sign-in");
+  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!)).toEqual(savedDraft);
+
+  fireEvent.click(screen.getByRole("button", { name: "Close practice" }));
+  fireEvent.click(screen.getByRole("button", { name: "Save and return Home" }));
+  expect(screen.getByRole("button", { name: "Sign in" })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Create account" })).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole("button", { name: "Back to German Master Home" }));
+  expect(screen.getByRole("heading", { name: "Practise what needs attention." })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "I already have an account" })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
+  expect(screen.getByRole("radio", { name: "Berufe" })).toBeChecked();
+  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!)).toEqual(savedDraft);
+});
+
+it("keeps Sign in available after a completed starter and dismissed save prompt", () => {
+  const onAuth = vi.fn();
+  render(<GuestStarterJourney onAuth={onAuth} />);
+  fireEvent.click(screen.getByRole("button", { name: "Try German Master" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
+  fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+  for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+  fireEvent.click(screen.getByRole("button", { name: "Not now" }));
+  fireEvent.click(screen.getByRole("button", { name: "Finish" }));
+
+  expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
+  expect(screen.getByRole("heading", { name: "Your account" })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
+  expect(onAuth).toHaveBeenCalledWith("sign-in");
+
+  cleanup();
+  render(<GuestStarterJourney onAuth={onAuth} />);
+  expect(screen.getByRole("button", { name: "Sign in" })).toBeInTheDocument();
+});
+
+it("allows sign-in even if saved guest practice is damaged", () => {
+  localStorage.setItem(GUEST_STORAGE_KEY, "{broken");
+  const onAuth = vi.fn();
+  render(<GuestStarterJourney onAuth={onAuth} />);
+  fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
+  expect(onAuth).toHaveBeenCalledWith("sign-in");
+  expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe("{broken");
+});
+
 it("builds account-scoped replay-safe attachment data without trusting the local evaluation", () => {
   const subject="00000000-0000-4000-8000-000000000020";
   render(<GuestStarterJourney onAuth={vi.fn()} />);

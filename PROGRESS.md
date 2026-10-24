@@ -40,3 +40,11 @@ Verification: fresh root type checks and production build passed; all four restr
 Owner requested stopping further allowance consumption to preserve studies. Stop discretionary testing/investigation. On a future explicit resume, inspect hosted CI results first; retain export/disconnect/second-account/native acceptance gaps and disabled deletion. Production deployment is complete; M2 is not closed.
 
 Minimal favicon follow-up: added a conventional favicon.ico wrapping the existing 64px PNG without changing its artwork or page UI. Learner production build and emitted ICO integrity check passed. Pushing main deploys it to the existing production domains; Vercel dashboard refresh timing remains outside application control.
+
+## Guest-mode navigation hotfix (24 October 2026)
+
+After production cutover, a critical visitor flow was reported: entering "Try German Master" left no route to the original welcome/Home screen, and Sign in / Create account disappeared from guest Home unless an unattached local answer made the save prompt visible. This affected returning guests, skipped-only practice, and completed/dismissed prompts.
+
+Branch `fix/guest-exit-and-sign-in-20261024` changes guest-only presentation: direct Sign in on focused practice, permanent sign-in and registration from guest Home, explicit return to the welcome page with a resumable unfinished session, and account access when guest storage is damaged. Drafts, graded attempts, optional attachment and backend rules remain untouched. Focused regressions cover no-answer navigation, draft preservation, completed/dismissed prompts, reload and damaged guest storage. Responsive header actions wrap.
+
+Verification/deployment boundary: GitHub PR #23 CI and review must pass before merging to main, which automatically deploys production. No database or Android release changes. Next action: examine PR #23 checks; merge the verified fix; confirm live guest exit, sign-in entry and resumed draft on germanmaster.qortxai.com.
