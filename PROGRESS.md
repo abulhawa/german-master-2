@@ -109,3 +109,21 @@ Exact next action: keep both clients aligned for the next user-facing blocker;
 complete real native UX/account acceptance on an available device before asking
 for Android release approval. Do not restart the stopped screenshot review or
 accepted TalkBack scope without a new request or demonstrated critical defect.
+
+## Pixel installation — 24 October 2026
+
+Owner requested installing the aligned Android app on their Pixel. Built the
+learnerPreview variant from 12e7230 with the clean replacement project, canonical
+production API and the public publishable key from the deployed web artifact.
+Verified configuration without printing the key. Offline preview assembly passed.
+ADB replacement install succeeded on the connected Pixel 10 Pro for the existing
+preview package, preserving its data and leaving the separate store app intact.
+No uninstall, data clear, owner signing-key access or Play upload occurred.
+
+Launched German Master Preview successfully (cold launch, app process running).
+Device UI hierarchy confirms direct Practise German Home, retained existing
+completion state (Repeat the five questions), and Progress / Downloads / Account
+without Sign in / Create account on Home. This closes install/basic launch
+verification only; no complete native account lifecycle or owner UX acceptance
+is claimed. The Android publication hold remains. Exact next action: owner tests
+the installed preview; address demonstrated user-facing blockers on both clients.

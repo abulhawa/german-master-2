@@ -33,3 +33,11 @@ Android release/callback guards also target the clean production replacement.
 See the latest PROGRESS.md evidence and limits. Do not defer client parity as an
 optional follow-up or imply that source/test parity lifts the Android release
 hold. No device/emulator acceptance or native live Auth acceptance is claimed.
+
+## Latest device evidence — 24 October 2026
+
+Owner-authorized Pixel 10 Pro installation of the aligned learnerPreview build
+from 12e7230 succeeded, preserving existing preview data and the separate store
+app. The app was opened and direct practice Home verified from the device UI
+hierarchy. See PROGRESS.md. This is basic install/launch evidence, not complete
+native account acceptance or permission to publish Android.
