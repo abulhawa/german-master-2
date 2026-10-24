@@ -32,7 +32,7 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     var accountMode by remember { mutableStateOf<String?>(null) }
     var german by remember { mutableStateOf(false) }
     var localOnly by remember { mutableStateOf(runCatching { subjectStore.read() != null }.getOrDefault(false)) }
-    LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false } }
+    LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false;accountMode=null } }
     if(!showLogin && (localOnly || status is SessionStatus.Authenticated)) {
         // Each provider session-state replacement keys a new bound learner tree.
         key(status,localOnly) { ProviderLearnerShell(provider,origin,directory,0,localOnly,
@@ -50,8 +50,8 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     } else {
         NativeAccountEntry(mode,german,{german=!german},{accountMode=it}) { action,email,password ->
             // The accepted web email callback belongs to this production Auth project only.
-            // Replacement environments need their own verified frontend callback first.
-            require(action == "sign-in" || project == "zgmyrpzwgtydwlzponih")
+            // The recovered production web callbacks were accepted on the clean replacement.
+            require(action == "sign-in" || project == "sqgjsmiaprsuilcjmaav")
             when(action) {
                 "sign-in" -> client.auth.signInWith(Email) {this.email=email;this.password=password}
                 "register" -> client.auth.signUpWith(Email, redirectUrl="https://germanmaster.qortxai.com/") {this.email=email;this.password=password}

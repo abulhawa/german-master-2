@@ -23,3 +23,13 @@ The owner subsequently authorized main/production deployment on the existing Ver
 ## Latest direction — practice without sign-in (24 October 2026)
 
 Prioritize user-facing release blockers only. Owner authorized immediate main/production deployment: open directly to practice Home; remove welcome/Try/guest selection and signup promotions. Account-backed pages explain the account requirement and offer Sign in / Create account. Preserve drafts and explicit account attachment. See the latest PROGRESS.md entry and practice-presentation.md. Android parity remains pending; no Android release authorization.
+
+## Standing parity rule — 24 October 2026
+
+Complete shared user-facing fixes on web and Android in the same slice. The
+practice-access flow is now aligned in Android source and mounted native UI
+tests, including contextual account gates and draft-preserving Back/cancel.
+Android release/callback guards also target the clean production replacement.
+See the latest PROGRESS.md evidence and limits. Do not defer client parity as an
+optional follow-up or imply that source/test parity lifts the Android release
+hold. No device/emulator acceptance or native live Auth acceptance is claimed.

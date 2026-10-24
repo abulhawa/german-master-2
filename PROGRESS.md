@@ -70,3 +70,42 @@ backend CI results were still pending when this entry was written. Updated the
 existing tab-return helper to use Start practice and the choice-based draft.
 Exact next action: inspect the remaining hosted CI results; then continue only
 user-facing release blockers. Android parity and prior lifecycle gaps stay open.
+
+## Web / Android parity correction — 24 October 2026
+
+Standing owner direction: always keep web and native Android user-facing
+behavior in sync, completing both clients in the same slice. Recorded in root
+AGENTS.md and the shared practice presentation contract. A release hold affects
+publication, not implementation parity; unavoidable differences must be named
+as release blockers.
+
+Android now follows the web practice-access change: direct practice Home,
+Start/Continue/Repeat, contextual Progress/Downloads/Account pages with the
+account-required message and Sign in / Create account, and no practice Home or
+completion account promotions. Close and system Back retain the choice draft;
+auth cancellation returns to practice Home and can resume it. Completion has
+Finish and the same counts. Account-entry wording no longer calls this guest
+mode, and a verified sign-in clears stale auth-entry mode.
+
+Also corrected a pre-existing backend mismatch: Android release configuration
+and signup/recovery callback eligibility now select the clean replacement used
+by production web, instead of the retired project. Canonical HTTPS callbacks,
+publishable-key validation and verified subject ownership remain in force.
+No hosted Auth, SMTP, database or content settings changed. Synthetic offline
+release-configuration checks accept the clean project and refuse the retired
+project; this is configuration validation, not a live signup/recovery pass.
+
+Verification after the final backend guard correction: five mounted Robolectric
+practice-access regressions (including system Back and auth cancellation), four
+provider and four signed-in shell regressions passed (13 total). Debug assembly
+and lint passed with zero lint errors (19 existing warnings). Earlier web behavior
+has live desktop/mobile acceptance and hosted Web checks passed at 53df03c.
+There is no connected device or configured emulator; no native device runtime
+or renewed TalkBack acceptance is claimed. Android remains unpublished and the
+owner's explicit UX/release hold remains. Full native account-lifecycle and
+existing export/disconnect/second-account acceptance gaps are still open.
+
+Exact next action: keep both clients aligned for the next user-facing blocker;
+complete real native UX/account acceptance on an available device before asking
+for Android release approval. Do not restart the stopped screenshot review or
+accepted TalkBack scope without a new request or demonstrated critical defect.

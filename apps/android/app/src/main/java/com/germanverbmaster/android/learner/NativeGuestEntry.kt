@@ -49,33 +49,78 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     val loaded=remember(store){runCatching {store.read()}}
     var state by remember(store){mutableStateOf(loaded.getOrDefault(NativeGuestState()))}
     var failed by remember {mutableStateOf(false)}
-    var paused by remember {mutableStateOf(false)}
+    var paused by remember {mutableStateOf(true)}
+    var accountPage by remember {mutableStateOf<String?>(null)}
+    var closing by remember {mutableStateOf(false)}
     val scroll = rememberScrollState()
-    LaunchedEffect(state.index, state.feedback, paused) { scroll.scrollTo(0) }
+    LaunchedEffect(state.index, state.feedback, paused, accountPage, closing) { scroll.scrollTo(0) }
     fun text(en:String,de:String)=if(german)de else en
     fun commit(next:NativeGuestState) {try {store.write(next);state=next;failed=false}catch(_:Exception){failed=true}}
     @Composable fun primary(label:String, enabled:Boolean=true, action:()->Unit) {
         Button(onClick=action,enabled=enabled,modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(label)}
     }
-    val practising = loaded.isSuccess && state.started && state.index < content.session.questions.size && !paused
-    BackHandler(enabled=practising) { paused=true }
+    val practiceView = loaded.isSuccess && state.started && !paused && accountPage == null
+    val practising = practiceView && state.index < content.session.questions.size
+    BackHandler(enabled=practiceView || accountPage != null) {
+        if(accountPage != null) {
+            accountPage=null
+            if(state.index>=content.session.questions.size) paused=true
+        } else if(practising) closing=true else paused=true
+    }
+    accountPage?.let { page ->
+        Surface(Modifier.fillMaxSize()) {
+            Column(Modifier.safeDrawingPadding().verticalScroll(scroll).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+                Text(when(page) {
+                    "Progress" -> text("Progress","Fortschritt")
+                    "Downloads" -> text("Downloads","Downloads")
+                    else -> text("Account","Konto")
+                },Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
+                Text(text("This page requires an account. Sign in or create an account to continue.",
+                    "Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                primary(text("Sign in","Anmelden")){account("sign-in")}
+                primary(text("Create account","Konto erstellen")){account("register")}
+                TextButton(onClick={accountPage=null;if(state.index>=content.session.questions.size)paused=true}){Text(text("Back to practice","Zurück zur Übung"))}
+                continueSaved?.let {LearnerButton(text("Continue saved account","Gespeichertes Konto fortsetzen"),true,it)}
+            }
+        }
+        return
+    }
     Surface(Modifier.fillMaxSize()) {
         Column(Modifier.safeDrawingPadding().verticalScroll(scroll).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
                 Text("German Master",Modifier.weight(1f).semantics {heading()},style=if(practising)MaterialTheme.typography.titleLarge else MaterialTheme.typography.headlineMedium)
-                if(practising) TextButton(onClick={paused=true}){Text(text("Pause","Pause"))}
+                if(practiceView) {
+                    TextButton(onClick={accountPage="Account"}){Text(text("Account","Konto"))}
+                    TextButton(onClick={if(practising)closing=true else paused=true}){Text(text("Close practice","Übung schließen"))}
+                }
             }
-            if(!practising) TextButton(onClick=language){Text("English / Deutsch")}
-            if(!practising) {
-                Text(text("Practise German. No account needed.","Deutsch üben. Ohne Konto."),style=MaterialTheme.typography.titleLarge)
+            if(!practiceView) TextButton(onClick=language){Text("English / Deutsch")}
+            if(!practiceView) {
+                Text(text("Practise German","Deutsch üben"),Modifier.semantics {heading()},style=MaterialTheme.typography.titleLarge)
+                Text(text("Your practice is saved on this device.","Deine Übungen sind auf diesem Gerät gespeichert."))
             }
             if(loaded.isFailure) {
-                Text(text("Saved guest work could not be read. It has been preserved.","Gespeicherte Gastübungen konnten nicht gelesen werden und bleiben erhalten."))
+                Text(text("Saved practice could not be read. It has been preserved.","Gespeicherte Übungen konnten nicht gelesen werden und bleiben erhalten."))
+            } else if(closing) {
+                Text(text("Leave this session?","Diese Übung verlassen?"),Modifier.semantics {heading()})
+                Text(text("Your answers and draft stay on this device.","Deine Antworten und dein Entwurf bleiben auf diesem Gerät."))
+                primary(text("Save and return Home","Speichern und zur Startseite")){closing=false;paused=true}
+                TextButton(onClick={closing=false}){Text(text("Keep practising","Weiter üben"))}
             } else if(!state.started || paused) {
-                primary(if(state.started)text("Continue practice","Weiter üben")else text("Start practising","Jetzt üben")){commit(state.copy(started=true));paused=false}
+                primary(when {
+                    !state.started -> text("Start practice","Übung starten")
+                    state.index < content.session.questions.size -> text("Continue session","Übung fortsetzen")
+                    else -> text("Repeat the five questions","Die fünf Fragen wiederholen")
+                }) {
+                    if(!state.started || state.index>=content.session.questions.size) commit(NativeGuestState(started=true))
+                    paused=false
+                }
             } else if(state.index>=content.session.questions.size) {
-                Text(text("Starter complete: ${state.correct} of ${state.graded} correct.","Einstieg abgeschlossen: ${state.correct} von ${state.graded} richtig."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-                primary(text("Practise again","Noch einmal üben")){commit(NativeGuestState(started=true))}
+                Text(text("Session complete","Übung abgeschlossen"),Modifier.semantics {heading()})
+                Text(text("${state.graded} answered · ${content.session.questions.size-state.graded} skipped",
+                    "${state.graded} beantwortet · ${content.session.questions.size-state.graded} übersprungen"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                Text(text("${state.correct} correct","${state.correct} richtig"))
+                primary(text("Finish","Abschließen")){paused=true}
             } else {
                 val exercise=content.session.questions[state.index].exercise
                 Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"))
@@ -136,12 +181,10 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 }
             }
             if(failed) Text(text("Could not save on this device. Your last saved work is preserved. Try again.","Speichern fehlgeschlagen. Zuletzt gespeicherte Übungen bleiben erhalten. Versuche es erneut."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
-            if(!practising) {
-                Text(text("An account saves online progress across devices. Earlier guest results stay on this device.","Ein Konto speichert Online-Fortschritt geräteübergreifend. Frühere Gastergebnisse bleiben auf diesem Gerät."))
-                TextButton(onClick={account("register")}){Text(text("Create account","Konto erstellen"))}
-                TextButton(onClick={account("sign-in")}){Text(text("Sign in","Anmelden"))}
-                TextButton(onClick={account("reset")}){Text(text("Forgot password?","Passwort vergessen?"))}
-                continueSaved?.let {LearnerButton(text("Continue saved account practice","Gespeicherte Kontoübungen fortsetzen"),true,it)}
+            if(!practiceView) {
+                TextButton(onClick={accountPage="Progress"}){Text(text("Progress","Fortschritt"))}
+                TextButton(onClick={accountPage="Downloads"}){Text(text("Downloads","Downloads"))}
+                TextButton(onClick={accountPage="Account"}){Text(text("Account","Konto"))}
             }
         }
     }

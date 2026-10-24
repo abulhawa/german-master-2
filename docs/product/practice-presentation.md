@@ -62,7 +62,7 @@ promotions during or after practice. Progress, account-backed downloads and
 Account show a contextual account-required message with Sign in / Create account
 and a return to practice. Preserve local drafts and explicit account attachment.
 This supersedes the blueprint's separate welcome/guest entry presentation.
-Apply the direction to web and Android; web ships first under the owner's
-explicit main/production authorization. Android parity remains a release blocker
-under the existing release hold. The current signed-out content inventory is
+Apply the direction to web and Android in the same work slice. Always keep
+user-facing behavior in sync; track unavoidable gaps as release blockers.
+The Android release hold still governs store publication separately. The current signed-out content inventory is
 still the bundled five-question pack; this correction does not expand it.

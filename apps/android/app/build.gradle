@@ -27,7 +27,7 @@ def validV2PublicConfig =
     (v2Key ==~ /sb_publishable_[A-Za-z0-9_-]+/) &&
     (v2Origin ==~ /https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?\/?/)
 // Production bundles must never send an Auth bearer token to an arbitrary HTTPS host.
-def validV2ReleaseConfig = validV2PublicConfig && v2Project == "zgmyrpzwgtydwlzponih" &&
+def validV2ReleaseConfig = validV2PublicConfig && v2Project == "sqgjsmiaprsuilcjmaav" &&
     v2Origin in ["https://germanmaster.qortxai.com", "https://germanmaster.qortxai.com/"]
 if ((v2Project || v2Key || v2Origin) && !validV2PublicConfig) {
     throw new GradleException("Incomplete German Master 2.0 public configuration")

@@ -49,3 +49,12 @@ Preserve ongoing work and complete the current slice before starting unrelated f
 - Remove the separate welcome/Try/guest entry path. Open directly to practice Home; signing in is optional for practice.
 - Account-dependent pages explain that an account is required and offer Sign in / Create account, with a return to practice. Do not interrupt practice with signup promotions.
 - Preserve local drafts, explicit attachment and account isolation. Apply the product direction to both clients; Android release approval remains separate.
+
+## Web and Android parity — standing owner direction (24 October 2026)
+
+- Always keep web and native Android user-facing behavior in sync. Product-flow,
+  interaction and feedback changes must be implemented and verified for both
+  clients in the same work slice, not left as an optional later follow-up.
+- Track any unavoidable parity gap explicitly as a release blocker; never claim
+  parity based on shared source/contracts alone. Report client-specific evidence.
+- This does not lift the Android release hold or authorize store publication.

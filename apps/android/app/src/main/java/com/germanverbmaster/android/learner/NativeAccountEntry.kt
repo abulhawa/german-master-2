@@ -1,5 +1,6 @@
 package com.germanverbmaster.android.learner
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -27,6 +28,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
     val scope = rememberCoroutineScope()
     fun text(en:String,de:String)=if(german) de else en
     LaunchedEffect(cooldown) { if(cooldown) {delay(60_000);cooldown=false} }
+    BackHandler(enabled=!busy) { navigate(null) }
     val title=when(mode) {
         "register" -> text("Create account","Konto erstellen")
         "reset" -> text("Reset password","Passwort zurücksetzen")
@@ -36,7 +38,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
         Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
             Text(title,Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
             LearnerButton("English / Deutsch",!busy,language)
-            Text(text("Save online progress across devices. Guest results stay on this device.","Speichere Online-Fortschritt geräteübergreifend. Gastergebnisse bleiben auf diesem Gerät."))
+            Text(text("Save online progress across devices. Earlier practice stays on this device.","Speichere Online-Fortschritt geräteübergreifend. Bisherige Übungen bleiben auf diesem Gerät."))
             OutlinedTextField(email,{email=it},label={Text(text("Email","E-Mail"))},singleLine=true,enabled=!busy,
                 keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Email),modifier=Modifier.fillMaxWidth())
             if(mode!="reset") {
@@ -71,7 +73,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
                 TextButton(onClick={navigate("register")},enabled=!busy){Text(text("Create account","Konto erstellen"))}
                 TextButton(onClick={navigate("reset")},enabled=!busy){Text(text("Forgot password?","Passwort vergessen?"))}
             }
-            TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Practise without an account","Ohne Konto üben"))}
+            TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Back to practice","Zurück zur Übung"))}
         }
     }
 }
