@@ -255,3 +255,14 @@ an available device without clearing data, complete native/live account acceptan
 then address demonstrated issues before requesting Android release approval.
 Prior export/disconnect/second-account gates remain open. Keep the approved visual
 direction and both clients aligned; do not restart broad design analysis.
+
+## Mobile redesign installed — 24 October 2026
+
+Owner requested installation on the connected Pixel 10 Pro. ADB replacement
+installation of the production-configured learnerPreview APK built from 708ba9b
+succeeded, without uninstalling or clearing data. The separate store package was
+not replaced. Explicit launch succeeded and the preview process is running.
+Device UI hierarchy confirms the new Home headline, Home / Progress / Topics
+navigation and an available practice action. Left the preview open on Home.
+This verifies installation/basic launch only; no new answers, account lifecycle,
+owner UX acceptance or store release is claimed. Android publication remains held.
