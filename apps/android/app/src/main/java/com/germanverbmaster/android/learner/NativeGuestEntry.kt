@@ -86,7 +86,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
             else -> screen="home"
         }
     }
-    Scaffold(modifier=Modifier.fillMaxSize().safeDrawingPadding(),containerColor=MaterialTheme.colorScheme.background,
+    Scaffold(modifier=Modifier.fillMaxSize(),contentWindowInsets=WindowInsets.safeDrawing,containerColor=MaterialTheme.colorScheme.background,
         bottomBar={if(!focused) LearnerNavigation(screen,german) {returnTo="home";screen=it}}) {insets->
         Column(Modifier.padding(insets).verticalScroll(scroll).padding(24.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {

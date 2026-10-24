@@ -171,3 +171,28 @@ Local positive/negative configuration checks already passed. Corrected only
 line endings in the shared-shell call site; no additional runtime behavior.
 The Pixel remains absent from ADB after the owner's reconnect acknowledgement;
 replacement installation/device navigation verification remains pending.
+
+## Navigation device verification completed — 24 October 2026
+
+Owner reconnected/unlocked the Pixel 10 Pro. Replacement install of the new
+production-configured preview succeeded without uninstalling or clearing data.
+Physical-device UI checks passed Home / Topics / Progress navigation, public
+Topics without signup, the contextual Progress account requirement while keeping
+all three tabs visible, and returning Home with the existing unfinished session
+still available. Left the app open on Home. These checks did not submit answers,
+create an account, alter saved credentials or claim a complete native lifecycle.
+
+A focused device visual check exposed white system-bar gutters in dark mode.
+Both native hosts now draw the scaffold behind safe insets and use the shared
+navigation bar's standard system insets. Final debug/preview builds, 14 focused
+native tests and lint pass; the final preview was installed and the same device
+navigation checks passed again. Dark system bars were visually verified. The
+existing stopped screenshot campaign and accepted TalkBack scope were not
+reopened; only this reported navigation defect received focused visual QA.
+
+Hosted Web checks for 7cd7f47 passed all jobs, including backend checks, web/HTTP
+integration and browser/build verification. The corrected Android CI run at
+d2e3552 was still building its unsigned release-check artifact at this update;
+no full hosted native pass is claimed yet. Exact next action: inspect that hosted
+result and address demonstrated user-facing release blockers on both clients.
+Owner UX approval and Android store publication remain separate and held.

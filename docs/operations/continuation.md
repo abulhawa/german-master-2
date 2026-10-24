@@ -50,3 +50,11 @@ implement this, with public Topics for the existing bundled pack and contextual
 account gates. See latest PROGRESS.md for tests and rollout. The Pixel
 disconnected during the new build; do not conflate the earlier installed preview
 with this navigation fix. Reconnect and verify the replacement install next.
+
+## Latest Pixel result — 24 October 2026
+
+The navigation fix and dark system-bar correction are now installed in the
+preview on the Pixel. Physical Home / Topics / Progress/account-gate navigation
+and preservation of the existing unfinished session passed. The app is open on
+Home. The earlier disconnected-install blocker above is resolved. See latest
+PROGRESS.md for final native checks and pending hosted Android CI/UX acceptance.

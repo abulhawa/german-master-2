@@ -1,6 +1,5 @@
 package com.germanverbmaster.android.learner
 
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.automirrored.outlined.TrendingUp
@@ -13,7 +12,7 @@ import com.germanverbmaster.android.R
 @Composable
 internal fun LearnerNavigation(screen:String,german:Boolean,enabled:Boolean=true,navigate:(String)->Unit) {
     val labels=studyCopy(german)
-    NavigationBar(containerColor=MaterialTheme.colorScheme.surface,windowInsets=WindowInsets(0,0,0,0)) {
+    NavigationBar(containerColor=MaterialTheme.colorScheme.surface) {
         listOf(Triple("home",R.string.study_home,Icons.Outlined.Home),
             Triple("progress",R.string.study_progress,Icons.AutoMirrored.Outlined.TrendingUp),
             Triple("topics",R.string.study_topics,Icons.AutoMirrored.Outlined.MenuBook)).forEach { (destination,title,icon) ->

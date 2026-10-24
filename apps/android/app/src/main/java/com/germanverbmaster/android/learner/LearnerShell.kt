@@ -85,7 +85,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
     }
     val design = studyCopy(german)
     val focused = screen == "practice" && cache.practice != null
-    Scaffold(modifier=Modifier.safeDrawingPadding(),containerColor = MaterialTheme.colorScheme.background, bottomBar = {
+    Scaffold(modifier=Modifier.fillMaxSize(),contentWindowInsets=WindowInsets.safeDrawing,containerColor = MaterialTheme.colorScheme.background, bottomBar = {
         if (!focused && !setup && cache.profile != null) {
             LearnerNavigation(screen,german,!busy) { screen=it }
         }
