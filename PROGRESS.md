@@ -55,6 +55,18 @@ Owner changed product direction: release blockers only, user-facing issues first
 
 Implemented on web: direct practice Home, contextual Progress/Downloads/Account gates, return to an active draft, no completion signup prompt, and English/German copy. Local storage schemas, grading, account isolation and explicit transfer remain intact. Signed-out content remains the existing five-question reviewed pack; full catalog access is not added by this patch. Android parity is still pending under the release hold.
 
-Validation: root generated/web/backend type checks and production build passed; 23 focused mounted UI/auth/attachment regressions passed. A fixture-configured production bundle passed desktop 1280px and mobile 390px browser checks for direct Home, all three contextual account pages, canceled sign-in with retained draft, grading and promotion-free summary; no horizontal overflow or page errors. This uses synthetic local configuration, not live account acceptance. Broader local test runs stalled and were stopped; a dependency reinstall also hit a Windows file lock and was restored with an offline install. No fresh full-suite pass is claimed. Existing storage/ownership tests remain intact.
+Validation: root generated/web/backend type checks and production build passed; 70 focused mounted practice/auth/attachment/signed-in journey regressions passed. A fixture-configured production bundle passed desktop 1280px and mobile 390px browser checks for direct Home, all three contextual account pages, canceled sign-in with retained draft, grading and promotion-free summary; no horizontal overflow or page errors. This uses synthetic local configuration, not live account acceptance. Broader local test runs stalled and were stopped; a dependency reinstall also hit a Windows file lock and was restored with an offline install. No fresh full-suite pass is claimed. Existing storage/ownership tests remain intact.
 
 Deploy this commit through main on the existing german-master-v2 production project, then verify the live unsigned-in browser flow and hosted CI. Existing account-lifecycle/native acceptance gaps remain open.
+
+Production result: commit `200f9b1` is deployed READY as
+`dpl_7H18XttVS66kCGMJnX3Ks4ChvT1A` on the existing production domains.
+Actual public-site browser checks passed at 1280px and 390px: direct Home,
+Progress/Downloads/Account messages and both auth options, cancel sign-in with
+retained choice draft, correct grading, and completion without signup promotion.
+No page errors or horizontal overflow. No real account was created or used.
+Hosted accessibility acceptance and the web build/browser job passed; full web/
+backend CI results were still pending when this entry was written. Updated the
+existing tab-return helper to use Start practice and the choice-based draft.
+Exact next action: inspect the remaining hosted CI results; then continue only
+user-facing release blockers. Android parity and prior lifecycle gaps stay open.

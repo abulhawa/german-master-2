@@ -128,8 +128,8 @@ try {
     await browser.close();processHandle.kill();process.exit(0);
   }
   if(guest){
-    await page.getByRole('button',{name:'Try German Master',exact:true}).click();
-    const answer=page.getByLabel('Your answer');await answer.fill('retained guest draft');
+    await page.getByRole('button',{name:'Start practice',exact:true}).click();
+    const answer=page.getByRole('radio',{name:'Berufe',exact:true});await answer.check();
     heading=answer;
   }else{
   await page.getByRole('button',{name:'Browse topics',exact:true}).waitFor();
@@ -161,7 +161,7 @@ try {
   assert.equal(requests.filter(r=>r.type==='document').length,controlled?2:1);
   assert.deepEqual(errors,[]);
   assert.equal(await heading.isVisible(),!expectReset);
-  if(guest)assert.equal(await heading.inputValue(),'retained guest draft');
+  if(guest)assert.ok(await heading.isChecked(),'Practice choice draft was lost');
   const transitions=after.trace.slice(before.trace).filter(x=>x.kind==='visibility').map(x=>x.state);
   assert.deepEqual(transitions,['hidden','visible']);
   const beforeGenerations=after.trace.slice(0,before.trace).filter(x=>x.kind==='component').map(x=>x.generation);
