@@ -93,7 +93,8 @@ it('automatically retries cold local reads after verification without losing the
   expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
 });
 async function openAuth() {
-  fireEvent.click(await screen.findByRole('button',{name:'I already have an account'}));
+  fireEvent.click(await screen.findByRole('button',{name:'Account',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:'Sign in',exact:true}));
   await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
 }
 it('registers without binding an unconfirmed identity or retaining its password',async()=> {
@@ -135,7 +136,7 @@ it('retains detail on failed same-session verification and still removes it on s
 });
 it('mounts learner only after online verification and removes it on provider sign-out',async()=> {
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
-  expect(await screen.findByRole('button',{name:'Try German Master'})).toBeEnabled();
+  expect(await screen.findByRole('button',{name:'Start practice'})).toBeEnabled();
   await openAuth();
   expect(screen.queryByText(/Bound learner/)).toBeNull();
   fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
@@ -145,7 +146,7 @@ it('mounts learner only after online verification and removes it on provider sig
   expect(f.auth.signInWithPassword).toHaveBeenCalledWith({email:'learner@example.test',password:'synthetic-test-password'});
   expect(f.auth.getUser).toHaveBeenCalledOnce();
   fireEvent.click(screen.getByRole('button',{name:'Revoke session'}));
-  await screen.findByRole('button',{name:'Try German Master'});
+  await screen.findByRole('button',{name:'Start practice'});
   expect(screen.queryByText(/Bound learner/)).toBeNull();expect(screen.queryByLabelText('Password')).toBeNull();
 });
 it('requires explicit consent after authentication and attaches guest evidence only on confirmation',async()=> {
@@ -158,20 +159,21 @@ it('requires explicit consent after authentication and attaches guest evidence o
   });
   vi.stubGlobal('fetch',send);
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
-  fireEvent.click(await screen.findByRole('button',{name:'Try German Master'}));
+  fireEvent.click(await screen.findByRole('button',{name:'Start practice'}));
   fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
   fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
   expect(guestAttemptCount()).toBe(1);expect(guestUnattachedAttemptCount(subject)).toBe(1);
   fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
   fireEvent.click(screen.getByRole('button',{name:'Save and return Home'}));
+  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
   fireEvent.click(screen.getByRole('button',{name:'Sign in'}));
   fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
   fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
   fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
-  expect(await screen.findByRole('heading',{name:'Save your guest practice?'})).toBeInTheDocument();
+  expect(await screen.findByRole('heading',{name:'Save your practice?'})).toBeInTheDocument();
   expect(screen.queryByText(/Bound learner/)).toBeNull();expect(send).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole('button',{name:'Save 1 attempt'}));
-  await screen.findByRole('heading',{name:'Guest practice saved'});
+  await screen.findByRole('heading',{name:'Practice saved'});
   expect(guestUnattachedAttemptCount(subject)).toBe(0);
   fireEvent.click(screen.getByRole('button',{name:'Continue'}));
   await screen.findByText(`Bound learner ${subject}`);
@@ -196,6 +198,6 @@ it('does not mount a stale verified response after an intervening sign-out',asyn
   fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
   await waitFor(()=>expect(complete).toBeTypeOf('function'));
   f.emit('SIGNED_OUT');complete({data:{user:{id:subject,is_anonymous:false}},error:null});
-  await waitFor(()=>expect(screen.getByRole('button',{name:'Try German Master'})).toBeEnabled());
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Start practice'})).toBeEnabled());
   expect(screen.queryByText(/Bound learner/)).toBeNull();
 });

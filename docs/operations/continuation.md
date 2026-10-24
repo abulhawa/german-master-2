@@ -19,3 +19,7 @@ Keep only M2 active. Update the current checkpoint with changes, evidence limits
 ## Latest owner direction and live state — 24 October 2026
 
 The owner subsequently authorized main/production deployment on the existing Vercel project/domains and accepted potential disruption. Production dpl_C2C7QCLbkvMY8kam7Xt2npjcKqmX at main 2f71508 is READY against the clean replacement. Homepage/guest-answer checks and unauthenticated API 401 checks passed. Earlier preview-only and future-cutover wording above is historical. See the latest PROGRESS.md section for evidence limits. Android release and identity deletion remain held. Owner requested stopping further allowance use for studies; do not continue discretionary checks without a new request.
+
+## Latest direction — practice without sign-in (24 October 2026)
+
+Prioritize user-facing release blockers only. Owner authorized immediate main/production deployment: open directly to practice Home; remove welcome/Try/guest selection and signup promotions. Account-backed pages explain the account requirement and offer Sign in / Create account. Preserve drafts and explicit account attachment. See the latest PROGRESS.md entry and practice-presentation.md. Android parity remains pending; no Android release authorization.

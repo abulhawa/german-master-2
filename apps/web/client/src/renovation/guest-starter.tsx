@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { AppMark } from './app-mark';
 import './workspace.css';
-import { StudyArt } from './study-art';
-import { shellCopy } from './shell-locales';
 import { z } from "zod";
 import {
   AnswerSchema,
@@ -305,21 +303,24 @@ const copy = {
     provisional: "This result is saved on this device. Sign in later to save eligible attempts to your account.",
     close: "Close practice", leaveTitle: "Leave this session?", leaveBody: "Your answers and draft stay on this device.",
     saveHome: "Save and return Home", keep: "Keep practising",
-    homeTitle: "Continue practising", homeStatus: "Your guest practice is saved on this device.",
+    homeTitle: "Practise German", homeStatus: "Your practice is saved on this device.",
+    home: "Home", progress: "Progress", downloads: "Downloads", account: "Account",
+    accountRequired: "This page requires an account. Sign in or create an account to continue.",
+    backPractice: "Back to practice", navigation: "Main navigation",
     continueSession: "Continue session", start: "Start practice", restart: "Repeat the five questions",
     saveAcross: "Save across devices",
     saveAcrossBody: "Sign in when you want to attach eligible guest attempts and build confirmed progress.",
     create: "Create account", signIn: "Sign in",
-    complete: "Starter session complete", saved: "Session saved",
+    complete: "Session complete", saved: "Session saved",
     answered: "answered", skipped: "skipped", lookCorrect: "correct",
     retention: "Good start. Try another short session to practise more, or save your results to track progress over time.",
     keepProgress: "Keep your progress",
     keepProgressBody: "Create an account or sign in to save this practice and use confirmed progress across devices.",
     notNow: "Not now", finish: "Finish",
     setupAgain: "Change setup",
-    storageError: "Guest practice could not be saved on this device. New answers are blocked until storage is available.",
-    damaged: "Saved guest practice could not be read. It has been preserved and will not be overwritten.",
-    reset: "Reset local guest practice",
+    storageError: "Practice could not be saved on this device. New answers are blocked until storage is available.",
+    damaged: "Saved practice could not be read. It has been preserved and will not be overwritten.",
+    reset: "Reset saved practice",
     b2Note: "The current starter pack contains five reviewed B1 foundation questions.",
   },
   de: {
@@ -348,21 +349,24 @@ const copy = {
     provisional: "Dieses Ergebnis ist auf diesem Gerät gespeichert. Melde dich später an, um geeignete Versuche in deinem Konto zu speichern.",
     close: "Übung schließen", leaveTitle: "Diese Übung verlassen?", leaveBody: "Deine Antworten und dein Entwurf bleiben auf diesem Gerät.",
     saveHome: "Speichern und zur Startseite", keep: "Weiter üben",
-    homeTitle: "Weiter üben", homeStatus: "Deine Gastübungen sind auf diesem Gerät gespeichert.",
+    homeTitle: "Deutsch üben", homeStatus: "Deine Übungen sind auf diesem Gerät gespeichert.",
+    home: "Startseite", progress: "Fortschritt", downloads: "Downloads", account: "Konto",
+    accountRequired: "Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren.",
+    backPractice: "Zurück zur Übung", navigation: "Hauptnavigation",
     continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Die fünf Fragen wiederholen",
     saveAcross: "Auf mehreren Geräten speichern",
     saveAcrossBody: "Melde dich an, wenn du geeignete Gastversuche übernehmen und bestätigten Fortschritt aufbauen möchtest.",
     create: "Konto erstellen", signIn: "Anmelden",
-    complete: "Erste Übung abgeschlossen", saved: "Übung gespeichert",
+    complete: "Übung abgeschlossen", saved: "Übung gespeichert",
     answered: "beantwortet", skipped: "übersprungen", lookCorrect: "richtig",
     retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen.",
     keepProgress: "Fortschritt behalten",
     keepProgressBody: "Erstelle ein Konto oder melde dich an, um diese Übungen zu speichern und bestätigten Fortschritt auf mehreren Geräten zu nutzen.",
     notNow: "Nicht jetzt", finish: "Abschließen",
     setupAgain: "Auswahl ändern",
-    storageError: "Die Gastübung konnte auf diesem Gerät nicht gespeichert werden. Neue Antworten sind blockiert, bis Speicher verfügbar ist.",
-    damaged: "Gespeicherte Gastübungen konnten nicht gelesen werden. Sie bleiben erhalten und werden nicht überschrieben.",
-    reset: "Lokale Gastübungen zurücksetzen",
+    storageError: "Die Übung konnte auf diesem Gerät nicht gespeichert werden. Neue Antworten sind blockiert, bis Speicher verfügbar ist.",
+    damaged: "Gespeicherte Übungen konnten nicht gelesen werden. Sie bleiben erhalten und werden nicht überschrieben.",
+    reset: "Gespeicherte Übungen zurücksetzen",
     b2Note: "Das aktuelle Startpaket enthält fünf geprüfte B1-Grundlagenfragen.",
   },
 } as const;
@@ -380,11 +384,9 @@ export function GuestStarterJourney({
   const [state, setState] = useState(loaded.state);
   const [damaged, setDamaged] = useState(loaded.damaged);
   const [storageError, setStorageError] = useState(false);
-  const [view, setView] = useState<"welcome" | "home" | "practice">("home");
+  const [view, setView] = useState<"home" | "practice" | "progress" | "downloads" | "account">("home");
   const [closing, setClosing] = useState(false);
   const c = copy[state.locale];
-  const unattachedCount = guestUnattachedAttemptCount();
-  const showSavePrompt = unattachedCount > 0 && !state.savePromptDismissed;
   const complete = !!state.session && state.index >= state.session.questions.length;
   const active = !!state.session && !complete;
   const question = active ? state.session!.questions[state.index] : null;
@@ -474,20 +476,13 @@ export function GuestStarterJourney({
     <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
   </PracticeCard></div></main>;
 
-  if (!state.setupCompleted || view === "welcome") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
-      <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
-    </header>
-    <div className="gm-welcome-layout"><div className="gm-welcome-copy">
-      <p className="gm-kicker">{shellCopy[state.locale].guestLabel}</p>
-      <h1>{c.title}</h1><p className="gm-welcome-intro">{c.intro}</p>
-      {storageError && <p role="alert">{c.storageError}</p>}
-      <FoundationButton className="gm-welcome-start" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : c.try}<span aria-hidden="true">↗</span></FoundationButton>
-      <p className="gm-meta">{shellCopy[state.locale].guestNote}</p>
-      <FoundationButton className="gm-text-button gm-secondary" onClick={()=>onAuth('sign-in')}>{c.existing}</FoundationButton>
-      {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
-    </div><div className="gm-welcome-visual"><StudyArt/><div className="gm-visual-caption"><span>01 / Deutsch</span><p>{shellCopy[state.locale].session}</p></div></div></div>
-  </div></main>;
+  if (view === "progress" || view === "downloads" || view === "account") return <main className="gm-foundation" lang={state.locale}><div className="gm-column"><PracticeCard>
+    <h1>{c[view]}</h1><p role="status">{c.accountRequired}</p>
+    <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+    <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
+    <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
+    {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
+  </PracticeCard></div></main>;
 
   if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
     <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master</strong></div><span>{c.subtitle}</span>
@@ -497,20 +492,19 @@ export function GuestStarterJourney({
       <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
       {storageError && <p role="alert">{c.storageError}</p>}
       <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => setView("welcome")}>{c.returnWelcome}</FoundationButton>
     </PracticeCard>
-    <PracticeCard><h2>{showSavePrompt ? c.saveAcross : c.accountTitle}</h2><p>{showSavePrompt ? c.saveAcrossBody : c.accountBody}</p>
-      <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
-    </PracticeCard>
-    {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
+    <nav aria-label={c.navigation} className="gm-guest-practice-actions">
+      <FoundationButton className="gm-secondary" onClick={() => setView("progress")}>{c.progress}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={() => setView("downloads")}>{c.downloads}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
+    </nav>
   </div></main>;
 
   return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-practice-header"><strong>German Master</strong>
       {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
       <div className="gm-guest-practice-actions">
-        <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+        <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
         <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
       </div>
     </header>
@@ -522,12 +516,6 @@ export function GuestStarterJourney({
       <h1>{state.index >= starterSession.questions.length ? c.complete : c.saved}</h1>
       <p role="status">{state.graded} {c.answered} · {state.skipped} {c.skipped}</p>
       <p>{state.correct} {c.lookCorrect}</p>
-      {unattachedCount > 0 && !state.savePromptDismissed && <div className="gm-feedback">
-        <h2>{c.keepProgress}</h2><p>{c.keepProgressBody}</p>
-        <FoundationButton onClick={() => onAuth("register")}>{c.create}</FoundationButton>
-        <FoundationButton className="gm-secondary" onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
-        <FoundationButton className="gm-secondary" onClick={() => commit({ ...state, savePromptDismissed: true })}>{c.notNow}</FoundationButton>
-      </div>}
       <FoundationButton className="gm-secondary" onClick={() => { if (commit({ ...state, savePromptDismissed: true })) setView("home"); }}>{c.finish}</FoundationButton>
     </PracticeCard> : question ? <PracticeCard>
       {question.exercise.type !== "short_answer" && <p>{question.exercise.instruction[state.locale]}</p>}<h1 lang="de">{question.exercise.prompt}</h1>

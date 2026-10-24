@@ -48,3 +48,13 @@ After production cutover, a critical visitor flow was reported: entering "Try Ge
 Branch `fix/guest-exit-and-sign-in-20261024` changes guest-only presentation: direct Sign in on focused practice, permanent sign-in and registration from guest Home, explicit return to the welcome page with a resumable unfinished session, and account access when guest storage is damaged. Drafts, graded attempts, optional attachment and backend rules remain untouched. Focused regressions cover no-answer navigation, draft preservation, completed/dismissed prompts, reload and damaged guest storage. Responsive header actions wrap.
 
 Verification/deployment boundary: GitHub PR #23 CI and review must pass before merging to main, which automatically deploys production. No database or Android release changes. Next action: examine PR #23 checks; merge the verified fix; confirm live guest exit, sign-in entry and resumed draft on germanmaster.qortxai.com.
+
+## Practice access correction — 24 October 2026
+
+Owner changed product direction: release blockers only, user-facing issues first. Practice opens without sign-in or a separate welcome/Try/guest gate. Account-dependent pages offer contextual Sign in / Create account and explain the requirement. No account promotions during/after practice. Owner explicitly authorized immediate main/production deployment of this correction.
+
+Implemented on web: direct practice Home, contextual Progress/Downloads/Account gates, return to an active draft, no completion signup prompt, and English/German copy. Local storage schemas, grading, account isolation and explicit transfer remain intact. Signed-out content remains the existing five-question reviewed pack; full catalog access is not added by this patch. Android parity is still pending under the release hold.
+
+Validation: root generated/web/backend type checks and production build passed; 23 focused mounted UI/auth/attachment regressions passed. A fixture-configured production bundle passed desktop 1280px and mobile 390px browser checks for direct Home, all three contextual account pages, canceled sign-in with retained draft, grading and promotion-free summary; no horizontal overflow or page errors. This uses synthetic local configuration, not live account acceptance. Broader local test runs stalled and were stopped; a dependency reinstall also hit a Windows file lock and was restored with an offline install. No fresh full-suite pass is claimed. Existing storage/ownership tests remain intact.
+
+Deploy this commit through main on the existing german-master-v2 production project, then verify the live unsigned-in browser flow and hosted CI. Existing account-lifecycle/native acceptance gaps remain open.

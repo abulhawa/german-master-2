@@ -52,3 +52,17 @@ The bundled starter and published catalog remain distinct content inventories.
 This does not claim that every published exercise or authenticated device journey
 has received a new manual review. Continue the broader dynamic UI audit under the
 existing release hold; do not equate this contract with completed release approval.
+
+## Practice without sign-in — owner direction, 24 October 2026
+
+Release-blocker work only; no new features. Open the app directly to practice
+Home without a welcome, Try, guest-mode selection or mandatory authentication.
+Practice and feedback remain available signed out. Do not show account
+promotions during or after practice. Progress, account-backed downloads and
+Account show a contextual account-required message with Sign in / Create account
+and a return to practice. Preserve local drafts and explicit account attachment.
+This supersedes the blueprint's separate welcome/guest entry presentation.
+Apply the direction to web and Android; web ships first under the owner's
+explicit main/production authorization. Android parity remains a release blocker
+under the existing release hold. The current signed-out content inventory is
+still the bundled five-question pack; this correction does not expand it.

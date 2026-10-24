@@ -42,3 +42,10 @@
 When the user says "continue", "pick up where we stopped", or otherwise asks to resume German Master 2.0, treat it as an implementation request. Read root `PROGRESS.md`, then `docs/operations/continuation.md`. Inspect the actual checkout and relevant recent commits, reconcile the checkpoint, and carry out the next unfinished implementation slice. Do not restart the product analysis, ask the user to repeat the roadmap, or stop after proposing a plan.
 
 Preserve ongoing work and complete the current slice before starting unrelated features. Update `PROGRESS.md` with changes, evidence, blockers and the exact next action before every handoff. Use the repo files as durable context; prior chat history is optional. Only advance milestone status when its exit gates are met. Keep production cutover, database resets and store releases within their separately authorized scope.
+
+## Practice access — owner direction (24 October 2026)
+
+- Release blockers only, prioritizing user-facing issues. New features remain frozen.
+- Remove the separate welcome/Try/guest entry path. Open directly to practice Home; signing in is optional for practice.
+- Account-dependent pages explain that an account is required and offer Sign in / Create account, with a return to practice. Do not interrupt practice with signup promotions.
+- Preserve local drafts, explicit attachment and account isolation. Apply the product direction to both clients; Android release approval remains separate.
