@@ -1,3 +1,4 @@
+import { GrammarReference } from './grammar-reference';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
 import { PracticeFeedback } from "../foundation/practice-feedback";
@@ -324,12 +325,14 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
+      <GrammarReference locale={state.locale}/>
       <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><Settings aria-hidden="true"/>{s.settings}</FoundationButton>
     </aside>}
     <div className="gm-column gm-workspace-content">
       {view === 'practice' ? <header className="gm-practice-header"><strong>German Master</strong>
         {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</span>}
         <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) navigate("home"); else setClosing(true); }}>{c.close}</FoundationButton>
+        <GrammarReference locale={state.locale}/>
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
       {view === 'practice' && p?.session && !complete && <progress className="gm-session-progress" value={p.index} max={p.session.questions.length} aria-label={`${c.question} ${p.index + 1} ${c.of} ${p.session.questions.length}`} />}
       {view === 'account' && !setup && <>

@@ -44,6 +44,22 @@ function apiFixture(): LearnerApi {
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); vi.restoreAllMocks(); localStorage.clear(); window.history.replaceState(null, "", window.location.pathname); vi.unstubAllGlobals(); });
+it('keeps an account-backed draft intact while reading the same grammar reference',async()=>{
+  if(!HTMLDialogElement.prototype.showModal) Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,writable:true,value:function(){}});
+  if(!HTMLDialogElement.prototype.close) Object.defineProperty(HTMLDialogElement.prototype,'close',{configurable:true,writable:true,value:function(){}});
+  vi.spyOn(HTMLDialogElement.prototype,'showModal').mockImplementation(function(this:HTMLDialogElement){this.setAttribute('open','');});
+  vi.spyOn(HTMLDialogElement.prototype,'close').mockImplementation(function(this:HTMLDialogElement){this.removeAttribute('open');this.dispatchEvent(new Event('close'));});
+  const api=apiFixture();render(<LearnerJourney api={api}/>);
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Start short practice'})).toBeEnabled());
+  fireEvent.click(screen.getByRole('button',{name:'Start short practice'}));
+  fireEvent.change(await screen.findByLabelText('Your answer'),{target:{value:'reference draft'}});
+  fireEvent.click(screen.getByRole('button',{name:'Grammar',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:'Relative pronouns',exact:true}));
+  expect(screen.getByRole('heading',{name:'Relativpronomen',exact:true})).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button',{name:'Close reference'}));
+  expect(screen.getByLabelText('Your answer')).toHaveValue('reference draft');
+  expect(api.submit).not.toHaveBeenCalled();
+});
 it('retains selected choices while saving and after feedback, then focuses the next prompt', async () => {
   const formats = SessionSchema.parse(formatSample);
   const api = apiFixture();

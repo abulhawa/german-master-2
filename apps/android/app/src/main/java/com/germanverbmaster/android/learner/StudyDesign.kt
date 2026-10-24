@@ -30,6 +30,7 @@ internal fun StudyHeader(german: Boolean, account: () -> Unit, enabled: Boolean 
             Text(if(german) "Einstellungen" else "Settings")
         }
     }
+    GrammarReferenceButton(german,enabled)
 }
 
 @Composable

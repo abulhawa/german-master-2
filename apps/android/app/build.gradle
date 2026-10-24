@@ -263,6 +263,7 @@ dependencies {
 def foundationAssets = tasks.register("prepareFoundationAssets", Sync) {
     from(rootProject.file("../../contracts/v2/examples")) { include("session.json", "practice-formats-session.json") }
     from(rootProject.file("../../content/guest")) { include("starter.json") }
+    from(rootProject.file("../../content/reference")) { include("grammar-reference.json") }
     into(layout.buildDirectory.dir("generated/foundationAssets"))
 }
 android.sourceSets.main.assets.srcDir(layout.buildDirectory.dir("generated/foundationAssets").get().asFile)

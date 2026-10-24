@@ -58,3 +58,13 @@ Preserve ongoing work and complete the current slice before starting unrelated f
 - Track any unavoidable parity gap explicitly as a release blocker; never claim
   parity based on shared source/contracts alone. Report client-specific evidence.
 - This does not lift the Android release hold or authorize store publication.
+
+## Grammar reference — owner direction (24 October 2026)
+
+- Owner explicitly requests restoring the old quick grammar-reference menu in
+  GM2.0 on both clients. This bounded restoration is authorized despite the
+  general feature freeze.
+- Make the reference available offline and without sign-in, including safe access
+  during practice. Preserve the current draft, feedback and session position.
+- Web and Android must use the same reference content and offer equivalent topic
+  navigation, lookup, explanations and examples. Publication boundaries remain.

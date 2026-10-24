@@ -34,7 +34,7 @@
     "preview:learner": "npm run preview:learner --workspace=apps/web",
     "test:offline-shell": "npm run test:offline-shell --workspace=apps/web",
     "generate:foundation": "node contracts/scripts/generate.mjs && node design/generate.mjs",
-    "check:generated": "node contracts/scripts/generate.mjs --check && node design/generate.mjs --check && node tools/generate-native-guest.mjs --check",
+    "check:generated": "node contracts/scripts/generate.mjs --check && node design/generate.mjs --check && node tools/generate-native-guest.mjs --check && node tools/check-grammar-reference.mjs",
     "check:backend": "tsc -p tsconfig.backend.json",
     "test:backend": "vitest run --config vitest.backend.config.ts",
     "dev:api": "npm run dev --workspace=services/api"

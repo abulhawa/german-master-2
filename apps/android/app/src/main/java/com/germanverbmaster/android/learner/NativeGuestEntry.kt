@@ -93,6 +93,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                 TextButton(onClick={openAccount()}){Text(text("Account","Konto"))}
             }
+            if(focused) GrammarReferenceButton(german)
             when(screen) {
                 "home" -> {
                     StudyEyebrow(text("YOUR PRACTICE","DEINE ÜBUNG"))

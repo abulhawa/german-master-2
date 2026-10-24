@@ -78,3 +78,12 @@ signed out, and native appearance persists independently of account data. The
 corrected production-configured preview was replacement-installed on the Pixel.
 See latest PROGRESS.md for tests and the auto-lock limit on physical verification.
 Do not present the missing settings controls as a future optional feature.
+
+## Grammar reference restoration — 24 October 2026
+
+The owner's requested old grammar menu is implemented on web and Android using
+the same bundled reference JSON, including safe lookup during practice. See the
+latest PROGRESS.md and docs/product/grammar-reference.md for evidence and limits.
+The new preview is built, but the phone was disconnected; web is not deployed.
+Do not redo the import, invent new grammar explanations or report a live rollout.
+Next: install/review the preview when connected, then follow release authorization.

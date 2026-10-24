@@ -80,4 +80,15 @@ class LearnerShellTest {
         compose.onNodeWithText("Back to Home").performScrollTo().performClick()
         compose.onNodeWithText("A little practice. Lasting progress.").assertExists()
     }
+    @Test fun accountBackedHomeCanReadReferenceEvenWithoutAvailablePractice() {
+        val repo=repository(true)
+        compose.setContent {FoundationTheme {LearnerShell(repo)}}
+        compose.waitUntil(10000) {repo.state.catalog!=null}
+        compose.onNodeWithText("Grammar",substring=false).performScrollTo().performClick()
+        compose.onNodeWithText("Search grammar").performTextInput("relativ")
+        compose.onNodeWithText("Relative pronouns",substring=false).performScrollTo().performClick()
+        compose.onNodeWithText("Relativpronomen",substring=false).assertExists()
+        compose.onNodeWithContentDescription("Close reference").performClick()
+        compose.onNodeWithText("Start practice").performScrollTo().assertIsNotEnabled()
+    }
 }

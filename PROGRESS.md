@@ -297,3 +297,41 @@ do not claim a completed physical theme-toggle or native live-account journey.
 No store release, web deployment, push or backend configuration change occurred.
 Exact next action: owner tries Settings in the installed preview; address concrete
 issues while keeping web/native aligned and the Android publication hold intact.
+
+## Quick grammar reference restored — 24 October 2026
+
+Owner explicitly requests the old reference menu in GM2 on both clients, overriding
+the feature freeze for this bounded restoration. Restored a global Grammar entry
+in the shared shell and focused practice, without sign-in. Both implementations
+offer the same topic menu, content search, topic return, tables, notes, expandable
+rules/examples/common mistakes and safe dismissal over the current draft.
+See [reference behaviour](docs/product/grammar-reference.md).
+
+Canonical content is `content/reference/grammar-reference.json`: 14 menu topics,
+16 original tables and 151 examples. The preserved original Android source and
+the imported source match. Every reference field is preserved and compared in a
+JVM regression. A detected extraction encoding error was corrected before
+acceptance. Web bundles this JSON; Android copies the same file into its assets.
+No backend/API, published exercise revision, grading, mastery or account storage
+changes. Reference lookup works offline; German reference prose is retained with
+English/German interface labels. M2 remains the sole active milestone.
+
+Validation: root generated/web/backend checks and production build pass. Full
+root run passed 198 backend, 438 web and 20 HTTP tests. A subsequent account-backed
+reference regression passed with 50 related mounted tests (51 total). Native
+reference/content/access/shell/render tests pass across final runs, including
+exact legacy-content equality, both language menus and unchanged drafts. Debug
+assembly and lint pass (zero errors, 22 warnings). Native render inspection caught
+and corrected cramped German header/close controls; final 320dp dark menu and
+393dp adjective table renders were inspected. Local 390px browser checks pass
+modal containment, table scrolling, Escape/focus return and retained selection.
+
+The production-configured learnerPreview APK is built for owner review. The
+phone was absent from ADB during this slice, so no replacement install or physical
+reference journey is claimed. Web source is aligned and built but not deployed.
+This unrolled-out state remains a release/acceptance gap; do not describe current
+production and the installed phone app as already containing this restoration.
+No push, production deployment, store upload, schema/content reset or live AI call
+occurred. Exact next action: install the preview when the phone reconnects and
+review the reference; obtain the applicable rollout decision for web. Android
+store publication and outstanding account-lifecycle gates remain held.

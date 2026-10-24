@@ -1,3 +1,4 @@
+import { GrammarReference } from './grammar-reference';
 import { useState } from "react";
 import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, Settings } from "lucide-react";
 import { useAppearance, type Appearance } from './appearance';
@@ -501,6 +502,7 @@ export function GuestStarterJourney({
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item =>
           <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id ? 'page' : undefined} onClick={() => setView(item.id)}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
+      <GrammarReference locale={state.locale}/>
       <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' || view === 'downloads' ? 'page' : undefined} onClick={() => setView("account")}><Settings aria-hidden="true"/>{c.settings}</FoundationButton>
     </aside>
     <div className="gm-column gm-workspace-content">
@@ -542,6 +544,7 @@ export function GuestStarterJourney({
     <header className="gm-practice-header"><strong>German Master</strong>
       {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
       <div className="gm-guest-practice-actions">
+        <GrammarReference locale={state.locale}/>
         <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
         <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
       </div>
