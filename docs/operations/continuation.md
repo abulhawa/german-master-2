@@ -15,3 +15,7 @@ Read root `AGENTS.md`, then the short current `PROGRESS.md`. Refresh [issue #20]
 Inspect the current branch, dirty work and recent commits before editing. PRs #21/#22 were integrated on the pushed recovery branch without merging them on GitHub; refresh their hosted status and avoid recreating their changes. Normal tests stay offline. Preserve ignored private credentials, captures and recovery artifacts; public reports contain no personal machine paths, credentials or private inbox details.
 
 Keep only M2 active. Update the current checkpoint with changes, evidence limits, blockers and the exact next action, then commit completed verified work locally before handoff. Push, production changes, destructive operations and releases keep their separate authorization boundaries. Do not reopen accepted TalkBack scope.
+
+## Latest owner direction and live state — 24 October 2026
+
+The owner subsequently authorized main/production deployment on the existing Vercel project/domains and accepted potential disruption. Production dpl_C2C7QCLbkvMY8kam7Xt2npjcKqmX at main 2f71508 is READY against the clean replacement. Homepage/guest-answer checks and unauthenticated API 401 checks passed. Earlier preview-only and future-cutover wording above is historical. See the latest PROGRESS.md section for evidence limits. Android release and identity deletion remain held. Owner requested stopping further allowance use for studies; do not continue discretionary checks without a new request.
