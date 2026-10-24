@@ -70,3 +70,11 @@ or published. Native images are Robolectric renders, not device acceptance.
 Next: owner review/device acceptance of this build, retaining the Android hold
 and outstanding lifecycle gates. No push or deployment is authorized by this
 implementation checkpoint alone.
+
+## Settings access follow-up — 24 October 2026
+
+Settings is now visibly labelled on both clients. Language/theme controls work
+signed out, and native appearance persists independently of account data. The
+corrected production-configured preview was replacement-installed on the Pixel.
+See latest PROGRESS.md for tests and the auto-lock limit on physical verification.
+Do not present the missing settings controls as a future optional feature.

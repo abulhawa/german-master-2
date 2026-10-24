@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight } from "lucide-react";
+import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, Settings } from "lucide-react";
+import { useAppearance, type Appearance } from './appearance';
 import { AppMark } from './app-mark';
 import './workspace.css';
 import './mobile-design.css';
@@ -284,6 +285,7 @@ const copy = {
     title: "Practise what needs attention.",
     intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed.",
     language: "Interface language",
+    settings: "Settings", appearance: "Language and appearance", theme: "Theme", system: "System", light: "Light", dark: "Dark", appearanceError: "Appearance changed, but could not be saved on this device.",
     languageHelp: "You can change this later.",
     level: "Your current German level",
     unsure: "Not sure",
@@ -313,6 +315,7 @@ const copy = {
     foundations: "Grammar foundations", topicIntro: "Five B1 questions to practise the basics.",
     covered: "In this session", skills: ["Noun plurals", "Dative articles", "Prepositions", "Word order", "Verb forms"],
     accountRequired: "This page requires an account. Sign in or create an account to continue.",
+    settingsAccount: "Sign in to save and sync practice across devices.",
     backPractice: "Back to practice", navigation: "Main navigation",
     continueSession: "Continue session", start: "Start practice", restart: "Repeat the five questions",
     saveAcross: "Save across devices",
@@ -335,6 +338,7 @@ const copy = {
     title: "Übe, was noch Aufmerksamkeit braucht.",
     intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto.",
     language: "Sprache der Oberfläche",
+    settings: "Einstellungen", appearance: "Sprache und Darstellung", theme: "Design", system: "Systemeinstellung", light: "Hell", dark: "Dunkel", appearanceError: "Die Darstellung wurde geändert, konnte aber auf diesem Gerät nicht gespeichert werden.",
     languageHelp: "Du kannst das später ändern.",
     level: "Dein aktuelles Deutschniveau",
     unsure: "Nicht sicher",
@@ -364,6 +368,7 @@ const copy = {
     foundations: "Grammatik-Grundlagen", topicIntro: "Fünf B1-Aufgaben, um die Grundlagen zu üben.",
     covered: "In dieser Übung", skills: ["Pluralformen", "Dativartikel", "Präpositionen", "Wortstellung", "Verbformen"],
     accountRequired: "Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren.",
+    settingsAccount: "Melde dich an, um Übungen geräteübergreifend zu speichern und zu synchronisieren.",
     backPractice: "Zurück zur Übung", navigation: "Hauptnavigation",
     continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Die fünf Fragen wiederholen",
     saveAcross: "Auf mehreren Geräten speichern",
@@ -393,6 +398,7 @@ export function GuestStarterJourney({
   onResumeSaved?: () => void;
 }) {
   const [loaded] = useState(loadGuestState);
+  const appearance = useAppearance();
   const [state, setState] = useState(loaded.state);
   const [damaged, setDamaged] = useState(loaded.damaged);
   const [storageError, setStorageError] = useState(false);
@@ -488,15 +494,14 @@ export function GuestStarterJourney({
     <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
   </PracticeCard></div></main>;
 
-  if (view !== "practice") return <main className="gm-foundation gm-workspace gm-public-workspace" lang={state.locale}>
+  if (view !== "practice") return <main className="gm-foundation gm-workspace gm-public-workspace" data-theme={appearance.theme} lang={state.locale}>
     <aside className="gm-rail">
       <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
-      <label className="gm-language-switch"><span className="gm-sr-only">{c.language}</span><select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">EN</option><option value="de">DE</option></select></label>
       <nav aria-label={c.navigation} className="gm-rail-navigation">
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item =>
           <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id ? 'page' : undefined} onClick={() => setView(item.id)}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
-      <FoundationButton className="gm-nav-item gm-account-link gm-secondary" aria-current={view === 'account' || view === 'downloads' ? 'page' : undefined} onClick={() => setView("account")}><UserRound aria-hidden="true"/>{c.account}</FoundationButton>
+      <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' || view === 'downloads' ? 'page' : undefined} onClick={() => setView("account")}><Settings aria-hidden="true"/>{c.settings}</FoundationButton>
     </aside>
     <div className="gm-column gm-workspace-content">
       {storageError && <p role="alert">{c.storageError}</p>}
@@ -517,8 +522,12 @@ export function GuestStarterJourney({
           <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
         </PracticeCard>
       </> : <>
-        <div className="gm-page-heading"><h1>{c[view]}</h1></div>
-        <PracticeCard><p role="status">{c.accountRequired}</p>
+        <div className="gm-page-heading"><h1>{view === 'account' ? c.settings : c[view]}</h1></div>
+        {view === 'account' && <PracticeCard><h2>{c.appearance}</h2><div className="gm-settings">
+          <label>{c.language}<select value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+          <label>{c.theme}<select value={appearance.theme} onChange={e=>appearance.choose(e.target.value as Appearance)}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
+        </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard>}
+        <PracticeCard>{view === 'account' && <h2>{c.account}</h2>}<p role="status">{view === 'account' ? c.settingsAccount : c.accountRequired}</p>
           <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
@@ -529,7 +538,7 @@ export function GuestStarterJourney({
     </div>
   </main>;
 
-  return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
+  return <main className="gm-foundation gm-workspace gm-focused" data-theme={appearance.theme} lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-practice-header"><strong>German Master</strong>
       {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
       <div className="gm-guest-practice-actions">

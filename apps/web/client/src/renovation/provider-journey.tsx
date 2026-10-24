@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import { useAppearance } from './appearance';
 import LearnerJourney from './journey';
 import type { AccountBinding } from './account';
 import { createLearnerProvider } from './provider';
@@ -17,6 +18,7 @@ import { AccountEmailChange } from './account-email-change';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
+  const appearance = useAppearance();
   const [account,setAccount] = useState<AccountBinding|null>(null);
   const [busy,setBusy] = useState(true);
   const [failed,setFailed] = useState(false);
@@ -121,15 +123,15 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
     const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
   }}/>;
-  if(emailHelp) return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
+  if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
   if(emailChange&&account===emailChange&&!local&&!showLogin) {
     const currentEmail=host.provider.emailFor(emailChange);
-    if(currentEmail)return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} back={()=>setEmailChange(null)}/></div></main>;
+    if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} back={()=>setEmailChange(null)}/></div></main>;
   }
   if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
-    return <main className="gm-foundation" lang={locale}><div className="gm-column"><PracticeCard>
+    return <main className="gm-foundation" data-theme={appearance.theme} lang={locale}><div className="gm-column"><PracticeCard>
       {attachResult ? <>
         <h1>{remaining===0?c.attachSavedTitle:c.attachPartialTitle}</h1>
         <p role="status">{remaining===0?c.attachSaved(attachResult.saved):
@@ -155,7 +157,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   }} onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
-  return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
+  return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
     <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{c.backGuest}</FoundationButton>

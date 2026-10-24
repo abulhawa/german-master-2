@@ -20,7 +20,7 @@ it('deletion requires confirmation, survives remount and removes only owned loca
   const db=new WebReserve('deletion-ui');const foreign=new AccountBinding({subject:'00000000-0000-4000-8000-000000000099',generation:0},()=>null).storage(localStorage);
   foreign.setItem(STORAGE_KEY,'foreign preserved');await db.table('records').put({id:'marker',value:'owned'});
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
-  fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
+  fireEvent.click(screen.getByRole('button', {name: /Account|Settings/, exact:true}));
   await waitFor(()=>expect(screen.getByText('Delete learner data…')).toBeEnabled());
   fireEvent.click(screen.getByText('Delete learner data…'));expect(api.deleteLearner).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText('Keep my data'));expect(api.deleteLearner).not.toHaveBeenCalled();
@@ -80,8 +80,8 @@ describe('Home screen handoff', () => {
     expect(screen.queryByRole('navigation')).toBeNull();
     fireEvent.click(screen.getByRole('button', {name:'Close practice'}));
     fireEvent.click(screen.getByRole('button', {name:'Save and return Home'}));
-    fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
-    expect(await screen.findByRole('heading', {name:'Account', exact:true})).toHaveFocus();
+    fireEvent.click(screen.getByRole('button', {name: /Account|Settings/, exact:true}));
+    expect(await screen.findByRole('heading', {name: /Account|Settings/, exact:true})).toHaveFocus();
     expect(screen.getByLabelText('Theme')).toBeInTheDocument();
     expect(screen.getByText('Sync saved work and sign out')).not.toBeVisible();
     fireEvent.click(screen.getByText('Sign out'));
@@ -142,7 +142,7 @@ describe('Home screen handoff', () => {
 it('sign-out choices require explicit removal and resume retained work only for the same local learner',async()=> {
   const api=apiFixture();const db=new WebReserve('signout-ui');
   const rendered=render(<LearnerJourney api={api} reserve={db}/>);
-  fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));
+  fireEvent.click(screen.getByRole('button', {name: /Account|Settings/, exact:true}));
   fireEvent.click(screen.getByText('Sign out'));
   await waitFor(()=>expect(screen.getByText('Sync saved work and sign out')).toBeEnabled());
   fireEvent.click(screen.getByText('Remove local work and sign out…'));
@@ -152,7 +152,7 @@ it('sign-out choices require explicit removal and resume retained work only for 
   expect(screen.queryByText('Start short practice')).toBeNull();
   rendered.unmount();const remount=render(<LearnerJourney api={api} reserve={db}/>);
   fireEvent.click(screen.getByText('Resume the same local fixture learner'));
-  fireEvent.click(await screen.findByRole('button', {name:'Account', exact:true}));
+  fireEvent.click(await screen.findByRole('button', {name: /Account|Settings/, exact:true}));
   fireEvent.click(screen.getByText('Sign out'));
   await waitFor(()=>expect(screen.getByText('Remove local work and sign out…')).toBeEnabled());
   localStorage.setItem(PROFILE_PENDING_KEY,'explicitly removed pending work');
@@ -458,7 +458,7 @@ it("retries frozen setup payload after lost response and reload without overwrit
     profile = { ...profile, revision: 2, preferences: input.preferences }; return profile;
   });
   render(<LearnerJourney api={api} />);
-  fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
   await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(screen.getByText("Practice preferences"));
   fireEvent.change(screen.getByLabelText("Timezone"), { target: { value: "Asia/Tokyo" } });
@@ -563,7 +563,7 @@ describe("isolated learner journey", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("Topics could not be loaded");
     fireEvent.click(screen.getByRole("button", { name: "Reload topics" }));
     await screen.findByRole("button", { name: "German in everyday work" });
-    fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
+    fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
     fireEvent.change(screen.getByLabelText("Interface language"), { target: { value: "de" } });
     fireEvent.click(screen.getByRole("button", { name: "Themen", exact: true }));
     expect(screen.getByRole("button", { name: "Deutsch im Arbeitsalltag" })).toBeInTheDocument();

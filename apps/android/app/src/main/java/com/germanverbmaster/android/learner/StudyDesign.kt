@@ -4,7 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -15,19 +15,34 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.germanverbmaster.android.R
 
 /** Shared presentation only. Persistence and session transitions stay with their hosts. */
 @Composable
-internal fun StudyHeader(german: Boolean, account: () -> Unit, language: (() -> Unit)? = null, enabled: Boolean = true) {
-    val c = studyCopy(german)
+internal fun StudyHeader(german: Boolean, account: () -> Unit, enabled: Boolean = true) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Surface(color = MaterialTheme.colorScheme.primary, contentColor = MaterialTheme.colorScheme.onPrimary, shape = RoundedCornerShape(10.dp)) {
             Box(Modifier.size(32.dp), contentAlignment = Alignment.Center) { Text("ü", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold) }
         }
         Text("German Master", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-        language?.let { TextButton(onClick = it, enabled = enabled, modifier = Modifier.semantics { contentDescription = if(german) "Sprache der Oberfläche" else "Interface language" }) { Text(if (german) "DE" else "EN") } }
-        IconButton(onClick = account, enabled = enabled) { Icon(Icons.Outlined.AccountCircle, contentDescription = c(R.string.study_account)) }
+        TextButton(onClick = account, enabled = enabled) {
+            Icon(Icons.Outlined.Settings, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(6.dp))
+            Text(if(german) "Einstellungen" else "Settings")
+        }
+    }
+}
+
+@Composable
+internal fun StudyAppearanceSettings(german: Boolean, language: () -> Unit, enabled: Boolean = true) {
+    val (appearance, choose) = com.germanverbmaster.android.foundation.rememberAppearance()
+    StudyPanel {
+        Text(if(german) "Sprache und Darstellung" else "Language and appearance", style=MaterialTheme.typography.titleLarge)
+        Text(if(german) "Sprache der Oberfläche" else "Interface language", style=MaterialTheme.typography.labelLarge)
+        OutlinedButton(onClick=language,enabled=enabled,modifier=Modifier.fillMaxWidth()) { Text(if(german) "Deutsch → English" else "English → Deutsch") }
+        Text(if(german) "Design" else "Theme", style=MaterialTheme.typography.labelLarge)
+        listOf("system" to if(german) "Systemeinstellung" else "System", "light" to if(german) "Hell" else "Light", "dark" to if(german) "Dunkel" else "Dark").forEach { (value,label) ->
+            com.germanverbmaster.android.foundation.ChoiceOption(label,appearance==value,enabled) {choose(value)}
+        }
     }
 }
 

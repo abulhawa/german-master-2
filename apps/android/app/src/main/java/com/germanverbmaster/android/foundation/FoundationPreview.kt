@@ -23,6 +23,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -32,8 +33,20 @@ import com.germanverbmaster.android.foundation.contract.*
 
 @Composable
 fun FoundationTheme(content: @Composable () -> Unit) {
-    val c = if (isSystemInDarkTheme()) FoundationTokens.dark else FoundationTokens.light
-    MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme(
+    val (appearance, _) = rememberAppearance()
+    val dark = when(appearance) { "dark" -> true; "light" -> false; else -> isSystemInDarkTheme() }
+    val c = if (dark) FoundationTokens.dark else FoundationTokens.light
+    val view = LocalView.current
+    SideEffect {
+        (view.context as? android.app.Activity)?.let { activity ->
+            androidx.core.view.WindowCompat.getInsetsController(activity.window,view).apply {
+                isAppearanceLightStatusBars = !dark
+                isAppearanceLightNavigationBars = !dark
+            }
+        }
+    }
+    CompositionLocalProvider(LocalFoundationDark provides dark) {
+    MaterialTheme(colorScheme = if (dark) darkColorScheme(
         primary=c.primary, onPrimary=c.onPrimary, background=c.background,
         surface=c.surface, onSurface=c.text, onBackground=c.text,
         onSurfaceVariant=c.secondary, outline=c.controlBorder, outlineVariant=c.border, error=c.error
@@ -54,6 +67,7 @@ fun FoundationTheme(content: @Composable () -> Unit) {
             labelLarge = TextStyle(fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium),
             labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 18.sp, letterSpacing = 1.sp, fontWeight = FontWeight.Medium)
         ), content=content)
+    }
 }
 
 @Composable

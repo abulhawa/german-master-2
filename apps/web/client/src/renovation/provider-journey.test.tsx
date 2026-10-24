@@ -93,7 +93,7 @@ it('automatically retries cold local reads after verification without losing the
   expect(screen.getByRole('heading',{name:'Retained detail'})).toBeInTheDocument();
 });
 async function openAuth() {
-  fireEvent.click(await screen.findByRole('button',{name:'Account',exact:true}));
+  fireEvent.click(await screen.findByRole('button',{name: /Account|Settings/,exact:true}));
   fireEvent.click(screen.getByRole('button',{name:'Sign in',exact:true}));
   await waitFor(()=>expect(screen.getByRole('button',{name:'Sign in'})).toBeEnabled());
 }
@@ -165,7 +165,7 @@ it('requires explicit consent after authentication and attaches guest evidence o
   expect(guestAttemptCount()).toBe(1);expect(guestUnattachedAttemptCount(subject)).toBe(1);
   fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
   fireEvent.click(screen.getByRole('button',{name:'Save and return Home'}));
-  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name: /Account|Settings/,exact:true}));
   fireEvent.click(screen.getByRole('button',{name:'Sign in'}));
   fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
   fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});

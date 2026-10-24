@@ -99,7 +99,7 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
 internal fun StudyFeedback(correct: Boolean, provisional: Boolean, german: Boolean, answer: String?, accepted: String,
                            explanation: String, busy: Boolean, completedAnswer: CompletedAnswer? = null, next: () -> Unit) {
     val c = studyCopy(german)
-    val tokens = if (isSystemInDarkTheme()) FoundationTokens.dark else FoundationTokens.light
+    val tokens = if (com.germanverbmaster.android.foundation.LocalFoundationDark.current) FoundationTokens.dark else FoundationTokens.light
     val tone = if (correct) tokens.success else tokens.attention
     val focus = remember { FocusRequester() }
     val visibility = remember { BringIntoViewRequester() }

@@ -43,7 +43,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
   const makeHost=()=>({client:{auth},provider:new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project)}) as unknown as ReturnType<typeof createLearnerProvider>;
   let ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
   try {
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));expect(screen.getByText('Start downloaded practice')).toBeEnabled();});
+    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Start downloaded practice')).toBeEnabled();});
     fireEvent.click(screen.getByText('Start downloaded practice'));
     await screen.findByText('Question 1 / 5');
     const repo=new OfflineRepository(db);const [id]=await repo.list();const {session}=await repo.read(id);
@@ -51,7 +51,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
     fireEvent.change(screen.getByLabelText('Your answer'),{target:{value:'saved offline draft'}});
     await waitFor(async()=>expect((await repo.read(id)).practice.draft).toEqual({type:'short_answer',text:'saved offline draft'}));
     ui.unmount();ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));expect(screen.getByText('Open saved session 1')).toBeEnabled();});
+    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Open saved session 1')).toBeEnabled();});
     fireEvent.click(screen.getByText('Open saved session 1'));
     await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
     fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite');
@@ -60,7 +60,7 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
     fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
     fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-password'}});
     fireEvent.submit(screen.getByRole('button',{name:'Sign in',exact:true}).closest('form')!);
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name:'Account', exact:true}));expect(screen.getByText('Downloaded practice')).toBeInTheDocument();});
+    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Downloaded practice')).toBeInTheDocument();});
     expect((await repo.read(id)).practice).toEqual(before.practice); // Reauthentication never delivers saved events automatically.
     expect(send.mock.calls.length).toBeGreaterThan(0); // Fresh verified binding may read; all sends still fail locally.
     expect(before.practice.events[0].receipt).toBeNull();

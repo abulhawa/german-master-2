@@ -55,7 +55,17 @@ class MobileDesignScreenshotTest {
         mount(); compose.onNode(hasText("Topics") and hasClickAction()).performClick(); capture("topics")
     }
     @Test fun accountGate() {
-        mount(); compose.onNodeWithContentDescription("Account").performClick(); capture("account")
+        mount(); compose.onNode(hasText("Settings") and hasClickAction()).performClick(); capture("account")
+    }
+    @Test fun explicitAppearanceChoices() {
+        val context=androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val prefs=context.getSharedPreferences("gm-v2-appearance",android.content.Context.MODE_PRIVATE)
+        val previous=prefs.getString("theme","system")
+        try {
+            mount(); compose.onNode(hasText("Settings") and hasClickAction()).performClick()
+            compose.onNodeWithText("Dark").performScrollTo().performClick(); capture("settings-dark")
+            compose.onNodeWithText("Light").performScrollTo().performClick(); capture("settings-light")
+        } finally {prefs.edit().putString("theme",previous).commit()}
     }
     @Test fun largeTextKeepsStartReachable() {
         mount(true, true)

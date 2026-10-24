@@ -30,7 +30,9 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     DisposableEffect(client) { onDispose { provider.invalidate();CoroutineScope(Dispatchers.IO).launch { client.close() } } }
     var showLogin by remember { mutableStateOf(false) }
     var accountMode by remember { mutableStateOf<String?>(null) }
-    var german by remember { mutableStateOf(false) }
+    val appearancePrefs = remember(context) { context.getSharedPreferences("gm-v2-appearance", android.content.Context.MODE_PRIVATE) }
+    var german by remember { mutableStateOf(appearancePrefs.getBoolean("german",false)) }
+    fun changeLanguage() { german=!german;appearancePrefs.edit().putBoolean("german",german).apply() }
     var localOnly by remember { mutableStateOf(runCatching { subjectStore.read() != null }.getOrDefault(false)) }
     LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false;accountMode=null } }
     if(!showLogin && (localOnly || status is SessionStatus.Authenticated)) {
@@ -45,10 +47,10 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     val mode = accountMode
     if(mode == null) {
         NativeGuestEntry(File(context.noBackupFilesDir,"gm-v2-guest"), german,
-            {german=!german}, {accountMode=it},
+            {changeLanguage()}, {accountMode=it},
             if(runCatching {subjectStore.read()!=null}.getOrDefault(false)) ({localOnly=true;showLogin=false}) else null)
     } else {
-        NativeAccountEntry(mode,german,{german=!german},{accountMode=it}) { action,email,password ->
+        NativeAccountEntry(mode,german,{changeLanguage()},{accountMode=it}) { action,email,password ->
             // The accepted web email callback belongs to this production Auth project only.
             // The recovered production web callbacks were accepted on the clean replacement.
             require(action == "sign-in" || project == "sqgjsmiaprsuilcjmaav")

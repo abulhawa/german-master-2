@@ -87,7 +87,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     Scaffold(modifier=Modifier.fillMaxSize(),contentWindowInsets=WindowInsets.safeDrawing,containerColor=MaterialTheme.colorScheme.background,
         bottomBar={if(!focused) LearnerNavigation(screen,german) {returnTo="home";screen=it}}) {insets->
         Column(Modifier.padding(insets).widthIn(max=720.dp).fillMaxWidth().verticalScroll(scroll).padding(horizontal=24.dp,vertical=16.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
-            if(!focused) StudyHeader(german,{openAccount()},language)
+            if(!focused) StudyHeader(german,{openAccount()})
             else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
                 TextButton(onClick={if(active)closing=true else screen="home"}){Text(text("Close practice","Übung schließen"))}
                 if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
@@ -123,9 +123,13 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     primary(startLabel,loaded.isSuccess){start()}
                 }
                 "progress","account","downloads" -> {
-                    StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Account","Konto")})
+                    StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Settings","Einstellungen")})
+                    if(screen=="account") {
+                        StudyAppearanceSettings(german,language)
+                        Text(text("Account","Konto"),style=MaterialTheme.typography.titleLarge)
+                    }
                     section {
-                        Text(text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                        Text(if(screen=="account") text("Sign in to save and sync practice across devices.","Melde dich an, um Übungen geräteübergreifend zu speichern und zu synchronisieren.") else text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                         primary(text("Sign in","Anmelden")){account("sign-in")}
                         OutlinedButton(onClick={account("register")},modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(text("Create account","Konto erstellen"))}
                         TextButton(onClick={backToPractice()}){Text(text("Back to practice","Zurück zur Übung"))}

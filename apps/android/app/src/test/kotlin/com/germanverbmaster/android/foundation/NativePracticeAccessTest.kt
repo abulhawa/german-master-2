@@ -23,6 +23,35 @@ class NativePracticeAccessTest {
     @get:Rule val folder = TemporaryFolder()
     private fun path() = File(folder.root, "practice")
 
+    @Test fun settingsChangesThemeWithoutAnAccountAndSurvivesRecreationWithDraftIntact() {
+        val context=androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val prefs=context.getSharedPreferences("gm-v2-appearance",android.content.Context.MODE_PRIVATE)
+        val previous=prefs.getString("theme","system")
+        prefs.edit().putString("theme","system").commit()
+        val file=path(); val generation=mutableStateOf(0); val auth=mutableListOf<String>()
+        try {
+            compose.setContent { androidx.compose.runtime.key(generation.value) { FoundationTheme {
+                NativeGuestEntry(file,false,{},auth::add)
+            } } }
+            compose.onNodeWithText("Start practice").performScrollTo().performClick()
+            compose.onNodeWithText("Berufe").performScrollTo().performClick()
+            compose.onNodeWithText("Account").performClick()
+            compose.onNodeWithText("Dark").performScrollTo().performClick()
+            compose.onNodeWithText("Dark").assertIsSelected()
+            assertEquals("dark",prefs.getString("theme",null))
+            compose.runOnIdle {generation.value++}
+            compose.onNode(hasText("Settings") and hasClickAction()).performClick()
+            compose.onNodeWithText("Dark").assertIsSelected()
+            compose.onNodeWithText("Light").performScrollTo().performClick()
+            compose.onNodeWithText("Light").assertIsSelected()
+            compose.onNodeWithText("Back to practice").performScrollTo().performClick()
+            compose.onNodeWithText("Continue session").performScrollTo().performClick()
+            compose.onNodeWithText("Berufe").assertIsSelected()
+            assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(file).read().draft)
+            assertTrue(auth.isEmpty())
+        } finally { prefs.edit().putString("theme",previous).commit() }
+    }
+
     @Test fun practiceHomeHasNoSignInGateAndAccountPagesExplainTheRequirement() {
         val auth = mutableListOf<String>()
         compose.setContent { FoundationTheme { NativeGuestEntry(path(),false,{},auth::add) } }
@@ -30,17 +59,18 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Start practice").assertIsEnabled()
         compose.onNodeWithText("Sign in").assertDoesNotExist()
         compose.onNodeWithText("Create account").assertDoesNotExist()
-        for(page in listOf("Progress","Downloads","Account")) {
-            if(page=="Downloads") compose.onNode((hasText("Account") or hasContentDescription("Account")) and hasClickAction()).performClick()
-            compose.onNode((hasText(page) or hasContentDescription(page)) and hasClickAction()).performClick()
-            compose.onNodeWithText("This page requires an account. Sign in or create an account to continue.").assertExists()
+        for(page in listOf("Progress","Downloads","Settings")) {
+            if(page=="Downloads") compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
+            val entry=compose.onNode((hasText(page) or hasContentDescription(page)) and hasClickAction())
+            if(page=="Downloads") entry.performScrollTo().performClick() else entry.performClick()
+            compose.onNodeWithText(if(page=="Settings") "Sign in to save and sync practice across devices." else "This page requires an account. Sign in or create an account to continue.").assertExists()
             compose.onNodeWithText("Sign in").assertIsEnabled()
             compose.onNodeWithText("Create account").assertIsEnabled()
             compose.onNodeWithText("Back to practice").performScrollTo().performClick()
             compose.onNodeWithText("Start practice").assertExists()
         }
         assertTrue(auth.isEmpty())
-        compose.onNode((hasText("Account") or hasContentDescription("Account")) and hasClickAction()).performClick()
+        compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
         compose.onNodeWithText("Create account").performScrollTo().performClick()
         assertEquals(listOf("register"),auth)
     }
@@ -55,8 +85,8 @@ class NativePracticeAccessTest {
         } }
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
-        compose.onNode((hasText("Account") or hasContentDescription("Account")) and hasClickAction()).performClick()
-        compose.onNodeWithText("Sign in").performClick()
+        compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
+        compose.onNodeWithText("Sign in").performScrollTo().performClick()
         compose.onNodeWithText("Back to practice").performScrollTo().performClick()
         compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(file).read().draft)
@@ -80,11 +110,11 @@ class NativePracticeAccessTest {
         } }
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
-        compose.onNode((hasText("Account") or hasContentDescription("Account")) and hasClickAction()).performClick()
+        compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
         compose.runOnIdle { back.onBackPressed() }
         compose.onNodeWithText("Check answer").assertExists()
-        compose.onNode((hasText("Account") or hasContentDescription("Account")) and hasClickAction()).performClick()
-        compose.onNodeWithText("Sign in").performClick()
+        compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
+        compose.onNodeWithText("Sign in").performScrollTo().performClick()
         compose.runOnIdle { back.onBackPressed() }
         compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(file).read().draft)

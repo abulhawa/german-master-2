@@ -10,9 +10,10 @@ import { shellCopy } from './shell-locales';
 import { providerCopy } from './provider-locales';
 import './workspace.css';
 import './mobile-design.css';
+import { useAppearance, type Appearance } from './appearance';
 import { StudyArt } from './study-art';
 import { AppMark } from './app-mark';
-import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, RefreshCw } from 'lucide-react';
+import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, RefreshCw, Settings } from 'lucide-react';
 import { localLearnerApi, type LearnerApi } from "./api";
 import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull, readyAnswer, type Journey, type JourneyStorage } from "./storage";
 
@@ -127,6 +128,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   }, [db, owner, reserve]);
   const [loaded] = useState(() => { try { return { state: readJourney(storage), damaged: false }; } catch { return { state: emptyJourney(), damaged: true }; } });
   const [state, setState] = useState(loaded.state);
+  const appearance = useAppearance(state.theme);
   const current = useRef(state);
   const [view, setView] = useState<WorkspaceView>(() => readWorkspaceRoute().view);
   const [profile, setProfile] = useState<LearnerProfile | null>(null);
@@ -316,13 +318,13 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         : <FoundationButton disabled={busy || count === 0} onClick={() => void start(focus)}>{c.practise}</FoundationButton>}</>;
   }
 
-  return <main className={`gm-foundation gm-workspace ${view === 'practice' ? 'gm-focused' : ''}`} data-theme={state.theme} lang={state.locale}>
+  return <main className={`gm-foundation gm-workspace ${view === 'practice' ? 'gm-focused' : ''}`} data-theme={appearance.theme} lang={state.locale}>
     {view !== 'practice' && <aside className="gm-rail">
       <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
-      <FoundationButton className="gm-nav-item gm-account-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><UserRound aria-hidden="true"/>{s.account}</FoundationButton>
+      <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><Settings aria-hidden="true"/>{s.settings}</FoundationButton>
     </aside>}
     <div className="gm-column gm-workspace-content">
       {view === 'practice' ? <header className="gm-practice-header"><strong>German Master</strong>
@@ -335,7 +337,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         {accountSecurity?.(state.locale, busy || loaded.damaged)}
         <PracticeCard><h2>{s.appearance}</h2><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey['locale'] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
-          <label>{c.theme}<select value={state.theme} onChange={e => preference({ theme: e.target.value as Journey['theme'] })}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
+          <label>{c.theme}<select value={appearance.theme} onChange={e => { appearance.choose(e.target.value as Appearance); preference({ theme: e.target.value as Journey['theme'] }); }}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
         </div><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>
         {onReauthenticate && !localAccess && <FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton>}
         </PracticeCard>

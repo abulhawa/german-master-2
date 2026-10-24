@@ -266,3 +266,34 @@ Device UI hierarchy confirms the new Home headline, Home / Progress / Topics
 navigation and an available practice action. Left the preview open on Home.
 This verifies installation/basic launch only; no new answers, account lifecycle,
 owner UX acceptance or store release is claimed. Android publication remains held.
+
+## Settings and appearance access correction — 24 October 2026
+
+Owner reported that the redesigned app still felt restrictive because settings
+and theme controls were missing. Replaced the ambiguous secondary header icon
+with a visible Settings label on web/native. Language and System / Light / Dark
+controls are available before sign-in; only account-backed operations remain
+gated. The Settings account section explains syncing instead of claiming the
+whole page needs an account. Native theme changes also update system-bar icon
+contrast and feedback colours. Local theme preferences survive recreation; native
+signed-out language now persists. Device appearance is separate from account
+identity/practice storage; draft and explicit-attachment schemas are unchanged.
+
+Validation: root generated/web/backend checks, production build and all 435 web
+tests pass. Seventy-two focused mounted web regressions include theme persistence
+and retained practice. Eleven focused native access/shell tests pass, including
+theme changes across recreation with a saved draft; explicit light/dark native
+render checks also pass. Debug assembly and lint pass (zero errors, 22 warnings,
+including KTX suggestions and the now-unused prior account-label resource).
+An initial lint process crashed internally; the stable-source rerun passed.
+Local 390px browser checks confirm visible Settings, account-free controls and a
+saved dark theme after reload. Production-configured preview assembly and its
+configuration guard pass.
+
+Replacement installation on the owner's Pixel succeeded without uninstalling or
+clearing data. After owner unlock, device hierarchy showed the running preview
+and visible Settings label. The phone auto-locked again during interaction;
+do not claim a completed physical theme-toggle or native live-account journey.
+No store release, web deployment, push or backend configuration change occurred.
+Exact next action: owner tries Settings in the installed preview; address concrete
+issues while keeping web/native aligned and the Android publication hold intact.

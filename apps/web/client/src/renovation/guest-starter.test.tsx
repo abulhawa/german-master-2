@@ -1,6 +1,27 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { GuestStarterJourney, GUEST_STORAGE_KEY, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from "./guest-starter";
+import { APPEARANCE_KEY } from './appearance';
+
+it('offers persistent appearance settings without authentication and preserves the draft', () => {
+  const auth=vi.fn();
+  render(<GuestStarterJourney onAuth={auth}/>);
+  fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
+  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
+  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
+  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'dark'}});
+  expect(document.querySelector('main')).toHaveAttribute('data-theme','dark');
+  expect(localStorage.getItem(APPEARANCE_KEY)).toBe('dark');
+  cleanup(); render(<GuestStarterJourney onAuth={auth}/>);
+  expect(document.querySelector('main')).toHaveAttribute('data-theme','dark');
+  fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
+  expect(screen.getByRole('combobox',{name:'Theme'})).toHaveValue('dark');
+  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'light'}});
+  expect(document.querySelector('main')).toHaveAttribute('data-theme','light');
+  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
+  expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
+  expect(auth).not.toHaveBeenCalled();
+});
 
 afterEach(() => {
   cleanup();
@@ -54,18 +75,18 @@ it("requires an account only when opening account-dependent pages and allows ret
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
   expect(screen.queryByRole("button", { name: "Sign in" })).toBeNull();
-  for (const page of ["Progress", "Downloads", "Account"]) {
-    if (page === "Downloads") fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
+  for (const page of ["Progress", "Downloads", "Settings"]) {
+    if (page === "Downloads") fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
     fireEvent.click(screen.getByRole("button", { name: page, exact: true }));
     expect(screen.getByRole("heading", { name: page })).toBeInTheDocument();
-    expect(screen.getByRole("status")).toHaveTextContent("This page requires an account");
+    expect(screen.getByRole("status")).toHaveTextContent(page === "Settings" ? "Sign in to save and sync practice across devices." : "This page requires an account");
     expect(screen.getByRole("button", { name: "Sign in" })).toBeEnabled();
     expect(screen.getByRole("button", { name: "Create account" })).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: "Back to practice" }));
     expect(screen.getByRole("button", { name: "Start practice" })).toBeEnabled();
   }
   expect(onAuth).not.toHaveBeenCalled();
-  fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
   fireEvent.click(screen.getByRole("button", { name: "Create account" }));
   expect(onAuth).toHaveBeenCalledWith("register");
 });
@@ -76,7 +97,7 @@ it("preserves the exercise draft through Account, auth entry, Home and reload", 
   fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
   fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
   const draft = localStorage.getItem(GUEST_STORAGE_KEY);
-  fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
   fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
   expect(onAuth).toHaveBeenCalledWith("sign-in");
   fireEvent.click(screen.getByRole("button", { name: "Back to practice" }));
@@ -136,9 +157,11 @@ it("keeps the interface language selector reachable from guest home", () => {
   for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
   fireEvent.click(screen.getByRole("button", { name: "Finish" }));
 
+  fireEvent.click(screen.getByRole("button", { name: "Settings" }));
   const language = screen.getByRole("combobox", { name: "Interface language" });
   fireEvent.change(language, { target: { value: "de" } });
   expect(document.querySelector("main")).toHaveAttribute("lang", "de");
+  fireEvent.click(screen.getByRole("button", { name: "Startseite" }));
   expect(screen.getByRole("heading", { name: "Ein wenig Deutsch. Ein Stück sicherer." })).toBeInTheDocument();
   expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).locale).toBe("de");
 });
@@ -163,6 +186,7 @@ it("finishes and repeats practice without an account promotion", () => {
 
 it("localizes account gating without writing or discarding practice", () => {
   render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Settings" }));
   fireEvent.change(screen.getByRole("combobox", { name: "Interface language" }), { target: { value: "de" } });
   fireEvent.click(screen.getByRole("button", { name: "Fortschritt" }));
   expect(screen.getByRole("status")).toHaveTextContent("Für diese Seite brauchst du ein Konto");
