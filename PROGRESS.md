@@ -196,3 +196,25 @@ d2e3552 was still building its unsigned release-check artifact at this update;
 no full hosted native pass is claimed yet. Exact next action: inspect that hosted
 result and address demonstrated user-facing release blockers on both clients.
 Owner UX approval and Android store publication remain separate and held.
+
+## Owner rejects overall UI — 24 October 2026
+
+Owner rejects the overall hard-reset UI, beyond the earlier navigation defects,
+and requests a contemporary, suitable design without supplying a reference app.
+Treat this as renewed visual/interaction design work within the existing feature
+freeze. Passing behavior checks and earlier focused device checks do not satisfy
+owner UX acceptance.
+
+Inspected the current live signed-out Home and Topics visually. Findings include
+repeated session labels/actions, weak content hierarchy, excessive empty space,
+and Topics presented as a plain list inside an oversized card. Created a private,
+interactive design proposal covering responsive Home/navigation, Topics, account
+gates and a sample choice/feedback interaction. This is a proposal, not integrated
+web/Android code or a new content pack. Browser preview verified Home-to-practice,
+selection, disabled/enabled Check, and incorrect feedback. No native runtime,
+production change, renewed accessibility acceptance or complete redesign is claimed.
+
+Next action: use owner feedback on the concrete visual proposal to refine the
+direction, then implement the agreed design across web and native Android in the
+same slice, preserving account isolation, drafts and existing practice semantics.
+The Android publication hold remains.
