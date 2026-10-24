@@ -2,6 +2,8 @@
 
 Tracking: [Issue #20](https://github.com/abulhawa/german-master-2/issues/20).
 
+Current follow-up: [24 October verification](recovery-verification-2026-10-24.md) and root `PROGRESS.md` supersede historical execution status below. Custom SMTP is now confirmed saved/enabled; leave its settings alone. The owner authorized an isolated test deployment, not production cutover. Google/Microsoft sign-in is queued for later.
+
 ## Recovery decision and deployment boundary
 
 **Keep** the shared contracts, grading, content, Postgres schema, offline outbox, and native/web foundations. **Do not** reset Git history or create a new database. Production currently serves a functioning *local five-question guest demo* but `/v2/catalog` and `/v2/profile` return HTTP 503. Fix operational continuity first; simplify the learner experience second.

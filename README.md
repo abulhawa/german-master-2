@@ -2,16 +2,16 @@
 
 One monorepo for the React web learner, native Kotlin Android learner, versioned exercise contracts, authoritative TypeScript learning engine, PostgreSQL/Supabase backend, content and verification.
 
-## Current status (23 October 2026)
+## Current status (24 October 2026)
 
 **Recovery and product simplification in progress.** See [recovery execution plan](docs/operations/recovery-execution-2026-10-23.md) and [issue #20](https://github.com/abulhawa/german-master-2/issues/20) first. This section supersedes the old bootstrap-only description.
 
 - The current production Vercel deployment is built from `main` commit `a9f0c3ae`. Its five-question local guest B1 starter works, but the account API responded HTTP **503** at the recovery checkpoint because production still targets the **inactive** older v2 Supabase project.
 - The clean replacement Supabase project is **ACTIVE_HEALTHY**, with initial schema baseline 1, 29 RLS-enabled application tables, 65 published B1/B2 learning targets, 125 exercise revisions and two published content releases. At inspection there were no replacement Auth users or learner attempts. **Do not re-seed or reset it.**
-- A safe project-binding code correction is under review; production credentials, SMTP, redirects and real end-to-end account lifecycle still need isolated verification before any domain/backend cutover.
+- The project-binding correction and guest clarity PRs are CI-green and locally integrated; GitHub PRs remain unmerged. Restricted replacement TLS connections and unauthenticated runtime denial pass. Custom SMTP is saved/enabled; isolated redirects and real end-to-end account lifecycle still need verification before production cutover.
 - Android release is **BLOCKED** by the owner's UX acceptance hold. Passing unit tests is not release authorization.
 
-The original web and Android repositories, source history and application signing identity are preserved. Historical entries in [PROGRESS.md](PROGRESS.md) are evidence, not necessarily current state. Do not infer readiness from historical milestone acceptance.
+The original web and Android repositories, source history and application signing identity are preserved. [PROGRESS.md](PROGRESS.md) is the short current checkpoint; older evidence is preserved in the [historical log](docs/operations/history/progress-through-2026-10-23.md). Do not infer readiness from historical milestone acceptance.
 
 ## Work order
 

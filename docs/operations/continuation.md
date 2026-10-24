@@ -1,130 +1,17 @@
-# Continuing the German Master renovation
+# Continuing German Master recovery
 
-## Read issue #20 before status or continuation - 23 October 2026
+Read root `AGENTS.md`, then the short current `PROGRESS.md`. Refresh [issue #20](https://github.com/abulhawa/german-master-2/issues/20), its comments and linked PRs before reporting status or implementing overlapping work. The [recovery runbook](recovery-execution-2026-10-23.md) describes the gated sequence. Old continuation instructions are retained in [history](history/continuation-through-2026-10-23.md); their paths are relative to their original location and their next actions are historical.
 
-Owner requested that [issue #20: backend recovery and learner simplification](https://github.com/abulhawa/german-master-2/issues/20)
-be included in future status checks. Refresh its body, comments and linked PRs
-[#21](https://github.com/abulhawa/german-master-2/pull/21) and
-[#22](https://github.com/abulhawa/german-master-2/pull/22) before reporting current
-state or implementing overlapping work. See the newest root checkpoint for the
-recorded snapshot and evidence limits. This recovery direction supersedes older
-conflicting next steps: freeze new features, verify the restored replacement's
-Auth/SMTP/redirects and isolated account lifecycle first, then simplify UX.
-Production cutover needs a separate explicit decision. Android release remains
-blocked. The issue comments report content already published; do not republish
-based on historical candidate notes. This documentation task did not retest hosted
-services or verify the current PR/CI/deployment states.
+## Current work order
 
-## Unified inputs and feedback - 23 October 2026
+1. Recover the authenticated backend on the existing clean replacement. Preserve schema/content and use the four restricted connections. Do not create a project, reset data, republish content or transfer old accounts.
+2. Complete the owner-authorized isolated Vercel preview and replacement signup/confirmation/recovery test using the owner's Outlook inbox. SMTP is saved/enabled; leave its settings alone. Verify actual delivery rather than repeatedly configuring it. Isolated callback configuration and actual signed-in lifecycle remain acceptance requirements.
+3. Verify practice/persistence, logout/login, offline, privacy and real web/native journeys. Distinguish API/fixture evidence from real browser/device acceptance.
+4. Simplify the learner path and then run a small learner pilot before new features. Google and Microsoft sign-in are explicitly planned later; do not add OAuth providers during recovery.
+5. A production cutover requires a separate explicit decision with verified environment bindings and rollback steps. Android release remains on owner hold. Preview authorization is not production or store-release approval.
 
-The owner's web screenshot exposed duplicate choices/text fields and technical
-feedback. Both clients now use plain outcomes and choice-only starter input;
-all-five journeys pass in desktop/mobile browser and on Pixel. Follow the
-[unified practice presentation contract](../product/practice-presentation.md)
-and newest root checkpoint. Separate guest/account storage hosts still exist;
-this does not establish complete parity of every screen. Web changes remain
-local until an authorized deployment; Android release hold remains active.
+## Handoff discipline
 
-## Guest verb-choice crash repaired - 22 October 2026
+Inspect the current branch, dirty work and recent commits before editing. PRs #21/#22 were locally integrated without merging them on GitHub; refresh their hosted status and avoid recreating their changes. Normal tests stay offline. Preserve ignored private credentials, captures and recovery artifacts; public reports contain no personal machine paths, credentials or private inbox details.
 
-The fifth starter crashed on its first verb choice because the handler constructed
-an invalid one-slot multi-slot answer. All slots are now retained in partial
-drafts. Focused checks and the exact Pixel interaction/restart/completion pass;
-see [crash evidence](android-guest-multislot-crash-2026-10-22.md). Release hold
-remains active; the separate intermittent next-question focus assertion remains
-an evidence limitation.
-
-## Android word-order interaction corrected - 22 October 2026
-
-Direct measured drag-and-drop and stable answer/bank layout are implemented and
-verified with focused tests plus recorded Pixel gestures. See
-[word-order evidence](android-word-order-interaction-2026-10-22.md) and newest
-root checkpoint for limits. Continue dynamic checks of other components and
-signed-in/account journeys. The Android release hold remains active.
-
-## Android UX work resumed - 22 October 2026
-
-The owner resumed work on the release blocker and authorized bounded real Pixel
-captures. Review every component for purpose, timing and predictable behaviour.
-See [the component review](android-ux-review-2026-10-22.md) and newest root
-checkpoint for implemented changes and verification. The Android release hold
-remains active until explicit owner acceptance. Earlier pause entries below are
-historical; do not restart the old screenshot batch or reopen TalkBack acceptance.
-
-## Android review paused; release blocked — 20 October 2026
-
-The owner stopped the screenshot review and rejected the current Android UX,
-specifically excessive help/explanatory text and unexpected behaviour. Android
-release is blocked until a renewed UX review and explicit owner approval. See
-[the issue log and release hold](android-ux-release-hold-2026-10-20.md). Preserve
-partial local screenshots and unverified capture tooling; do not restart the batch
-without the owner resuming it. Earlier design acceptance does not lift this hold;
-the accepted TalkBack scope remains unchanged. M2 remains the sole active milestone.
-
-## Owner workflow
-
-Open `<repository>` in a new Codex chat and say:
-
-> Continue the German Master renovation from where we stopped.
-
-If the chat starts outside the repo, use:
-
-> Continue German Master 2.0 in <repository>. Read AGENTS.md and PROGRESS.md, then implement the next unfinished slice.
-
-The repository contains the durable state. A new chat need not have access to the old conversation to understand the product, current implementation or next action.
-
-## Latest owner-requested database task — 10 October 2026
-
-Prepare a fresh database replacement using one initial schema, without learner-data migration. The owner confirmed the two existing accounts/progress are disposable and selected the existing organization. See [replacement preparation](clean-database-baseline-2026-10-10.md) and the newest root checkpoint: SQL preparation passes local checks, but repository consolidation and restricted TLS connection verification are complete; full hosted lifecycle acceptance remains incomplete; owner dashboard creation resolved provisioning and the replacement baseline is now installed/verified on the hosted project. Scoped logins and replacement runtime composition are verified. Owner SMTP password handoff, isolated callback/API origin setup, content and both-client lifecycle acceptance remain unfinished. Production cutover and retirement remain separate controlled steps. M2 remains active.
-
-## Current shared priority — 10 October 2026
-
-**M1 is complete; M2 is now the only active milestone.** Root `PROGRESS.md` records passing final local checks, delivered signup/recovery acceptance and explicit owner design/manual web accessibility acceptance. Next: representative independent-connection PostgreSQL contention/load and selection-query-cost verification in an isolated local environment, using the existing authoritative-engine/network evidence. M3–M5 stay queued; M6 has not started. Successful confirmation-resend delivery remains a queued account-lifecycle follow-up. The freshly AI-reviewed candidate remains unpublished. Do not restart accepted TalkBack/design/web screen-reader gates or repeat established identity/role setup as missing.
-
-The newer [10 October M1 acceptance follow-up](m1-acceptance-2026-10-10.md) supersedes the pending PR #18 and blanket unverified consultant-fix statements below. PR #18 merged as `f1ef138`; its PR checks and merge-commit web/Android/accessibility/safety/CodeQL checks pass. Fresh AI editorial review of all 60 changed targets corrected stale explanations and hints, recorded matching content hashes and regenerated the unpublished candidate. The owner accepted both-client design and manual web screen-reader review in this session. Delivered recovery reached the password form, owner submission returned to signed-in Home, and consumed-link reuse was rejected. See the newest root checkpoint for final signup/verification outcomes and the next active milestone. Earlier entries remain historical evidence.
-
-Latest local work: `fix/consultant-review` contains all eight consultant fixes and locally integrated PR #16 WIP. The owner explicitly deferred tests, builds, lint and browser/device verification. See [the fix list](consultant-fix-list.md) for commit references and the required verification backlog. Treat every new fix as implemented, unverified. Do not publish the changed candidate: all 60 edited target approvals are pending. M1 stays active. The exact next action is deferred verification and repair, not another feature slice. Earlier release and PR statuses below describe the prior checkpoint.
-
-PR #13 was owner-authorized, merged and deployed; a cold-start readiness regression was then reproduced from the owner's screenshot. PR #14 corrects the readiness transition without remounting navigation and is merged as `086e9ae`, deployed and verified on the canonical site with delayed cold-start and controlling-worker reload/tab-return fixtures. See [tab-return investigation](web-tab-return-navigation.md) and the newest checkpoint. The final test/evidence-only commit is local. Post-merge checks pass. Next: owner review of the corrected live app and the prior M1 design/manual accessibility gates.
-
-The separate Android v2-only launch/release-configuration work from PR #12 is already merged and preserved. Android Studio versionCode/versionName and signing remain owner-managed; no Play release is authorized by the web correction.
-
-Latest design implementation: Android now uses the web-inspired blue-panel Home and both clients align practice with the revised low-typing S04 concepts. Local builds, tests and Pixel/light/dark/English/German/enlarged-text evidence are recorded in [design alignment](../design/study-alignment-2026-10-09.md) and the newest checkpoint. Next: authorized hosted verification and final owner design/manual web accessibility acceptance. Do not revert Home to the older October 3 concept or recreate completed low-typing controls.
-
-Latest owner decision: **TalkBack acceptance is completed for now**. Further TalkBack testing/improvements are deferred; do not reopen it as a blocker. The native next-question focus fix passes full local Android checks and needs hosted verification after an authorized push. Finish final both-client design/web accessibility acceptance before closing M1. Earlier TalkBack pending references below describe historical evidence limits and are superseded by this accepted scope.
-
-Owner decision: close M0–M6 one by one. M0 is complete with [verified private recovery evidence](m0-closure.md). M1 is the only active milestone; M2–M5 are queued with partial work preserved, and M6 is not started. Do not open another milestone merely because the active milestone has an external blocker.
-
-All 30 B2 draft targets / 60 variants now use authored single-slot gap choices at revision 2 in the unpublished candidate. Root and Android suites, converted-content client tests and hash-bound GPT-6 AI editorial validation pass locally; all hosted Actions and Vercel checks pass at PR #11 head `d9715d0`. A connected physical phone has partial B2/large-text runtime evidence. Exact next action: finish physical TalkBack/keyboard and manual web screen-reader acceptance, and record final both-client design acceptance. See [9 October acceptance evidence](m1-acceptance-2026-10-09.md). Publication remains separately authorized.
-
-The completed B1 preview at `f6b4087` covers 20 targets/40 revision-2 exercises. The owner waived mandatory independent human German review on 9 October; ChatGPT GPT-6 editorial review is the content gate. Real physical-device Android acceptance remains open. B1 prepositions already use MCQs and B1 ordering already uses word tokens; do not recreate that conversion. See [candidate preview evidence](low-typing-candidate-preview.md) and [current milestone gates](milestone-gates.md).
-
-The owner accepts laptop backups and personally holds/signs Android keys in Android Studio. Source identity/version is `com.germanverbmaster.android`, 29 / 0.2.08; the owner checks the live Play maximum before release. Exact recovery locations and machine paths stay in ignored/private manifests. The existing legacy and renovated Supabase projects remain separate and unchanged; no third project is needed.
-
-This is a hard reset with no existing learners to migrate. Preserve identity/signing, provenance, immutable revisions and operational recovery. The blueprint defines exit criteria; the current gate table and newest PROGRESS.md checkpoint define the active work. Older entries are historical. Release, publication and production mutation boundaries remain unchanged.
-
-## Agent workflow
-
-1. Read root `AGENTS.md` and `PROGRESS.md`; inspect scoped instructions for the files to change.
-2. Verify the checkout identity, branch, local changes and recent commits. Check the remote state when relevant. Do not automatically pull over dirty work or discard anything to match the checkpoint.
-3. Reconcile progress against the actual code and verification records. Skip completed work and correct stale claims. Read the blueprint sections and ADRs relevant to the current slice.
-4. Briefly tell the owner where the project stands and what the next slice will deliver, then implement it. Routine choices should use the accepted product baseline; ask only for a missing decision or permission that genuinely blocks dependent work.
-5. Run appropriate checks. Keep normal tests offline and production isolated. An external blocker does not justify abandoning independent useful work.
-6. Finish one coherent, reviewable slice before broadening scope. For complex work, maintain a short slice plan with progress, discoveries and remaining actions so interrupted work can resume.
-7. Update `PROGRESS.md` before handoff, including partially completed work. Commit/push verified changes when authorized, then report the concrete outcome, checks, material limitations and next slice.
-
-The owner wants implementation on a continuation request, not repeated planning or a menu of next actions. The roadmap remains the destination; the checkpoint is the route from the current code.
-
-## Checkpoint accuracy
-
-Use Done only when the acceptance evidence exists. Distinguish implemented, tested locally, passed hosted CI, deployed and validated with learners. The source-of-truth blueprint is not evidence that its features have been implemented. Never claim a milestone is complete because only its easiest task was finished.
-
-Retain partially completed work with clear reproduction steps and the exact next action. Replace stale next-action text after each slice. Small commits and durable files provide continuity even if a chat ends unexpectedly.
-
-## Scope and approval boundaries
-
-Resume ordinary code, tests, documentation, local isolated restructuring and repair within the renovation scope. Preserve the two originals and the public monorepo's secret hygiene. Live production cutover, destructive database operations, store publishing, billing changes and external messages still require authorization appropriate to that action. An approval boundary should stop only dependent work; continue independent implementation where possible.
-
-## References
-
-This workflow uses repository instructions and a living progress file, consistent with [OpenAI's AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md) and [its guidance for durable execution plans](https://developers.openai.com/cookbook/articles/codex_exec_plans). The saved files supply context; they do not guarantee that an unrelated chat on another machine can discover this repository without being pointed to it.
+Keep only M2 active. Update the current checkpoint with changes, evidence limits, blockers and the exact next action, then commit completed verified work locally before handoff. Push, production changes, destructive operations and releases keep their separate authorization boundaries. Do not reopen accepted TalkBack scope.
