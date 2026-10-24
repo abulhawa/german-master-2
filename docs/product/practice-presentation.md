@@ -66,3 +66,15 @@ Apply the direction to web and Android in the same work slice. Always keep
 user-facing behavior in sync; track unavoidable gaps as release blockers.
 The Android release hold still governs store publication separately. The current signed-out content inventory is
 still the bundled five-question pack; this correction does not expand it.
+
+## Navigation shell — 24 October 2026 correction
+
+Signed-out practice must retain the renovated app shell. Home, Progress and
+Topics are the primary destinations, shown as persistent bottom navigation on
+Android/narrow web and a rail on desktop web. Account is a secondary header/rail
+entry; Downloads lives under Account. Keep the shell visible on account-required
+pages so a learner can leave without authenticating. Topics is available signed
+out and describes the existing bundled content honestly; do not gate browsing
+behind signup. Do not invent a larger anonymous catalog. Focused practice uses
+Close with draft retention instead of the full primary navigation. Android uses
+the same primary navigation component for local and account-backed practice.

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight } from "lucide-react";
 import { AppMark } from './app-mark';
 import './workspace.css';
 import { z } from "zod";
@@ -278,7 +279,7 @@ function localEvaluation(exercise: Exercise, answer: Answer, assisted: boolean):
 
 const copy = {
   en: {
-    subtitle: "Five-question B1 starter",
+    subtitle: "B1 · 5 questions",
     title: "Practise what needs attention.",
     intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed.",
     language: "Interface language",
@@ -304,7 +305,10 @@ const copy = {
     close: "Close practice", leaveTitle: "Leave this session?", leaveBody: "Your answers and draft stay on this device.",
     saveHome: "Save and return Home", keep: "Keep practising",
     homeTitle: "Practise German", homeStatus: "Your practice is saved on this device.",
-    home: "Home", progress: "Progress", downloads: "Downloads", account: "Account",
+    home: "Home", progress: "Progress", topics: "Topics", downloads: "Downloads", account: "Account",
+    practiceIntro: "A short session, one question at a time.",
+    foundations: "Grammar foundations", topicIntro: "Five B1 questions to practise the basics.",
+    covered: "In this session", skills: ["Noun plurals", "Dative articles", "Prepositions", "Word order", "Verb forms"],
     accountRequired: "This page requires an account. Sign in or create an account to continue.",
     backPractice: "Back to practice", navigation: "Main navigation",
     continueSession: "Continue session", start: "Start practice", restart: "Repeat the five questions",
@@ -324,7 +328,7 @@ const copy = {
     b2Note: "The current starter pack contains five reviewed B1 foundation questions.",
   },
   de: {
-    subtitle: "Fünf B1-Übungsfragen",
+    subtitle: "B1 · 5 Aufgaben",
     title: "Übe, was noch Aufmerksamkeit braucht.",
     intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto.",
     language: "Sprache der Oberfläche",
@@ -350,7 +354,10 @@ const copy = {
     close: "Übung schließen", leaveTitle: "Diese Übung verlassen?", leaveBody: "Deine Antworten und dein Entwurf bleiben auf diesem Gerät.",
     saveHome: "Speichern und zur Startseite", keep: "Weiter üben",
     homeTitle: "Deutsch üben", homeStatus: "Deine Übungen sind auf diesem Gerät gespeichert.",
-    home: "Startseite", progress: "Fortschritt", downloads: "Downloads", account: "Konto",
+    home: "Startseite", progress: "Fortschritt", topics: "Themen", downloads: "Downloads", account: "Konto",
+    practiceIntro: "Eine kurze Übung, eine Aufgabe nach der anderen.",
+    foundations: "Grammatik-Grundlagen", topicIntro: "Fünf B1-Aufgaben, um die Grundlagen zu üben.",
+    covered: "In dieser Übung", skills: ["Pluralformen", "Dativartikel", "Präpositionen", "Wortstellung", "Verbformen"],
     accountRequired: "Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren.",
     backPractice: "Zurück zur Übung", navigation: "Hauptnavigation",
     continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Die fünf Fragen wiederholen",
@@ -384,7 +391,7 @@ export function GuestStarterJourney({
   const [state, setState] = useState(loaded.state);
   const [damaged, setDamaged] = useState(loaded.damaged);
   const [storageError, setStorageError] = useState(false);
-  const [view, setView] = useState<"home" | "practice" | "progress" | "downloads" | "account">("home");
+  const [view, setView] = useState<"home" | "practice" | "progress" | "topics" | "downloads" | "account">("home");
   const [closing, setClosing] = useState(false);
   const c = copy[state.locale];
   const complete = !!state.session && state.index >= state.session.questions.length;
@@ -476,29 +483,46 @@ export function GuestStarterJourney({
     <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
   </PracticeCard></div></main>;
 
-  if (view === "progress" || view === "downloads" || view === "account") return <main className="gm-foundation" lang={state.locale}><div className="gm-column"><PracticeCard>
-    <h1>{c[view]}</h1><p role="status">{c.accountRequired}</p>
-    <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
-    <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
-    <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
-    {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
-  </PracticeCard></div></main>;
-
-  if (view === "home") return <main className="gm-foundation gm-welcome" lang={state.locale}><div className="gm-column">
-    <header className="gm-header"><div className="gm-wordmark"><AppMark/><strong>German Master</strong></div><span>{c.subtitle}</span>
-      <label className="gm-language-switch">{c.language}<select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
-    </header>
-    <PracticeCard>
-      <h1>{c.homeTitle}</h1><p role="status">{c.homeStatus}</p>
+  if (view !== "practice") return <main className="gm-foundation gm-workspace gm-public-workspace" lang={state.locale}>
+    <aside className="gm-rail">
+      <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
+      <nav aria-label={c.navigation} className="gm-rail-navigation">
+        {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item =>
+          <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id ? 'page' : undefined} onClick={() => setView(item.id)}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
+      </nav>
+      <FoundationButton className="gm-nav-item gm-account-link gm-secondary" aria-current={view === 'account' || view === 'downloads' ? 'page' : undefined} onClick={() => setView("account")}><UserRound aria-hidden="true"/>{c.account}</FoundationButton>
+    </aside>
+    <div className="gm-column gm-workspace-content">
+      <header className="gm-workspace-header"><span>{c.subtitle}</span>
+        <label className="gm-language-switch"><span>{c.language}</span><select aria-label={c.language} value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+      </header>
       {storageError && <p role="alert">{c.storageError}</p>}
-      <FoundationButton disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}</FoundationButton>
-    </PracticeCard>
-    <nav aria-label={c.navigation} className="gm-guest-practice-actions">
-      <FoundationButton className="gm-secondary" onClick={() => setView("progress")}>{c.progress}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => setView("downloads")}>{c.downloads}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
-    </nav>
-  </div></main>;
+      {view === "home" ? <>
+        <div className="gm-page-heading"><h1>{c.homeTitle}</h1><p>{c.practiceIntro}</p></div>
+        <section className="gm-primary-card"><PracticeCard>
+          <h2>{active ? c.continueSession : c.foundations}</h2>
+          <p className="gm-meta">{c.topicIntro}</p>
+          <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
+          <p className="gm-meta">{c.homeStatus}</p>
+        </PracticeCard></section>
+      </> : view === "topics" ? <>
+        <div className="gm-page-heading"><h1>{c.topics}</h1><p>{c.topicIntro}</p></div>
+        <PracticeCard><span className="gm-meta">B1</span><h2>{c.foundations}</h2><h3>{c.covered}</h3>
+          <ul>{c.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+          <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
+        </PracticeCard>
+      </> : <>
+        <div className="gm-page-heading"><h1>{c[view]}</h1></div>
+        <PracticeCard><p role="status">{c.accountRequired}</p>
+          <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
+          <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
+          <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
+          {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
+        </PracticeCard>
+        {view === "account" && <FoundationButton className="gm-secondary" onClick={() => setView("downloads")}>{c.downloads}</FoundationButton>}
+      </>}
+    </div>
+  </main>;
 
   return <main className="gm-foundation gm-workspace gm-focused" lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-practice-header"><strong>German Master</strong>

@@ -210,3 +210,15 @@
   .gm-progress-stat span { font-size: .75rem; }
 }
 .gm-account-email { overflow-wrap: anywhere; }
+
+/* Keep the same clear primary navigation for local and account-backed practice. */
+.gm-workspace .gm-rail-navigation .gm-nav-item[aria-current="page"] {
+  background: color-mix(in srgb, var(--gm-primary) 12%, var(--gm-surface));
+  color: var(--gm-primary);
+  border-color: transparent;
+}
+.gm-public-workspace .gm-workspace-header { align-items: center; padding-bottom: 12px; margin-bottom: 24px; gap: 12px; }
+.gm-public-workspace .gm-language-switch { flex-direction: row; align-items: center; }
+.gm-public-workspace .gm-language-switch > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.gm-public-workspace .gm-card h3 { margin: 0; font-size: .875rem; }
+.gm-public-workspace .gm-card ul { margin: 0; padding-inline-start: 20px; line-height: 1.8; }

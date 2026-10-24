@@ -85,20 +85,9 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
     }
     val design = studyCopy(german)
     val focused = screen == "practice" && cache.practice != null
-    Scaffold(containerColor = MaterialTheme.colorScheme.background, bottomBar = {
-        if (!focused && !setup && cache.profile != null) NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
-            listOf(Triple("home", R.string.study_home, Icons.Outlined.Home),
-                Triple("progress", R.string.study_progress, Icons.AutoMirrored.Outlined.TrendingUp),
-                Triple("topics", R.string.study_topics, Icons.AutoMirrored.Outlined.MenuBook)).forEach { (destination, title, icon) ->
-                NavigationBarItem(selected = screen == destination || destination == "topics" && screen in setOf("topic", "target"),
-                    onClick = { screen = destination }, enabled = !busy,
-                    colors = NavigationBarItemDefaults.colors(selectedIconColor = MaterialTheme.colorScheme.primary,
-                        selectedTextColor = MaterialTheme.colorScheme.primary,
-                        indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
-                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant),
-                    icon = { Icon(icon, contentDescription = null) }, label = { Text(design(title)) })
-            }
+    Scaffold(modifier=Modifier.safeDrawingPadding(),containerColor = MaterialTheme.colorScheme.background, bottomBar = {
+        if (!focused && !setup && cache.profile != null) {
+            LearnerNavigation(screen,german,!busy) { screen=it }
         }
     }) { insets ->
         Column(Modifier.padding(insets).imePadding().widthIn(max = 720.dp).fillMaxWidth()

@@ -127,3 +127,34 @@ without Sign in / Create account on Home. This closes install/basic launch
 verification only; no complete native account lifecycle or owner UX acceptance
 is claimed. The Android publication hold remains. Exact next action: owner tests
 the installed preview; address demonstrated user-facing blockers on both clients.
+
+## Navigation release blocker — 24 October 2026
+
+Owner rejected the installed preview's missing app navigation. The earlier
+practice-access patch preserved a stripped-down local host instead of the
+blueprint's navigation shell; source flow alignment was not adequate UI parity.
+
+Corrected both clients: persistent Home / Progress / Topics bottom navigation
+(narrow web / Android), desktop web rail, active destination indicators, Account
+in the header/rail, and Downloads within Account. Account-required pages keep
+the main navigation. Topics exposes the existing B1 five-question foundations
+pack without sign-in; it does not expose the full authenticated catalog or add
+content. Practice remains focused, with safe Close and draft restoration.
+Android shares its actual navigation component between local and signed-in
+shells; Home and Topics use the same calmer card hierarchy across clients.
+
+Verification: root generated/web/backend type checks, production build, 71
+focused web regressions and 14 native UI/provider/shell regressions pass. Android
+debug and learnerPreview assembly and lint pass (zero errors). Local built-bundle
+browser checks at 1280px/390px pass navigation, public Topics, account prompts,
+auth cancellation, draft restoration, grading and summary; no overflow/page errors.
+A root npm test rerun stalled during backend tests and was stopped; do not claim
+a new local full-suite pass. Hosted CI will provide the complete offline run.
+
+The Pixel disconnected during the build. The new production-configured preview
+APK is built, but replacement installation failed because no ADB device was
+available. The owner was asked to reconnect/unlock the Pixel. Do not claim the
+navigation fix is installed or device-accepted until it is actually verified.
+Exact next action: deploy/verify web through main and check hosted CI; reconnect
+the Pixel, replace-install the preview without data clearing, and verify visible
+navigation on the device. Android publication/UX approval remains held.

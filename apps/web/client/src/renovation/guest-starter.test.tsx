@@ -55,6 +55,7 @@ it("requires an account only when opening account-dependent pages and allows ret
   render(<GuestStarterJourney onAuth={onAuth} />);
   expect(screen.queryByRole("button", { name: "Sign in" })).toBeNull();
   for (const page of ["Progress", "Downloads", "Account"]) {
+    if (page === "Downloads") fireEvent.click(screen.getByRole("button", { name: "Account", exact: true }));
     fireEvent.click(screen.getByRole("button", { name: page, exact: true }));
     expect(screen.getByRole("heading", { name: page })).toBeInTheDocument();
     expect(screen.getByRole("status")).toHaveTextContent("This page requires an account");
@@ -168,4 +169,21 @@ it("localizes account gating without writing or discarding practice", () => {
   expect(screen.getByRole("button", { name: "Anmelden" })).toBeEnabled();
   expect(screen.getByRole("button", { name: "Konto erstellen" })).toBeEnabled();
   expect(guestAttemptCount()).toBe(0);
+});
+
+it("keeps primary navigation on account gates and makes Topics available without sign-in", () => {
+  const onAuth=vi.fn();
+  render(<GuestStarterJourney onAuth={onAuth} />);
+  expect(screen.getByRole("button",{name:"Home",exact:true})).toHaveAttribute("aria-current","page");
+  fireEvent.click(screen.getByRole("button",{name:"Topics",exact:true}));
+  expect(screen.getByRole("button",{name:"Topics",exact:true})).toHaveAttribute("aria-current","page");
+  expect(screen.getByRole("heading",{name:"Grammar foundations"})).toBeInTheDocument();
+  expect(screen.getByText("Word order")).toBeInTheDocument();
+  expect(screen.queryByRole("button",{name:"Sign in",exact:true})).toBeNull();
+  fireEvent.click(screen.getByRole("button",{name:"Progress",exact:true}));
+  expect(screen.getByRole("navigation",{name:"Main navigation"})).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button",{name:"Home",exact:true}));
+  fireEvent.click(screen.getByRole("button",{name:"Start practice",exact:true}));
+  expect(screen.queryByRole("navigation")).toBeNull();
+  expect(onAuth).not.toHaveBeenCalled();
 });

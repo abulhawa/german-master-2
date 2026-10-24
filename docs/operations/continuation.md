@@ -41,3 +41,12 @@ from 12e7230 succeeded, preserving existing preview data and the separate store
 app. The app was opened and direct practice Home verified from the device UI
 hierarchy. See PROGRESS.md. This is basic install/launch evidence, not complete
 native account acceptance or permission to publish Android.
+
+## Navigation blocker correction — 24 October 2026
+
+Retain the renovated Home / Progress / Topics shell even signed out. Account
+stays secondary; Downloads belongs within Account. Both client sources now
+implement this, with public Topics for the existing bundled pack and contextual
+account gates. See latest PROGRESS.md for tests and rollout. The Pixel
+ disconnected during the new build; do not conflate the earlier installed preview
+with this navigation fix. Reconnect and verify the replacement install next.
