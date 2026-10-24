@@ -158,3 +158,16 @@ navigation fix is installed or device-accepted until it is actually verified.
 Exact next action: deploy/verify web through main and check hosted CI; reconnect
 the Pixel, replace-install the preview without data clearing, and verify visible
 navigation on the device. Android publication/UX approval remains held.
+
+Web rollout result: navigation commit 7cd7f47 deployed READY as
+`dpl_Gj2kWehyV3WKB7tNUaq3QktPhNHA`. Live public-site checks at 1280px and
+390px passed persistent navigation, Topics, contextual account requirements,
+return from auth, retained draft, grading and completion. Web client/HTTP and
+web build/browser CI jobs passed; backend CI was still running at this update.
+Android CI exposed a stale synthetic production configuration still naming the
+retired project. Updated the CI fixture to the clean project and added an
+explicit retired-project rejection check; the production guard is retained.
+Local positive/negative configuration checks already passed. Corrected only
+line endings in the shared-shell call site; no additional runtime behavior.
+The Pixel remains absent from ADB after the owner's reconnect acknowledgement;
+replacement installation/device navigation verification remains pending.

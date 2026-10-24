@@ -48,5 +48,5 @@ Retain the renovated Home / Progress / Topics shell even signed out. Account
 stays secondary; Downloads belongs within Account. Both client sources now
 implement this, with public Topics for the existing bundled pack and contextual
 account gates. See latest PROGRESS.md for tests and rollout. The Pixel
- disconnected during the new build; do not conflate the earlier installed preview
+disconnected during the new build; do not conflate the earlier installed preview
 with this navigation fix. Reconnect and verify the replacement install next.

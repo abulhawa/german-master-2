@@ -75,7 +75,7 @@ jobs:
           grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-config-guard.log"
       - name: Reject non-production release host
         env:
-          GM_V2_AUTH_PROJECT: zgmyrpzwgtydwlzponih
+          GM_V2_AUTH_PROJECT: sqgjsmiaprsuilcjmaav
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
           GM_V2_API_ORIGIN: https://untrusted.example
         run: |
@@ -84,9 +84,20 @@ jobs:
             exit 1
           fi
           grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-host-guard.log"
-      - name: Build unsigned production-configured release bundle
+      - name: Reject retired production Auth project
         env:
           GM_V2_AUTH_PROJECT: zgmyrpzwgtydwlzponih
+          GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
+          GM_V2_API_ORIGIN: https://germanmaster.qortxai.com
+        run: |
+          if bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2 > "$RUNNER_TEMP/retired-project-guard.log" 2>&1; then
+            echo "ERROR: release accepted the retired Auth project"
+            exit 1
+          fi
+          grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/retired-project-guard.log"
+      - name: Build unsigned production-configured release bundle
+        env:
+          GM_V2_AUTH_PROJECT: sqgjsmiaprsuilcjmaav
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
           GM_V2_API_ORIGIN: https://germanmaster.qortxai.com
         run: |
