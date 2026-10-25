@@ -158,3 +158,33 @@ permissions were granted and no uninspected project was changed.
 Updated monorepo issue #20 to current release-readiness work and the browser
 navigation defect. It remains open. Imported roadmap/sync documents are marked
 historical to prevent recreating retired work. No new parallel backlog created.
+
+
+## Current disposition — user-facing simplification, 25 October 2026
+
+This section supersedes earlier recommendations above where they conflict. The
+owner requests keeping only necessary learner-facing changes and marking the
+rest explicitly. The 21 legacy issues already closed as not planned, seven closed
+PRs, retired phase milestones and closed Product Roadmap remain retired. Do not
+reopen them. The monorepo issue #20 is the sole active tracker.
+
+| Disposition | Work |
+| --- | --- |
+| Active | Finish unfinished-round save/signup/resume; safe exit/discard and auth cancellation; account isolation; B1/B2 and general/work selection; useful Home/Progress; equivalent web/native behavior. |
+| Active, activation gated | Review the 60 workplace exercises and shared bundle; ensure account saving uses available immutable published revisions. |
+| Active | Complete requested Google/Microsoft sign-in and real callbacks; retain email. |
+| Active acceptance | Real offline/restart/sync, export contents, native account lifecycle, safe deletion under separate authorization, owner UX and release approval. |
+| Supporting gates only | Existing bounded M2 retry/contention, selection-cost and operational gaps, relevant CI defects and rollback readiness. No general rewrite or expansive new testing program. |
+| Done / maintenance only | GM-001–004, existing token/database/content foundations, grading/scheduling engine and completed recovery. Keep established evidence; no rebuild. |
+| Superseded | Old verb-first quests, adaptive-UI redesign epics, bulk POS templates and duplicate progress/analytics epics. Carry forward only specific present defects. |
+| Not planned | Classrooms/teacher product, certificates, premium/paywall/billing, goals/streak widgets, separate guest/welcome/Try product, fixed corpus-size targets as release gates. |
+| Deferred | Audio/TTS, pronunciation scoring, ingestion, specialised Partizip filters, weekly coaching, study exports, GM-020 new analytics/telemetry work. Reconsider only for demonstrated learner need. |
+| Queued | Small learner pilot after earlier milestone gates; not another feature lane. |
+| Accepted / closed | Current TalkBack scope, subject to existing critical-defect/owner-request exception. |
+
+The explicit save/signup prompt and temporary signed-out work supersede the older
+blanket ban on signup prompts and persistent unsigned resume. Privacy and reliable
+saving remain necessary even when the implementing work is not visible on screen.
+
+Issue #20 updated to these dispositions. Implementation at 434fe56 is incomplete
+and local; this triage is not runtime acceptance or authorization to publish.

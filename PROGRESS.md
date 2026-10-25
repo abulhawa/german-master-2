@@ -528,3 +528,15 @@ Release blockers / exact next work:
 Next: complete these bounded correctness gaps, run affected checks only, prepare
 activation/rollout instructions, and obtain applicable production/content rollout
 authorization. Android publication hold and unfinished provider activation remain.
+
+
+## Backlog narrowed to learner needs - 25 October 2026
+
+Reassessed the old backlog against the approved simplification. Issue #20 now
+keeps concrete learner-facing saving/resume, simple learning choices, content,
+auth, offline/privacy and UX acceptance. Other work is explicitly Done/maintenance,
+Superseded, Not planned or Deferred; minimal telemetry is deferred. Existing
+reliability/privacy gates remain bounded supporting obligations. Legacy issue/PR/
+board closures remain intact. No implementation, tests, deployment or publication
+in this documentation/triage slice. Next implementation action remains completing
+the unfinished account-round adoption/save flow recorded above.
