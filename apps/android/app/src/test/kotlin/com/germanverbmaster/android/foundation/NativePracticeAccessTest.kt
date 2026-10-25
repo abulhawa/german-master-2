@@ -87,7 +87,7 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
         compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
         compose.onNodeWithText("Sign in").performScrollTo().performClick()
-        compose.onNodeWithText("Back to practice").performScrollTo().performClick()
+        compose.onNodeWithText("Home").performScrollTo().performClick()
         compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(file).read().draft)
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
@@ -177,6 +177,19 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Continue with Microsoft").performScrollTo().performClick()
         compose.waitForIdle()
         assertEquals(listOf("google","azure"),selected)
+    }
+
+    @Test fun homeExitIsAvailableOnEachAccountPage() {
+        val mode=mutableStateOf("sign-in")
+        var returned=false
+        compose.setContent { FoundationTheme {
+            NativeAccountEntry(mode.value,false,{}, {if(it==null)returned=true},socialSignIn={}) {_,_,_->error("No network expected")}
+        } }
+        listOf("sign-in","register","reset").forEach { page ->
+            compose.runOnIdle {mode.value=page;returned=false}
+            compose.onNodeWithText("Home").performScrollTo().performClick()
+            compose.runOnIdle {assertTrue(returned)}
+        }
     }
 
 }

@@ -223,7 +223,7 @@ it('retains email signup and practice access when a provider request fails',asyn
   fireEvent.click(screen.getByRole('button',{name:'Continue with Microsoft'}));
   await screen.findByRole('alert');
   expect(screen.getByRole('button',{name:'Sign in',exact:true})).toBeEnabled();
-  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
+  fireEvent.click(screen.getByRole('button',{name:'Home',exact:true}));
   expect(await screen.findByRole('button',{name:'Settings',exact:true})).toBeEnabled();
 });
 
@@ -231,8 +231,33 @@ it('shows a generic OAuth cancellation error while keeping practice available',a
   window.history.replaceState(null,'','/?error=access_denied&error_description=untrusted');
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);
   await screen.findByRole('alert');
-  await waitFor(()=>expect(screen.getByRole('button',{name:'Back to practice'})).toBeEnabled());
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Home',exact:true})).toBeEnabled());
   expect(screen.queryByText('untrusted')).toBeNull();
-  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
+  fireEvent.click(screen.getByRole('button',{name:'Home',exact:true}));
   expect(await screen.findByRole('button',{name:'Settings',exact:true})).toBeEnabled();
+});
+
+it.each(['sign-in','register','reset','resend','expired'] as const)('provides a Home exit from %s without submitting credentials',async(mode)=>{
+  if(mode==='expired')window.history.replaceState(null,'','/?auth=recovery&error=access_denied');
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);
+  if(mode!=='expired') {
+    await openAuth();
+    if(mode==='register')fireEvent.click(screen.getByRole('button',{name:'Create account',exact:true}));
+    if(mode==='reset')fireEvent.click(screen.getByRole('button',{name:'Forgot password?',exact:true}));
+    if(mode==='resend')fireEvent.click(screen.getByRole('button',{name:'Resend confirmation email',exact:true}));
+  }
+  const home=await screen.findByRole('button',{name:'Home',exact:true});
+  await waitFor(()=>expect(home).toBeEnabled());fireEvent.click(home);
+  await screen.findByRole('button',{name:'Settings',exact:true});
+  expect(f.auth.signInWithPassword).not.toHaveBeenCalled();
+  expect(f.auth.signUp).not.toHaveBeenCalled();
+  expect(f.auth.signInWithOAuth).not.toHaveBeenCalled();
+});
+it('renders decorative service icons beside accessible provider names',async()=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
+  for(const name of ['Continue with Google','Continue with Microsoft']) {
+    const icon=screen.getByRole('button',{name}).querySelector('svg');
+    expect(icon).toHaveAttribute('aria-hidden','true');
+    expect(icon).toHaveAttribute('width','20');
+  }
 });

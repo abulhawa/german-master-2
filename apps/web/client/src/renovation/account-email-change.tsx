@@ -4,9 +4,9 @@ import type { AccountBinding } from './account';
 import { FoundationButton, PracticeCard } from '../foundation/controls';
 import { providerCopy } from './provider-locales';
 
-export function AccountEmailChange({auth,account,currentEmail,authorize,locale,back}: {
+export function AccountEmailChange({auth,account,currentEmail,authorize,locale,back,home}: {
   auth: SupabaseClient['auth']; account: AccountBinding; currentEmail: string;
-  authorize: () => void; locale:'en'|'de'; back:()=>void;
+  authorize: () => void; locale:'en'|'de'; back:()=>void; home?:()=>void;
 }) {
   const c=providerCopy[locale];
   const [email,setEmail]=useState(''),[busy,setBusy]=useState(false),[sent,setSent]=useState(false),[failed,setFailed]=useState(false),[cooldown,setCooldown]=useState(false);
@@ -27,7 +27,7 @@ export function AccountEmailChange({auth,account,currentEmail,authorize,locale,b
     } catch {setFailed(true);}
     finally {lock.current=false;setBusy(false);setCooldown(true);}
   }
-  return <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.changeEmail}</h1>
+  return <PracticeCard>{home&&<FoundationButton className="gm-secondary" disabled={busy} onClick={home}>{c.home}</FoundationButton>}<h1 ref={heading} tabIndex={-1}>{c.changeEmail}</h1>
     <p className="gm-account-email"><strong>{c.email}</strong><br/>{currentEmail}</p><p>{c.emailChangeHelp}</p>
     <form className="gm-answer-group" onSubmit={event=>{event.preventDefault();void request();}}>
       <label className="gm-field" htmlFor="new-account-email">{c.newEmail}<input id="new-account-email" type="email" autoComplete="email" required disabled={busy||sent} value={email} onChange={event=>setEmail(event.target.value)}/></label>

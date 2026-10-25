@@ -1,5 +1,6 @@
 export const providerCopy = {
   en: {
+    home:"Home",
     google:"Continue with Google", microsoft:"Continue with Microsoft", emailAlternative:"Or use email",
     changeEmail:'Change email',newEmail:'New email address',requestEmailChange:'Send verification emails',emailChangeHelp:'Your new address must be verified. Check your new inbox and, if requested, your current inbox too. Open the confirmation links in this browser.',verifyEmailChange:'Change requested. Check your inboxes and complete the email confirmations. Your sign-in email is not changed until verification is complete.',emailChangeFailed:'We could not request the change. Your current email is still shown. Reconnect if needed, then wait a minute before trying again.',
     signInDetails:'Sign-in details', resetPassword:'Reset password', resetHelp:'We’ll email you a link to choose a new password.', backAccount:'Back to Account', emailUnavailable:'Reconnect your account to view your email and reset your password.',
@@ -16,6 +17,7 @@ export const providerCopy = {
     attachFailedTitle:'Practice wasn’t saved',attachFailed:'Your attempts are still on this device. You can retry safely.',continue:'Continue',
   },
   de: {
+    home:"Startseite",
     google:"Mit Google fortfahren", microsoft:"Mit Microsoft fortfahren", emailAlternative:"Oder mit E-Mail",
     changeEmail:'E-Mail ändern',newEmail:'Neue E-Mail-Adresse',requestEmailChange:'Bestätigungs-E-Mails senden',emailChangeHelp:'Deine neue Adresse muss bestätigt werden. Prüfe dein neues Postfach und, falls angefordert, auch dein bisheriges. Öffne die Bestätigungslinks in diesem Browser.',verifyEmailChange:'Änderung angefragt. Prüfe deine Postfächer und bestätige die E-Mails. Deine Anmelde-E-Mail ändert sich erst nach der Bestätigung.',emailChangeFailed:'Die Änderung konnte nicht angefragt werden. Deine bisherige E-Mail wird weiterhin angezeigt. Verbinde dein Konto bei Bedarf erneut und warte vor einem neuen Versuch eine Minute.',
     signInDetails:'Anmeldedaten', resetPassword:'Passwort zurücksetzen', resetHelp:'Wir senden dir einen Link per E-Mail, mit dem du ein neues Passwort wählen kannst.', backAccount:'Zurück zum Konto', emailUnavailable:'Verbinde dein Konto erneut, um deine E-Mail zu sehen und dein Passwort zurückzusetzen.',

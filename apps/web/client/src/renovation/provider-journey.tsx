@@ -15,6 +15,8 @@ import { AccountRecovery } from './account-recovery';
 import { RecoveryEmail, RecoveryPassword } from './account-recovery-ui';
 import { recoveryCopy } from './recovery-locales';
 import { AccountEmailChange } from './account-email-change';
+import { GoogleIcon } from '../components/auth/auth-dialog/google-icon';
+import { MicrosoftIcon } from '../components/auth/auth-dialog/microsoft-icon';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
@@ -133,14 +135,19 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   function openAuth(mode:'sign-in'|'register') {
     setOAuthFailed(false);setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
   }
-  if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
+  function returnHome() {
+    const leavingRecovery=recovery.getSnapshot().stage!=='none';
+    recovery.finish();setEmailHelp(null);setEmailChange(null);setShowLogin(false);
+    setPassword('');setConfirmation(false);setFailed(false);setOAuthFailed(false);if(leavingRecovery)setRetry(v=>v+1);
+  }
+  if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} home={returnHome} finish={()=>{
     const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
   }}/>;
-  if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
+  if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} home={returnHome} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
   if(emailChange&&account===emailChange&&!local&&!showLogin) {
     const currentEmail=host.provider.emailFor(emailChange);
-    if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} back={()=>setEmailChange(null)}/></div></main>;
+    if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} home={returnHome} back={()=>setEmailChange(null)}/></div></main>;
   }
   if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
@@ -156,6 +163,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
         <FoundationButton disabled={attachBusy||!api?.attachGuest} onClick={()=>void attachGuest()}>{c.attachAction(accountGuestAttempts)}</FoundationButton>
         <FoundationButton className="gm-secondary" disabled={attachBusy} onClick={()=>setAttachDismissed(true)}>{c.notNow}</FoundationButton>
       </>}
+      <FoundationButton className="gm-secondary" disabled={attachBusy} onClick={()=>setAttachDismissed(true)}>{c.home}</FoundationButton>
     </PracticeCard></div></main>;
   }
   if(account&&!showLogin) return <LearnerJourney accountSecurity={(language,blocked)=>{
@@ -173,11 +181,11 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
-    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);setOAuthFailed(false);}}>{c.backGuest}</FoundationButton>
+    <FoundationButton className="gm-secondary" disabled={busy} onClick={returnHome}>{c.home}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
     <div className="gm-answer-group">
-      <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>void signInWithProvider('google')}>{c.google}</FoundationButton>
-      <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>void signInWithProvider('azure')}>{c.microsoft}</FoundationButton>
+      <FoundationButton className="gm-secondary gm-provider-button" disabled={busy} onClick={()=>void signInWithProvider('google')}><GoogleIcon className="gm-provider-icon" width="20" height="20"/>{c.google}</FoundationButton>
+      <FoundationButton className="gm-secondary gm-provider-button" disabled={busy} onClick={()=>void signInWithProvider('azure')}><MicrosoftIcon className="gm-provider-icon" width="20" height="20"/>{c.microsoft}</FoundationButton>
     </div>
     <p>{c.emailAlternative}</p>
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>

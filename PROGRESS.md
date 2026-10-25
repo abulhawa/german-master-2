@@ -386,3 +386,22 @@ needed. Next: rerun focused web/recovery/native checks and lint, inspect remaini
 native failures, verify responsive UI, then reuse Google app and inspect Microsoft
 registration after owner sign-in. Provider changes and live account acceptance
 remain unfinished. M2 and Android publication hold remain unchanged.
+
+## Login icons and Home exits - 25 October 2026
+
+Added recognizable Google/Microsoft vector icons on web and native Android.
+Authentication/signup, confirmation resend, reset, recovery states and email-change
+pages expose Home; native reauthentication exits restore the account host. Existing
+safe practice close/restore and explicit guest attachment remain intact. Standing
+navigation expectations are recorded in AGENTS.md.
+
+Validation: 39 focused web tests, root type/generated checks and production build
+pass. Native final focused run passed 12 tests; debug assembly and lint pass
+(0 errors, 23 warnings). Two native light/dark/narrow renders were inspected; local
+browser desktop/mobile sign-in icons and Home/reset navigation were checked using
+mock Auth. Full backend run stalled; broader web run exposed a db-push test failure
+before being stopped. No fresh full-suite pass or device/live-provider claim.
+No provider activation, push, deployment or store release performed in this slice.
+Prior social-provider setup and acceptance remain unfinished. Owner objected to
+excessive verification/allowance consumption; stop further checks at this handoff.
+Next: provider setup only when resumed; do not publish unfinished social login.

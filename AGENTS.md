@@ -68,3 +68,14 @@ Preserve ongoing work and complete the current slice before starting unrelated f
   during practice. Preserve the current draft, feedback and session position.
 - Web and Android must use the same reference content and offer equivalent topic
   navigation, lookup, explanations and examples. Publication boundaries remain.
+
+
+## Navigation and sign-in presentation - owner direction (25 October 2026)
+
+- Provider sign-in buttons include recognizable service icons and readable names
+  on both web and native Android.
+- Every learner page must offer an obvious route Home. Authentication, signup,
+  confirmation, recovery and error pages must not become dead ends. Focused
+  practice uses the existing safe close/save path, preserving draft and position;
+  dialogs may dismiss to their underlying page. Returning Home never silently
+  discards practice or attaches guest work to an account.

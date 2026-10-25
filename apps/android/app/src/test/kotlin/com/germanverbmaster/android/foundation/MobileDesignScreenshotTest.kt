@@ -101,4 +101,18 @@ class MobileDesignScreenshotTest {
     @Test fun accountProgress() {
         mountAccount(); compose.onNode(hasText("Progress") and hasClickAction()).performClick(); capture("account-progress")
     }
+    @Test fun loginProvidersAndHome() {
+        compose.setContent { FoundationTheme {
+            NativeAccountEntry("sign-in",false,{}, {},socialSignIn={}) {_,_,_->}
+        } }
+        capture("login-providers-home")
+    }
+    @Test @Config(qualifiers = "w320dp-h720dp-night-320dpi")
+    fun narrowGermanLoginProvidersAndHome() {
+        compose.setContent { FoundationTheme {
+            NativeAccountEntry("register",true,{}, {},socialSignIn={}) {_,_,_->}
+        } }
+        capture("login-providers-home-german-dark-320")
+    }
+
 }

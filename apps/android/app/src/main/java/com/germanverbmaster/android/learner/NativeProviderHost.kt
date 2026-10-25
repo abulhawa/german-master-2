@@ -53,7 +53,7 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     if(callbackFailed) {
         AlertDialog(onDismissRequest={callbackFailed=false},
             title={Text(if(german) "Anmeldung nicht abgeschlossen" else "Sign-in not completed")},
-            text={Text(if(german) "Versuche es erneut. Deine Übungen bleiben gespeichert." else "Try again. Your saved practice is preserved.")},
+            text={Text(if(german) "Versuche es erneut. Deine Ãœbungen bleiben gespeichert." else "Try again. Your saved practice is preserved.")},
             confirmButton={TextButton(onClick={callbackFailed=false}){Text("OK")}})
     }
     if(!showLogin && (localOnly || status is SessionStatus.Authenticated)) {
@@ -71,7 +71,7 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
             {changeLanguage()}, {accountMode=it},
             if(runCatching {subjectStore.read()!=null}.getOrDefault(false)) ({localOnly=true;showLogin=false}) else null)
     } else {
-        NativeAccountEntry(mode,german,{changeLanguage()},{accountMode=it},socialSignIn={ name ->
+        NativeAccountEntry(mode,german,{changeLanguage()},{accountMode=it;if(it==null)showLogin=false},socialSignIn={ name ->
             client.auth.awaitInitialization()
             val external=when(name){"google"->Google;"azure"->Azure;else->error("Unknown sign-in provider")}
             val url=oauthClient.auth.getOAuthUrl(external,learnerOAuthRedirect(context.packageName)) {

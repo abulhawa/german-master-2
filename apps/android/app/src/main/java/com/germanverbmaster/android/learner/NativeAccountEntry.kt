@@ -37,7 +37,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
     Surface(Modifier.fillMaxSize(),color=MaterialTheme.colorScheme.background) {
         Column(Modifier.safeDrawingPadding().imePadding().verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
-                TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Back to practice","Zurück zur Übung"))}
+                TextButton(onClick={navigate(null)},enabled=!busy){Text(text("Home","Startseite"))}
                 TextButton(onClick=language,enabled=!busy){Text("English / Deutsch")}
             }
             StudyPageTitle(title)
@@ -53,7 +53,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
                             catch(_:Exception){failed=true}
                             finally {busy=false}
                         }
-                    },enabled=!busy,modifier=Modifier.fillMaxWidth()) { Text(label) }
+                    },enabled=!busy,modifier=Modifier.fillMaxWidth()) { LoginProviderIcon(provider);Spacer(Modifier.width(8.dp));Text(label) }
                 }
                 Text(text("Or use email","Oder mit E-Mail"))
             }

@@ -1,5 +1,6 @@
 export const recoveryCopy = {
   en: {
+    home:"Home",
     forgot: 'Forgot password?', resend: 'Resend confirmation email', email: 'Email', send: 'Send email',
     resetTitle: 'Reset your password', resendTitle: 'Confirm your email',
     sent: 'If this address is eligible, an email is on its way. Check your inbox and spam folder. Open the link in this browser.',
@@ -12,6 +13,7 @@ export const recoveryCopy = {
     savedWork: 'Your saved practice stays on this device.',
   },
   de: {
+    home:"Startseite",
     forgot: 'Passwort vergessen?', resend: 'Bestätigungs-E-Mail erneut senden', email: 'E-Mail', send: 'E-Mail senden',
     resetTitle: 'Passwort zurücksetzen', resendTitle: 'E-Mail bestätigen',
     sent: 'Wenn die Adresse dafür infrage kommt, erhältst du eine E-Mail. Prüfe auch den Spamordner. Öffne den Link in diesem Browser.',

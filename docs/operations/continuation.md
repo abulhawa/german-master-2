@@ -101,3 +101,5 @@ checks (including recovery-error discrimination), native lint and UI checks befo
 committing the slice as complete. No credentials were copied or provider settings
 changed. Owner requested shutdown at a user-input/allowance boundary; checkpoint
 was saved at that boundary. Android release remains held.
+
+25 October: login icons and explicit authentication Home exits are verified locally. See latest PROGRESS. Provider activation remains unfinished. Owner requested tighter verification and objected to allowance consumption; no further checks at this handoff.

@@ -4,9 +4,9 @@ import { FoundationButton, PracticeCard } from '../foundation/controls';
 import { AccountRecovery, type RecoveryState } from './account-recovery';
 import { recoveryCopy } from './recovery-locales';
 
-export function RecoveryEmail({ auth, locale, initialEmail, mode, back, backLabel }: {
+export function RecoveryEmail({ auth, locale, initialEmail, mode, back, backLabel, home }: {
   auth: SupabaseClient['auth']; locale: 'en' | 'de'; initialEmail: string;
-  mode: 'reset' | 'resend'; back: () => void; backLabel?: string;
+  mode: 'reset' | 'resend'; back: () => void; backLabel?: string; home?:()=>void;
 }) {
   const c = recoveryCopy[locale];
   const [email, setEmail] = useState(initialEmail);
@@ -32,6 +32,7 @@ export function RecoveryEmail({ auth, locale, initialEmail, mode, back, backLabe
     finally { lock.current = false; setBusy(false); setCooldown(true); }
   }
   return <PracticeCard>
+    {home&&<FoundationButton className="gm-secondary" disabled={busy} onClick={home}>{c.home}</FoundationButton>}
     <h1 ref={heading} tabIndex={-1}>{mode === 'reset' ? c.resetTitle : c.resendTitle}</h1>
     <form className="gm-answer-group" onSubmit={event => { event.preventDefault(); void send(); }}>
       <label className="gm-field" htmlFor="recovery-email">{c.email}<input id="recovery-email" type="email" autoComplete="email" required disabled={busy} value={email} onChange={e => setEmail(e.target.value)} /></label>
@@ -43,8 +44,8 @@ export function RecoveryEmail({ auth, locale, initialEmail, mode, back, backLabe
   </PracticeCard>;
 }
 
-export function RecoveryPassword({ recovery, state, locale, finish }: {
-  recovery: AccountRecovery; state: RecoveryState; locale: 'en' | 'de'; finish: () => void;
+export function RecoveryPassword({ recovery, state, locale, finish, home }: {
+  recovery: AccountRecovery; state: RecoveryState; locale: 'en' | 'de'; finish: () => void; home?:()=>void;
 }) {
   const c = recoveryCopy[locale];
   const [password, setPassword] = useState(''), [repeat, setRepeat] = useState('');
@@ -59,6 +60,7 @@ export function RecoveryPassword({ recovery, state, locale, finish }: {
     finally { lock.current = false; setBusy(false); setPassword(''); setRepeat(''); }
   }
   return <main className="gm-foundation gm-auth" lang={locale}><div className="gm-column"><PracticeCard>
+    {home&&<FoundationButton className="gm-secondary" disabled={busy} onClick={home}>{c.home}</FoundationButton>}
     <h1>{c.resetTitle}</h1>
     {state.stage === 'waiting' && <p role="status">{c.waiting}</p>}
     {state.stage === 'invalid' && <p role="alert">{c.invalid}</p>}
