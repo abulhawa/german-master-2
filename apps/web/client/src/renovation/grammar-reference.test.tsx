@@ -1,10 +1,14 @@
 import {afterEach,expect,it,vi} from 'vitest';
 import {cleanup,fireEvent,render,screen,within} from '@testing-library/react';
 import {GrammarReference} from './grammar-reference';
-import {GuestStarterJourney,GUEST_STORAGE_KEY} from './guest-starter';
+import {GuestStarterJourney,TEMPORARY_KEY} from './guest-starter';
 import reference from '../../../../../content/reference/grammar-reference.json';
 
-afterEach(()=>{cleanup();localStorage.clear();vi.restoreAllMocks();});
+vi.mock('../../../../../content/guest/practice.json',async()=>{
+ const {default:starter}=await import('../../../../../content/guest/starter.json');
+ return {default:{packs:[{level:'B1',learningContext:'general',topicId:'30000000-0000-4000-8000-000000000600',title:{en:'Grammar foundations',de:'Grammatik-Grundlagen'},...starter}]}};
+});
+afterEach(()=>{cleanup();localStorage.clear();sessionStorage.clear();window.history.replaceState(null,"","/");vi.restoreAllMocks();});
 function modalSupport() {
   if(!HTMLDialogElement.prototype.showModal) Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,writable:true,value:function(){}});
   if(!HTMLDialogElement.prototype.close) Object.defineProperty(HTMLDialogElement.prototype,'close',{configurable:true,writable:true,value:function(){}});
@@ -38,15 +42,16 @@ it('supports search, an empty result and German navigation',()=>{
   expect(screen.queryByRole('dialog')).toBeNull();
 });
 it('opens and closes during practice without changing the saved draft or grading it',()=>{
+  vi.spyOn(Math,'random').mockReturnValue(0.99999);
   modalSupport();const auth=vi.fn();render(<GuestStarterJourney onAuth={auth}/>);
   fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
   fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
-  const saved=localStorage.getItem(GUEST_STORAGE_KEY);
+  const saved=sessionStorage.getItem(TEMPORARY_KEY);
   fireEvent.click(screen.getByRole('button',{name:'Grammar',exact:true}));
   const dialog=within(screen.getByRole('dialog',{name:'Grammar reference'}));
   fireEvent.click(dialog.getByRole('button',{name:'Relative pronouns',exact:true}));
   fireEvent.click(dialog.getByRole('button',{name:'Close reference'}));
   expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
-  expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe(saved);
+  expect(sessionStorage.getItem(TEMPORARY_KEY)).toBe(saved);
   expect(auth).not.toHaveBeenCalled();
 });

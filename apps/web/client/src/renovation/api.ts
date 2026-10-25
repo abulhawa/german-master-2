@@ -8,8 +8,10 @@ import { validatePreparedPack } from '@german-master/learning-engine';
 import type { AccountBinding } from './account';
 import { LearnerExportSchema, type LearnerExport } from '@german-master/contracts';
 import { PrivacyDeleteReceiptSchema, type PrivacyDeleteRequest, type PrivacyDeleteReceipt } from '@german-master/contracts';
+import { GuestRoundAdoptionRequestSchema, GuestRoundAdoptionResponseSchema, type GuestRoundAdoptionRequest, type GuestRoundAdoptionResponse } from '@german-master/contracts';
 
 export interface LearnerApi extends FoundationApi {
+  adoptGuestRound?(request:GuestRoundAdoptionRequest):Promise<GuestRoundAdoptionResponse>;
   attachGuest?(request: GuestAttachmentRequest): Promise<AttemptBatchResponse>;
   deleteLearner?(request: PrivacyDeleteRequest): Promise<PrivacyDeleteReceipt>;
   exportLearner?(): Promise<LearnerExport>;
@@ -53,6 +55,16 @@ export function localLearnerApi(account?: AccountBinding, transport: typeof fetc
     return json(response);
   }
   return { ...localFoundationApi(binding, transport),
+    async adoptGuestRound(input) {
+      const request=GuestRoundAdoptionRequestSchema.parse(input);
+      const response=await transportRequest('/v2/guest-rounds:adopt',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer foundation-local-demo'},body:JSON.stringify(request)});
+      if(!response.ok)throw Error('Practice save unavailable');
+      const saved=GuestRoundAdoptionResponseSchema.parse(await json(response));
+      if(saved.session.id!==request.requestId || saved.session.contentReleaseId!==request.contentReleaseId
+        || saved.session.questions.length!==request.questions.length
+        || saved.session.questions.some((q,i)=>q.exercise.id!==request.questions[i].exerciseId || q.exercise.revision!==request.questions[i].exerciseRevision))throw Error('Practice save acknowledgment mismatch');
+      return saved;
+    },
     async attachGuest(input) {
       const request = GuestAttachmentRequestSchema.parse(input);
       const response = await transportRequest("/v2/guest-attempts:attach", {method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer foundation-local-demo"},body:JSON.stringify(request)});

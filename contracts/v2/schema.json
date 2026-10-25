@@ -2425,6 +2425,200 @@
       "discriminator": {
         "propertyName": "status"
       }
+    },
+    "GuestRoundQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exerciseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "exerciseRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "exerciseId",
+        "exerciseRevision"
+      ]
+    },
+    "GuestRoundAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questionIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "attemptId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "answer": {
+          "$ref": "#/$defs/Answer"
+        },
+        "assistance": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hint",
+              "reveal"
+            ]
+          }
+        },
+        "answeredAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "questionIndex",
+        "attemptId",
+        "answer",
+        "assistance",
+        "answeredAt"
+      ]
+    },
+    "GuestRoundAdoptionRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "deviceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentReleaseId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GuestRoundQuestion"
+          },
+          "minItems": 1,
+          "maxItems": 50
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GuestRoundAttempt"
+          },
+          "maxItems": 50
+        },
+        "skippedIndices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "maxItems": 50,
+          "uniqueItems": true
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "draft": {
+          "$ref": "#/$defs/Answer"
+        },
+        "assisted": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "apiVersion",
+        "requestId",
+        "deviceId",
+        "contentReleaseId",
+        "questions",
+        "attempts",
+        "skippedIndices",
+        "index",
+        "assisted"
+      ]
+    },
+    "GuestRoundAdoptionResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "const": "v2"
+        },
+        "session": {
+          "$ref": "#/$defs/Session"
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "draft": {
+          "$ref": "#/$defs/Answer"
+        },
+        "assisted": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "maxItems": 50
+        },
+        "evaluation": {
+          "$ref": "#/$defs/Evaluation"
+        },
+        "confirmedCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "correctCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "skippedCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      },
+      "required": [
+        "apiVersion",
+        "session",
+        "index",
+        "assisted",
+        "confirmedCount",
+        "correctCount",
+        "skippedCount"
+      ]
     }
   }
 }

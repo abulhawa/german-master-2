@@ -33,7 +33,7 @@ function fixture(): LearnerApi {
     submit: vi.fn(), saveProfile: vi.fn(), createFocusedSession: vi.fn(),
   } as LearnerApi;
 }
-afterEach(() => { cleanup(); localStorage.clear(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); localStorage.clear(); window.history.replaceState(null,"","/"); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 it('remounts subject-owned state on account switch and restores the first learners draft after reauthentication', async () => {
   let current: LearnerIdentity = {subject:FIXTURE_SUBJECT,generation:0};
   const a = new AccountBinding(current, () => current);
@@ -99,8 +99,12 @@ it("blocks a second tab offline and reloads the exact frozen skip after acknowle
   expect(readJourney(localStorage).practice!.pendingExposure).toEqual(frozen);
   fail = false;
   api.expose = vi.fn(async event => ({ eventId: event.eventId, status: "duplicate", serverSequence: 1 }));
-  fireEvent.click(await b.findByText("Continue practice")); await b.findByLabelText("Your answer");
+  // The real route is retained on handoff; explicitly reopen after storage recovers.
+  fireEvent.click(b.getByText("Close practice"));
+  fireEvent.click(b.getByText("Save and return Home"));
+  if(b.queryByText("Continue practice"))fireEvent.click(b.getByText("Continue practice")); await b.findByLabelText("Your answer");
   expect(b.getByLabelText("Your answer")).toHaveValue("offline draft");
+  await waitFor(()=>expect(b.getByText("Retry skip")).toBeEnabled());
   fireEvent.click(b.getByText("Retry skip"));
   await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(1));
   expect(api.expose).toHaveBeenCalledExactlyOnceWith(frozen);
@@ -125,7 +129,7 @@ it("hands off a lost-response attempt without generating another session or answ
   const second = render(<LearnerJourney api={api} />); const b = within(second.container);
   expect(b.getByRole("status")).toHaveTextContent("another tab");
   first.unmount();
-  fireEvent.click(await b.findByText("Continue practice")); await b.findByLabelText("Your answer");
+  if(b.queryByText("Continue practice"))fireEvent.click(b.getByText("Continue practice")); await b.findByLabelText("Your answer");
   api.submit = vi.fn(async attempt => ({ ...acknowledgment.acknowledgments[0], attemptId: attempt.attemptId })) as LearnerApi["submit"];
   fireEvent.click(b.getByText("Retry")); await b.findByText("Continue");
   expect(api.submit).toHaveBeenCalledExactlyOnceWith(saved.pending);
@@ -140,14 +144,14 @@ it("preserves the frozen profile request when an offline owner hands over to ano
   await waitFor(() => expect(a.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(a.getByText("Practice preferences"));
   await a.findByText("Save preferences");
-  fireEvent.change(a.getByLabelText("Timezone"), { target: { value: "UTC" } });
+  fireEvent.change(a.getByLabelText("Practice level"), { target: { value: "B2" } });
   fireEvent.click(a.getByText("Save preferences")); await a.findByRole("alert");
   const frozen = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
   const second = render(<LearnerJourney api={api} />); const b = within(second.container);
   expect(b.getByRole("status")).toHaveTextContent("another tab");
   expect(api.saveProfile).toHaveBeenCalledOnce(); first.unmount();
   await b.findByText("Retry");
-  expect(b.getByLabelText("Timezone")).toHaveValue("UTC");
+  expect(b.getByLabelText("Practice level")).toHaveValue("B2");
   api.saveProfile = vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences }));
   fireEvent.click(b.getByText("Retry"));
   await waitFor(() => expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe(""));

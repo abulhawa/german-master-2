@@ -136,7 +136,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                     val editable = !busy && cache.pending == null
                     LearnerButton("Language / Sprache: $locale", editable) { locale = if (locale == "en") "de" else "en" }
                     LearnerButton(label("Level", "Niveau") + ": $level", editable) { level = if (level == "B1") "B2" else "B1" }
-                    LearnerButton(label("Practice", "Übung") + ": " + if(learningContext=="work")label("German for work","Deutsch im Beruf")else label("General German","Allgemeines Deutsch"), editable) {learningContext=if(learningContext=="general")"work" else "general"}
+                    if(NativeReleaseCapabilities.workplacePractice) LearnerButton(label("Practice", "Übung") + ": " + if(learningContext=="work")label("German for work","Deutsch im Beruf")else label("General German","Allgemeines Deutsch"), editable) {learningContext=if(learningContext=="general")"work" else "general"}
                     LearnerButton(label("Save preferences", "Einstellungen speichern"), editable) { run { repository.save(ProfilePreferences(locale, timezone, level, 5, learningContext)) } }
                 }
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }

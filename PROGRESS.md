@@ -1,5 +1,75 @@
 # German Master 2.0 current checkpoint
 
+## Current priority — stabilize the core, 26 October 2026
+
+Owner adopted the [finite stabilization plan](docs/operations/stabilize-release-2026-10-26.md).
+This section supersedes the historical priorities below. Keep the architecture;
+fix whole-round saving, consent/account isolation and native Continue. Work content
+and Google/Microsoft remain implemented but hidden behind disabled release gates;
+activation is no longer a prerequisite for the core web release. Android Play
+approval remains separate. M2 remains the active milestone; no gates are declared
+closed by this implementation. No new features, redesign or broad audit.
+
+Implemented: additive v2 whole-round adoption pins existing published revisions,
+grades answers authoritatively and records skips in one transaction. Zero-answer
+drafts, position, partial word order and current feedback transfer into durable
+account practice. Identical retries are safe; changed payloads and another account
+cannot adopt the same round. Existing unfinished account rounds are preserved.
+Web consent now carries a frozen snapshot, round id, initiating-tab token and bound
+subject. Another tab's temporary work cannot become the automatically saved round.
+Native Continue retains its session; exercises lacking starter suggestions use
+the shared input renderer. A newly signed-in account does not inherit an empty
+Practice route from another account.
+
+Limits: this is a local stabilization change, not a release candidate or deployment.
+Adopted drafts resume from durable storage on the same client. Restoring an
+unfinished adopted round on another device is not implemented; do not promise
+cross-device draft resume. Existing confirmed progress synchronization is separate.
+Real signup/cancellation, disconnected/restart/sync, export artifact and second
+account/device acceptance remain open. No live provider, production or content
+settings changed; no database migration/reset or Android publication. Astra's
+audit and immutable-payload finding are preserved in the stabilization plan;
+implementation continued with Luna/high at owner request.
+
+Verification: final web TypeScript and generated contract/design/grammar checks
+pass; production learner build passes. The initial full web run passed 437 and
+failed 20 old-flow assertions. Those tests were updated to the approved temporary
+practice, explicit exits and five-question preferences; final combined affected
+suite passes 101/101. Focused API adoption tests pass 16/16;
+Android main and test Kotlin compile. Final backend/HTTP and native runtime results
+are recorded below before handoff. No physical device acceptance is claimed.
+
+Final broad checks: backend 198 passed / 1 failed (historical timezone/content
+bounding test); HTTP integration 11 passed / 9 failed (Event constructor/test-realm
+and inherited route/resume expectations, plus one offline enabled-state failure).
+Navigation now dispatches window.Event to fix the demonstrated test-realm mismatch;
+the HTTP suite has not been repeated after that correction. These failures are not
+declared harmless or cleared. Native focused runtime run completed 10 tests with
+5 failures; it exposed a typed-input fallback defect, corrected to shared text
+fields, and stale fixed-starter/scroll assertions. Final compilation results below
+qualify this correction. Debug assembly/lint and fresh device acceptance remain
+unverified for this slice. Final native compileDebugKotlin passes after the typed
+fallback and default-General gate corrections; test Kotlin also compiles. Three
+targeted runtime tests still fail on scroll-query assumptions; runtime acceptance
+is not claimed. These limits prevent calling the change release-ready.
+
+Content: model-assisted source spot review of the bundled general B1/B2 prompts,
+accepted answers and all 11 article MCQs found no demonstrated two-answer MCQ
+defect in that reviewed set. This is not independent human review or proof of the
+current live inventory. The known unpublished Work ambiguity stays deferred with
+the disabled feature; no immutable published revision was edited.
+
+Exact next action: finish the bounded lifecycle acceptance against the committed
+candidate, including cross-device draft behavior as an explicit limitation or
+critical defect according to the promised release behavior. Only reproducible
+critical failures, privacy/data-integrity problems and serious content errors block
+the candidate; lesser issues go after release. Tag only after candidate gates pass.
+Web release and the later small real-learner pilot are separate from Android Play
+approval. Owner now prioritizes job applications; stop discretionary app work at
+this checkpoint.
+
+## Historical checkpoints
+
 Updated 25 October 2026. See the [current backlog reassessment](docs/operations/backlog-reassessment-2026-10-25.md); dated entries below preserve implementation history. Recovery tracking: [issue #20](https://github.com/abulhawa/german-master-2/issues/20). Earlier checkpoints are preserved in [history](docs/operations/history/progress-through-2026-10-23.md); their paths are relative to repository root.
 
 ## Priority and authorization

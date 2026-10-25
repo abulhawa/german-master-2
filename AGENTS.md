@@ -1,5 +1,24 @@
 # German Master 2.0 agent instructions
 
+## Stabilize and release — owner direction (26 October 2026)
+
+- Retain the architecture. Complete the three core defects: whole unfinished-round
+  save/resume, round-specific consent/account isolation, and non-destructive native
+  Continue. Do not start another renovation or expand the feature backlog.
+- Hide unavailable workplace practice and unverified Google/Microsoft sign-in behind
+  disabled release gates, retaining their implementation. Their activation is not a
+  prerequisite for the core release. Email authentication remains available.
+- Review the existing B1/B2 content for serious learning errors and run bounded
+  lifecycle acceptance. After the core fixes, only reproducible critical failures,
+  privacy/data-integrity defects and serious learning-content errors block the
+  candidate. Other findings belong in the post-release backlog.
+- Establish one stable web release independently of Android Play publication, then
+  a small real-learner pilot. Keep shared behavior aligned in implementation; the
+  Android owner approval hold remains. Do not add streaks or redesign for the pilot.
+- Follow docs/operations/stabilize-release-2026-10-26.md for the finite checklist.
+- Use a less expensive implementation worker; preserve Astra's audit/design
+  findings. No further Astra work is requested.
+
 - Use `docs/product/blueprint.md` as the product baseline; read sections relevant to the current slice and the applicable ADRs before changing behavior. `docs/adr/002-monorepo-bootstrap.md` records the accepted repository decision and transitional layout.
 - This is the active monorepo foundation. Do not modify, archive or delete the two original repositories as part of routine work here.
 - Search for scoped instructions case-insensitively. Instructions inside `apps/web` and `apps/android` still apply to their imported code. Root safety rules apply throughout this repository.

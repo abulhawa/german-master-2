@@ -6,6 +6,7 @@ import type { LearnerApi } from "./api";
 import type { JourneyStorage } from "./storage";
 import type { FixtureOwner } from "./ownership";
 import { shellCopy } from './shell-locales';
+import { releaseCapabilities } from './release-capabilities';
 
 export const PROFILE_PENDING_KEY = "german-master-v2:local-fixture:profile-request-v1";
 export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, onCancel, onPreviewLocale, authenticated=false }: {
@@ -19,12 +20,15 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
     catch { return { pending: null, damaged: true }; }
   });
   const [pending, setPending] = useState<ProfileRequest | null>(loaded.pending);
-  const [preferences, setPreferences] = useState(() => {
-    if (loaded.pending || profile.setupCompleted) return loaded.pending?.preferences ?? profile.preferences;
+  const [preferences, setPreferences] = useState<LearnerProfile['preferences']>(() => {
+    if (loaded.pending || profile.setupCompleted) {
+      const saved=loaded.pending?.preferences ?? profile.preferences;
+      return {...saved,learningContext:releaseCapabilities.workplacePractice ? saved.learningContext : 'general' as const};
+    }
     // Profile defaults are not a learner timezone choice. Use the browser zone at first setup only.
     let timezone = profile.preferences.timezone;
     try { timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || timezone; } catch { /* Keep server default. */ }
-    return { ...profile.preferences, timezone };
+    return { ...profile.preferences, timezone, learningContext: releaseCapabilities.workplacePractice ? profile.preferences.learningContext : 'general' as const };
   });
   const [busy, setBusy] = useState(false);
   const lock = useRef(false);
@@ -69,7 +73,7 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
       <fieldset className="gm-answer-group" disabled={busy || !!pending}>
         <label>{c.language}<select value={preferences.locale} onChange={e => { const locale = e.target.value as "en" | "de"; setPreferences({ ...preferences, locale }); onPreviewLocale(locale); }}><option value="en">English</option><option value="de">Deutsch</option></select></label>
         <label>{c.level}<select value={preferences.level} onChange={e => setPreferences({ ...preferences, level: e.target.value as "B1" | "B2" })}><option>B1</option><option>B2</option></select></label>
-        <label>{preferences.locale==='de'?'Übung':'Practice'}<select value={preferences.learningContext ?? 'general'} onChange={e=>setPreferences({...preferences,learningContext:e.target.value as 'general'|'work'})}><option value="general">{preferences.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{preferences.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>
+        {releaseCapabilities.workplacePractice && <label>{preferences.locale==='de'?'Übung':'Practice'}<select value={preferences.learningContext ?? 'general'} onChange={e=>setPreferences({...preferences,learningContext:e.target.value as 'general'|'work'})}><option value="general">{preferences.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{preferences.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>}
 
       </fieldset>
       {error && <p role="alert">{c.setupError}</p>}

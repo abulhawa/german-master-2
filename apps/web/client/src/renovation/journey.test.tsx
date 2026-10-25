@@ -451,7 +451,7 @@ it("requires setup, confirms preferences and reports unavailable B2 drafts", asy
   await waitFor(() => expect(screen.getByRole("heading", { name: "Set up your practice" })).toHaveFocus());
   expect(screen.queryByText("Start short practice")).not.toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
-  fireEvent.change(screen.getByLabelText("Timezone"), { target: { value: "UTC" } });
+
   fireEvent.click(screen.getByText("Save preferences"));
   await screen.findByText(/No questions are available at your selected level/);
   expect(screen.getByText("Start short practice")).toBeDisabled();
@@ -476,13 +476,13 @@ it("retries frozen setup payload after lost response and reload without overwrit
   fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
   await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
   fireEvent.click(screen.getByText("Practice preferences"));
-  fireEvent.change(screen.getByLabelText("Timezone"), { target: { value: "Asia/Tokyo" } });
+  fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
   fireEvent.click(screen.getByText("Save preferences"));
   await screen.findByRole("alert");
   const request = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
   cleanup(); render(<LearnerJourney api={api} />);
   await screen.findByText("Retry");
-  expect(screen.getByLabelText("Timezone")).toBeDisabled();
+  expect(screen.getByLabelText("Practice level")).toBeDisabled();
   fireEvent.click(screen.getByText("Retry"));
   await screen.findByRole("heading", { name: 'A little practice. Lasting progress.' });
   expect(api.saveProfile).toHaveBeenLastCalledWith(request);
@@ -505,10 +505,10 @@ it("reloads current preferences to correct an invalid frozen setup request", asy
   localStorage.setItem(PROFILE_PENDING_KEY, JSON.stringify(request));
   render(<LearnerJourney api={api} />);
   expect(await screen.findByText("Retry")).toBeInTheDocument();
-  expect(screen.getByLabelText("Timezone")).toBeDisabled();
+  expect(screen.getByLabelText("Practice level")).toBeDisabled();
   fireEvent.click(screen.getByText("Reload current preferences"));
-  await waitFor(() => expect(screen.getByLabelText("Timezone")).toBeEnabled());
-  expect(screen.getByLabelText("Timezone")).toHaveValue("Europe/Berlin");
+  await waitFor(() => expect(screen.getByLabelText("Practice level")).toBeEnabled());
+  expect(screen.getByLabelText("Practice level")).toHaveValue("B1");
   expect(localStorage.getItem(PROFILE_PENDING_KEY)).toBe("");
   expect(api.saveProfile).not.toHaveBeenCalled();
 });

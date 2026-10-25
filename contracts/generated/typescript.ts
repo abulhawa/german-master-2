@@ -535,3 +535,43 @@ export const IdentityDeletionCompletedSchema = z.strictObject({
 export type IdentityDeletionCompleted = z.infer<typeof IdentityDeletionCompletedSchema>;
 export const IdentityDeletionResponseSchema = z.discriminatedUnion("status", [IdentityDeletionPendingSchema, IdentityDeletionCompletedSchema]);
 export type IdentityDeletionResponse = z.infer<typeof IdentityDeletionResponseSchema>;
+export const GuestRoundQuestionSchema = z.strictObject({
+  exerciseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  exerciseRevision: z.number().int().min(1).max(2147483647),
+});
+export type GuestRoundQuestion = z.infer<typeof GuestRoundQuestionSchema>;
+export const GuestRoundAttemptSchema = z.strictObject({
+  questionIndex: z.number().int().min(0).max(2147483647),
+  attemptId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  answer: AnswerSchema,
+  assistance: z.array(z.enum(["hint","reveal"])),
+  answeredAt: z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$")).refine(v => !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().replace(".000Z", "Z") === v.replace(".000Z", "Z"), "Invalid instant"),
+});
+export type GuestRoundAttempt = z.infer<typeof GuestRoundAttemptSchema>;
+export const GuestRoundAdoptionRequestSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
+  questions: z.array(GuestRoundQuestionSchema).min(1).max(50),
+  attempts: z.array(GuestRoundAttemptSchema).max(50),
+  skippedIndices: z.array(z.number().int().min(0).max(2147483647)).max(50).refine(v => new Set(v).size === v.length, "Duplicate items"),
+  index: z.number().int().min(0).max(2147483647),
+  draft: AnswerSchema.optional(),
+  assisted: z.boolean(),
+  order: z.array(z.string().max(2000)).max(50).optional(),
+});
+export type GuestRoundAdoptionRequest = z.infer<typeof GuestRoundAdoptionRequestSchema>;
+export const GuestRoundAdoptionResponseSchema = z.strictObject({
+  apiVersion: z.literal("v2"),
+  session: SessionSchema,
+  index: z.number().int().min(0).max(2147483647),
+  draft: AnswerSchema.optional(),
+  assisted: z.boolean(),
+  order: z.array(z.string().max(2000)).max(50).optional(),
+  evaluation: EvaluationSchema.optional(),
+  confirmedCount: z.number().int().min(0).max(2147483647),
+  correctCount: z.number().int().min(0).max(2147483647),
+  skippedCount: z.number().int().min(0).max(2147483647),
+});
+export type GuestRoundAdoptionResponse = z.infer<typeof GuestRoundAdoptionResponseSchema>;

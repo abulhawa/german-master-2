@@ -20,6 +20,7 @@ import java.util.UUID
 
 interface LearnerApi {
     suspend fun attachGuest(request:GuestAttachmentRequest):AttemptBatchResponse = error("Saving practice unavailable")
+    suspend fun adoptGuestRound(request:GuestRoundAdoptionRequest):GuestRoundAdoptionResponse = error("Saving practice unavailable")
     suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt = error("Deletion unavailable")
     suspend fun exportLearner(): LearnerExport = error("Export unavailable")
     suspend fun preparePack(request: SessionRequest): PreparedPack = error("Prepared packs unavailable")
@@ -48,6 +49,13 @@ internal class HttpLearnerApi(
         val raw=ContractReader.json.parseToJsonElement(request("/v2/guest-attempts:attach",ContractReader.json.encodeToString(request)))
         ContractShape.checkAttemptBatchResponse(raw)
         return ContractReader.json.decodeFromJsonElement(AttemptBatchResponse.serializer(),raw).also {response->check(response.acknowledgments.map {it.attemptId}==request.attempts.map {it.attemptId})}
+    }
+    override suspend fun adoptGuestRound(request:GuestRoundAdoptionRequest):GuestRoundAdoptionResponse {
+        val raw=ContractReader.json.parseToJsonElement(request("/v2/guest-rounds:adopt",ContractReader.json.encodeToString(request)))
+        ContractShape.checkGuestRoundAdoptionResponse(raw)
+        return ContractReader.json.decodeFromJsonElement(GuestRoundAdoptionResponse.serializer(),raw).also {
+            check(it.session.id==request.requestId && it.session.contentReleaseId==request.contentReleaseId && it.session.questions.size==request.questions.size)
+        }
     }
     override suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/me", ContractReader.json.encodeToString(request), method = "DELETE"))
@@ -309,7 +317,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             check(state.pending == null && state.profile?.setupCompleted == true)
             val available = requireNotNull(state.catalog).targets.sumOf { it.availableQuestionCount }
             check(available > 0)
-            val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = minOf(5,available))
+            val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=if(NativeReleaseCapabilities.workplacePractice)state.profile?.preferences?.learningContext ?: "general" else "general", questionCount = minOf(5,available))
             commit(state.copy(packRequest = request))
             request
         }
@@ -324,7 +332,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         val pack = PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(state.preparedPack)))
         check(PreparedPackReader.canStart(pack,now)) { "Prepared reserve expired" }
         val session = pack.sessions.firstOrNull { it.id !in state.consumedPreparedSessions } ?: error("Prepared reserve exhausted")
-        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = session.questions.size)
+        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=if(NativeReleaseCapabilities.workplacePractice)state.profile?.preferences?.learningContext ?: "general" else "general", questionCount = session.questions.size)
         // Slot consumption and complete pinned practice commit together before any question is shown.
         commit(state.copy(practice = NativePractice(request = request,session = session,offlinePack = pack),
             consumedPreparedSessions = state.consumedPreparedSessions + session.id))
@@ -400,7 +408,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             }
             check(available > 0) { "No questions available for these preferences" }
             val count = if (focus is TargetFocus) 1 else minOf(5, available)
-            commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = count), focus = focus)))
+            commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=if(NativeReleaseCapabilities.workplacePractice)state.profile?.preferences?.learningContext ?: "general" else "general", questionCount = count), focus = focus)))
         }
         val p = requireNotNull(state.practice)
         if (p.session == null) {
@@ -533,16 +541,30 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     }
     suspend fun attachGuestPractice(path:File) = mutex.withLock {
         val guestStore=NativeGuestStore(path);val guest=guestStore.read()
-        if(!guest.saveRequested || guest.attempts.isEmpty())return@withLock
+        if(!guest.saveRequested || guest.session==null)return@withLock
         val subject=requireNotNull(account).identity.subject
         check(guest.saveSubject==null || guest.saveSubject==subject){"Practice save belongs to another account"}
+        val alreadyInstalled=state.practice?.session?.id==guest.session.id
+        check(alreadyInstalled || state.practice==null || state.practice?.completionReceipt!=null) { "Finish or explicitly resolve the saved account round before attaching this practice" }
+        if(alreadyInstalled) { guestStore.discard();return@withLock }
         guestStore.write(guest.copy(saveSubject=subject))
-        val response=api.attachGuest(GuestAttachmentRequest("v2",UUID.randomUUID().toString(),guest.deviceId,guest.attempts))
-        val accepted=response.acknowledgments.filter {it !is AttemptRejection}.map {it.attemptId}.toSet()
-        val remaining=guest.attempts.filter {it.attemptId !in accepted}
-        if(remaining.isEmpty() && guest.index >= (guest.session?.questions?.size ?: 5))guestStore.discard()
-        else guestStore.write(guest.copy(saveSubject=subject,attempts=remaining))
-        check(remaining.isEmpty()){"Some answers could not be saved. Temporary work is preserved."}
+        val session=requireNotNull(guest.session)
+        check(guest.attemptIndices.size==guest.attempts.size) { "Saved practice positions are incomplete; keep the temporary round and retry recovery" }
+        val indexed=guest.attempts.mapIndexed { i,attempt ->
+            val index=guest.attemptIndices[i]
+            check(index in session.questions.indices && session.questions[index].exercise.id==attempt.exerciseId && session.questions[index].exercise.revision==attempt.exerciseRevision){"Saved practice revision is unavailable"}
+            GuestRoundAttempt(index,attempt.attemptId,attempt.answer,attempt.assistance,attempt.answeredAt)
+        }
+        val req=GuestRoundAdoptionRequest("v2",session.id,guest.deviceId,session.contentReleaseId,
+            session.questions.map { GuestRoundQuestion(it.exercise.id,it.exercise.revision) },indexed,guest.skippedIndices,
+            guest.index,guest.draft,guest.assisted,guest.order.takeIf { it.isNotEmpty() })
+        val response=api.adoptGuestRound(req)
+        val learningRequest=com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount=session.questions.size)
+        val practice=NativePractice(learningRequest,guest.deviceId,response.session,response.index,response.draft,response.assisted,
+            response.order.orEmpty(),evaluation=response.evaluation,graded=response.confirmedCount,skipped=response.skippedCount,
+            correct=response.correctCount)
+        commit(state.copy(practice=practice))
+        guestStore.discard()
     }
     suspend fun save(preferences: ProfilePreferences) = mutex.withLock {
         check(state.pending == null) { "Retry or reload pending preferences first" }

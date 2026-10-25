@@ -11,7 +11,7 @@ export function readLearnerRoute():LearnerRoute {
   if(!match||(['topic','target'].includes(match[1])&&!match[2]))return {view:'home',selectedId:null};
   return {view:match[1] as LearnerView,selectedId:match[2]??null};
 }
-function notify(){window.dispatchEvent(new Event(changed));}
+function notify(){window.dispatchEvent(new window.Event(changed));}
 export function navigateLearner(view:LearnerView,selectedId?:string|null,replace=false) {
   if(guard && !guard(view))return;
   const hash=`#/learn/${view}${['topic','target'].includes(view)&&selectedId?`/${selectedId}`:''}`;

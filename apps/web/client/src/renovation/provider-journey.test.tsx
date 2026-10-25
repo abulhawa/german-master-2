@@ -7,6 +7,7 @@ import { ProviderLearnerJourney } from './provider-journey';
 import { VerifiedLearnerProvider, type createLearnerProvider } from './provider';
 import { AccountRecovery } from './account-recovery';
 import { guestAttemptCount, guestUnattachedAttemptCount } from './guest-starter';
+import { releaseCapabilities } from './release-capabilities';
 const reads=vi.hoisted(()=>({enabled:false}));
 vi.mock('./journey',()=>({default:({account,revoke,api,accountSecurity}:{account:{identity:{subject:string}};revoke:()=>Promise<void>;api:LearnerApi;accountSecurity?:(locale:'en'|'de',blocked:boolean)=>ReactNode})=>{
   const [detail,setDetail]=useState(false);
@@ -34,7 +35,7 @@ function fixture(initiallySignedIn=false) {
   const host={client:{auth},provider,dispose:()=>provider.invalidate()} as unknown as ReturnType<typeof createLearnerProvider>;
   return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
-afterEach(()=>{cleanup();localStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;});
+afterEach(()=>{cleanup();localStorage.clear();sessionStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;releaseCapabilities.socialSignIn=false;});
 it('shows the verified account email and opens a prefilled reset with an Account return path',async()=>{
   const f=fixture(true);
   f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'verified@example.test'})},error:null});
@@ -150,35 +151,45 @@ it('mounts learner only after online verification and removes it on provider sig
   await screen.findByRole('button',{name:'Start practice'});
   expect(screen.queryByText(/Bound learner/)).toBeNull();expect(screen.queryByLabelText('Password')).toBeNull();
 });
-it('requires explicit consent after authentication and attaches guest evidence only on confirmation',async()=> {
+it('saves an unanswered authorized round automatically after explicit sign-in',async()=> {
+  const locks=Object.getOwnPropertyDescriptor(navigator,'locks');
+  Object.defineProperty(navigator,'locks',{configurable:true,value:{request:async (_name:string,work:()=>Promise<void>)=>work()}});
+  let original:any;
   const send=vi.fn(async (_input:RequestInfo|URL,init?:RequestInit)=> {
     const request=JSON.parse(String(init?.body));
-    return new Response(JSON.stringify({apiVersion:'v2',acknowledgments:request.attempts.map((attempt:any,index:number)=>({
-      attemptId:attempt.attemptId,status:'accepted',evaluation:{outcome:'correct',policyVersion:'deterministic-v1/de-nfc-trim-v1',
-        explanation:{en:'ok',de:'ok'},acceptedAnswer:attempt.answer,assisted:attempt.assistance.length>0},serverSequence:index+1,
-    }))}),{status:200,headers:{'Content-Type':'application/json'}});
+    expect(request.attempts).toEqual([]);
+    return new Response(JSON.stringify({apiVersion:'v2',session:original.session,index:0,assisted:false,confirmedCount:0,correctCount:0,skippedCount:0}),{status:200,headers:{'Content-Type':'application/json'}});
   });
   vi.stubGlobal('fetch',send);
-  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
-  fireEvent.click(await screen.findByRole('button',{name:'Start practice'}));
-  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
-  fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
-  expect(guestAttemptCount()).toBe(1);expect(guestUnattachedAttemptCount(subject)).toBe(1);
-  fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
-  fireEvent.click(screen.getByRole('button',{name:'Save and return Home'}));
-  fireEvent.click(screen.getByRole('button',{name: /Account|Settings/,exact:true}));
-  fireEvent.click(screen.getByRole('button',{name:'Sign in'}));
-  fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
-  fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
-  fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
-  expect(await screen.findByRole('heading',{name:'Save your practice?'})).toBeInTheDocument();
-  expect(screen.queryByText(/Bound learner/)).toBeNull();expect(send).not.toHaveBeenCalled();
-  fireEvent.click(screen.getByRole('button',{name:'Save 1 attempt'}));
-  await screen.findByRole('heading',{name:'Practice saved'});
-  expect(guestUnattachedAttemptCount(subject)).toBe(0);
-  fireEvent.click(screen.getByRole('button',{name:'Continue'}));
-  await screen.findByText(`Bound learner ${subject}`);
-  expect(send).toHaveBeenCalledOnce();
+  try {
+    const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
+    fireEvent.click(await screen.findByRole('button',{name:'Start practice'}));
+    original=JSON.parse(sessionStorage.getItem('german-master-v2:temporary-practice')!);
+    fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
+    fireEvent.click(screen.getByRole('button',{name:'Sign in',exact:true}));
+    fireEvent.change(screen.getByLabelText('Email'),{target:{value:'learner@example.test'}});
+    fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-test-password'}});
+    fireEvent.submit(screen.getByRole('button',{name:'Sign in'}).closest('form')!);
+    await screen.findByRole('heading',{name:'Practice saved'});
+    expect(screen.getByRole('status')).toHaveTextContent('Your round is saved');
+    fireEvent.click(screen.getByRole('button',{name:'Continue'}));
+    await screen.findByText(`Bound learner ${subject}`);
+    expect(send).toHaveBeenCalledOnce();
+    const state=JSON.parse(localStorage.getItem(`german-master-v2:local-fixture:journey-v1:subject:${subject}`)!);
+    expect(state.practice.session.id).toBe(original.session.id);
+    expect(state.practice.index).toBe(0);
+    expect(sessionStorage.getItem('german-master-v2:temporary-practice')).toBeNull();
+  } finally {
+    if(locks)Object.defineProperty(navigator,'locks',locks);
+    else Reflect.deleteProperty(navigator,'locks');
+  }
+});
+it('hides unverified social sign-in while retaining email authentication',async()=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
+  expect(screen.queryByRole('button',{name:'Continue with Google'})).toBeNull();
+  expect(screen.queryByRole('button',{name:'Continue with Microsoft'})).toBeNull();
+  expect(screen.getByLabelText('Email')).toBeEnabled();
+  expect(screen.getByRole('button',{name:'Create account'})).toBeEnabled();
 });
 it('offers a fresh recovery email directly after an expired callback',async()=>{
   window.history.replaceState(null,'','/?auth=recovery');
@@ -204,6 +215,7 @@ it('does not mount a stale verified response after an intervening sign-out',asyn
 });
 
 it.each(['google','azure'] as const)('offers %s on sign-in and signup without submitting email credentials',async(provider)=>{
+  releaseCapabilities.socialSignIn=true;
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);
   await openAuth();
   const name=provider==='google'?'Continue with Google':'Continue with Microsoft';
@@ -218,6 +230,7 @@ it.each(['google','azure'] as const)('offers %s on sign-in and signup without su
   expect(screen.getByRole('button',{name})).toBeEnabled();
 });
 it('retains email signup and practice access when a provider request fails',async()=>{
+  releaseCapabilities.socialSignIn=true;
   const f=fixture();f.auth.signInWithOAuth.mockRejectedValueOnce(Error('provider unavailable'));
   render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
   fireEvent.click(screen.getByRole('button',{name:'Continue with Microsoft'}));
@@ -254,6 +267,7 @@ it.each(['sign-in','register','reset','resend','expired'] as const)('provides a 
   expect(f.auth.signInWithOAuth).not.toHaveBeenCalled();
 });
 it('renders decorative service icons beside accessible provider names',async()=>{
+  releaseCapabilities.socialSignIn=true;
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
   for(const name of ['Continue with Google','Continue with Microsoft']) {
     const icon=screen.getByRole('button',{name}).querySelector('svg');

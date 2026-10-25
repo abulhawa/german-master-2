@@ -1,5 +1,18 @@
 # Continuing German Master recovery
 
+## Current work order — 26 October 2026
+
+Follow the current PROGRESS.md front section and
+[stabilization checklist](stabilize-release-2026-10-26.md). Retain architecture,
+complete the three core integrity fixes and bounded lifecycle acceptance. Work
+content and social authentication stay hidden until verified; activation is not a
+core release gate. Web release readiness is independent of Android Play approval.
+No new features or repeated broad audits. The owner prioritizes job applications
+after this checkpoint; do not resume discretionary app work without a new request.
+
+All older work orders below are historical where superseded. Do not restart
+recovery, provider activation or content publication from them.
+
 Current planning: [25 October backlog reassessment](backlog-reassessment-2026-10-25.md).
 Older recovery/cutover and OAuth-deferral instructions below are historical where
 superseded by later owner decisions. M2 remains active; use the latest checkpoint.

@@ -42,7 +42,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
             }
             StudyPageTitle(title)
             Text(text("Save online progress across devices. Earlier practice stays on this device.","Speichere Online-Fortschritt geräteübergreifend. Bisherige Übungen bleiben auf diesem Gerät."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
-            if(mode!="reset" && socialSignIn!=null) {
+            if(NativeReleaseCapabilities.socialSignIn && mode!="reset" && socialSignIn!=null) {
                 listOf("google" to text("Continue with Google","Mit Google fortfahren"),
                     "azure" to text("Continue with Microsoft","Mit Microsoft fortfahren")).forEach { (provider,label) ->
                     OutlinedButton(onClick={

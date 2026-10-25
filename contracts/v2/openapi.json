@@ -855,6 +855,15 @@
         "scheme": "bearer"
       }
     },
+    "/v2/guest-rounds:adopt": {
+      "post": {
+        "operationId": "adoptGuestRound",
+        "description": "Explicitly adopt one frozen temporary round after authentication. The complete ordered question set, answer history, skips, position and draft are validated and committed atomically. The request ID is the adopted session ID and replays only the identical snapshot.",
+        "requestBody": {"required": true, "content": {"application/json": {"schema": {"$ref": "#/components/schemas/GuestRoundAdoptionRequest"}}}},
+        "responses": {"200": {"description": "Adopted immutable round snapshot", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/GuestRoundAdoptionResponse"}}}}, "400": {"description": "Malformed request", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/ApiError"}}}}, "409": {"description": "Round or revision conflict", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/ApiError"}}}}},
+        "parameters": [{"$ref": "#/components/parameters/LearnerSubject"}]
+      }
+    },
     "schemas": {
       "Session": {
         "$ref": "./schema.json#/$defs/Session"
@@ -891,6 +900,12 @@
       },
       "GuestAttachmentRequest": {
         "$ref": "./schema.json#/$defs/GuestAttachmentRequest"
+      },
+      "GuestRoundAdoptionRequest": {
+        "$ref": "./schema.json#/$defs/GuestRoundAdoptionRequest"
+      },
+      "GuestRoundAdoptionResponse": {
+        "$ref": "./schema.json#/$defs/GuestRoundAdoptionResponse"
       }
     },
     "parameters": {

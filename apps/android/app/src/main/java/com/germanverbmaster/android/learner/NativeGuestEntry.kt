@@ -32,7 +32,7 @@ data class NativeGuestBundle(val packs:List<NativeGuestPack>)
 data class NativeGuestState(val version:Int=1,val started:Boolean=false,val index:Int=0,val draft:Answer?=null,val order:List<String> = emptyList(),
     val feedback:Evaluation?=null,val graded:Int=0,val correct:Int=0,val assisted:Boolean=false,
     val session:Session?=null,val attempts:List<GuestAttempt> = emptyList(),val deviceId:String=UUID.randomUUID().toString(),
-    val saveRequested:Boolean=false,val saveSubject:String?=null)
+    val saveRequested:Boolean=false,val saveSubject:String?=null,val skippedIndices:List<Int> = emptyList(),val attemptIndices:List<Int> = emptyList())
 
 /** Separate local guest record. Never supplies an identity, account outbox or confirmed mastery. */
 class NativeGuestStore(private val path:File) {
@@ -67,7 +67,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     val loaded=remember(store){runCatching {store.read()}}
     val preferences=remember {context.getSharedPreferences("gm-v2-practice-preferences",android.content.Context.MODE_PRIVATE)}
     var level by remember {mutableStateOf(preferences.getString("level","B1")!!)}
-    var learningContext by remember {mutableStateOf(preferences.getString("context","general")!!)}
+    var learningContext by remember {mutableStateOf(if(NativeReleaseCapabilities.workplacePractice)preferences.getString("context","general")!! else "general")}
     var selectedTopic by remember {mutableStateOf<String?>(null)}
     val bundle=remember {ContractReader.json.decodeFromString<NativeGuestBundle>(context.assets.open("practice.json").bufferedReader().use{it.readText()})}
     val packs=bundle.packs.filter {it.level==level && it.learningContext==learningContext}
@@ -77,7 +77,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     var returnTo by rememberSaveable {mutableStateOf("home")}
     var closing by remember {mutableStateOf(store.legacy)}
     var destination by remember {mutableStateOf("home")}
-    val content=GuestStarterContent(state.session ?: legacyContent.session,legacyContent.suggestions,bundle.packs.flatMap {it.rubrics}+legacyContent.rubrics)
+    val content=GuestStarterContent(state.session ?: legacyContent.session,legacyContent.suggestions + bundle.packs.flatMap {it.suggestions.entries}.associate {it.toPair()},bundle.packs.flatMap {it.rubrics}+legacyContent.rubrics)
     val scroll=rememberScrollState()
     LaunchedEffect(state.index,state.feedback,screen,closing) {scroll.scrollTo(0)}
     fun text(en:String,de:String)=if(german)de else en
@@ -92,6 +92,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     val focused=screen=="practice"
     fun start() {
         if(loaded.isFailure)return
+        if(active) { screen="practice";closing=false;return }
         val available=packs.filter {selectedTopic==null || it.topicId==selectedTopic}
         val questions=available.flatMap {it.session.questions}.shuffled().take(5).map {it.copy(id=UUID.randomUUID().toString())}
         if(questions.isNotEmpty() && commit(NativeGuestState(started=true,session=available.first().session.copy(id=UUID.randomUUID().toString(),questions=questions)))) {closing=false;screen="practice"}
@@ -162,7 +163,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     if(screen=="account") {
                         StudyAppearanceSettings(german,language)
                         LearnerButton(text("Level","Niveau")+": "+level,true){level=if(level=="B1")"B2" else "B1";selectedTopic=null;preferences.edit().putString("level",level).apply()}
-                        LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
+                        if(NativeReleaseCapabilities.workplacePractice) LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
                         Text(text("Account","Konto"),style=MaterialTheme.typography.titleLarge)
                     }
                     section {
@@ -193,8 +194,20 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         LowTypingInput(exercise,state.draft,state.order,german,
                             {commit(state.copy(draft=it))},{commit(state.copy(order=it,draft=if(it.size==(exercise as? ExerciseWordOrder)?.tokens?.size)AnswerWordOrder(it) else null))})
                     } else {
-                        val suggestions=content.suggestions.getValue(exercise.id)
-                        suggestions.forEach {(slot,options)->
+                        val suggestions=content.suggestions[exercise.id]
+                        if(suggestions==null) when(exercise) {
+                            is ExerciseShortAnswer -> AnswerField(text("Answer","Antwort"),(state.draft as? AnswerShortAnswer)?.text.orEmpty()) {commit(state.copy(draft=AnswerShortAnswer(it)))}
+                            is ExerciseCloze,is ExerciseMultiSlot -> {
+                                val slots=if(exercise is ExerciseCloze)exercise.slots else (exercise as ExerciseMultiSlot).slots
+                                val values=when(val answer=state.draft){is AnswerCloze->answer.values;is AnswerMultiSlot->answer.values;else->emptyList()}
+                                slots.forEach {slot->AnswerField(slot.label,values.find {it.slotId==slot.id}?.text.orEmpty()) {value->
+                                    val next=slots.map {field->SlotValue(field.id,if(field.id==slot.id)value else values.find {it.slotId==field.id}?.text.orEmpty())}
+                                    commit(state.copy(draft=if(exercise is ExerciseCloze)AnswerCloze(next)else AnswerMultiSlot(next)))
+                                }}
+                            }
+                            else -> error("Unsupported typed exercise")
+                        }
+                        else suggestions.forEach {(slot,options)->
                             Text(if(slot=="answer")text("Choose an answer","Wähle eine Antwort")else when(exercise) {
                                 is ExerciseCloze -> exercise.slots.first {it.id==slot}.label
                                 is ExerciseMultiSlot -> exercise.slots.first {it.id==slot}.label
@@ -227,11 +240,11 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         val rubric=content.rubrics.first {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
                         val evaluation=OfflineGrader.grade(exercise,rubric,ContractReader.json.encodeToJsonElement<Answer>(requireNotNull(state.draft)),if(state.assisted)listOf("hint")else emptyList())
                         val attempt=GuestAttempt(UUID.randomUUID().toString(),content.session.contentReleaseId,exercise.id,exercise.revision,requireNotNull(state.draft),if(state.assisted)listOf("hint")else emptyList(),Instant.now().toString(),state.attempts.size)
-                        commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0,attempts=state.attempts+attempt))
+                        commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0,attempts=state.attempts+attempt,attemptIndices=state.attemptIndices+state.index))
                     }
                     TextButton(onClick={commit(state.copy(assisted=true))}){Text(text("Hint","Hinweis"))}
                     if(state.assisted) Text(if(german)exercise.hint.de else exercise.hint.en)
-                    TextButton(onClick={commit(state.copy(index=state.index+1,draft=null,order=emptyList(),assisted=false))}){Text(text("Skip","Überspringen"))}
+                    TextButton(onClick={commit(state.copy(index=state.index+1,draft=null,order=emptyList(),assisted=false,skippedIndices=state.skippedIndices+state.index))}){Text(text("Skip","Überspringen"))}
                 } else {
                     StudyFeedback(feedback.outcome=="correct",true,german,
                         state.draft?.let {foundationAnswerText(it,exercise)},foundationAnswerText(feedback.acceptedAnswer,exercise),

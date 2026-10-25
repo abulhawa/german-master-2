@@ -36,6 +36,7 @@ import { STORAGE_KEY } from './storage';
 import { LearnerIdentityDeletion, type IdentityDeletionTransport } from './identity-deletion';
 import { IdentityDeletionControl } from './identity-deletion-control';
 import type { IdentityDeletionProof } from '@german-master/contracts';
+import { releaseCapabilities } from './release-capabilities';
 
 const localApi = localLearnerApi(fixtureAccount);
 type WorkspaceView = "home" | "practice" | "progress" | "topics" | "topic" | "target" | "account";
@@ -126,6 +127,10 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   }, [db, owner, reserve]);
   const [loaded] = useState(() => { try { return { state: readJourney(storage), damaged: false }; } catch { return { state: emptyJourney(), damaged: true }; } });
   const [state, setState] = useState(loaded.state);
+  useEffect(()=>{
+    // A new account must not inherit another account's empty Practice route.
+    if(!loaded.state.practice && window.location.hash==='#/learn/practice')navigateLearner('home',null,true);
+  },[]);
   const appearance = useAppearance(state.theme);
   const current = useRef(state);
   const route=useLearnerRoute();
@@ -210,7 +215,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       let practice = current.current.practice;
       if (practice?.completion && !practice.completionReceipt) return;
       if (!practice || practice.completionReceipt) {
-        const base = { ...sessionRequest(), learningContext:profile?.preferences.learningContext ?? "general", questionCount: Math.min(5, availableCount) };
+        const base = { ...sessionRequest(), learningContext:releaseCapabilities.workplacePractice ? profile?.preferences.learningContext ?? "general" : "general", questionCount: Math.min(5, availableCount) };
         const available = focus?.type === "target" ? catalog?.targets.find(t => t.id === focus.id)?.availableQuestionCount
           : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : availableCount;
         if (!available) throw Error("No compatible content");

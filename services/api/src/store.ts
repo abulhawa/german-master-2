@@ -1,7 +1,7 @@
 import type { SqlDatabase, SqlTransaction as Transaction } from "./database";
 import { initialSchemaSection } from "./initial-schema";
 import { randomUUID, createHash } from "node:crypto";
-import { SessionSchema, GuestAttachmentRequestSchema, type GuestAttachmentRequest, type GuestAttempt, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
+import { SessionSchema, GuestAttachmentRequestSchema, GuestRoundAdoptionRequestSchema, GuestRoundAdoptionResponseSchema, type GuestRoundAdoptionRequest, type GuestAttachmentRequest, type GuestAttempt, type Session, type SessionRequest, type FocusedSessionRequest, CatalogSchema, type Attempt, type Acknowledgment, type AttemptAcknowledgment, type Evaluation, type Exercise, type ExposureEvent, type ExposureAcknowledgment } from "@german-master/contracts";
 import { grade, EVALUATOR_VERSION, GradingError, type Rubric, reduceEvidence, EVIDENCE_POLICY_VERSION, type AcceptedEvidence, type TargetSnapshot, selectQuestions, SELECTION_POLICY_VERSION, type SelectionCandidate } from "@german-master/learning-engine";
 import { foundationCatalog } from "./catalog";
 import { RuntimeCatalogSchema, runtimeManifestHash, runtimeMembers, type RuntimeCatalog } from './runtime-catalog';
@@ -565,6 +565,58 @@ export class FoundationStore {
     for (const guest of request.attempts)
       acknowledgments.push(await this.attachGuestAttempt(userId, request.deviceId, guest, request.requestId));
     return acknowledgments;
+  }
+
+  /** Atomically adopts one complete immutable guest round. The frozen request is also
+   * the account recovery snapshot; retries can only replay the identical payload. */
+  async adoptGuestRound(userId: string, input: GuestRoundAdoptionRequest) {
+    const request=GuestRoundAdoptionRequestSchema.parse(input);
+    try{return await this.db.transaction(async tx=>{
+      await this.assertActive(tx,userId);
+      await tx.query("INSERT INTO gm.learner_profile (user_id,locale,timezone) VALUES ($1,'en','Europe/Berlin') ON CONFLICT DO NOTHING",[userId]);
+      await this.lockLearner(tx,userId);
+      const prior=await tx.query<{user_id:string;request_payload:unknown;release_id:string}>("SELECT user_id,request_payload,release_id FROM gm.practice_session WHERE id=$1",[request.requestId]);
+      if(prior.rows.length) {
+        if(prior.rows[0].user_id!==userId || prior.rows[0].release_id!==request.contentReleaseId || canonical(prior.rows[0].request_payload)!==canonical(request)) throw new ApiFailure('guest_round_conflict',409);
+        return await this.guestRoundSnapshot(tx,userId,request,request.requestId,request.contentReleaseId);
+      }
+      const positions=new Set<number>();
+      for(const a of request.attempts) {if(positions.has(a.questionIndex)) throw new ApiFailure('invalid_request',400); positions.add(a.questionIndex);}
+      const skipped=new Set(request.skippedIndices);
+      if([...skipped].some(i=>positions.has(i)) || request.index>request.questions.length || [...positions].some(i=>i>=request.questions.length||i>request.index) || [...skipped].some(i=>i>=request.index)) throw new ApiFailure('invalid_request',400);
+      for(let i=0;i<request.index;i++) if(!positions.has(i)&&!skipped.has(i)) throw new ApiFailure('guest_round_incomplete',409);
+      if(request.index===request.questions.length && request.draft) throw new ApiFailure('invalid_request',400);
+      const release=await tx.query<{status:string;published_at:Date|null}>("SELECT status,published_at FROM gm.content_release WHERE id=$1",[request.contentReleaseId]);
+      if(!release.rows.length || !['published','retired'].includes(release.rows[0].status) || !release.rows[0].published_at) throw new ApiFailure('revision_unavailable',409);
+      const pins=[];
+      for(const q of request.questions) {
+        const result=await tx.query<{payload:Exercise;rubric:Rubric;target_id:string;target_kind:string;variant_key:string;context_key:string;transfer_key:string|null}>(`SELECT r.payload,r.rubric,e.target_id,t.kind AS target_kind,i.variant_key,i.context_key,i.transfer_key
+          FROM gm.content_release_exercise cr JOIN gm.exercise_revision r ON r.exercise_id=cr.exercise_id AND r.revision=cr.revision
+          JOIN gm.exercise e ON e.id=r.exercise_id JOIN gm.learning_target t ON t.id=e.target_id
+          JOIN gm.revision_evidence_identity i ON i.exercise_id=r.exercise_id AND i.revision=r.revision
+          WHERE cr.release_id=$1 AND cr.exercise_id=$2 AND cr.revision=$3 AND t.status<>'retired'`,[request.contentReleaseId,q.exerciseId,q.exerciseRevision]);
+        if(!result.rows.length) throw new ApiFailure('revision_unavailable',409); pins.push(result.rows[0]);
+      }
+      const issued=this.clock().toISOString();
+      await tx.query("INSERT INTO gm.practice_session (id,user_id,request_id,request_payload,release_id,engine_version,status,issued_at) VALUES ($1,$2,$1,$3,$4,'guest-round-adoption-v1','active',$5)",[request.requestId,userId,request,request.contentReleaseId,issued]);
+      const questionIds=[];
+      for(let i=0;i<pins.length;i++){const id=randomUUID();questionIds.push(id);await tx.query("INSERT INTO gm.session_question (id,user_id,session_id,release_id,exercise_id,revision,position,evidence_role) VALUES ($1,$2,$3,$4,$5,$6,$7,'assessment')",[id,userId,request.requestId,request.contentReleaseId,request.questions[i].exerciseId,request.questions[i].exerciseRevision,i]);}
+      for(const i of skipped){const p=await this.pinnedQuestion(tx,userId,questionIds[i],request.questions[i].exerciseRevision);const event:ExposureEvent={eventId:randomUUID(),sessionQuestionId:questionIds[i],exerciseRevision:p.revision,deviceId:request.deviceId,disposition:'skip',occurredAt:issued};const now=this.clock().toISOString();await tx.query("INSERT INTO gm.device VALUES ($1,$2) ON CONFLICT DO NOTHING",[userId,request.deviceId]);await tx.query("INSERT INTO gm.exposure_event VALUES ($1,$2,$3,$4,$5,$6)",[userId,event.eventId,event.sessionQuestionId,event.deviceId,event.disposition,event]);await this.saveEvidence(tx,userId,event.eventId,p,now,{kind:'exposure',answeredAt:event.occurredAt},'exposure');await this.completeSession(tx,userId,event.sessionQuestionId);}
+      for(const a of request.attempts){const q=questionIds[a.questionIndex];const p=await this.pinnedQuestion(tx,userId,q,request.questions[a.questionIndex].exerciseRevision);const evaluation=grade(p.payload,p.rubric,a.answer,a.assistance);const attempt:Attempt={attemptId:a.attemptId,sessionQuestionId:q,exerciseRevision:p.revision,deviceId:request.deviceId,answer:a.answer,assistance:a.assistance,answeredAt:a.answeredAt,clientSequence:a.questionIndex};const now=this.clock().toISOString();await tx.query("INSERT INTO gm.device VALUES ($1,$2) ON CONFLICT DO NOTHING",[userId,request.deviceId]);await tx.query("INSERT INTO gm.attempt (user_id,id,question_id,device_id,payload,received_at) VALUES ($1,$2,$3,$4,$5,$6)",[userId,a.attemptId,q,request.deviceId,attempt,now]);await tx.query("INSERT INTO gm.attempt_evaluation VALUES ($1,$2,$3,$4,$5)",[userId,a.attemptId,EVALUATOR_VERSION,evaluation,now]);await this.saveEvidence(tx,userId,a.attemptId,p,now,{kind:p.evidence_role,outcome:evaluation.outcome as 'correct'|'incorrect',assisted:evaluation.assisted,evaluationVersion:evaluation.policyVersion,variantKey:p.variant_key,contextKey:p.context_key,...(p.transfer_key?{transferKey:p.transfer_key}:{}),answeredAt:a.answeredAt},'attempt');}
+      return this.guestRoundSnapshot(tx,userId,request,request.requestId,request.contentReleaseId);
+    });}catch(error){
+      const code=error&&typeof error==='object'&&'code' in error?(error as {code?:unknown}).code:undefined;
+      if(code==='23505'||code==='unique_violation') throw new ApiFailure('guest_round_conflict',409);
+      throw error;
+    }
+  }
+
+  private async guestRoundSnapshot(tx:Transaction,userId:string,request:GuestRoundAdoptionRequest,sessionId:string,releaseId:string){
+    const rows=await tx.query<{id:string;payload:Exercise;position:number;attempt_id:string|null;evaluation:Evaluation|null}>(`SELECT q.id,r.payload,q.position,a.id AS attempt_id,e.evaluation FROM gm.session_question q JOIN gm.exercise_revision r ON r.exercise_id=q.exercise_id AND r.revision=q.revision LEFT JOIN gm.attempt a ON a.user_id=q.user_id AND a.question_id=q.id LEFT JOIN gm.attempt_evaluation e ON e.user_id=a.user_id AND e.attempt_id=a.id WHERE q.user_id=$1 AND q.session_id=$2 ORDER BY q.position`,[userId,sessionId]);
+    const session=SessionSchema.parse({apiVersion:'v2',id:sessionId,contentReleaseId:releaseId,questions:rows.rows.map(r=>({id:r.id,exercise:r.payload}))});
+    const requestAttempts=new Set(request.attempts.map(a=>a.attemptId));
+    const attempt=rows.rows.find(r=>r.position===request.index&&r.attempt_id&&requestAttempts.has(r.attempt_id));
+    return GuestRoundAdoptionResponseSchema.parse({apiVersion:'v2',session,index:request.index,...(request.draft?{draft:request.draft}:{}),assisted:request.assisted,...(request.order?{order:request.order}:{}),...(attempt?.evaluation?{evaluation:attempt.evaluation}:{}),confirmedCount:request.attempts.length,correctCount:rows.rows.filter(r=>r.attempt_id&&requestAttempts.has(r.attempt_id)&&r.evaluation?.outcome==='correct').length,skippedCount:request.skippedIndices.length});
   }
 
   private async attachGuestAttempt(userId: string, deviceId: string, guest: GuestAttempt, requestId: string): Promise<Acknowledgment> {

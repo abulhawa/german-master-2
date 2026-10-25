@@ -5,7 +5,7 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import type { AddressInfo } from "node:net";
-import { AttemptBatchResponseSchema, SessionSchema, type Session, type Attempt, type GuestAttachmentRequest, type SessionRequest } from "@german-master/contracts";
+import { AttemptBatchResponseSchema, SessionSchema, type Session, type Attempt, type GuestAttachmentRequest, type GuestRoundAdoptionRequest, type SessionRequest } from "@german-master/contracts";
 import answers from "../../../contracts/v2/examples/attempt-batch.json";
 import { FoundationStore, canonical } from "./store";
 import { createApi } from "./server";
@@ -181,6 +181,29 @@ describe("isolated PostgreSQL-backed HTTP session", () => {
     const stale={...guest,requestId:randomUUID(),attempts:[{...guest.attempts[0],attemptId:randomUUID(),exerciseRevision:99}]};
     expect((await post("/v2/guest-attempts:attach",stale)).body.acknowledgments[0].error.code).toBe("revision_unavailable");
     expect((await post("/v2/guest-attempts:attach",{...guest,evaluation:{outcome:"correct"}})).status).toBe(400);
+  });
+  it("adopts a whole guest round atomically, preserving a zero-answer draft and replaying frozen state", async()=>{
+    const release=(await db.query<{id:string}>("SELECT id FROM gm.content_release LIMIT 1")).rows[0].id;
+    await db.query("UPDATE gm.content_release SET status='published',published_at=COALESCE(published_at,$1) WHERE id=$2",["2026-10-03T10:00:00Z",release]);
+    const source=await store.createSession(user,request());const id=randomUUID();
+    const base:GuestRoundAdoptionRequest={apiVersion:'v2',requestId:id,deviceId:randomUUID(),contentReleaseId:release,
+      questions:source.questions.map(q=>({exerciseId:q.exercise.id,exerciseRevision:q.exercise.revision})),attempts:[],skippedIndices:[],index:0,
+      draft:{type:'short_answer',text:'Berufe'},assisted:false,order:[]};
+    const first=await post('/v2/guest-rounds:adopt',base);expect(first.status).toBe(200);expect(first.body.session.id).toBe(id);
+    expect(first.body.draft).toEqual(base.draft);expect(first.body.confirmedCount).toBe(0);
+    expect((await post('/v2/guest-rounds:adopt',base)).body).toEqual(first.body);
+    expect((await post('/v2/guest-rounds:adopt',{...base,draft:{type:'short_answer',text:'Andere'}})).body.code).toBe('guest_round_conflict');
+    expect((await post('/v2/guest-rounds:adopt',base,other)).status).toBe(409);
+    const skipped=await post('/v2/guest-rounds:adopt',{...base,requestId:randomUUID(),index:1,draft:undefined,skippedIndices:[0]});
+    expect(skipped.status).toBe(200);expect(skipped.body.skippedCount).toBe(1);
+    expect((await db.query<{n:number}>("SELECT count(*)::int AS n FROM gm.exposure_event x JOIN gm.session_question q ON q.id=x.question_id WHERE q.session_id=$1 AND x.disposition='skip'",[skipped.body.session.id])).rows[0].n).toBe(1);
+    const graded=attemptFor(source,0),currentIndex=source.questions.findIndex(q=>q.id===graded.sessionQuestionId);
+    const feedback=await post('/v2/guest-rounds:adopt',{...base,requestId:randomUUID(),index:currentIndex,
+      skippedIndices:Array.from({length:currentIndex},(_,i)=>i),attempts:[{questionIndex:currentIndex,attemptId:graded.attemptId,answer:graded.answer,assistance:graded.assistance,answeredAt:graded.answeredAt}],draft:graded.answer});
+    expect(feedback.status).toBe(200);expect(feedback.body.evaluation).toBeDefined();expect(feedback.body.confirmedCount).toBe(1);
+    await db.query("UPDATE gm.content_release SET status='draft',published_at=NULL WHERE id=$1",[release]);
+    expect((await post('/v2/guest-rounds:adopt',{...base,requestId:randomUUID()})).body.code).toBe('revision_unavailable');
+    await db.query("UPDATE gm.content_release SET status='published',published_at=$1 WHERE id=$2",["2026-10-03T10:00:00Z",release]);
   });
   it("authenticates subjects and rejects client grades, malformed JSON and unbounded requests", async () => {
     expect((await post("/v2/sessions", request(), "invalid")).status).toBe(401);

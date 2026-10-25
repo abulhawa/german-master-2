@@ -1,31 +1,33 @@
-import { afterEach, expect, it, vi } from "vitest";
+import { beforeEach, afterEach, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { GuestStarterJourney, GUEST_STORAGE_KEY, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from "./guest-starter";
+import { GuestStarterJourney, GUEST_STORAGE_KEY, TEMPORARY_KEY, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from "./guest-starter";
 import { APPEARANCE_KEY } from './appearance';
 
-it('offers persistent appearance settings without authentication and preserves the draft', () => {
-  const auth=vi.fn();
-  render(<GuestStarterJourney onAuth={auth}/>);
-  fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
-  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
-  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
-  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'dark'}});
-  expect(document.querySelector('main')).toHaveAttribute('data-theme','dark');
-  expect(localStorage.getItem(APPEARANCE_KEY)).toBe('dark');
-  cleanup(); render(<GuestStarterJourney onAuth={auth}/>);
-  expect(document.querySelector('main')).toHaveAttribute('data-theme','dark');
-  fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
-  expect(screen.getByRole('combobox',{name:'Theme'})).toHaveValue('dark');
-  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'light'}});
-  expect(document.querySelector('main')).toHaveAttribute('data-theme','light');
-  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
-  expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
-  expect(auth).not.toHaveBeenCalled();
+vi.mock('../../../../../content/guest/practice.json',async()=>{
+ const {default:starter}=await import('../../../../../content/guest/starter.json');
+ return {default:{packs:[{level:'B1',learningContext:'general',topicId:'30000000-0000-4000-8000-000000000600',title:{en:'Grammar foundations',de:'Grammatik-Grundlagen'},...starter}]}};
+});
+beforeEach(()=>{vi.spyOn(Math,'random').mockReturnValue(0.99999);});
+it('persists appearance without an account and preserves temporary practice on cancellation',()=>{
+ render(<GuestStarterJourney onAuth={vi.fn()}/>);
+ fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
+ fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'dark'}});
+ expect(localStorage.getItem(APPEARANCE_KEY)).toBe('dark');
+ fireEvent.click(screen.getByRole('button',{name:'Home',exact:true}));
+ fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
+ fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
+ fireEvent.click(screen.getByRole('button',{name:'Close practice'}));
+ fireEvent.click(screen.getByRole('button',{name:'Keep practising'}));
+ expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
+ cleanup();render(<GuestStarterJourney onAuth={vi.fn()}/>);
+ expect(document.querySelector('main')).toHaveAttribute('data-theme','dark');
+ expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
 });
 
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();vi.restoreAllMocks();
   window.history.replaceState(null, "", "/");
 });
 
@@ -62,14 +64,14 @@ it("lets a guest finish text-based exercises by tapping choices without changing
   fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
   expect(screen.queryByRole("textbox")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
-  const saved = JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!);
+  const saved = JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!);
   expect(saved.attempts[0].answer).toEqual({type:"short_answer",text:"Berufe"});
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
   fireEvent.click(screen.getByRole("button", { name: "Skip" }));
   fireEvent.click(screen.getByRole("radio", { name: "ins" }));
   expect(screen.getByRole("radio",{name:"ins"})).toBeChecked();
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
-  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).attempts[1].answer).toEqual({type:"cloze",values:[{slotId:"preposition",text:"ins"}]});
+  expect(JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!).attempts[1].answer).toEqual({type:"cloze",values:[{slotId:"preposition",text:"ins"}]});
 });
 
 it("requires an account only when opening account-dependent pages and allows returning without signing in", () => {
@@ -92,24 +94,18 @@ it("requires an account only when opening account-dependent pages and allows ret
   expect(onAuth).toHaveBeenCalledWith("register");
 });
 
-it("preserves the exercise draft through Account, auth entry, Home and reload", () => {
-  const onAuth = vi.fn();
-  render(<GuestStarterJourney onAuth={onAuth} />);
-  fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
-  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
-  const draft = localStorage.getItem(GUEST_STORAGE_KEY);
-  fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
-  fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
-  expect(onAuth).toHaveBeenCalledWith("sign-in");
-  fireEvent.click(screen.getByRole("button", { name: "Back to practice" }));
-  expect(screen.getByRole("radio", { name: "Berufe" })).toBeChecked();
-  fireEvent.click(screen.getByRole("button", { name: "Close practice" }));
-  fireEvent.click(screen.getByRole("button", { name: "Save and return Home" }));
-  expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe(draft);
-  cleanup();
-  render(<GuestStarterJourney onAuth={onAuth} />);
-  fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
-  expect(screen.getByRole("radio", { name: "Berufe" })).toBeChecked();
+it("preserves the full draft through explicit save, cancelled authentication and reload",()=>{
+ const auth=vi.fn();render(<GuestStarterJourney onAuth={auth}/>);
+ fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
+ fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
+ const draft=sessionStorage.getItem(TEMPORARY_KEY);
+ fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
+ fireEvent.click(screen.getByRole('button',{name:'Sign in',exact:true}));
+ expect(auth).toHaveBeenCalledWith('sign-in');
+ expect(localStorage.getItem(GUEST_STORAGE_KEY)).toBe(draft);
+ cleanup();render(<GuestStarterJourney onAuth={auth}/>);
+ expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
+ expect(sessionStorage.getItem(TEMPORARY_KEY)).toBe(draft);
 });
 
 it("allows sign-in even if saved practice is damaged", () => {
@@ -164,7 +160,7 @@ it("keeps the interface language selector reachable from guest home", () => {
   expect(document.querySelector("main")).toHaveAttribute("lang", "de");
   fireEvent.click(screen.getByRole("button", { name: "Startseite" }));
   expect(screen.getByRole("heading", { name: "Ein wenig Deutsch. Ein Stück sicherer." })).toBeInTheDocument();
-  expect(JSON.parse(localStorage.getItem(GUEST_STORAGE_KEY)!).locale).toBe("de");
+  expect(JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!).locale).toBe("de");
 });
 
 it("finishes and repeats practice without an account promotion", () => {
@@ -181,7 +177,7 @@ it("finishes and repeats practice without an account promotion", () => {
   cleanup();
   render(<GuestStarterJourney onAuth={vi.fn()} />);
   expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
-  fireEvent.click(screen.getByRole("button", { name: "Repeat the five questions" }));
+  fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
   expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
 });
 
@@ -203,7 +199,7 @@ it("keeps primary navigation on account gates and makes Topics available without
   fireEvent.click(screen.getByRole("button",{name:"Topics",exact:true}));
   expect(screen.getByRole("button",{name:"Topics",exact:true})).toHaveAttribute("aria-current","page");
   expect(screen.getByRole("heading",{name:"Grammar foundations"})).toBeInTheDocument();
-  expect(screen.getByText("Word order")).toBeInTheDocument();
+  expect(screen.getByRole("button",{name:"Select topic"})).toBeEnabled();
   expect(screen.queryByRole("button",{name:"Sign in",exact:true})).toBeNull();
   fireEvent.click(screen.getByRole("button",{name:"Progress",exact:true}));
   expect(screen.getByRole("navigation",{name:"Main navigation"})).toBeInTheDocument();
@@ -213,21 +209,15 @@ it("keeps primary navigation on account gates and makes Topics available without
   expect(onAuth).not.toHaveBeenCalled();
 });
 
-it('browser Back and Forward follow practice and Settings while preserving the answer and feedback',async()=>{
-  render(<GuestStarterJourney onAuth={vi.fn()}/>);
-  fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
-  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
-  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
-  expect(window.location.hash).toBe('#/learn/account');
-  await act(async()=>window.history.back());
-  await waitFor(()=>expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked());
-  await act(async()=>window.history.forward());
-  await screen.findByRole('heading',{name:'Settings',exact:true});
-  await act(async()=>window.history.back());
-  fireEvent.click(await screen.findByRole('button',{name:'Check answer'}));
-  expect(screen.getByText('Correct')).toBeInTheDocument();
-  await act(async()=>window.history.back());
-  await screen.findByRole('button',{name:'Continue session'});
-  await act(async()=>window.history.forward());
-  await screen.findByText('Correct');
+it('browser Back requires an explicit choice and keeps the current answer when cancelled',async()=>{
+ render(<GuestStarterJourney onAuth={vi.fn()}/>);
+ fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
+ fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
+ await act(async()=>window.history.back());
+ await screen.findByRole('dialog');
+ fireEvent.click(screen.getByRole('button',{name:'Keep practising'}));
+ expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked();
+ fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
+ expect(screen.getByText('Correct')).toBeInTheDocument();
+ expect(JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!).feedback.outcome).toBe('correct');
 });

@@ -20,6 +20,7 @@ import {
   type Evaluation,
   type Exercise,
   type GuestAttachmentRequest,
+  type GuestRoundAdoptionRequest,
 } from "@german-master/contracts";
 import { answerText } from "../foundation/api";
 import { PracticeFeedback } from "../foundation/practice-feedback";
@@ -33,20 +34,52 @@ export const GUEST_ATTACHED_KEY = "german-master-v2:guest-attached-v1";
 export const GUEST_DEVICE_KEY = "german-master-v2:guest-device-v1";
 
 import practiceBundle from '../../../../../content/guest/practice.json';
+import { releaseCapabilities } from './release-capabilities';
 
 export const TEMPORARY_KEY='german-master-v2:temporary-practice';
 
 export const SAVE_INTENT_KEY='german-master-v2:save-practice';
+const SAVE_OWNER_KEY='german-master-v2:save-practice-owner';
 
 const PREFERENCES_KEY='german-master-v2:practice-preferences';
 
-function guestRaw(){return window.sessionStorage.getItem(TEMPORARY_KEY) ?? window.localStorage.getItem(GUEST_STORAGE_KEY);}
+function guestRaw(){
+  const temporary=window.sessionStorage.getItem(TEMPORARY_KEY);
+  if(temporary)return temporary;
+  // A pending handoff belongs to its initiating tab, including after reload.
+  if(window.localStorage.getItem(SAVE_INTENT_KEY) && !hasGuestSaveIntent())return null;
+  return window.localStorage.getItem(GUEST_STORAGE_KEY);
+}
 
-export function hasGuestSaveIntent(){try{return !!window.localStorage.getItem(SAVE_INTENT_KEY);}catch{return false;}}
+const SaveIntentSchema=z.object({round:z.string().uuid(),subject:z.string().uuid().nullable(),owner:z.string().uuid(),snapshot:z.string()});
+function saveIntent(){
+  const raw=window.localStorage.getItem(SAVE_INTENT_KEY);
+  if(!raw)return null;
+  const parsed=SaveIntentSchema.safeParse(JSON.parse(raw));
+  return parsed.success && parsed.data.owner===window.sessionStorage.getItem(SAVE_OWNER_KEY)?parsed.data:null;
+}
+export function hasGuestSaveIntent(){try{return !!saveIntent();}catch{return false;}}
 
-export function authorizeGuestSave(){const raw=guestRaw();if(!raw)return;const state=GuestStateSchema.parse(JSON.parse(raw));if(!state.session)return;window.localStorage.setItem(GUEST_STORAGE_KEY,raw);window.localStorage.setItem(SAVE_INTENT_KEY,JSON.stringify({round:state.session.id,subject:null}));}
+export function authorizeGuestSave(){
+  const raw=guestRaw();if(!raw)throw Error('No practice to save');
+  const state=GuestStateSchema.parse(JSON.parse(raw));if(!state.session)throw Error('No round to save');
+  const pending=window.localStorage.getItem(SAVE_INTENT_KEY);
+  const current=saveIntent();
+  if(pending && !current)throw Error('Finish the save in its original tab');
+  if(current && (current.round!==state.session.id || current.subject))throw Error('A practice save is already pending');
+  const owner=current?.owner ?? crypto.randomUUID();
+  window.sessionStorage.setItem(SAVE_OWNER_KEY,owner);
+  window.localStorage.setItem(GUEST_STORAGE_KEY,raw);
+  window.localStorage.setItem(SAVE_INTENT_KEY,JSON.stringify({round:state.session.id,subject:null,owner,snapshot:raw}));
+}
 
-export function clearGuestPractice(){window.localStorage.removeItem(GUEST_STORAGE_KEY);window.localStorage.removeItem(SAVE_INTENT_KEY);window.sessionStorage.removeItem(TEMPORARY_KEY);}
+export function clearGuestPractice(){
+  if(!window.localStorage.getItem(SAVE_INTENT_KEY) || hasGuestSaveIntent()){
+    window.localStorage.removeItem(GUEST_STORAGE_KEY);window.localStorage.removeItem(SAVE_INTENT_KEY);
+    window.sessionStorage.removeItem(SAVE_OWNER_KEY);
+  }
+  window.sessionStorage.removeItem(TEMPORARY_KEY);
+}
 
 type Locale = "en" | "de";
 type AuthMode = "sign-in" | "register";
@@ -140,7 +173,7 @@ const starterSuggestions: Record<string, Record<string,string[]>> = {
 
 const DraftSchema = z.union([
 
-  AnswerSchema, OfflineRubricSchema,
+  AnswerSchema,
 
   z.strictObject({ type: z.literal("word_order"), tokenIds: z.array(z.string()) }),
 ]);
@@ -269,9 +302,8 @@ export function guestUnattachedAttemptCount(subject?:string): number {
 export function buildGuestAttachmentRequest(subject:string): GuestAttachmentRequest|null {
   if(!z.string().uuid().safeParse(subject).success) throw Error("Invalid guest attachment subject");
 
-  if(hasGuestSaveIntent()) {
-
-    const intent=JSON.parse(window.localStorage.getItem(SAVE_INTENT_KEY)!);
+  const intent=saveIntent();
+  if(intent) {
 
     if(intent.subject && intent.subject!==subject)throw Error('Practice save belongs to another account');
 
@@ -279,9 +311,10 @@ export function buildGuestAttachmentRequest(subject:string): GuestAttachmentRequ
 
   }
 
-  const raw=guestRaw();if(!raw)return null;
+  const raw=intent?.snapshot ?? guestRaw();if(!raw)return null;
 
   const parsed=GuestStateSchema.safeParse(JSON.parse(raw));if(!parsed.success||!parsed.data.session)return null;
+  if(intent && parsed.data.session.id!==intent.round)throw Error('Practice consent round mismatch');
   const attached=attachedGuestAttemptIds(subject);
 
   const attempts=parsed.data.attempts.map((attempt,index)=>({attempt,index})).filter(({attempt})=>!attached.has(attempt.attemptId)).map(({attempt,index})=>({
@@ -292,6 +325,30 @@ export function buildGuestAttachmentRequest(subject:string): GuestAttachmentRequ
   }));
   if(!attempts.length)return null;
   return {apiVersion:"v2",requestId:crypto.randomUUID(),deviceId:guestDeviceId(),attempts};
+}
+/** The handoff uses its frozen authorized round, never the current tab's draft. */
+export function buildGuestRoundAdoptionRequest(subject:string):GuestRoundAdoptionRequest|null {
+  if(!z.string().uuid().safeParse(subject).success)throw Error('Invalid account');
+  const intent=saveIntent();if(!intent)return null;
+  if(intent.subject && intent.subject!==subject)throw Error('Practice save belongs to another account');
+  const state=GuestStateSchema.parse(JSON.parse(intent.snapshot));
+  const session=state.session;
+  if(!session || session.id!==intent.round)throw Error('Practice consent round mismatch');
+  window.localStorage.setItem(SAVE_INTENT_KEY,JSON.stringify({...intent,subject}));
+  const attempts=state.attempts.map(attempt=>{
+    const questionIndex=session.questions.findIndex(q=>q.id===attempt.questionId);
+    if(questionIndex<0)throw Error('Saved answer is outside this round');
+    return {questionIndex,attemptId:attempt.attemptId,answer:attempt.answer,
+      assistance:attempt.evaluation.assisted?['hint' as const]:[],answeredAt:attempt.answeredAt};
+  });
+  const answered=new Set(attempts.map(a=>a.questionIndex));
+  const draft=AnswerSchema.safeParse(state.draft);
+  return {apiVersion:'v2',requestId:session.id,deviceId:guestDeviceId(),contentReleaseId:session.contentReleaseId,
+    questions:session.questions.map(q=>({exerciseId:q.exercise.id,exerciseRevision:q.exercise.revision})),
+    attempts,skippedIndices:Array.from({length:state.index},(_,i)=>i).filter(i=>!answered.has(i)),
+    index:state.index,assisted:state.assisted,...(draft.success?{draft:draft.data}:{}),
+    ...(state.draft?.type==='word_order'?{order:state.draft.tokenIds}:{}),
+  };
 }
 export function markGuestAttemptsAttached(subject:string,attemptIds:string[]):void {
   if(!z.string().uuid().safeParse(subject).success) throw Error("Invalid guest attachment subject");
@@ -517,7 +574,8 @@ export function GuestStarterJourney({
 
   function discard(){try{clearGuestPractice();setState({...emptyGuestState(),locale:state.locale,level:state.level,learningContext:state.learningContext});setClosing(false);bypass.current=true;navigateLearner(destination.current);bypass.current=false;}catch{setStorageError(true);}}
 
-  const packs=practiceBundle.packs.filter(p=>p.level===state.level&&p.learningContext===state.learningContext);
+  const learningContext=releaseCapabilities.workplacePractice ? state.learningContext : 'general';
+  const packs=practiceBundle.packs.filter(p=>p.level===state.level&&p.learningContext===learningContext);
 
   function commit(next: GuestState) {
     if (damaged) return false;
@@ -528,7 +586,8 @@ export function GuestStarterJourney({
 
       window.localStorage.setItem(PREFERENCES_KEY,JSON.stringify({locale:parsed.locale,level:parsed.level,learningContext:parsed.learningContext}));
 
-      if(hasGuestSaveIntent())window.localStorage.setItem(GUEST_STORAGE_KEY,JSON.stringify(parsed));
+      // Edits after cancelled authentication remain temporary. The authorized
+      // snapshot stays frozen until a fresh explicit save action replaces it.
 
       setState(parsed);
       setStorageError(false);
@@ -666,7 +725,7 @@ export function GuestStarterJourney({
         <div className="gm-page-heading"><p className="gm-eyebrow">{c.eyebrow}</p><h1 aria-label={c.homeTitle}>{c.homeOpening}<br/>{c.homeEnding}</h1><p>{c.practiceIntro}</p></div>
         <section className="gm-primary-card"><PracticeCard>
 
-          <span className="gm-session-meta">{state.level} · 5 {state.locale==='de'?'Aufgaben':'questions'} · {state.learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</span>
+          <span className="gm-session-meta">{state.level} · 5 {state.locale==='de'?'Aufgaben':'questions'} · {learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</span>
 
           <h2>{c.build}</h2>
           <p className="gm-meta">{c.sessionBody}</p>
@@ -678,7 +737,7 @@ export function GuestStarterJourney({
         <div className="gm-session-topics"><div className="gm-section-heading"><h2>{c.covered}</h2><FoundationButton className="gm-text-button gm-secondary" onClick={() => setView('topics')}>{c.viewTopics}<ArrowRight aria-hidden="true"/></FoundationButton></div><div className="gm-topic-tags">{c.skills.map(skill => <span key={skill}>{skill}</span>)}</div></div>
       </> : view === "topics" ? <>
 
-        <div className="gm-page-heading"><h1>{c.topics}</h1><p>{state.level} · {state.learningContext==='work'?'German for work':'General German'}</p></div>
+        <div className="gm-page-heading"><h1>{c.topics}</h1><p>{state.level} · {learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</p></div>
 
         {packs.map(pack=><PracticeCard key={pack.topicId}><h2>{pack.title[state.locale]}</h2><FoundationButton onClick={()=>{setTopic(pack.topicId);}} aria-pressed={topic===pack.topicId}>{state.locale==='de'?'Thema auswählen':'Select topic'}</FoundationButton></PracticeCard>)}
 
@@ -690,7 +749,7 @@ export function GuestStarterJourney({
 
           <label>{state.locale==='de'?'Niveau':'Level'}<select value={state.level} onChange={e=>{setTopic(null);commit({...state,level:e.target.value as 'B1'|'B2'});}}><option>B1</option><option>B2</option></select></label>
 
-          <label>{state.locale==='de'?'Übung':'Practice'}<select value={state.learningContext} onChange={e=>{setTopic(null);commit({...state,learningContext:e.target.value as 'general'|'work'});}}><option value="general">{state.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{state.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>
+          {releaseCapabilities.workplacePractice && <label>{state.locale==='de'?'Übung':'Practice'}<select value={state.learningContext} onChange={e=>{setTopic(null);commit({...state,learningContext:e.target.value as 'general'|'work'});}}><option value="general">{state.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{state.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>}
 
           <label>{c.language}<select value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e=>appearance.choose(e.target.value as Appearance)}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>

@@ -8,7 +8,9 @@ import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { LearnerSignOut } from './signout';
 import { browserStorage } from './storage';
 
-import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached, hasGuestSaveIntent, clearGuestPractice } from './guest-starter';
+import { GuestStarterJourney, buildGuestRoundAdoptionRequest, guestAttemptCount, hasGuestSaveIntent, clearGuestPractice } from './guest-starter';
+import { installAdoptedRound } from './adopted-round';
+import { readJourney } from './storage';
 
 import { providerCopy as copy } from './provider-locales';
 import { StudyArt } from './study-art';
@@ -19,6 +21,7 @@ import { recoveryCopy } from './recovery-locales';
 import { AccountEmailChange } from './account-email-change';
 import { GoogleIcon } from '../components/auth/auth-dialog/google-icon';
 import { MicrosoftIcon } from '../components/auth/auth-dialog/microsoft-icon';
+import { releaseCapabilities } from './release-capabilities';
 
 /** Explicitly configured host. The fixture preview and legacy release remain separate. */
 export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host:ReturnType<typeof createLearnerProvider>;origin:string;deletionEnabled?:boolean}) {
@@ -126,31 +129,31 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     finally {loginLock.current=false;setBusy(false);}
   }
   async function attachGuest() {
-    if(!api?.attachGuest || !account || local || attachBusy) return;
+    if(!api?.adoptGuestRound || !account || local || attachBusy) return;
 
     if(attachmentLock.current)return;attachmentLock.current=true;
 
     setAttachBusy(true);setAttachFailed(false);
     try {
 
-      const request=buildGuestAttachmentRequest(account.identity.subject);if(!request){setAttachDismissed(true);return;}
-
-      const result=await api.attachGuest(request);
-      const saved=result.acknowledgments.filter(item=>item.status==='accepted'||item.status==='duplicate').map(item=>item.attemptId);
-      const validationOnly=result.acknowledgments.every(item=>item.status!=='rejected'||item.error.code==='revision_unavailable');
-      markGuestAttemptsAttached(account.identity.subject,saved);
-
-      const remaining=guestUnattachedAttemptCount(account.identity.subject);
-
-      setAttachResult({saved:saved.length,remaining,validationOnly});
-
-      if(remaining===0){const raw=window.sessionStorage.getItem("german-master-v2:temporary-practice");const round=raw?JSON.parse(raw):null;if(round && round.index>=round.session?.questions.length)clearGuestPractice();}
+      if(!navigator.locks)throw Error('Safe account saving requires a writer lock');
+      await navigator.locks.request(account.ownerLock,async()=>{
+        account.assertCurrent();
+        const request=buildGuestRoundAdoptionRequest(account.identity.subject);if(!request)throw Error('Save consent unavailable');
+        const storage=account.storage(browserStorage),prior=readJourney(storage).practice;
+        if(prior && prior.session?.id!==request.requestId && !prior.completionReceipt && (!prior.session || prior.index<prior.session.questions.length))throw Error('An account round is unfinished');
+        const saved=await api.adoptGuestRound!(request);
+        account.assertCurrent();
+        installAdoptedRound(storage,saved);
+        clearGuestPractice();
+        setAttachResult({saved:saved.confirmedCount,remaining:0,validationOnly:true});
+      });
 
     } catch { setAttachFailed(true); } finally { attachmentLock.current=false;setAttachBusy(false); }
 
   }
 
-  useEffect(()=>{if(account && api?.attachGuest && !local && !showLogin && !attachResult && !attachFailed && hasGuestSaveIntent())void attachGuest();},[account,api,local,showLogin]);
+  useEffect(()=>{if(account && api?.adoptGuestRound && !local && !showLogin && !attachResult && !attachFailed && hasGuestSaveIntent())void attachGuest();},[account,api,local,showLogin]);
 
   function continueSaved() {
     try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);finishSignIn();}}
@@ -170,23 +173,24 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     const completed=recovery.getSnapshot().stage==='complete';recovery.finish();navigateLearner(completed?'home':'reset',null,true);setFailed(false);setRetry(v=>v+1);
   }}/>;
   if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} home={returnHome} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>backInLearner(account?'account':'sign-in')}/></div></main>;
-  const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
+  const pendingRound=hasGuestSaveIntent();
+  const accountGuestAttempts=pendingRound?guestAttemptCount():0;
   if(route.view==='email-change'&&emailChange&&account===emailChange&&!local&&!showLogin) {
     const currentEmail=host.provider.emailFor(account);
     if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={account} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(account)} locale={locale} home={returnHome} back={()=>backInLearner('account')}/></div></main>;
   }
-  if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
+  if(account&&!showLogin&&!local&&!attachDismissed&&(pendingRound||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
     return <main className="gm-foundation" data-theme={appearance.theme} lang={locale}><div className="gm-column"><PracticeCard>
       {attachResult ? <>
         <h1>{remaining===0?c.attachSavedTitle:c.attachPartialTitle}</h1>
-        <p role="status">{remaining===0?c.attachSaved(attachResult.saved):
+        <p role="status">{remaining===0?(locale==='de'?'Deine Übung ist gespeichert. Du kannst sie fortsetzen.':'Your round is saved. You can continue practising.'):
           (attachResult.validationOnly?c.attachPartial(attachResult.saved,remaining):c.attachPartialOther(attachResult.saved,remaining))}</p>
         <FoundationButton onClick={()=>setAttachDismissed(true)}>{c.continue}</FoundationButton>
       </> : <>
-        <h1>{c.attachTitle}</h1><p>{c.attachCount(accountGuestAttempts)}</p><p className="gm-notice">{c.attachWarning}</p>
+        <h1>{locale==='de'?'Übung speichern':'Save your practice?'}</h1><p>{locale==='de'?'Deine gesamte Übung bleibt erhalten, auch unbeantwortete Aufgaben.':'Keep your whole round, including unanswered questions.'}</p>
         {attachFailed&&<p role="alert"><strong>{c.attachFailedTitle}</strong> {c.attachFailed}</p>}
-        <FoundationButton disabled={attachBusy||!api?.attachGuest} onClick={()=>void attachGuest()}>{c.attachAction(accountGuestAttempts)}</FoundationButton>
+        <FoundationButton disabled={attachBusy||!api?.adoptGuestRound} onClick={()=>void attachGuest()}>{locale==='de'?'Übung speichern':'Save practice'}</FoundationButton>
         <FoundationButton className="gm-secondary" disabled={attachBusy} onClick={()=>setAttachDismissed(true)}>{c.notNow}</FoundationButton>
       </>}
       <FoundationButton className="gm-secondary" disabled={attachBusy} onClick={()=>setAttachDismissed(true)}>{c.home}</FoundationButton>
@@ -195,6 +199,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   if(account&&!showLogin) return <LearnerJourney accountSecurity={(language,blocked)=>{
     const labels=copy[language], address=local?null:host.provider.emailFor(account);
     return <PracticeCard><h2>{labels.signInDetails}</h2>
+      {pendingRound && <FoundationButton disabled={blocked} onClick={()=>setAttachDismissed(false)}>{language==='de'?'Übung speichern':'Save practice'}</FoundationButton>}
       {address ? <><p className="gm-account-email"><strong>{labels.email}</strong><br/>{address}</p>
         <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmailChange(account);navigateLearner('email-change');}}>{labels.changeEmail}</FoundationButton>
         <p>{labels.resetHelp}</p>
@@ -209,11 +214,11 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
     <FoundationButton className="gm-secondary" disabled={busy} onClick={returnHome}>{c.home}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
-    <div className="gm-answer-group">
+    {releaseCapabilities.socialSignIn && <div className="gm-answer-group">
       <FoundationButton className="gm-secondary gm-provider-button" disabled={busy} onClick={()=>void signInWithProvider('google')}><GoogleIcon className="gm-provider-icon" width="20" height="20"/>{c.google}</FoundationButton>
       <FoundationButton className="gm-secondary gm-provider-button" disabled={busy} onClick={()=>void signInWithProvider('azure')}><MicrosoftIcon className="gm-provider-icon" width="20" height="20"/>{c.microsoft}</FoundationButton>
-    </div>
-    <p>{c.emailAlternative}</p>
+    </div>}
+    {releaseCapabilities.socialSignIn && <p>{c.emailAlternative}</p>}
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
       <label className="gm-field" htmlFor="v2-email">{c.email}<input id="v2-email" type="email" autoComplete="username" required value={email} disabled={busy} onChange={event=>setEmail(event.target.value)} /></label>
       <label className="gm-field" htmlFor="v2-password">{c.password}<input id="v2-password" type="password" autoComplete={register?'new-password':'current-password'} required minLength={register?8:undefined} value={password} disabled={busy} onChange={event=>setPassword(event.target.value)} /></label>
