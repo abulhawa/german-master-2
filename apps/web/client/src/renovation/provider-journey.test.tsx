@@ -24,6 +24,7 @@ function fixture(initiallySignedIn=false) {
     getUser:vi.fn(async()=>({data:{user:{id:subject,is_anonymous:false}},error:null})),
     signOut:vi.fn(async()=>{signedIn=false;callback('SIGNED_OUT',null);return {error:null};}),
     signInWithPassword:vi.fn(async()=>{signedIn=true;callback('SIGNED_IN',session());return {error:null};}),
+    signInWithOAuth:vi.fn(async()=>({data:{url:"https://example.test/authorize"},error:null})),
     signUp:vi.fn(async()=>({data:{session:null},error:null})),
     resetPasswordForEmail:vi.fn(async()=>({data:{},error:null})),
     updateUser:vi.fn(async()=>({data:{user:{id:subject}},error:null})),
@@ -200,4 +201,38 @@ it('does not mount a stale verified response after an intervening sign-out',asyn
   f.emit('SIGNED_OUT');complete({data:{user:{id:subject,is_anonymous:false}},error:null});
   await waitFor(()=>expect(screen.getByRole('button',{name:'Start practice'})).toBeEnabled());
   expect(screen.queryByText(/Bound learner/)).toBeNull();
+});
+
+it.each(['google','azure'] as const)('offers %s on sign-in and signup without submitting email credentials',async(provider)=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);
+  await openAuth();
+  const name=provider==='google'?'Continue with Google':'Continue with Microsoft';
+  fireEvent.change(screen.getByLabelText('Password'),{target:{value:'transient-password'}});
+  fireEvent.click(screen.getByRole('button',{name}));
+  await waitFor(()=>expect(f.auth.signInWithOAuth).toHaveBeenCalledWith({provider,options:{redirectTo:new URL('/',window.location.origin).href,...(provider==='azure'?{scopes:'email'}:{})}}));
+  expect(screen.getByLabelText('Password')).toHaveValue('');
+  expect(f.auth.signInWithPassword).not.toHaveBeenCalled();
+  expect(f.auth.signUp).not.toHaveBeenCalled();
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Create account'})).toBeEnabled());
+  fireEvent.click(screen.getByRole('button',{name:'Create account'}));
+  expect(screen.getByRole('button',{name})).toBeEnabled();
+});
+it('retains email signup and practice access when a provider request fails',async()=>{
+  const f=fixture();f.auth.signInWithOAuth.mockRejectedValueOnce(Error('provider unavailable'));
+  render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
+  fireEvent.click(screen.getByRole('button',{name:'Continue with Microsoft'}));
+  await screen.findByRole('alert');
+  expect(screen.getByRole('button',{name:'Sign in',exact:true})).toBeEnabled();
+  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
+  expect(await screen.findByRole('button',{name:'Settings',exact:true})).toBeEnabled();
+});
+
+it('shows a generic OAuth cancellation error while keeping practice available',async()=>{
+  window.history.replaceState(null,'','/?error=access_denied&error_description=untrusted');
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);
+  await screen.findByRole('alert');
+  await waitFor(()=>expect(screen.getByRole('button',{name:'Back to practice'})).toBeEnabled());
+  expect(screen.queryByText('untrusted')).toBeNull();
+  fireEvent.click(screen.getByRole('button',{name:'Back to practice'}));
+  expect(await screen.findByRole('button',{name:'Settings',exact:true})).toBeEnabled();
 });

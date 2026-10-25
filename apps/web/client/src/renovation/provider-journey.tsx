@@ -22,8 +22,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [account,setAccount] = useState<AccountBinding|null>(null);
   const [busy,setBusy] = useState(true);
   const [failed,setFailed] = useState(false);
+  const [oauthFailed,setOAuthFailed] = useState(()=>new URLSearchParams(window.location.search).has('error'));
   const [retry,setRetry] = useState(0);
-  const [showLogin,setShowLogin] = useState(false);
+  const [showLogin,setShowLogin] = useState(()=>new URLSearchParams(window.location.search).has('error'));
   const [local,setLocal] = useState(false);
   const loginLock=useRef(false);
   const [locale,setLocale] = useState<'en'|'de'>('en');
@@ -87,7 +88,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const api=useMemo(()=>account ? host.provider.api(account,origin) : undefined,[host,account,origin,local]);
   const identityDeletion=useMemo(()=>account&&deletionEnabled?host.provider.identityDeletion(account,origin):undefined,[host,account,origin,deletionEnabled]);
   async function signIn() {
-    if(busy||loginLock.current) return;loginLock.current=true;setBusy(true);setFailed(false);
+    if(busy||loginLock.current) return;loginLock.current=true;setBusy(true);setFailed(false);setOAuthFailed(false);
     try {
       setConfirmation(false);
       if(register) {
@@ -100,6 +101,18 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     }
     catch {setFailed(true);}
     finally {loginLock.current=false;setPassword('');setBusy(false);}
+  }
+  async function signInWithProvider(provider:'google'|'azure') {
+    if(busy||loginLock.current)return;
+    loginLock.current=true;setBusy(true);setFailed(false);setOAuthFailed(false);setConfirmation(false);setPassword('');
+    try {
+      const {error}=await host.client.auth.signInWithOAuth({provider,options:{
+        redirectTo:new URL('/',window.location.origin).href,
+        ...(provider==='azure'?{scopes:'email'}:{}),
+      }});
+      if(error)throw error;
+    } catch {setFailed(true);}
+    finally {loginLock.current=false;setBusy(false);}
   }
   async function attachGuest() {
     if(!api?.attachGuest || !account || local || attachBusy) return;
@@ -118,7 +131,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     catch {setFailed(true);}
   }
   function openAuth(mode:'sign-in'|'register') {
-    setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
+    setOAuthFailed(false);setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
   }
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} finish={()=>{
     const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
@@ -160,8 +173,13 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
-    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);}}>{c.backGuest}</FoundationButton>
+    <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>{setShowLogin(false);setPassword('');setConfirmation(false);setFailed(false);setOAuthFailed(false);}}>{c.backGuest}</FoundationButton>
     {host.provider.hasSavedAccount()&&<FoundationButton disabled={loginLock.current} onClick={continueSaved}>{c.resume}</FoundationButton>}
+    <div className="gm-answer-group">
+      <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>void signInWithProvider('google')}>{c.google}</FoundationButton>
+      <FoundationButton className="gm-secondary" disabled={busy} onClick={()=>void signInWithProvider('azure')}>{c.microsoft}</FoundationButton>
+    </div>
+    <p>{c.emailAlternative}</p>
     <form className="gm-answer-group" onSubmit={event=> {event.preventDefault();void signIn();}}>
       <label className="gm-field" htmlFor="v2-email">{c.email}<input id="v2-email" type="email" autoComplete="username" required value={email} disabled={busy} onChange={event=>setEmail(event.target.value)} /></label>
       <label className="gm-field" htmlFor="v2-password">{c.password}<input id="v2-password" type="password" autoComplete={register?'new-password':'current-password'} required minLength={register?8:undefined} value={password} disabled={busy} onChange={event=>setPassword(event.target.value)} /></label>
@@ -171,6 +189,6 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('reset');}}>{recoveryCopy[locale].forgot}</FoundationButton>
     <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('resend');}}>{recoveryCopy[locale].resend}</FoundationButton>
     {confirmation&&<p role="status">{c.confirmation}</p>}
-    {busy&&<p role="status">{c.checking}</p>}{failed&&<><p role="alert">{c.failed}</p><FoundationButton disabled={busy} onClick={()=>setRetry(v=>v+1)}>{c.retry}</FoundationButton></>}
+    {busy&&<p role="status">{c.checking}</p>}{(failed||oauthFailed)&&<><p role="alert">{c.failed}</p><FoundationButton disabled={busy} onClick={()=>setRetry(v=>v+1)}>{c.retry}</FoundationButton></>}
   </PracticeCard></div></main>;
 }

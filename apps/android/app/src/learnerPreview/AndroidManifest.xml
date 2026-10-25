@@ -7,10 +7,16 @@
         tools:replace="android:name,android:label,android:allowBackup">
         <!-- No legacy OAuth links or scheduled raw-table workers in the fixture app. -->
         <activity android:name=".MainActivity" tools:node="remove" />
-        <activity android:name=".learner.LearnerPreviewActivity" android:exported="true" android:windowSoftInputMode="adjustResize">
+        <activity android:name=".learner.LearnerPreviewActivity" android:launchMode="singleTask" android:exported="true" android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="callback" android:scheme="${applicationId}.auth" />
             </intent-filter>
         </activity>
         <activity android:name=".foundation.FoundationPreviewActivity" android:exported="true" />

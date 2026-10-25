@@ -91,7 +91,7 @@ class NativeEntryTest {
     }
     @Test fun resetNeedsOnlyEmailAndUsesExplicitSubmit() {
         var submitted:List<String>?=null
-        compose.setContent {FoundationTheme {NativeAccountEntry("reset",false,{}, {}, {a,e,p->submitted=listOf(a,e,p)})}}
+        compose.setContent {FoundationTheme {NativeAccountEntry("reset",false,{}, {}, submit={a,e,p->submitted=listOf(a,e,p)})}}
         compose.onNodeWithText("Password").assertDoesNotExist()
         compose.onNodeWithText("Email").performTextInput("learner@example.test")
         assertNull(submitted)
@@ -102,7 +102,7 @@ class NativeEntryTest {
     }
     @Test fun registrationRequiresMatchingPasswordsAndClearsThem() {
         var submitted:List<String>?=null
-        compose.setContent {FoundationTheme {NativeAccountEntry("register",false,{}, {}, {a,e,p->submitted=listOf(a,e,p)})}}
+        compose.setContent {FoundationTheme {NativeAccountEntry("register",false,{}, {}, submit={a,e,p->submitted=listOf(a,e,p)})}}
         compose.onNodeWithText("Email").performTextInput("learner@example.test")
         compose.onNodeWithText("Password").performTextInput("synthetic-password")
         compose.onAllNodesWithText("Create account").filter(hasClickAction()).onFirst().assertIsNotEnabled()

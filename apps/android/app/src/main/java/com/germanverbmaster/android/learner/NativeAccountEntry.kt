@@ -17,7 +17,7 @@ import kotlinx.coroutines.*
 /** Passwords are transient; only explicit submission contacts the identity provider. */
 @Composable
 fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
-                       navigate: (String?) -> Unit, submit: suspend (String,String,String) -> Unit) {
+                       navigate: (String?) -> Unit, socialSignIn: (suspend (String) -> Unit)? = null, submit: suspend (String,String,String) -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember(mode) { mutableStateOf("") }
     var confirmation by remember(mode) { mutableStateOf("") }
@@ -42,6 +42,21 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
             }
             StudyPageTitle(title)
             Text(text("Save online progress across devices. Earlier practice stays on this device.","Speichere Online-Fortschritt geräteübergreifend. Bisherige Übungen bleiben auf diesem Gerät."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
+            if(mode!="reset" && socialSignIn!=null) {
+                listOf("google" to text("Continue with Google","Mit Google fortfahren"),
+                    "azure" to text("Continue with Microsoft","Mit Microsoft fortfahren")).forEach { (provider,label) ->
+                    OutlinedButton(onClick={
+                        busy=true;failed=false;password="";confirmation=""
+                        scope.launch {
+                            try {socialSignIn(provider)}
+                            catch(cancel:CancellationException){throw cancel}
+                            catch(_:Exception){failed=true}
+                            finally {busy=false}
+                        }
+                    },enabled=!busy,modifier=Modifier.fillMaxWidth()) { Text(label) }
+                }
+                Text(text("Or use email","Oder mit E-Mail"))
+            }
             OutlinedTextField(email,{email=it},label={Text(text("Email","E-Mail"))},singleLine=true,enabled=!busy,
                 keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Email),modifier=Modifier.fillMaxWidth())
             if(mode!="reset") {

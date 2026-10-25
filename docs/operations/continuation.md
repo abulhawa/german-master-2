@@ -87,3 +87,17 @@ latest PROGRESS.md and docs/product/grammar-reference.md for evidence and limits
 The new preview is built, but the phone was disconnected; web is not deployed.
 Do not redo the import, invent new grammar explanations or report a live rollout.
 Next: install/review the preview when connected, then follow release authorization.
+
+
+## Social sign-in checkpoint — 25 October 2026
+
+Owner now requests Google and Microsoft signup/login in addition to email.
+Implementation is saved as work in progress on both clients; see latest PROGRESS.
+Legacy Supabase: Google enabled, Azure disabled. Clean replacement: both disabled.
+Existing Google OAuth web app was found in GermanVerbMaster Auth; its callbacks
+still target legacy. Entra and Supabase dashboard require owner sign-in. Do not
+publish the unfinished buttons or claim provider activation. Rerun final focused
+checks (including recovery-error discrimination), native lint and UI checks before
+committing the slice as complete. No credentials were copied or provider settings
+changed. Owner requested shutdown at a user-input/allowance boundary; checkpoint
+was saved at that boundary. Android release remains held.

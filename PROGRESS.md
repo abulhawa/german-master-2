@@ -348,3 +348,41 @@ and render evidence remain as recorded above. Web source is aligned and tested,
 but production deployment is still outstanding; no web rollout or store release
 occurred. Next: owner review of the installed reference and the applicable web
 rollout decision. Android publication hold remains.
+
+
+## Google and Microsoft sign-in work in progress — 25 October 2026
+
+Owner requests Google and Outlook/Microsoft signup/login alongside existing email,
+and authorizes reuse of existing provider apps. This supersedes the earlier OAuth
+feature deferral for this bounded slice. Added both choices to web and native
+sign-in/signup, retaining email/password and explicit guest attachment. Native
+social auth uses a separate PKCE client, encrypted expiring verifier outside backup,
+strict per-application code callbacks, and existing verified learner binding.
+Email confirmation/reset retain their existing flow. Debug/preview callbacks are
+routed to the matching host; no signing or application identity change.
+
+Live read-only evidence: legacy Supabase has Google enabled, Azure disabled;
+clean replacement has both disabled and email enabled. Existing Google Cloud
+project GermanVerbMaster Auth contains a Supabase Google OAuth web client, with
+its legacy callback. It needs the clean project's callback added while retaining
+existing entries. Microsoft Entra and Supabase dashboard require owner sign-in.
+No provider configuration, secret transfer, deployment, push or store release
+was performed. Do not expose these buttons in production until setup/acceptance.
+
+Validation so far: root generated/web/backend type checks passed before the last
+OAuth-error refinement. Latest native debug/learnerPreview assembly passed;
+PKCE callback validation (1 test) and native access/social UI (8 tests) passed.
+The additional older NativeEntry suite failed five guest assertions; investigate
+without claiming regression origin. Lint found a missing explicit exported flag
+in the debug overlay; corrected but not rerun. Web provider suite passed 16/17;
+it exposed OAuth cancellation being mistaken for password recovery. Recovery
+intent discrimination was corrected but needs rerun, including recovery tests.
+Full backend/root tests stalled and were stopped; no fresh full-suite pass.
+No final visual/browser/device or live social-login acceptance is claimed.
+
+Owner requests PC shutdown whenever user input or allowance is required. Saved
+this incomplete slice before shutdown because provider-dashboard sign-in is
+needed. Next: rerun focused web/recovery/native checks and lint, inspect remaining
+native failures, verify responsive UI, then reuse Google app and inspect Microsoft
+registration after owner sign-in. Provider changes and live account acceptance
+remain unfinished. M2 and Android publication hold remain unchanged.

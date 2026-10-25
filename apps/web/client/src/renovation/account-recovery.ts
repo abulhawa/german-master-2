@@ -12,7 +12,7 @@ export class AccountRecovery {
     const hash = new URLSearchParams(url.hash.slice(1));
     const intent = url.searchParams.get('auth') === 'recovery' || hash.get('type') === 'recovery';
     const failed = url.searchParams.has('error') || hash.has('error');
-    this.state = { stage: failed ? 'invalid' : intent ? 'waiting' : 'none', subject: null };
+    this.state = { stage: intent ? (failed ? 'invalid' : 'waiting') : 'none', subject: null };
   }
   getSnapshot = () => this.state;
   subscribe = (listener: () => void) => { this.listeners.add(listener); return () => { this.listeners.delete(listener); }; };

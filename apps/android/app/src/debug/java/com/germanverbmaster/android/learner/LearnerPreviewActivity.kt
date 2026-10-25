@@ -1,6 +1,10 @@
 package com.germanverbmaster.android.learner
 
 import android.os.Bundle
+import android.content.Intent
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -25,12 +29,18 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class LearnerPreviewActivity : ComponentActivity() {
+    private var authCallback by mutableStateOf<Intent?>(null)
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        authCallback=intent
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        authCallback=intent
         enableEdgeToEdge()
         setContent { FoundationTheme {
             if(BuildConfig.V2_AUTH_PROJECT.isNotEmpty()) {
-                NativeProviderHost(BuildConfig.V2_AUTH_PROJECT,BuildConfig.V2_AUTH_PUBLISHABLE_KEY,BuildConfig.V2_API_ORIGIN,filesDir)
+                NativeProviderHost(BuildConfig.V2_AUTH_PROJECT,BuildConfig.V2_AUTH_PUBLISHABLE_KEY,BuildConfig.V2_API_ORIGIN,filesDir,authCallback)
                 return@FoundationTheme
             }
             val loaded by produceState<Result<LearnerRepository>?>(null) {
