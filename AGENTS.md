@@ -91,3 +91,17 @@ Preserve ongoing work and complete the current slice before starting unrelated f
 - Legacy issues/PRs/milestones and the old Phase 0-4 Product Roadmap board were
   retired with owner authorization. Do not reopen or recreate them from imported
   roadmaps; use the current reassessment and monorepo issue #20.
+
+
+## Temporary practice and simple learning choices - owner direction (25 October 2026)
+
+- The owner-approved simplification plan supersedes persistent signed-out resume
+  and the previous prohibition on contextual save/signup prompts. Use one practice
+  UI; unsigned work is temporary. Leaving unfinished practice requires an explicit
+  save/sign-in, discard, or keep-practising choice. Never silently discard it.
+- Saving/signup from that explicit action authorizes automatic transfer of that
+  round only. Ordinary sign-in must not attach unrelated work. Preserve temporary
+  work through failed/cancelled authentication and prevent cross-account retries.
+- Keep B1/B2 and General German/German for work preferences, topic selection under
+  Topics, and five-question new rounds; avoid legacy word-type switches.
+- This implementation is WIP; use PROGRESS for blockers and rollout boundaries.

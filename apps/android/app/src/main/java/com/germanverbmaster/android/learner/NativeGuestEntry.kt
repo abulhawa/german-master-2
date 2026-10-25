@@ -19,40 +19,65 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.encodeToJsonElement
 import java.io.File
+import java.util.UUID
+import java.time.Instant
 
 @Serializable
 data class GuestStarterContent(val session:Session,val suggestions:Map<String,Map<String,List<String>>>,val rubrics:List<OfflineRubric>)
 @Serializable
+data class NativeGuestPack(val level:String,val learningContext:String,val topicId:String,val title:LocalizedText,val session:Session,val rubrics:List<OfflineRubric>,val suggestions:Map<String,Map<String,List<String>>>)
+@Serializable
+data class NativeGuestBundle(val packs:List<NativeGuestPack>)
+@Serializable
 data class NativeGuestState(val version:Int=1,val started:Boolean=false,val index:Int=0,val draft:Answer?=null,val order:List<String> = emptyList(),
-    val feedback:Evaluation?=null,val graded:Int=0,val correct:Int=0,val assisted:Boolean=false)
+    val feedback:Evaluation?=null,val graded:Int=0,val correct:Int=0,val assisted:Boolean=false,
+    val session:Session?=null,val attempts:List<GuestAttempt> = emptyList(),val deviceId:String=UUID.randomUUID().toString(),
+    val saveRequested:Boolean=false,val saveSubject:String?=null)
 
 /** Separate local guest record. Never supplies an identity, account outbox or confirmed mastery. */
-class NativeGuestStore(path:File) {
-    private val file=AtomicFile(path)
+class NativeGuestStore(private val path:File) {
+    companion object {private val temporary=mutableMapOf<String,NativeGuestState>()}
+    private val pending=AtomicFile(File(path.path+".save"))
+    val legacy get()=path.exists()
     fun read():NativeGuestState {
-        val raw=try {file.openRead().use {it.readBytes().toString(Charsets.UTF_8)}} catch(_:java.io.FileNotFoundException){return NativeGuestState()}
-        return ContractReader.json.decodeFromString<NativeGuestState>(raw).also {
-            require(it.version==1 && it.index in 0..5 && it.graded in 0..5 && it.correct in 0..it.graded)
-        }
+        temporary[path.path]?.let{return it}
+        val source=if(pending.baseFile.exists())pending else AtomicFile(path)
+        val value=try {ContractReader.json.decodeFromString<NativeGuestState>(source.openRead().use {it.readBytes().toString(Charsets.UTF_8)})}
+            catch(_:java.io.FileNotFoundException){NativeGuestState()}
+        require(value.version==1 && value.index>=0 && value.graded>=0 && value.correct in 0..value.graded)
+        temporary[path.path]=value;return value
     }
     fun write(state:NativeGuestState) {
-        val stream=file.startWrite()
-        try {stream.write(ContractReader.json.encodeToString(state).toByteArray());file.finishWrite(stream)}
-        catch(error:Exception){file.failWrite(stream);throw error}
+        if(state.saveRequested) {
+            val stream=pending.startWrite()
+            try {stream.write(ContractReader.json.encodeToString(state).toByteArray());pending.finishWrite(stream)}
+            catch(error:Exception){pending.failWrite(stream);throw error}
+        }
+        temporary[path.path]=state
     }
+    fun discard(){pending.delete();AtomicFile(path).delete();temporary[path.path]=NativeGuestState()}
+    fun authorize(){write(read().copy(saveRequested=true))}
 }
 
 @Composable
 fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)->Unit,continueSaved:(()->Unit)?=null) {
     val context=LocalContext.current
-    val content=remember {ContractReader.json.decodeFromString<GuestStarterContent>(context.assets.open("starter.json").bufferedReader().use {it.readText()})}
+    val legacyContent=remember {ContractReader.json.decodeFromString<GuestStarterContent>(context.assets.open("starter.json").bufferedReader().use {it.readText()})}
     val store=remember(path){NativeGuestStore(path)}
     val loaded=remember(store){runCatching {store.read()}}
+    val preferences=remember {context.getSharedPreferences("gm-v2-practice-preferences",android.content.Context.MODE_PRIVATE)}
+    var level by remember {mutableStateOf(preferences.getString("level","B1")!!)}
+    var learningContext by remember {mutableStateOf(preferences.getString("context","general")!!)}
+    var selectedTopic by remember {mutableStateOf<String?>(null)}
+    val bundle=remember {ContractReader.json.decodeFromString<NativeGuestBundle>(context.assets.open("practice.json").bufferedReader().use{it.readText()})}
+    val packs=bundle.packs.filter {it.level==level && it.learningContext==learningContext}
     var state by remember(store){mutableStateOf(loaded.getOrDefault(NativeGuestState()))}
     var failed by remember {mutableStateOf(false)}
-    var screen by rememberSaveable {mutableStateOf("home")}
+    var screen by rememberSaveable {mutableStateOf(if(state.saveRequested&&state.started)"practice" else "home")}
     var returnTo by rememberSaveable {mutableStateOf("home")}
-    var closing by remember {mutableStateOf(false)}
+    var closing by remember {mutableStateOf(store.legacy)}
+    var destination by remember {mutableStateOf("home")}
+    val content=GuestStarterContent(state.session ?: legacyContent.session,legacyContent.suggestions,bundle.packs.flatMap {it.rubrics}+legacyContent.rubrics)
     val scroll=rememberScrollState()
     LaunchedEffect(state.index,state.feedback,screen,closing) {scroll.scrollTo(0)}
     fun text(en:String,de:String)=if(german)de else en
@@ -67,18 +92,33 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     val focused=screen=="practice"
     fun start() {
         if(loaded.isFailure)return
-        if(active || commit(NativeGuestState(started=true))) {closing=false;screen="practice"}
+        val available=packs.filter {selectedTopic==null || it.topicId==selectedTopic}
+        val questions=available.flatMap {it.session.questions}.shuffled().take(5).map {it.copy(id=UUID.randomUUID().toString())}
+        if(questions.isNotEmpty() && commit(NativeGuestState(started=true,session=available.first().session.copy(id=UUID.randomUUID().toString(),questions=questions)))) {closing=false;screen="practice"}
     }
     val startLabel=when {
         !state.started -> text("Start practice","Übung starten")
         active -> text("Continue session","Übung fortsetzen")
         else -> text("Repeat the five questions","Die fünf Fragen wiederholen")
     }
-    fun openAccount() {returnTo=screen;screen="account"}
+    fun leave(next:String) {if(focused&&active){destination=next;closing=true}else{if(state.started){store.discard();state=NativeGuestState()};screen=next}}
+    fun openAccount() {returnTo=screen;leave("account")}
+    fun save(mode:String) {try {store.authorize();state=store.read();account(mode)}catch(_:Exception){failed=true}}
+    fun discard() {try {store.discard();state=NativeGuestState();closing=false;screen=destination}catch(_:Exception){failed=true}}
+    if(closing) {
+        AlertDialog(onDismissRequest={closing=false;screen=if(state.started)"practice" else "home"},
+            title={Text(text("Save your progress?","Fortschritt speichern?"))},
+            text={Column {Text(text("Without an account, this practice will be lost when you leave.","Ohne Konto geht diese Übung beim Verlassen verloren."))
+                TextButton(onClick={save("register")}){Text(text("Create account","Konto erstellen"))}
+                TextButton(onClick={save("sign-in")}){Text(text("Sign in","Anmelden"))}
+                if(failed)Text(text("Could not save. Try again.","Speichern fehlgeschlagen. Versuche es erneut."))}},
+            confirmButton={TextButton(onClick={discard()}){Text(text("Leave without saving","Ohne Speichern verlassen"))}},
+            dismissButton={TextButton(onClick={closing=false;screen=if(state.started)"practice" else "home"}){Text(text("Keep practising","Weiter üben"))}})
+    }
     fun backToPractice() {screen=if(active && returnTo=="practice")"practice" else "home"}
     BackHandler(enabled=screen!="home") {
         when {
-            focused && active -> closing=true
+            focused && active -> {destination="home";closing=true}
             screen=="downloads" -> screen="account"
             screen=="account" && returnTo=="practice" && active -> screen="practice"
             else -> screen="home"
@@ -89,7 +129,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
         Column(Modifier.padding(insets).widthIn(max=720.dp).fillMaxWidth().verticalScroll(scroll).padding(horizontal=24.dp,vertical=16.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
             if(!focused) StudyHeader(german,{openAccount()})
             else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
-                TextButton(onClick={if(active)closing=true else screen="home"}){Text(text("Close practice","Übung schließen"))}
+                TextButton(onClick={leave("home")}){Text(text("Close practice","Übung schließen"))}
                 if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                 TextButton(onClick={openAccount()}){Text(text("Account","Konto"))}
             }
@@ -100,11 +140,11 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     StudyPageTitle(text("A little German.\nA little more confidence.","Ein wenig Deutsch.\nEin Stück sicherer."))
                     Text(text("Make time for a short, focused session.","Nimm dir Zeit für eine kurze, gezielte Übung."),color=MaterialTheme.colorScheme.onSurfaceVariant)
                     section {
-                        StudyEyebrow(text("B1 · 5 questions · Mixed practice","B1 · 5 Aufgaben · Gemischte Übung"))
+                        StudyEyebrow(level+text(" · 5 questions · "," · 5 Aufgaben · ")+if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch"))
                         Text(text("Build your foundations","Festige deine Grundlagen"),style=MaterialTheme.typography.titleLarge)
                         Text(text("Articles, plurals and the patterns that hold a sentence together.","Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
                         primary(startLabel,loaded.isSuccess){start()}
-                        Text(text("Your practice is saved on this device.","Deine Übungen sind auf diesem Gerät gespeichert."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(text("Without an account, leaving practice or closing the app loses your work.","Ohne Konto geht deine Übung beim Verlassen oder Schließen der App verloren."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
                         StudyEyebrow(text("IN THIS SESSION","IN DIESER ÜBUNG"))
@@ -113,20 +153,16 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     Text(text("Noun plurals · Dative articles · Prepositions · Word order · Verb forms","Pluralformen · Dativartikel · Präpositionen · Wortstellung · Verbformen"),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
                 }
                 "topics" -> {
-                    StudyEyebrow(text("EXPLORE · B1","ENTDECKEN · B1"))
-                    StudyPageTitle(text("Grammar foundations","Grammatik-Grundlagen"))
-                    Text(text("Five patterns. One short B1 session.","Fünf Muster. Eine kurze B1-Übung."),color=MaterialTheme.colorScheme.onSurfaceVariant)
-                    Column {
-                        listOf("Noun plurals" to "Pluralformen","Dative articles" to "Dativartikel","Prepositions" to "Präpositionen","Word order" to "Wortstellung","Verb forms" to "Verbformen").forEach { (en,de)->
-                            StudyTopicRow(text(en,de))
-                        }
-                    }
-                    primary(startLabel,loaded.isSuccess){start()}
+                    StudyPageTitle(text("Topics","Themen"))
+                    packs.forEach {pack -> OutlinedButton(onClick={selectedTopic=pack.topicId}){Text((if(selectedTopic==pack.topicId)"* " else "")+(if(german)pack.title.de else pack.title.en))} }
+                    primary(text("Start practice","Übung starten"),loaded.isSuccess){start()}
                 }
                 "progress","account","downloads" -> {
                     StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Settings","Einstellungen")})
                     if(screen=="account") {
                         StudyAppearanceSettings(german,language)
+                        LearnerButton(text("Level","Niveau")+": "+level,true){level=if(level=="B1")"B2" else "B1";selectedTopic=null;preferences.edit().putString("level",level).apply()}
+                        LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
                         Text(text("Account","Konto"),style=MaterialTheme.typography.titleLarge)
                     }
                     section {
@@ -138,19 +174,13 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     }
                     if(screen=="account") OutlinedButton(onClick={screen="downloads"},modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)){Text(text("Downloads","Downloads"))}
                 }
-                "practice" -> if(closing) {
-                    section {
-                        Text(text("Leave this session?","Diese Übung verlassen?"),Modifier.semantics {heading()},style=MaterialTheme.typography.titleLarge)
-                        Text(text("Your answers and draft stay on this device.","Deine Antworten und dein Entwurf bleiben auf diesem Gerät."))
-                        primary(text("Save and return Home","Speichern und zur Startseite")){closing=false;screen="home"}
-                        TextButton(onClick={closing=false}){Text(text("Keep practising","Weiter üben"))}
-                    }
-                } else if(state.index>=content.session.questions.size) {
+                "practice" -> if(state.index>=content.session.questions.size) {
                     section {
                         Text(text("Session complete","Übung abgeschlossen"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineSmall)
                         Text(text("${state.graded} answered · ${content.session.questions.size-state.graded} skipped","${state.graded} beantwortet · ${content.session.questions.size-state.graded} übersprungen"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                         Text(text("${state.correct} correct","${state.correct} richtig"))
-                        primary(text("Finish","Abschließen")){screen="home"}
+                        primary(text("Save progress","Fortschritt speichern")){save("register")}
+                        TextButton(onClick={destination="home";discard()}){Text(text("Finish","Abschließen"))}
                     }
                 } else if(loaded.isSuccess) {
                 val exercise=content.session.questions[state.index].exercise
@@ -194,9 +224,10 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         }
                     }
                     primary(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
-                        val rubric=content.rubrics.single {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
+                        val rubric=content.rubrics.first {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
                         val evaluation=OfflineGrader.grade(exercise,rubric,ContractReader.json.encodeToJsonElement<Answer>(requireNotNull(state.draft)),if(state.assisted)listOf("hint")else emptyList())
-                        commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0))
+                        val attempt=GuestAttempt(UUID.randomUUID().toString(),content.session.contentReleaseId,exercise.id,exercise.revision,requireNotNull(state.draft),if(state.assisted)listOf("hint")else emptyList(),Instant.now().toString(),state.attempts.size)
+                        commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0,attempts=state.attempts+attempt))
                     }
                     TextButton(onClick={commit(state.copy(assisted=true))}){Text(text("Hint","Hinweis"))}
                     if(state.assisted) Text(if(german)exercise.hint.de else exercise.hint.en)

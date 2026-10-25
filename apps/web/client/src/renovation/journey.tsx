@@ -210,11 +210,11 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       let practice = current.current.practice;
       if (practice?.completion && !practice.completionReceipt) return;
       if (!practice || practice.completionReceipt) {
-        const base = { ...sessionRequest(), questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount) };
+        const base = { ...sessionRequest(), learningContext:profile?.preferences.learningContext ?? "general", questionCount: Math.min(5, availableCount) };
         const available = focus?.type === "target" ? catalog?.targets.find(t => t.id === focus.id)?.availableQuestionCount
           : focus ? catalog?.targets.filter(t => t.topicId === focus.id && t.availableQuestionCount > 0).length : availableCount;
         if (!available) throw Error("No compatible content");
-        practice = { request: focus ? { ...base, questionCount: Math.min(profile?.preferences.sessionQuestionCount ?? 15, available), focus } : base, session: null, index: 0, draft: null, assisted: false,
+        practice = { request: focus ? { ...base, questionCount: Math.min(5, available), focus } : base, session: null, index: 0, draft: null, assisted: false,
           pending: null, pendingExposure: null, skippedCount: 0, evaluation: null, rejected: false, confirmedCount: 0, correctCount: 0 };
         commit({ ...current.current, practice });
       }
@@ -376,7 +376,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
         {view === 'home' && !setup && <div className="gm-home-footer"><FoundationButton className="gm-text-button gm-secondary" disabled={busy} onClick={()=>void refresh()}><RefreshCw aria-hidden="true"/>{c.refresh}</FoundationButton></div>}
         {view === 'account' && <details className="gm-account-disclosure"><summary>{s.offlineTools}</summary><PracticeCard><p className="gm-notice">{c.notice}</p><FoundationButton disabled={busy} onClick={()=>void run(syncAllOwned,'connectionError')}>{c.syncAll}</FoundationButton></PracticeCard>
         { api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
-          deviceId={state.deviceId} questionCount={Math.min(profile?.preferences.sessionQuestionCount ?? 15, availableCount)}
+          deviceId={state.deviceId} questionCount={Math.min(5, availableCount)}
           blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
 </details>}
         {view === 'account' && <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>}

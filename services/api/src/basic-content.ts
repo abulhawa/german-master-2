@@ -38,7 +38,10 @@ function insert(table:string,columns:string[],values:unknown[]) {
 
 /** Builds an additive draft or content-authorized release, with no connection side effects.
  * Existing revisions and release membership are referenced, never replaced. */
-export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, previousMembers:RuntimeMember[], publication?:BasicPublicationAuthorization) {
+export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, previousMembers:RuntimeMember[], publication?:BasicPublicationAuthorization, options?: {releaseId:string; prefix:string; topics:typeof topics; topicForTarget:(targetId:string)=>number; learningContext:'work'}) {
+  const topicDefs=options?.topics ?? topics;
+  const candidateId=options ? (n:number)=>`${options.prefix}-0000-4000-8000-${String(n).padStart(12,'0')}` : id;
+  const candidateRelease=options?.releaseId ?? releaseId;
   const {catalog, targets:targetCount, variants} = validateDraftCatalog(input);
   RuntimeCatalogSchema.parse(previous);
   if(publication) {
@@ -54,14 +57,14 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
   const sql = [publication?'-- Owner-authorized additive basic release. GPT-6 AI editorial review is tracked in source; no independent human review required.':
     '-- Unpublished additive candidate. Run only in an isolated review database.',
     '-- No learner writes, UPDATE, DELETE or replacement of existing revisions.', 'BEGIN;'];
-  topics.forEach((topic,i)=>sql.push(insert('topic',['id','title'],[id(600+i),topic.title])));
+  topicDefs.forEach((topic,i)=>sql.push(insert('topic',['id','title'],[candidateId(600+i),topic.title])));
   const targets = [...previous.targets];
   const members = [...previousMembers].sort((a,b)=>a.exercise_id.localeCompare(b.exercise_id)||a.revision-b.revision);
   catalog.targets.forEach((target,n)=> {
     if(targetIds.has(target.id)) throw Error('Target collides with previous release');
     targetIds.add(target.id);
-    const topic = topicIndex(target.category), topicId=id(600+topic), skillId=id(2000+n);
-    targets.push({id:target.id,topicId,title:target.title,description:target.description,level:target.level});
+    const topic = options ? options.topicForTarget(target.id) : topicIndex(target.category), topicId=candidateId(600+topic), skillId=candidateId(2000+n);
+    targets.push({id:target.id,topicId,title:target.title,description:target.description,level:target.level,...(options?{learningContext:options.learningContext}:{})});
     sql.push(insert('skill',['id','topic_id','title','parent_id'],[skillId,topicId,target.objective,null]),
       insert('learning_target',['id','skill_id','kind','level','objective','status'],[target.id,skillId,
         target.category==='plural'||target.category==='work_vocabulary'?'lexical':'grammar',target.level,target.objective,targetStatus]));
@@ -72,7 +75,7 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
       const provenance=target.provenance+(publication?` Owner-authorized basic release by ${publication.authorizedBy} at ${publication.authorizedAt}; GPT-6 AI editorial/rubric checks; independent human review not required by owner. Authorization: ${publication.authorization}`:'');
       const member:RuntimeMember = {exercise_id:e.id,revision:e.revision,target_id:target.id,topic_id:topicId,
         level:target.level,kind:target.category==='plural'||target.category==='work_vocabulary'?'lexical':'grammar',
-        objective:target.objective,topic_title:topics[topic].title,status:targetStatus,review_status:reviewStatus,payload:e,
+        objective:target.objective,topic_title:topicDefs[topic].title,status:targetStatus,review_status:reviewStatus,payload:e,
         rubric:v.rubric,normalization_version:v.rubric.normalizationVersion,provenance,
         variant_key:v.variantKey,context_key:v.contextKey,transfer_key:v.transferKey};
       members.push(member);
@@ -83,10 +86,10 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
           [e.id,e.revision,v.variantKey,v.contextKey,v.transferKey]));
     });
   });
-  const manifestHash=runtimeManifestHash(releaseId,targets,members);
-  const config=RuntimeCatalogSchema.parse({releaseId,manifestHash,targets});
-  sql.push(insert('content_release',['id','status','manifest_hash','published_at'],[releaseId,targetStatus,manifestHash,publication?.authorizedAt??null]));
-  members.forEach(m=>sql.push(insert('content_release_exercise',['release_id','exercise_id','revision'],[releaseId,m.exercise_id,m.revision])));
+  const manifestHash=runtimeManifestHash(candidateRelease,targets,members);
+  const config=RuntimeCatalogSchema.parse({releaseId:candidateRelease,manifestHash,targets});
+  sql.push(insert('content_release',['id','status','manifest_hash','published_at'],[candidateRelease,targetStatus,manifestHash,publication?.authorizedAt??null]));
+  members.forEach(m=>sql.push(insert('content_release_exercise',['release_id','exercise_id','revision'],[candidateRelease,m.exercise_id,m.revision])));
   sql.push('COMMIT;','');
   return {config,members,sql:sql.join('\n'),newTargets:targetCount,newVariants:variants};
 }

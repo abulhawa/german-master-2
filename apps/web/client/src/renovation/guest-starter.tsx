@@ -1,6 +1,9 @@
-import { useLearnerRoute, navigateLearner } from './navigation';
+import { useLearnerRoute, navigateLearner, guardLearnerNavigation, type LearnerView } from './navigation';
+
 import { GrammarReference } from './grammar-reference';
-import { useEffect, useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
+
 import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, Settings } from "lucide-react";
 import { useAppearance, type Appearance } from './appearance';
 import { AppMark } from './app-mark';
@@ -8,7 +11,9 @@ import './workspace.css';
 import './mobile-design.css';
 import { z } from "zod";
 import {
-  AnswerSchema,
+
+  AnswerSchema, OfflineRubricSchema,
+
   EvaluationSchema,
   SessionSchema,
   type Answer,
@@ -26,6 +31,23 @@ import { grade, NORMALIZATION_VERSION, type Rubric } from "@german-master/learni
 export const GUEST_STORAGE_KEY = "german-master-v2:guest-starter-v1";
 export const GUEST_ATTACHED_KEY = "german-master-v2:guest-attached-v1";
 export const GUEST_DEVICE_KEY = "german-master-v2:guest-device-v1";
+
+import practiceBundle from '../../../../../content/guest/practice.json';
+
+export const TEMPORARY_KEY='german-master-v2:temporary-practice';
+
+export const SAVE_INTENT_KEY='german-master-v2:save-practice';
+
+const PREFERENCES_KEY='german-master-v2:practice-preferences';
+
+function guestRaw(){return window.sessionStorage.getItem(TEMPORARY_KEY) ?? window.localStorage.getItem(GUEST_STORAGE_KEY);}
+
+export function hasGuestSaveIntent(){try{return !!window.localStorage.getItem(SAVE_INTENT_KEY);}catch{return false;}}
+
+export function authorizeGuestSave(){const raw=guestRaw();if(!raw)return;const state=GuestStateSchema.parse(JSON.parse(raw));if(!state.session)return;window.localStorage.setItem(GUEST_STORAGE_KEY,raw);window.localStorage.setItem(SAVE_INTENT_KEY,JSON.stringify({round:state.session.id,subject:null}));}
+
+export function clearGuestPractice(){window.localStorage.removeItem(GUEST_STORAGE_KEY);window.localStorage.removeItem(SAVE_INTENT_KEY);window.sessionStorage.removeItem(TEMPORARY_KEY);}
+
 type Locale = "en" | "de";
 type AuthMode = "sign-in" | "register";
 
@@ -117,7 +139,9 @@ const starterSuggestions: Record<string, Record<string,string[]>> = {
 };
 
 const DraftSchema = z.union([
-  AnswerSchema,
+
+  AnswerSchema, OfflineRubricSchema,
+
   z.strictObject({ type: z.literal("word_order"), tokenIds: z.array(z.string()) }),
 ]);
 const GuestAttemptSchema = z.strictObject({
@@ -133,6 +157,9 @@ const GuestStateSchema = z.strictObject({
   version: z.literal(1),
   locale: z.enum(["en", "de"]),
   level: z.enum(["B1", "B2", "unsure"]),
+
+  learningContext: z.enum(["general","work"]).default("general"),
+
   questionCount: z.union([z.literal(10), z.literal(15), z.literal(20)]),
   setupCompleted: z.boolean(),
   session: SessionSchema.nullable(),
@@ -153,6 +180,9 @@ function emptyGuestState(): GuestState {
     version: 1,
     locale: "en",
     level: "B1",
+
+    learningContext: "general",
+
     questionCount: 15,
     setupCompleted: false,
     session: null,
@@ -170,8 +200,17 @@ function emptyGuestState(): GuestState {
 
 function loadGuestState(): { state: GuestState; damaged: boolean } {
   try {
-    const raw = window.localStorage.getItem(GUEST_STORAGE_KEY);
-    if (!raw) return { state: emptyGuestState(), damaged: false };
+
+    const raw = guestRaw();
+
+    if (!raw) {
+
+      const preferences=JSON.parse(window.localStorage.getItem(PREFERENCES_KEY) ?? '{}');
+
+      return {state:GuestStateSchema.parse({...emptyGuestState(),...preferences,session:null,attempts:[]}),damaged:false};
+
+    }
+
     const parsed = GuestStateSchema.safeParse(JSON.parse(raw));
     return parsed.success ? { state: parsed.data, damaged: false } : { state: emptyGuestState(), damaged: true };
   } catch {
@@ -181,7 +220,9 @@ function loadGuestState(): { state: GuestState; damaged: boolean } {
 
 export function guestAttemptCount(): number {
   try {
-    const raw = window.localStorage.getItem(GUEST_STORAGE_KEY);
+
+    const raw = guestRaw();
+
     if (!raw) return 0;
     const parsed = GuestStateSchema.safeParse(JSON.parse(raw));
     return parsed.success ? parsed.data.attempts.length : 0;
@@ -217,7 +258,9 @@ function guestDeviceId(): string {
 }
 export function guestUnattachedAttemptCount(subject?:string): number {
   try {
-    const raw=window.localStorage.getItem(GUEST_STORAGE_KEY);if(!raw)return 0;
+
+    const raw=guestRaw();if(!raw)return 0;
+
     const parsed=GuestStateSchema.safeParse(JSON.parse(raw));if(!parsed.success)return 0;
     const attached=attachedGuestAttemptIds(subject);
     return parsed.data.attempts.filter(attempt=>!attached.has(attempt.attemptId)).length;
@@ -225,10 +268,24 @@ export function guestUnattachedAttemptCount(subject?:string): number {
 }
 export function buildGuestAttachmentRequest(subject:string): GuestAttachmentRequest|null {
   if(!z.string().uuid().safeParse(subject).success) throw Error("Invalid guest attachment subject");
-  const raw=window.localStorage.getItem(GUEST_STORAGE_KEY);if(!raw)return null;
+
+  if(hasGuestSaveIntent()) {
+
+    const intent=JSON.parse(window.localStorage.getItem(SAVE_INTENT_KEY)!);
+
+    if(intent.subject && intent.subject!==subject)throw Error('Practice save belongs to another account');
+
+    window.localStorage.setItem(SAVE_INTENT_KEY,JSON.stringify({...intent,subject}));
+
+  }
+
+  const raw=guestRaw();if(!raw)return null;
+
   const parsed=GuestStateSchema.safeParse(JSON.parse(raw));if(!parsed.success||!parsed.data.session)return null;
   const attached=attachedGuestAttemptIds(subject);
-  const attempts=parsed.data.attempts.filter(attempt=>!attached.has(attempt.attemptId)).map((attempt,index)=>({
+
+  const attempts=parsed.data.attempts.map((attempt,index)=>({attempt,index})).filter(({attempt})=>!attached.has(attempt.attemptId)).map(({attempt,index})=>({
+
     attemptId:attempt.attemptId,contentReleaseId:parsed.data.session!.contentReleaseId,exerciseId:attempt.exerciseId,
     exerciseRevision:attempt.exerciseRevision,answer:attempt.answer,assistance:attempt.evaluation.assisted?["hint" as const]:[],
     answeredAt:attempt.answeredAt,clientSequence:index,
@@ -276,7 +333,11 @@ const starterRubrics = new Map<string, Rubric>([
 ]);
 
 function localEvaluation(exercise: Exercise, answer: Answer, assisted: boolean): Evaluation {
-  const rubric = starterRubrics.get(`${exercise.id}@${exercise.revision}`);
+
+  const bundled=practiceBundle.packs.flatMap<unknown>(p=>p.rubrics).map(r=>OfflineRubricSchema.parse(r)).find(r=>r.exerciseId===exercise.id&&r.exerciseRevision===exercise.revision);
+
+  const rubric = starterRubrics.get(`${exercise.id}@${exercise.revision}`) ?? bundled as Rubric | undefined;
+
   if (!rubric) throw Error("Missing guest starter rubric");
   return grade(exercise, rubric, answer, assisted ? ["hint"] : []);
 }
@@ -408,19 +469,67 @@ export function GuestStarterJourney({
   type PracticeView='home'|'practice'|'progress'|'topics'|'downloads'|'account';
   const view:PracticeView=['home','practice','progress','topics','downloads','account'].includes(route.view)
     ? route.view as PracticeView : ['topic','target'].includes(route.view)?'topics':'account';
-  function setView(view:'home'|'practice'|'progress'|'topics'|'downloads'|'account'){setClosing(false);navigateLearner(view);}
-  const [closing, setClosing] = useState(false);
-  useEffect(()=>setClosing(false),[route.view]);
+
+  function setView(view:'home'|'practice'|'progress'|'topics'|'downloads'|'account'){navigateLearner(view);}
+
+  const [closing,setClosing]=useState(()=>!!window.localStorage.getItem(GUEST_STORAGE_KEY)&&!hasGuestSaveIntent());
+
+  const destination=useRef<LearnerView>('home');
+
+  const bypass=useRef(false);
+
+  const lastView=useRef(view);
+
+  const [topic,setTopic]=useState<string|null>(null);
+
   const c = copy[state.locale];
   const complete = !!state.session && state.index >= state.session.questions.length;
   const active = !!state.session && !complete;
   const question = active ? state.session!.questions[state.index] : null;
 
+  useEffect(()=>{
+
+    guardLearnerNavigation(next=>{
+
+      if(!bypass.current && view==='practice' && active && next!=='practice') {destination.current=next;setClosing(true);return false;}
+
+      return true;
+
+    });
+
+    const leaving=(event:BeforeUnloadEvent)=>{if(active){event.preventDefault();event.returnValue='';}};
+
+    window.addEventListener('beforeunload',leaving);
+
+    return ()=>{guardLearnerNavigation(null);window.removeEventListener('beforeunload',leaving);};
+
+  },[view,active]);
+
+  useEffect(()=>{
+
+    if(lastView.current==='practice' && view!=='practice' && active && !bypass.current){destination.current=view; navigateLearner('practice',null,true);setClosing(true);}
+
+    lastView.current=view;
+
+  },[view,active]);
+
+  function saveToAccount(mode:AuthMode){try{authorizeGuestSave();bypass.current=true;onAuth(mode);}catch{setStorageError(true);}}
+
+  function discard(){try{clearGuestPractice();setState({...emptyGuestState(),locale:state.locale,level:state.level,learningContext:state.learningContext});setClosing(false);bypass.current=true;navigateLearner(destination.current);bypass.current=false;}catch{setStorageError(true);}}
+
+  const packs=practiceBundle.packs.filter(p=>p.level===state.level&&p.learningContext===state.learningContext);
+
   function commit(next: GuestState) {
     if (damaged) return false;
     try {
       const parsed = GuestStateSchema.parse(next);
-      window.localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(parsed));
+
+      window.sessionStorage.setItem(TEMPORARY_KEY, JSON.stringify(parsed));
+
+      window.localStorage.setItem(PREFERENCES_KEY,JSON.stringify({locale:parsed.locale,level:parsed.level,learningContext:parsed.learningContext}));
+
+      if(hasGuestSaveIntent())window.localStorage.setItem(GUEST_STORAGE_KEY,JSON.stringify(parsed));
+
       setState(parsed);
       setStorageError(false);
       return true;
@@ -433,7 +542,11 @@ export function GuestStarterJourney({
   function resetDamaged() {
     const fresh = emptyGuestState();
     try {
-      window.localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(fresh));
+
+      clearGuestPractice();
+
+      window.sessionStorage.setItem(TEMPORARY_KEY,JSON.stringify(fresh));
+
       setState(fresh);
       setDamaged(false);
       setStorageError(false);
@@ -448,7 +561,23 @@ export function GuestStarterJourney({
     const next = {
       ...state,
       setupCompleted: true,
-      session: starterSession,
+
+      session: (()=>{
+
+        const available=packs.filter(p=>!topic||p.topicId===topic);
+
+        const questions=available.flatMap(p=>p.session.questions);
+
+        for(let i=questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[questions[i],questions[j]]=[questions[j],questions[i]];}
+
+        if(!questions.length)throw Error('No practice available');
+
+        return SessionSchema.parse({...available[0].session,id:crypto.randomUUID(),questions:questions.slice(0,5).map(q=>({...q,id:crypto.randomUUID()}))});
+
+      })(),
+
+      attempts: [],
+
       index: 0,
       draft: null,
       assisted: false,
@@ -458,7 +587,9 @@ export function GuestStarterJourney({
       correct: 0,
       savePromptDismissed: false,
     };
-    if (commit(next)) setView("practice");
+
+    if (commit(next)) {bypass.current=false;setClosing(false);setView("practice");}
+
   }
 
   function check() {
@@ -501,6 +632,24 @@ export function GuestStarterJourney({
     <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
   </PracticeCard></div></main>;
 
+  if(closing) return <main className="gm-foundation" lang={state.locale} data-theme={appearance.theme}><div className="gm-column"><PracticeCard><div role="dialog" aria-modal="true" aria-labelledby="save-title">
+
+    <h1 id="save-title">{state.locale==='de'?'Fortschritt speichern?':'Save your progress?'}</h1>
+
+    <p>{state.locale==='de'?'Ohne Konto geht diese Übung beim Verlassen verloren.':'Without an account, this practice will be lost when you leave.'}</p>
+
+    {storageError&&<p role="alert">{c.storageError}</p>}
+
+    <FoundationButton onClick={()=>saveToAccount('register')}>{c.create}</FoundationButton>
+
+    <FoundationButton onClick={()=>saveToAccount('sign-in')}>{c.signIn}</FoundationButton>
+
+    <FoundationButton className="gm-secondary" onClick={discard}>{state.locale==='de'?'Ohne Speichern verlassen':'Leave without saving'}</FoundationButton>
+
+    <FoundationButton className="gm-secondary" onClick={()=>{setClosing(false);bypass.current=true;navigateLearner(state.session?'practice':'home');bypass.current=false;}}>{c.keep}</FoundationButton>
+
+  </div></PracticeCard></div></main>;
+
   if (view !== "practice") return <main className="gm-foundation gm-workspace gm-public-workspace" data-theme={appearance.theme} lang={state.locale}>
     <aside className="gm-rail">
       <a className="gm-wordmark" href="#/learn/home" aria-label={`German Master — ${c.home}`} onClick={event=>{event.preventDefault();setView("home");}}><AppMark/><strong>German Master<span>.</span></strong></a>
@@ -516,22 +665,33 @@ export function GuestStarterJourney({
       {view === "home" ? <>
         <div className="gm-page-heading"><p className="gm-eyebrow">{c.eyebrow}</p><h1 aria-label={c.homeTitle}>{c.homeOpening}<br/>{c.homeEnding}</h1><p>{c.practiceIntro}</p></div>
         <section className="gm-primary-card"><PracticeCard>
-          <span className="gm-session-meta">{c.sessionMeta}</span>
+
+          <span className="gm-session-meta">{state.level} · 5 {state.locale==='de'?'Aufgaben':'questions'} · {state.learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</span>
+
           <h2>{c.build}</h2>
           <p className="gm-meta">{c.sessionBody}</p>
           <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
-          <p className="gm-meta">{c.homeStatus}</p>
+
+          <p className="gm-meta">{state.locale==='de'?'Ohne Konto geht deine Übung beim Verlassen verloren.':'Without an account, leaving practice or closing the app loses your work.'}</p>
+
         </PracticeCard></section>
         <div className="gm-session-topics"><div className="gm-section-heading"><h2>{c.covered}</h2><FoundationButton className="gm-text-button gm-secondary" onClick={() => setView('topics')}>{c.viewTopics}<ArrowRight aria-hidden="true"/></FoundationButton></div><div className="gm-topic-tags">{c.skills.map(skill => <span key={skill}>{skill}</span>)}</div></div>
       </> : view === "topics" ? <>
-        <div className="gm-page-heading"><h1>{c.topics}</h1><p>{c.topicIntro}</p></div>
-        <PracticeCard className="gm-topic-list"><span className="gm-meta">B1</span><h2>{c.foundations}</h2><h3>{c.covered}</h3>
-          <ul>{c.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
-          <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
-        </PracticeCard>
+
+        <div className="gm-page-heading"><h1>{c.topics}</h1><p>{state.level} · {state.learningContext==='work'?'German for work':'General German'}</p></div>
+
+        {packs.map(pack=><PracticeCard key={pack.topicId}><h2>{pack.title[state.locale]}</h2><FoundationButton onClick={()=>{setTopic(pack.topicId);}} aria-pressed={topic===pack.topicId}>{state.locale==='de'?'Thema auswählen':'Select topic'}</FoundationButton></PracticeCard>)}
+
+        <FoundationButton onClick={begin}>{c.start}</FoundationButton>
+
       </> : <>
         <div className="gm-page-heading"><h1>{view === 'account' ? c.settings : c[view]}</h1></div>
         {view === 'account' && <PracticeCard><h2>{c.appearance}</h2><div className="gm-settings">
+
+          <label>{state.locale==='de'?'Niveau':'Level'}<select value={state.level} onChange={e=>{setTopic(null);commit({...state,level:e.target.value as 'B1'|'B2'});}}><option>B1</option><option>B2</option></select></label>
+
+          <label>{state.locale==='de'?'Übung':'Practice'}<select value={state.learningContext} onChange={e=>{setTopic(null);commit({...state,learningContext:e.target.value as 'general'|'work'});}}><option value="general">{state.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{state.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>
+
           <label>{c.language}<select value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e=>appearance.choose(e.target.value as Appearance)}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
         </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard>}
@@ -552,19 +712,25 @@ export function GuestStarterJourney({
       <div className="gm-guest-practice-actions">
         <GrammarReference locale={state.locale}/>
         <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
-        <FoundationButton className="gm-secondary" onClick={() => complete ? setView("home") : setClosing(true)}>{c.close}</FoundationButton>
+
+        <FoundationButton className="gm-secondary" onClick={() => {destination.current="home";if(complete)setView("home");else setClosing(true);}}>{c.close}</FoundationButton>
+
       </div>
     </header>
     {!complete && state.session && <progress className="gm-session-progress" value={state.index} max={state.session.questions.length} aria-label={`${c.question} ${state.index + 1} ${c.of} ${state.session.questions.length}`} />}
     {storageError && <p role="alert">{c.storageError}</p>}
-    {closing ? <PracticeCard><h1>{c.leaveTitle}</h1><p>{c.leaveBody}</p>
-      <FoundationButton onClick={() => { setClosing(false); setView("home"); }}>{c.saveHome}</FoundationButton>
-      <FoundationButton className="gm-secondary" onClick={() => setClosing(false)}>{c.keep}</FoundationButton>
-    </PracticeCard> : complete ? <PracticeCard>
-      <h1>{state.index >= starterSession.questions.length ? c.complete : c.saved}</h1>
+
+    {complete ? <PracticeCard>
+
+      <h1>{c.complete}</h1>
+
       <p role="status">{state.graded} {c.answered} · {state.skipped} {c.skipped}</p>
       <p>{state.correct} {c.lookCorrect}</p>
-      <FoundationButton className="gm-secondary" onClick={() => { if (commit({ ...state, savePromptDismissed: true })) setView("home"); }}>{c.finish}</FoundationButton>
+
+      <FoundationButton onClick={()=>saveToAccount('register')}>{state.locale==='de'?'Fortschritt speichern':'Save progress'}</FoundationButton>
+
+      <FoundationButton className="gm-secondary" onClick={()=>{destination.current='home';discard();}}>{c.finish}</FoundationButton>
+
     </PracticeCard> : question ? <PracticeCard>
       {question.exercise.type !== "short_answer" && <p>{question.exercise.instruction[state.locale]}</p>}<h1 lang="de">{question.exercise.prompt}</h1>
       {!state.feedback && <fieldset className="gm-answer-group" disabled={storageError}>

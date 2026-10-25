@@ -3,6 +3,8 @@ import { useEffect, useSyncExternalStore } from 'react';
 export type LearnerView = 'home'|'practice'|'progress'|'topics'|'topic'|'target'|'account'|'downloads'|'sign-in'|'register'|'reset'|'resend'|'email-change';
 export type LearnerRoute = {view:LearnerView;selectedId:string|null};
 const changed='gm-navigation';
+let guard:((view:LearnerView)=>boolean)|null=null;
+export function guardLearnerNavigation(value:((view:LearnerView)=>boolean)|null){guard=value;}
 const pattern=/^#\/learn\/(home|practice|progress|topics|topic|target|account|downloads|sign-in|register|reset|resend|email-change)(?:\/([0-9a-f-]{36}))?$/;
 export function readLearnerRoute():LearnerRoute {
   const match=pattern.exec(window.location.hash);
@@ -11,6 +13,7 @@ export function readLearnerRoute():LearnerRoute {
 }
 function notify(){window.dispatchEvent(new Event(changed));}
 export function navigateLearner(view:LearnerView,selectedId?:string|null,replace=false) {
+  if(guard && !guard(view))return;
   const hash=`#/learn/${view}${['topic','target'].includes(view)&&selectedId?`/${selectedId}`:''}`;
   if(window.location.hash===hash)return;
   const depth=Number.isSafeInteger(window.history.state?.gmDepth)?window.history.state.gmDepth:0;

@@ -7,7 +7,8 @@ import { createLearnerProvider } from './provider';
 import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { LearnerSignOut } from './signout';
 import { browserStorage } from './storage';
-import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from './guest-starter';
+
+import { GuestStarterJourney, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached, hasGuestSaveIntent, clearGuestPractice } from './guest-starter';
 
 import { providerCopy as copy } from './provider-locales';
 import { StudyArt } from './study-art';
@@ -42,6 +43,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const recovery = useMemo(()=>host.recovery ?? new AccountRecovery(host.client.auth),[host]);
   const recoveryState = useSyncExternalStore(recovery.subscribe,recovery.getSnapshot);
   const [attachDismissed,setAttachDismissed] = useState(false);
+
+  const attachmentLock=useRef(false);
+
   const [attachBusy,setAttachBusy] = useState(false);
   const [attachFailed,setAttachFailed] = useState(false);
   const [attachResult,setAttachResult] = useState<{saved:number;remaining:number;validationOnly:boolean}|null>(null);
@@ -123,16 +127,31 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   }
   async function attachGuest() {
     if(!api?.attachGuest || !account || local || attachBusy) return;
-    const request=buildGuestAttachmentRequest(account.identity.subject);if(!request){setAttachDismissed(true);return;}
+
+    if(attachmentLock.current)return;attachmentLock.current=true;
+
     setAttachBusy(true);setAttachFailed(false);
     try {
+
+      const request=buildGuestAttachmentRequest(account.identity.subject);if(!request){setAttachDismissed(true);return;}
+
       const result=await api.attachGuest(request);
       const saved=result.acknowledgments.filter(item=>item.status==='accepted'||item.status==='duplicate').map(item=>item.attemptId);
       const validationOnly=result.acknowledgments.every(item=>item.status!=='rejected'||item.error.code==='revision_unavailable');
       markGuestAttemptsAttached(account.identity.subject,saved);
-      setAttachResult({saved:saved.length,remaining:guestUnattachedAttemptCount(account.identity.subject),validationOnly});
-    } catch { setAttachFailed(true); } finally { setAttachBusy(false); }
+
+      const remaining=guestUnattachedAttemptCount(account.identity.subject);
+
+      setAttachResult({saved:saved.length,remaining,validationOnly});
+
+      if(remaining===0){const raw=window.sessionStorage.getItem("german-master-v2:temporary-practice");const round=raw?JSON.parse(raw):null;if(round && round.index>=round.session?.questions.length)clearGuestPractice();}
+
+    } catch { setAttachFailed(true); } finally { attachmentLock.current=false;setAttachBusy(false); }
+
   }
+
+  useEffect(()=>{if(account && api?.attachGuest && !local && !showLogin && !attachResult && !attachFailed && hasGuestSaveIntent())void attachGuest();},[account,api,local,showLogin]);
+
   function continueSaved() {
     try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);finishSignIn();}}
     catch {setFailed(true);}
@@ -142,7 +161,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   }
   function returnHome() {
     const leavingRecovery=recovery.getSnapshot().stage!=='none';
-    recovery.finish();navigateLearner('home');
+
+    recovery.finish();navigateLearner(hasGuestSaveIntent()?'practice':'home');
+
     setPassword('');setConfirmation(false);setFailed(false);setOAuthFailed(false);if(leavingRecovery)setRetry(v=>v+1);
   }
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} home={returnHome} finish={()=>{

@@ -122,3 +122,12 @@ Web main/practice/auth navigation now uses shared browser history, with local
 Back/Forward/draft evidence. Native auth Back follows prior pages. See newest
 PROGRESS for verification and rollout boundaries. Do not claim these source
 changes deployed or installed on the phone automatically.
+
+
+## Simplification checkpoint - 25 October 2026
+
+Owner requested wrap-up near 15% five-hour allowance. See the latest PROGRESS
+entry: source changes are incomplete and must not be deployed. Finish account
+round adoption/resume, safe attachment and navigation/migration checks before
+rollout. New workplace content is an unpublished candidate. No full suites at
+this checkpoint; preserve the Android publication hold.

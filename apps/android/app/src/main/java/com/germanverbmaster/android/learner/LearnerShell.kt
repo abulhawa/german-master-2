@@ -131,14 +131,13 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 key(profile.revision, cache.pending) {
                     var locale by rememberSaveable { mutableStateOf(profile.preferences.locale) }
                     var level by rememberSaveable { mutableStateOf(profile.preferences.level) }
-                    var count by rememberSaveable { mutableIntStateOf(profile.preferences.sessionQuestionCount) }
+                    var learningContext by rememberSaveable { mutableStateOf(profile.preferences.learningContext ?: "general") }
                     var timezone by rememberSaveable { mutableStateOf(profile.preferences.timezone) }
                     val editable = !busy && cache.pending == null
                     LearnerButton("Language / Sprache: $locale", editable) { locale = if (locale == "en") "de" else "en" }
                     LearnerButton(label("Level", "Niveau") + ": $level", editable) { level = if (level == "B1") "B2" else "B1" }
-                    LearnerButton(label("Preferred questions", "GewÃ¼nschte Fragen") + ": $count", editable) { count = if (count == 5) 15 else 5 }
-                    OutlinedTextField(timezone, { timezone = it }, enabled = editable, singleLine = true, label = { Text(label("Timezone (IANA)", "Zeitzone (IANA)")) }, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp))
-                    LearnerButton(label("Save preferences", "Einstellungen speichern"), editable) { run { repository.save(ProfilePreferences(locale, timezone, level, count)) } }
+                    LearnerButton(label("Practice", "Übung") + ": " + if(learningContext=="work")label("German for work","Deutsch im Beruf")else label("General German","Allgemeines Deutsch"), editable) {learningContext=if(learningContext=="general")"work" else "general"}
+                    LearnerButton(label("Save preferences", "Einstellungen speichern"), editable) { run { repository.save(ProfilePreferences(locale, timezone, level, 5, learningContext)) } }
                 }
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }
             } else if (profile != null) {

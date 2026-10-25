@@ -162,11 +162,13 @@ export class FoundationStore {
   }
 
   private async profileIn(tx: Transaction, userId: string): Promise<LearnerProfile> {
-    const result = await tx.query<{ locale: string; timezone: string; level: string; session_question_count: number; revision: number; setup_completed: boolean }>(
-      "SELECT * FROM gm.learner_profile WHERE user_id=$1", [userId]);
+    const result = await tx.query<{ locale: string; timezone: string; level: string; session_question_count: number; revision: number; setup_completed: boolean; learning_context: string | null }>(
+      `SELECT p.*, (SELECT request->'preferences'->>'learningContext' FROM gm.profile_request
+        WHERE user_id=p.user_id AND (response->>'revision')::int=p.revision LIMIT 1) AS learning_context
+       FROM gm.learner_profile p WHERE user_id=$1`, [userId]);
     const row = result.rows[0];
     return LearnerProfileSchema.parse({ apiVersion: "v2", revision: row.revision, setupCompleted: row.setup_completed,
-      preferences: { locale: row.locale, timezone: row.timezone, level: row.level, sessionQuestionCount: row.session_question_count } });
+      preferences: { locale: row.locale, timezone: row.timezone, level: row.level, sessionQuestionCount: row.session_question_count, ...(row.learning_context ? {learningContext:row.learning_context} : {}) } });
   }
 
   async profile(userId: string) {
@@ -194,7 +196,7 @@ export class FoundationStore {
       const p = input.preferences;
       await tx.query(`UPDATE gm.learner_profile SET locale=$2,timezone=$3,level=$4,session_question_count=$5,
         revision=revision+1,setup_completed=true WHERE user_id=$1`, [userId, p.locale, p.timezone, p.level, p.sessionQuestionCount]);
-      const response = await this.profileIn(tx, userId);
+      const response = LearnerProfileSchema.parse({...await this.profileIn(tx, userId), preferences:{...p}});
       await tx.query("INSERT INTO gm.profile_request VALUES ($1,$2,$3,$4)", [userId, input.requestId, input, response]);
       return response;
     });
@@ -463,7 +465,7 @@ export class FoundationStore {
       topics: [...topics.values()], targets: rows.rows.map(r => {
         const text = (this.runtimeCatalog?.targets ?? metadata.targets).find(t => t.id === r.id);
         if (!text) throw Error('Missing catalog metadata');
-        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && profile.preferences.level !== r.level && !practisedTargets.has(r.id) ? 0 : r.count };
+        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && (profile.preferences.level !== r.level || ('learningContext' in text ? text.learningContext ?? 'general' : 'general') !== (profile.preferences.learningContext ?? 'general')) ? 0 : r.count };
       }) });
   }
 
@@ -536,7 +538,10 @@ export class FoundationStore {
              AND ($4::text IS NULL OR ($4='target' AND t.id=$5::uuid)
                OR ($4='topic' AND t.skill_id IN (SELECT id FROM gm.skill WHERE topic_id=$5::uuid)))`,
           [userId, releaseId, request.capabilities, focus?.type ?? null, focus?.id ?? null, profile.preferences.level]);
-        const questions = selectQuestions(eligible.rows.map(c => ({ ...c,
+        const context = request.learningContext ?? profile.preferences.learningContext ?? 'general';
+        const eligibleTargets = this.runtimeCatalog ? new Set(this.runtimeCatalog.targets
+          .filter(t => t.level === profile.preferences.level && ('learningContext' in t ? t.learningContext ?? 'general' : 'general') === context).map(t=>t.id)) : null;
+        const questions = selectQuestions(eligible.rows.filter(c=>!eligibleTargets || eligibleTargets.has(c.targetId)).map(c => ({ ...c,
           qualifyingChecks: c.qualifyingChecks ?? [],
           lastPresentedAt: c.lastPresentedAt ? new Date(c.lastPresentedAt).toISOString() : null,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);

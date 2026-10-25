@@ -475,3 +475,56 @@ convention; native Home/close behavior is unchanged.
 Validation: one focused existing draft-preservation test passed; diff whitespace
 check passed. Full suites deferred to CI at owner request. No deployment or push.
 Next: roll out with the pending web changes under applicable authorization.
+
+
+## Simplified practice work in progress — 25 October 2026
+
+Owner approved the simplification plan, then requested minimal implementation and
+an immediate wrap-up near 15% remaining five-hour allowance. This is an incomplete
+local implementation checkpoint, NOT release-ready or deployed. M2 remains active.
+
+Implemented source: temporary signed-out browser/session and native/process
+storage; explicit leave/save/discard choices; durable opt-in authentication
+handoff; B1/B2 and general/work preferences; five-question new rounds; topic
+selection from a shared bundle. Account preference/session contracts accept an
+optional learningContext (absent means general). Backend persists that preference
+in existing revisioned profile-request JSON and filters the selected catalog;
+no database migration or live database operation was performed. Existing account
+rounds/downloads retain their saved requests.
+
+Added 60 original workplace exercises (30 per level), five contexts, hash-bound
+AI editorial review and deterministic rubric validation; not independent human
+review or proficiency certification. Shared bundle uses existing production
+revisions for general practice and the new candidate identities for work.
+Unpublished additive SQL/catalog is prepared; production release configuration
+is unchanged. Candidate workplace attempts cannot attach to production until
+separately authorized content activation. No live AI service calls.
+
+Evidence: both TypeScript projects checked successfully; two new focused web
+exit/consent tests passed after correcting the Close destination; final native
+compileDebugKotlin passed. Content preparation/validation passed in isolated
+PGlite. No full suite, native UI/unit suite, assembly, lint, browser/device journey,
+real signup/provider acceptance, deployment, push or store release is claimed.
+
+Release blockers / exact next work:
+- Finish preserving and resuming an UNFINISHED round inside the account after
+  signup. Existing attachment saves answered attempts only; temporary ungraded
+  draft/position is retained separately, not converted into a resumable account
+  round. Do not claim the full save/resume plan complete.
+- Reconcile web/native attachment success/retry/partial-result UX and subject
+  binding; native rejects unavailable revisions but lacks the polished recovery
+  screen. Legacy native state lacks earlier per-question attempt records; do not
+  invent those when offering its one-time save/discard choice.
+- Verify browser Back/Forward/boundary handling, legacy migration, authentication
+  cancellation/confirmation/recovery, process recreation and close warnings.
+  Review modal focus and repeated legacy prompts; no parity acceptance yet.
+- Update focused tests that deliberately assume the former fixed starter,
+  persistent signed-out work and 15-question preferences; add native regressions.
+- Validate selection/profile persistence and activation/replay against local
+  fixtures. Review workplace ambiguity (including passive distractors), editorial
+  hashes and final shared bundle before any content rollout. Simplify remaining
+  fixed-B1/foundations copy and Progress presentation.
+
+Next: complete these bounded correctness gaps, run affected checks only, prepare
+activation/rollout instructions, and obtain applicable production/content rollout
+authorization. Android publication hold and unfinished provider activation remain.

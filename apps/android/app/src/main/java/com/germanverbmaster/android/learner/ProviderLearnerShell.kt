@@ -13,11 +13,12 @@ import java.io.File
  * the previous subject's Compose tree before binding or loading the next cache. */
 @Composable
 fun ProviderLearnerShell(provider: VerifiedLearnerProvider, origin: String, directory: File, authGeneration: Long, localOnly: Boolean = false, locale: String = "en", onLocal: (() -> Unit)? = null, onSignIn: (() -> Unit)? = null) {
+    val guestPath=File(androidx.compose.ui.platform.LocalContext.current.noBackupFilesDir,"gm-v2-guest")
     key(provider, authGeneration) {
         var retry by remember { mutableIntStateOf(0) }
         val loaded by produceState<Result<LearnerRepository>?>(null, retry) {
             value = null
-            value = withContext(Dispatchers.IO) { runCatching { provider.repository(directory,origin,localOnly) } }
+            value = withContext(Dispatchers.IO) { runCatching { provider.repository(directory,origin,localOnly).also {if(!localOnly)it.attachGuestPractice(guestPath)} } }
         }
         DisposableEffect(provider) { onDispose { provider.invalidate() } }
         val c=providerCopy(loaded?.getOrNull()?.state?.profile?.preferences?.locale ?: locale)

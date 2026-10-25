@@ -241,6 +241,7 @@ export const SessionRequestSchema = z.strictObject({
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   questionCount: z.number().int().min(1).max(50),
   capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
+  learningContext: z.enum(["general","work"]).optional(),
 });
 export type SessionRequest = z.infer<typeof SessionRequestSchema>;
 export const EvaluationSchema = z.strictObject({
@@ -376,6 +377,7 @@ export const FocusedSessionRequestSchema = z.strictObject({
   questionCount: z.number().int().min(1).max(50),
   capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
   focus: PracticeFocusSchema,
+  learningContext: z.enum(["general","work"]).optional(),
 });
 export type FocusedSessionRequest = z.infer<typeof FocusedSessionRequestSchema>;
 export const CatalogTopicSchema = z.strictObject({
@@ -390,6 +392,7 @@ export const CatalogTargetSchema = z.strictObject({
   description: LocalizedTextSchema,
   level: z.enum(["B1","B2"]),
   availableQuestionCount: z.number().int().min(0).max(50),
+  learningContext: z.enum(["general","work"]).optional(),
 });
 export type CatalogTarget = z.infer<typeof CatalogTargetSchema>;
 export const CatalogSchema = z.strictObject({
@@ -405,6 +408,7 @@ export const ProfilePreferencesSchema = z.strictObject({
   timezone: z.string().min(1),
   level: z.enum(["B1","B2"]),
   sessionQuestionCount: z.union([z.literal(5), z.literal(15)]),
+  learningContext: z.enum(["general","work"]).optional(),
 });
 export type ProfilePreferences = z.infer<typeof ProfilePreferencesSchema>;
 export const LearnerProfileSchema = z.strictObject({

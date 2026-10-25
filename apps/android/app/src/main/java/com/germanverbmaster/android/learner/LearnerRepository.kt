@@ -19,6 +19,7 @@ import java.net.URLEncoder
 import java.util.UUID
 
 interface LearnerApi {
+    suspend fun attachGuest(request:GuestAttachmentRequest):AttemptBatchResponse = error("Saving practice unavailable")
     suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt = error("Deletion unavailable")
     suspend fun exportLearner(): LearnerExport = error("Export unavailable")
     suspend fun preparePack(request: SessionRequest): PreparedPack = error("Prepared packs unavailable")
@@ -43,6 +44,11 @@ internal class HttpLearnerApi(
     private val credential: suspend () -> String, private val assertCurrent: () -> Unit,
     private val unauthorized: () -> Unit
 ) : LearnerApi {
+    override suspend fun attachGuest(request:GuestAttachmentRequest):AttemptBatchResponse {
+        val raw=ContractReader.json.parseToJsonElement(request("/v2/guest-attempts:attach",ContractReader.json.encodeToString(request)))
+        ContractShape.checkAttemptBatchResponse(raw)
+        return ContractReader.json.decodeFromJsonElement(AttemptBatchResponse.serializer(),raw).also {response->check(response.acknowledgments.map {it.attemptId}==request.attempts.map {it.attemptId})}
+    }
     override suspend fun deleteLearner(request: PrivacyDeleteRequest): PrivacyDeleteReceipt {
         val raw = ContractReader.json.parseToJsonElement(request("/v2/me", ContractReader.json.encodeToString(request), method = "DELETE"))
         ContractShape.checkPrivacyDeleteReceipt(raw)
@@ -303,7 +309,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             check(state.pending == null && state.profile?.setupCompleted == true)
             val available = requireNotNull(state.catalog).targets.sumOf { it.availableQuestionCount }
             check(available > 0)
-            val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = minOf(requireNotNull(state.profile).preferences.sessionQuestionCount,available))
+            val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = minOf(5,available))
             commit(state.copy(packRequest = request))
             request
         }
@@ -318,7 +324,7 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         val pack = PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(state.preparedPack)))
         check(PreparedPackReader.canStart(pack,now)) { "Prepared reserve expired" }
         val session = pack.sessions.firstOrNull { it.id !in state.consumedPreparedSessions } ?: error("Prepared reserve exhausted")
-        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = session.questions.size)
+        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = session.questions.size)
         // Slot consumption and complete pinned practice commit together before any question is shown.
         commit(state.copy(practice = NativePractice(request = request,session = session,offlinePack = pack),
             consumedPreparedSessions = state.consumedPreparedSessions + session.id))
@@ -393,12 +399,12 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
                 is TopicFocus -> if (catalog.topics.any { it.id == focus.id }) catalog.targets.filter { it.topicId == focus.id }.sumOf { it.availableQuestionCount } else 0
             }
             check(available > 0) { "No questions available for these preferences" }
-            val count = if (focus is TargetFocus) 1 else minOf(requireNotNull(state.profile).preferences.sessionQuestionCount, available)
-            commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(questionCount = count), focus = focus)))
+            val count = if (focus is TargetFocus) 1 else minOf(5, available)
+            commit(state.copy(practice = NativePractice(request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(learningContext=state.profile?.preferences?.learningContext ?: "general", questionCount = count), focus = focus)))
         }
         val p = requireNotNull(state.practice)
         if (p.session == null) {
-            val session = p.focus?.let { api.session(FocusedSessionRequest(p.request.apiVersion, p.request.requestId, p.request.questionCount, p.request.capabilities, it)) } ?: api.session(p.request)
+            val session = p.focus?.let { api.session(FocusedSessionRequest(p.request.apiVersion, p.request.requestId, p.request.questionCount, p.request.capabilities, it, p.request.learningContext)) } ?: api.session(p.request)
             commit(state.copy(practice = p.copy(session = session)))
         }
     }
@@ -524,6 +530,19 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             commit(state.copy(targets = targets.values.toList(), syncCursor = page.nextCursor))
             if (!page.hasMore) return
         }
+    }
+    suspend fun attachGuestPractice(path:File) = mutex.withLock {
+        val guestStore=NativeGuestStore(path);val guest=guestStore.read()
+        if(!guest.saveRequested || guest.attempts.isEmpty())return@withLock
+        val subject=requireNotNull(account).identity.subject
+        check(guest.saveSubject==null || guest.saveSubject==subject){"Practice save belongs to another account"}
+        guestStore.write(guest.copy(saveSubject=subject))
+        val response=api.attachGuest(GuestAttachmentRequest("v2",UUID.randomUUID().toString(),guest.deviceId,guest.attempts))
+        val accepted=response.acknowledgments.filter {it !is AttemptRejection}.map {it.attemptId}.toSet()
+        val remaining=guest.attempts.filter {it.attemptId !in accepted}
+        if(remaining.isEmpty() && guest.index >= (guest.session?.questions?.size ?: 5))guestStore.discard()
+        else guestStore.write(guest.copy(saveSubject=subject,attempts=remaining))
+        check(remaining.isEmpty()){"Some answers could not be saved. Temporary work is preserved."}
     }
     suspend fun save(preferences: ProfilePreferences) = mutex.withLock {
         check(state.pending == null) { "Retry or reload pending preferences first" }
