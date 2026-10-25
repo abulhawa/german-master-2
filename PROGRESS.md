@@ -1,6 +1,6 @@
 # German Master 2.0 current checkpoint
 
-Updated 24 October 2026. Recovery tracking: [issue #20](https://github.com/abulhawa/german-master-2/issues/20). Earlier checkpoints are preserved in [history](docs/operations/history/progress-through-2026-10-23.md); their paths are relative to repository root.
+Updated 25 October 2026. See the [current backlog reassessment](docs/operations/backlog-reassessment-2026-10-25.md); dated entries below preserve implementation history. Recovery tracking: [issue #20](https://github.com/abulhawa/german-master-2/issues/20). Earlier checkpoints are preserved in [history](docs/operations/history/progress-through-2026-10-23.md); their paths are relative to repository root.
 
 ## Priority and authorization
 
@@ -350,7 +350,7 @@ occurred. Next: owner review of the installed reference and the applicable web
 rollout decision. Android publication hold remains.
 
 
-## Google and Microsoft sign-in work in progress — 25 October 2026
+## Google and Microsoft sign-in work in progress â€” 25 October 2026
 
 Owner requests Google and Outlook/Microsoft signup/login alongside existing email,
 and authorizes reuse of existing provider apps. This supersedes the earlier OAuth
@@ -416,3 +416,18 @@ Explicit preview launch succeeded and its process was confirmed running.
 This is installation/launch evidence only. Provider activation and real social
 login remain unfinished; no store app replacement, store publication or web
 rollout occurred. Next: review installed UI; complete provider setup when resumed.
+
+
+## Backlog reassessment - 25 October 2026
+
+Reviewed one monorepo issue/no open PRs, legacy web's 21 issues/seven PRs/five
+phase milestones, and legacy Android's empty open issue/PR inventory. All items
+and GM-001 through GM-024 have proposed dispositions in
+[the reassessment](docs/operations/backlog-reassessment-2026-10-25.md).
+Nine overlapping epic pairs and old verb-first/commercial trajectories should be
+retired or consolidated. README's obsolete 503/cutover work order was corrected.
+No GitHub items, milestones, providers, permissions or deployments were changed;
+no tests/builds run. Board-only drafts are unassessed because read:project was
+unavailable and the connector has no Project tool. M2 remains active. Next: review
+the proposed closures and issue #20 rewrite; preserve outstanding privacy/offline
+acceptance rather than reopening completed bootstrap or creating 24 new issues.

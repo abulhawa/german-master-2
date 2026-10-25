@@ -2,25 +2,38 @@
 
 One monorepo for the React web learner, native Kotlin Android learner, versioned exercise contracts, authoritative TypeScript learning engine, PostgreSQL/Supabase backend, content and verification.
 
-## Current status (24 October 2026)
+## Current status (25 October 2026)
 
-**Recovery and product simplification in progress.** See [recovery execution plan](docs/operations/recovery-execution-2026-10-23.md) and [issue #20](https://github.com/abulhawa/german-master-2/issues/20) first. This section supersedes the old bootstrap-only description.
+The clean backend recovery and authorized production cutover were completed on
+24 October. The earlier production 503 incident and preview-only cutover plan
+below the historical checkpoints are not current next actions.
 
-- The current production Vercel deployment is built from `main` commit `a9f0c3ae`. Its five-question local guest B1 starter works, but the account API responded HTTP **503** at the recovery checkpoint because production still targets the **inactive** older v2 Supabase project.
-- The clean replacement Supabase project is **ACTIVE_HEALTHY**, with initial schema baseline 1, 29 RLS-enabled application tables, 65 published B1/B2 learning targets, 125 exercise revisions and two published content releases. Before acceptance there were no replacement Auth users or attempts; the isolated acceptance run now has one confirmed test account and test practice records. **Do not re-seed or reset it.**
-- The recovery branch integrates the CI-green project-binding/guest PRs plus the protected-host cookie correction; GitHub PRs remain unmerged. A protected replacement preview now supports confirmed signup/recovery handoffs, saved profile, real practice and downloaded-answer sync. See the [acceptance record](docs/operations/recovery-account-acceptance-2026-10-24.md) for remaining lifecycle/device gates before production cutover.
-- Android release is **BLOCKED** by the owner's UX acceptance hold. Passing unit tests is not release authorization.
+Web and native Android implement optional-sign-in practice, Home/Progress/Topics,
+the approved mobile design, Settings/themes and the shared offline grammar
+reference. The updated preview with Google/Microsoft buttons, icons and Home exits
+was installed on the owner's Pixel on 25 October. Social-provider activation and
+real login acceptance remain unfinished; UI presence is not working OAuth.
 
-The original web and Android repositories, source history and application signing identity are preserved. [PROGRESS.md](PROGRESS.md) is the short current checkpoint; older evidence is preserved in the [historical log](docs/operations/history/progress-through-2026-10-23.md). Do not infer readiness from historical milestone acceptance.
+M2 remains the sole active milestone. Outstanding account export, isolation,
+offline/native lifecycle and owner UX/release acceptance are recorded in
+[PROGRESS.md](PROGRESS.md). Android publication remains on owner hold. Do not infer
+a current live deployment revision from source or an installed preview.
 
-## Work order
+## Current backlog and work order
 
-1. Restore and verify the **authenticated** backend against the clean instance, using separately scoped credentials and a nonproduction test host. Do not switch Vercel just because a guest session works.
-2. Review one coherent learner journey: Home / Start, level or topic focus, question, correction, summary, useful next practice. Make guest and signed-in outcomes understandable without exposing server, offline queue, or receipt terminology on learning screens.
-3. Verify responsive signed-in web and real-device Android navigation, progress, offline and privacy behavior. Conduct a small learner pilot before adding features.
-4. Stage, approve and perform a reversible production cutover separately; do not delete the old v2 database or release Android automatically.
+Use the [25 October backlog reassessment](docs/operations/backlog-reassessment-2026-10-25.md)
+for every legacy issue/PR and GM-001 through GM-024. Legacy Phase 0-4 plans and
+imported verb-first roadmaps are historical, not the active work queue.
 
-Read root [AGENTS.md](AGENTS.md), the recovery plan and the relevant sections of [product blueprint](docs/product/blueprint.md) before changing behavior. Scope each PR to a learner problem and verifiable acceptance criteria.
+Finish the owner-requested provider setup and concrete release blockers, close
+M2's remaining gate, then complete M3-M5 acceptance in order and the M6 pilot.
+Do not reopen bootstrap, perform another reset, expand features or publish Android
+from this work order. [Issue #20](https://github.com/abulhawa/german-master-2/issues/20)
+remains open; its stale GitHub body needs the proposed rewrite in the reassessment.
+
+Read [AGENTS.md](AGENTS.md), the latest checkpoint, relevant blueprint sections and
+ADRs before behavior changes. GitHub Project-board drafts were not accessible in
+this review; no GitHub issues or preserved repositories were modified.
 
 ## Repository layout
 

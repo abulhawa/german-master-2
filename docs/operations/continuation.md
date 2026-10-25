@@ -1,5 +1,11 @@
 # Continuing German Master recovery
 
+Current planning: [25 October backlog reassessment](backlog-reassessment-2026-10-25.md).
+Older recovery/cutover and OAuth-deferral instructions below are historical where
+superseded by later owner decisions. M2 remains active; use the latest checkpoint.
+GitHub issue/PR dispositions are proposed, not applied. Project-board-only drafts
+remain unassessed because read:project access was unavailable.
+
 Read root `AGENTS.md`, then the short current `PROGRESS.md`. Refresh [issue #20](https://github.com/abulhawa/german-master-2/issues/20), its comments and linked PRs before reporting status or implementing overlapping work. The [recovery runbook](recovery-execution-2026-10-23.md) describes the gated sequence. Old continuation instructions are retained in [history](history/continuation-through-2026-10-23.md); their paths are relative to their original location and their next actions are historical.
 
 ## Current work order
@@ -89,7 +95,7 @@ Do not redo the import, invent new grammar explanations or report a live rollout
 Next: install/review the preview when connected, then follow release authorization.
 
 
-## Social sign-in checkpoint — 25 October 2026
+## Social sign-in checkpoint â€” 25 October 2026
 
 Owner now requests Google and Microsoft signup/login in addition to email.
 Implementation is saved as work in progress on both clients; see latest PROGRESS.
