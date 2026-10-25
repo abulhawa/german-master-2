@@ -405,3 +405,14 @@ No provider activation, push, deployment or store release performed in this slic
 Prior social-provider setup and acceptance remain unfinished. Owner objected to
 excessive verification/allowance consumption; stop further checks at this handoff.
 Next: provider setup only when resumed; do not publish unfinished social login.
+
+## Updated login preview installed - 25 October 2026
+
+Owner requested installation of the latest Google/Microsoft login UI changes.
+Built learnerPreview from 0d3119a with existing clean production public Auth/API
+configuration; configuration guard passed. ADB replacement installation on the
+connected Pixel 10 Pro succeeded without uninstalling or clearing app data.
+Explicit preview launch succeeded and its process was confirmed running.
+This is installation/launch evidence only. Provider activation and real social
+login remain unfinished; no store app replacement, store publication or web
+rollout occurred. Next: review installed UI; complete provider setup when resumed.
