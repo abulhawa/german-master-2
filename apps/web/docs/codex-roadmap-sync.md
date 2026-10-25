@@ -1,3 +1,7 @@
+> Historical legacy plan. Retired by the owner on 25 October 2026. The old
+> Product Roadmap board is closed. Do not create or sync new work from this file.
+> Use `docs/operations/backlog-reassessment-2026-10-25.md` in the monorepo root.
+
 # Codex Roadmap Sync Checklist
 
 Use this playbook during Codex Cloud working sessions to keep the Product Roadmap board and the

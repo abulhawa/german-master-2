@@ -1,3 +1,4 @@
+import { useLearnerRoute, navigateLearner, readLearnerRoute, backInLearner } from './navigation';
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { useAppearance } from './appearance';
 import LearnerJourney from './journey';
@@ -26,15 +27,18 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [failed,setFailed] = useState(false);
   const [oauthFailed,setOAuthFailed] = useState(()=>new URLSearchParams(window.location.search).has('error'));
   const [retry,setRetry] = useState(0);
-  const [showLogin,setShowLogin] = useState(()=>new URLSearchParams(window.location.search).has('error'));
+  const route=useLearnerRoute();
+  const showLogin=route.view==='sign-in'||route.view==='register'||oauthFailed;
+  function finishSignIn(){if(['sign-in','register'].includes(readLearnerRoute().view))navigateLearner('home',null,true);}
   const [local,setLocal] = useState(false);
   const loginLock=useRef(false);
   const [locale,setLocale] = useState<'en'|'de'>('en');
   const [email,setEmail] = useState(''); const [password,setPassword] = useState('');
-  const [register,setRegister] = useState(false);
+  const register=route.view==='register';
   const [confirmation,setConfirmation] = useState(false);
-  const [emailHelp,setEmailHelp] = useState<'reset'|'resend'|null>(null);
-  const [emailChange,setEmailChange] = useState<AccountBinding|null>(null);
+  const emailHelp=route.view==='reset'||route.view==='resend'?route.view:null;
+
+  const [emailChange,setEmailChange]=useState<AccountBinding|null>(null);
   const recovery = useMemo(()=>host.recovery ?? new AccountRecovery(host.client.auth),[host]);
   const recoveryState = useSyncExternalStore(recovery.subscribe,recovery.getSnapshot);
   const [attachDismissed,setAttachDismissed] = useState(false);
@@ -42,6 +46,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   const [attachFailed,setAttachFailed] = useState(false);
   const [attachResult,setAttachResult] = useState<{saved:number;remaining:number;validationOnly:boolean}|null>(null);
   const c=copy[locale];
+  useEffect(()=>{setPassword('');},[route.view]);
   useEffect(()=> {
     const observer=new MutationObserver(()=> {
       const lang=document.querySelector('main[lang]')?.getAttribute('lang');
@@ -64,7 +69,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
         // A fresh, verified same-subject sign-in can resume a completed sign-out.
         const saved=new LearnerSignOut(binding,binding.storage(browserStorage));
         if(resume && saved.read()?.complete) saved.resume();
-        if(!retain){setAttachDismissed(false);setAttachResult(null);setAttachFailed(false);}setAccount(binding);setLocal(false);setShowLogin(false);
+        if(!retain){setAttachDismissed(false);setAttachResult(null);setAttachFailed(false);}setAccount(binding);setLocal(false);finishSignIn();
       }).catch(error=> {if(alive&&current===ticket){
         setFailed(!(error instanceof Error && error.message==='Sign in before syncing'));
         if(retain)setLocal(true);
@@ -75,7 +80,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       if(!alive) return;
       recovery.observe(event,session);
       if(recovery.getSnapshot().stage!=='none') {++ticket;host.provider.invalidate();setEmailChange(null);setAccount(null);setBusy(false);setPassword('');return;}
-      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setEmailChange(null);setAccount(null);setBusy(false);setPassword('');setShowLogin(false);}
+      if(event==='SIGNED_OUT') {++ticket;host.provider.invalidate();setEmailChange(null);setAccount(null);setBusy(false);setPassword('');finishSignIn();}
       else if(event==='INITIAL_SESSION'||event==='SIGNED_IN'||event==='USER_UPDATED'||event==='TOKEN_REFRESHED') {
         // SDK callbacks hold the auth lock; schedule provider reads after callback return.
         const retain=host.provider.observeAuthEvent(event,session);
@@ -96,7 +101,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       if(register) {
         const {data,error}=await host.client.auth.signUp({email,password,options:{emailRedirectTo:new URL('/',window.location.origin).href}});
         if(error) throw Error('Registration failed');
-        if(!data.session) {setConfirmation(true);setRegister(false);}
+        if(!data.session) {setConfirmation(true);navigateLearner('sign-in',null,true);}
       } else {
         const {error}=await host.client.auth.signInWithPassword({email,password});if(error)throw Error('Sign-in failed');
       }
@@ -129,25 +134,25 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     } catch { setAttachFailed(true); } finally { setAttachBusy(false); }
   }
   function continueSaved() {
-    try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);setShowLogin(false);}}
+    try {const binding=host.provider.localBinding();if(binding){setAccount(binding);setLocal(true);finishSignIn();}}
     catch {setFailed(true);}
   }
   function openAuth(mode:'sign-in'|'register') {
-    setOAuthFailed(false);setRegister(mode==='register');setConfirmation(false);setFailed(false);setEmailHelp(null);setShowLogin(true);
+    setOAuthFailed(false);setConfirmation(false);setFailed(false);navigateLearner(mode);
   }
   function returnHome() {
     const leavingRecovery=recovery.getSnapshot().stage!=='none';
-    recovery.finish();setEmailHelp(null);setEmailChange(null);setShowLogin(false);
+    recovery.finish();navigateLearner('home');
     setPassword('');setConfirmation(false);setFailed(false);setOAuthFailed(false);if(leavingRecovery)setRetry(v=>v+1);
   }
   if(recoveryState.stage!=='none') return <RecoveryPassword recovery={recovery} state={recoveryState} locale={locale} home={returnHome} finish={()=>{
-    const completed=recovery.getSnapshot().stage==='complete';recovery.finish();setEmailHelp(completed?null:'reset');setShowLogin(!completed);setRegister(false);setFailed(false);setRetry(v=>v+1);
+    const completed=recovery.getSnapshot().stage==='complete';recovery.finish();navigateLearner(completed?'home':'reset',null,true);setFailed(false);setRetry(v=>v+1);
   }}/>;
-  if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} home={returnHome} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>setEmailHelp(null)}/></div></main>;
+  if(emailHelp) return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><RecoveryEmail auth={host.client.auth} locale={locale} initialEmail={email} mode={emailHelp} home={returnHome} backLabel={account&&!showLogin?c.backAccount:undefined} back={()=>backInLearner(account?'account':'sign-in')}/></div></main>;
   const accountGuestAttempts=account?guestUnattachedAttemptCount(account.identity.subject):0;
-  if(emailChange&&account===emailChange&&!local&&!showLogin) {
-    const currentEmail=host.provider.emailFor(emailChange);
-    if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={emailChange} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(emailChange)} locale={locale} home={returnHome} back={()=>setEmailChange(null)}/></div></main>;
+  if(route.view==='email-change'&&emailChange&&account===emailChange&&!local&&!showLogin) {
+    const currentEmail=host.provider.emailFor(account);
+    if(currentEmail)return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-column"><AccountEmailChange auth={host.client.auth} account={account} currentEmail={currentEmail} authorize={()=>host.provider.assertVerified(account)} locale={locale} home={returnHome} back={()=>backInLearner('account')}/></div></main>;
   }
   if(account&&!showLogin&&!local&&!attachDismissed&&(accountGuestAttempts>0||attachResult)) {
     const remaining=attachResult?.remaining ?? accountGuestAttempts;
@@ -170,12 +175,12 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     const labels=copy[language], address=local?null:host.provider.emailFor(account);
     return <PracticeCard><h2>{labels.signInDetails}</h2>
       {address ? <><p className="gm-account-email"><strong>{labels.email}</strong><br/>{address}</p>
-        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>setEmailChange(account)}>{labels.changeEmail}</FoundationButton>
+        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmailChange(account);navigateLearner('email-change');}}>{labels.changeEmail}</FoundationButton>
         <p>{labels.resetHelp}</p>
-        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);setEmailHelp('reset');}}>{labels.resetPassword}</FoundationButton></>
+        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);navigateLearner('reset');}}>{labels.resetPassword}</FoundationButton></>
         : <p>{labels.emailUnavailable}</p>}
     </PracticeCard>;
-  }} onReauthenticate={()=>setShowLogin(true)} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
+  }} onReauthenticate={()=>openAuth('sign-in')} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
   return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
@@ -193,9 +198,9 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
       <label className="gm-field" htmlFor="v2-password">{c.password}<input id="v2-password" type="password" autoComplete={register?'new-password':'current-password'} required minLength={register?8:undefined} value={password} disabled={busy} onChange={event=>setPassword(event.target.value)} /></label>
       <button className="gm-button" type="submit" disabled={busy}>{register?c.register:c.signIn}</button>
     </form>
-    <FoundationButton disabled={busy} onClick={()=>{setRegister(value=>!value);setPassword('');setConfirmation(false);setFailed(false);}}>{register?c.backToSignIn:c.createAccount}</FoundationButton>
-    <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('reset');}}>{recoveryCopy[locale].forgot}</FoundationButton>
-    <FoundationButton disabled={busy} onClick={()=>{setPassword('');setEmailHelp('resend');}}>{recoveryCopy[locale].resend}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={()=>{navigateLearner(register?'sign-in':'register');setPassword('');setConfirmation(false);setFailed(false);}}>{register?c.backToSignIn:c.createAccount}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={()=>{setPassword('');navigateLearner('reset');}}>{recoveryCopy[locale].forgot}</FoundationButton>
+    <FoundationButton disabled={busy} onClick={()=>{setPassword('');navigateLearner('resend');}}>{recoveryCopy[locale].resend}</FoundationButton>
     {confirmation&&<p role="status">{c.confirmation}</p>}
     {busy&&<p role="status">{c.checking}</p>}{(failed||oauthFailed)&&<><p role="alert">{c.failed}</p><FoundationButton disabled={busy} onClick={()=>setRetry(v=>v+1)}>{c.retry}</FoundationButton></>}
   </PracticeCard></div></main>;

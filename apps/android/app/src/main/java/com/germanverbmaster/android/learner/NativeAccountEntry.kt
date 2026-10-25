@@ -17,7 +17,7 @@ import kotlinx.coroutines.*
 /** Passwords are transient; only explicit submission contacts the identity provider. */
 @Composable
 fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
-                       navigate: (String?) -> Unit, socialSignIn: (suspend (String) -> Unit)? = null, submit: suspend (String,String,String) -> Unit) {
+                       navigate: (String?) -> Unit, back: (() -> Unit)? = null, socialSignIn: (suspend (String) -> Unit)? = null, submit: suspend (String,String,String) -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember(mode) { mutableStateOf("") }
     var confirmation by remember(mode) { mutableStateOf("") }
@@ -28,7 +28,7 @@ fun NativeAccountEntry(mode: String, german: Boolean, language: () -> Unit,
     val scope = rememberCoroutineScope()
     fun text(en:String,de:String)=if(german) de else en
     LaunchedEffect(cooldown) { if(cooldown) {delay(60_000);cooldown=false} }
-    BackHandler(enabled=!busy) { navigate(null) }
+    BackHandler(enabled=!busy) { if(back!=null)back() else navigate(null) }
     val title=when(mode) {
         "register" -> text("Create account","Konto erstellen")
         "reset" -> text("Reset password","Passwort zurücksetzen")

@@ -1,5 +1,6 @@
+import { useLearnerRoute, navigateLearner } from './navigation';
 import { GrammarReference } from './grammar-reference';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Home, ChartNoAxesColumn, BookOpen, UserRound, ArrowRight, Settings } from "lucide-react";
 import { useAppearance, type Appearance } from './appearance';
 import { AppMark } from './app-mark';
@@ -403,8 +404,13 @@ export function GuestStarterJourney({
   const [state, setState] = useState(loaded.state);
   const [damaged, setDamaged] = useState(loaded.damaged);
   const [storageError, setStorageError] = useState(false);
-  const [view, setView] = useState<"home" | "practice" | "progress" | "topics" | "downloads" | "account">("home");
+  const route=useLearnerRoute();
+  type PracticeView='home'|'practice'|'progress'|'topics'|'downloads'|'account';
+  const view:PracticeView=['home','practice','progress','topics','downloads','account'].includes(route.view)
+    ? route.view as PracticeView : ['topic','target'].includes(route.view)?'topics':'account';
+  function setView(view:'home'|'practice'|'progress'|'topics'|'downloads'|'account'){setClosing(false);navigateLearner(view);}
   const [closing, setClosing] = useState(false);
+  useEffect(()=>setClosing(false),[route.view]);
   const c = copy[state.locale];
   const complete = !!state.session && state.index >= state.session.questions.length;
   const active = !!state.session && !complete;

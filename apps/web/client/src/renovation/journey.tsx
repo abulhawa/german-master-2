@@ -1,3 +1,4 @@
+import { useLearnerRoute, navigateLearner } from './navigation';
 import { GrammarReference } from './grammar-reference';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
@@ -38,11 +39,7 @@ import type { IdentityDeletionProof } from '@german-master/contracts';
 
 const localApi = localLearnerApi(fixtureAccount);
 type WorkspaceView = "home" | "practice" | "progress" | "topics" | "topic" | "target" | "account";
-function readWorkspaceRoute(): { view: WorkspaceView; selectedId: string | null } {
-  const match = /^#\/learn\/(home|practice|progress|topics|topic|target|account)(?:\/([0-9a-f-]{36}))?$/.exec(window.location.hash);
-  if (!match || ((match[1] === "topic" || match[1] === "target") && !match[2])) return { view: "home", selectedId: null };
-  return { view: match[1] as WorkspaceView, selectedId: match[2] ?? null };
-}
+
 type JourneyProps = { api?: LearnerApi; storage?: JourneyStorage; account?: AccountBinding; reserve?: WebReserve; revoke?: () => Promise<void>; authorizeResume?: () => void; authenticated?: boolean; identityDeletion?:IdentityDeletionTransport; clearDeletedIdentity?:()=>Promise<void>; forgetDeletedIdentity?:()=>Promise<void>; onReauthenticate?:()=>void; accountSecurity?:(locale:'en'|'de',blocked:boolean)=>ReactNode; localAccess?:boolean };
 export default function LearnerJourney(props: JourneyProps) {
   const account = props.account ?? fixtureAccount;
@@ -131,15 +128,17 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const [state, setState] = useState(loaded.state);
   const appearance = useAppearance(state.theme);
   const current = useRef(state);
-  const [view, setView] = useState<WorkspaceView>(() => readWorkspaceRoute().view);
+  const route=useLearnerRoute();
+  const view:WorkspaceView=['home','practice','progress','topics','topic','target','account'].includes(route.view)?route.view as WorkspaceView:route.view==='downloads'?'account':'home';
   const [profile, setProfile] = useState<LearnerProfile | null>(null);
   const [profileFailed, setProfileFailed] = useState(false);
   const [editingSetup, setEditingSetup] = useState(() => { try { return !!storage.getItem(PROFILE_PENDING_KEY); } catch { return true; } });
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [catalogFailed, setCatalogFailed] = useState(false);
-  const [selectedId, setSelectedId] = useState<string | null>(() => readWorkspaceRoute().selectedId);
+  const selectedId=route.selectedId;
   const [busy, setBusy] = useState(false);
   const [closing, setClosing] = useState(false);
+  useEffect(()=>setClosing(false),[route.view]);
   const [syncRevision, setSyncRevision] = useState(0);
   const lock = useRef(false);
   const [error, setError] = useState<"storageError" | "unavailable" | "connectionError" | null>(null);
@@ -200,11 +199,6 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     } catch (error) { setProgressStale(true); throw error; }
   }
   useEffect(() => { void refresh(); void loadCatalog(); void loadProfile(); }, [api]);
-  useEffect(() => {
-    const restore = () => { const route = readWorkspaceRoute(); setView(route.view); setSelectedId(route.selectedId); };
-    window.addEventListener("popstate", restore); window.addEventListener("hashchange", restore);
-    return () => { window.removeEventListener("popstate", restore); window.removeEventListener("hashchange", restore); };
-  }, []);
   useEffect(() => { if (!setup || view === "practice") heading.current?.focus(); }, [view, selectedId, p?.index, p?.session?.id, setup]);
   useEffect(() => { if (p?.evaluation) feedback.current?.focus(); }, [p?.evaluation]);
   useEffect(() => { if (view === 'practice') heading.current?.focus(); }, [closing, p?.completion, view]);
@@ -298,12 +292,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   function preference(update: Partial<Journey>) { try { commit({ ...current.current, ...update }); } catch { /* Preserve prior state. */ } }
   function navigate(nextView: WorkspaceView, nextId?: string) {
     const id = nextId ?? selectedId;
-    if (nextId !== undefined) setSelectedId(nextId);
-    setView(nextView);
-    // Practice is a focused flow on top of Home/Topic; keep the origin route for safe reload/resume.
-    if (nextView === "practice") return;
-    const route = `#/learn/${nextView}${(nextView === "topic" || nextView === "target") && id ? `/${id}` : ""}`;
-    if (window.location.hash !== route) window.history.pushState({ germanMaster: true }, "", route);
+    navigateLearner(nextView,id);
     // Keyboard activation leaves focus on the triggering button in real browsers.
     // Refocus after the click/default-action turn so the new page is announced.
     setTimeout(() => heading.current?.focus(), 0);

@@ -192,4 +192,18 @@ class NativePracticeAccessTest {
         }
     }
 
+    @Test fun authenticationBackUsesPreviousPageAndHomeRemainsAnExplicitExit() {
+        val mode=mutableStateOf("register")
+        var home=false
+        lateinit var dispatcher:OnBackPressedDispatcher
+        compose.setContent { FoundationTheme {
+            dispatcher=checkNotNull(LocalOnBackPressedDispatcherOwner.current).onBackPressedDispatcher
+            NativeAccountEntry(mode.value,false,{}, {home=it==null},back={mode.value="sign-in"}) {_,_,_->error("No network expected")}
+        } }
+        compose.runOnIdle {dispatcher.onBackPressed()}
+        compose.onNode(hasText("Sign in") and hasClickAction()).assertExists()
+        compose.onNodeWithText("Home").performScrollTo().performClick()
+        compose.runOnIdle {assertTrue(home)}
+    }
+
 }

@@ -1,6 +1,6 @@
 # Backlog reassessment - 25 October 2026
 
-Decision proposal based on the owner directions in AGENTS.md, the latest PROGRESS
+Owner-approved disposition, executed 25 October 2026. Based on the owner directions in AGENTS.md, the latest PROGRESS
 entries, blueprint sections 1/3/23/24 and the milestone gate record. This is a
 planning/documentation review, not fresh runtime or release acceptance.
 
@@ -142,12 +142,19 @@ migration, separate welcome/Try paths, signup promotions, old engine plans,
 repeated broad design exploration and a reopened TalkBack campaign. Preserve
 actual privacy/offline/reliability acceptance and maintenance obligations.
 
-## Proposed execution, not performed
+## Execution - owner authorized 25 October 2026
 
-After the owner accepts this disposition, update monorepo #20 and consolidate
-remaining work there. Do not create 24 new issues mirroring the blueprint. Legacy
-closures/PR retirement/milestone retirement require explicit scope for the
-preserved repositories; no GitHub items, comments or permissions were changed.
-Board-only drafts remain unassessed until readable. This document is the review
-artifact; README and continuation point to it so obsolete directions are not
-mistaken for next tasks.
+Closed all 21 listed legacy web issues as not planned, all seven listed PRs
+without merging, and all five legacy phase milestones. No open issues or PRs
+remain in that repository after verification. No source branches or repository
+history were deleted. Deferred concepts remain recorded here, not as active tasks.
+
+The CLI lacked Project scope, but the signed-in browser displayed Product Roadmap
+(project 2): nine legacy backlog cards and 13 historical Done cards. Closed the
+obsolete project; the settings page now offers Re-open this project. Its workflows
+are disabled and it is removed from the open-project list. No additional GitHub
+permissions were granted and no uninspected project was changed.
+
+Updated monorepo issue #20 to current release-readiness work and the browser
+navigation defect. It remains open. Imported roadmap/sync documents are marked
+historical to prevent recreating retired work. No new parallel backlog created.

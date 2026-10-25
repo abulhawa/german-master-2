@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { GuestStarterJourney, GUEST_STORAGE_KEY, buildGuestAttachmentRequest, guestAttemptCount, guestUnattachedAttemptCount, markGuestAttemptsAttached } from "./guest-starter";
 import { APPEARANCE_KEY } from './appearance';
 
@@ -26,6 +26,7 @@ it('offers persistent appearance settings without authentication and preserves t
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  window.history.replaceState(null, "", "/");
 });
 
 it("starts real guest practice without authentication and restores the saved draft/feedback", () => {
@@ -49,7 +50,7 @@ it("starts real guest practice without authentication and restores the saved dra
   cleanup();
 
   render(<GuestStarterJourney onAuth={onAuth} />);
-  fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
+  expect(window.location.hash).toBe("#/learn/practice");
   expect(screen.getByText("Correct")).toBeInTheDocument();
   expect(screen.queryByRole("textbox")).toBeNull();
   expect(onAuth).not.toHaveBeenCalled();
@@ -210,4 +211,23 @@ it("keeps primary navigation on account gates and makes Topics available without
   fireEvent.click(screen.getByRole("button",{name:"Start practice",exact:true}));
   expect(screen.queryByRole("navigation")).toBeNull();
   expect(onAuth).not.toHaveBeenCalled();
+});
+
+it('browser Back and Forward follow practice and Settings while preserving the answer and feedback',async()=>{
+  render(<GuestStarterJourney onAuth={vi.fn()}/>);
+  fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
+  fireEvent.click(screen.getByRole('radio',{name:'Berufe'}));
+  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
+  expect(window.location.hash).toBe('#/learn/account');
+  await act(async()=>window.history.back());
+  await waitFor(()=>expect(screen.getByRole('radio',{name:'Berufe'})).toBeChecked());
+  await act(async()=>window.history.forward());
+  await screen.findByRole('heading',{name:'Settings',exact:true});
+  await act(async()=>window.history.back());
+  fireEvent.click(await screen.findByRole('button',{name:'Check answer'}));
+  expect(screen.getByText('Correct')).toBeInTheDocument();
+  await act(async()=>window.history.back());
+  await screen.findByRole('button',{name:'Continue session'});
+  await act(async()=>window.history.forward());
+  await screen.findByText('Correct');
 });

@@ -431,3 +431,36 @@ no tests/builds run. Board-only drafts are unassessed because read:project was
 unavailable and the connector has no Project tool. M2 remains active. Next: review
 the proposed closures and issue #20 rewrite; preserve outstanding privacy/offline
 acceptance rather than reopening completed bootstrap or creating 24 new issues.
+
+
+## Legacy backlog retired and browser navigation repaired - 25 October 2026
+
+Owner approved cleanup and reaffirmed a single practice product, without a
+separate guest/welcome/Try mode. Optional sign-in and existing local practice
+storage are preserved. Closed legacy web issues 3,4,5,6,7,8,9,11,13,14,16,18,19,20,
+21,22,24,26,27,67,77 as not planned; closed PRs 64,202-207 without merging and phase
+milestones 1-5. Verified no open legacy issues/PRs remain. Browser access resolved
+the CLI Project-scope limitation: reviewed the old nine-backlog/13-Done-card
+Product Roadmap project and closed it; settings now offer Re-open this project.
+No original repository source/history or branches were deleted. Monorepo issue
+20 was rewritten to remaining release-readiness work and stays open. Imported
+legacy roadmap/sync documents now warn against recreating retired tasks.
+
+Web main pages, practice and authentication now share one hash/history route
+source. Navigation pushes actual browser entries; Back/Forward restores screens,
+and reloading practice restores its saved answer/feedback. Question progress is
+not browser history. One real Home entry is established without trapping Back at
+the site boundary. OAuth/recovery parameters are left for Auth; explicit Home
+cleans recovery state. Account isolation and captured email-change binding remain.
+Native already had screen-aware main-page Back; auth Back now follows previous
+account pages, while Home exits directly. No guest selector was introduced.
+
+Evidence: 85 focused web journey/history tests passed; final account-binding
+provider rerun passed 24. Root generated/type checks and production build passed.
+Local mocked-provider browser checks confirmed practice -> Settings -> Back with
+selected answer, Forward to Settings, and signup -> Back to sign-in. These are
+local behavior checks, not live social login. Final native access/history run passed 10 tests; debug assembly and lint passed. No production deployment,
+push, phone replacement install or store release is part of this slice.
+Next: roll out the verified navigation change under applicable authorization;
+finish provider configuration and remaining issue-20 acceptance. M2 and Android
+publication hold are unchanged.

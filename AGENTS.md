@@ -79,3 +79,15 @@ Preserve ongoing work and complete the current slice before starting unrelated f
   practice uses the existing safe close/save path, preserving draft and position;
   dialogs may dismiss to their underlying page. Returning Home never silently
   discards practice or attaches guest work to an account.
+
+
+## Single practice product - owner confirmation (25 October 2026)
+
+- There is no separate guest mode or welcome/Try entry. Practice opens at Home
+  without requiring sign-in; accounts add saving/sync. Existing internal storage
+  namespaces may retain historical names to preserve data.
+- Browser Back/Forward follows actual main-page, practice and authentication
+  navigation. Preserve drafts/feedback/session position; never trap Back at Home.
+- Legacy issues/PRs/milestones and the old Phase 0-4 Product Roadmap board were
+  retired with owner authorization. Do not reopen or recreate them from imported
+  roadmaps; use the current reassessment and monorepo issue #20.

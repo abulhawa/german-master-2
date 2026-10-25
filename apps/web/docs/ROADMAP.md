@@ -1,3 +1,7 @@
+> Historical legacy plan. Retired by the owner on 25 October 2026. The old
+> Product Roadmap board is closed. Do not create or sync new work from this file.
+> Use `docs/operations/backlog-reassessment-2026-10-25.md` in the monorepo root.
+
 # GermanVerbMaster Product & Delivery Roadmap
 
 This roadmap translates the strategic opportunities identified for GermanVerbMaster into a concrete execution plan. It is organized by phases, epics, deliverables, and acceptance criteria, with an accompanying sprint plan and GitHub project board setup to manage the work.

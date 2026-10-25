@@ -261,3 +261,18 @@ it('renders decorative service icons beside accessible provider names',async()=>
     expect(icon).toHaveAttribute('width','20');
   }
 });
+
+it('browser Back follows reset, signup, sign-in and Settings without leaving the application',async()=>{
+  const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
+  fireEvent.click(screen.getByRole('button',{name:'Create account',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:'Forgot password?',exact:true}));
+  expect(window.location.hash).toBe('#/learn/reset');
+  await act(async()=>window.history.back());
+  await screen.findByRole('button',{name:'Register',exact:true});
+  await act(async()=>window.history.back());
+  await screen.findByRole('heading',{name:'Sign in to German Master'});
+  await act(async()=>window.history.back());
+  await screen.findByRole('heading',{name:'Settings',exact:true});
+  expect(f.auth.signInWithPassword).not.toHaveBeenCalled();
+  expect(f.auth.signUp).not.toHaveBeenCalled();
+});

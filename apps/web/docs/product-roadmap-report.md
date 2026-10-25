@@ -1,3 +1,7 @@
+> Historical legacy plan. Retired by the owner on 25 October 2026. The old
+> Product Roadmap board is closed. Do not create or sync new work from this file.
+> Use `docs/operations/backlog-reassessment-2026-10-25.md` in the monorepo root.
+
 # Product Roadmap Project Report
 
 Use the helper script to inspect the "Product Roadmap" view on the abulhawa GitHub project board.

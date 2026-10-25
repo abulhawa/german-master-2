@@ -198,8 +198,6 @@ it("Close preserves assisted drafts; partial completion retries the frozen reque
   expect(frozen.mode).toBe('partial');
   expect(readJourney(localStorage).practice).toMatchObject({draft:before.draft,assisted:before.assisted});
   rendered.unmount(); render(<LearnerJourney api={api} />);
-  await waitFor(() => expect(screen.getByText('Start short practice')).toBeEnabled());
-  fireEvent.click(screen.getByText('Start short practice'));
   fireEvent.click(await screen.findByText('Try saving session again'));
   await screen.findByText('Session saved to your progress.');
   expect(api.complete).toHaveBeenLastCalledWith(session.id,frozen);
@@ -435,6 +433,7 @@ it("validates exposure acknowledgment linkage before accepting a response", asyn
   expect(JSON.parse(fetchMock.mock.calls[0][1].body as string)).toEqual({ apiVersion: "v2", events: [event] });
 });
 async function start(api = apiFixture()) {
+  window.history.replaceState(null,"","#/learn/home");
   render(<LearnerJourney api={api} />);
   await waitFor(() => expect(screen.getByText(/Start short practice|Continue practice/)).toBeEnabled());
   fireEvent.click(screen.getByText(/Start short practice|Continue practice/));

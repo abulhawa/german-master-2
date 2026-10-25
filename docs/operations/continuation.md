@@ -3,8 +3,9 @@
 Current planning: [25 October backlog reassessment](backlog-reassessment-2026-10-25.md).
 Older recovery/cutover and OAuth-deferral instructions below are historical where
 superseded by later owner decisions. M2 remains active; use the latest checkpoint.
-GitHub issue/PR dispositions are proposed, not applied. Project-board-only drafts
-remain unassessed because read:project access was unavailable.
+Owner-approved legacy cleanup is applied: issues/PRs/phase milestones and the
+old Product Roadmap project are closed. Browser access resolved the CLI Project
+scope limitation. Use monorepo issue #20 for remaining work.
 
 Read root `AGENTS.md`, then the short current `PROGRESS.md`. Refresh [issue #20](https://github.com/abulhawa/german-master-2/issues/20), its comments and linked PRs before reporting status or implementing overlapping work. The [recovery runbook](recovery-execution-2026-10-23.md) describes the gated sequence. Old continuation instructions are retained in [history](history/continuation-through-2026-10-23.md); their paths are relative to their original location and their next actions are historical.
 
@@ -109,3 +110,15 @@ changed. Owner requested shutdown at a user-input/allowance boundary; checkpoint
 was saved at that boundary. Android release remains held.
 
 25 October: login icons and explicit authentication Home exits are verified locally. See latest PROGRESS. Provider activation remains unfinished. Owner requested tighter verification and objected to allowance consumption; no further checks at this handoff.
+
+
+## Navigation and legacy retirement - 25 October 2026
+
+Legacy issues/PRs/phase milestones and Product Roadmap project 2 are closed with
+owner approval; issue #20 now describes remaining GM2 readiness. Do not reopen
+or recreate old tasks from imported roadmaps. Single practice Home with optional
+sign-in remains the product; historical guest storage names preserve data only.
+Web main/practice/auth navigation now uses shared browser history, with local
+Back/Forward/draft evidence. Native auth Back follows prior pages. See newest
+PROGRESS for verification and rollout boundaries. Do not claim these source
+changes deployed or installed on the phone automatically.

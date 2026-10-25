@@ -33,11 +33,21 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
     DisposableEffect(client) { onDispose { provider.invalidate();CoroutineScope(Dispatchers.IO).launch { client.close();oauthClient.close() } } }
     var showLogin by remember { mutableStateOf(false) }
     var accountMode by remember { mutableStateOf<String?>(null) }
+    val accountHistory=remember { mutableListOf<String>() }
+    fun navigateAccount(next:String?) {
+        if(next==null){accountHistory.clear();showLogin=false}
+        else if(next!=accountMode)accountMode?.let {accountHistory.add(it)}
+        accountMode=next
+    }
+    fun backAccount() {
+        if(accountHistory.isEmpty())navigateAccount(null)
+        else accountMode=accountHistory.removeAt(accountHistory.lastIndex)
+    }
     val appearancePrefs = remember(context) { context.getSharedPreferences("gm-v2-appearance", android.content.Context.MODE_PRIVATE) }
     var german by remember { mutableStateOf(appearancePrefs.getBoolean("german",false)) }
     fun changeLanguage() { german=!german;appearancePrefs.edit().putBoolean("german",german).apply() }
     var localOnly by remember { mutableStateOf(runCatching { subjectStore.read() != null }.getOrDefault(false)) }
-    LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false;accountMode=null } }
+    LaunchedEffect(status) { if(status is SessionStatus.Authenticated) { localOnly=false;showLogin=false;accountMode=null;accountHistory.clear() } }
     var callbackFailed by remember { mutableStateOf(false) }
     LaunchedEffect(authCallback) {
         val uri=authCallback?.data ?: return@LaunchedEffect
@@ -61,17 +71,17 @@ fun NativeProviderHost(project: String, publishableKey: String, origin: String, 
         key(status,localOnly) { ProviderLearnerShell(provider,origin,directory,0,localOnly,
             locale=if(german) "de" else "en",
             onLocal=if(!localOnly && runCatching { subjectStore.read()!=null }.getOrDefault(false)) ({localOnly=true}) else null,
-            onSignIn={ accountMode="sign-in";showLogin=true }) }
+            onSignIn={ navigateAccount("sign-in");showLogin=true }) }
         return
     }
     LaunchedEffect(status) { provider.invalidate() }
     val mode = accountMode
     if(mode == null) {
         NativeGuestEntry(File(context.noBackupFilesDir,"gm-v2-guest"), german,
-            {changeLanguage()}, {accountMode=it},
+            {changeLanguage()}, {navigateAccount(it)},
             if(runCatching {subjectStore.read()!=null}.getOrDefault(false)) ({localOnly=true;showLogin=false}) else null)
     } else {
-        NativeAccountEntry(mode,german,{changeLanguage()},{accountMode=it;if(it==null)showLogin=false},socialSignIn={ name ->
+        NativeAccountEntry(mode,german,{changeLanguage()},{navigateAccount(it)},back={backAccount()},socialSignIn={ name ->
             client.auth.awaitInitialization()
             val external=when(name){"google"->Google;"azure"->Azure;else->error("Unknown sign-in provider")}
             val url=oauthClient.auth.getOAuthUrl(external,learnerOAuthRedirect(context.packageName)) {

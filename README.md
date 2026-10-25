@@ -29,11 +29,11 @@ Finish the owner-requested provider setup and concrete release blockers, close
 M2's remaining gate, then complete M3-M5 acceptance in order and the M6 pilot.
 Do not reopen bootstrap, perform another reset, expand features or publish Android
 from this work order. [Issue #20](https://github.com/abulhawa/german-master-2/issues/20)
-remains open; its stale GitHub body needs the proposed rewrite in the reassessment.
+remains open and now tracks the remaining release-readiness work.
 
 Read [AGENTS.md](AGENTS.md), the latest checkpoint, relevant blueprint sections and
-ADRs before behavior changes. GitHub Project-board drafts were not accessible in
-this review; no GitHub issues or preserved repositories were modified.
+ADRs before behavior changes. The owner approved the legacy cleanup: obsolete issues/PRs/milestones and the
+old Product Roadmap board are closed. Repository source histories are preserved.
 
 ## Repository layout
 
