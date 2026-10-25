@@ -464,3 +464,14 @@ push, phone replacement install or store release is part of this slice.
 Next: roll out the verified navigation change under applicable authorization;
 finish provider configuration and remaining issue-20 acceptance. M2 and Android
 publication hold are unchanged.
+
+
+## Web logo Home link — 25 October 2026
+
+Web signed-out/signed-in rail logos and the sign-in wordmark now link Home via
+the existing navigation handlers, preserving practice state. Links retain the
+existing appearance and provide keyboard focus. This is a web navigation
+convention; native Home/close behavior is unchanged.
+Validation: one focused existing draft-preservation test passed; diff whitespace
+check passed. Full suites deferred to CI at owner request. No deployment or push.
+Next: roll out with the pending web changes under applicable authorization.

@@ -310,7 +310,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
 
   return <main className={`gm-foundation gm-workspace ${view === 'practice' ? 'gm-focused' : ''}`} data-theme={appearance.theme} lang={state.locale}>
     {view !== 'practice' && <aside className="gm-rail">
-      <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
+      <a className="gm-wordmark" href="#/learn/home" aria-label={`German Master — ${c.home}`} onClick={event=>{event.preventDefault();setEditingSetup(false);navigate('home');}}><AppMark/><strong>German Master<span>.</span></strong></a>
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>

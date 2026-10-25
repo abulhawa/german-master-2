@@ -183,7 +183,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   }} onReauthenticate={()=>openAuth('sign-in')} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();
-  return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><strong>German Master.</strong><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
+  return <main className="gm-foundation gm-auth" data-theme={appearance.theme} lang={locale}><div className="gm-auth-art"><a className="gm-brand-home" href="#/learn/home" aria-label={`German Master — ${c.home}`} onClick={event=>{event.preventDefault();if(!busy)returnHome();}} aria-disabled={busy}><strong>German Master.</strong></a><StudyArt/><p>{shellCopy[locale].learningNote}</p></div><div className="gm-column"><PracticeCard>
     <h1>{register?c.registerTitle:c.title}</h1><FoundationButton disabled={busy} onClick={()=>setLocale(locale==='en'?'de':'en')}>English / Deutsch</FoundationButton>
     {guestAttempts>0&&<p role="status">{c.guestPreserved(guestAttempts)}</p>}
     <FoundationButton className="gm-secondary" disabled={busy} onClick={returnHome}>{c.home}</FoundationButton>

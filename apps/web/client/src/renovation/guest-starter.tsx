@@ -503,7 +503,7 @@ export function GuestStarterJourney({
 
   if (view !== "practice") return <main className="gm-foundation gm-workspace gm-public-workspace" data-theme={appearance.theme} lang={state.locale}>
     <aside className="gm-rail">
-      <div className="gm-wordmark"><AppMark/><strong>German Master<span>.</span></strong></div>
+      <a className="gm-wordmark" href="#/learn/home" aria-label={`German Master — ${c.home}`} onClick={event=>{event.preventDefault();setView("home");}}><AppMark/><strong>German Master<span>.</span></strong></a>
       <nav aria-label={c.navigation} className="gm-rail-navigation">
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item =>
           <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id ? 'page' : undefined} onClick={() => setView(item.id)}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
