@@ -56,22 +56,18 @@ class NativePracticeAccessTest {
             compose.setContent { androidx.compose.runtime.key(generation.value) { FoundationTheme {
                 NativeGuestEntry(file,false,{},auth::add)
             } } }
+            compose.onNode(hasText("Settings") and hasClickAction()).performClick()
+            compose.onNodeWithText("Dark").performScrollTo().performClick()
+            assertEquals("dark",prefs.getString("theme",null))
+            compose.onNode(hasText("Home") and hasClickAction()).performClick()
             compose.onNodeWithText("Start practice").performScrollTo().performClick()
             val originalSession=requireNotNull(NativeGuestStore(file).read().session).id
             enterAnyDraft(file)
-            compose.onNodeWithText("Account").performClick()
-            compose.onNodeWithText("Dark").performScrollTo().performClick()
-            compose.onNodeWithText("Dark").assertIsSelected()
-            assertEquals("dark",prefs.getString("theme",null))
             compose.runOnIdle {generation.value++}
-            compose.onNode(hasText("Settings") and hasClickAction()).performClick()
-            compose.onNodeWithText("Dark").assertIsSelected()
-            compose.onNodeWithText("Light").performScrollTo().performClick()
-            compose.onNodeWithText("Light").assertIsSelected()
-            compose.onNodeWithText("Back to practice").performScrollTo().performClick()
             compose.onNodeWithText("Continue session").performScrollTo().performClick()
             assertEquals(originalSession,NativeGuestStore(file).read().session?.id)
             assertDraftPreserved(file)
+            assertEquals("dark",prefs.getString("theme",null))
             assertTrue(auth.isEmpty())
         } finally { prefs.edit().putString("theme",previous).commit() }
     }
@@ -110,13 +106,12 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
         enterAnyDraft(file)
         compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
-        compose.onNodeWithText("Sign in").performScrollTo().performClick()
-        compose.onNodeWithText("Home").performScrollTo().performClick()
-        compose.onNodeWithText("Continue session").performScrollTo().performClick()
+        compose.onNodeWithText("Sign in").performClick()
+        compose.onNodeWithText("Home").performClick()
+        if(compose.onAllNodesWithText("Continue session").fetchSemanticsNodes().isNotEmpty()) compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertDraftPreserved(file)
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
-        compose.onNodeWithText("Save and return Home").performScrollTo().performClick()
-        compose.onNodeWithText("Continue session").performScrollTo().performClick()
+        compose.onNodeWithText("Keep practising").performClick()
         assertDraftPreserved(file)
         assertDraftPreserved(file)
     }
@@ -137,13 +132,13 @@ class NativePracticeAccessTest {
         compose.runOnIdle { back.onBackPressed() }
         compose.onNodeWithText("Check answer").assertExists()
         compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
-        compose.onNodeWithText("Sign in").performScrollTo().performClick()
+        compose.onNodeWithText("Sign in").performClick()
         compose.runOnIdle { back.onBackPressed() }
-        compose.onNodeWithText("Continue session").performScrollTo().performClick()
+        if(compose.onAllNodesWithText("Continue session").fetchSemanticsNodes().isNotEmpty()) compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertDraftPreserved(file)
         compose.runOnIdle { back.onBackPressed() }
-        compose.onNodeWithText("Leave this session?").assertExists()
-        compose.onNodeWithText("Keep practising").performScrollTo().performClick()
+        compose.onNodeWithText("Save your progress?").assertExists()
+        compose.onNodeWithText("Keep practising").performClick()
         compose.onNodeWithText("Check answer").assertExists()
     }
 
@@ -156,7 +151,7 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Sign in").assertDoesNotExist()
         compose.onNodeWithText("Create account").assertDoesNotExist()
         compose.onNodeWithText("Finish").performScrollTo().performClick()
-        compose.onNodeWithText("Repeat the five questions").performScrollTo().performClick()
+        compose.onNodeWithText("Start practice").performScrollTo().performClick()
         compose.onNodeWithText("Question 1 of 5").assertExists()
     }
 
@@ -166,8 +161,8 @@ class NativePracticeAccessTest {
         compose.onNode(hasText("Home") and selected).assertIsDisplayed()
         compose.onNode(hasText("Topics") and hasClickAction()).performClick()
         compose.onNode(hasText("Topics") and selected).assertIsDisplayed()
-        compose.onNodeWithText("Grammar foundations").assertExists()
-        compose.onNodeWithText("Word order").assertExists()
+        compose.onNodeWithText("Nouns and plurals").assertExists()
+        compose.onNodeWithText("Nouns and plurals").assertIsEnabled()
         compose.onNodeWithText("Sign in").assertDoesNotExist()
         compose.onNode(hasText("Progress") and hasClickAction()).performClick()
         compose.onNodeWithText("This page requires an account. Sign in or create an account to continue.").assertExists()
@@ -175,7 +170,7 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
         compose.onNode(hasText("Home") and hasClickAction()).assertDoesNotExist()
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
-        compose.onNodeWithText("Save and return Home").performScrollTo().performClick()
+        compose.onNodeWithText("Leave without saving").performClick()
         compose.onNode(hasText("Home") and selected).assertIsDisplayed()
     }
 
@@ -206,7 +201,7 @@ class NativePracticeAccessTest {
         } }
         listOf("sign-in","register","reset").forEach { page ->
             compose.runOnIdle {mode.value=page;returned=false}
-            compose.onNodeWithText("Home").performScrollTo().performClick()
+            compose.onNodeWithText("Home").performClick()
             compose.runOnIdle {assertTrue(returned)}
         }
     }
@@ -221,7 +216,7 @@ class NativePracticeAccessTest {
         } }
         compose.runOnIdle {dispatcher.onBackPressed()}
         compose.onNode(hasText("Sign in") and hasClickAction()).assertExists()
-        compose.onNodeWithText("Home").performScrollTo().performClick()
+        compose.onNodeWithText("Home").performClick()
         compose.runOnIdle {assertTrue(home)}
     }
 

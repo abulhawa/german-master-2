@@ -70,6 +70,34 @@ this checkpoint.
 
 ## Historical checkpoints
 
+### Additional bounded stabilization — 26 October 2026
+
+Owner explicitly resumed work using the remaining allowance. Fixed a real catalog
+regression: changing level/context hid previously practised targets even though
+they remain eligible for reinforcement. Catalog and runtime selection now retain
+those existing targets; new targets remain bounded by preferences. Existing rounds,
+immutable revisions and historical timezone evidence remain unchanged.
+
+Verification: focused backend profile/adoption suites 20/20 pass; web/backend
+TypeScript pass. HTTP rerun after window.Event fixed three failures (14/20 pass).
+The remaining six content journeys assumed remount always went Home; updated them
+to accept actual restored Practice navigation and await background reads. The
+content integration rerun passes 7/7, retaining exact frozen-attempt replay and
+one-evidence assertions. No full combined HTTP/backend rerun after these changes.
+
+Android lintDebug and assembleDebug pass offline. Updated native access tests for
+explicit temporary-practice leave choices, current topic labels and actual auth
+return routes. One run reached 9/10, but the final run passed 8/10: randomized
+answer selection/draft preservation remains unstable, and another native access
+assertion remains unresolved. Do not call native runtime acceptance complete or
+weaken draft assertions. Final next action is to reproduce these failures with a
+deterministic selected exercise and check draft persistence before/after recreation.
+No release, installation, live account/content operation or provider change.
+
+Remaining release limits above still apply, especially cross-device draft resume,
+live lifecycle/export/account isolation and owner Android UX approval. Work and
+social capabilities stay disabled. Stop at the saved allowance checkpoint.
+
 Updated 25 October 2026. See the [current backlog reassessment](docs/operations/backlog-reassessment-2026-10-25.md); dated entries below preserve implementation history. Recovery tracking: [issue #20](https://github.com/abulhawa/german-master-2/issues/20). Earlier checkpoints are preserved in [history](docs/operations/history/progress-through-2026-10-23.md); their paths are relative to repository root.
 
 ## Priority and authorization

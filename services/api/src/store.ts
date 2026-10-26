@@ -465,7 +465,7 @@ export class FoundationStore {
       topics: [...topics.values()], targets: rows.rows.map(r => {
         const text = (this.runtimeCatalog?.targets ?? metadata.targets).find(t => t.id === r.id);
         if (!text) throw Error('Missing catalog metadata');
-        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && (profile.preferences.level !== r.level || ('learningContext' in text ? text.learningContext ?? 'general' : 'general') !== (profile.preferences.learningContext ?? 'general')) ? 0 : r.count };
+        return { ...text, topicId: r.topic_id, level: r.level, availableQuestionCount: profile && !practisedTargets.has(r.id) && (profile.preferences.level !== r.level || ('learningContext' in text ? text.learningContext ?? 'general' : 'general') !== (profile.preferences.learningContext ?? 'general')) ? 0 : r.count };
       }) });
   }
 
@@ -516,9 +516,9 @@ export class FoundationStore {
         const now = this.clock().toISOString();
         const profile = await this.profileIn(tx, userId);
         const focus = "focus" in request ? request.focus : null;
-        const eligible = await tx.query<SelectionCandidate>(
+        const eligible = await tx.query<SelectionCandidate & { practised: boolean }>(
           `SELECT e.target_id AS "targetId",r.exercise_id AS "exerciseId",r.revision,
-            COALESCE(st.snapshot->>'state','new') AS state,sc.due_at AS "dueAt",
+            COALESCE(st.snapshot->>'state','new') AS state,sc.due_at AS "dueAt",st.user_id IS NOT NULL AS practised,
             st.snapshot->>'lastInformativeAt' AS "lastInformativeAt",
             i.variant_key AS "variantKey",i.context_key AS "contextKey",i.transfer_key AS "transferKey",
             t.kind AS "targetKind",st.snapshot->'qualifyingChecks' AS "qualifyingChecks",
@@ -541,7 +541,7 @@ export class FoundationStore {
         const context = request.learningContext ?? profile.preferences.learningContext ?? 'general';
         const eligibleTargets = this.runtimeCatalog ? new Set(this.runtimeCatalog.targets
           .filter(t => t.level === profile.preferences.level && ('learningContext' in t ? t.learningContext ?? 'general' : 'general') === context).map(t=>t.id)) : null;
-        const questions = selectQuestions(eligible.rows.filter(c=>!eligibleTargets || eligibleTargets.has(c.targetId)).map(c => ({ ...c,
+        const questions = selectQuestions(eligible.rows.filter(c=>c.practised || !eligibleTargets || eligibleTargets.has(c.targetId)).map(c => ({ ...c,
           qualifyingChecks: c.qualifyingChecks ?? [],
           lastPresentedAt: c.lastPresentedAt ? new Date(c.lastPresentedAt).toISOString() : null,
           dueAt: c.dueAt ? new Date(c.dueAt).toISOString() : null })), request.questionCount, now);

@@ -100,23 +100,32 @@ for (const [family, targetId, level] of [
       saveJourney(storage,state);
       const props = {api,storage,reserve:db};
       let ui = render(<OwnedLearnerJourney {...props} />);
-      await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
-      fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
+      if(screen.queryByRole('button',{name:'Continue practice'})){
+        await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
+        fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
+      }
       await screen.findByRole('heading',{name:exercise.prompt});
-      expect(screen.getByRole('button',{name:'Check answer'})).toBeDisabled();
+      expect(await screen.findByRole('button',{name:'Check answer'})).toBeDisabled();
       select(exercise,rubric.acceptedAnswers[0]);
       await waitFor(()=>expect(readJourney(storage).practice!.draft).toEqual(rubric.acceptedAnswers[0]));
       ui.unmount(); ui = render(<OwnedLearnerJourney {...props} />);
-      await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
-      fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
+      if(screen.queryByRole('button',{name:'Continue practice'})){
+        await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
+        fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
+      }
+      await screen.findByRole('heading',{name:exercise.prompt});
       await waitFor(()=>expect(screen.getByRole('button',{name:'Check answer'})).toBeEnabled());
       fireEvent.click(screen.getByRole('button',{name:'Check answer'}));
       await waitFor(()=>expect(attempts).toHaveLength(1));
       await waitFor(()=>expect(readJourney(storage).practice!.pending).not.toBeNull());
       ui.unmount(); ui = render(<OwnedLearnerJourney {...props} />);
-      await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
-      fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
-      fireEvent.click(await screen.findByRole('button',{name:'Retry',exact:true}));
+      if(screen.queryByRole('button',{name:'Continue practice'})){
+        await waitFor(()=>expect(screen.getByRole('button',{name:'Continue practice'})).toBeEnabled());
+        fireEvent.click(screen.getByRole('button',{name:'Continue practice'}));
+      }
+      await screen.findByRole('heading',{name:exercise.prompt});
+      await waitFor(()=>expect(screen.getByRole('button',{name:'Retry',exact:true})).toBeEnabled());
+      fireEvent.click(screen.getByRole('button',{name:'Retry',exact:true}));
       await waitFor(()=>expect(readJourney(storage).practice!.confirmedCount).toBe(1));
       expect(attempts[1]).toBe(attempts[0]);
       expect(readJourney(storage).practice!.evaluation?.outcome).toBe('correct');
