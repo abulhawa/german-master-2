@@ -125,7 +125,7 @@ function computeDatasetVersion(
       plural: row.plural,
     })),
   );
-  const version = createHash('sha256').update(payload).digest('hex');
+  const version = createHash('sha1').update(payload).digest('hex');
   cachedDatasetVersion = { signature, version };
   return version;
 }
