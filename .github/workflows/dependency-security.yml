@@ -1,0 +1,55 @@
+name: Dependency security audit
+
+on:
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/web/package.json'
+      - 'services/api/package.json'
+      - 'contracts/package.json'
+      - 'packages/learning-engine/package.json'
+      - '.github/workflows/dependency-security.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/web/package.json'
+      - 'services/api/package.json'
+      - 'contracts/package.json'
+      - 'packages/learning-engine/package.json'
+      - '.github/workflows/dependency-security.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  npm-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Identify security issues in resolved dependency tree
+        run: |
+          npm audit --json > "$RUNNER_TEMP/audit.json" || true
+          node - "$RUNNER_TEMP/audit.json" <<'NODE'
+          const fs = require('node:fs');
+          const audit = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+          for (const [pkg, info] of Object.entries(audit.vulnerabilities || {})) {
+            console.log(JSON.stringify({
+              package: pkg, severity: info.severity,
+              via: info.via.map(v => typeof v === 'string' ? v : { name: v.name, title: v.title, url: v.url, range: v.range }),
+              range: info.range, fixAvailable: info.fixAvailable
+            }));
+          }
+          console.log('AUDIT_TOTALS', JSON.stringify(audit.metadata?.vulnerabilities || {}));
+          NODE
+      - name: Require no high or critical npm findings
+        run: npm audit --audit-level=high
