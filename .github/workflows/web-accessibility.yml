@@ -56,7 +56,7 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Keyboard reflow and semantic acceptance
         run: |
-          for attempt in 1 2 3; do
-            echo "Accessibility repetition $attempt of 3"
+          for attempt in $(seq 1 20); do
+            echo "Accessibility repetition $attempt of 20"
             node apps/web/scripts/verify-v2-accessibility.mjs
           done
