@@ -55,4 +55,8 @@ jobs:
       - name: Install isolated Chromium
         run: npx playwright install --with-deps chromium
       - name: Keyboard reflow and semantic acceptance
-        run: node apps/web/scripts/verify-v2-accessibility.mjs
+        run: |
+          for attempt in 1 2 3; do
+            echo "Accessibility repetition $attempt of 3"
+            node apps/web/scripts/verify-v2-accessibility.mjs
+          done
