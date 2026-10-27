@@ -43,7 +43,7 @@ class NativeTopicsUiTest {
         compose.waitUntil(10000) { repo.state.profile != null }
         compose.waitForIdle()
         compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
-        compose.onNodeWithText("Grammar").performScrollTo().performClick()
+        compose.onNode(hasText("Grammar") and hasText("1 questions available.")).performScrollTo().performClick()
         compose.onNodeWithText("Nouns · B1").performScrollTo().performClick()
         compose.onNodeWithText("Noun description").assertExists()
         compose.onNodeWithText("No practice results to show yet.").assertExists()
@@ -55,7 +55,7 @@ class NativeTopicsUiTest {
         compose.runOnIdle { requireNotNull(back).onBackPressed() }
         compose.onNodeWithText("Pause and return Home").performClick()
         compose.onNode(hasText("Topics", substring = false) and hasClickAction()).performClick()
-        compose.onNodeWithText("Grammar").performScrollTo().performClick()
+        compose.onNode(hasText("Grammar") and hasText("1 questions available.")).performScrollTo().performClick()
         compose.onNodeWithText("Practise this (1)").assertIsNotEnabled()
         compose.onNodeWithText("Continue practice").performScrollTo().performClick()
         compose.waitForIdle()

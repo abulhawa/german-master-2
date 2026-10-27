@@ -24,8 +24,13 @@ import java.io.File
 class MobileDesignScreenshotTest {
     @get:Rule val compose = createComposeRule()
     @get:Rule val folder = TemporaryFolder()
-    private fun mount(german: Boolean = false, largeText: Boolean = false) {
+    private fun mount(german: Boolean = false, largeText: Boolean = false, practice: Boolean = false) {
         val path = File(folder.root, "practice")
+        if(practice) {
+            val context=androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+            val starter=ContractReader.json.decodeFromString<GuestStarterContent>(context.assets.open("starter.json").bufferedReader().use {it.readText()})
+            NativeGuestStore(path).write(NativeGuestState(started=true,session=starter.session))
+        }
         compose.setContent {
             CompositionLocalProvider(LocalDensity provides Density(LocalDensity.current.density, if(largeText) 1.6f else 1f)) {
                 FoundationTheme { NativeGuestEntry(path, german, {}, {}) }
@@ -40,12 +45,12 @@ class MobileDesignScreenshotTest {
     @Test @Config(qualifiers = "w320dp-h720dp-notnight-320dpi")
     fun narrowGermanHome() { mount(true); capture("home-german-320") }
     @Test fun selectedAnswer() {
-        mount(); compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        mount(practice=true); compose.onNodeWithText("Continue session").performScrollTo().performClick()
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
         capture("practice-selected")
     }
     @Test fun incorrectFeedback() {
-        mount(); compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        mount(practice=true); compose.onNodeWithText("Continue session").performScrollTo().performClick()
         compose.onNodeWithText("Berufen").performScrollTo().performClick()
         compose.onNodeWithText("Check answer").performScrollTo().performClick()
         compose.onNodeWithText("Not quite").performScrollTo().assertExists()

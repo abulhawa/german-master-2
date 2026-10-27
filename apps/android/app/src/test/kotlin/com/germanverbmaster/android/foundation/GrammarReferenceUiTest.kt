@@ -3,6 +3,7 @@ package com.germanverbmaster.android.foundation
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import com.germanverbmaster.android.learner.*
+import com.germanverbmaster.android.foundation.contract.*
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
@@ -19,8 +20,11 @@ class GrammarReferenceUiTest {
     @get:Rule val folder=TemporaryFolder()
     @Test fun referenceCanBeSearchedAndClosedWithoutChangingPractice() {
         val path=File(folder.root,"practice");val auth=mutableListOf<String>()
+        val context=androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val starter=ContractReader.json.decodeFromString<GuestStarterContent>(context.assets.open("starter.json").bufferedReader().use {it.readText()})
+        NativeGuestStore(path).write(NativeGuestState(started=true,session=starter.session))
         compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{},auth::add)}}
-        compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        compose.onNodeWithText("Continue session").performScrollTo().performClick()
         compose.onNodeWithText("Berufe").performScrollTo().performClick()
         val before=NativeGuestStore(path).read()
         compose.onNodeWithText("Grammar",substring=false).performScrollTo().performClick()

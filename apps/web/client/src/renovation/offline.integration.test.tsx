@@ -43,7 +43,8 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
   const makeHost=()=>({client:{auth},provider:new VerifiedLearnerProvider(auth as unknown as SupabaseClient['auth'],project)}) as unknown as ReturnType<typeof createLearnerProvider>;
   let ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
   try {
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Start downloaded practice')).toBeEnabled();});
+    fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));
+    await waitFor(()=>expect(screen.getByText('Start downloaded practice')).toBeEnabled());
     fireEvent.click(screen.getByText('Start downloaded practice'));
     await screen.findByText('Question 1 / 5');
     const repo=new OfflineRepository(db);const [id]=await repo.list();const {session}=await repo.read(id);

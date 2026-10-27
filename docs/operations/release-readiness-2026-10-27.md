@@ -1,5 +1,34 @@
 # Release readiness assessment — 27 October 2026
 
+## Follow-up execution: local checks green, provider acceptance in progress
+
+This update supersedes the earlier failing local results below. Root `npm test`
+now passes 199 backend, 458 web and 20 HTTP tests. Root generated/type checks and
+production build pass. Offline-shell and accessibility browser checks pass.
+Native full tests: 212 total, zero failures/errors, one existing skip; debug lint,
+assembly and preview build pass. A native nanosecond timestamp crash on Check
+answer was corrected to the shared millisecond format and covered by regression.
+Old native starter/exit/count/duplicate-topic test assumptions were reconciled
+without weakening draft assertions. No owner UX acceptance is inferred.
+
+Explicit owner approval covers the GM2 callback in the existing Google/Microsoft
+apps, exact native production/preview redirects, and enabling configured providers.
+Google's GM2 callback is saved and its provider is enabled with the owner-entered
+replacement credential. Microsoft app callback is saved; owner secret entry is
+pending. Supabase now allows `com.germanverbmaster.android.auth://callback` and
+`com.germanverbmaster.android.preview.auth://callback`. Do not copy credentials
+into source, evidence or chat. The old exposed Google credential must be retired
+through an owner-coordinated rotation after dependent legacy integrations are
+accounted for; adding a replacement does not revoke the old credential.
+
+Source social gates remain disabled until real handoff acceptance. Actual
+Google/Microsoft account creation/return/cancellation, real privacy/export and
+native lifecycle acceptance remain open. Phone now authorizes ADB; preview
+replacement install preserves app data. A local-fixture build was initially
+installed; a production-public-configured replacement has been built. Only the
+latter can substantiate live native Auth behavior. Device auto-lock still needs
+an unlocked test interval. No push, production deployment, store upload or tag.
+
 Verdict: **not ready to freeze/tag a release candidate**. M2 remains active.
 Scope is the [finite stabilization checklist](stabilize-release-2026-10-26.md).
 This is a bounded status/verification slice, not a renewed renovation.

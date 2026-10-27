@@ -1,5 +1,45 @@
 # German Master 2.0 current checkpoint
 
+## Bounded readiness fixes and provider setup - 27 October 2026
+
+Owner requested finishing readiness and resuming Google/Microsoft activation.
+The previous local-check failures below are superseded by these fresh results:
+root `npm test` passes 199 backend + 458 web + 20 HTTP tests; generated/type checks
+and production build pass. Offline-shell browser acceptance and the accessibility
+browser audit pass after fixing the stale Account selector, repeated navigation
+inside the offline test polling callback, and the web Home link's 44px target.
+Native full suite: 212 tests, zero failures/errors, one existing skip. LintDebug,
+assembleDebug and learnerPreview builds pass offline. Restored deterministic
+starter fixtures and current explicit-exit/five-question assertions; duplicate
+Grammar selectors now distinguish the topic row from the reference button.
+
+A real native submission defect was found and fixed: nanosecond clock timestamps
+violated the strict GuestAttempt contract. Native temporary-practice answers now
+use canonical millisecond timestamps, with a high-resolution clock regression.
+This matches web Date ISO serialization; no grading/content policy changed.
+Automated renders are test artifacts, not renewed owner UX/TalkBack acceptance.
+
+Provider setup is in progress under explicit owner configuration approval. The
+existing Google web client and Microsoft GermanVerbMaster registration were found;
+both had callbacks for older implementations. GM2 callbacks are now saved in both
+registrations, Google is enabled in the clean Supabase project using the
+owner-entered replacement secret, and exact production/preview Android return
+URLs are saved. Microsoft secret entry and actual both-client provider handoffs
+remain pending. Application social gates stay disabled until accepted handoffs;
+no credential value is recorded in tracked evidence. See dated readiness report.
+
+Phone is ADB-authorized. The updated preview was replacement-installed without
+data clearing; the first build used local-fixture configuration and is not live
+Auth acceptance. A second preview was built with the existing production public
+configuration. Device functional acceptance remains in progress; auto-lock was
+observed. No store publication, push, deployment or release tag in this slice.
+
+Next: finish owner credential handoff, prove Google/Microsoft sign-in/cancellation
+and native round retention, then enable provider UI on both clients in the same
+slice. Preserve round-only consent/account isolation and complete remaining real
+lifecycle/export/rollback evidence before a candidate tag. Android publication
+hold remains. Do not infer hosted CI success from these local checks.
+
 ## Release readiness reassessment - 27 October 2026
 
 New owner request resumes bounded readiness work. **Not release-ready; M2 remains

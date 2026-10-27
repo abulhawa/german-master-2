@@ -59,6 +59,8 @@ class NativeGuestStore(private val path:File) {
     fun authorize(){write(read().copy(saveRequested=true))}
 }
 
+internal fun nativeGuestAnsweredAt(now:Instant=Instant.now()):String = now.truncatedTo(java.time.temporal.ChronoUnit.MILLIS).toString()
+
 @Composable
 fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)->Unit,continueSaved:(()->Unit)?=null) {
     val context=LocalContext.current
@@ -239,7 +241,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                     primary(text("Check answer","Antwort prüfen"),nativeAnswerReady(exercise,state.draft)) {
                         val rubric=content.rubrics.first {it.exerciseId==exercise.id&&it.exerciseRevision==exercise.revision}
                         val evaluation=OfflineGrader.grade(exercise,rubric,ContractReader.json.encodeToJsonElement<Answer>(requireNotNull(state.draft)),if(state.assisted)listOf("hint")else emptyList())
-                        val attempt=GuestAttempt(UUID.randomUUID().toString(),content.session.contentReleaseId,exercise.id,exercise.revision,requireNotNull(state.draft),if(state.assisted)listOf("hint")else emptyList(),Instant.now().toString(),state.attempts.size)
+                        val attempt=GuestAttempt(UUID.randomUUID().toString(),content.session.contentReleaseId,exercise.id,exercise.revision,requireNotNull(state.draft),if(state.assisted)listOf("hint")else emptyList(),nativeGuestAnsweredAt(),state.attempts.size)
                         commit(state.copy(feedback=evaluation,graded=state.graded+1,correct=state.correct+if(evaluation.outcome=="correct")1 else 0,attempts=state.attempts+attempt,attemptIndices=state.attemptIndices+state.index))
                     }
                     TextButton(onClick={commit(state.copy(assisted=true))}){Text(text("Hint","Hinweis"))}

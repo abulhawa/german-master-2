@@ -57,7 +57,7 @@ try {
   await page.getByText('Local preview saved for offline launch.', { exact: true }).waitFor();
   await button(page, 'Save preferences').click();
   await page.getByRole('heading', {name:'A little practice. Lasting progress.', exact:true}).waitFor();
-  await button(page, 'Account').click();
+  await button(page, 'Settings').click();
   await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Download two sessions').click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
@@ -72,7 +72,7 @@ try {
   // Entire browser closes before going offline: no live document/module cache.
   await context.close();
   page = await launch(true);
-  await button(page, 'Account').click();
+  await button(page, 'Settings').click();
   await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
   await button(page, 'Start downloaded practice').click();
@@ -94,7 +94,7 @@ try {
   });
   await context.close();
   page = await launch(true);
-  await button(page, 'Account').click();
+  await button(page, 'Settings').click();
   await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await page.locator('.gm-offline-answer input').first().waitFor();
@@ -102,7 +102,7 @@ try {
   await button(page, 'Check answer').click();
   await button(page, 'Continue').waitFor();
   await page.reload();
-  await button(page, 'Account').click();
+  await button(page, 'Settings').click();
   await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Continue').click();
@@ -121,7 +121,7 @@ try {
   await button(page, 'Sync saved work (6)').waitFor();
   await context.close();
   page = await launch(true);
-  await button(page, 'Account').click();
+  await button(page, 'Settings').click();
   await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Sync saved work (6)').waitFor();
