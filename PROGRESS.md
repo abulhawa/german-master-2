@@ -1,5 +1,21 @@
 # German Master 2.0 current checkpoint
 
+## Budget-bounded Android acceptance follow-up - 27 October 2026
+
+Owner authorized a focused device pass while preserving at least 10% of the
+five-hour allowance. Initial live usage was 75% consumed; latest sampled usage
+was 80% consumed. No reset credits, paid service or new worker was used.
+Checkout/code remains at the deployed social-login implementation `bedea9f`.
+Hosted accessibility, CodeQL and repository safety pass at that revision; web
+and Android CI were still running when sampled. No new complete CI pass claimed.
+
+Device is connected and unlocked, but the owner switched to another app before
+the sign-in check. Interaction was paused to avoid tapping outside German Master.
+No new OAuth/device acceptance is claimed. Next: owner opens German Master Preview
+and leaves it untouched for a short provider sign-in/callback and saved-round
+restoration pass; password/consent handoffs stay owner-controlled. Keep the 10%
+reserve and stop around 12% remaining with a committed checkpoint if necessary.
+
 ## Social login activation and authorized web rollout - 27 October 2026
 
 Owner entered both provider credentials, approved callback/provider configuration,
