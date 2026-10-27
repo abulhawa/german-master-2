@@ -100,8 +100,18 @@ function installProviderFetchMock({
   const fetchMock = vi.fn(async (input: Parameters<typeof fetch>[0], init?: Parameters<typeof fetch>[1]) => {
     const url =
       typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+    const parsedUrl = (() => {
+      try {
+        return new URL(url);
+      } catch {
+        return null;
+      }
+    })();
 
-    if (url.includes('kaikki.org')) {
+    if (
+      parsedUrl &&
+      (parsedUrl.hostname === 'kaikki.org' || parsedUrl.hostname.endsWith('.kaikki.org'))
+    ) {
       const decoded = decodeURIComponent(url);
       const lemma = Object.keys(kaikkiByLemma).find((candidate) =>
         decoded.includes(`/${candidate}.jsonl`),
