@@ -25,8 +25,8 @@ Source social gates remain disabled until real handoff acceptance. Actual
 Google/Microsoft account creation/return/cancellation, real privacy/export and
 native lifecycle acceptance remain open. Phone now authorizes ADB; preview
 replacement install preserves app data. A local-fixture build was initially
-installed; a production-public-configured replacement has been built. Only the
-latter can substantiate live native Auth behavior. Device auto-lock still needs
+installed; a production-public-configured replacement was built and replacement-installed
+successfully. Only the latter can substantiate live native Auth behavior. Device auto-lock still needs
 an unlocked test interval. No push, production deployment, store upload or tag.
 
 Verdict: **not ready to freeze/tag a release candidate**. M2 remains active.

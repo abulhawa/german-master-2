@@ -31,8 +31,8 @@ no credential value is recorded in tracked evidence. See dated readiness report.
 Phone is ADB-authorized. The updated preview was replacement-installed without
 data clearing; the first build used local-fixture configuration and is not live
 Auth acceptance. A second preview was built with the existing production public
-configuration. Device functional acceptance remains in progress; auto-lock was
-observed. No store publication, push, deployment or release tag in this slice.
+configuration. The production-configured preview was then replacement-installed successfully.
+Device functional acceptance remains in progress; auto-lock was observed. No store publication, push, deployment or release tag in this slice.
 
 Next: finish owner credential handoff, prove Google/Microsoft sign-in/cancellation
 and native round retention, then enable provider UI on both clients in the same
