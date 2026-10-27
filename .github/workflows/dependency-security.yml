@@ -5,6 +5,8 @@ on:
     paths:
       - 'package.json'
       - 'package-lock.json'
+      - 'vendor/deepmerge/**'
+      - 'scripts/verify-vendored-deepmerge.mjs'
       - 'apps/web/package.json'
       - 'services/api/package.json'
       - 'contracts/package.json'
@@ -15,6 +17,8 @@ on:
     paths:
       - 'package.json'
       - 'package-lock.json'
+      - 'vendor/deepmerge/**'
+      - 'scripts/verify-vendored-deepmerge.mjs'
       - 'apps/web/package.json'
       - 'services/api/package.json'
       - 'contracts/package.json'
@@ -36,6 +40,8 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      - name: Verify patched build-time deepmerge
+        run: npm run security:deepmerge
       - name: Identify security issues in resolved dependency tree
         run: |
           npm audit --json > "$RUNNER_TEMP/audit.json" || true
