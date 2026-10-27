@@ -11,9 +11,8 @@ on:
       - 'services/**'
       - 'packages/**'
       - 'db/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.npmrc'
+      # Root npm changes are checked by Web checks and Dependency security audit.
+      # Do not rebuild the entire Android app for web-only lockfile updates.
       # Documentation and store artwork are not app or native HTTP test inputs.
       - '!**/*.md'
       - '!**/*.mdx'
@@ -36,7 +35,7 @@ jobs:
   verify:
     name: verify
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: ${{ github.event_name == 'workflow_dispatch' && 40 || 18 }}
     defaults:
       run:
         working-directory: apps/android
@@ -53,6 +52,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: npm
       - name: Check generated foundation contracts and tokens
         working-directory: .
         run: node contracts/scripts/generate.mjs --check && node design/generate.mjs --check
@@ -61,12 +61,18 @@ jobs:
         run: npm ci
       - uses: gradle/actions/setup-gradle@v4
         with:
-          # PR and automatic main builds never create Gradle caches.
-          # One manual run on main can refresh stale dependency caches.
-          cache-read-only: ${{ github.event_name != 'workflow_dispatch' || github.ref != 'refs/heads/main' }}
+          # PRs only read Gradle caches; trusted main builds write them.
+          # This warms caches for subsequent pull requests without allowing PR poisoning.
+          cache-read-only: ${{ github.event_name == 'pull_request' }}
       - name: Install imported app SDK requirements
         run: sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 'ndk;29.0.14206865'
+      - name: Fast native PR checks (Kotlin unit tests and debug app)
+        run: bash gradlew :app:testDebugUnitTest :app:assembleDebug --no-daemon --max-workers=4 --build-cache
+      # Full release assertions are required before publishing, but are too
+      # expensive to repeat on every small PR or push to main.
+      # Actions -> Android checks -> Run workflow executes all steps below.
       - name: Verify release rejects missing public v2 configuration
+        if: github.event_name == 'workflow_dispatch'
         run: |
           if bash gradlew :app:verifyV2ReleaseConfiguration --no-daemon --max-workers=2 > "$RUNNER_TEMP/release-config-guard.log" 2>&1; then
             echo "ERROR: Android release accepted empty public configuration"
@@ -74,6 +80,7 @@ jobs:
           fi
           grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-config-guard.log"
       - name: Reject non-production release host
+        if: github.event_name == 'workflow_dispatch'
         env:
           GM_V2_AUTH_PROJECT: sqgjsmiaprsuilcjmaav
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
@@ -85,6 +92,7 @@ jobs:
           fi
           grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/release-host-guard.log"
       - name: Reject retired production Auth project
+        if: github.event_name == 'workflow_dispatch'
         env:
           GM_V2_AUTH_PROJECT: zgmyrpzwgtydwlzponih
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
@@ -96,6 +104,7 @@ jobs:
           fi
           grep -q "Complete German Master 2.0 release public configuration required" "$RUNNER_TEMP/retired-project-guard.log"
       - name: Build unsigned production-configured release bundle
+        if: github.event_name == 'workflow_dispatch'
         env:
           GM_V2_AUTH_PROJECT: sqgjsmiaprsuilcjmaav
           GM_V2_AUTH_PUBLISHABLE_KEY: sb_publishable_ci_synthetic_not_a_credential
@@ -107,8 +116,9 @@ jobs:
           bash gradlew :app:bundleRelease --no-daemon --max-workers=4
           test -s app/build/outputs/bundle/release/app-release.aab
 
-      - name: Verify debug app, learner preview and lint
-        run: bash gradlew testDebugUnitTest assembleDebug assembleLearnerPreview lintDebug lintLearnerPreview --no-daemon --continue --max-workers=4
+      - name: Full native lint and learner-preview build
+        if: github.event_name == 'workflow_dispatch'
+        run: bash gradlew :app:assembleLearnerPreview :app:lintDebug :app:lintLearnerPreview --no-daemon --continue --max-workers=4 --build-cache
       - name: Report GitHub Actions cache usage (read-only)
         if: ${{ always() && !cancelled() }}
         env:
