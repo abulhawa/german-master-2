@@ -1,5 +1,33 @@
 # German Master 2.0 current checkpoint
 
+## Social login activation and authorized web rollout - 27 October 2026
+
+Owner entered both provider credentials, approved callback/provider configuration,
+and explicitly requested commit/push for personal live-site verification. Both
+Google and Microsoft/Azure are now enabled in the clean Supabase project. The
+Microsoft Application ID was reconciled to the existing GermanVerbMaster app;
+Google callback persistence was checked after reopening its existing web client.
+Exact native production/preview return URLs are saved. No secret is tracked.
+
+Both web and native social UI gates are enabled in this candidate. Work practice
+remains disabled. Owner will verify real signup/sign-in on the deployed site;
+activation is not a claim that completed OAuth exchange/account lifecycle passed.
+Latest checks: root generated/type checks pass; focused web provider suite 25/25
+and native access suite 10/10 pass; configured native preview assembles. Production
+web/API build is checked before push. Earlier full local suites are recorded below.
+
+Physical Pixel evidence: existing round/draft retained through explicit save/sign-in,
+Home cancellation and Keep practising; selected Berufe remained checked at question
+1/5. Check answer showed Correct without the timestamp exception. Force-stop/cold
+restart plus Keep practising restored the same question and feedback. No account
+attachment or store publication occurred. Broader live account/export/isolation
+acceptance and Android owner UX/publication hold remain open.
+
+Next: owner verifies Google and Microsoft signup/sign-in/cancellation on the live
+site after the authorized main push deploys. Reproduce/fix any callback failure
+without clearing practice or weakening account isolation. Record actual deployment
+result; do not tag a fully accepted release from configuration/unit evidence alone.
+
 ## Bounded readiness fixes and provider setup - 27 October 2026
 
 Owner requested finishing readiness and resuming Google/Microsoft activation.

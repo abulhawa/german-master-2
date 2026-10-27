@@ -1,5 +1,22 @@
 # Release readiness assessment — 27 October 2026
 
+## Latest: owner-authorized activation for live verification
+
+Owner completed both secret fields and approved callback/provider configuration.
+Google and Microsoft/Azure are enabled in Supabase, the GM2 callback is saved in
+both existing OAuth clients, and native return URLs are saved. Owner then explicitly
+requested commit/push and will verify signup/sign-in on the live site. Web/native
+social buttons are enabled in this candidate; Work stays disabled. This supersedes
+the pending-credential and disabled-social statements in historical sections below.
+
+Focused activation validation: root generated/type checks, 25 web provider tests,
+10 native access tests and configured preview assembly pass. Production build is
+checked before push. Physical draft preservation through cancelled auth, correct
+feedback and full process restart passed on the Pixel. Live OAuth exchange, actual
+export/account isolation and full lifecycle acceptance remain unclaimed. No store
+release/tag is authorized; retain Android owner UX hold. Main push is authorized
+for the owner's live verification, including its existing automatic web deployment.
+
 ## Follow-up execution: local checks green, provider acceptance in progress
 
 This update supersedes the earlier failing local results below. Root `npm test`

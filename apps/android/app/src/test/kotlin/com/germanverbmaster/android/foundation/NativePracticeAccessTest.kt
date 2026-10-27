@@ -208,15 +208,21 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Anmelden").assertIsEnabled()
         compose.onNodeWithText("Konto erstellen").assertIsEnabled()
     }
-    @Test fun socialOptionsStayHiddenUntilProviderActivation() {
+    @Test fun configuredSocialOptionsKeepEmailAndDispatchEachProvider() {
         val selected=mutableListOf<String>()
         val mode=mutableStateOf("sign-in")
         compose.setContent { FoundationTheme {
             NativeAccountEntry(mode.value,false,{}, {if(it!=null)mode.value=it},socialSignIn={selected.add(it)}) {_,_,_->error("Email must not be submitted")}
         } }
+        compose.onNodeWithText("Email").assertExists()
+        compose.onNodeWithText("Continue with Google").performScrollTo().performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("Continue with Microsoft").performScrollTo().performClick()
+        compose.waitForIdle()
+        assertEquals(listOf("google","azure"),selected)
+        compose.runOnIdle {mode.value="reset"}
         compose.onNodeWithText("Continue with Google").assertDoesNotExist()
         compose.onNodeWithText("Continue with Microsoft").assertDoesNotExist()
-        assertTrue(selected.isEmpty())
     }
 
     @Test fun homeExitIsAvailableOnEachAccountPage() {

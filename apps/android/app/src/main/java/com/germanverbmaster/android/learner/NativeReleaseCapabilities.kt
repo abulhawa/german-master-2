@@ -1,7 +1,7 @@
 package com.germanverbmaster.android.learner
 
-/** Learner-facing capabilities stay off until the corresponding release gates pass. */
+/** Work remains unpublished; configured social sign-in is enabled for owner verification. */
 internal object NativeReleaseCapabilities {
     const val workplacePractice = false
-    const val socialSignIn = false
+    const val socialSignIn = true
 }

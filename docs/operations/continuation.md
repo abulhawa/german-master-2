@@ -1,5 +1,12 @@
 # Continuing German Master recovery
 
+## Authorized social-login rollout - 27 October 2026
+
+Both providers are configured and the owner authorized commit/push to verify live.
+Web/native social UI gates are enabled; Work stays disabled. Use the newest
+PROGRESS section. Owner live OAuth acceptance remains pending; Android publication
+hold remains. Physical draft/auth-cancellation/feedback/cold-restart checks passed.
+
 ## Readiness work - 27 October 2026
 
 Use the latest PROGRESS front section and [dated readiness matrix](release-readiness-2026-10-27.md). Production is observed at dd8c873; no rollout in this readiness slice. Native Settings/Home draft loss is corrected locally. Next resolve intermittent offline-resume and browser acceptance failures, then remaining native functional and real lifecycle/rollback gates. No tag, push or deployment is implied. Android publication hold remains.

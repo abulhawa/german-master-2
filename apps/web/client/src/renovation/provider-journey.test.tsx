@@ -35,7 +35,7 @@ function fixture(initiallySignedIn=false) {
   const host={client:{auth},provider,dispose:()=>provider.invalidate()} as unknown as ReturnType<typeof createLearnerProvider>;
   return {auth,host,emit:(event:AuthChangeEvent)=>callback(event,session())};
 }
-afterEach(()=>{cleanup();localStorage.clear();sessionStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;releaseCapabilities.socialSignIn=false;});
+afterEach(()=>{cleanup();localStorage.clear();sessionStorage.clear();window.history.replaceState(null,'','/');vi.unstubAllGlobals();reads.enabled=false;releaseCapabilities.socialSignIn=true;});
 it('shows the verified account email and opens a prefilled reset with an Account return path',async()=>{
   const f=fixture(true);
   f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'verified@example.test'})},error:null});
@@ -184,7 +184,8 @@ it('saves an unanswered authorized round automatically after explicit sign-in',a
     else Reflect.deleteProperty(navigator,'locks');
   }
 });
-it('hides unverified social sign-in while retaining email authentication',async()=>{
+it('can gate social sign-in while retaining email authentication',async()=>{
+  releaseCapabilities.socialSignIn=false;
   const f=fixture();render(<ProviderLearnerJourney host={f.host} origin="https://api.example"/>);await openAuth();
   expect(screen.queryByRole('button',{name:'Continue with Google'})).toBeNull();
   expect(screen.queryByRole('button',{name:'Continue with Microsoft'})).toBeNull();
