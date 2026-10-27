@@ -1,5 +1,37 @@
 # German Master 2.0 current checkpoint
 
+## Release readiness reassessment - 27 October 2026
+
+New owner request resumes bounded readiness work. **Not release-ready; M2 remains
+active.** See [dated assessment](docs/operations/release-readiness-2026-10-27.md)
+for the completion matrix, hosted CI failures, verification and exact next action.
+This section supersedes stale deployment/evidence statements below.
+
+Read-only Vercel inspection: production is READY at `dd8c873`, deployment
+`dpl_959ot7XCCsrCYknBdKEZrqfVqnKx`; earlier not-deployed wording is stale.
+No deployment, push, tag, content/database change or store operation in this slice.
+
+Fixed demonstrated native unfinished-round loss on Settings to Home: only completed
+rounds are cleared by non-practice navigation. Pinned lifecycle fixtures compare
+exact round/draft/position; web equivalent retention regression passes. Native
+access/practice 20/20, lintDebug and assembleDebug pass offline. This is Robolectric
+and build evidence; physical device is ADB-unauthorized. Broader hosted native
+functional failures remain open; do not equate this focused result with acceptance.
+
+Fresh checks: generated/web/backend TypeScript and production build pass; backend
+199/199 and web 457/457 pass; updated guest suite 14/14 passes. Separate HTTP run
+passes 20/20, but full root npm test reproduces an offline cold-host failure
+(19/20 HTTP). It remains unresolved. Hosted browser offline-shell Account timeout
+and 32px Home-link accessibility target also remain open. Guardrail manifest and
+runbook reconciled to current finite scope; passing guardrails is not readiness.
+
+Next: resolve offline/browser failures, reconcile remaining native functional
+failures, then complete real lifecycle/privacy/export/account-isolation acceptance
+and compatible rollback verification on the exact candidate. No release tag until
+candidate gates pass. Cross-device unfinished-draft resume remains unavailable;
+Work/social stay disabled. Android owner UX/publication hold remains.
+
+
 ## Current priority — stabilize the core, 26 October 2026
 
 Owner adopted the [finite stabilization plan](docs/operations/stabilize-release-2026-10-26.md).

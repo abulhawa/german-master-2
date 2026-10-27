@@ -1,40 +1,53 @@
-# German Master 2.0 release-readiness guardrails
+# German Master 2.0 release readiness
 
-This runbook adds a deliberately non-deploying release check for German Master 2.0. It records immutable release inputs and fails on accidental changes to known safety invariants. It does **not** authorize or perform a deployment, database change, credential retrieval, signing operation, Play upload, content publication, or production cutover.
+The [26 October finite stabilization checklist](stabilize-release-2026-10-26.md)
+is the current release scope. See [the latest assessment](release-readiness-2026-10-27.md)
+for dated evidence and unresolved gates. M2 remains active.
 
-## What the workflow verifies
+## Repository guardrails
 
-The `Release readiness` workflow runs `tools/release/readiness.mjs` on relevant pull requests and on manual dispatch. The script verifies:
+The `Release readiness` workflow runs `tools/release/readiness.mjs` on relevant
+pull requests and manual dispatch. It verifies application identity, parseable
+Android version metadata, the configured clean replacement plan, disabled legacy
+import/Data API exposure, ignored secret-file patterns, and hashes of the clean
+baseline and role policies. It records main auto-deployment configuration.
 
-- Android application identity remains `com.germanverbmaster.android`.
-- Android version metadata can be parsed. The current source version is recorded, but store upload remains blocked until the **live highest published versionCode** is known and the new code is higher.
-- The dedicated staging project remains `german-master-v2-staging` / `zgmyrpzwgtydwlzponih` in Frankfurt `eu-central-1`.
-- The staging plan still forbids legacy-data import, Data API exposure of the learning schema, and implicit production cutover.
-- Common secret-bearing files remain ignored.
-- SHA-256 fingerprints are recorded for the clean v2 database baseline, both reviewed server-role policy files and the optional private identity-deletion subsystem setup.
-- The current web auto-deploy setting is recorded as evidence, not interpreted as v2 release approval.
+Run `node tools/release/readiness.mjs --output <private-evidence-path>` against the
+exact candidate commit. A passing manifest proves repository guardrails only;
+it does not inspect deployed settings, live users, current content or lifecycle
+behavior. Its external gates are reminders, not live status. Retain its commit
+and hashes with the release evidence. Never include credentials.
 
-The workflow uploads only the generated JSON manifest as a short-lived GitHub Actions artifact. The manifest contains repository identifiers, hashes and release metadata only. It intentionally contains no credentials.
+## Candidate completion
 
-## Gates that remain external
+- Whole-round save/resume, round-specific consent/account isolation and native
+  Continue must pass bounded client-specific acceptance.
+- General B1/B2 content needs bounded serious-error review. Work practice and
+  Google/Microsoft stay disabled; email remains available.
+- Verify signup/cancellation, save/resume, disconnect/reconnect, restart, sync,
+  inspected export, logout/account switching and concurrency. Fixture results
+  and physical/browser acceptance must be distinguished.
+- Record cross-device unfinished-draft resume as unavailable unless implemented
+  and verified; confirmed progress sync is a separate behavior.
+- Freeze/tag only after candidate gates pass. Record exact compatible web/API
+  artifacts, environment bindings and rollback steps before rollout.
+- Web deployment requires its applicable explicit authorization. Android Play
+  publication separately requires owner UX approval and a versionCode above the
+  live published maximum. Signing remains owner-held.
+- Run the small real-learner pilot after the stable web release. It is not
+  replaceable by model-assisted review or fixtures.
 
-A green readiness check means the repository has not violated these guardrails. It is not a release approval. Before a staged or public release, evidence is still required for:
+TalkBack retains its accepted scope. Off-machine backup is not an owner-required
+M0 gate; retain private recovery artifacts and required restore evidence.
+Previously published general content does not require republication merely to
+run this readiness check. Do not enable account deletion until its separate
+requirements and authorization are satisfied.
 
-1. the live Play published maximum versionCode and signing/key custody;
-2. approved staging credentials and application of only the clean v2 baseline plus reviewed role SQL;
-3. independent network connections, least-privilege/advisor checks, contention and representative load;
-4. independent German content review, design approval and accessibility acceptance;
-5. private off-machine backup plus a full isolated restore rehearsal;
-6. explicit deployment, Play upload and production cutover approval.
+## Rollback preparation
 
-The legacy web configuration currently enables main-branch deployment. German Master 2.0 release routing must be reviewed separately; this workflow does not promote or modify it.
-
-## Using the manifest during a release review
-
-Run the workflow on the exact candidate commit. Retain the manifest with the release evidence and compare its hashes to the reviewed database/policy files before schema application. Record the live Play maximum and candidate versionCode separately. If any immutable input changes after approval, rerun review rather than reusing the earlier evidence.
-
-Rollback follows the blueprint: redeploy the last compatible API/web artifacts, halt Android rollout and ship a higher-versionCode corrective build when necessary. Do not assume Play permits downgrade. Once real users exist, use forward-compatible database changes rather than destructive rollback.
-
-## Current milestone effect
-
-This closes no full milestone by itself. It advances GM-021 and M0/M6 release evidence by making provenance and approval boundaries machine-checkable. Live restore, signing continuity, deployment inventory, staging smoke and rollback rehearsal remain required.
+Identify and retain the last known compatible deployed web/API artifacts and
+verify their environment bindings before promotion. Redeploy those compatible
+artifacts if the candidate fails smoke checks. Preserve learner data; use
+forward-compatible database changes. Halt an Android rollout and use an
+owner-signed higher-versionCode corrective build where needed; Play downgrade
+must not be assumed. This document performs no rollback or deployment.

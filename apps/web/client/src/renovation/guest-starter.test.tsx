@@ -221,3 +221,19 @@ it('browser Back requires an explicit choice and keeps the current answer when c
  expect(screen.getByText('Correct')).toBeInTheDocument();
  expect(JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!).feedback.outcome).toBe('correct');
 });
+
+
+it("preserves an unfinished round while visiting Settings from Home", () => {
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
+  fireEvent.click(screen.getByRole("radio", { name: "Berufe" }));
+  const snapshot = sessionStorage.getItem(TEMPORARY_KEY);
+  cleanup();
+  window.history.replaceState(null, "", "/#/learn/home");
+  render(<GuestStarterJourney onAuth={vi.fn()} />);
+  fireEvent.click(screen.getByRole("button", { name: "Settings", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: "Home", exact: true }));
+  expect(sessionStorage.getItem(TEMPORARY_KEY)).toBe(snapshot);
+  fireEvent.click(screen.getByRole("button", { name: "Continue session" }));
+  expect(screen.getByRole("radio", { name: "Berufe" })).toBeChecked();
+});

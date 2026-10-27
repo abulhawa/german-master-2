@@ -1,5 +1,9 @@
 # Continuing German Master recovery
 
+## Readiness work - 27 October 2026
+
+Use the latest PROGRESS front section and [dated readiness matrix](release-readiness-2026-10-27.md). Production is observed at dd8c873; no rollout in this readiness slice. Native Settings/Home draft loss is corrected locally. Next resolve intermittent offline-resume and browser acceptance failures, then remaining native functional and real lifecycle/rollback gates. No tag, push or deployment is implied. Android publication hold remains.
+
 ## Current work order — 26 October 2026
 
 Follow the current PROGRESS.md front section and

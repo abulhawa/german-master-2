@@ -102,7 +102,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
         active -> text("Continue session","Übung fortsetzen")
         else -> text("Repeat the five questions","Die fünf Fragen wiederholen")
     }
-    fun leave(next:String) {if(focused&&active){destination=next;closing=true}else{if(state.started){store.discard();state=NativeGuestState()};screen=next}}
+    fun leave(next:String) {if(focused&&active){destination=next;closing=true}else{if(state.started && !active){store.discard();state=NativeGuestState()};screen=next}}
     fun openAccount() {returnTo=screen;leave("account")}
     fun save(mode:String) {try {store.authorize();state=store.read();account(mode)}catch(_:Exception){failed=true}}
     fun discard() {try {store.discard();state=NativeGuestState();closing=false;screen=destination}catch(_:Exception){failed=true}}

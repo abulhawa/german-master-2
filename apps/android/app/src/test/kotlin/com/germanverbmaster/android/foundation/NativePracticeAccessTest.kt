@@ -23,6 +23,15 @@ class NativePracticeAccessTest {
     @get:Rule val folder = TemporaryFolder()
     private fun path() = File(folder.root, "practice")
 
+    /** Pin a published choice so lifecycle assertions do not depend on shuffled content. */
+    private fun seedDraftRound(file:File) {
+        val context=androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val bundle=ContractReader.json.decodeFromString<NativeGuestBundle>(context.assets.open("practice.json").bufferedReader().use {it.readText()})
+        val session=bundle.packs.first {pack -> pack.session.questions.any {it.exercise is ExerciseChoice}}.session
+        val question=session.questions.first {it.exercise is ExerciseChoice}
+        NativeGuestStore(file).write(NativeGuestState(started=true,session=session.copy(questions=listOf(question))))
+    }
+
     private fun enterAnyDraft(file:File) {
         val guest=NativeGuestStore(file).read();val exercise=requireNotNull(guest.session).questions[guest.index].exercise
         when(exercise) {
@@ -51,7 +60,7 @@ class NativePracticeAccessTest {
         val prefs=context.getSharedPreferences("gm-v2-appearance",android.content.Context.MODE_PRIVATE)
         val previous=prefs.getString("theme","system")
         prefs.edit().putString("theme","system").commit()
-        val file=path(); val generation=mutableStateOf(0); val auth=mutableListOf<String>()
+        val file=path(); seedDraftRound(file); val generation=mutableStateOf(0); val auth=mutableListOf<String>()
         try {
             compose.setContent { androidx.compose.runtime.key(generation.value) { FoundationTheme {
                 NativeGuestEntry(file,false,{},auth::add)
@@ -60,13 +69,19 @@ class NativePracticeAccessTest {
             compose.onNodeWithText("Dark").performScrollTo().performClick()
             assertEquals("dark",prefs.getString("theme",null))
             compose.onNode(hasText("Home") and hasClickAction()).performClick()
-            compose.onNodeWithText("Start practice").performScrollTo().performClick()
+            compose.onNodeWithText("Continue session").performScrollTo().performClick()
             val originalSession=requireNotNull(NativeGuestStore(file).read().session).id
             enterAnyDraft(file)
+            val expected=NativeGuestStore(file).read()
+            assertDraftPreserved(file)
             compose.runOnIdle {generation.value++}
             compose.onNodeWithText("Continue session").performScrollTo().performClick()
             assertEquals(originalSession,NativeGuestStore(file).read().session?.id)
             assertDraftPreserved(file)
+            assertEquals(expected.session,NativeGuestStore(file).read().session)
+            assertEquals(expected.index,NativeGuestStore(file).read().index)
+            assertEquals(expected.draft,NativeGuestStore(file).read().draft)
+            assertEquals(expected.order,NativeGuestStore(file).read().order)
             assertEquals("dark",prefs.getString("theme",null))
             assertTrue(auth.isEmpty())
         } finally { prefs.edit().putString("theme",previous).commit() }
@@ -96,15 +111,17 @@ class NativePracticeAccessTest {
     }
 
     @Test fun cancelingAuthenticationAndClosingPracticeRetainTheSelectedAnswer() {
-        val file=path()
+        val file=path(); seedDraftRound(file)
         val mode=mutableStateOf<String?>(null)
         compose.setContent { FoundationTheme {
             val current=mode.value
             if(current==null) NativeGuestEntry(file,false,{}, {mode.value=it})
             else NativeAccountEntry(current,false,{}, {mode.value=it}) {_,_,_->error("No network expected")}
         } }
-        compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        compose.onNodeWithText("Continue session").performScrollTo().performClick()
         enterAnyDraft(file)
+        val expected=NativeGuestStore(file).read()
+        assertDraftPreserved(file)
         compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
         compose.onNodeWithText("Sign in").performClick()
         compose.onNodeWithText("Home").performClick()
@@ -113,11 +130,14 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Close practice").performScrollTo().performClick()
         compose.onNodeWithText("Keep practising").performClick()
         assertDraftPreserved(file)
-        assertDraftPreserved(file)
+        assertEquals(expected.session,NativeGuestStore(file).read().session)
+        assertEquals(expected.index,NativeGuestStore(file).read().index)
+        assertEquals(expected.draft,NativeGuestStore(file).read().draft)
+        assertEquals(expected.order,NativeGuestStore(file).read().order)
     }
 
     @Test fun systemBackLeavesAccountPagesAndAuthenticationWithoutDiscardingPractice() {
-        val file=path()
+        val file=path(); seedDraftRound(file)
         val mode=mutableStateOf<String?>(null)
         lateinit var back:OnBackPressedDispatcher
         compose.setContent { FoundationTheme {
@@ -126,8 +146,10 @@ class NativePracticeAccessTest {
             if(current==null) NativeGuestEntry(file,false,{}, {mode.value=it})
             else NativeAccountEntry(current,false,{}, {mode.value=it}) {_,_,_->error("No network expected")}
         } }
-        compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        compose.onNodeWithText("Continue session").performScrollTo().performClick()
         enterAnyDraft(file)
+        val expected=NativeGuestStore(file).read()
+        assertDraftPreserved(file)
         compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
         compose.runOnIdle { back.onBackPressed() }
         compose.onNodeWithText("Check answer").assertExists()
@@ -136,6 +158,10 @@ class NativePracticeAccessTest {
         compose.runOnIdle { back.onBackPressed() }
         if(compose.onAllNodesWithText("Continue session").fetchSemanticsNodes().isNotEmpty()) compose.onNodeWithText("Continue session").performScrollTo().performClick()
         assertDraftPreserved(file)
+        assertEquals(expected.session,NativeGuestStore(file).read().session)
+        assertEquals(expected.index,NativeGuestStore(file).read().index)
+        assertEquals(expected.draft,NativeGuestStore(file).read().draft)
+        assertEquals(expected.order,NativeGuestStore(file).read().order)
         compose.runOnIdle { back.onBackPressed() }
         compose.onNodeWithText("Save your progress?").assertExists()
         compose.onNodeWithText("Keep practising").performClick()
