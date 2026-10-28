@@ -331,8 +331,12 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {view === 'practice' && p?.session && !complete && <progress className="gm-session-progress" value={p.index} max={p.session.questions.length} aria-label={`${c.question} ${p.index + 1} ${c.of} ${p.session.questions.length}`} />}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.settings}</h1></div>
+        <PracticeCard><h2>{s.account}</h2>
         {accountSecurity?.(state.locale, busy || loaded.damaged)}
+        <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>
         <a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>
+        {identityControl?.(state.locale,busy||loaded.damaged)}
+        </PracticeCard>
         <details className="gm-account-disclosure"><summary>{s.appearance}</summary><PracticeCard><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey['locale'] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e => { appearance.choose(e.target.value as Appearance); preference({ theme: e.target.value as Journey['theme'] }); }}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
@@ -379,8 +383,6 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           </li>)}</ul>
         </PracticeCard>}
         {view === 'home' && !setup && <div className="gm-home-footer"><FoundationButton className="gm-text-button gm-secondary" disabled={busy} onClick={()=>void refresh()}><RefreshCw aria-hidden="true"/>{c.refresh}</FoundationButton></div>}
-        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>}
-        {view === 'account' && identityControl?.(state.locale,busy||loaded.damaged)}
         {view === 'account' && !authenticated && api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
         {view === "practice" && <>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>

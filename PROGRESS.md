@@ -1,5 +1,25 @@
 # German Master 2.0 current checkpoint
 
+## Account actions grouped together - 28 October 2026
+
+Owner found sign-out and deletion scattered across Settings. Web and Android now
+keep email, sign-out and account deletion inside one Account card, with appearance
+and practice preferences outside it. Web sign-in management stays in that same
+card. Signed-out deletion requests also sit with account entry controls. Existing
+sign-out retention, deletion-request behavior, provider bindings and practice
+storage are unchanged. Grammar remains absent from Settings.
+
+Affected web suites pass after tightening the Settings heading selector to its
+page-level heading; the Account subheading is intentional. Root generated/type
+checks and production web/API build pass. Native 16 focused Settings/access tests,
+lintDebug and the guarded configured-preview build pass. The configured APK was
+replacement-installed successfully without data clearing. Phone was locked at the
+post-install inspection; no physical acceptance of this latest layout is claimed.
+No web deployment, deletion, store upload or approval change.
+
+Next: owner reviews the single Account group in the configured preview; preserve
+the Android release hold and remaining lifecycle evidence.
+
 ## Correct configured preview and Settings header - 28 October 2026
 
 Physical owner-requested inspection found the prior installed preview was an

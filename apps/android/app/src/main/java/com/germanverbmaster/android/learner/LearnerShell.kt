@@ -144,13 +144,19 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             if (screen == "account") {
                 Text(label("Settings", "Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
                 StudyPanel {
-                Text(label("Sign-in details", "Anmeldedaten"), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
+                Text(label("Account", "Konto"), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                 val address = if (localOnly) null else accountEmail()
                 if (address != null) {
                     Text(label("Email", "E-Mail"), style = MaterialTheme.typography.labelLarge)
                     androidx.compose.foundation.text.selection.SelectionContainer { Text(address) }
                 } else Text(label("Reconnect your account to view your email.", "Verbinde dein Konto erneut, um deine E-Mail zu sehen."))
+                SettingsSection(label("Sign out", "Abmelden"), german) {
+                    NativePrivacySignOut(repository, german, busy) { cache = repository.state }
+                }
                 AccountDeletionRequest(german)
+                if(repository.identityDeletionEnabled) SettingsSection(label("Delete account", "Konto löschen"), german) {
+                    NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
+                }
                 }
             }
             val profile = cache.profile
@@ -185,12 +191,6 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                         StudyAppearanceSettings(german, { run { repository.save(profile.preferences.copy(locale=if(german) "en" else "de")) } }, !busy && cache.pending==null)
                     }
                     LearnerButton(design(R.string.study_preferences), !busy) { screen = "setup" }
-                    SettingsSection(label("Sign out", "Abmelden"), german) {
-                        NativePrivacySignOut(repository, german, busy) { cache = repository.state }
-                    }
-                    if(repository.identityDeletionEnabled) SettingsSection(label("Delete account", "Konto löschen"), german) {
-                        NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
-                    }
                 } else if (screen in setOf("topics", "topic", "target")) {
                     NativeTopicsView(cache, screen, detailId, german, busy,
                         open = { destination, id -> screen = destination; detailId = id },

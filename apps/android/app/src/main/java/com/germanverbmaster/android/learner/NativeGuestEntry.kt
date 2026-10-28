@@ -169,7 +169,6 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         if(NativeReleaseCapabilities.workplacePractice) LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
                         }
                         Text(text("Account","Konto"),style=MaterialTheme.typography.titleLarge)
-                        AccountDeletionRequest(german)
                     }
                     section {
                         Text(if(screen=="account") text("Sign in to keep your progress.","Melde dich an, um deinen Lernstand zu behalten.") else text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
@@ -177,6 +176,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         OutlinedButton(onClick={account("register")},modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(text("Create account","Konto erstellen"))}
                         TextButton(onClick={backToPractice()}){Text(text("Back to practice","Zurück zur Übung"))}
                         continueSaved?.let {LearnerButton(text("Continue saved account","Gespeichertes Konto fortsetzen"),true,it)}
+                        if(screen=="account") AccountDeletionRequest(german)
                     }
                 }
                 "practice" -> if(state.index>=content.session.questions.size) {

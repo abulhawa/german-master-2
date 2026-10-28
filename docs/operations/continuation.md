@@ -1,5 +1,9 @@
 # Continuing German Master recovery
 
+28 October: account email, sign-out and deletion belong together in one Account
+card on both clients. Appearance and practice preferences remain separate. See
+newest PROGRESS for verification and configured preview installation.
+
 ## Configured preview correction - 28 October 2026
 
 Prior routine test artifacts were accidentally installed without public Auth

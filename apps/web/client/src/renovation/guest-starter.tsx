@@ -754,12 +754,13 @@ export function GuestStarterJourney({
         </div></PracticeCard></details><details className="gm-account-disclosure"><summary>{c.appearance}</summary><PracticeCard><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e=>appearance.choose(e.target.value as Appearance)}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
-        </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard></details><a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a></>}
+        </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard></details></>}
         <PracticeCard>{view === 'account' && <h2>{c.account}</h2>}<p role="status">{view === 'account' ? c.settingsAccount : c.accountRequired}</p>
           <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
           {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
+          {view === 'account' && <a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>}
         </PracticeCard>
       </>}
     </div>

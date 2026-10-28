@@ -198,7 +198,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
   }
   if(account&&!showLogin) return <LearnerJourney accountSecurity={(language,blocked)=>{
     const labels=copy[language], address=local?null:host.provider.emailFor(account);
-    return <PracticeCard><h2>{labels.signInDetails}</h2>
+    return <>
       {pendingRound && <FoundationButton disabled={blocked} onClick={()=>setAttachDismissed(false)}>{language==='de'?'Übung speichern':'Save practice'}</FoundationButton>}
       {address ? <><p className="gm-account-email"><strong>{labels.email}</strong><br/>{address}</p>
         <details className="gm-account-disclosure"><summary>{language==='de'?'Anmeldung verwalten':'Manage sign-in'}</summary>
@@ -206,7 +206,7 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
         <p>{labels.resetHelp}</p>
         <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);navigateLearner('reset');}}>{labels.resetPassword}</FoundationButton></details></>
         : <p>{labels.emailUnavailable}</p>}
-    </PracticeCard>;
+    </>;
   }} onReauthenticate={()=>openAuth('sign-in')} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;
   if(!showLogin) return <GuestStarterJourney onAuth={openAuth} hasSavedAccount={host.provider.hasSavedAccount()} onResumeSaved={continueSaved}/>;
   const guestAttempts=guestAttemptCount();

@@ -20,7 +20,7 @@ class LearnerShellTest {
         val local = mutableStateOf(false)
         compose.setContent { FoundationTheme { LearnerShell(repo, localOnly = local.value, accountEmail = { "learner@example.test" }) } }
         compose.onNode(hasText("Settings") and hasClickAction()).performScrollTo().performClick()
-        compose.onNodeWithText("Sign-in details").performScrollTo().assertExists()
+        compose.onNodeWithText("Account").performScrollTo().assertExists()
         compose.onNodeWithText("learner@example.test").assertExists()
         compose.onNodeWithText("Grammar").assertDoesNotExist()
         compose.onNodeWithText("Sync all saved work").assertDoesNotExist()
