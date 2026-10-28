@@ -2,5 +2,2709 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000000800",
+      "title": {
+        "en": "Sales volume in units",
+        "de": "Absatz als Verkaufsmenge"
+      },
+      "description": {
+        "en": "Identify the sales-volume sense of Absatz in business reports.",
+        "de": "Die Bedeutung von Absatz als verkaufte Stückzahl in Geschäftsberichten erkennen."
+      },
+      "objective": "Recognize Absatz as the quantity of products sold, distinct from turnover or profit.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L24 (4a9d7afffb44d33be8ed4c7b228627fea7c30431faeae2d3f5bced59ed7bfb0f), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L24-v1",
+          "contextKey": "legacy-0008-L24-context-1",
+          "transferKey": "legacy-0008-L24-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000800",
+            "type": "choice",
+            "prompt": "Die Firma hat nicht mehr Geld eingenommen, aber 300 zusätzliche Geräte verkauft. Der ___ ist gestiegen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for the number of items sold rather than the money earned.",
+              "de": "Achte auf die verkaufte Stückzahl, nicht auf den Geldbetrag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umsatz"
+              },
+              {
+                "id": "1",
+                "text": "Absatz"
+              },
+              {
+                "id": "2",
+                "text": "Gewinn"
+              },
+              {
+                "id": "3",
+                "text": "Preis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Absatz describes how many units are sold; Umsatz is monetary turnover.",
+              "de": "Absatz bezeichnet die verkaufte Menge; Umsatz bezeichnet den Geldwert der Verkäufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat nicht mehr Geld eingenommen, aber 300 zusätzliche Geräte verkauft. Der Absatz ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Umsatz, Gewinn, Preis do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L24-v2",
+          "contextKey": "legacy-0008-L24-context-2",
+          "transferKey": "legacy-0008-L24-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000800",
+            "type": "gap_choice",
+            "prompt": "Die Statistik zählt verkaufte Stücke, keine Eurobeträge. Sie zeigt den ___ pro Monat.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for the number of items sold rather than the money earned.",
+              "de": "Achte auf die verkaufte Stückzahl, nicht auf den Geldbetrag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewinn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umsatz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Absatz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Preis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Absatz describes how many units are sold; Umsatz is monetary turnover.",
+              "de": "Absatz bezeichnet die verkaufte Menge; Umsatz bezeichnet den Geldwert der Verkäufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Statistik zählt verkaufte Stücke, keine Eurobeträge. Sie zeigt den Absatz pro Monat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Gewinn, Umsatz, Preis do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000801",
+      "title": {
+        "en": "Saying farewell",
+        "de": "Abschied nehmen"
+      },
+      "description": {
+        "en": "Identify the noun Abschied in social and workplace farewells.",
+        "de": "Das Nomen Abschied beim Verabschieden im Alltag und Beruf erkennen."
+      },
+      "objective": "Recognize Abschied as a farewell when people part.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L25 (59fdb2edf0fb67aadbb6ef6fed1e2f0bd577bc042608ccc055673746ef9c3e91), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L25-v1",
+          "contextKey": "legacy-0008-L25-context-1",
+          "transferKey": "legacy-0008-L25-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000801",
+            "type": "choice",
+            "prompt": "Als Mira in eine andere Stadt zog, kamen ihre Freunde zum ___ an den Bahnhof.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone is leaving and other people mark the parting.",
+              "de": "Eine Person geht weg; die anderen verabschieden sich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfang"
+              },
+              {
+                "id": "1",
+                "text": "Besuch"
+              },
+              {
+                "id": "2",
+                "text": "Abschied"
+              },
+              {
+                "id": "3",
+                "text": "Beginn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Abschied names the act or occasion of saying goodbye.",
+              "de": "Abschied bezeichnet das Verabschieden oder den Moment des Auseinandergehens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Mira in eine andere Stadt zog, kamen ihre Freunde zum Abschied an den Bahnhof.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Empfang, Besuch, Beginn do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L25-v2",
+          "contextKey": "legacy-0008-L25-context-2",
+          "transferKey": "legacy-0008-L25-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000801",
+            "type": "gap_choice",
+            "prompt": "Nach ihrem letzten Arbeitstag bekam die Kollegin zum ___ eine Karte vom Team.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone is leaving and other people mark the parting.",
+              "de": "Eine Person geht weg; die anderen verabschieden sich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abschied"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einstieg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anfang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abschied names the act or occasion of saying goodbye.",
+              "de": "Abschied bezeichnet das Verabschieden oder den Moment des Auseinandergehens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach ihrem letzten Arbeitstag bekam die Kollegin zum Abschied eine Karte vom Team.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Einstieg, Empfang, Anfang do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000802",
+      "title": {
+        "en": "A completed qualification",
+        "de": "Ein Abschluss als Qualifikation"
+      },
+      "description": {
+        "en": "Identify the qualification sense of Abschluss rather than its other meanings.",
+        "de": "Abschluss als Bildungs- oder Berufsqualifikation erkennen."
+      },
+      "objective": "Recognize Abschluss as an educational or professional qualification obtained after completing study or training.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L26 (949dfedd492c20378f3387410bce4338ce05f4bb762d70e35d5b2fe8219d6f91), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L26-v1",
+          "contextKey": "legacy-0008-L26-context-1",
+          "transferKey": "legacy-0008-L26-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000802",
+            "type": "choice",
+            "prompt": "Nach der bestandenen Prüfung erhielt Jonas seinen beruflichen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The context mentions completing education and receiving a qualification.",
+              "de": "Es geht um eine abgeschlossene Ausbildung oder ein Studium."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vertrag"
+              },
+              {
+                "id": "1",
+                "text": "Ausweis"
+              },
+              {
+                "id": "2",
+                "text": "Antrag"
+              },
+              {
+                "id": "3",
+                "text": "Abschluss"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "An Abschluss can be a qualification awarded after study or vocational training; it does not mean exclusion.",
+              "de": "Ein Abschluss kann ein Bildungs- oder Berufsabschluss sein; Ausschluss ist ein anderes Wort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der bestandenen Prüfung erhielt Jonas seinen beruflichen Abschluss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Vertrag, Ausweis, Antrag do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L26-v2",
+          "contextKey": "legacy-0008-L26-context-2",
+          "transferKey": "legacy-0008-L26-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000802",
+            "type": "gap_choice",
+            "prompt": "Die Universität verlangt für das Masterstudium einen ersten akademischen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The context mentions completing education and receiving a qualification.",
+              "de": "Es geht um eine abgeschlossene Ausbildung oder ein Studium."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bericht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abschluss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausweis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Antrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Abschluss can be a qualification awarded after study or vocational training; it does not mean exclusion.",
+              "de": "Ein Abschluss kann ein Bildungs- oder Berufsabschluss sein; Ausschluss ist ein anderes Wort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Universität verlangt für das Masterstudium einen ersten akademischen Abschluss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Bericht, Ausweis, Antrag do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000803",
+      "title": {
+        "en": "A section of a text",
+        "de": "Abschnitt in einem Text"
+      },
+      "description": {
+        "en": "Distinguish a titled text section from a sentence or single paragraph.",
+        "de": "Einen gegliederten Textabschnitt von Satz und Absatz unterscheiden."
+      },
+      "objective": "Recognize Abschnitt as a larger, thematically organized section of a written text.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L27 (6a2a2b5f88a689b5859d009e4623b0188588a14d78fbcef413fa6a2ed86764a2), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L27-v1",
+          "contextKey": "legacy-0008-L27-context-1",
+          "transferKey": "legacy-0008-L27-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000803",
+            "type": "choice",
+            "prompt": "Der Bericht besteht aus vier großen Teilen mit eigenen Überschriften. Jeder ___ behandelt ein anderes Thema.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The text is divided into larger units, often with headings.",
+              "de": "Der Text ist in größere Teile mit Überschriften gegliedert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Absatz"
+              },
+              {
+                "id": "1",
+                "text": "Satz"
+              },
+              {
+                "id": "2",
+                "text": "Abschnitt"
+              },
+              {
+                "id": "3",
+                "text": "Begriff"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An Abschnitt is a section; an Absatz is normally a paragraph within a section.",
+              "de": "Ein Abschnitt ist ein größerer Textteil; ein Absatz ist meist ein Teil davon."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht besteht aus vier großen Teilen mit eigenen Überschriften. Jeder Abschnitt behandelt ein anderes Thema.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Absatz, Satz, Begriff do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L27-v2",
+          "contextKey": "legacy-0008-L27-context-2",
+          "transferKey": "legacy-0008-L27-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000803",
+            "type": "gap_choice",
+            "prompt": "Im Handbuch beginnt nach der Überschrift „Sicherheit“ ein neuer ___ mit mehreren Absätzen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The text is divided into larger units, often with headings.",
+              "de": "Der Text ist in größere Teile mit Überschriften gegliedert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abschnitt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Satz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anhang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Titel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Abschnitt is a section; an Absatz is normally a paragraph within a section.",
+              "de": "Ein Abschnitt ist ein größerer Textteil; ein Absatz ist meist ein Teil davon."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Handbuch beginnt nach der Überschrift „Sicherheit“ ein neuer Abschnitt mit mehreren Absätzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Satz, Anhang, Titel do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000804",
+      "title": {
+        "en": "The female sender",
+        "de": "Die Absenderin"
+      },
+      "description": {
+        "en": "Recognize the female sender in postal situations.",
+        "de": "Die Absenderin bei Briefen und Paketen erkennen."
+      },
+      "objective": "Identify Absenderin as the woman who sends a letter or parcel, not its recipient or carrier.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L29 (731b899ebfc17cccf304b1f9788bf40a1f81a8dfd338dcb6e24b984a4d14742c), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L29-v1",
+          "contextKey": "legacy-0008-L29-context-1",
+          "transferKey": "legacy-0008-L29-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000804",
+            "type": "choice",
+            "prompt": "Auf dem Umschlag steht oben links die Adresse von Frau Weber. Sie hat den Brief verschickt und ist die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Find out who sent the item, not who receives or delivers it.",
+              "de": "Wer hat die Sendung abgeschickt, nicht erhalten oder zugestellt?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfängerin"
+              },
+              {
+                "id": "1",
+                "text": "Absenderin"
+              },
+              {
+                "id": "2",
+                "text": "Zustellerin"
+              },
+              {
+                "id": "3",
+                "text": "Zeugin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The Absenderin sends the item; the Empfängerin receives it.",
+              "de": "Die Absenderin verschickt die Sendung; die Empfängerin erhält sie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Umschlag steht oben links die Adresse von Frau Weber. Sie hat den Brief verschickt und ist die Absenderin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Empfängerin, Zustellerin, Zeugin do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L29-v2",
+          "contextKey": "legacy-0008-L29-context-2",
+          "transferKey": "legacy-0008-L29-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000804",
+            "type": "gap_choice",
+            "prompt": "Nina verschickt ein Paket an Lea. Auf dem Versandetikett wird Nina als ___ bezeichnet.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Find out who sent the item, not who receives or delivers it.",
+              "de": "Wer hat die Sendung abgeschickt, nicht erhalten oder zugestellt?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Empfängerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kundin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Absenderin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zustellerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The Absenderin sends the item; the Empfängerin receives it.",
+              "de": "Die Absenderin verschickt die Sendung; die Empfängerin erhält sie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nina verschickt ein Paket an Lea. Auf dem Versandetikett wird Nina als Absenderin bezeichnet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Empfängerin, Kundin, Zustellerin do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000805",
+      "title": {
+        "en": "Protection against risks",
+        "de": "Absicherung gegen Risiken"
+      },
+      "description": {
+        "en": "Identify measures intended to protect against loss or failure.",
+        "de": "Maßnahmen zur finanziellen oder technischen Absicherung erkennen."
+      },
+      "objective": "Recognize Absicherung as a measure providing financial or technical protection against a risk.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L30 (295dd4e6e62ab89729a15c6ebc525a96911b382691da1c1c47eb3bc60bfef2f0), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L30-v1",
+          "contextKey": "legacy-0008-L30-context-1",
+          "transferKey": "legacy-0008-L30-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000805",
+            "type": "choice",
+            "prompt": "Für unerwartete Reparaturen legt das Paar Geld zurück. Die Rücklage dient der finanziellen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measure reduces the consequences of an unexpected problem.",
+              "de": "Die Maßnahme mindert die Folgen eines unerwarteten Problems."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abrechnung"
+              },
+              {
+                "id": "1",
+                "text": "Absicherung"
+              },
+              {
+                "id": "2",
+                "text": "Anmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Auszahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Absicherung is protection or safeguarding against risks, not accounting or payment.",
+              "de": "Absicherung bedeutet Schutz gegen Risiken, nicht Abrechnung oder Auszahlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für unerwartete Reparaturen legt das Paar Geld zurück. Die Rücklage dient der finanziellen Absicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Abrechnung, Anmeldung, Auszahlung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L30-v2",
+          "contextKey": "legacy-0008-L30-context-2",
+          "transferKey": "legacy-0008-L30-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000805",
+            "type": "gap_choice",
+            "prompt": "Ein zweiter Server übernimmt bei einem Ausfall. Er dient als technische ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measure reduces the consequences of an unexpected problem.",
+              "de": "Die Maßnahme mindert die Folgen eines unerwarteten Problems."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abwicklung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Absicherung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Auswertung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Absicherung is protection or safeguarding against risks, not accounting or payment.",
+              "de": "Absicherung bedeutet Schutz gegen Risiken, nicht Abrechnung oder Auszahlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein zweiter Server übernimmt bei einem Ausfall. Er dient als technische Absicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Abwicklung, Abrechnung, Auswertung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000806",
+      "title": {
+        "en": "A graduate",
+        "de": "Der Absolvent"
+      },
+      "description": {
+        "en": "Identify graduates in employment and graduation contexts.",
+        "de": "Absolventen beim Berufseinstieg und bei Abschlussfeiern erkennen."
+      },
+      "objective": "Recognize Absolvent or Absolventen for someone who has successfully completed a course of study.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L31 (33051d5610d02720b4dc0fb6abe21fdaeb9e9828958b01ff5b9613c9fbc964e7), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L31-v1",
+          "contextKey": "legacy-0008-L31-context-1",
+          "transferKey": "legacy-0008-L31-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000806",
+            "type": "choice",
+            "prompt": "Paul hat sein Studium erfolgreich beendet. Als ___ bewirbt er sich nun um seine erste Stelle.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has finished a degree programme successfully.",
+              "de": "Die Person hat ein Studium erfolgreich beendet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dozent"
+              },
+              {
+                "id": "1",
+                "text": "Student"
+              },
+              {
+                "id": "2",
+                "text": "Absolvent"
+              },
+              {
+                "id": "3",
+                "text": "Prüfer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An Absolvent has completed a programme; the plural is Absolventen.",
+              "de": "Ein Absolvent hat eine Ausbildung oder ein Studium abgeschlossen; der Plural lautet Absolventen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Paul hat sein Studium erfolgreich beendet. Als Absolvent bewirbt er sich nun um seine erste Stelle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Dozent, Student, Prüfer do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L31-v2",
+          "contextKey": "legacy-0008-L31-context-2",
+          "transferKey": "legacy-0008-L31-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000806",
+            "type": "gap_choice",
+            "prompt": "Auf der Feier erhalten die ___ der Fachhochschule ihre Abschlussurkunden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has finished a degree programme successfully.",
+              "de": "Die Person hat ein Studium erfolgreich beendet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anfänger"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lehrkräfte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerber"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Absolventen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Absolvent has completed a programme; the plural is Absolventen.",
+              "de": "Ein Absolvent hat eine Ausbildung oder ein Studium abgeschlossen; der Plural lautet Absolventen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Feier erhalten die Absolventen der Fachhochschule ihre Abschlussurkunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Anfänger, Lehrkräfte, Bewerber do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000807",
+      "title": {
+        "en": "Keeping a safe distance",
+        "de": "Abstand halten"
+      },
+      "description": {
+        "en": "Identify physical separation in traffic and accessibility situations.",
+        "de": "Räumlichen Abstand im Verkehr und bei der Zugänglichkeit erkennen."
+      },
+      "objective": "Recognize Abstand as the physical distance between vehicles or objects.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L32 (0ce5260110b033857233209b50eea317a56b25c0d08afbbeddea289c479c03e5), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L32-v1",
+          "contextKey": "legacy-0008-L32-context-1",
+          "transferKey": "legacy-0008-L32-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000807",
+            "type": "choice",
+            "prompt": "Beim Autofahren soll man genügend ___ zum Fahrzeug davor halten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The situation concerns how far apart two things are.",
+              "de": "Es geht darum, wie weit zwei Dinge voneinander entfernt sind."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anschluss"
+              },
+              {
+                "id": "1",
+                "text": "Abstand"
+              },
+              {
+                "id": "2",
+                "text": "Kontakt"
+              },
+              {
+                "id": "3",
+                "text": "Zugang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Abstand is physical distance; Kontakt or Anschluss does not express the gap.",
+              "de": "Abstand bezeichnet die räumliche Entfernung; Kontakt und Anschluss nicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Autofahren soll man genügend Abstand zum Fahrzeug davor halten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Anschluss, Kontakt, Zugang do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L32-v2",
+          "contextKey": "legacy-0008-L32-context-2",
+          "transferKey": "legacy-0008-L32-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000807",
+            "type": "gap_choice",
+            "prompt": "Die beiden Tische stehen nur zehn Zentimeter auseinander. Für den Rollstuhl muss der ___ größer sein.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The situation concerns how far apart two things are.",
+              "de": "Es geht darum, wie weit zwei Dinge voneinander entfernt sind."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abstand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kontakt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vergleich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anschluss"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abstand is physical distance; Kontakt or Anschluss does not express the gap.",
+              "de": "Abstand bezeichnet die räumliche Entfernung; Kontakt und Anschluss nicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Tische stehen nur zehn Zentimeter auseinander. Für den Rollstuhl muss der Abstand größer sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Kontakt, Vergleich, Anschluss do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000809",
+      "title": {
+        "en": "A department",
+        "de": "Die Abteilung"
+      },
+      "description": {
+        "en": "Identify organizational units in workplaces and healthcare.",
+        "de": "Organisatorische Abteilungen in Unternehmen und Krankenhäusern erkennen."
+      },
+      "objective": "Recognize Abteilung as an organizational department within a company or hospital.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L34 (fa4b54ac153c997b251decaa69643036ea8425d9e6221b93371a6b37d65c6391), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L34-v1",
+          "contextKey": "legacy-0008-L34-context-1",
+          "transferKey": "legacy-0008-L34-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000809",
+            "type": "choice",
+            "prompt": "Die Buchhaltung ist eine eigene ___ innerhalb der Firma.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The institution is divided into functional units.",
+              "de": "Die Einrichtung ist in Bereiche mit verschiedenen Aufgaben gegliedert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Filiale"
+              },
+              {
+                "id": "1",
+                "text": "Schicht"
+              },
+              {
+                "id": "2",
+                "text": "Abteilung"
+              },
+              {
+                "id": "3",
+                "text": "Branche"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An Abteilung is a department within an organization, not a branch office or shift.",
+              "de": "Eine Abteilung ist ein Bereich einer Organisation, keine Filiale oder Schicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Buchhaltung ist eine eigene Abteilung innerhalb der Firma.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Filiale, Schicht, Branche do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L34-v2",
+          "contextKey": "legacy-0008-L34-context-2",
+          "transferKey": "legacy-0008-L34-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000809",
+            "type": "gap_choice",
+            "prompt": "Nach der Operation wurde der Patient in eine andere ___ des Krankenhauses verlegt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The institution is divided into functional units.",
+              "de": "Die Einrichtung ist in Bereiche mit verschiedenen Aufgaben gegliedert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abteilung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Filiale"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Branche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Abteilung is a department within an organization, not a branch office or shift.",
+              "de": "Eine Abteilung ist ein Bereich einer Organisation, keine Filiale oder Schicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Operation wurde der Patient in eine andere Abteilung des Krankenhauses verlegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Werkstatt, Filiale, Branche do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000812",
+      "title": {
+        "en": "Absence",
+        "de": "Abwesenheit"
+      },
+      "description": {
+        "en": "Identify someone's absence during leave or business travel.",
+        "de": "Abwesenheit bei Urlaub und Dienstreisen erkennen."
+      },
+      "objective": "Recognize Abwesenheit as the state of someone not being present.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L37 (44ff71349cb2aed4ec657b093101d290504b5622a9027c6bf3cb1ec1c507820f), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L37-v1",
+          "contextKey": "legacy-0008-L37-context-1",
+          "transferKey": "legacy-0008-L37-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000812",
+            "type": "choice",
+            "prompt": "Frau Keller ist im Urlaub. Während ihrer ___ vertritt sie ein Kollege.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone cannot be present and another person takes over.",
+              "de": "Eine Person ist nicht da; jemand anderes übernimmt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anwesenheit"
+              },
+              {
+                "id": "1",
+                "text": "Rückkehr"
+              },
+              {
+                "id": "2",
+                "text": "Abwesenheit"
+              },
+              {
+                "id": "3",
+                "text": "Einstellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Abwesenheit means absence, the opposite of Anwesenheit.",
+              "de": "Abwesenheit bedeutet Nichtanwesenheit und ist das Gegenteil von Anwesenheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Frau Keller ist im Urlaub. Während ihrer Abwesenheit vertritt sie ein Kollege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Anwesenheit, Rückkehr, Einstellung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L37-v2",
+          "contextKey": "legacy-0008-L37-context-2",
+          "transferKey": "legacy-0008-L37-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000812",
+            "type": "gap_choice",
+            "prompt": "Der Leiter reist drei Tage zu einer Konferenz. In seiner ___ unterschreibt die Stellvertreterin.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone cannot be present and another person takes over.",
+              "de": "Eine Person ist nicht da; jemand anderes übernimmt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abwesenheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anwesenheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausbildung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abwesenheit means absence, the opposite of Anwesenheit.",
+              "de": "Abwesenheit bedeutet Nichtanwesenheit und ist das Gegenteil von Anwesenheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Leiter reist drei Tage zu einer Konferenz. In seiner Abwesenheit unterschreibt die Stellvertreterin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Anwesenheit, Ausbildung, Bewerbung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000813",
+      "title": {
+        "en": "A deduction",
+        "de": "Der Abzug"
+      },
+      "description": {
+        "en": "Identify deductions in payroll and invoice contexts.",
+        "de": "Abzüge bei Gehalt und Rechnungen erkennen."
+      },
+      "objective": "Recognize Abzug as an amount deducted from pay or a price.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L38 (c2665786990f48cf972bea7b11c13c145447c5f43e96e05d77bd7bfb18623449), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L38-v1",
+          "contextKey": "legacy-0008-L38-context-1",
+          "transferKey": "legacy-0008-L38-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000813",
+            "type": "choice",
+            "prompt": "Vom Bruttolohn werden Steuern einbehalten. Nach dem ___ bleibt der Nettolohn.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An amount is subtracted rather than added.",
+              "de": "Ein Betrag wird abgezogen statt hinzugerechnet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zuschlag"
+              },
+              {
+                "id": "1",
+                "text": "Abzug"
+              },
+              {
+                "id": "2",
+                "text": "Anstieg"
+              },
+              {
+                "id": "3",
+                "text": "Eingang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An Abzug reduces an amount; a Zuschlag increases it.",
+              "de": "Ein Abzug verringert einen Betrag; ein Zuschlag erhöht ihn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vom Bruttolohn werden Steuern einbehalten. Nach dem Abzug bleibt der Nettolohn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Zuschlag, Anstieg, Eingang do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L38-v2",
+          "contextKey": "legacy-0008-L38-context-2",
+          "transferKey": "legacy-0008-L38-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000813",
+            "type": "gap_choice",
+            "prompt": "Der Händler zieht wegen eines Mangels 20 Euro vom Preis ab. Auf der Rechnung steht ein ___ von 20 Euro.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An amount is subtracted rather than added.",
+              "de": "Ein Betrag wird abgezogen statt hinzugerechnet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aufschlag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorschuss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umsatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Abzug reduces an amount; a Zuschlag increases it.",
+              "de": "Ein Abzug verringert einen Betrag; ein Zuschlag erhöht ihn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Händler zieht wegen eines Mangels 20 Euro vom Preis ab. Auf der Rechnung steht ein Abzug von 20 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Aufschlag, Vorschuss, Umsatz do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000814",
+      "title": {
+        "en": "An agency",
+        "de": "Die Agentur"
+      },
+      "description": {
+        "en": "Identify agencies providing specialized services to clients.",
+        "de": "Agenturen als Dienstleister für Werbung oder Reisen erkennen."
+      },
+      "objective": "Recognize Agentur as a service business organizing work for clients, such as advertising or travel.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L41 (ee861874aa1c2944e11d7edee0712ae47e57a89294b72b2e84954e911c7dec09), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L41-v1",
+          "contextKey": "legacy-0008-L41-context-1",
+          "transferKey": "legacy-0008-L41-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000814",
+            "type": "choice",
+            "prompt": "Für ihre neue Werbekampagne beauftragt die Firma eine externe ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An outside service provider handles a task for a customer.",
+              "de": "Ein externer Dienstleister übernimmt eine Aufgabe für Kunden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Agentur"
+              },
+              {
+                "id": "1",
+                "text": "Werkstatt"
+              },
+              {
+                "id": "2",
+                "text": "Behörde"
+              },
+              {
+                "id": "3",
+                "text": "Filiale"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An Agentur provides services for clients; it is not a workshop or a government office.",
+              "de": "Eine Agentur erbringt Dienstleistungen für Auftraggeber; sie ist keine Werkstatt oder Behörde."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für ihre neue Werbekampagne beauftragt die Firma eine externe Agentur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Werkstatt, Behörde, Filiale do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L41-v2",
+          "contextKey": "legacy-0008-L41-context-2",
+          "transferKey": "legacy-0008-L41-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000814",
+            "type": "gap_choice",
+            "prompt": "Die Reise wurde nicht direkt beim Hotel, sondern über eine ___ gebucht.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An outside service provider handles a task for a customer.",
+              "de": "Ein externer Dienstleister übernimmt eine Aufgabe für Kunden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Versicherung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Agentur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Druckerei"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkstatt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Agentur provides services for clients; it is not a workshop or a government office.",
+              "de": "Eine Agentur erbringt Dienstleistungen für Auftraggeber; sie ist keine Werkstatt oder Behörde."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reise wurde nicht direkt beim Hotel, sondern über eine Agentur gebucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Versicherung, Druckerei, Werkstatt do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000815",
+      "title": {
+        "en": "A stakeholder or participant",
+        "de": "Akteure in einem Prozess"
+      },
+      "description": {
+        "en": "Distinguish involved stakeholders from spectators in public processes.",
+        "de": "Beteiligte Akteure von bloßen Zuschauern in öffentlichen Prozessen unterscheiden."
+      },
+      "objective": "Recognize Akteure as people or organizations actively involved in a political or social process.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L43 (a7fabd0c3da86e8e5e7b759717700d700ef8b79d0adc6cc5ec10cdc06221471e), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L43-v1",
+          "contextKey": "legacy-0008-L43-context-1",
+          "transferKey": "legacy-0008-L43-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000815",
+            "type": "choice",
+            "prompt": "Bei den Verhandlungen über das Klimagesetz sitzen viele politische ___ am Tisch.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "These people or organizations influence what happens.",
+              "de": "Diese Personen oder Organisationen gestalten das Geschehen mit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zuschauer"
+              },
+              {
+                "id": "1",
+                "text": "Akteure"
+              },
+              {
+                "id": "2",
+                "text": "Besucher"
+              },
+              {
+                "id": "3",
+                "text": "Schauspieler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Akteure are active participants or stakeholders here, not actors on a stage.",
+              "de": "Akteure sind hier aktiv Beteiligte, nicht Schauspieler auf einer Bühne."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei den Verhandlungen über das Klimagesetz sitzen viele politische Akteure am Tisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Zuschauer, Besucher, Schauspieler do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L43-v2",
+          "contextKey": "legacy-0008-L43-context-2",
+          "transferKey": "legacy-0008-L43-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000815",
+            "type": "gap_choice",
+            "prompt": "Städte, Unternehmen und Vereine sind wichtige ___ beim Ausbau des Radverkehrs.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "These people or organizations influence what happens.",
+              "de": "Diese Personen oder Organisationen gestalten das Geschehen mit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zuschauer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gäste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Akteure"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anfänger"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Akteure are active participants or stakeholders here, not actors on a stage.",
+              "de": "Akteure sind hier aktiv Beteiligte, nicht Schauspieler auf einer Bühne."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Städte, Unternehmen und Vereine sind wichtige Akteure beim Ausbau des Radverkehrs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Zuschauer, Gäste, Anfänger do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000816",
+      "title": {
+        "en": "A planned campaign",
+        "de": "Eine organisierte Aktion"
+      },
+      "description": {
+        "en": "Identify organized public initiatives and short-term promotions.",
+        "de": "Organisierte Gemeinschaftsaktionen und zeitlich begrenzte Angebote erkennen."
+      },
+      "objective": "Recognize Aktion as a planned collective initiative or time-limited promotional campaign.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L44 (ad8b286e03f3bdef4eef6e2680cceda22ddd06d0b6a11d570b719039f5d700a6), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L44-v1",
+          "contextKey": "legacy-0008-L44-context-1",
+          "transferKey": "legacy-0008-L44-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000816",
+            "type": "choice",
+            "prompt": "Die Nachbarschaft organisiert eine ___, bei der alle gemeinsam den Park säubern.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A specific organized effort or promotion has been announced.",
+              "de": "Eine gezielte gemeinsame Maßnahme oder ein Sonderangebot wird organisiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umfrage"
+              },
+              {
+                "id": "1",
+                "text": "Sitzung"
+              },
+              {
+                "id": "2",
+                "text": "Aktion"
+              },
+              {
+                "id": "3",
+                "text": "Verordnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aktion can refer to an organized initiative or a temporary sales promotion.",
+              "de": "Aktion kann eine organisierte Initiative oder ein zeitlich begrenztes Sonderangebot bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nachbarschaft organisiert eine Aktion, bei der alle gemeinsam den Park säubern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Umfrage, Sitzung, Verordnung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L44-v2",
+          "contextKey": "legacy-0008-L44-context-2",
+          "transferKey": "legacy-0008-L44-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000816",
+            "type": "gap_choice",
+            "prompt": "Eine Woche lang kostet jedes zweite Buch nur die Hälfte. Der Laden bewirbt diese ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A specific organized effort or promotion has been announced.",
+              "de": "Eine gezielte gemeinsame Maßnahme oder ein Sonderangebot wird organisiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Aktion"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aktion can refer to an organized initiative or a temporary sales promotion.",
+              "de": "Aktion kann eine organisierte Initiative oder ein zeitlich begrenztes Sonderangebot bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Woche lang kostet jedes zweite Buch nur die Hälfte. Der Laden bewirbt diese Aktion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Rechnung, Lieferung, Bewerbung do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000817",
+      "title": {
+        "en": "An activity",
+        "de": "Die Aktivität"
+      },
+      "description": {
+        "en": "Identify recreational and group activities.",
+        "de": "Freizeit- und Gruppenaktivitäten erkennen."
+      },
+      "objective": "Recognize Aktivität or Aktivitäten as an organized or chosen activity.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L45 (611729e35f81038b6d0b525f954f71be151492a840d1043aa3decaa764f843b3), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L45-v1",
+          "contextKey": "legacy-0008-L45-context-1",
+          "transferKey": "legacy-0008-L45-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000817",
+            "type": "choice",
+            "prompt": "Beim Ferienlager gehört Klettern zu den beliebtesten ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People do something together or in their free time.",
+              "de": "Menschen unternehmen etwas gemeinsam oder in ihrer Freizeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Unterkünften"
+              },
+              {
+                "id": "1",
+                "text": "Ausgaben"
+              },
+              {
+                "id": "2",
+                "text": "Aktivitäten"
+              },
+              {
+                "id": "3",
+                "text": "Regeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An Aktivität is something people do; the standard plural is Aktivitäten.",
+              "de": "Eine Aktivität ist eine Tätigkeit oder Unternehmung; der Plural lautet Aktivitäten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Ferienlager gehört Klettern zu den beliebtesten Aktivitäten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Unterkünften, Ausgaben, Regeln do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L45-v2",
+          "contextKey": "legacy-0008-L45-context-2",
+          "transferKey": "legacy-0008-L45-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000817",
+            "type": "gap_choice",
+            "prompt": "Für den Teamtag planen wir eine gemeinsame ___: Wir bauen zusammen ein Floß.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People do something together or in their free time.",
+              "de": "Menschen unternehmen etwas gemeinsam oder in ihrer Freizeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aktivität"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorschrift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterkunft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Aktivität is something people do; the standard plural is Aktivitäten.",
+              "de": "Eine Aktivität ist eine Tätigkeit oder Unternehmung; der Plural lautet Aktivitäten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Teamtag planen wir eine gemeinsame Aktivität: Wir bauen zusammen ein Floß.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Vorschrift, Abrechnung, Unterkunft do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000818",
+      "title": {
+        "en": "An alarm",
+        "de": "Der Alarm"
+      },
+      "description": {
+        "en": "Identify alarm warnings in fire and evacuation situations.",
+        "de": "Alarmmeldungen bei Feuer und Evakuierung erkennen."
+      },
+      "objective": "Recognize Alarm as a warning signal triggered by danger.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L46 (6b134d2819bc6a4f672a7dac8dbc6df98daa8508028278614b20a96f12569e8a), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L46-v1",
+          "contextKey": "legacy-0008-L46-context-1",
+          "transferKey": "legacy-0008-L46-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000818",
+            "type": "choice",
+            "prompt": "Als Rauch in der Küche aufstieg, löste der Melder einen ___ aus.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A warning is triggered because there may be danger.",
+              "de": "Ein Warnsignal wird wegen einer möglichen Gefahr ausgelöst."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auftrag"
+              },
+              {
+                "id": "1",
+                "text": "Alarm"
+              },
+              {
+                "id": "2",
+                "text": "Antrag"
+              },
+              {
+                "id": "3",
+                "text": "Bericht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Alarm is a warning signal or alert; it is not a report or request.",
+              "de": "Alarm ist ein Warnsignal oder eine Warnmeldung, kein Bericht oder Antrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Rauch in der Küche aufstieg, löste der Melder einen Alarm aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Auftrag, Antrag, Bericht do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L46-v2",
+          "contextKey": "legacy-0008-L46-context-2",
+          "transferKey": "legacy-0008-L46-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000818",
+            "type": "gap_choice",
+            "prompt": "Das Warnsignal war so laut, dass alle sofort das Gebäude verließen. Es war ein ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A warning is triggered because there may be danger.",
+              "de": "Ein Warnsignal wird wegen einer möglichen Gefahr ausgelöst."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vortrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Alarm"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besuch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Alarm is a warning signal or alert; it is not a report or request.",
+              "de": "Alarm ist ein Warnsignal oder eine Warnmeldung, kein Bericht oder Antrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Warnsignal war so laut, dass alle sofort das Gebäude verließen. Es war ein Alarm.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Empfang, Vortrag, Besuch do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000819",
+      "title": {
+        "en": "Alcohol as a substance",
+        "de": "Alkohol als Stoff"
+      },
+      "description": {
+        "en": "Identify alcohol in chemical labels and everyday drink contexts.",
+        "de": "Alkohol auf Stoffetiketten und im Zusammenhang mit Getränken erkennen."
+      },
+      "objective": "Recognize Alkohol as ethanol or the intoxicating substance in alcoholic drinks.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/nouns.jsonl:L47 (099f2367b11a3b1790045b2c3db92dbac1c1a1f19c584bee45df98c012f0c84b), 2026-10-28. Legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0008-L47-v1",
+          "contextKey": "legacy-0008-L47-context-1",
+          "transferKey": "legacy-0008-L47-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000819",
+            "type": "choice",
+            "prompt": "Auf der Flasche steht „Ethanol“. Dieser Stoff wird im Alltag auch ___ genannt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of the substance named ethanol and of beer or wine.",
+              "de": "Denke an den Stoff Ethanol sowie an Bier oder Wein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aceton"
+              },
+              {
+                "id": "1",
+                "text": "Essig"
+              },
+              {
+                "id": "2",
+                "text": "Alkohol"
+              },
+              {
+                "id": "3",
+                "text": "Benzin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Ethanol is commonly called Alkohol; alcoholic drinks contain this substance.",
+              "de": "Ethanol wird im Alltag Alkohol genannt; alkoholische Getränke enthalten diesen Stoff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Flasche steht „Ethanol“. Dieser Stoff wird im Alltag auch Alkohol genannt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Aceton, Essig, Benzin do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0008-L47-v2",
+          "contextKey": "legacy-0008-L47-context-2",
+          "transferKey": "legacy-0008-L47-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000080191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000819",
+            "type": "gap_choice",
+            "prompt": "Vor dem Autofahren verzichtet sie auf ___; deshalb trinkt sie weder Bier noch Wein.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of the substance named ethanol and of beer or wine.",
+              "de": "Denke an den Stoff Ethanol sowie an Bier oder Wein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Koffein"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Alkohol"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zucker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wasser"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ethanol is commonly called Alkohol; alcoholic drinks contain this substance.",
+              "de": "Ethanol wird im Alltag Alkohol genannt; alkoholische Getränke enthalten diesen Stoff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Autofahren verzichtet sie auf Alkohol; deshalb trinkt sie weder Bier noch Wein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial pass 2026-10-28: checked all four offered alternatives in the complete German sentence; Koffein, Zucker, Wasser do not express the required sense in this specific context. No human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
 }
