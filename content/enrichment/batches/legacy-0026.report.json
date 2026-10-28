@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
   "batchId": "legacy-0026",
-  "state": "draft",
-  "catalogSha256": "ed91f74ed051579c9f7c2952bfa68c88561495b25a360aafbd68dd660bf87dfb",
-  "aiReviewer": "GPT-6 (authoring stage; editorial review pending)",
+  "state": "ready-for-review",
+  "catalogSha256": "8aef30e6c0302d7814055f2483569500a47a22cd9853fbc8c756d45bb4b5446f",
+  "aiReviewer": "GPT-6",
   "reviewedAt": "2026-10-28",
-  "reviewNotes": "28 original low-typing questions drafted for 14 verb seeds; six rows remain pending CEFR, mistranslation or duplicate-objective triage. Separate editorial review not yet claimed; all targets pending and unpublished.",
+  "reviewNotes": "Separate GPT-6 editorial review of all 28 original low-typing questions: solved complete German sentences, reviewed all offered distractors, answer keys, hints, bilingual explanations and distinct contexts. Improved natural message-relay wording for ausrichten. Fourteen sources authored, five deferred for elementary vocabulary under doubtful B2 labels or incorrect ausreden noun gloss, and auswählen mapped as duplicate of aussuchen. Distinguished source senses for ausrichten (message relay vs alignment), beanspruchen (take time vs claim), and bearbeiten (process applications vs edit content). Target reviews pending and publicationApproved=false. CI structural validation does not establish independent German approval, CEFR certification, rights clearance or learner transfer.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L132",
       "sourceHash": "95e518ab2108953c65bb322f2cd05b66f720469b7cdc7f637ec5fade48a6f4ce",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "ausprobieren is common practical vocabulary; inherited B2 level appears too high for the basic 'try something out' sense. Defer to curriculum mapping.",
+      "corrections": "Source B2 label unverified; no artificial B2 context invented.",
+      "rightsBasis": "No exercise authored or inherited example reused; only lexical facts assessed."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L133",
       "sourceHash": "b2c1055aa546eae65ec5f789dd89d6defd1d50332c6edd7ea76c4d57d017416a",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "ausreden has two verb senses ('finish speaking', 'talk someone out of'), while inherited English 'excuses' is a noun gloss and contradicts the example. B2 level and intended objective unresolved.",
+      "corrections": "Mistranslated source lemma; do not copy noun meaning or silently relabel.",
+      "rightsBasis": "No exercise authored or inherited example reused; only lexical facts assessed."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L134",
@@ -32,7 +32,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002602"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -43,36 +43,36 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002603"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
-      "corrections": "Inherited English gloss 'to align' conflicts with its own message-passing example; selected the B1 'jemandem etwas ausrichten' sense explicitly.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
+      "corrections": "Inherited English gloss 'to align' conflicts with its own message-passing example; selected the B1 'jemandem etwas ausrichten' sense explicitly. Simplified second message-relay context for natural German.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L137",
       "sourceHash": "5dcd32e9867a4001885af0bdb035b1b9933c7a37d50b2b0c51c10d9c7e3ce7b3",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "ausrutschen is a common everyday verb for slipping; inherited B2 level likely too high and needs objective review.",
+      "corrections": "Source B2 level is not CEFR certification.",
+      "rightsBasis": "No exercise authored or inherited example reused; only lexical facts assessed."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L138",
       "sourceHash": "f12b137066dff7e7594332e7fbcd9379b2d6ee5cfa80bd471979f70350ce5440",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "ausschalten is basic 'switch off' vocabulary and likely below B2; defer rather than create filler.",
+      "corrections": "Source B2 level needs evidence.",
+      "rightsBasis": "No exercise authored or inherited example reused; only lexical facts assessed."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L139",
       "sourceHash": "b69ad4ab4665518bf424fe29df964e6ec1c38ea811d5dc6c7c75f9b690a62723",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "ausschlafen is a common everyday verb ('sleep in') and its B2 placement is doubtful.",
+      "corrections": "Source B2 level needs review.",
+      "rightsBasis": "No exercise authored or inherited example reused; only lexical facts assessed."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L140",
@@ -81,7 +81,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002607"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -92,7 +92,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002608"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -103,7 +103,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002609"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -114,7 +114,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002610"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -125,7 +125,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002611"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -136,7 +136,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002612"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -147,18 +147,20 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002613"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L151",
       "sourceHash": "9d71d77951df8623217ed9b4774d8febe7cced5e5641bb9599b8ccd9443006ad",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Requires level, mistranslation or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "duplicate",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000002611"
+      ],
+      "notes": "auswählen and aussuchen in this source both assess selecting one item from alternatives. Same B1 objective already authored for aussuchen at line 147; no new objective justified without a register contrast.",
+      "corrections": "Do not duplicate the B1 choice objective or overwrite existing target metadata.",
+      "rightsBasis": "No exercise authored; source assessed only for lexical overlap."
     },
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L152",
@@ -167,7 +169,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002615"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -178,7 +180,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002616"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -189,7 +191,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002617"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited English gloss 'claim' names another sense. Here 'time beanspruchen' is selected and explained; no legal entitlement is assumed.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -200,7 +202,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002618"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited verb sense and CEFR level reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     },
@@ -211,7 +213,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002619"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts separately reviewed by GPT-6: complete German, all options, answer keys, hints and bilingual explanations. No human approval.",
       "corrections": "Inherited English 'edit' and German source example 'process an application' refer to different valid senses; both explicitly covered in separate original contexts.",
       "rightsBasis": "Lexical and grammatical facts only; all contexts and feedback original. Independent rights assessment pending."
     }
