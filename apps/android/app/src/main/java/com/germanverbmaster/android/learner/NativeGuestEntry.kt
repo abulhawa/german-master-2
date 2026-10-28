@@ -130,7 +130,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     Scaffold(modifier=Modifier.fillMaxSize(),contentWindowInsets=WindowInsets.safeDrawing,containerColor=MaterialTheme.colorScheme.background,
         bottomBar={if(!focused) LearnerNavigation(screen,german) {returnTo="home";screen=it}}) {insets->
         Column(Modifier.padding(insets).widthIn(max=720.dp).fillMaxWidth().verticalScroll(scroll).padding(horizontal=24.dp,vertical=16.dp),verticalArrangement=Arrangement.spacedBy(20.dp)) {
-            if(!focused) StudyHeader(german,{openAccount()})
+            if(!focused) StudyHeader(german,{openAccount()},showGrammar=screen!="account"&&screen!="downloads")
             else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
                 TextButton(onClick={leave("home")}){Text(text("Close practice","Übung schließen"))}
                 if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)

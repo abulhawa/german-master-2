@@ -114,7 +114,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
     }) { insets ->
         Column(Modifier.padding(insets).imePadding().widthIn(max = 720.dp).fillMaxWidth()
             .verticalScroll(pageScroll).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            if (!focused) StudyHeader(german, { screen = "account" }, enabled = !busy)
+            if (!focused) StudyHeader(german, { screen = "account" }, enabled = !busy, showGrammar = screen != "account")
             else GrammarReferenceButton(german,!busy)
             if(screen == "account") {
                 val authCopy=providerCopy(if(german) "de" else "en")

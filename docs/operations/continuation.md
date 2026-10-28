@@ -1,5 +1,13 @@
 # Continuing German Master recovery
 
+## Configured preview correction - 28 October 2026
+
+Prior routine test artifacts were accidentally installed without public Auth
+configuration. Corrected configured preview is installed; physical Settings now
+shows the account email and omits Grammar. See PROGRESS. Use the guarded
+`tools/android/build-configured-preview.ps1` and its distinct configured APK for
+future installs; never substitute an unconfigured fixture build. Data was retained.
+
 ## Grouped Settings - 28 October 2026
 
 Owner explicitly removed manual sync/export/download UI on both clients; keep

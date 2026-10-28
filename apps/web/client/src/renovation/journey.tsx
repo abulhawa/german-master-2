@@ -319,7 +319,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       <nav className="gm-rail-navigation" aria-label={c.subtitle}>
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item => <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id || item.id === 'topics' && (view === 'topic' || view === 'target') ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate(item.id);if(item.id==='progress')void refresh();}}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
-      <GrammarReference locale={state.locale}/>
+      {view !== 'account' && <GrammarReference locale={state.locale}/>}
       <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' ? 'page' : undefined} onClick={()=>{setEditingSetup(false);navigate('account');}}><Settings aria-hidden="true"/>{s.settings}</FoundationButton>
     </aside>}
     <div className="gm-column gm-workspace-content">

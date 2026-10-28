@@ -133,6 +133,7 @@ Preserve ongoing work and complete the current slice before starting unrelated f
 - Remove learner-facing manual sync, data-saving, export and download controls.
   Keep internal persistence, account isolation and unfinished-practice protection;
   this does not authorize silent loss of work.
+- Do not show the Grammar reference button inside Settings on either client.
 - Retain a clear request to delete the account and related learning data on both
   clients. The established verified-ownership support request is distinct from
   automatic identity deletion; do not claim a request was submitted merely by

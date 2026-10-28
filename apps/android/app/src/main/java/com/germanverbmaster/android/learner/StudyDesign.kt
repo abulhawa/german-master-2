@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 
 /** Shared presentation only. Persistence and session transitions stay with their hosts. */
 @Composable
-internal fun StudyHeader(german: Boolean, account: () -> Unit, enabled: Boolean = true) {
+internal fun StudyHeader(german: Boolean, account: () -> Unit, enabled: Boolean = true, showGrammar: Boolean = true) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Surface(color = MaterialTheme.colorScheme.primary, contentColor = MaterialTheme.colorScheme.onPrimary, shape = RoundedCornerShape(10.dp)) {
             Box(Modifier.size(32.dp), contentAlignment = Alignment.Center) { Text("ü", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold) }
@@ -30,7 +30,7 @@ internal fun StudyHeader(german: Boolean, account: () -> Unit, enabled: Boolean 
             Text(if(german) "Einstellungen" else "Settings")
         }
     }
-    GrammarReferenceButton(german,enabled)
+    if(showGrammar) GrammarReferenceButton(german,enabled)
 }
 
 @Composable

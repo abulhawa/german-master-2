@@ -1,5 +1,35 @@
 # German Master 2.0 current checkpoint
 
+## Correct configured preview and Settings header - 28 October 2026
+
+Physical owner-requested inspection found the prior installed preview was an
+unconfigured fixture: it showed Local preview only and no account email. The
+earlier installation-success checkpoint did not prove authenticated configuration.
+This was a build/install error, not evidence that the owner's login had failed.
+
+Rebuilt against the clean production public Auth/API configuration, with
+verifyV2ReleaseConfiguration, 16 focused native tests, lintDebug and preview
+assembly passing. The configured artifact is separately retained as
+`apps/android/app/build/outputs/apk/learnerPreview/app-learnerPreview-configured.apk`.
+Replacement installation succeeded without clearing app data. After the owner
+unlocked the phone, UI hierarchy inspection confirmed the actual email visible
+under Settings / Sign-in details, no Local preview warning, and no Grammar button.
+No password, token or email value is recorded in this checkpoint.
+
+Owner explicitly rejects Grammar inside Settings. Native shared headers and web
+account navigation now omit it there for signed-in and signed-out learners;
+practice/Home access remains. Web affected suites pass 87/87, root generated/type
+checks and production web/API builds pass. No web deployment or store upload.
+
+Use `tools/android/build-configured-preview.ps1` with the three public GM_V2_*
+environment values for future physical previews; it validates configuration and
+retains a distinct configured APK. Normal unconfigured test artifacts must never
+be substituted for the authenticated preview. Script syntax is checked; its
+underlying guard/build tasks passed in this correction.
+
+Next: owner reviews the corrected Settings. Keep remaining lifecycle evidence and
+Android publication approval separate; this is not full release acceptance.
+
 ## Grouped Settings without data-management controls - 28 October 2026
 
 Owner rejected overloaded Settings and explicitly requested the same grouped,

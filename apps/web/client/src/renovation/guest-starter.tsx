@@ -716,7 +716,7 @@ export function GuestStarterJourney({
         {([{id:'home',label:c.home,icon:Home},{id:'progress',label:c.progress,icon:ChartNoAxesColumn},{id:'topics',label:c.topics,icon:BookOpen}] as const).map(item =>
           <FoundationButton key={item.id} className="gm-nav-item gm-secondary" aria-current={view === item.id ? 'page' : undefined} onClick={() => setView(item.id)}><item.icon aria-hidden="true"/>{item.label}</FoundationButton>)}
       </nav>
-      <GrammarReference locale={state.locale}/>
+      {view !== 'account' && view !== 'downloads' && <GrammarReference locale={state.locale}/>}
       <FoundationButton className="gm-nav-item gm-account-link gm-settings-link gm-secondary" aria-current={view === 'account' || view === 'downloads' ? 'page' : undefined} onClick={() => setView("account")}><Settings aria-hidden="true"/>{c.settings}</FoundationButton>
     </aside>
     <div className="gm-column gm-workspace-content">

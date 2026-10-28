@@ -22,6 +22,7 @@ class LearnerShellTest {
         compose.onNode(hasText("Settings") and hasClickAction()).performScrollTo().performClick()
         compose.onNodeWithText("Sign-in details").performScrollTo().assertExists()
         compose.onNodeWithText("learner@example.test").assertExists()
+        compose.onNodeWithText("Grammar").assertDoesNotExist()
         compose.onNodeWithText("Sync all saved work").assertDoesNotExist()
         compose.onNodeWithText("Download my learning data").assertDoesNotExist()
         compose.onNodeWithText("Request account deletion").assertExists()
