@@ -1,4 +1,14 @@
 /* Approved mobile-first direction. Shared token values are generated for Compose too. */
+.gm-workspace .gm-card.gm-settings-group { padding: 16px; gap: 8px; border-radius: 16px; }
+.gm-workspace .gm-settings-group > h2 { font-size: 1rem; margin: 0 0 8px; }
+.gm-workspace .gm-settings-group .gm-account-email { margin: 0; line-height: 1.5; }
+.gm-workspace .gm-settings-group .gm-settings-row { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; text-align: start; min-height: 48px; padding: 10px 8px; border: 0; background: transparent; color: var(--gm-text); text-decoration: none; }
+.gm-workspace .gm-settings-group .gm-settings-row small { color: var(--gm-secondary); font-size: .875rem; font-weight: 400; }
+.gm-settings-dialog { width: min(420px,calc(100% - 32px)); margin: auto; padding: 24px; border: 1px solid var(--gm-border); border-radius: 16px; background: var(--gm-background); color: var(--gm-text); }
+.gm-settings-dialog h2 { margin: 0 0 12px; font-size: 1.25rem; }
+.gm-settings-dialog p { line-height: 1.5; }
+.gm-settings-dialog::backdrop { background: color-mix(in srgb,var(--gm-text) 35%,transparent); }
+.gm-settings-dialog-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; }
 .gm-workspace { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
 .gm-foundation.gm-workspace { padding: 0; }
 .gm-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

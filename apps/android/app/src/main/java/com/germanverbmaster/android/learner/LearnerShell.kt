@@ -44,10 +44,8 @@ internal fun SettingsSection(title: String, german: Boolean, content: @Composabl
 @Composable
 internal fun AccountDeletionRequest(german: Boolean) {
     val context = androidx.compose.ui.platform.LocalContext.current
-    TextButton(onClick = { context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW,
-        android.net.Uri.parse("https://germanmaster.qortxai.com/delete-account"))) }) {
-        Text(if(german) "Kontolöschung anfordern" else "Request account deletion")
-    }
+    SettingsRow(if(german) "Kontolöschung anfordern" else "Request account deletion", action = { context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW,
+        android.net.Uri.parse("https://germanmaster.qortxai.com/delete-account"))) })
 }
 
 @Composable
@@ -63,6 +61,9 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
     var fresh by remember { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf("home") }
     var detailId by rememberSaveable { mutableStateOf("") }
+    androidx.activity.compose.BackHandler(enabled=screen!="home"&&screen!="practice") {
+        screen=when(screen) { "setup"->"account"; "target"->"topic"; "topic"->"topics"; else->"home" }
+    }
     val pageScroll = rememberScrollState()
     LaunchedEffect(screen, detailId) { pageScroll.scrollTo(0) }
     val scope = rememberCoroutineScope()
@@ -77,6 +78,10 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
         }
     }
     LaunchedEffect(repository) { if (cache.identityDeletion == null && cache.deletion == null && !cache.signedOut) run {} }
+    LaunchedEffect(cache.profile?.setupCompleted,busy) {
+        if(!busy&&repository.authenticatedAccount&&cache.profile?.setupCompleted==false&&cache.pending==null)
+            run(false) {repository.save(requireNotNull(cache.profile).preferences)}
+    }
     val german = cache.profile?.preferences?.locale == "de"
     fun label(en: String, de: String) = if (german) de else en
     val setup = screen == "setup" || cache.profile?.setupCompleted != true
@@ -143,16 +148,13 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             }
             if (screen == "account") {
                 Text(label("Settings", "Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
-                StudyPanel {
-                Text(label("Account", "Konto"), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
+                SettingsGroup(label("Account", "Konto")) {
                 val address = if (localOnly) null else accountEmail()
                 if (address != null) {
                     Text(label("Email", "E-Mail"), style = MaterialTheme.typography.labelLarge)
                     androidx.compose.foundation.text.selection.SelectionContainer { Text(address) }
                 } else Text(label("Reconnect your account to view your email.", "Verbinde dein Konto erneut, um deine E-Mail zu sehen."))
-                SettingsSection(label("Sign out", "Abmelden"), german) {
-                    NativePrivacySignOut(repository, german, busy) { cache = repository.state }
-                }
+                NativePrivacySignOut(repository, german, busy) { cache = repository.state }
                 AccountDeletionRequest(german)
                 if(repository.identityDeletionEnabled) SettingsSection(label("Delete account", "Konto löschen"), german) {
                     NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
@@ -161,6 +163,12 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             }
             val profile = cache.profile
             if (profile != null && setup) {
+                if(repository.authenticatedAccount) {
+                    Text(label("Practice preferences","Übungseinstellungen"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineMedium)
+                    StudyLanguageRow(german,!busy&&cache.pending==null) {run(false) {repository.save(profile.preferences.copy(locale=if(german)"en" else "de"))}}
+                    PracticeLevelSetting(profile.preferences.level,german,!busy&&cache.pending==null) {level->run(false) {repository.save(profile.preferences.copy(level=level))}}
+                    TextButton(onClick={screen="account"}) {Text(label("Back to Settings","Zurück zu den Einstellungen"))}
+                } else {
                 Text(label("Setup and preferences", "Einrichtung und Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
                 key(profile.revision, cache.pending) {
                     var locale by rememberSaveable { mutableStateOf(profile.preferences.locale) }
@@ -168,12 +176,13 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                     var learningContext by rememberSaveable { mutableStateOf(profile.preferences.learningContext ?: "general") }
                     var timezone by rememberSaveable { mutableStateOf(profile.preferences.timezone) }
                     val editable = !busy && cache.pending == null
-                    LearnerButton("Language / Sprache: $locale", editable) { locale = if (locale == "en") "de" else "en" }
+                    StudyLanguageRow(locale=="de", editable) { locale = if (locale == "en") "de" else "en" }
                     LearnerButton(label("Level", "Niveau") + ": $level", editable) { level = if (level == "B1") "B2" else "B1" }
                     if(NativeReleaseCapabilities.workplacePractice) LearnerButton(label("Practice", "Übung") + ": " + if(learningContext=="work")label("German for work","Deutsch im Beruf")else label("General German","Allgemeines Deutsch"), editable) {learningContext=if(learningContext=="general")"work" else "general"}
                     LearnerButton(label("Save preferences", "Einstellungen speichern"), editable) { run { repository.save(ProfilePreferences(locale, timezone, level, 5, learningContext)) } }
                 }
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }
+                }
             } else if (profile != null) {
                 if (screen != "home" && screen != "account") {
                     Text(when(screen) { "account" -> label("Settings", "Einstellungen"); "progress" -> label("Your progress", "Dein Lernstand"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); else -> label("Skill detail", "FÃ¤higkeit im Detail") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
@@ -187,10 +196,11 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                         preferences = { screen = "setup" }, refresh = { run {} },
                         openTopic = { detailId = it; screen = "topic" }, openTarget = { detailId = it; screen = "target" })
                 } else if (screen == "account") {
-                    SettingsSection(label("Language and appearance", "Sprache und Darstellung"), german) {
-                        StudyAppearanceSettings(german, { run { repository.save(profile.preferences.copy(locale=if(german) "en" else "de")) } }, !busy && cache.pending==null)
+                    StudyAppearanceSettings(german, { run { repository.save(profile.preferences.copy(locale=if(german) "en" else "de")) } }, !busy && cache.pending==null)
+                    SettingsGroup(label("Practice preferences", "Übungseinstellungen")) {
+                        if(repository.authenticatedAccount) PracticeLevelSetting(profile.preferences.level,german,!busy&&cache.pending==null) {level->run(false) {repository.save(profile.preferences.copy(level=level))}}
+                        else SettingsRow(label("Practice level", "Übungsniveau"), profile.preferences.level, !busy) {screen="setup"}
                     }
-                    LearnerButton(design(R.string.study_preferences), !busy) { screen = "setup" }
                 } else if (screen in setOf("topics", "topic", "target")) {
                     NativeTopicsView(cache, screen, detailId, german, busy,
                         open = { destination, id -> screen = destination; detailId = id },

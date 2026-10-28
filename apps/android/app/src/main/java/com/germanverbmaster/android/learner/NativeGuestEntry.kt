@@ -163,8 +163,8 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 "progress","account","downloads" -> {
                     StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Settings","Einstellungen")})
                     if(screen=="account") {
-                        SettingsSection(text("Language and appearance","Sprache und Darstellung"),german) { StudyAppearanceSettings(german,language) }
-                        SettingsSection(text("Practice preferences","Übungseinstellungen"),german) {
+                        StudyAppearanceSettings(german,language)
+                        SettingsGroup(text("Practice preferences","Übungseinstellungen")) {
                         LearnerButton(text("Level","Niveau")+": "+level,true){level=if(level=="B1")"B2" else "B1";selectedTopic=null;preferences.edit().putString("level",level).apply()}
                         if(NativeReleaseCapabilities.workplacePractice) LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
                         }

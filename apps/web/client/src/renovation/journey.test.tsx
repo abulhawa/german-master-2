@@ -14,6 +14,20 @@ import { emptyJourney, readJourney, saveJourney, snapshot, pull, STORAGE_KEY } f
 import { AccountBinding, FIXTURE_SUBJECT } from './account';
 import { WebReserve } from './reserve';
 
+it('saves an account setting on selection without an extra Save step',async()=>{
+  const api=apiFixture();let profile=await api.profile();
+  api.profile=vi.fn(async()=>profile);
+  api.saveProfile=vi.fn(async request=>{profile={...profile,revision:profile.revision+1,preferences:request.preferences};return profile;});
+  render(<LearnerJourney api={api} revoke={async()=>{}}/>);
+  fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
+  await waitFor(()=>expect(screen.getByLabelText('Practice level')).toBeEnabled());
+  expect(screen.queryByRole('button',{name:'Save preferences'})).toBeNull();
+  fireEvent.change(screen.getByLabelText('Practice level'),{target:{value:'B2'}});
+  await waitFor(()=>expect(api.saveProfile).toHaveBeenCalledTimes(1));
+  await waitFor(()=>expect(screen.getByLabelText('Practice level')).toHaveValue('B2'));
+  expect(api.submit).not.toHaveBeenCalled();
+});
+
 it('deletion requires confirmation, survives remount and removes only owned local work after a receipt',async()=> {
   const api=apiFixture();let lose=true;
   api.deleteLearner=vi.fn(async request=> {if(lose) throw Error('lost');return {apiVersion:'v2',requestId:request.requestId,subject:FIXTURE_SUBJECT,status:'deleted',deletedAt:'2026-10-05T12:00:00Z'};});
@@ -481,8 +495,8 @@ it("retries frozen setup payload after lost response and reload without overwrit
   });
   render(<LearnerJourney api={api} />);
   fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
-  await waitFor(() => expect(screen.getByText("Practice preferences")).toBeEnabled());
-  fireEvent.click(screen.getByText("Practice preferences"));
+  await waitFor(() => expect(screen.getByRole('button',{name:/Practice level/})).toBeEnabled());
+  fireEvent.click(screen.getByRole('button',{name:/Practice level/}));
   fireEvent.change(screen.getByLabelText("Practice level"), { target: { value: "B2" } });
   fireEvent.click(screen.getByText("Save preferences"));
   await screen.findByRole("alert");

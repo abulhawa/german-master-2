@@ -4,6 +4,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -31,6 +33,18 @@ fun NativePrivacySignOut(repository: LearnerRepository,german:Boolean,blocked:Bo
             catch(_:Exception) { failed=true }
             finally { busy=false;onUpdated() }
         }
+    }
+    if(repository.authenticatedAccount && !repository.state.signedOut) {
+        SettingsRow(label("Sign out","Abmelden"), enabled=!busy&&!blocked) {confirming=true;failed=false}
+        if(confirming) AlertDialog(onDismissRequest={if(!busy)confirming=false},
+            title={Text(label("Sign out?","Abmelden?"))},
+            text={Column(verticalArrangement=Arrangement.spacedBy(8.dp)) {
+                Text(label("Your progress stays with your account. Unfinished practice stays on this device.","Dein Lernstand bleibt in deinem Konto. Unfertige Übungen bleiben auf diesem Gerät."))
+                if(failed)Text(label("Could not sign out. Your practice is preserved. Try again.","Abmelden fehlgeschlagen. Deine Übungen bleiben erhalten. Versuche es erneut."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+            }},
+            confirmButton={TextButton(onClick={run(false)},enabled=!busy&&!blocked) {Text(label("Sign out","Abmelden"))}},
+            dismissButton={TextButton(onClick={confirming=false},enabled=!busy) {Text(label("Cancel","Abbrechen"))}})
+        return
     }
     Column(verticalArrangement=Arrangement.spacedBy(16.dp)) {
         Text(if(repository.authenticatedAccount) label("Sign out","Abmelden") else label("Sign out of local preview","Aus lokaler Vorschau abmelden"),Modifier.semantics { heading() })

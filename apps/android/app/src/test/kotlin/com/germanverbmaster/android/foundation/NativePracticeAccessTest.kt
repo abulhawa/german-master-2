@@ -66,8 +66,8 @@ class NativePracticeAccessTest {
                 NativeGuestEntry(file,false,{},auth::add)
             } } }
             compose.onNode(hasText("Settings") and hasClickAction()).performClick()
-            compose.onNodeWithText("Language and appearance").performScrollTo().performClick()
-            compose.onNodeWithText("Dark").performScrollTo().performClick()
+            compose.onNode(hasText("Theme") and hasClickAction()).performScrollTo().performClick()
+            compose.onNodeWithText("Dark").performClick()
             assertEquals("dark",prefs.getString("theme",null))
             compose.onNode(hasText("Home") and hasClickAction()).performClick()
             compose.onNodeWithText("Continue session").performScrollTo().performClick()

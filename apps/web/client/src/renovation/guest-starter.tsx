@@ -745,22 +745,22 @@ export function GuestStarterJourney({
 
       </> : <>
         <div className="gm-page-heading"><h1>{view === 'account' ? c.settings : c[view]}</h1></div>
-        {view === 'account' && <><details className="gm-account-disclosure"><summary>{state.locale==='de'?'Übungseinstellungen':'Practice preferences'}</summary><PracticeCard><div className="gm-settings">
+        {view === 'account' && <><PracticeCard className="gm-settings-group"><h2>{state.locale==='de'?'Übungseinstellungen':'Practice preferences'}</h2><div className="gm-settings">
 
           <label>{state.locale==='de'?'Niveau':'Level'}<select value={state.level} onChange={e=>{setTopic(null);commit({...state,level:e.target.value as 'B1'|'B2'});}}><option>B1</option><option>B2</option></select></label>
 
           {releaseCapabilities.workplacePractice && <label>{state.locale==='de'?'Übung':'Practice'}<select value={state.learningContext} onChange={e=>{setTopic(null);commit({...state,learningContext:e.target.value as 'general'|'work'});}}><option value="general">{state.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{state.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>}
 
-        </div></PracticeCard></details><details className="gm-account-disclosure"><summary>{c.appearance}</summary><PracticeCard><div className="gm-settings">
+        </div></PracticeCard><PracticeCard className="gm-settings-group"><h2>{c.appearance}</h2><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e=>commit({...state,locale:e.target.value as Locale})}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e=>appearance.choose(e.target.value as Appearance)}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
-        </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard></details></>}
-        <PracticeCard>{view === 'account' && <h2>{c.account}</h2>}<p role="status">{view === 'account' ? c.settingsAccount : c.accountRequired}</p>
+        </div>{appearance.failed && <p role="alert">{c.appearanceError}</p>}</PracticeCard></>}
+        <PracticeCard className={view==='account'?'gm-settings-group':''}>{view === 'account' && <h2>{c.account}</h2>}<p role="status">{view === 'account' ? c.settingsAccount : c.accountRequired}</p>
           <FoundationButton onClick={() => onAuth("sign-in")}>{c.signIn}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => onAuth("register")}>{c.create}</FoundationButton>
           <FoundationButton className="gm-secondary" onClick={() => setView(active ? "practice" : "home")}>{c.backPractice}</FoundationButton>
           {hasSavedAccount && onResumeSaved && <FoundationButton className="gm-secondary" onClick={onResumeSaved}>{c.resumeAccount}</FoundationButton>}
-          {view === 'account' && <a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>}
+          {view === 'account' && <a className="gm-button gm-settings-row gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>}
         </PracticeCard>
       </>}
     </div>

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useId } from 'react';
 import type { LearnerExport } from '@german-master/contracts';
 import { FoundationButton, PracticeCard } from "../foundation/controls";
 import { privacyCopy } from './privacy-locales';
@@ -17,10 +17,27 @@ export function PrivacySignOut({locale,blocked,signedOut,complete,leave,resume,a
   const c=(authenticated?accountSignoutCopy:signoutCopy)[locale];const locked=useRef(false);
   const [confirm,setConfirm]=useState(false);const [busy,setBusy]=useState(false);const [error,setError]=useState(false);
   const {heading,begin}=usePrivacyFocus(confirm,signedOut);
+  const dialog=useRef<HTMLDialogElement>(null),titleId=useId(),descriptionId=useId();
+  useEffect(()=>{
+    if(!authenticated||signedOut||!confirm||!dialog.current)return;
+    const node=dialog.current,previous=document.activeElement,overflow=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    node.showModal();
+    return ()=>{document.body.style.overflow=overflow;if(node.open)node.close();if(previous instanceof HTMLElement)previous.focus();};
+  },[authenticated,signedOut,confirm]);
   async function run(remove:boolean) {
     if(locked.current||blocked) return;locked.current=true;setBusy(true);setError(false);
-    try {await leave(remove);} catch {setError(true);} finally {locked.current=false;setBusy(false);}
+    try {await leave(remove);if(authenticated)setConfirm(false);} catch {setError(true);} finally {locked.current=false;setBusy(false);}
   }
+  if(authenticated&&!signedOut)return <>
+    <FoundationButton className="gm-settings-row gm-secondary" disabled={blocked||busy} onClick={()=>{setError(false);setConfirm(true);}}>{c.title}</FoundationButton>
+    {confirm&&<dialog ref={dialog} className="gm-settings-dialog" aria-labelledby={titleId} aria-describedby={descriptionId} onCancel={event=>{event.preventDefault();if(!busy)setConfirm(false);}}>
+      <h2 id={titleId}>{locale==='de'?'Abmelden?':'Sign out?'}</h2><p id={descriptionId}>{c.help}</p>
+      {error&&<p role="alert">{c.error}</p>}
+      <div className="gm-settings-dialog-actions"><FoundationButton className="gm-secondary" autoFocus disabled={busy} onClick={()=>setConfirm(false)}>{locale==='de'?'Abbrechen':'Cancel'}</FoundationButton>
+      <FoundationButton disabled={blocked||busy} onClick={()=>void run(false)}>{c.title}</FoundationButton></div>
+    </dialog>}
+  </>;
   return <PracticeCard><h2 ref={heading} tabIndex={-1}>{c.title}</h2><p>{signedOut?c.signedOut:c.help}</p>
     {signedOut ? complete ? <FoundationButton disabled={busy} onClick={()=>{try {resume();} catch {setError(true);}}}>{c.resume}</FoundationButton> : <FoundationButton disabled={busy} onClick={()=>void run(true)}>{c.retry}</FoundationButton> : <>
       <FoundationButton disabled={busy||blocked} onClick={()=>void run(false)}>{c.sync}</FoundationButton>

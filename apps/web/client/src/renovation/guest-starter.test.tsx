@@ -11,7 +11,6 @@ beforeEach(()=>{vi.spyOn(Math,'random').mockReturnValue(0.99999);});
 it('persists appearance without an account and preserves temporary practice on cancellation',()=>{
  render(<GuestStarterJourney onAuth={vi.fn()}/>);
  fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
- fireEvent.click(screen.getByText('Language and appearance'));
  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'dark'}});
  expect(localStorage.getItem(APPEARANCE_KEY)).toBe('dark');
  fireEvent.click(screen.getByRole('button',{name:'Home',exact:true}));

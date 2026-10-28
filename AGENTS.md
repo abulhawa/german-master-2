@@ -134,6 +134,17 @@ Preserve ongoing work and complete the current slice before starting unrelated f
   Keep internal persistence, account isolation and unfinished-practice protection;
   this does not authorize silent loss of work.
 - Do not show the Grammar reference button inside Settings on either client.
+- Owner adopted Astra's screenshot recommendations: compact, consistent Account,
+  Language/appearance and Practice preferences groups. Sign out opens a compact
+  Cancel / Sign out confirmation, not an expanding settings drawer. Keep deletion
+  visually secondary.
+- Language choices must explicitly say English / Deutsch rather than EN/DE
+  toggles. Account preference selections persist immediately; no separate Save
+  preferences button in the authenticated learner flow. Retain frozen retries on
+  failure and existing account isolation.
+- Android system Back dismisses settings dialogs first, returns nested settings
+  to Settings, then Settings to Home. It must not exit the app from Settings or
+  silently discard unfinished practice.
 - Retain a clear request to delete the account and related learning data on both
   clients. The established verified-ownership support request is distinct from
   automatic identity deletion; do not claim a request was submitted merely by

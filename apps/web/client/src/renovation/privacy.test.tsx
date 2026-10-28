@@ -10,10 +10,18 @@ const data:LearnerExport={apiVersion:'v2',schemaVersion:'learner-export-v1',subj
   sessions:[],attempts:[],evaluations:[],exposures:[],targets:[],reports:[],completions:[]};
 afterEach(()=>{cleanup();vi.restoreAllMocks();vi.unstubAllGlobals();});
 it('signs out an account without asking the learner to manage local data',async()=>{
+  Object.defineProperty(HTMLDialogElement.prototype,'showModal',{configurable:true,value:function(this:HTMLDialogElement){this.setAttribute('open','');}});
+  Object.defineProperty(HTMLDialogElement.prototype,'close',{configurable:true,value:function(this:HTMLDialogElement){this.removeAttribute('open');}});
   const leave=vi.fn(async()=>{});
   render(<PrivacySignOut locale="en" authenticated blocked={false} signedOut={false} complete={false} leave={leave} resume={()=>{}}/>);
   expect(screen.getAllByRole('button')).toHaveLength(1);
   fireEvent.click(screen.getByRole('button',{name:'Sign out',exact:true}));
+  expect(leave).not.toHaveBeenCalled();
+  expect(screen.getByRole('dialog',{name:'Sign out?'})).toBeVisible();
+  fireEvent.click(screen.getByRole('button',{name:'Cancel',exact:true}));
+  expect(leave).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('button',{name:'Sign out',exact:true}));
+  fireEvent.click(screen.getByRole('dialog',{name:'Sign out?'}).querySelector('.gm-settings-dialog-actions button:last-child')!);
   await waitFor(()=>expect(leave).toHaveBeenCalledExactlyOnceWith(false));
 });
 it('uses explicit export choices, blocks duplicate clicks and preserves retry after failure',async()=>{

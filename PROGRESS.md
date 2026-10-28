@@ -1,5 +1,40 @@
 # German Master 2.0 current checkpoint
 
+## Astra Settings implementation, instant choices and safe Back - 28 October 2026
+
+Owner authorized implementing Astra's actual-screenshot recommendations, then
+explicitly requested readable language choices, immediate preference persistence,
+and fixing Android Back exiting from Settings. Both clients now use compact,
+consistently styled groups for Account, Language/appearance and Practice
+preferences. Real-account Sign out is one row opening a compact Cancel / Sign out
+dialog; no expanding drawer or repeated headings. Deletion request stays within
+Account with secondary styling. Normal authenticated preferences have no separate
+Save action; selecting a level/language persists immediately using existing
+frozen request/revision checks and durable retries. Fixture-only setup tools are
+retained for engine tests, outside the configured learner flow.
+
+Native language and theme rows show current readable values and explicit choice
+dialogs; English/Deutsch replaces toggled EN/DE text, including nested practice
+preferences. Native Back returns nested preferences to Settings and Settings to
+Home; platform dialogs dismiss first. Existing practice/pending work is retained.
+Main account preferences are inline on web, using real Settings navigation.
+
+Web affected tests, including automatic-save retry/reopen and sign-out
+cancellation/confirmation, pass across bounded reruns (93 tests); root generated/
+type checks and production build pass. Native 19 focused tests and lintDebug pass,
+covering selection autosave, dialog cancellation, Back through Settings and
+existing draft-preserving access. Guarded configured preview build and replacement
+installation passed without clearing data. Physical UI confirms the visible email,
+three compact groups, English/Deutsch picker, Sign out confirmation, and Back
+dismissing the language dialog then returning Settings to Home inside the app.
+Sign-out was cancelled; no live preference value or account was changed by this
+physical check. Screenshots remain private. Owner then requested wrapping up to
+preserve allowance; no additional tests or discretionary work at this handoff.
+No web deployment, account deletion, store upload or release approval is implied.
+
+Next: owner reviews the corrected configured mobile preview; preserve remaining
+lifecycle acceptance and the separate Android publication hold.
+
 ## Owner-requested Astra Settings review - 28 October 2026
 
 Astra reviewed real physical Pixel screenshots of collapsed and expanded Settings

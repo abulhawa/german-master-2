@@ -22,7 +22,7 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
   const [pending, setPending] = useState<ProfileRequest | null>(loaded.pending);
   const [preferences, setPreferences] = useState<LearnerProfile['preferences']>(() => {
     if (loaded.pending || profile.setupCompleted) {
-      const saved=loaded.pending?.preferences ?? profile.preferences;
+      const saved=authenticated?profile.preferences:loaded.pending?.preferences ?? profile.preferences;
       return {...saved,learningContext:releaseCapabilities.workplacePractice ? saved.learningContext : 'general' as const};
     }
     // Profile defaults are not a learner timezone choice. Use the browser zone at first setup only.
@@ -36,22 +36,23 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
   const heading = useRef<HTMLHeadingElement>(null);
   const c = learnerCopy[preferences.locale];
   useEffect(() => { heading.current?.focus(); }, []);
-  async function save() {
+  async function save(next = preferences) {
     if (lock.current || loaded.damaged) return;
     lock.current = true; setBusy(true); setError(false);
-    try { await (owner ? owner.run(saveOwned) : saveOwned()); }
+    try { await (owner ? owner.run(()=>saveOwned(next)) : saveOwned(next)); }
     catch { setError(true); }
     finally { lock.current = false; setBusy(false); }
   }
-  async function saveOwned() {
+  async function saveOwned(next = preferences) {
     try {
-      const request = pending ?? { apiVersion: "v2", requestId: crypto.randomUUID(), expectedRevision: profile.revision, preferences: {...preferences,sessionQuestionCount:5 as const} };
+      const request = pending ?? { apiVersion: "v2", requestId: crypto.randomUUID(), expectedRevision: profile.revision, preferences: {...next,sessionQuestionCount:5 as const} };
       storage.setItem(PROFILE_PENDING_KEY, JSON.stringify(ProfileRequestSchema.parse(request)));
       setPending(request);
       await api.saveProfile(request);
       // Replay can return a historical response. Read current state before showing confirmed preferences.
       const current = await api.profile();
       storage.setItem(PROFILE_PENDING_KEY, "");
+      if(authenticated) {setPreferences(current.preferences);onPreviewLocale(current.preferences.locale);}
       onSaved(current);
     } catch { setError(true); }
   }
@@ -66,18 +67,21 @@ export function ProfileSetup({ profile, api, storage, owner, onSaved, onReload, 
     try { const value = await onReload(); storage.setItem(PROFILE_PENDING_KEY, ""); setPending(null); setPreferences(value.preferences); setError(false); }
     catch { setError(true); }
   }
+  useEffect(()=>{
+    if(authenticated&&!profile.setupCompleted&&!loaded.pending&&!loaded.damaged)void save();
+  },[]);
   return <div lang={preferences.locale}><PracticeCard>
-    <h1 ref={heading} tabIndex={-1}>{c.setup}</h1>
-    <p>{authenticated?accountLearnerCopy[preferences.locale].draftLevel:c.draftLevel}</p>
+    <h1 ref={heading} tabIndex={-1}>{authenticated?shellCopy[preferences.locale].practicePreferences:c.setup}</h1>
+    {!authenticated&&<p>{c.draftLevel}</p>}
     {loaded.damaged ? <p role="alert">{c.damaged}</p> : <>
       <fieldset className="gm-answer-group" disabled={busy || !!pending}>
-        <label>{c.language}<select value={preferences.locale} onChange={e => { const locale = e.target.value as "en" | "de"; setPreferences({ ...preferences, locale }); onPreviewLocale(locale); }}><option value="en">English</option><option value="de">Deutsch</option></select></label>
-        <label>{c.level}<select value={preferences.level} onChange={e => setPreferences({ ...preferences, level: e.target.value as "B1" | "B2" })}><option>B1</option><option>B2</option></select></label>
+        <label>{c.language}<select value={preferences.locale} onChange={e => { const locale = e.target.value as "en" | "de"; if(authenticated)void save({...preferences,locale});else {setPreferences({ ...preferences, locale }); onPreviewLocale(locale);} }}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+        <label>{c.level}<select value={preferences.level} onChange={e => {const level=e.target.value as "B1" | "B2";if(authenticated)void save({...preferences,level});else setPreferences({ ...preferences, level });}}><option>B1</option><option>B2</option></select></label>
         {releaseCapabilities.workplacePractice && <label>{preferences.locale==='de'?'Übung':'Practice'}<select value={preferences.learningContext ?? 'general'} onChange={e=>setPreferences({...preferences,learningContext:e.target.value as 'general'|'work'})}><option value="general">{preferences.locale==='de'?'Allgemeines Deutsch':'General German'}</option><option value="work">{preferences.locale==='de'?'Deutsch im Beruf':'German for work'}</option></select></label>}
 
       </fieldset>
       {error && <p role="alert">{c.setupError}</p>}
-      <FoundationButton disabled={busy || !preferences.timezone.trim()} onClick={() => void save()}>{pending ? c.retry : c.saveSetup}</FoundationButton>
+      {(!authenticated||pending)&&<FoundationButton disabled={busy || !preferences.timezone.trim()} onClick={() => void save()}>{pending ? c.retry : c.saveSetup}</FoundationButton>}
       {(pending || error) && <FoundationButton className="gm-secondary" disabled={busy} onClick={() => void reload()}>{c.reloadProfile}</FoundationButton>}
       {onCancel && !pending && <FoundationButton className="gm-secondary" disabled={busy} onClick={onCancel}>{c.cancelSetup}</FoundationButton>}
     </>}

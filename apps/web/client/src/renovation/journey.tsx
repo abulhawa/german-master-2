@@ -1,7 +1,7 @@
 import { useLearnerRoute, navigateLearner } from './navigation';
 import { GrammarReference } from './grammar-reference';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import type { Answer, Catalog, PracticeFocus, LearnerProfile } from "@german-master/contracts";
+import { ProfileRequestSchema, type Answer, type Catalog, type PracticeFocus, type LearnerProfile } from "@german-master/contracts";
 import { PracticeFeedback } from "../foundation/practice-feedback";
 import { ExerciseInput } from "../foundation/exercise-input";
 import { FoundationButton, PracticeCard } from "../foundation/controls";
@@ -188,6 +188,19 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     setCatalogFailed(false);
     try { setCatalog(await api.catalog()); } catch { setCatalogFailed(true); }
   }
+  async function instantPreference(update: Partial<LearnerProfile['preferences']>) {
+    if(!profile)return;
+    await run(async()=>{
+      const saved=storage.getItem(PROFILE_PENDING_KEY);
+      const request=ProfileRequestSchema.parse(saved?JSON.parse(saved):{apiVersion:'v2',requestId:crypto.randomUUID(),expectedRevision:profile.revision,preferences:{...profile.preferences,...update,sessionQuestionCount:5}});
+      storage.setItem(PROFILE_PENDING_KEY,JSON.stringify(request));
+      try {
+        await api.saveProfile(request);
+        const value=await api.profile();storage.setItem(PROFILE_PENDING_KEY,'');setProfile(value);
+        commit({...current.current,locale:value.preferences.locale});await loadCatalog();
+      } catch(error) {setEditingSetup(true);throw error;}
+    },'connectionError');
+  }
   async function loadProfile() {
     setProfileFailed(false);
     // This background read must not dismiss an error from concurrent progress refresh.
@@ -331,17 +344,19 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       {view === 'practice' && p?.session && !complete && <progress className="gm-session-progress" value={p.index} max={p.session.questions.length} aria-label={`${c.question} ${p.index + 1} ${c.of} ${p.session.questions.length}`} />}
       {view === 'account' && !setup && <>
         <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.settings}</h1></div>
-        <PracticeCard><h2>{s.account}</h2>
+        <PracticeCard className="gm-settings-group"><h2>{s.account}</h2>
         {accountSecurity?.(state.locale, busy || loaded.damaged)}
-        <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>
-        <a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>
+        {authenticated ? <PrivacySignOut authenticated locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /> : <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>}
+        <a className="gm-button gm-settings-row gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>
         {identityControl?.(state.locale,busy||loaded.damaged)}
         </PracticeCard>
-        <details className="gm-account-disclosure"><summary>{s.appearance}</summary><PracticeCard><div className="gm-settings">
-          <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey['locale'] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
+        <PracticeCard className="gm-settings-group"><h2>{s.appearance}</h2><div className="gm-settings">
+          <label>{c.language}<select disabled={busy} value={state.locale} onChange={e => {const locale=e.target.value as Journey['locale'];if(authenticated)void instantPreference({locale});else preference({locale});}}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e => { appearance.choose(e.target.value as Appearance); preference({ theme: e.target.value as Journey['theme'] }); }}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
-        </div></PracticeCard></details>
-        <FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>
+        </div></PracticeCard>
+        <PracticeCard className="gm-settings-group"><h2>{s.practicePreferences}</h2>
+        {authenticated ? <label className="gm-field">{c.level}<select disabled={busy||!profile} value={profile?.preferences.level??'B1'} onChange={event=>void instantPreference({level:event.target.value as 'B1'|'B2'})}><option>B1</option><option>B2</option></select></label> : <FoundationButton className="gm-settings-row gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}><span>{c.level}</span><small>{profile?.preferences.level} · {profile?.preferences.learningContext==='work'?s.germanForWork:s.generalGerman}</small></FoundationButton>}
+        </PracticeCard>
       </>}
       {localAccess && onReauthenticate && <div className="gm-connection-note"><p role="status">{providerCopy[state.locale].local}</p><FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton></div>}
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}

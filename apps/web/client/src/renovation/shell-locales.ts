@@ -1,6 +1,7 @@
 export const shellCopy = {
   en: {
     settings: 'Settings',
+    practicePreferences:'Practice preferences', generalGerman:'General German', germanForWork:'German for work',
     learn: 'Learn German', homeLabel: 'Your learning space', session: 'A small step, every day.',
     learningNote: 'A focused session. Clear feedback. German that stays with you.',
     explore: 'Find your focus', exploreNote: 'Choose what you want to work on.', browseTopics: 'Browse topics',
@@ -19,6 +20,7 @@ export const shellCopy = {
   },
   de: {
     settings: 'Einstellungen',
+    practicePreferences:'Übungseinstellungen', generalGerman:'Allgemeines Deutsch', germanForWork:'Deutsch im Beruf',
     learn: 'Deutsch lernen', homeLabel: 'Dein Lernraum', session: 'Jeden Tag einen kleinen Schritt.',
     learningNote: 'Eine konzentrierte Übung. Klare Rückmeldung. Deutsch, das bleibt.',
     explore: 'Finde deinen Schwerpunkt', exploreNote: 'Wähle, woran du arbeiten möchtest.', browseTopics: 'Themen entdecken',

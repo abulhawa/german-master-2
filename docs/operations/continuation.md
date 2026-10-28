@@ -1,5 +1,11 @@
 # Continuing German Master recovery
 
+28 October: owner authorized Astra's compact Settings recommendations, explicit
+English/Deutsch choices, immediate account preference persistence and safe native
+Back. Implemented on both clients; see newest PROGRESS for final verification and
+configured preview installation. Do not restore sign-out drawers or staged Save
+buttons to the authenticated learner UI from historical fixtures.
+
 28 October: account email, sign-out and deletion belong together in one Account
 card on both clients. Appearance and practice preferences remain separate. See
 newest PROGRESS for verification and configured preview installation.
