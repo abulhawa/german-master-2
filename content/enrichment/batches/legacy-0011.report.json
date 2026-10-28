@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "batchId": "legacy-0011",
+  "state": "ready-for-review",
+  "catalogSha256": "bfa2b7c87fc2d7b5aa8a4f0ef220e8bf75afe43eac40bcc7098a9062a30624d6",
+  "aiReviewer": "OpenAI GPT-6 (AI editorial review only, not independent human review)",
+  "reviewedAt": "2026-10-28",
+  "reviewNotes": "Reviewed six original low-typing questions, each distractor and full German sentence, accepted answer, bilingual hint and explanation, and source-label consistency. Three seeds mapped as duplicates of established objectives with level mismatches; one source deferred for conjunction/adverb category mismatch. The soviel/soweit variation is explicitly noted. No publication, human approval, CEFR certification or measured transfer.",
+  "rows": [
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L30",
+      "sourceHash": "647d905834e62f449bd2f791fca170e3b9092b6bdc25a407cb612918e8840919",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000001100"
+      ],
+      "notes": "Two original contexts, all choices and full German sentences reviewed by GPT-6; human review pending.",
+      "corrections": "Source example not copied; original correction contexts use nicht/kein with sondern.",
+      "rightsBasis": "Only lexical/grammar facts referenced; prompts, choices, hints and bilingual explanations newly authored. Rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L31",
+      "sourceHash": "14ee13e562a96ceb0d86aee8236333d2ff0cca6a7e039345398c13e1d55978d9",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000001101"
+      ],
+      "notes": "Two original contexts, all choices and full German sentences reviewed by GPT-6; human review pending.",
+      "corrections": "The source spelling soviel is valid in this conjunction use; soweit is another standard expression and is not offered as a competing answer.",
+      "rightsBasis": "Only lexical/grammar facts referenced; prompts, choices, hints and bilingual explanations newly authored. Rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L32",
+      "sourceHash": "1618a0b19dced487692a46af514fd7ea2dbc6c57aef9344e1b6fbf715c8d07cb",
+      "decision": "duplicate",
+      "targetIds": [
+        "70000000-0000-4000-8000-000000000007"
+      ],
+      "notes": "Sowohl ... als auch already has the same assessable paired-conjunction objective in general-expansion; do not create a second target. The existing B2 target and inherited B1 source label disagree, so no new B1 variant is attached.",
+      "corrections": "B1 level claim is not validated; duplicate mapped to existing B2 objective.",
+      "rightsBasis": "No exercise authored; existing objective or legacy source reviewed as reference only."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L33",
+      "sourceHash": "b30ab45185791c301b9d79036da598e941f372dd12fccb90ec825c6a76a2c3ef",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Trotzdem normally functions as a sentence adverb rather than a coordinating conjunction in the standard example. POS and intended grammar objective require review before authoring.",
+      "corrections": "Legacy conjunction category is misleading for the sentence-adverb use.",
+      "rightsBasis": "No exercise authored; existing objective or legacy source reviewed as reference only."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L34",
+      "sourceHash": "b748f1248491eefee241bb82520351ecfc2545db5dbf3e6b322972eccc47ce3d",
+      "decision": "duplicate",
+      "targetIds": [
+        "70000000-0000-4000-8000-000000000005"
+      ],
+      "notes": "Je ... umso expresses the same comparative relationship as the existing B2 target je ... desto. Source B1 label conflicts with the established target level; avoid duplicate identity.",
+      "corrections": "Umso is an accepted alternative to desto in this comparative construction.",
+      "rightsBasis": "No exercise authored; existing objective or legacy source reviewed as reference only."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L36",
+      "sourceHash": "308ae8c9458554264ba42cd00947130a19a3c7ce84916305c8cc1b3678b6f5be",
+      "decision": "duplicate",
+      "targetIds": [
+        "70000000-0000-4000-8000-000000000006"
+      ],
+      "notes": "Weder ... noch already has an authored paired-conjunction objective in general-expansion at B2; inherited B1 source label does not justify a new target.",
+      "corrections": "Level discrepancy flagged without changing existing objective metadata.",
+      "rightsBasis": "No exercise authored; existing objective or legacy source reviewed as reference only."
+    },
+    {
+      "sourceId": "apps/web/data/pos/conjunctions.jsonl:L39",
+      "sourceHash": "07eaf800e95357f63761ba8c1fcbd045bc1d75a86424aa73da39c90556e637cf",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000001106"
+      ],
+      "notes": "Two original contexts, all choices and full German sentences reviewed by GPT-6; human review pending.",
+      "corrections": "The source's paired-concession pattern is valid; two new contexts use aber and doch.",
+      "rightsBasis": "Only lexical/grammar facts referenced; prompts, choices, hints and bilingual explanations newly authored. Rights review pending."
+    }
+  ]
+}

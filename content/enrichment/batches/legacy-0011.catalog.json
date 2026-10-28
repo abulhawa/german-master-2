@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001100",
+      "title": {
+        "en": "Correction after a negation",
+        "de": "Nicht ..., sondern ..."
+      },
+      "description": {
+        "en": "The first option is denied and replaced by the correct one.",
+        "de": "Die erste Möglichkeit wird verneint und durch die richtige ersetzt."
+      },
+      "objective": "Use sondern after negating an alternative to state what is true instead.",
+      "category": "connectors",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences from pinned source apps/web/data/pos/conjunctions.jsonl:L30 (647d905834e62f449bd2f791fca170e3b9092b6bdc25a407cb612918e8840919), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0011-L30-v1",
+          "contextKey": "legacy-0011-L30-context-1",
+          "transferKey": "legacy-0011-L30-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001100",
+            "type": "choice",
+            "prompt": "Das Gerät ist nicht kaputt, ___ nur ausgeschaltet.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The first option is denied and replaced by the correct one.",
+              "de": "Die erste Möglichkeit wird verneint und durch die richtige ersetzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sondern"
+              },
+              {
+                "id": "1",
+                "text": "obwohl"
+              },
+              {
+                "id": "2",
+                "text": "weil"
+              },
+              {
+                "id": "3",
+                "text": "damit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "After nicht or kein, sondern introduces the replacement, not just an additional contrast.",
+              "de": "Nach nicht oder kein nennt sondern die richtige Alternative."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät ist nicht kaputt, sondern nur ausgeschaltet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives obwohl, weil, damit do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        },
+        {
+          "variantKey": "legacy-0011-L30-v2",
+          "contextKey": "legacy-0011-L30-context-2",
+          "transferKey": "legacy-0011-L30-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001100",
+            "type": "gap_choice",
+            "prompt": "Wir brauchen keine neue Software, ___ eine bessere Schulung.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The first option is denied and replaced by the correct one.",
+              "de": "Die erste Möglichkeit wird verneint und durch die richtige ersetzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "trotzdem"
+                  },
+                  {
+                    "id": "1",
+                    "text": "während"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sondern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "deshalb"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "After nicht or kein, sondern introduces the replacement, not just an additional contrast.",
+              "de": "Nach nicht oder kein nennt sondern die richtige Alternative."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir brauchen keine neue Software, sondern eine bessere Schulung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives trotzdem, während, deshalb do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001101",
+      "title": {
+        "en": "As far as I know",
+        "de": "Soviel ich weiß"
+      },
+      "description": {
+        "en": "The speaker reports incomplete information rather than a confirmed fact.",
+        "de": "Die Person gibt Wissen oder Gehörtes unter Vorbehalt wieder."
+      },
+      "objective": "Recognize soviel in the qualifying expression soviel ich weiß or soviel ich gehört habe, indicating limited knowledge.",
+      "category": "connectors",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences from pinned source apps/web/data/pos/conjunctions.jsonl:L31 (14ee13e562a96ceb0d86aee8236333d2ff0cca6a7e039345398c13e1d55978d9), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0011-L31-v1",
+          "contextKey": "legacy-0011-L31-context-1",
+          "transferKey": "legacy-0011-L31-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001101",
+            "type": "choice",
+            "prompt": "___ ich weiß, beginnt die Sitzung um zehn Uhr; ich bin mir aber nicht sicher.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker reports incomplete information rather than a confirmed fact.",
+              "de": "Die Person gibt Wissen oder Gehörtes unter Vorbehalt wieder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sobald"
+              },
+              {
+                "id": "1",
+                "text": "Obwohl"
+              },
+              {
+                "id": "2",
+                "text": "Damit"
+              },
+              {
+                "id": "3",
+                "text": "Soviel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Soviel ich weiß means 'as far as I know'; soweit ich weiß is also standard and often preferred.",
+              "de": "Soviel ich weiß bedeutet „soweit ich weiß“; auch soweit ich weiß ist üblich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Soviel ich weiß, beginnt die Sitzung um zehn Uhr; ich bin mir aber nicht sicher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives Sobald, Obwohl, Damit do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        },
+        {
+          "variantKey": "legacy-0011-L31-v2",
+          "contextKey": "legacy-0011-L31-context-2",
+          "transferKey": "legacy-0011-L31-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001101",
+            "type": "gap_choice",
+            "prompt": "___ ich gehört habe, wird die Brücke nächste Woche geöffnet; offiziell bestätigt ist es nicht.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker reports incomplete information rather than a confirmed fact.",
+              "de": "Die Person gibt Wissen oder Gehörtes unter Vorbehalt wieder."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Falls"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Soviel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sobald"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Obwohl"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Soviel ich weiß means 'as far as I know'; soweit ich weiß is also standard and often preferred.",
+              "de": "Soviel ich weiß bedeutet „soweit ich weiß“; auch soweit ich weiß ist üblich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Soviel ich gehört habe, wird die Brücke nächste Woche geöffnet; offiziell bestätigt ist es nicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives Falls, Sobald, Obwohl do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001106",
+      "title": {
+        "en": "Admittedly, but",
+        "de": "Zwar ..., aber/doch ..."
+      },
+      "description": {
+        "en": "The first statement is admitted, but the second limits its importance.",
+        "de": "Der erste Sachverhalt wird eingeräumt, der zweite setzt einen Gegensatz."
+      },
+      "objective": "Use zwar with aber or doch to concede a fact before introducing a contrasting point.",
+      "category": "connectors",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences from pinned source apps/web/data/pos/conjunctions.jsonl:L39 (07eaf800e95357f63761ba8c1fcbd045bc1d75a86424aa73da39c90556e637cf), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0011-L39-v1",
+          "contextKey": "legacy-0011-L39-context-1",
+          "transferKey": "legacy-0011-L39-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001106",
+            "type": "choice",
+            "prompt": "Die Wohnung ist ___ klein, aber sehr hell.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The first statement is admitted, but the second limits its importance.",
+              "de": "Der erste Sachverhalt wird eingeräumt, der zweite setzt einen Gegensatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sobald"
+              },
+              {
+                "id": "1",
+                "text": "obwohl"
+              },
+              {
+                "id": "2",
+                "text": "zwar"
+              },
+              {
+                "id": "3",
+                "text": "weder"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zwar introduces a concession that is commonly followed by aber or doch.",
+              "de": "Zwar räumt etwas ein; danach folgt häufig ein Gegensatz mit aber oder doch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wohnung ist zwar klein, aber sehr hell.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives sobald, obwohl, weder do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        },
+        {
+          "variantKey": "legacy-0011-L39-v2",
+          "contextKey": "legacy-0011-L39-context-2",
+          "transferKey": "legacy-0011-L39-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000110061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001106",
+            "type": "gap_choice",
+            "prompt": "Das Wetter war ___ kalt, doch die Kinder spielten draußen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The first statement is admitted, but the second limits its importance.",
+              "de": "Der erste Sachverhalt wird eingeräumt, der zweite setzt einen Gegensatz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zwar"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sobald"
+                  },
+                  {
+                    "id": "2",
+                    "text": "weder"
+                  },
+                  {
+                    "id": "3",
+                    "text": "damit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zwar introduces a concession that is commonly followed by aber or doch.",
+              "de": "Zwar räumt etwas ein; danach folgt häufig ein Gegensatz mit aber oder doch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Wetter war zwar kalt, doch die Kinder spielten draußen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check 2026-10-28: reviewed the complete sentence and all four choices. Alternatives sobald, weder, damit do not express the intended relation here. Other valid words not offered are noted where relevant; no human approval."
+        }
+      ]
+    }
+  ]
+}
