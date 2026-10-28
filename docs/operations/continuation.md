@@ -1,5 +1,10 @@
 # Continuing German Master recovery
 
+28 October: owner reported Android Loading mojibake and requested fix/deploy to
+phone and web. Unicode copy is corrected; native shell tests, lint and debug
+assembly pass. See newest PROGRESS for configured-preview installation and
+production rollout status before claiming the corrected text is installed.
+
 ## Authorized rollout completed — 28 October 2026
 
 Continuous-practice source `e637612` is pushed and deployed to the existing web

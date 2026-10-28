@@ -1,5 +1,21 @@
 # German Master 2.0 current checkpoint
 
+## Android learner-text encoding correction — 28 October 2026
+
+Owner reported a garbled Loading label and explicitly requested correction and
+deployment to phone and web. `LearnerShell.kt` contained mojibake for the loading
+ellipsis and several German umlauts. Restored the actual Unicode characters in
+loading, local-preview, report, sync, skill-detail and progress copy. No grading,
+persistence or interaction behavior changed. Web learner copy already has valid
+encoding and needs no source change. Active native learner/foundation/resources
+and web renovation source scans show no remaining matching corruption markers.
+
+Existing LearnerShell tests pass 9/9; lintDebug and assembleDebug pass offline.
+Next: guarded configured-preview build, data-preserving replacement installation
+on the phone, and owner-authorized main push/Vercel rollout. Keep content drafts
+unpublished and the Android store-release hold intact. This checkpoint records
+local verification; installation/deployment results must be recorded afterward.
+
 ## Owner-authorized web and phone rollout — 28 October 2026
 
 Owner explicitly requested deployment to web and phone. Final complete web unit
