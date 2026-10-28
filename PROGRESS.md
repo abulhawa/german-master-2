@@ -1,5 +1,35 @@
 # German Master 2.0 current checkpoint
 
+## Owner-authorized web and phone rollout — 28 October 2026
+
+Owner explicitly requested deployment to web and phone. Final complete web unit
+rerun passed 465/465 across 101 files, superseding the prior partial-rerun limit.
+Pushed main at `e6376123e086fc358075462f253f5688a59a7b30`. The existing Vercel
+production integration built deployment `dpl_Eqwcr6HPE2Zfwmn4HhMwffNekWBB` to
+READY in about 33 seconds and assigned the existing production domains, including
+`https://germanmaster.qortxai.com`. Live homepage HTTP 200, unauthenticated catalog
+HTTP 401 and delivery of the new continuous-practice bundle passed. A recent
+10-minute error-level runtime-log query returned no matching logs; no log drains
+are configured. These are bounded rollout checks, not authenticated lifecycle
+acceptance or evidence of learner outcomes.
+
+The guarded configured learner-preview build passed against the existing clean
+production public Auth/API configuration. Replacement installation on the
+connected Pixel succeeded with `adb install -r`, without uninstalling or clearing
+data. The resolved learner-preview launcher started successfully and became the
+resumed activity. Package remains versionCode 29 / versionName 0.2.08-preview.
+No practice answers, account changes or draft modifications were performed for
+this installation check; exact draft restoration was not retested on the device.
+
+The 20-question expansion pilot remains unpublished. No schema/content/database
+operation, environment change or Play upload occurred. Android owner UX/store
+approval hold remains. Previous production artifact `dpl_7ZmgVaKZCtgbymvzZG1TZjvLaqoC`
+at `502a61c` is recorded for investigation, not declared a validated rollback for
+newly saved larger practice sets. Next: owner checks the installed preview and
+live flow; retain remaining lifecycle gates and review legacy material before
+the separately authorized content-publication step. This rollout checkpoint is
+committed locally; no second application deployment is needed for documentation.
+
 ## Continuous practice boundaries — 28 October 2026
 
 Owner direction supersedes the historical five-question new-round rule. Web

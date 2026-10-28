@@ -1,5 +1,15 @@
 # Continuing German Master recovery
 
+## Authorized rollout completed — 28 October 2026
+
+Continuous-practice source `e637612` is pushed and deployed to the existing web
+production domains: Vercel `dpl_Eqwcr6HPE2Zfwmn4HhMwffNekWBB` is READY. Full web
+unit rerun passed 465/465. Guarded configured learner-preview build and data-
+preserving replacement installation on the Pixel passed; the preview launcher
+started successfully. See newest PROGRESS for bounded smoke evidence and limits.
+Content expansion remains unpublished; Android UX/Play approval is unchanged.
+The earlier no-push/no-deployment wording below describes the preceding slice.
+
 ## Continuous practice checkpoint — 28 October 2026
 
 The learner-facing five-question ending is superseded. See the newest
