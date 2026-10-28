@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "batchId": "legacy-0024",
-  "state": "draft",
-  "catalogSha256": "f7bbaf1eaa728b57456b4bdd8a8b7bc687489d1a8f11fd4457278d0582804317",
-  "aiReviewer": "GPT-6 (authoring stage; editorial review pending)",
+  "state": "ready-for-review",
+  "catalogSha256": "9e55d5c2938ead0c9321606d52d7c4f5011ccde7777e3ddf62c54c759be1a503",
+  "aiReviewer": "GPT-6",
   "reviewedAt": "2026-10-28",
-  "reviewNotes": "28 original low-typing questions drafted for 14 adverb-labelled source records; six rows remain pending level, register, part-of-speech or duplicate-objective triage. Separate editorial review not yet claimed. All targets pending and unpublished.",
+  "reviewNotes": "Separate GPT-6 editorial review of all 28 original low-typing questions: solved complete German sentences, examined each of four choices, grammar, answer linkage, bilingual hints and explanations, and meaningful context variation. Clarified reverse-driving location for rückwärts. Authored 14 seeds; deferred six for part-of-speech misclassification, colloquial register or duplicate B1/B2 objective. Corrected inherited senses for überhaupt ('at all') and umsonst (explicitly free of charge, not 'in vain'); did not reuse archaic literary examples for übrigens or the corrupted source example for schließlich. Structural CI does not prove independent linguistic approval, CEFR certification, licensing or transfer. All target reviews pending, publicationApproved=false.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L135",
@@ -14,7 +14,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002400"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -25,7 +25,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002401"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -36,18 +36,18 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002402"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L142",
       "sourceHash": "a837787b23c2a1fcea4845f22c375150de70a6e857d13a0d3968a29b9b93a374",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "punkten mit is a separable verb phrase ('mit etwas punkten'), not an adverb; defer to verb-phrase objective mapping.",
+      "corrections": "Source POS classification conflicts with its verb-phrase usage.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L143",
@@ -56,27 +56,27 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002404"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L144",
       "sourceHash": "385a28d9e19568da4ac32a675ebab50adc1a5e86c9c091101519381a53308c1b",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "rau is primarily an adjective meaning rough/harsh; the inherited adverb placement is inconsistent with the weather example.",
+      "corrections": "Source POS is adjective; do not silently change the frozen plan.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L145",
       "sourceHash": "041423b1575145a23939259219e2fe87895bd70ba15b1017503557fac3459118",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "rauf is colloquial directional language; inherited B1 placement and register require review.",
+      "corrections": "Regional/colloquial direction marker; avoid presenting as formal universal B1 usage.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L149",
@@ -85,7 +85,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002407"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -96,8 +96,8 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002408"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
-      "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
+      "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims. Clarified 'in der Einfahrt' for the reverse-driving context.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
@@ -107,7 +107,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002409"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -118,7 +118,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002410"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -129,7 +129,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002411"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -140,7 +140,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002412"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
@@ -151,18 +151,18 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002413"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L162",
       "sourceHash": "42218919928ebed6522c76cf05d4d442d752448f0e06950f845d60fef214ca97",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "übergeordnet sein is an adjective-plus-copula construction, not a simple adverb; distinct hierarchy objective and B2 mapping unresolved.",
+      "corrections": "Source POS misclassification requires objective-level review.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L163",
@@ -171,18 +171,18 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002415"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited primary English gloss 'overall, in general' is not appropriate for these questions; original example is a bibliographic fragment. Selected 'at all' sense with original prompts.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L165",
       "sourceHash": "379699fe582aa932eb0c95c8c8726ea4d1484b0302e5b094ae0db63b1cb4adcc",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "üblicherweise has substantially the same 'normally/usually' objective as authored normalerweise at line 135, but its B2 label differs; defer rather than reuse B1 target metadata incorrectly.",
+      "corrections": "Do not create duplicate objective or silently change CEFR level.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L166",
@@ -191,18 +191,18 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002417"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited example is an archaic lengthy botany quotation, not a modern discourse example; no part reused.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L167",
       "sourceHash": "8a0d5ddee361110d1957dd043a91475cf01f75f1d6c37a50440e03f4e72ebef5",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Requires level, register, part-of-speech or duplicate-objective review.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "umfangreich is primarily an adjective, and the inherited example is attributive; an adverbial B2 objective distinct from existing extensive vocabulary needs review.",
+      "corrections": "Source POS conflicts with example; do not invent an adverb-only objective.",
+      "rightsBasis": "No exercise authored or source example copied; lexical facts assessed only."
     },
     {
       "sourceId": "apps/web/data/pos/adverbs.jsonl:L168",
@@ -211,7 +211,7 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000002419"
       ],
-      "notes": "Two original contexts drafted; separate editorial pass pending.",
+      "notes": "Two distinct original low-typing contexts reviewed separately by GPT-6: full German sentences, all distractors, accepted answers, hints and bilingual feedback. No human approval.",
       "corrections": "Inherited meaning, B1/B2 level and part of speech reviewed as unverified claims.",
       "rightsBasis": "Lexical and grammatical facts only; original contexts and feedback. Independent rights assessment pending."
     }
