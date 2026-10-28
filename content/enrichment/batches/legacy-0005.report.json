@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "batchId": "legacy-0005",
   "state": "ready-for-review",
-  "catalogSha256": "4350b80c45538e1d166f146e899a496c3b5ae943c937f02dbdb7e37272194f67",
+  "catalogSha256": "72bc81f693ccf29411f7b7b22a2e92a7bf47a1e46ba198e7c62721e35f04413b",
   "aiReviewer": "OpenAI GPT-6, AI-only editorial review",
   "reviewedAt": "2026-10-28",
-  "reviewNotes": "Reviewed 34 original selection-format grammar/connective questions across 17 source rows; two je/desto rows deferred because pre-existing B2 target conflicts with B1 source level, one sodass source identified as duplicate orthographic variant of so dass. Review checked competing semantically valid answers, verb-final subordinate clauses, capitalized sentence starts, word-order logic, bilingual explanation/hint and completed forms. No source examples copied, no human approval, measured CEFR proficiency, publication or external model API. Structural validation is performed in GitHub Actions.",
+  "reviewNotes": "Reviewed 34 original selection-format grammar/connective questions across 17 source rows; two je/desto rows deferred because pre-existing B2 target conflicts with B1 source level, one sodass source identified as duplicate orthographic variant of so dass. Review checked competing semantically valid answers, verb-final subordinate clauses, capitalized sentence starts, word-order logic, bilingual explanation/hint and completed forms. No source examples copied, no human approval, measured CEFR proficiency, publication or external model API. Structural validation is performed in GitHub Actions. Follow-up editorial pass corrected the verb-second order in one jedoch sentence after the first commit. Reviewed second jedoch variant and retained it.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/conjunctions.jsonl:L5",
@@ -120,8 +120,8 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000000510"
       ],
-      "notes": "Editorially reviewed both original contexts, all eight offered choices, accepted answer, complete German sentence, word order, semantic distinction, bilingual feedback and inherited level B1.",
-      "corrections": "Source lexical objective clarified in original contexts; old approval/examples not treated as validation.",
+      "notes": "Editorially reviewed both original contexts, all eight offered choices, accepted answer, complete German sentence, word order, semantic distinction, bilingual feedback and inherited level B1. A second German word-order pass corrected variant 1 after authoring.",
+      "corrections": "Source lexical objective clarified in original contexts; old approval/examples not treated as validation. Corrected original variant 1 word order from 'jedoch der Zug fiel' to 'jedoch fiel der Zug'.",
       "rightsBasis": "Original prompts and distractors. Only German grammatical facts and lemmas taken from pinned repository seed; no inherited or third-party sentence reused. Publication/rights review outstanding."
     },
     {
