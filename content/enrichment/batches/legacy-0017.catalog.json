@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001701",
+      "title": {
+        "en": "An occasion or reason",
+        "de": "Anlass: Grund oder Gelegenheit"
+      },
+      "description": {
+        "en": "Anlass identifies the event or circumstance that prompts an action.",
+        "de": "Anlass bezeichnet das Ereignis oder den Umstand, der eine Handlung auslöst."
+      },
+      "objective": "Recognize Anlass as an occasion or triggering reason for an action.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L75 (14f4169e4d1acfd237ba2fd38e6577e5f365310917c69fb15610d71a6b1dd27a), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L75-v1",
+          "contextKey": "legacy-0017-L75-context-1",
+          "transferKey": "legacy-0017-L75-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001701",
+            "type": "choice",
+            "prompt": "Der 25. Geburtstag der Firma war der ___ für eine Feier mit allen Beschäftigten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for the circumstance that prompted the celebration or decision.",
+              "de": "Achte auf den Umstand, der die Feier oder Entscheidung ausgelöst hat."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anlass"
+              },
+              {
+                "id": "1",
+                "text": "Ablauf"
+              },
+              {
+                "id": "2",
+                "text": "Antrag"
+              },
+              {
+                "id": "3",
+                "text": "Anfang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Anlass means an occasion or a reason that prompts something.",
+              "de": "Anlass bezeichnet eine Gelegenheit oder einen auslösenden Grund."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der 25. Geburtstag der Firma war der Anlass für eine Feier mit allen Beschäftigten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Ablauf, Antrag, Anfang). Only Anlass expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L75-v2",
+          "contextKey": "legacy-0017-L75-context-2",
+          "transferKey": "legacy-0017-L75-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001701",
+            "type": "gap_choice",
+            "prompt": "Die plötzliche Häufung von Fehlern gab der Leitung ___, die Abläufe genauer zu prüfen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for the circumstance that prompted the celebration or decision.",
+              "de": "Achte auf den Umstand, der die Feier oder Entscheidung ausgelöst hat."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auskunft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anlass"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erlaubnis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abstand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anlass means an occasion or a reason that prompts something.",
+              "de": "Anlass bezeichnet eine Gelegenheit oder einen auslösenden Grund."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die plötzliche Häufung von Fehlern gab der Leitung Anlass, die Abläufe genauer zu prüfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Auskunft, Erlaubnis, Abstand). Only Anlass expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001702",
+      "title": {
+        "en": "Instructions for a procedure",
+        "de": "Anleitung: Schritte erklären"
+      },
+      "description": {
+        "en": "An Anleitung explains a process in ordered practical steps.",
+        "de": "Eine Anleitung erklärt ein Vorgehen in verständlichen Schritten."
+      },
+      "objective": "Recognize Anleitung as instructions describing how to do or use something.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L76 (b60a70b418fb2ff4cd3402d131b2044bda9136e1d538e30be90b459afd4c5bb7), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L76-v1",
+          "contextKey": "legacy-0017-L76-context-1",
+          "transferKey": "legacy-0017-L76-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001702",
+            "type": "choice",
+            "prompt": "Der neue Drucker funktioniert nicht sofort. Lies zuerst die ___ mit den einzelnen Schritten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Which document tells someone how to proceed step by step?",
+              "de": "Welches Dokument erklärt ein Vorgehen Schritt für Schritt?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anleitung"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Garantie"
+              },
+              {
+                "id": "3",
+                "text": "Werbung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Anleitung is a set of instructions or a manual, not a receipt or warranty.",
+              "de": "Eine Anleitung beschreibt Arbeitsschritte; sie ist keine Rechnung oder Garantie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Drucker funktioniert nicht sofort. Lies zuerst die Anleitung mit den einzelnen Schritten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Rechnung, Garantie, Werbung). Only Anleitung expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L76-v2",
+          "contextKey": "legacy-0017-L76-context-2",
+          "transferKey": "legacy-0017-L76-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001702",
+            "type": "gap_choice",
+            "prompt": "Im Labor erklärt ein Blatt Schritt für Schritt, wie die Probe vorbereitet wird. Diese ___ liegt neben dem Gerät.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Which document tells someone how to proceed step by step?",
+              "de": "Welches Dokument erklärt ein Vorgehen Schritt für Schritt?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Quittung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anleitung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bescheinigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anleitung is a set of instructions or a manual, not a receipt or warranty.",
+              "de": "Eine Anleitung beschreibt Arbeitsschritte; sie ist keine Rechnung oder Garantie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor erklärt ein Blatt Schritt für Schritt, wie die Probe vorbereitet wird. Diese Anleitung liegt neben dem Gerät.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Quittung, Einladung, Bescheinigung). Only Anleitung expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001703",
+      "title": {
+        "en": "A concern or request",
+        "de": "Anliegen: Bitte oder Anliegen"
+      },
+      "description": {
+        "en": "An Anliegen is a matter someone raises because they want attention or help.",
+        "de": "Ein Anliegen ist eine Bitte oder ein wichtiges Thema, das jemand vorbringt."
+      },
+      "objective": "Identify Anliegen as a concern or request someone wants addressed.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L77 (fbd0a08a31b2786232f68fd4f59b513c11dfdd4647fb43c5b21dfa3dc86bfd45), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L77-v1",
+          "contextKey": "legacy-0017-L77-context-1",
+          "transferKey": "legacy-0017-L77-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001703",
+            "type": "choice",
+            "prompt": "Im Bürgerbüro fragt die Mitarbeiterin: „Was ist Ihr ___?“ Der Besucher möchte seine Adresse ändern lassen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is explaining what they need help with.",
+              "de": "Die Person erklärt, wobei sie Unterstützung möchte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausweis"
+              },
+              {
+                "id": "1",
+                "text": "Anliegen"
+              },
+              {
+                "id": "2",
+                "text": "Wohnort"
+              },
+              {
+                "id": "3",
+                "text": "Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anliegen refers to a person's concern or request in this context.",
+              "de": "Anliegen bezeichnet hier die Bitte oder das vorgebrachte Anliegen einer Person."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bürgerbüro fragt die Mitarbeiterin: „Was ist Ihr Anliegen?“ Der Besucher möchte seine Adresse ändern lassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Ausweis, Wohnort, Termin). Only Anliegen expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L77-v2",
+          "contextKey": "legacy-0017-L77-context-2",
+          "transferKey": "legacy-0017-L77-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001703",
+            "type": "gap_choice",
+            "prompt": "Die Eltern möchten, dass der Schulweg sicherer wird. Dieses ___ tragen sie beim Elternabend vor.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is explaining what they need help with.",
+              "de": "Die Person erklärt, wobei sie Unterstützung möchte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ergebnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeugnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anliegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Angebot"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anliegen refers to a person's concern or request in this context.",
+              "de": "Anliegen bezeichnet hier die Bitte oder das vorgebrachte Anliegen einer Person."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eltern möchten, dass der Schulweg sicherer wird. Dieses Anliegen tragen sie beim Elternabend vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Ergebnis, Zeugnis, Angebot). Only Anliegen expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001705",
+      "title": {
+        "en": "A binding directive",
+        "de": "Anordnung: verbindliche Weisung"
+      },
+      "description": {
+        "en": "An Anordnung can be a binding order issued by an authority or management.",
+        "de": "Eine Anordnung kann eine verbindliche Weisung einer zuständigen Stelle sein."
+      },
+      "objective": "Recognize Anordnung as an authoritative directive that must be followed.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L80 (4d1b70d00d6b7f837131a6aebfe55cf7955727c86f65428cdee9bc521bd4369a), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L80-v1",
+          "contextKey": "legacy-0017-L80-context-1",
+          "transferKey": "legacy-0017-L80-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001705",
+            "type": "choice",
+            "prompt": "Die Geschäftsführung hat verbindlich festgelegt, dass Schutzhelme getragen werden müssen. Alle müssen diese ___ befolgen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The instruction is mandatory, not a suggestion.",
+              "de": "Die Vorgabe ist verbindlich und nicht bloß ein Vorschlag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einladung"
+              },
+              {
+                "id": "1",
+                "text": "Anordnung"
+              },
+              {
+                "id": "2",
+                "text": "Empfehlung"
+              },
+              {
+                "id": "3",
+                "text": "Ausnahme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anordnung expresses a binding directive in these situations.",
+              "de": "Anordnung bezeichnet hier eine verbindliche Weisung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Geschäftsführung hat verbindlich festgelegt, dass Schutzhelme getragen werden müssen. Alle müssen diese Anordnung befolgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Einladung, Empfehlung, Ausnahme). Only Anordnung expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L80-v2",
+          "contextKey": "legacy-0017-L80-context-2",
+          "transferKey": "legacy-0017-L80-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001705",
+            "type": "gap_choice",
+            "prompt": "Auf ___ der Feuerwehr wurde das Gebäude sofort geräumt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The instruction is mandatory, not a suggestion.",
+              "de": "Die Vorgabe ist verbindlich und nicht bloß ein Vorschlag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anfrage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Angebot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anordnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erinnerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anordnung expresses a binding directive in these situations.",
+              "de": "Anordnung bezeichnet hier eine verbindliche Weisung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf Anordnung der Feuerwehr wurde das Gebäude sofort geräumt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Anfrage, Angebot, Erinnerung). Only Anordnung expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001706",
+      "title": {
+        "en": "A guaranteed entitlement",
+        "de": "Anrecht: zugesichertes Recht"
+      },
+      "description": {
+        "en": "Anrecht auf expresses a right granted by rules, contract or statute.",
+        "de": "Anrecht auf bezeichnet ein durch Regeln oder Vertrag begründetes Recht."
+      },
+      "objective": "Recognize ein Anrecht auf as an established entitlement to something.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L81 (e3850c1c2de61fc1a6f3a01ae1e12bb545525677aebc945575a69d57779a7a96), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L81-v1",
+          "contextKey": "legacy-0017-L81-context-1",
+          "transferKey": "legacy-0017-L81-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001706",
+            "type": "choice",
+            "prompt": "Der Vertrag garantiert Beschäftigten nach einem Jahr einen zusätzlichen Urlaubstag. Sie haben darauf ein ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A rule or contract guarantees this benefit.",
+              "de": "Eine Regel oder ein Vertrag sichert die Leistung zu."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Interesse"
+              },
+              {
+                "id": "1",
+                "text": "Anrecht"
+              },
+              {
+                "id": "2",
+                "text": "Bedürfnis"
+              },
+              {
+                "id": "3",
+                "text": "Angebot"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anrecht auf is an entitlement, stronger than an interest or wish.",
+              "de": "Anrecht auf bezeichnet einen Anspruch, nicht nur einen Wunsch oder ein Interesse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vertrag garantiert Beschäftigten nach einem Jahr einen zusätzlichen Urlaubstag. Sie haben darauf ein Anrecht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Interesse, Bedürfnis, Angebot). Only Anrecht expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L81-v2",
+          "contextKey": "legacy-0017-L81-context-2",
+          "transferKey": "legacy-0017-L81-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001706",
+            "type": "gap_choice",
+            "prompt": "Laut Satzung darf jedes Mitglied die Unterlagen einsehen. Es hat ein ___ auf Einsicht.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A rule or contract guarantees this benefit.",
+              "de": "Eine Regel oder ein Vertrag sichert die Leistung zu."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anrecht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Risiko"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ziel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anrecht auf is an entitlement, stronger than an interest or wish.",
+              "de": "Anrecht auf bezeichnet einen Anspruch, nicht nur einen Wunsch oder ein Interesse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Laut Satzung darf jedes Mitglied die Unterlagen einsehen. Es hat ein Anrecht auf Einsicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Verbot, Risiko, Ziel). Only Anrecht expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001707",
+      "title": {
+        "en": "The person calling",
+        "de": "Anrufer: Person am Telefon"
+      },
+      "description": {
+        "en": "An Anrufer is the person calling, rather than the recipient.",
+        "de": "Ein Anrufer ist die Person, die einen Telefonanruf tätigt."
+      },
+      "objective": "Identify Anrufer as the person who initiates a telephone call.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L85 (ee23825b18967697b1f8487f5157c51adf4da7ab215212e56008fd8dd7b6ed87), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L85-v1",
+          "contextKey": "legacy-0017-L85-context-1",
+          "transferKey": "legacy-0017-L85-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001707",
+            "type": "choice",
+            "prompt": "Am Telefon meldete sich ein Mann, nannte aber keinen Namen. Die Mitarbeiterin notierte: „___ unbekannt“.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Who initiated the telephone conversation?",
+              "de": "Wer hat das Telefongespräch begonnen?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfänger"
+              },
+              {
+                "id": "1",
+                "text": "Anrufer"
+              },
+              {
+                "id": "2",
+                "text": "Absender"
+              },
+              {
+                "id": "3",
+                "text": "Besucher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anrufer means caller; Empfänger or Absender describe different roles.",
+              "de": "Anrufer bezeichnet denjenigen, der anruft, nicht den Empfänger."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Telefon meldete sich ein Mann, nannte aber keinen Namen. Die Mitarbeiterin notierte: „Anrufer unbekannt“.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Empfänger, Absender, Besucher). Only Anrufer expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L85-v2",
+          "contextKey": "legacy-0017-L85-context-2",
+          "transferKey": "legacy-0017-L85-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001707",
+            "type": "gap_choice",
+            "prompt": "Die Zentrale verbindet die Person, die gerade angerufen hat, mit der Fachabteilung. Der ___ wartet noch in der Leitung.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Who initiated the telephone conversation?",
+              "de": "Wer hat das Telefongespräch begonnen?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zuhörer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Empfänger"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anrufer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anrufer means caller; Empfänger or Absender describe different roles.",
+              "de": "Anrufer bezeichnet denjenigen, der anruft, nicht den Empfänger."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zentrale verbindet die Person, die gerade angerufen hat, mit der Fachabteilung. Der Anrufer wartet noch in der Leitung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Zuhörer, Empfänger, Fahrer). Only Anrufer expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001708",
+      "title": {
+        "en": "Purchasing equipment",
+        "de": "Anschaffung: etwas kaufen"
+      },
+      "description": {
+        "en": "An Anschaffung is a purchase, often considered as a planned investment.",
+        "de": "Eine Anschaffung ist der Kauf eines Gegenstands, oft als geplante Investition."
+      },
+      "objective": "Recognize Anschaffung as the acquisition or purchase of an item.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L87 (033385eb765fecd741cefbac08c787d0a43244209fa064f3ff23d72dfdc0248d), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L87-v1",
+          "contextKey": "legacy-0017-L87-context-1",
+          "transferKey": "legacy-0017-L87-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001708",
+            "type": "choice",
+            "prompt": "Das Büro kauft neue Monitore. Die ___ kostet insgesamt 3.000 Euro.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The item is being bought, not rented or repaired.",
+              "de": "Der Gegenstand wird gekauft, nicht gemietet oder repariert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Miete"
+              },
+              {
+                "id": "1",
+                "text": "Abrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Anschaffung"
+              },
+              {
+                "id": "3",
+                "text": "Reparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anschaffung means a purchase or acquisition in these contexts.",
+              "de": "Anschaffung bezeichnet hier den Kauf beziehungsweise die Beschaffung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Büro kauft neue Monitore. Die Anschaffung kostet insgesamt 3.000 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Miete, Abrechnung, Reparatur). Only Anschaffung expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L87-v2",
+          "contextKey": "legacy-0017-L87-context-2",
+          "transferKey": "legacy-0017-L87-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001708",
+            "type": "gap_choice",
+            "prompt": "Bevor die Firma eine teure Maschine kauft, prüft sie, ob sich die ___ langfristig lohnt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The item is being bought, not rented or repaired.",
+              "de": "Der Gegenstand wird gekauft, nicht gemietet oder repariert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entsorgung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschaffung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ausleihe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anschaffung means a purchase or acquisition in these contexts.",
+              "de": "Anschaffung bezeichnet hier den Kauf beziehungsweise die Beschaffung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor die Firma eine teure Maschine kauft, prüft sie, ob sich die Anschaffung langfristig lohnt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Entsorgung, Wartung, Ausleihe). Only Anschaffung expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001709",
+      "title": {
+        "en": "A connecting flight",
+        "de": "Anschlussflug: Weiterflug nach dem Umsteigen"
+      },
+      "description": {
+        "en": "An Anschlussflug is the next flight on a journey involving a connection.",
+        "de": "Ein Anschlussflug ist der nächste Flug nach einem Umstieg."
+      },
+      "objective": "Identify Anschlussflug as a subsequent flight taken after a transfer.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L89 (cb5874b199c4e07412f79152864ee28f974eab3e422c0713a33948cb9b557387), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L89-v1",
+          "contextKey": "legacy-0017-L89-context-1",
+          "transferKey": "legacy-0017-L89-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001709",
+            "type": "choice",
+            "prompt": "Nach der Landung in Wien muss Nora in ein anderes Flugzeug nach Rom umsteigen. Ihr ___ startet in 50 Minuten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The traveler changes aircraft to continue the same journey.",
+              "de": "Die Person steigt auf derselben Reise in ein anderes Flugzeug um."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückflug"
+              },
+              {
+                "id": "1",
+                "text": "Direktflug"
+              },
+              {
+                "id": "2",
+                "text": "Anschlussflug"
+              },
+              {
+                "id": "3",
+                "text": "Testflug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anschlussflug is a connecting flight, not a nonstop or return flight.",
+              "de": "Anschlussflug bezeichnet einen Weiterflug nach dem Umsteigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Landung in Wien muss Nora in ein anderes Flugzeug nach Rom umsteigen. Ihr Anschlussflug startet in 50 Minuten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Rückflug, Direktflug, Testflug). Only Anschlussflug expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L89-v2",
+          "contextKey": "legacy-0017-L89-context-2",
+          "transferKey": "legacy-0017-L89-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001709",
+            "type": "gap_choice",
+            "prompt": "Die Reisenden mussten in Kopenhagen umsteigen. Weil der erste Flug verspätet war, verpassten sie den ___ nach Oslo.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The traveler changes aircraft to continue the same journey.",
+              "de": "Die Person steigt auf derselben Reise in ein anderes Flugzeug um."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rundflug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschlussflug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Direktflug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Probeflug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anschlussflug is a connecting flight, not a nonstop or return flight.",
+              "de": "Anschlussflug bezeichnet einen Weiterflug nach dem Umsteigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reisenden mussten in Kopenhagen umsteigen. Weil der erste Flug verspätet war, verpassten sie den Anschlussflug nach Oslo.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Rundflug, Direktflug, Probeflug). Only Anschlussflug expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001710",
+      "title": {
+        "en": "A job application cover letter",
+        "de": "Anschreiben: Brief zur Bewerbung"
+      },
+      "description": {
+        "en": "An Anschreiben explains a candidate's motivation alongside a CV.",
+        "de": "Ein Anschreiben erläutert die Motivation bei einer Bewerbung."
+      },
+      "objective": "Recognize Anschreiben as the cover letter accompanying a job application.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L90 (5995cd7b11cd71c44f2d9b01dab6d515d3a3e9664be0210772dcde001e558b7b), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L90-v1",
+          "contextKey": "legacy-0017-L90-context-1",
+          "transferKey": "legacy-0017-L90-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001710",
+            "type": "choice",
+            "prompt": "Für die Bewerbung schickt Ela ihren Lebenslauf und einen Brief, in dem sie ihre Motivation erklärt. Dieser Brief ist das ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Which application document explains why the person wants the position?",
+              "de": "Welches Bewerbungsdokument erläutert die Motivation für die Stelle?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeugnis"
+              },
+              {
+                "id": "1",
+                "text": "Anschreiben"
+              },
+              {
+                "id": "2",
+                "text": "Protokoll"
+              },
+              {
+                "id": "3",
+                "text": "Formular"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The Anschreiben is the application cover letter, not the CV or certificate.",
+              "de": "Das Anschreiben ist der Bewerbungsbrief, nicht der Lebenslauf oder ein Zeugnis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Bewerbung schickt Ela ihren Lebenslauf und einen Brief, in dem sie ihre Motivation erklärt. Dieser Brief ist das Anschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Zeugnis, Protokoll, Formular). Only Anschreiben expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L90-v2",
+          "contextKey": "legacy-0017-L90-context-2",
+          "transferKey": "legacy-0017-L90-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001710",
+            "type": "gap_choice",
+            "prompt": "Im ___ der Bewerbung sollte stehen, warum Sie sich für genau diese Stelle interessieren.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Which application document explains why the person wants the position?",
+              "de": "Welches Bewerbungsdokument erläutert die Motivation für die Stelle?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lebenslauf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Diplom"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anschreiben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The Anschreiben is the application cover letter, not the CV or certificate.",
+              "de": "Das Anschreiben ist der Bewerbungsbrief, nicht der Lebenslauf oder ein Zeugnis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Anschreiben der Bewerbung sollte stehen, warum Sie sich für genau diese Stelle interessieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Arbeitsvertrag, Lebenslauf, Diplom). Only Anschreiben expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001711",
+      "title": {
+        "en": "A postal address",
+        "de": "Anschrift: Postadresse"
+      },
+      "description": {
+        "en": "An Anschrift specifies where a person or organization receives mail.",
+        "de": "Eine Anschrift gibt an, wohin Post geschickt werden kann."
+      },
+      "objective": "Recognize Anschrift as the postal address used for correspondence.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L91 (a3b7e58cb8b1879ad7ceb00a876197449507c4248a4ce52298670367894193d6), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L91-v1",
+          "contextKey": "legacy-0017-L91-context-1",
+          "transferKey": "legacy-0017-L91-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001711",
+            "type": "choice",
+            "prompt": "Für die Zustellung des Pakets fehlen Straße und Hausnummer. Bitte ergänzen Sie Ihre vollständige ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The form needs the location for delivering mail.",
+              "de": "Gesucht ist die Angabe für die Zustellung von Post."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Unterschrift"
+              },
+              {
+                "id": "1",
+                "text": "Anschrift"
+              },
+              {
+                "id": "2",
+                "text": "Auskunft"
+              },
+              {
+                "id": "3",
+                "text": "Anrede"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anschrift means postal address, including street and house number.",
+              "de": "Anschrift bedeutet Postadresse, zum Beispiel mit Straße und Hausnummer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Zustellung des Pakets fehlen Straße und Hausnummer. Bitte ergänzen Sie Ihre vollständige Anschrift.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Unterschrift, Auskunft, Anrede). Only Anschrift expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L91-v2",
+          "contextKey": "legacy-0017-L91-context-2",
+          "transferKey": "legacy-0017-L91-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001711",
+            "type": "gap_choice",
+            "prompt": "Die Rechnung wurde zurückgeschickt, weil das Unternehmen umgezogen war. Wir müssen die ___ des Empfängers aktualisieren.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The form needs the location for delivering mail.",
+              "de": "Gesucht ist die Angabe für die Zustellung von Post."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnungsnummer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Telefonnummer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anschrift"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestellmenge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anschrift means postal address, including street and house number.",
+              "de": "Anschrift bedeutet Postadresse, zum Beispiel mit Straße und Hausnummer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Rechnung wurde zurückgeschickt, weil das Unternehmen umgezogen war. Wir müssen die Anschrift des Empfängers aktualisieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Rechnungsnummer, Telefonnummer, Bestellmenge). Only Anschrift expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001712",
+      "title": {
+        "en": "A designated contact person",
+        "de": "Ansprechpartner: zuständige Kontaktperson"
+      },
+      "description": {
+        "en": "An Ansprechpartner is a named person to contact for a particular issue.",
+        "de": "Ein Ansprechpartner ist die zuständige Kontaktperson für bestimmte Fragen."
+      },
+      "objective": "Identify Ansprechpartner as the person responsible for handling questions on a topic.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L92 (e656713dcb2c712ebe4f50510223ea1514f00b2417dfb3cd340acc42617cf3f6), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L92-v1",
+          "contextKey": "legacy-0017-L92-context-1",
+          "transferKey": "legacy-0017-L92-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001712",
+            "type": "choice",
+            "prompt": "Bei Fragen zum Arbeitsvertrag können Sie sich an Herrn Klein wenden. Er ist Ihr ___ in der Personalabteilung.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Who should people contact with questions about this matter?",
+              "de": "An wen soll man sich bei Fragen zu diesem Thema wenden?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferant"
+              },
+              {
+                "id": "1",
+                "text": "Bewerber"
+              },
+              {
+                "id": "2",
+                "text": "Ansprechpartner"
+              },
+              {
+                "id": "3",
+                "text": "Kunde"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Ansprechpartner is a designated contact for questions or assistance.",
+              "de": "Ansprechpartner bezeichnet eine zuständige Kontaktperson."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Fragen zum Arbeitsvertrag können Sie sich an Herrn Klein wenden. Er ist Ihr Ansprechpartner in der Personalabteilung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Lieferant, Bewerber, Kunde). Only Ansprechpartner expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L92-v2",
+          "contextKey": "legacy-0017-L92-context-2",
+          "transferKey": "legacy-0017-L92-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001712",
+            "type": "gap_choice",
+            "prompt": "Die Schule nennt eine Person, an die sich Eltern bei Problemen mit dem Bus wenden können. Diese Person ist der ___ für den Schultransport.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Who should people contact with questions about this matter?",
+              "de": "An wen soll man sich bei Fragen zu diesem Thema wenden?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrgast"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ansprechpartner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prüfer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkäufer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ansprechpartner is a designated contact for questions or assistance.",
+              "de": "Ansprechpartner bezeichnet eine zuständige Kontaktperson."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule nennt eine Person, an die sich Eltern bei Problemen mit dem Bus wenden können. Diese Person ist der Ansprechpartner für den Schultransport.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Fahrgast, Prüfer, Verkäufer). Only Ansprechpartner expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001714",
+      "title": {
+        "en": "A paid employment position",
+        "de": "Anstellung: Beschäftigungsverhältnis"
+      },
+      "description": {
+        "en": "Anstellung describes having a job as an employee.",
+        "de": "Anstellung bezeichnet eine Beschäftigung als Arbeitnehmerin oder Arbeitnehmer."
+      },
+      "objective": "Recognize Anstellung as a paid employment relationship or position.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L94 (c66a06ec4a65848e904f3db4f07da8d5a850b82758ee6e66626281d008e2cb19), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L94-v1",
+          "contextKey": "legacy-0017-L94-context-1",
+          "transferKey": "legacy-0017-L94-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001714",
+            "type": "choice",
+            "prompt": "Nach sechs Monaten Suche hat sie endlich eine feste ___ bei einer Bank gefunden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has been hired for a paid job.",
+              "de": "Die Person wurde für eine bezahlte Stelle eingestellt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "1",
+                "text": "Prüfung"
+              },
+              {
+                "id": "2",
+                "text": "Anstellung"
+              },
+              {
+                "id": "3",
+                "text": "Fortbildung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anstellung means employment, not an application or training event.",
+              "de": "Anstellung bezeichnet ein Beschäftigungsverhältnis, keine Bewerbung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach sechs Monaten Suche hat sie endlich eine feste Anstellung bei einer Bank gefunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Bewerbung, Prüfung, Fortbildung). Only Anstellung expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L94-v2",
+          "contextKey": "legacy-0017-L94-context-2",
+          "transferKey": "legacy-0017-L94-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001714",
+            "type": "gap_choice",
+            "prompt": "Der Vertrag läuft unbefristet und sie arbeitet dort gegen Gehalt. Es handelt sich um eine reguläre ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has been hired for a paid job.",
+              "de": "Die Person wurde für eine bezahlte Stelle eingestellt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anstellung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausbildung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Befragung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anstellung means employment, not an application or training event.",
+              "de": "Anstellung bezeichnet ein Beschäftigungsverhältnis, keine Bewerbung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vertrag läuft unbefristet und sie arbeitet dort gegen Gehalt. Es handelt sich um eine reguläre Anstellung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Ausbildung, Befragung, Einladung). Only Anstellung expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001715",
+      "title": {
+        "en": "Sustained effort",
+        "de": "Anstrengung: großer Aufwand"
+      },
+      "description": {
+        "en": "Anstrengung is effort that requires energy or perseverance.",
+        "de": "Anstrengung ist ein Aufwand, der Kraft oder Ausdauer erfordert."
+      },
+      "objective": "Recognize Anstrengung as physical or mental effort needed to achieve something.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L95 (456cafcb4b406d66f51e7a33231111a712b8a73158a9307f3f1d1b7f57fc0a81), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L95-v1",
+          "contextKey": "legacy-0017-L95-context-1",
+          "transferKey": "legacy-0017-L95-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001715",
+            "type": "choice",
+            "prompt": "Nach fünf Stunden Bergsteigen waren alle erschöpft. Der Aufstieg war eine große ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity took considerable energy and work.",
+              "de": "Die Tätigkeit erforderte viel Kraft und Einsatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erleichterung"
+              },
+              {
+                "id": "1",
+                "text": "Anstrengung"
+              },
+              {
+                "id": "2",
+                "text": "Erholung"
+              },
+              {
+                "id": "3",
+                "text": "Abkürzung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anstrengung is effort or exertion, rather than rest or relief.",
+              "de": "Anstrengung bezeichnet körperliche oder geistige Mühe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach fünf Stunden Bergsteigen waren alle erschöpft. Der Aufstieg war eine große Anstrengung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Erleichterung, Erholung, Abkürzung). Only Anstrengung expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L95-v2",
+          "contextKey": "legacy-0017-L95-context-2",
+          "transferKey": "legacy-0017-L95-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001715",
+            "type": "gap_choice",
+            "prompt": "Das Team musste mehrere Wochen lang zusätzliche Schichten leisten. Nur mit großer ___ gelang die Fertigstellung rechtzeitig.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity took considerable energy and work.",
+              "de": "Die Tätigkeit erforderte viel Kraft und Einsatz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zufriedenheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entspannung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anstrengung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterhaltung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anstrengung is effort or exertion, rather than rest or relief.",
+              "de": "Anstrengung bezeichnet körperliche oder geistige Mühe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team musste mehrere Wochen lang zusätzliche Schichten leisten. Nur mit großer Anstrengung gelang die Fertigstellung rechtzeitig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Zufriedenheit, Entspannung, Unterhaltung). Only Anstrengung expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001716",
+      "title": {
+        "en": "A proportion or share",
+        "de": "Anteil: Teil einer Gesamtmenge"
+      },
+      "description": {
+        "en": "An Anteil is a part of a whole, often expressed as a percentage.",
+        "de": "Ein Anteil ist ein Teil einer Gesamtmenge, häufig in Prozent angegeben."
+      },
+      "objective": "Identify Anteil as a share or proportion of a larger total.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L96 (02c299960815cc590c24cc9e141d8ac2ae9885a79b06727470b19d8754cbffb7), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L96-v1",
+          "contextKey": "legacy-0017-L96-context-1",
+          "transferKey": "legacy-0017-L96-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001716",
+            "type": "choice",
+            "prompt": "Von 100 befragten Personen waren 60 zufrieden. Der ___ der Zufriedenen beträgt 60 Prozent.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence refers to a fraction of a total.",
+              "de": "Es geht um einen Teil einer Gesamtmenge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Antrag"
+              },
+              {
+                "id": "1",
+                "text": "Abstand"
+              },
+              {
+                "id": "2",
+                "text": "Anteil"
+              },
+              {
+                "id": "3",
+                "text": "Anlass"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anteil means a share or proportion of the whole.",
+              "de": "Anteil bezeichnet einen Teil beziehungsweise einen prozentualen Anteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von 100 befragten Personen waren 60 zufrieden. Der Anteil der Zufriedenen beträgt 60 Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Antrag, Abstand, Anlass). Only Anteil expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L96-v2",
+          "contextKey": "legacy-0017-L96-context-2",
+          "transferKey": "legacy-0017-L96-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001716",
+            "type": "gap_choice",
+            "prompt": "Ein Viertel des Budgets ist für Forschung vorgesehen. Dieser ___ darf nicht für Werbung ausgegeben werden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence refers to a fraction of a total.",
+              "de": "Es geht um einen Teil einer Gesamtmenge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auftrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anteil"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausfall"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anlass"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anteil means a share or proportion of the whole.",
+              "de": "Anteil bezeichnet einen Teil beziehungsweise einen prozentualen Anteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Viertel des Budgets ist für Forschung vorgesehen. Dieser Anteil darf nicht für Werbung ausgegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Auftrag, Ausfall, Anlass). Only Anteil expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001718",
+      "title": {
+        "en": "A male lawyer",
+        "de": "Anwalt: juristischer Vertreter"
+      },
+      "description": {
+        "en": "An Anwalt advises clients on legal questions and can represent them in court.",
+        "de": "Ein Anwalt berät Mandanten rechtlich und kann sie vor Gericht vertreten."
+      },
+      "objective": "Identify Anwalt as a male legal professional who advises or represents clients.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L99 (4501c6f02dba1eabfe1e1d8e1fc3697a472475c3145ae0206a2a9eddcb0bcdda), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L99-v1",
+          "contextKey": "legacy-0017-L99-context-1",
+          "transferKey": "legacy-0017-L99-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001718",
+            "type": "choice",
+            "prompt": "Vor dem Gerichtsprozess lässt sich Karim rechtlich beraten. Er beauftragt einen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person provides legal advice or representation.",
+              "de": "Die gesuchte Person berät oder vertritt jemanden rechtlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arzt"
+              },
+              {
+                "id": "1",
+                "text": "Architekt"
+              },
+              {
+                "id": "2",
+                "text": "Anwalt"
+              },
+              {
+                "id": "3",
+                "text": "Makler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anwalt is a lawyer; the role is legal representation, not medicine or property.",
+              "de": "Ein Anwalt berät und vertritt Menschen in Rechtsangelegenheiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Gerichtsprozess lässt sich Karim rechtlich beraten. Er beauftragt einen Anwalt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Arzt, Architekt, Makler). Only Anwalt expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L99-v2",
+          "contextKey": "legacy-0017-L99-context-2",
+          "transferKey": "legacy-0017-L99-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001718",
+            "type": "gap_choice",
+            "prompt": "Der Mandant bespricht mit seinem ___, welche Unterlagen er vor Gericht braucht.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person provides legal advice or representation.",
+              "de": "Die gesuchte Person berät oder vertritt jemanden rechtlich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermieter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anwalt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitgeber"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Nachbar"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anwalt is a lawyer; the role is legal representation, not medicine or property.",
+              "de": "Ein Anwalt berät und vertritt Menschen in Rechtsangelegenheiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mandant bespricht mit seinem Anwalt, welche Unterlagen er vor Gericht braucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Vermieter, Arbeitgeber, Nachbar). Only Anwalt expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001719",
+      "title": {
+        "en": "A female lawyer",
+        "de": "Anwältin: juristische Vertreterin"
+      },
+      "description": {
+        "en": "An Anwältin is a female lawyer who gives legal advice or representation.",
+        "de": "Eine Anwältin berät Mandantinnen und Mandanten rechtlich und vertritt sie."
+      },
+      "objective": "Identify Anwältin as the feminine form for a lawyer representing or advising clients.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L100 (2d1e86ed2f990b2a73617f55655b310af6be3e5d6b311f68daf01a54c58b490f), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0017-L100-v1",
+          "contextKey": "legacy-0017-L100-context-1",
+          "transferKey": "legacy-0017-L100-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001719",
+            "type": "choice",
+            "prompt": "Frau Berger vertritt ihre Mandantin vor Gericht. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The professional is a woman representing a client in a legal matter.",
+              "de": "Eine Frau vertritt eine Mandantin in einer Rechtsangelegenheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ärztin"
+              },
+              {
+                "id": "1",
+                "text": "Richterin"
+              },
+              {
+                "id": "2",
+                "text": "Anwältin"
+              },
+              {
+                "id": "3",
+                "text": "Dolmetscherin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anwältin is the feminine noun for a lawyer, not a judge.",
+              "de": "Anwältin ist die weibliche Bezeichnung für eine Rechtsanwältin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Frau Berger vertritt ihre Mandantin vor Gericht. Sie ist Anwältin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Ärztin, Richterin, Dolmetscherin). Only Anwältin expresses the intended sense under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0017-L100-v2",
+          "contextKey": "legacy-0017-L100-context-2",
+          "transferKey": "legacy-0017-L100-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000170191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001719",
+            "type": "gap_choice",
+            "prompt": "Die Mandantin vereinbart einen Termin mit ihrer ___, um die Klageschrift zu besprechen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The professional is a woman representing a client in a legal matter.",
+              "de": "Eine Frau vertritt eine Mandantin in einer Rechtsangelegenheit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermieterin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kundin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anwältin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkäuferin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anwältin is the feminine noun for a lawyer, not a judge.",
+              "de": "Anwältin ist die weibliche Bezeichnung für eine Rechtsanwältin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mandantin vereinbart einen Termin mit ihrer Anwältin, um die Klageschrift zu besprechen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: reviewed complete German sentence, meaning, answer and all alternatives (Vermieterin, Kundin, Verkäuferin). Only Anwältin expresses the intended sense under the stated cues. Independent review pending."
+        }
+      ]
+    }
+  ]
+}
