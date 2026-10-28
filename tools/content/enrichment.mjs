@@ -32,7 +32,8 @@ function verify(){
   for(const file of manifest.files)if(hash(text(file.path))!==file.sha256)throw Error(`Source changed: ${file.path}; do not regenerate over existing batches`);
   const plan=read('plan.json');const seen=new Set();
   for(const batch of plan.batches)for(const row of input(batch).records){if(seen.has(row.sourceId))throw Error('Repeated planned source');seen.add(row.sourceId);}
-  console.log(`Verified ${manifest.files.length} source files; ${seen.size} B1/B2 seed records in ${plan.batches.length} planned batches. No publication.`);
+  // Keep show/next stdout machine-readable for redirects and connected tools.
+  console.error(`Verified ${manifest.files.length} source files; ${seen.size} B1/B2 seed records in ${plan.batches.length} planned batches. No publication.`);
 }
 function next(){
   for(const batch of read('plan.json').batches){

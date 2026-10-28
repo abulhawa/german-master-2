@@ -28,7 +28,11 @@ production content/bundle, database, environment or device change occurred.
 ChatGPT must verify actual GitHub write capability; the prompt cannot grant it.
 Official cloud documentation provides the repository-connected web fallback.
 
-The prepared content branch is the GitHub handoff target. Next: run one pilot
+The prepared content branch is pushed to GitHub. Initial workbench commit
+`d92fbe5` passed hosted Content enrichment validation run `40742935698`, including
+fresh root npm ci and the new validator. Remote prompt-file access was verified.
+Show/next output is machine-readable JSON on stdout, with diagnostics on stderr.
+Next: run one pilot
 batch using `content/enrichment/CHATGPT-PROMPT.md`. Do not merge it into main
 or publish resulting content without the separate release decision. No API model
 calls or content authorship were performed for this workbench preparation.
