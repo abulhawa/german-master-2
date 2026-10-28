@@ -36,20 +36,31 @@ are educationally sound. The author script refuses to overwrite an existing draf
 
 ## Next content work
 
-1. Review this small pilot question by question: natural German, one defensible
+1. Reuse the preserved legacy material before scaling new authorship. Read-only
+   inspection of the original web repository on 28 October found 4,754 nonempty
+   JSONL records under `data/pos/`: 2,806 nouns, 1,029 verbs, 614 adjectives,
+   210 adverbs, 40 prepositions, 39 conjunctions, 8 particles and 8 pronouns.
+   `data/wortschatz/b2-beruf.csv` contains 1,663 parsed rows; level-specific verb
+   lists also remain under `db/verb-lists/`. These are source-record counts,
+   not unique words, reviewed questions or extra published exercises. Sources
+   overlap and contain known translation/format issues; an `approved` flag in a
+   legacy file is not GM2 editorial approval. Preserve provenance and check reuse
+   rights, normalize/deduplicate and review a small sample before conversion.
+   Do not modify the preserved original repositories or import user/account data.
+2. Review this small pilot question by question: natural German, one defensible
    offered answer, useful distractors, non-answer-revealing hints, explanation,
    level fit and genuinely distinct contexts. Record AI review honestly and bind
    any approval to the final content hash. Revise generic hints before approval.
-2. Check target identity against the production catalog so new variants of an
+3. Check target identity against the production catalog so new variants of an
    existing concept reuse its target rather than splitting learning evidence.
    Include existing starter and workplace targets in that editorial comparison.
-3. Extend coverage with reviewed examples of mistakes and everyday contexts;
+4. Extend coverage with reviewed examples of mistakes and everyday contexts;
    prioritize useful variation and underrepresented objectives over raw counts.
    ChatGPT can author and assist review without adding paid inference to practice.
-4. Prepare additive candidate SQL/catalog and the matching offline bundle through
+5. Prepare additive candidate SQL/catalog and the matching offline bundle through
    the existing immutable-release pipeline. Verify in a clean local fixture
    database, then test selection, grading and rendering on web and Android.
-5. Present the exact reviewed candidate and obtain publication authorization before
+6. Present the exact reviewed candidate and obtain publication authorization before
    writing to production. Existing sessions retain their pinned revisions.
 
 ## Local databases
