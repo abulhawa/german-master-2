@@ -2,5 +2,2232 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000002400",
+      "title": {
+        "en": "Normally or usually",
+        "de": "Normalerweise: im Regelfall"
+      },
+      "description": {
+        "en": "normalerweise indicates the usual pattern, allowing exceptions.",
+        "de": "Etwas geschieht im Regelfall, auch wenn es Ausnahmen gibt."
+      },
+      "objective": "Recognize normalerweise for what generally happens except in special cases.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L135 (5e0e3db1bbb203526c5a821308dc61d9dadbae4eb4f1e85742713f4efe749255), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L135-v1",
+          "contextKey": "legacy-0024-L135-context-1",
+          "transferKey": "legacy-0024-L135-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002400",
+            "type": "choice",
+            "prompt": "Jeden Werktag beginnt die Schicht um acht, nur heute um neun. ___ beginnt sie um acht.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Compare the regular schedule with an exception.",
+              "de": "Vergleiche den üblichen Ablauf mit einer Ausnahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausnahmsweise"
+              },
+              {
+                "id": "1",
+                "text": "Normalerweise"
+              },
+              {
+                "id": "2",
+                "text": "Selten"
+              },
+              {
+                "id": "3",
+                "text": "Nie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "normalerweise indicates the usual pattern, allowing exceptions.",
+              "de": "normalerweise bezeichnet den Regelfall, von dem es Ausnahmen geben kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jeden Werktag beginnt die Schicht um acht, nur heute um neun. Normalerweise beginnt sie um acht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L135-v2",
+          "contextKey": "legacy-0024-L135-context-2",
+          "transferKey": "legacy-0024-L135-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002400",
+            "type": "gap_choice",
+            "prompt": "Der Bus fährt an Schultagen alle zehn Minuten. ___ muss man nicht lange warten.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Compare the regular schedule with an exception.",
+              "de": "Vergleiche den üblichen Ablauf mit einer Ausnahme."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Niemals"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zufällig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Normalerweise"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ausnahmsweise"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "normalerweise indicates the usual pattern, allowing exceptions.",
+              "de": "normalerweise bezeichnet den Regelfall, von dem es Ausnahmen geben kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bus fährt an Schultagen alle zehn Minuten. Normalerweise muss man nicht lange warten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002401",
+      "title": {
+        "en": "Now at this stage",
+        "de": "Nun: ab diesem Zeitpunkt"
+      },
+      "description": {
+        "en": "nun means now, often introducing the next step or a changed situation.",
+        "de": "Nun leitet einen neuen Zeitpunkt oder den nächsten Schritt ein."
+      },
+      "objective": "Recognize nun as marking the current stage or a change after previous events.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L136 (372e2cea6c9eac47d98a0a03426c710e96980b9b5f4fdf873b345ca9d5a1c098), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L136-v1",
+          "contextKey": "legacy-0024-L136-context-1",
+          "transferKey": "legacy-0024-L136-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002401",
+            "type": "choice",
+            "prompt": "Die Vorbereitungen sind abgeschlossen. ___ können wir anfangen.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The previous stage has ended and the next begins.",
+              "de": "Eine frühere Phase endet und der nächste Schritt beginnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Damals"
+              },
+              {
+                "id": "1",
+                "text": "Früher"
+              },
+              {
+                "id": "2",
+                "text": "Nun"
+              },
+              {
+                "id": "3",
+                "text": "Gestern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "nun means now, often introducing the next step or a changed situation.",
+              "de": "nun bedeutet jetzt und markiert häufig einen neuen Schritt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vorbereitungen sind abgeschlossen. Nun können wir anfangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L136-v2",
+          "contextKey": "legacy-0024-L136-context-2",
+          "transferKey": "legacy-0024-L136-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002401",
+            "type": "gap_choice",
+            "prompt": "Die Preise waren lange unverändert; ___ steigen sie wieder.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The previous stage has ended and the next begins.",
+              "de": "Eine frühere Phase endet und der nächste Schritt beginnt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "damals"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nun"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gestern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "früher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nun means now, often introducing the next step or a changed situation.",
+              "de": "nun bedeutet jetzt und markiert häufig einen neuen Schritt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Preise waren lange unverändert; nun steigen sie wieder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002402",
+      "title": {
+        "en": "Comply with requirements",
+        "de": "Ordnungsgemäß erledigen"
+      },
+      "description": {
+        "en": "ordnungsgemäß means correctly and in compliance with relevant rules.",
+        "de": "Eine Tätigkeit erfolgt korrekt und nach den geltenden Vorgaben."
+      },
+      "objective": "Recognize ordnungsgemäß for an action performed according to applicable rules.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L141 (46fc3ff8e3d39688742a1cabab1c12c02a420a40b050ff3aa5e3ee96ffc96f43), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L141-v1",
+          "contextKey": "legacy-0024-L141-context-1",
+          "transferKey": "legacy-0024-L141-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002402",
+            "type": "choice",
+            "prompt": "Der Abfall muss nach den geltenden Vorschriften entsorgt werden. Er ist ___ zu beseitigen.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The process follows required procedures.",
+              "de": "Der Ablauf erfüllt die vorgeschriebenen Regeln."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "willkürlich"
+              },
+              {
+                "id": "1",
+                "text": "ordnungsgemäß"
+              },
+              {
+                "id": "2",
+                "text": "nachlässig"
+              },
+              {
+                "id": "3",
+                "text": "heimlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "ordnungsgemäß means correctly and in compliance with relevant rules.",
+              "de": "ordnungsgemäß bedeutet korrekt und entsprechend den geltenden Regeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Abfall muss nach den geltenden Vorschriften entsorgt werden. Er ist ordnungsgemäß zu beseitigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L141-v2",
+          "contextKey": "legacy-0024-L141-context-2",
+          "transferKey": "legacy-0024-L141-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002402",
+            "type": "gap_choice",
+            "prompt": "Die Buchhaltung hat sämtliche Belege vollständig nach den Regeln erfasst. Alles wurde ___ dokumentiert.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The process follows required procedures.",
+              "de": "Der Ablauf erfüllt die vorgeschriebenen Regeln."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fehlerhaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ungeprüft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ordnungsgemäß"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unvollständig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ordnungsgemäß means correctly and in compliance with relevant rules.",
+              "de": "ordnungsgemäß bedeutet korrekt und entsprechend den geltenden Regeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Buchhaltung hat sämtliche Belege vollständig nach den Regeln erfasst. Alles wurde ordnungsgemäß dokumentiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002404",
+      "title": {
+        "en": "Across or crosswise",
+        "de": "Quer über eine Fläche"
+      },
+      "description": {
+        "en": "quer means across or crosswise rather than lengthwise.",
+        "de": "Etwas verläuft oder liegt in einer Richtung von einer Seite zur anderen."
+      },
+      "objective": "Recognize quer for movement or placement across a direction rather than along it.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L143 (a6df8cc38f8e51bd0cf8dfe1c9550a28ac22d1cf4de40dd3fa62768cdc091349), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L143-v1",
+          "contextKey": "legacy-0024-L143-context-1",
+          "transferKey": "legacy-0024-L143-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002404",
+            "type": "choice",
+            "prompt": "Statt dem Weg am Rand zu folgen, gingen die Wanderer ___ über die Wiese.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The direction cuts across the main axis.",
+              "de": "Die Richtung verläuft über die Hauptachse hinweg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "parallel"
+              },
+              {
+                "id": "1",
+                "text": "quer"
+              },
+              {
+                "id": "2",
+                "text": "entlang"
+              },
+              {
+                "id": "3",
+                "text": "zurück"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "quer means across or crosswise rather than lengthwise.",
+              "de": "quer bedeutet von einer Seite zur anderen oder entgegen der Längsrichtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt dem Weg am Rand zu folgen, gingen die Wanderer quer über die Wiese.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L143-v2",
+          "contextKey": "legacy-0024-L143-context-2",
+          "transferKey": "legacy-0024-L143-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002404",
+            "type": "gap_choice",
+            "prompt": "Der umgestürzte Baum blockierte beide Fahrspuren, weil er ___ auf der Straße lag.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The direction cuts across the main axis.",
+              "de": "Die Richtung verläuft über die Hauptachse hinweg."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "längs"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gerade"
+                  },
+                  {
+                    "id": "2",
+                    "text": "quer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "parallel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "quer means across or crosswise rather than lengthwise.",
+              "de": "quer bedeutet von einer Seite zur anderen oder entgegen der Längsrichtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der umgestürzte Baum blockierte beide Fahrspuren, weil er quer auf der Straße lag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002407",
+      "title": {
+        "en": "Act considerately",
+        "de": "Rücksichtsvoll handeln"
+      },
+      "description": {
+        "en": "rücksichtsvoll means considerate of other people's needs.",
+        "de": "Eine Person achtet auf die Bedürfnisse anderer und stört sie möglichst nicht."
+      },
+      "objective": "Recognize rücksichtsvoll for behavior that respects other people's needs.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L149 (f47b67c9e5862e315ad5183c7d7dfc0fb9b9e5bea0663996bb27d628bca79040), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L149-v1",
+          "contextKey": "legacy-0024-L149-context-1",
+          "transferKey": "legacy-0024-L149-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002407",
+            "type": "choice",
+            "prompt": "In der Bibliothek spricht er leise, damit andere ungestört lesen können. Er verhält sich ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person adapts behavior to avoid disturbing others.",
+              "de": "Die Person nimmt Rücksicht, um andere nicht zu stören."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "rücksichtslos"
+              },
+              {
+                "id": "1",
+                "text": "laut"
+              },
+              {
+                "id": "2",
+                "text": "rücksichtsvoll"
+              },
+              {
+                "id": "3",
+                "text": "ungeduldig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "rücksichtsvoll means considerate of other people's needs.",
+              "de": "rücksichtsvoll bedeutet, auf die Bedürfnisse anderer zu achten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Bibliothek spricht er leise, damit andere ungestört lesen können. Er verhält sich rücksichtsvoll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L149-v2",
+          "contextKey": "legacy-0024-L149-context-2",
+          "transferKey": "legacy-0024-L149-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002407",
+            "type": "gap_choice",
+            "prompt": "Vor einem lauten Telefonat fragt sie, ob die Kollegen konzentriert arbeiten müssen. Sie handelt ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person adapts behavior to avoid disturbing others.",
+              "de": "Die Person nimmt Rücksicht, um andere nicht zu stören."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "rücksichtsvoll"
+                  },
+                  {
+                    "id": "1",
+                    "text": "egoistisch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "achtlos"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unaufmerksam"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "rücksichtsvoll means considerate of other people's needs.",
+              "de": "rücksichtsvoll bedeutet, auf die Bedürfnisse anderer zu achten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor einem lauten Telefonat fragt sie, ob die Kollegen konzentriert arbeiten müssen. Sie handelt rücksichtsvoll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002408",
+      "title": {
+        "en": "Move backwards",
+        "de": "Rückwärts fahren"
+      },
+      "description": {
+        "en": "rückwärts means in a backward direction.",
+        "de": "Eine Bewegung erfolgt nach hinten statt nach vorne."
+      },
+      "objective": "Recognize rückwärts for movement in the reverse direction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L150 (935702a3f9555fa73069b20585a02430a66d1b1dee9a087139123ad2f38ed492), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L150-v1",
+          "contextKey": "legacy-0024-L150-context-1",
+          "transferKey": "legacy-0024-L150-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002408",
+            "type": "choice",
+            "prompt": "Vor der engen Einfahrt konnte der Wagen nicht wenden; er musste ___ herausfahren.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle moves rear end first.",
+              "de": "Das Fahrzeug bewegt sich mit dem Heck voraus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "seitwärts"
+              },
+              {
+                "id": "1",
+                "text": "vorwärts"
+              },
+              {
+                "id": "2",
+                "text": "rückwärts"
+              },
+              {
+                "id": "3",
+                "text": "geradeaus"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "rückwärts means in a backward direction.",
+              "de": "rückwärts bedeutet in Richtung nach hinten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der engen Einfahrt konnte der Wagen nicht wenden; er musste rückwärts herausfahren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L150-v2",
+          "contextKey": "legacy-0024-L150-context-2",
+          "transferKey": "legacy-0024-L150-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002408",
+            "type": "gap_choice",
+            "prompt": "Die Kamera zeigt, wie der Stapler mit dem Heck zuerst ___ aus der Halle fährt.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle moves rear end first.",
+              "de": "Das Fahrzeug bewegt sich mit dem Heck voraus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "rückwärts"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorwärts"
+                  },
+                  {
+                    "id": "2",
+                    "text": "seitlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geradeaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "rückwärts means in a backward direction.",
+              "de": "rückwärts bedeutet in Richtung nach hinten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kamera zeigt, wie der Stapler mit dem Heck zuerst rückwärts aus der Halle fährt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002409",
+      "title": {
+        "en": "Eventually, in the end",
+        "de": "Schließlich: nach einiger Zeit"
+      },
+      "description": {
+        "en": "schließlich means eventually or in the end, after preceding events.",
+        "de": "Ein Ergebnis tritt nach einer längeren Entwicklung oder mehreren Versuchen ein."
+      },
+      "objective": "Recognize schließlich when something occurs after preceding attempts or discussion.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L151 (1b1f68b5af9ec1cd03c66d71d7d137237850e5e0d79ff8bf98f8250706913b27), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L151-v1",
+          "contextKey": "legacy-0024-L151-context-1",
+          "transferKey": "legacy-0024-L151-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002409",
+            "type": "choice",
+            "prompt": "Nach vielen vergeblichen Versuchen funktionierte die Anmeldung ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The outcome comes after earlier effort.",
+              "de": "Das Ergebnis folgt auf vorherige Bemühungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "anfangs"
+              },
+              {
+                "id": "1",
+                "text": "niemals"
+              },
+              {
+                "id": "2",
+                "text": "schließlich"
+              },
+              {
+                "id": "3",
+                "text": "vorher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "schließlich means eventually or in the end, after preceding events.",
+              "de": "schließlich bedeutet am Ende einer Entwicklung oder nach mehreren Versuchen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach vielen vergeblichen Versuchen funktionierte die Anmeldung schließlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L151-v2",
+          "contextKey": "legacy-0024-L151-context-2",
+          "transferKey": "legacy-0024-L151-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002409",
+            "type": "gap_choice",
+            "prompt": "Wir haben lange diskutiert und uns ___ auf einen Termin geeinigt.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The outcome comes after earlier effort.",
+              "de": "Das Ergebnis folgt auf vorherige Bemühungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "schließlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zunächst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "früher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "schließlich means eventually or in the end, after preceding events.",
+              "de": "schließlich bedeutet am Ende einer Entwicklung oder nach mehreren Versuchen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir haben lange diskutiert und uns schließlich auf einen Termin geeinigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002410",
+      "title": {
+        "en": "At the latest",
+        "de": "Spätestens: nicht später als"
+      },
+      "description": {
+        "en": "spätestens marks the latest permissible time or deadline.",
+        "de": "Eine Handlung muss bis zu einem bestimmten Zeitpunkt erfolgt sein."
+      },
+      "objective": "Recognize spätestens as the last acceptable time for an action.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L157 (3093cdf9b1c1c1e1e5fe687a7b210e98ff5042b7c3f0869012a8e220a0ba6797), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L157-v1",
+          "contextKey": "legacy-0024-L157-context-1",
+          "transferKey": "legacy-0024-L157-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002410",
+            "type": "choice",
+            "prompt": "Die Onlinebewerbung muss bis Freitag eingereicht sein. Reiche sie ___ am Freitag ein.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The deadline must not be exceeded.",
+              "de": "Der genannte Termin darf nicht überschritten werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "frühestens"
+              },
+              {
+                "id": "1",
+                "text": "spätestens"
+              },
+              {
+                "id": "2",
+                "text": "ungefähr"
+              },
+              {
+                "id": "3",
+                "text": "vielleicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "spätestens marks the latest permissible time or deadline.",
+              "de": "spätestens bezeichnet den letztmöglichen Zeitpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Onlinebewerbung muss bis Freitag eingereicht sein. Reiche sie spätestens am Freitag ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L157-v2",
+          "contextKey": "legacy-0024-L157-context-2",
+          "transferKey": "legacy-0024-L157-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002410",
+            "type": "gap_choice",
+            "prompt": "Der Zug fährt um acht. Damit du ihn sicher erreichst, sei ___ um 7:50 Uhr am Bahnsteig.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The deadline must not be exceeded.",
+              "de": "Der genannte Termin darf nicht überschritten werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vielleicht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "frühestens"
+                  },
+                  {
+                    "id": "2",
+                    "text": "spätestens"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ungefähr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "spätestens marks the latest permissible time or deadline.",
+              "de": "spätestens bezeichnet den letztmöglichen Zeitpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug fährt um acht. Damit du ihn sicher erreichst, sei spätestens um 7:50 Uhr am Bahnsteig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002411",
+      "title": {
+        "en": "Decide spontaneously",
+        "de": "Spontan entscheiden"
+      },
+      "description": {
+        "en": "spontan means unplanned or decided on the spot.",
+        "de": "Eine Entscheidung wird ohne lange Vorbereitung unmittelbar getroffen."
+      },
+      "objective": "Recognize spontan for decisions or actions made without prior planning.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L158 (415cfbf2204ba5b2b6124f78b033b0dee44ecae7f42f4a15cb0efabf8ead7706), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L158-v1",
+          "contextKey": "legacy-0024-L158-context-1",
+          "transferKey": "legacy-0024-L158-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002411",
+            "type": "choice",
+            "prompt": "Ohne vorherige Planung entschied sie sich am Abend für einen Theaterbesuch. Das war ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "There was no plan or appointment in advance.",
+              "de": "Es gab vorher keinen Plan oder festen Termin."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "langfristig"
+              },
+              {
+                "id": "1",
+                "text": "spontan"
+              },
+              {
+                "id": "2",
+                "text": "verpflichtend"
+              },
+              {
+                "id": "3",
+                "text": "geplant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "spontan means unplanned or decided on the spot.",
+              "de": "spontan bedeutet ohne vorherige Planung und aus dem Moment heraus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne vorherige Planung entschied sie sich am Abend für einen Theaterbesuch. Das war spontan.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L158-v2",
+          "contextKey": "legacy-0024-L158-context-2",
+          "transferKey": "legacy-0024-L158-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002411",
+            "type": "gap_choice",
+            "prompt": "Die Gruppe hatte keinen Termin vereinbart und traf sich ___ im Park.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "There was no plan or appointment in advance.",
+              "de": "Es gab vorher keinen Plan oder festen Termin."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "regelmäßig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "planmäßig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "spontan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "pünktlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "spontan means unplanned or decided on the spot.",
+              "de": "spontan bedeutet ohne vorherige Planung und aus dem Moment heraus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe hatte keinen Termin vereinbart und traf sich spontan im Park.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002412",
+      "title": {
+        "en": "Remain stable",
+        "de": "Stabil bleiben"
+      },
+      "description": {
+        "en": "stabil means steady, secure or not fluctuating.",
+        "de": "Etwas bleibt fest oder verändert sich nur geringfügig."
+      },
+      "objective": "Recognize stabil for something that does not fluctuate or become unstable.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L159 (5487a7c1bf0e292b23b3e0f59288e0bc2c389bd58782ddda0baff1c5802743b8), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L159-v1",
+          "contextKey": "legacy-0024-L159-context-1",
+          "transferKey": "legacy-0024-L159-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002412",
+            "type": "choice",
+            "prompt": "Trotz des starken Windes schwankt das Gerüst nicht. Es steht ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "There is no significant movement or change.",
+              "de": "Es gibt keine starke Bewegung oder Veränderung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "wackelig"
+              },
+              {
+                "id": "1",
+                "text": "locker"
+              },
+              {
+                "id": "2",
+                "text": "stabil"
+              },
+              {
+                "id": "3",
+                "text": "unsicher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "stabil means steady, secure or not fluctuating.",
+              "de": "stabil bedeutet fest, sicher oder wenig schwankend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trotz des starken Windes schwankt das Gerüst nicht. Es steht stabil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L159-v2",
+          "contextKey": "legacy-0024-L159-context-2",
+          "transferKey": "legacy-0024-L159-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002412",
+            "type": "gap_choice",
+            "prompt": "Die Einnahmen schwanken seit Monaten kaum. Sie bleiben ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "There is no significant movement or change.",
+              "de": "Es gibt keine starke Bewegung oder Veränderung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stabil"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sprunghaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unberechenbar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unsicher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "stabil means steady, secure or not fluctuating.",
+              "de": "stabil bedeutet fest, sicher oder wenig schwankend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einnahmen schwanken seit Monaten kaum. Sie bleiben stabil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002413",
+      "title": {
+        "en": "Partly",
+        "de": "Teilweise: nicht vollständig"
+      },
+      "description": {
+        "en": "teilweise means partly rather than completely.",
+        "de": "Eine Aussage gilt nur für einen Teil und nicht für das Ganze."
+      },
+      "objective": "Recognize teilweise for something true or completed only in part.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L160 (208460225f2939525b22b766eeede56979c5dd4e14febf46ad36f3f014c429fa), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L160-v1",
+          "contextKey": "legacy-0024-L160-context-1",
+          "transferKey": "legacy-0024-L160-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002413",
+            "type": "choice",
+            "prompt": "Von zehn Aufgaben wurden erst sechs gelöst. Der Test ist nur ___ abgeschlossen.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Only a portion is affected or completed.",
+              "de": "Nur ein Teil ist betroffen oder erledigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vollständig"
+              },
+              {
+                "id": "1",
+                "text": "gar nicht"
+              },
+              {
+                "id": "2",
+                "text": "teilweise"
+              },
+              {
+                "id": "3",
+                "text": "endgültig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "teilweise means partly rather than completely.",
+              "de": "teilweise bedeutet nur zum Teil, nicht vollständig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von zehn Aufgaben wurden erst sechs gelöst. Der Test ist nur teilweise abgeschlossen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L160-v2",
+          "contextKey": "legacy-0024-L160-context-2",
+          "transferKey": "legacy-0024-L160-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002413",
+            "type": "gap_choice",
+            "prompt": "Nur die Hälfte der Straße ist gesperrt. Sie ist ___ befahrbar.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Only a portion is affected or completed.",
+              "de": "Nur ein Teil ist betroffen oder erledigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "teilweise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vollständig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "überhaupt nicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "durchgehend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "teilweise means partly rather than completely.",
+              "de": "teilweise bedeutet nur zum Teil, nicht vollständig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nur die Hälfte der Straße ist gesperrt. Sie ist teilweise befahrbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002415",
+      "title": {
+        "en": "At all",
+        "de": "Überhaupt: eigentlich oder auch nur"
+      },
+      "description": {
+        "en": "überhaupt can emphasize 'at all' in questions and negatives.",
+        "de": "Überhaupt verstärkt die Frage, ob etwas grundsätzlich zutrifft."
+      },
+      "objective": "Recognize überhaupt as emphasizing whether something is true at all.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L163 (27e7dbdb8f72287d09547a863c20682a4e26ffab2de022a4d51589bb17763266), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L163-v1",
+          "contextKey": "legacy-0024-L163-context-1",
+          "transferKey": "legacy-0024-L163-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002415",
+            "type": "choice",
+            "prompt": "Ich habe den Namen noch nie gehört. Kennst du diese Person ___?",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker questions whether the situation applies at all.",
+              "de": "Es wird gefragt, ob die Aussage überhaupt zutrifft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "üblicherweise"
+              },
+              {
+                "id": "1",
+                "text": "überhaupt"
+              },
+              {
+                "id": "2",
+                "text": "teilweise"
+              },
+              {
+                "id": "3",
+                "text": "schließlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "überhaupt can emphasize 'at all' in questions and negatives.",
+              "de": "überhaupt betont in Fragen und Verneinungen, ob etwas grundsätzlich zutrifft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe den Namen noch nie gehört. Kennst du diese Person überhaupt?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L163-v2",
+          "contextKey": "legacy-0024-L163-context-2",
+          "transferKey": "legacy-0024-L163-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002415",
+            "type": "gap_choice",
+            "prompt": "Ist dieses Gerät ___ noch in Betrieb, oder wurde es längst abgeschaltet?",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker questions whether the situation applies at all.",
+              "de": "Es wird gefragt, ob die Aussage überhaupt zutrifft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "spätestens"
+                  },
+                  {
+                    "id": "1",
+                    "text": "teilweise"
+                  },
+                  {
+                    "id": "2",
+                    "text": "überhaupt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "üblicherweise"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "überhaupt can emphasize 'at all' in questions and negatives.",
+              "de": "überhaupt betont in Fragen und Verneinungen, ob etwas grundsätzlich zutrifft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ist dieses Gerät überhaupt noch in Betrieb, oder wurde es längst abgeschaltet?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002417",
+      "title": {
+        "en": "By the way",
+        "de": "Übrigens: zusätzliche Information"
+      },
+      "description": {
+        "en": "übrigens means by the way and introduces an additional remark.",
+        "de": "Übrigens leitet eine zusätzliche Bemerkung oder einen Themenwechsel ein."
+      },
+      "objective": "Recognize übrigens as a discourse marker introducing an aside or extra information.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L166 (335e69a43e1285f3244357d1f03297e425584944fe45e413d509cc78eb113680), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L166-v1",
+          "contextKey": "legacy-0024-L166-context-1",
+          "transferKey": "legacy-0024-L166-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002417",
+            "type": "choice",
+            "prompt": "___, ich habe dir noch gar nicht von meinem neuen Job erzählt.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A new, related remark is added to the conversation.",
+              "de": "Im Gespräch wird eine zusätzliche Bemerkung eingefügt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Deshalb"
+              },
+              {
+                "id": "1",
+                "text": "Übrigens"
+              },
+              {
+                "id": "2",
+                "text": "Spätestens"
+              },
+              {
+                "id": "3",
+                "text": "Trotzdem"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "übrigens means by the way and introduces an additional remark.",
+              "de": "übrigens bedeutet nebenbei bemerkt und leitet eine Zusatzinformation ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Übrigens, ich habe dir noch gar nicht von meinem neuen Job erzählt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L166-v2",
+          "contextKey": "legacy-0024-L166-context-2",
+          "transferKey": "legacy-0024-L166-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002417",
+            "type": "gap_choice",
+            "prompt": "Wir sehen uns am Freitag. ___: Die Besprechung beginnt schon um neun.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A new, related remark is added to the conversation.",
+              "de": "Im Gespräch wird eine zusätzliche Bemerkung eingefügt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stattdessen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Daher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Übrigens"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Trotzdem"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "übrigens means by the way and introduces an additional remark.",
+              "de": "übrigens bedeutet nebenbei bemerkt und leitet eine Zusatzinformation ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sehen uns am Freitag. Übrigens: Die Besprechung beginnt schon um neun.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002419",
+      "title": {
+        "en": "Free of charge",
+        "de": "Umsonst: kostenlos"
+      },
+      "description": {
+        "en": "umsonst can mean free of charge; a separate sense is 'in vain'.",
+        "de": "Etwas kostet kein Geld; die Bedeutung ist hier kostenlos."
+      },
+      "objective": "Recognize umsonst as free of charge, not the separate 'in vain' sense.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adverbs.jsonl:L168 (fd82d21f82869a1b70277b11ea6dd403e9dbaddd610bfe31188cad579321978a), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0024-L168-v1",
+          "contextKey": "legacy-0024-L168-context-1",
+          "transferKey": "legacy-0024-L168-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002419",
+            "type": "choice",
+            "prompt": "Für Kinder kostet der Eintritt ins Museum nichts. Sie kommen ___ hinein.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "No fee is charged for the service.",
+              "de": "Für die Leistung wird kein Geld verlangt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "kostenpflichtig"
+              },
+              {
+                "id": "1",
+                "text": "umsonst"
+              },
+              {
+                "id": "2",
+                "text": "vergeblich"
+              },
+              {
+                "id": "3",
+                "text": "gegen Gebühr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "umsonst can mean free of charge; a separate sense is 'in vain'.",
+              "de": "umsonst kann kostenlos bedeuten; eine andere Bedeutung ist vergeblich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für Kinder kostet der Eintritt ins Museum nichts. Sie kommen umsonst hinein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0024-L168-v2",
+          "contextKey": "legacy-0024-L168-context-2",
+          "transferKey": "legacy-0024-L168-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000240191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002419",
+            "type": "gap_choice",
+            "prompt": "Die Bibliothek erhebt keine Leihgebühr. Man kann die Bücher ___ ausleihen.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "No fee is charged for the service.",
+              "de": "Für die Leistung wird kein Geld verlangt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegen Bezahlung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "auf Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umsonst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegen Gebühr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "umsonst can mean free of charge; a separate sense is 'in vain'.",
+              "de": "umsonst kann kostenlos bedeuten; eine andere Bedeutung ist vergeblich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bibliothek erhebt keine Leihgebühr. Man kann die Bücher umsonst ausleihen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    }
+  ]
 }
