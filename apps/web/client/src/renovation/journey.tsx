@@ -311,9 +311,8 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   function navigate(nextView: WorkspaceView, nextId?: string) {
     const id = nextId ?? selectedId;
     navigateLearner(nextView,id);
-    // Keyboard activation leaves focus on the triggering button in real browsers.
-    // Refocus after the click/default-action turn so the new page is announced.
-    setTimeout(() => heading.current?.focus(), 0);
+    // The view-change effect focuses its mounted heading. Do not schedule a
+    // second delayed focus: it can steal focus from the next keyboard action.
   }
 
   const selectedTarget = catalog?.targets.find(t => t.id === selectedId);

@@ -375,7 +375,19 @@ try {
   let textInputs = 0;
   for (let attempt = 0; attempt < 5; attempt += 1) {
     const questionHeading = page.locator('main h1[lang="de"]');
-    await questionHeading.waitFor();
+    try {
+      await questionHeading.waitFor({ timeout: 12000 });
+    } catch (cause) {
+      const diagnostic = await page.evaluate(() => ({
+        route: location.hash,
+        heading: Array.from(document.querySelectorAll('main h1')).map(e => e.textContent?.trim()),
+        errors: Array.from(document.querySelectorAll('[role="alert"]')).map(e => e.textContent?.trim()),
+        practiceButtons: Array.from(document.querySelectorAll('main button')).filter(e =>
+          /practice|retry|start|skip|continue/i.test(e.textContent ?? '')).map(e => ({ label: e.textContent?.trim(), disabled: e.disabled })),
+        mainText: (document.querySelector('main')?.innerText ?? '').slice(0, 1500),
+      }));
+      throw new Error(`Practice heading unavailable: ${JSON.stringify(diagnostic)}; page errors: ${JSON.stringify(errors)}`, { cause });
+    }
     try {
       await page.waitForFunction(
         () => document.activeElement instanceof HTMLHeadingElement &&

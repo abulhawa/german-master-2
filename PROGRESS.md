@@ -1,5 +1,21 @@
 # German Master 2.0 current checkpoint
 
+## Local/remote history reconciliation - 28 October 2026
+
+Owner reported main diverged by 10 local and 27 remote commits. Fresh fetch
+confirmed remote main at `7faca9b`. Local Settings/evidence work had continued
+without integrating the newer CI/security/dependency history. A non-rewriting
+merge now incorporates origin/main and retains all local commits. Automatic
+merge was conflict-free; the only overlapping app-source change removes the
+delayed web navigation focus callback, preserving the remote accessibility fix.
+No native source changed on the remote side. Clean npm ci against the merged
+lockfile, root generated/TypeScript checks, the vendored deepmerge security
+regression and 49 web journey tests pass. No broad retesting was performed.
+
+No push/deployment, store release or device modification is part of this repair.
+Main auto-deployment remains a separate rollout boundary. Future continuation
+must reconcile fetched history before implementing on a stale local main.
+
 ## Astra Settings implementation, instant choices and safe Back - 28 October 2026
 
 Owner authorized implementing Astra's actual-screenshot recommendations, then
