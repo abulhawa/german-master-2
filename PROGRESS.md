@@ -1,5 +1,22 @@
 # German Master 2.0 current checkpoint
 
+## Owner-requested Astra Settings review - 28 October 2026
+
+Astra reviewed real physical Pixel screenshots of collapsed and expanded Settings
+at `14b0236`, with explicit context that the first Sign out opens an inline
+disclosure rather than signing out. Verdict: understandable grouping, but not yet
+conventional/polished. Main issue is three Sign out labels and excessive expansion
+for a simple action. Recommended: one action with a compact Cancel / Sign out
+confirmation; rename Edit preferences to Practice preferences; keep Account
+compact and use consistent rows across Account, Language/appearance and Practice
+preferences. Account deletion should remain a secondary support-request action.
+
+This is model-assisted screenshot usability review, not owner acceptance or
+runtime/accessibility verification. No app implementation was changed in this
+review. Screenshots containing personal account information remain private and
+are not tracked. Recommendations await the owner's direction; existing release
+and publication boundaries remain.
+
 ## Account actions grouped together - 28 October 2026
 
 Owner found sign-out and deletion scattered across Settings. Web and Android now
