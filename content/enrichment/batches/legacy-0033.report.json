@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "batchId": "legacy-0033",
   "state": "ready-for-review",
-  "catalogSha256": "8c88100fb76a7467def129b9a0f181c1717fd8499aeee5ab18e0ca4c5d64023f",
+  "catalogSha256": "b24cfe4ef8f54b434e2909384db17dfd15c6ff9fb96606e3a449b64d1a99b119",
   "aiReviewer": "GPT-6 (AI editorial review; no human review)",
   "reviewedAt": "2026-10-29",
-  "reviewNotes": "Separate GPT-6 AI editorial pass over all 38 original low-typing questions: checked each complete German sentence, all four options, morphology, intended sense, bilingual explanations, hints and distinct contexts. Nineteen rows authored and one orthographic duplicate (bekannt geben/bekanntgeben). Corrected false gloss for beimessen, sense mismatch for beilegen and reflexive perfect of sich bemühen. No human approval, CEFR certification or independent rights clearance. All target reviews pending; publicationApproved=false.",
+  "reviewNotes": "Separate GPT-6 AI editorial pass over all 38 original low-typing questions: checked each complete German sentence, all four options, morphology, intended sense, bilingual explanations, hints and distinct contexts. Nineteen rows authored and one orthographic duplicate (bekannt geben/bekanntgeben). Corrected false gloss for beimessen, sense mismatch for beilegen and reflexive perfect of sich bemühen. No human approval, CEFR certification or independent rights clearance. All target reviews pending; publicationApproved=false. Follow-up editorial review removed competing defensible distractors in the belegen and benennen questions. Duplicate source line 197 has no targetIds because the validator only accepts known targets on skipped rows.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L189",
@@ -99,10 +99,8 @@
       "sourceId": "apps/web/data/pos/verbs.jsonl:L197",
       "sourceHash": "d74fcb6c2559d66716e270602eda9f6bf9ac59f6fb48afb65d55f258ba1a352b",
       "decision": "duplicate",
-      "targetIds": [
-        "80000000-0000-4000-8000-000000003307"
-      ],
-      "notes": "bekanntgeben and bekannt geben are alternative spellings of the same announcement verb; the same objective is authored for line 196. No redundant variants created.",
+      "targetIds": [],
+      "notes": "bekanntgeben and bekannt geben are alternative spellings of the same announcement verb; the same objective is authored for line 196. No redundant variants created. The existing concept is referenced by source line in these notes; no target ID is placed on a skipped row because the validator requires already-known target identities.",
       "corrections": "Fused and spaced spelling do not justify separate targets; retain as orthographic alternatives for future editorial review.",
       "rightsBasis": "No new exercise or inherited example reused for this duplicate."
     },
