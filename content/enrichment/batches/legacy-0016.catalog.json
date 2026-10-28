@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001600",
+      "title": {
+        "en": "Emphasize complete negation",
+        "de": "Gar: vollständige Verneinung verstärken"
+      },
+      "description": {
+        "en": "Gar intensifies a negative statement to mean none or not at all.",
+        "de": "Mit gar wird eine Verneinung besonders stark und vollständig ausgedrückt."
+      },
+      "objective": "Recognize gar in gar nicht/gar kein as intensifying a complete negation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L62 (cf891153141921ef647715b31c9ed02782d82cf966e52007695c8b3e00fea82f), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L62-v1",
+          "contextKey": "legacy-0016-L62-context-1",
+          "transferKey": "legacy-0016-L62-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001600",
+            "type": "choice",
+            "prompt": "Obwohl alle zuhörten, hat niemand auch nur ein Wort verstanden. Sie haben ___ nichts verstanden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Gar intensifies a negative statement to mean none or not at all.",
+              "de": "Mit gar wird eine Verneinung besonders stark und vollständig ausgedrückt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "fast"
+              },
+              {
+                "id": "1",
+                "text": "gar"
+              },
+              {
+                "id": "2",
+                "text": "kaum"
+              },
+              {
+                "id": "3",
+                "text": "sogar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Gar strengthens a negation, as in gar nichts or gar keine.",
+              "de": "Gar verstärkt die Verneinung, etwa in gar nichts oder gar keine."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Obwohl alle zuhörten, hat niemand auch nur ein Wort verstanden. Sie haben gar nichts verstanden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. fast, kaum, sogar do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L62-v2",
+          "contextKey": "legacy-0016-L62-context-2",
+          "transferKey": "legacy-0016-L62-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001600",
+            "type": "gap_choice",
+            "prompt": "Es gab keine einzige freie Karte mehr. Wir konnten ___ keine Tickets kaufen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Gar intensifies a negative statement to mean none or not at all.",
+              "de": "Mit gar wird eine Verneinung besonders stark und vollständig ausgedrückt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beinahe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "einige"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "fast"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gar strengthens a negation, as in gar nichts or gar keine.",
+              "de": "Gar verstärkt die Verneinung, etwa in gar nichts oder gar keine."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es gab keine einzige freie Karte mehr. Wir konnten gar keine Tickets kaufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. beinahe, einige, fast do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001601",
+      "title": {
+        "en": "Exempt from a service fee",
+        "de": "Gebührenfrei: ohne Verwaltungsgebühr"
+      },
+      "description": {
+        "en": "No administrative or service fee is charged.",
+        "de": "Für eine Dienstleistung oder Amtshandlung fällt keine Gebühr an."
+      },
+      "objective": "Recognize gebührenfrei as requiring no administrative or service fee.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L63 (e8f85a1446a32a87a95fe299e46f5e0eda9b9104887cb400d775185b38f45b33), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L63-v1",
+          "contextKey": "legacy-0016-L63-context-1",
+          "transferKey": "legacy-0016-L63-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001601",
+            "type": "choice",
+            "prompt": "Für die Ausstellung der Bescheinigung verlangt das Amt keinen Cent. Der Service ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "No administrative or service fee is charged.",
+              "de": "Für eine Dienstleistung oder Amtshandlung fällt keine Gebühr an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "kostenpflichtig"
+              },
+              {
+                "id": "1",
+                "text": "gebührenfrei"
+              },
+              {
+                "id": "2",
+                "text": "gebührenpflichtig"
+              },
+              {
+                "id": "3",
+                "text": "erstattungsfähig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Gebührenfrei means that no fee is charged for a service.",
+              "de": "Gebührenfrei bedeutet, dass für eine Leistung keine Gebühr erhoben wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Ausstellung der Bescheinigung verlangt das Amt keinen Cent. Der Service ist gebührenfrei.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. kostenpflichtig, gebührenpflichtig, erstattungsfähig do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L63-v2",
+          "contextKey": "legacy-0016-L63-context-2",
+          "transferKey": "legacy-0016-L63-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001601",
+            "type": "gap_choice",
+            "prompt": "Die Behörde bietet die Online-Meldung ___ an; es fällt keine Verwaltungsgebühr an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "No administrative or service fee is charged.",
+              "de": "Für eine Dienstleistung oder Amtshandlung fällt keine Gebühr an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gebührenpflichtig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorläufig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gebührenfrei"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verzögert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebührenfrei means that no fee is charged for a service.",
+              "de": "Gebührenfrei bedeutet, dass für eine Leistung keine Gebühr erhoben wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Behörde bietet die Online-Meldung gebührenfrei an; es fällt keine Verwaltungsgebühr an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. gebührenpflichtig, vorläufig, verzögert do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001602",
+      "title": {
+        "en": "In exactly the same way",
+        "de": "Genauso: auf dieselbe Weise"
+      },
+      "description": {
+        "en": "Two actions or results match in the relevant respect.",
+        "de": "Zwei Handlungen oder Ergebnisse stimmen in der beschriebenen Hinsicht überein."
+      },
+      "objective": "Recognize genauso as expressing the same manner or degree.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L65 (3b438e7b53e80f57015aa081751e8281465c25042f1030691694481680084e3a), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L65-v1",
+          "contextKey": "legacy-0016-L65-context-1",
+          "transferKey": "legacy-0016-L65-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001602",
+            "type": "choice",
+            "prompt": "Beide Geräte liefern beim gleichen Test identische Werte. Das zweite funktioniert ___ wie das erste.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two actions or results match in the relevant respect.",
+              "de": "Zwei Handlungen oder Ergebnisse stimmen in der beschriebenen Hinsicht überein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "anders"
+              },
+              {
+                "id": "1",
+                "text": "genauso"
+              },
+              {
+                "id": "2",
+                "text": "seltener"
+              },
+              {
+                "id": "3",
+                "text": "langsamer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Genauso means in the same way or to the same degree.",
+              "de": "Genauso bedeutet auf dieselbe Weise oder im gleichen Maß."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beide Geräte liefern beim gleichen Test identische Werte. Das zweite funktioniert genauso wie das erste.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. anders, seltener, langsamer do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L65-v2",
+          "contextKey": "legacy-0016-L65-context-2",
+          "transferKey": "legacy-0016-L65-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001602",
+            "type": "gap_choice",
+            "prompt": "Lea löst die Aufgabe auf dieselbe Weise wie Tom. Sie macht es ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two actions or results match in the relevant respect.",
+              "de": "Zwei Handlungen oder Ergebnisse stimmen in der beschriebenen Hinsicht überein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "heimlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zufällig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "genauso"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anders"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Genauso means in the same way or to the same degree.",
+              "de": "Genauso bedeutet auf dieselbe Weise oder im gleichen Maß."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Lea löst die Aufgabe auf dieselbe Weise wie Tom. Sie macht es genauso.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. heimlich, zufällig, anders do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001603",
+      "title": {
+        "en": "Free of charge",
+        "de": "Gratis: ohne Bezahlung"
+      },
+      "description": {
+        "en": "An item or service is provided without payment.",
+        "de": "Eine Sache wird ohne Bezahlung abgegeben oder angeboten."
+      },
+      "objective": "Recognize gratis as free of charge in an everyday offer.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L74 (2965915f4832405148abb2e595233b021086a8e0c628ac8fabb949a36b74d2e1), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L74-v1",
+          "contextKey": "legacy-0016-L74-context-1",
+          "transferKey": "legacy-0016-L74-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001603",
+            "type": "choice",
+            "prompt": "Die Eintrittskarten kosten heute nichts. Besucher bekommen sie ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An item or service is provided without payment.",
+              "de": "Eine Sache wird ohne Bezahlung abgegeben oder angeboten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "teuer"
+              },
+              {
+                "id": "1",
+                "text": "selten"
+              },
+              {
+                "id": "2",
+                "text": "gratis"
+              },
+              {
+                "id": "3",
+                "text": "später"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gratis means that no payment is required.",
+              "de": "Gratis bedeutet, dass man dafür nichts bezahlen muss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eintrittskarten kosten heute nichts. Besucher bekommen sie gratis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. teuer, selten, später do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L74-v2",
+          "contextKey": "legacy-0016-L74-context-2",
+          "transferKey": "legacy-0016-L74-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001603",
+            "type": "gap_choice",
+            "prompt": "Zum Kauf gibt es eine zusätzliche Tasche ohne Aufpreis, also ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An item or service is provided without payment.",
+              "de": "Eine Sache wird ohne Bezahlung abgegeben oder angeboten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verpflichtend"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gratis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "getrennt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "teurer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gratis means that no payment is required.",
+              "de": "Gratis bedeutet, dass man dafür nichts bezahlen muss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Kauf gibt es eine zusätzliche Tasche ohne Aufpreis, also gratis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. verpflichtend, getrennt, teurer do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001604",
+      "title": {
+        "en": "For half the day",
+        "de": "Halbtags: nur einen Teil des Tages"
+      },
+      "description": {
+        "en": "Work or care takes place for only part of the day, roughly half a day.",
+        "de": "Arbeit oder Betreuung findet nur während eines halben Tages statt."
+      },
+      "objective": "Recognize halbtags as working or operating for approximately half a day.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L75 (8db72aefd8f5afbdc421b83c4f25027b984338374999a44c163f2af7916f85f6), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L75-v1",
+          "contextKey": "legacy-0016-L75-context-1",
+          "transferKey": "legacy-0016-L75-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001604",
+            "type": "choice",
+            "prompt": "Sie arbeitet jeden Vormittag vier Stunden und hat nachmittags frei. Sie ist ___ beschäftigt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Work or care takes place for only part of the day, roughly half a day.",
+              "de": "Arbeit oder Betreuung findet nur während eines halben Tages statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ganztags"
+              },
+              {
+                "id": "1",
+                "text": "nachts"
+              },
+              {
+                "id": "2",
+                "text": "halbtags"
+              },
+              {
+                "id": "3",
+                "text": "ständig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Halbtags means that an activity covers only about half a day.",
+              "de": "Halbtags bedeutet, dass eine Tätigkeit nur einen halben Tag umfasst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitet jeden Vormittag vier Stunden und hat nachmittags frei. Sie ist halbtags beschäftigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. ganztags, nachts, ständig do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L75-v2",
+          "contextKey": "legacy-0016-L75-context-2",
+          "transferKey": "legacy-0016-L75-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001604",
+            "type": "gap_choice",
+            "prompt": "Die Schule bietet Betreuung nur bis 13 Uhr an, nicht bis zum Abend. Das Angebot ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Work or care takes place for only part of the day, roughly half a day.",
+              "de": "Arbeit oder Betreuung findet nur während eines halben Tages statt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ganztags"
+                  },
+                  {
+                    "id": "1",
+                    "text": "halbtags"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abends"
+                  },
+                  {
+                    "id": "3",
+                    "text": "rundum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Halbtags means that an activity covers only about half a day.",
+              "de": "Halbtags bedeutet, dass eine Tätigkeit nur einen halben Tag umfasst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule bietet Betreuung nur bis 13 Uhr an, nicht bis zum Abend. Das Angebot ist halbtags.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. ganztags, abends, rundum do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001608",
+      "title": {
+        "en": "Here in the speaker's country",
+        "de": "Hierzulande: in diesem Land"
+      },
+      "description": {
+        "en": "The expression refers to the country where the speaker is located.",
+        "de": "Der Ausdruck bezieht sich auf das Land, in dem die sprechende Person sich befindet."
+      },
+      "objective": "Recognize hierzulande as referring to the speaker's current country, not the whole world.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L85 (c48ade6653d2bc22385988451b685032f5052bd1e35494258ad9eeb0b8394158), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L85-v1",
+          "contextKey": "legacy-0016-L85-context-1",
+          "transferKey": "legacy-0016-L85-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001608",
+            "type": "choice",
+            "prompt": "Eine Journalistin schreibt aus Deutschland über die Regeln in Deutschland: „___ gilt diese Vorschrift.“",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The expression refers to the country where the speaker is located.",
+              "de": "Der Ausdruck bezieht sich auf das Land, in dem die sprechende Person sich befindet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Weltweit"
+              },
+              {
+                "id": "1",
+                "text": "Anderswo"
+              },
+              {
+                "id": "2",
+                "text": "Hierzulande"
+              },
+              {
+                "id": "3",
+                "text": "Überall"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hierzulande means in this country from the speaker's perspective.",
+              "de": "Hierzulande meint in diesem Land aus der Sicht der sprechenden Person."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Journalistin schreibt aus Deutschland über die Regeln in Deutschland: „Hierzulande gilt diese Vorschrift.“",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Weltweit, Anderswo, Überall do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L85-v2",
+          "contextKey": "legacy-0016-L85-context-2",
+          "transferKey": "legacy-0016-L85-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001608",
+            "type": "gap_choice",
+            "prompt": "Ein Sprecher in Österreich sagt: „___ sind die Öffnungszeiten anders als im Nachbarland.“",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The expression refers to the country where the speaker is located.",
+              "de": "Der Ausdruck bezieht sich auf das Land, in dem die sprechende Person sich befindet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dort"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hierzulande"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Andernorts"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Weltweit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hierzulande means in this country from the speaker's perspective.",
+              "de": "Hierzulande meint in diesem Land aus der Sicht der sprechenden Person."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Sprecher in Österreich sagt: „Hierzulande sind die Öffnungszeiten anders als im Nachbarland.“",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Dort, Andernorts, Weltweit do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001609",
+      "title": {
+        "en": "Follow behind or afterwards",
+        "de": "Hinterher: folgen oder danach"
+      },
+      "description": {
+        "en": "Indicates following someone physically or something happening afterwards.",
+        "de": "Der Ausdruck bezeichnet ein Nachfolgen im Raum oder einen späteren Zeitpunkt."
+      },
+      "objective": "Distinguish hinterher as following behind or occurring afterwards.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L88 (718b6d30e642d8e0b822580c23f03ed40c0ab79180503d918f6dc33a06d415e2), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L88-v1",
+          "contextKey": "legacy-0016-L88-context-1",
+          "transferKey": "legacy-0016-L88-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001609",
+            "type": "choice",
+            "prompt": "Die Kinder laufen zuerst los, und der Vater geht ihnen langsam ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Indicates following someone physically or something happening afterwards.",
+              "de": "Der Ausdruck bezeichnet ein Nachfolgen im Raum oder einen späteren Zeitpunkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "voraus"
+              },
+              {
+                "id": "1",
+                "text": "hinterher"
+              },
+              {
+                "id": "2",
+                "text": "entgegen"
+              },
+              {
+                "id": "3",
+                "text": "vorbei"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Hinterher can mean following behind in space or afterwards in time.",
+              "de": "Hinterher kann räumlich folgen oder zeitlich danach bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder laufen zuerst los, und der Vater geht ihnen langsam hinterher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. voraus, entgegen, vorbei do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L88-v2",
+          "contextKey": "legacy-0016-L88-context-2",
+          "transferKey": "legacy-0016-L88-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001609",
+            "type": "gap_choice",
+            "prompt": "Er hat die E-Mail zu schnell abgeschickt und erst ___ den Fehler bemerkt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Indicates following someone physically or something happening afterwards.",
+              "de": "Der Ausdruck bezeichnet ein Nachfolgen im Raum oder einen späteren Zeitpunkt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hinterher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gleichzeitig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "damals"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hinterher can mean following behind in space or afterwards in time.",
+              "de": "Hinterher kann räumlich folgen oder zeitlich danach bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat die E-Mail zu schnell abgeschickt und erst hinterher den Fehler bemerkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. vorher, gleichzeitig, damals do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001610",
+      "title": {
+        "en": "At most: upper bound",
+        "de": "Höchstens: nicht mehr als"
+      },
+      "description": {
+        "en": "A number states an upper limit that must not be exceeded.",
+        "de": "Eine Zahl gibt eine Obergrenze an, die nicht überschritten werden darf."
+      },
+      "objective": "Recognize höchstens as setting a maximum, not a minimum.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L89 (0c34b597f55afd4eeee2c21afa002072a9274d6c72bd375eff85382fc38742ae), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L89-v1",
+          "contextKey": "legacy-0016-L89-context-1",
+          "transferKey": "legacy-0016-L89-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001610",
+            "type": "choice",
+            "prompt": "In den Aufzug dürfen maximal sechs Personen. Es dürfen ___ sechs einsteigen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A number states an upper limit that must not be exceeded.",
+              "de": "Eine Zahl gibt eine Obergrenze an, die nicht überschritten werden darf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "mindestens"
+              },
+              {
+                "id": "1",
+                "text": "höchstens"
+              },
+              {
+                "id": "2",
+                "text": "ungefähr"
+              },
+              {
+                "id": "3",
+                "text": "mehr als"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Höchstens sets an upper bound: no more than.",
+              "de": "Höchstens gibt eine Obergrenze an: nicht mehr als."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In den Aufzug dürfen maximal sechs Personen. Es dürfen höchstens sechs einsteigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. mindestens, ungefähr, mehr als do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L89-v2",
+          "contextKey": "legacy-0016-L89-context-2",
+          "transferKey": "legacy-0016-L89-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001610",
+            "type": "gap_choice",
+            "prompt": "Die Reparatur kostet nicht mehr als 80 Euro. Sie kostet ___ 80 Euro.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A number states an upper limit that must not be exceeded.",
+              "de": "Eine Zahl gibt eine Obergrenze an, die nicht überschritten werden darf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "mindestens"
+                  },
+                  {
+                    "id": "1",
+                    "text": "etwa"
+                  },
+                  {
+                    "id": "2",
+                    "text": "höchstens"
+                  },
+                  {
+                    "id": "3",
+                    "text": "über"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Höchstens sets an upper bound: no more than.",
+              "de": "Höchstens gibt eine Obergrenze an: nicht mehr als."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur kostet nicht mehr als 80 Euro. Sie kostet höchstens 80 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. mindestens, etwa, über do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001611",
+      "title": {
+        "en": "On the inside",
+        "de": "Innen: auf der inneren Seite"
+      },
+      "description": {
+        "en": "Something is on the inner side rather than the outer side.",
+        "de": "Etwas befindet sich auf der inneren, nicht der äußeren Seite."
+      },
+      "objective": "Recognize innen as spatially inside, contrasting with außen.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L92 (bdb749e3bd70337c584107b9053dfc73a458612bfedb45a44ca2c3c8ece9dd80), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L92-v1",
+          "contextKey": "legacy-0016-L92-context-1",
+          "transferKey": "legacy-0016-L92-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001611",
+            "type": "choice",
+            "prompt": "Von außen ist das Haus alt, aber ___ wurde alles neu gestrichen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is on the inner side rather than the outer side.",
+              "de": "Etwas befindet sich auf der inneren, nicht der äußeren Seite."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "draußen"
+              },
+              {
+                "id": "1",
+                "text": "innen"
+              },
+              {
+                "id": "2",
+                "text": "oben"
+              },
+              {
+                "id": "3",
+                "text": "nebenan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Innen indicates an inner area or inner surface.",
+              "de": "Innen bezeichnet den inneren Bereich oder die Innenseite."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von außen ist das Haus alt, aber innen wurde alles neu gestrichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. draußen, oben, nebenan do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L92-v2",
+          "contextKey": "legacy-0016-L92-context-2",
+          "transferKey": "legacy-0016-L92-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001611",
+            "type": "gap_choice",
+            "prompt": "Die Jacke ist außen blau und ___ rot gefüttert.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is on the inner side rather than the outer side.",
+              "de": "Etwas befindet sich auf der inneren, nicht der äußeren Seite."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "hinten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorne"
+                  },
+                  {
+                    "id": "2",
+                    "text": "innen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "daneben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Innen indicates an inner area or inner surface.",
+              "de": "Innen bezeichnet den inneren Bereich oder die Innenseite."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Jacke ist außen blau und innen rot gefüttert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. hinten, vorne, daneben do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001612",
+      "title": {
+        "en": "In particular",
+        "de": "Insbesondere: besonders hervorheben"
+      },
+      "description": {
+        "en": "One part is singled out from a larger group as particularly important.",
+        "de": "Aus einer größeren Gruppe wird ein Teil ausdrücklich hervorgehoben."
+      },
+      "objective": "Recognize insbesondere as singling out an especially relevant item from a larger set.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L93 (56d67cd48ba0bd3ced9b29144fff09a13c50a0aed8656a7d955fdac6c1b8b797), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L93-v1",
+          "contextKey": "legacy-0016-L93-context-1",
+          "transferKey": "legacy-0016-L93-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001612",
+            "type": "choice",
+            "prompt": "Der Bericht nennt mehrere Probleme, ___ den Mangel an Fachkräften.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One part is singled out from a larger group as particularly important.",
+              "de": "Aus einer größeren Gruppe wird ein Teil ausdrücklich hervorgehoben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "dagegen"
+              },
+              {
+                "id": "1",
+                "text": "insbesondere"
+              },
+              {
+                "id": "2",
+                "text": "trotzdem"
+              },
+              {
+                "id": "3",
+                "text": "dennoch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Insbesondere highlights one item as especially important within a larger set.",
+              "de": "Insbesondere hebt etwas aus einer größeren Menge besonders hervor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht nennt mehrere Probleme, insbesondere den Mangel an Fachkräften.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. dagegen, trotzdem, dennoch do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L93-v2",
+          "contextKey": "legacy-0016-L93-context-2",
+          "transferKey": "legacy-0016-L93-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001612",
+            "type": "gap_choice",
+            "prompt": "Viele Abteilungen sind betroffen, ___ die Logistik, in der die meisten Stellen wegfallen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One part is singled out from a larger group as particularly important.",
+              "de": "Aus einer größeren Gruppe wird ein Teil ausdrücklich hervorgehoben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "allerdings"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sonst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "insbesondere"
+                  },
+                  {
+                    "id": "3",
+                    "text": "trotzdem"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Insbesondere highlights one item as especially important within a larger set.",
+              "de": "Insbesondere hebt etwas aus einer größeren Menge besonders hervor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Abteilungen sind betroffen, insbesondere die Logistik, in der die meisten Stellen wegfallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. allerdings, sonst, trotzdem do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001613",
+      "title": {
+        "en": "Altogether or in total",
+        "de": "Insgesamt: alles zusammen"
+      },
+      "description": {
+        "en": "A total combines several parts.",
+        "de": "Ein Gesamtwert ergibt sich aus mehreren Teilen."
+      },
+      "objective": "Recognize insgesamt as summing several quantities into one total.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L94 (d5ce105afd1115891d73b9bd01aa41ea1433a87bc07e713a1e08454862cc3930), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L94-v1",
+          "contextKey": "legacy-0016-L94-context-1",
+          "transferKey": "legacy-0016-L94-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001613",
+            "type": "choice",
+            "prompt": "Fünf Kinder und drei Erwachsene kommen mit. ___ nehmen acht Personen teil.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A total combines several parts.",
+              "de": "Ein Gesamtwert ergibt sich aus mehreren Teilen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Jeweils"
+              },
+              {
+                "id": "1",
+                "text": "Außerdem"
+              },
+              {
+                "id": "2",
+                "text": "Insgesamt"
+              },
+              {
+                "id": "3",
+                "text": "Allein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Insgesamt states the sum or total.",
+              "de": "Insgesamt gibt die Summe oder das Gesamtergebnis an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Fünf Kinder und drei Erwachsene kommen mit. Insgesamt nehmen acht Personen teil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Jeweils, Außerdem, Allein do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L94-v2",
+          "contextKey": "legacy-0016-L94-context-2",
+          "transferKey": "legacy-0016-L94-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001613",
+            "type": "gap_choice",
+            "prompt": "Die Rechnung enthält 20 Euro für Material und 15 Euro für Arbeit. ___ sind 35 Euro zu zahlen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A total combines several parts.",
+              "de": "Ein Gesamtwert ergibt sich aus mehreren Teilen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zusätzlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Insgesamt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Jeweils"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorerst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Insgesamt states the sum or total.",
+              "de": "Insgesamt gibt die Summe oder das Gesamtergebnis an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Rechnung enthält 20 Euro für Material und 15 Euro für Arbeit. Insgesamt sind 35 Euro zu zahlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Zusätzlich, Jeweils, Vorerst do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001615",
+      "title": {
+        "en": "By now, in the meantime",
+        "de": "Inzwischen: mittlerweile"
+      },
+      "description": {
+        "en": "A change has happened between an earlier time and now.",
+        "de": "Zwischen einem früheren Zeitpunkt und jetzt hat sich etwas verändert."
+      },
+      "objective": "Recognize inzwischen as a change or state reached by now.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L96 (9c96e1edacb507c4692555ba09730d35b8c8a497d1d2ec7ffc45f75fa33635d3), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L96-v1",
+          "contextKey": "legacy-0016-L96-context-1",
+          "transferKey": "legacy-0016-L96-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001615",
+            "type": "choice",
+            "prompt": "Vor einem Jahr sprach er kaum Deutsch. ___ führt er ganze Gespräche.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A change has happened between an earlier time and now.",
+              "de": "Zwischen einem früheren Zeitpunkt und jetzt hat sich etwas verändert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Damals"
+              },
+              {
+                "id": "1",
+                "text": "Inzwischen"
+              },
+              {
+                "id": "2",
+                "text": "Zunächst"
+              },
+              {
+                "id": "3",
+                "text": "Früher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Inzwischen means by now or in the meantime.",
+              "de": "Inzwischen bedeutet mittlerweile oder in der Zwischenzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor einem Jahr sprach er kaum Deutsch. Inzwischen führt er ganze Gespräche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Damals, Zunächst, Früher do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L96-v2",
+          "contextKey": "legacy-0016-L96-context-2",
+          "transferKey": "legacy-0016-L96-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001615",
+            "type": "gap_choice",
+            "prompt": "Als wir losfuhren, regnete es noch. ___ scheint die Sonne.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A change has happened between an earlier time and now.",
+              "de": "Zwischen einem früheren Zeitpunkt und jetzt hat sich etwas verändert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gestern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Damals"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Inzwischen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Inzwischen means by now or in the meantime.",
+              "de": "Inzwischen bedeutet mittlerweile oder in der Zwischenzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als wir losfuhren, regnete es noch. Inzwischen scheint die Sonne.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Gestern, Damals, Vorher do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001616",
+      "title": {
+        "en": "At an unspecified time",
+        "de": "Irgendwann: zu unbestimmter Zeit"
+      },
+      "description": {
+        "en": "A time is not yet known or specified.",
+        "de": "Ein Zeitpunkt ist noch nicht genau bekannt oder festgelegt."
+      },
+      "objective": "Recognize irgendwann as referring to an unspecified time.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L97 (379f5f26699d17522d2f726f0e0acebe0fa02b55e015aab8e34298b5bc3e2166), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L97-v1",
+          "contextKey": "legacy-0016-L97-context-1",
+          "transferKey": "legacy-0016-L97-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001616",
+            "type": "choice",
+            "prompt": "Ich habe noch keinen Termin, aber ___ im nächsten Jahr möchte ich die Prüfung machen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A time is not yet known or specified.",
+              "de": "Ein Zeitpunkt ist noch nicht genau bekannt oder festgelegt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestern"
+              },
+              {
+                "id": "1",
+                "text": "sofort"
+              },
+              {
+                "id": "2",
+                "text": "irgendwann"
+              },
+              {
+                "id": "3",
+                "text": "damals"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Irgendwann refers to a time that is not specified.",
+              "de": "Irgendwann bezeichnet einen nicht genau bestimmten Zeitpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe noch keinen Termin, aber irgendwann im nächsten Jahr möchte ich die Prüfung machen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. gestern, sofort, damals do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L97-v2",
+          "contextKey": "legacy-0016-L97-context-2",
+          "transferKey": "legacy-0016-L97-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001616",
+            "type": "gap_choice",
+            "prompt": "Niemand weiß, wann der alte Bahnhof renoviert wird; ___ soll es aber passieren.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A time is not yet known or specified.",
+              "de": "Ein Zeitpunkt ist noch nicht genau bekannt oder festgelegt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "irgendwann"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bereits"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gestern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Irgendwann refers to a time that is not specified.",
+              "de": "Irgendwann bezeichnet einen nicht genau bestimmten Zeitpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Niemand weiß, wann der alte Bahnhof renoviert wird; irgendwann soll es aber passieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. nie, bereits, gestern do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001617",
+      "title": {
+        "en": "At any time",
+        "de": "Jederzeit: zu jeder Zeit"
+      },
+      "description": {
+        "en": "Something is possible regardless of the time of day.",
+        "de": "Eine Möglichkeit besteht unabhängig von der Tageszeit."
+      },
+      "objective": "Recognize jederzeit as available or possible at any time.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L98 (693633c6a3689ef7df896f14599622a70b7f64e8af5242d22c236ef654ae9006), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L98-v1",
+          "contextKey": "legacy-0016-L98-context-1",
+          "transferKey": "legacy-0016-L98-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001617",
+            "type": "choice",
+            "prompt": "Der technische Notdienst ist rund um die Uhr erreichbar. Du kannst ___ anrufen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is possible regardless of the time of day.",
+              "de": "Eine Möglichkeit besteht unabhängig von der Tageszeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nur morgens"
+              },
+              {
+                "id": "1",
+                "text": "selten"
+              },
+              {
+                "id": "2",
+                "text": "jederzeit"
+              },
+              {
+                "id": "3",
+                "text": "nie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Jederzeit means at any time.",
+              "de": "Jederzeit bedeutet zu jeder beliebigen Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der technische Notdienst ist rund um die Uhr erreichbar. Du kannst jederzeit anrufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. nur morgens, selten, nie do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L98-v2",
+          "contextKey": "legacy-0016-L98-context-2",
+          "transferKey": "legacy-0016-L98-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001617",
+            "type": "gap_choice",
+            "prompt": "Der Zugangscode funktioniert zu jeder Tages- und Nachtzeit; die Tür lässt sich ___ öffnen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is possible regardless of the time of day.",
+              "de": "Eine Möglichkeit besteht unabhängig von der Tageszeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "tagsüber"
+                  },
+                  {
+                    "id": "1",
+                    "text": "jederzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einmalig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "später"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Jederzeit means at any time.",
+              "de": "Jederzeit bedeutet zu jeder beliebigen Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zugangscode funktioniert zu jeder Tages- und Nachtzeit; die Tür lässt sich jederzeit öffnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. tagsüber, einmalig, später do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001618",
+      "title": {
+        "en": "Every single time",
+        "de": "Jedes Mal: bei jeder Gelegenheit"
+      },
+      "description": {
+        "en": "An event happens on every repeated occasion without exception.",
+        "de": "Ein Ereignis tritt bei jeder Wiederholung ohne Ausnahme ein."
+      },
+      "objective": "Recognize jedes Mal as every occurrence, not just sometimes.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L99 (8027824522666be97237cc4cffe0026d758763cd7554d6fe59448bc22829576d), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L99-v1",
+          "contextKey": "legacy-0016-L99-context-1",
+          "transferKey": "legacy-0016-L99-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001618",
+            "type": "choice",
+            "prompt": "Bei allen fünf bisherigen Besuchen war das Museum geschlossen. ___ standen wir vor verschlossener Tür.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An event happens on every repeated occasion without exception.",
+              "de": "Ein Ereignis tritt bei jeder Wiederholung ohne Ausnahme ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einmal"
+              },
+              {
+                "id": "1",
+                "text": "Selten"
+              },
+              {
+                "id": "2",
+                "text": "Jedes Mal"
+              },
+              {
+                "id": "3",
+                "text": "Manchmal"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Jedes Mal means on every occurrence, without exception.",
+              "de": "Jedes Mal bedeutet bei jeder Wiederholung, ohne Ausnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei allen fünf bisherigen Besuchen war das Museum geschlossen. Jedes Mal standen wir vor verschlossener Tür.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. Einmal, Selten, Manchmal do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L99-v2",
+          "contextKey": "legacy-0016-L99-context-2",
+          "transferKey": "legacy-0016-L99-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001618",
+            "type": "gap_choice",
+            "prompt": "Wenn die Maschine startet, ertönt ausnahmslos ein Signal. Das passiert ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An event happens on every repeated occasion without exception.",
+              "de": "Ein Ereignis tritt bei jeder Wiederholung ohne Ausnahme ein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gelegentlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "jedes Mal"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einmalig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "selten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Jedes Mal means on every occurrence, without exception.",
+              "de": "Jedes Mal bedeutet bei jeder Wiederholung, ohne Ausnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn die Maschine startet, ertönt ausnahmslos ein Signal. Das passiert jedes Mal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. gelegentlich, einmalig, selten do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001619",
+      "title": {
+        "en": "Ever in one's experience",
+        "de": "Jemals: irgendwann bis heute"
+      },
+      "description": {
+        "en": "Refers to any time within someone's experience up to now.",
+        "de": "Es geht um irgendeinen Zeitpunkt innerhalb der bisherigen Erfahrung."
+      },
+      "objective": "Recognize jemals as ever at any time in one's experience.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/adverbs.jsonl:L100 (5898f9f4df5052bae6af8b67e2e297131de59b5b55aefa15b83a470e14dd09f9), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0016-L100-v1",
+          "contextKey": "legacy-0016-L100-context-1",
+          "transferKey": "legacy-0016-L100-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001619",
+            "type": "choice",
+            "prompt": "Warst du in deinem Leben ___ in Island?",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Refers to any time within someone's experience up to now.",
+              "de": "Es geht um irgendeinen Zeitpunkt innerhalb der bisherigen Erfahrung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestern"
+              },
+              {
+                "id": "1",
+                "text": "jemals"
+              },
+              {
+                "id": "2",
+                "text": "heute"
+              },
+              {
+                "id": "3",
+                "text": "sofort"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Jemals means ever at any time in one's experience.",
+              "de": "Jemals fragt oder spricht über irgendeinen Zeitpunkt der bisherigen Erfahrung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Warst du in deinem Leben jemals in Island?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. gestern, heute, sofort do not express the required meaning under the stated cues. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0016-L100-v2",
+          "contextKey": "legacy-0016-L100-context-2",
+          "transferKey": "legacy-0016-L100-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000160191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001619",
+            "type": "gap_choice",
+            "prompt": "Es war das schwierigste Rätsel, das er ___ gelöst hatte.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Refers to any time within someone's experience up to now.",
+              "de": "Es geht um irgendeinen Zeitpunkt innerhalb der bisherigen Erfahrung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "morgen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sofort"
+                  },
+                  {
+                    "id": "2",
+                    "text": "jemals"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bald"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Jemals means ever at any time in one's experience.",
+              "de": "Jemals fragt oder spricht über irgendeinen Zeitpunkt der bisherigen Erfahrung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es war das schwierigste Rätsel, das er jemals gelöst hatte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, intended sense and each offered alternative checked in context. morgen, sofort, bald do not express the required meaning under the stated cues. Independent review pending."
+        }
+      ]
+    }
+  ]
+}
