@@ -1,5 +1,39 @@
 # German Master 2.0 current checkpoint
 
+## Grouped Settings without data-management controls - 28 October 2026
+
+Owner rejected overloaded Settings and explicitly requested the same grouped,
+nontechnical experience on web and Android. Current account email stays visible;
+language/appearance and practice preferences are grouped. Reconnect is not shown
+for an already verified native account. Manual sync, export and download entries
+are removed from learner Settings, including the signed-out Downloads link.
+Internal storage, account isolation and sync operations are retained. Sign-out
+retains unfinished work without exposing local-data management for real accounts.
+Existing fixture-only privacy tools and engine tests remain outside the product.
+
+Owner explicitly retains account-and-related-data deletion requests. Both Settings
+screens now open the existing public deletion-request instructions; the web link
+opens separately to preserve practice. The page covers email/Google/Microsoft,
+verified ownership and the existing support email route. Opening it submits
+nothing and performs no deletion. Automated identity deletion remains disabled;
+its password-only flow has not been enabled for social-only accounts. No account,
+database, credential, content release or production setting was changed.
+
+Local checks: clean root npm ci, generated/TypeScript checks, 199 backend tests,
+458 web unit tests, then 90 focused web tests after final sign-out changes pass.
+Native 16 focused Settings/access tests, lintDebug and learnerPreview assembly
+pass offline using JVM tests, without a device or emulator. The HTTP fixture now
+prepares offline work through its repository rather than retired Downloads UI;
+it retains exact draft/restart/event/isolation assertions. Final HTTP suite passes
+20/20; root generated/TypeScript checks and production web/API build pass. The
+updated preview was replacement-installed successfully on the connected Pixel
+without clearing app data. No device UI/UX acceptance is claimed by installation.
+No web deployment/store upload.
+
+Next: owner reviews the simpler preview. Keep Android UX/publication approval
+and other lifecycle evidence separate; do not reopen broad audits or restore
+manual data-management screens from older tests or documentation.
+
 ## Visible native account identity - 28 October 2026
 
 Follow-up: owner connected the Pixel; ADB replacement installation of the updated

@@ -24,10 +24,10 @@ export function PrivacySignOut({locale,blocked,signedOut,complete,leave,resume,a
   return <PracticeCard><h2 ref={heading} tabIndex={-1}>{c.title}</h2><p>{signedOut?c.signedOut:c.help}</p>
     {signedOut ? complete ? <FoundationButton disabled={busy} onClick={()=>{try {resume();} catch {setError(true);}}}>{c.resume}</FoundationButton> : <FoundationButton disabled={busy} onClick={()=>void run(true)}>{c.retry}</FoundationButton> : <>
       <FoundationButton disabled={busy||blocked} onClick={()=>void run(false)}>{c.sync}</FoundationButton>
-      {!confirm ? <button ref={begin} className="gm-button" disabled={busy||blocked} onClick={()=>setConfirm(true)}>{c.remove}</button> : <>
+      {!authenticated && (!confirm ? <button ref={begin} className="gm-button" disabled={busy||blocked} onClick={()=>setConfirm(true)}>{c.remove}</button> : <>
         <p>{c.confirm}</p><FoundationButton disabled={busy||blocked} onClick={()=>void run(true)}>{c.confirmRemove}</FoundationButton>
         <FoundationButton disabled={busy} onClick={()=>setConfirm(false)}>{c.cancel}</FoundationButton>
-      </>}
+      </>)}
     </>}
     {error&&<p role="alert">{c.error}</p>}
   </PracticeCard>;

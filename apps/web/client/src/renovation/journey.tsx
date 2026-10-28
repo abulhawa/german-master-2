@@ -22,12 +22,12 @@ import { browserStorage, emptyJourney, readJourney, saveJourney, snapshot, pull,
 import { PROFILE_PENDING_KEY, ProfileSetup } from "./setup";
 import { FixtureOwner } from "./ownership";
 import { ContentReport } from './report';
-import { OfflineDesk } from './offline-desk';
+
 import { syncSavedWork } from './sync';
 import { browserReserve } from './reserve';
 import { fixtureAccount, type AccountBinding } from './account';
 import type { WebReserve } from './reserve';
-import { PrivacyExport } from './privacy';
+
 import { LearnerDeletion, deletionGuard } from './deletion';
 import { PrivacyDeletion, PrivacySignOut } from './privacy';
 import { LearnerSignOut } from './signout';
@@ -330,14 +330,14 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
       {view === 'practice' && p?.session && !complete && <progress className="gm-session-progress" value={p.index} max={p.session.questions.length} aria-label={`${c.question} ${p.index + 1} ${c.of} ${p.session.questions.length}`} />}
       {view === 'account' && !setup && <>
-        <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.account}</h1><p>{s.accountIntro}</p></div>
+        <div className="gm-page-heading"><h1 ref={heading} tabIndex={-1}>{s.settings}</h1></div>
         {accountSecurity?.(state.locale, busy || loaded.damaged)}
-        <PracticeCard><h2>{s.appearance}</h2><div className="gm-settings">
+        <a className="gm-button gm-secondary" href="/delete-account" target="_blank" rel="noopener noreferrer">{state.locale==='de'?'Kontolöschung anfordern':'Request account deletion'}</a>
+        <details className="gm-account-disclosure"><summary>{s.appearance}</summary><PracticeCard><div className="gm-settings">
           <label>{c.language}<select value={state.locale} onChange={e => preference({ locale: e.target.value as Journey['locale'] })}><option value="en">English</option><option value="de">Deutsch</option></select></label>
           <label>{c.theme}<select value={appearance.theme} onChange={e => { appearance.choose(e.target.value as Appearance); preference({ theme: e.target.value as Journey['theme'] }); }}><option value="system">{c.system}</option><option value="light">{c.light}</option><option value="dark">{c.dark}</option></select></label>
-        </div><FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>
-        {onReauthenticate && !localAccess && <FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton>}
-        </PracticeCard>
+        </div></PracticeCard></details>
+        <FoundationButton className="gm-secondary" disabled={busy || !profile} onClick={() => setEditingSetup(true)}>{c.editSetup}</FoundationButton>
       </>}
       {localAccess && onReauthenticate && <div className="gm-connection-note"><p role="status">{providerCopy[state.locale].local}</p><FoundationButton className="gm-secondary" onClick={onReauthenticate}>{providerCopy[state.locale].reauth}</FoundationButton></div>}
       {profileFailed && <><p role="alert">{c.setupError}</p><FoundationButton onClick={() => void loadProfile()}>{c.reloadProfile}</FoundationButton></>}
@@ -379,24 +379,9 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
           </li>)}</ul>
         </PracticeCard>}
         {view === 'home' && !setup && <div className="gm-home-footer"><FoundationButton className="gm-text-button gm-secondary" disabled={busy} onClick={()=>void refresh()}><RefreshCw aria-hidden="true"/>{c.refresh}</FoundationButton></div>}
-        {view === 'account' && <details className="gm-account-disclosure"><summary>{s.offlineTools}</summary><PracticeCard><p className="gm-notice">{c.notice}</p><FoundationButton disabled={busy} onClick={()=>void run(syncAllOwned,'connectionError')}>{c.syncAll}</FoundationButton></PracticeCard>
-        { api.preparePack && <OfflineDesk db={db} refreshRevision={syncRevision} syncAll={syncAllOwned} api={api} locale={state.locale}
-          deviceId={state.deviceId} questionCount={Math.min(5, availableCount)}
-          blocked={busy || !!p && !complete} owner={owner} catalog={catalog} onSynced={() => void refresh()} />}
-</details>}
         {view === 'account' && <details className="gm-account-disclosure"><summary>{s.signOut}</summary><PrivacySignOut authenticated={authenticated} locale={state.locale} blocked={busy || loaded.damaged} signedOut={false} complete={false} leave={onSignOut} resume={()=>{}} /></details>}
-         {view === 'account' && <details className="gm-account-disclosure"><summary>{s.accountTools}</summary>
-        { api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
-                { identityControl?.(state.locale,busy||loaded.damaged)}
-        { api.exportLearner && <PrivacyExport locale={state.locale} blocked={busy || loaded.damaged} exportData={async sync => {
-          if (lock.current) throw Error('Learner operation in progress');
-          lock.current=true;setBusy(true);
-          try {
-            const work=async()=>{ account.assertCurrent(); if(sync) await syncAllOwned(); const data=await api.exportLearner!(); account.assertCurrent(); return data; };
-            return await (owner ? owner.run(work) : work());
-          } finally { lock.current=false;setBusy(false); }
-        }} />}
-</details>}
+        {view === 'account' && identityControl?.(state.locale,busy||loaded.damaged)}
+        {view === 'account' && !authenticated && api.deleteLearner && <PrivacyDeletion locale={state.locale} pending={false} confirmed={false} blocked={busy || loaded.damaged} remove={onDelete} />}
         {view === "practice" && <>
           {closing ? <PracticeCard><h1 ref={heading} tabIndex={-1}>{c.endQuestion}</h1><p>{c.endNote}</p>
             {((p?.pending && !p.evaluation) || p?.pendingExposure || p?.rejected) && <p role="status">{c.resolvePending}</p>}

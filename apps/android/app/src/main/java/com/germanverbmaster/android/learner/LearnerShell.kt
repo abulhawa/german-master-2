@@ -31,6 +31,26 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
+internal fun SettingsSection(title: String, german: Boolean, content: @Composable ColumnScope.() -> Unit) {
+    var expanded by rememberSaveable { mutableStateOf(false) }
+    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        OutlinedButton(onClick = { expanded = !expanded }, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).semantics {
+            stateDescription = if (expanded) { if (german) "Geöffnet" else "Expanded" } else { if (german) "Geschlossen" else "Collapsed" }
+        }) { Text(title, Modifier.weight(1f)); Text(if (expanded) "−" else "+", Modifier.clearAndSetSemantics {}) }
+        if (expanded) content()
+    }
+}
+
+@Composable
+internal fun AccountDeletionRequest(german: Boolean) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    TextButton(onClick = { context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW,
+        android.net.Uri.parse("https://germanmaster.qortxai.com/delete-account"))) }) {
+        Text(if(german) "Kontolöschung anfordern" else "Request account deletion")
+    }
+}
+
+@Composable
 fun LearnerShell(repository: LearnerRepository, onSignIn: (() -> Unit)? = null, localOnly: Boolean = false, accountEmail: () -> String? = { null }) {
     key(repository) { AccountLearnerShell(repository,onSignIn,localOnly,accountEmail) }
 }
@@ -99,7 +119,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             if(screen == "account") {
                 val authCopy=providerCopy(if(german) "de" else "en")
                 if(localOnly) Text(authCopy.local)
-                onSignIn?.let { action -> LearnerButton(authCopy.signIn,!busy,action) }
+                if(localOnly) onSignIn?.let { action -> LearnerButton(authCopy.signIn,!busy,action) }
             }
             if(!repository.authenticatedAccount && screen == "account") Text(label("Local preview only. This practice is not linked to a sign-in account.", "Nur lokale Vorschau. Diese Ãœbungen sind mit keinem Anmeldekonto verbunden."))
             if (busy) Text(label("Loadingâ€¦", "Wird geladenâ€¦"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
@@ -122,14 +142,16 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 LearnerButton(label("Reload current preferences", "Aktuelle Einstellungen laden"), !busy) { run { repository.reloadProfile() } }
             }
             if (screen == "account") {
+                Text(label("Settings", "Einstellungen"), Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
+                StudyPanel {
                 Text(label("Sign-in details", "Anmeldedaten"), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
                 val address = if (localOnly) null else accountEmail()
                 if (address != null) {
                     Text(label("Email", "E-Mail"), style = MaterialTheme.typography.labelLarge)
                     androidx.compose.foundation.text.selection.SelectionContainer { Text(address) }
                 } else Text(label("Reconnect your account to view your email.", "Verbinde dein Konto erneut, um deine E-Mail zu sehen."))
-                LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
-                LearnerButton(label("Sync all saved work", "Alle gespeicherten VorgÃ¤nge synchronisieren"), !busy) { run { repository.syncSavedWork() } }
+                AccountDeletionRequest(german)
+                }
             }
             val profile = cache.profile
             if (profile != null && setup) {
@@ -147,7 +169,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 }
                 if (profile.setupCompleted) LearnerButton(label("Back to Home", "Zur Startseite"), !busy) { screen = "home" }
             } else if (profile != null) {
-                if (screen != "home") {
+                if (screen != "home" && screen != "account") {
                     Text(when(screen) { "account" -> label("Settings", "Einstellungen"); "progress" -> label("Your progress", "Dein Lernstand"); "topics" -> label("Topics", "Themen"); "topic" -> label("Topic detail", "Themendetails"); else -> label("Skill detail", "FÃ¤higkeit im Detail") }, Modifier.semantics { heading() }, style = MaterialTheme.typography.headlineMedium)
                 }
                 if (screen == "progress") {                    if (!fresh) Text(label("Showing your last saved progress. Refresh when online.", "Dein zuletzt gespeicherter Lernstand wird angezeigt. Aktualisiere ihn, wenn du online bist."))
@@ -159,28 +181,15 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                         preferences = { screen = "setup" }, refresh = { run {} },
                         openTopic = { detailId = it; screen = "topic" }, openTarget = { detailId = it; screen = "target" })
                 } else if (screen == "account") {
-                    StudyAppearanceSettings(german, { run { repository.save(profile.preferences.copy(locale=if(german) "en" else "de")) } }, !busy && cache.pending==null)
+                    SettingsSection(label("Language and appearance", "Sprache und Darstellung"), german) {
+                        StudyAppearanceSettings(german, { run { repository.save(profile.preferences.copy(locale=if(german) "en" else "de")) } }, !busy && cache.pending==null)
+                    }
                     LearnerButton(design(R.string.study_preferences), !busy) { screen = "setup" }
-                    NativePrivacyExport(repository, german, busy) { cache = repository.state }
-                    if(!repository.authenticatedAccount) NativePrivacyDeletion(repository, german, busy) { cache = repository.state }
-                    if(repository.identityDeletionEnabled) NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
-                    NativePrivacySignOut(repository, german, busy) { cache = repository.state }
-                    val available = cache.catalog?.targets?.sumOf { it.availableQuestionCount }
-                    Text(label("Downloaded practice", "Heruntergeladene Ãœbungen"), Modifier.semantics { heading() })
-                    val pack = cache.preparedPack
-                    val prepared = pack?.sessions?.count { it.id !in cache.consumedPreparedSessions } ?: 0
-                    val valid = pack?.let { com.germanverbmaster.android.foundation.PreparedPackReader.canStart(it,java.time.Instant.now()) } == true
-                    Text(label("Sessions available to start", "Sitzungen zum Starten verfÃ¼gbar") + ": ${if(valid) prepared else 0}")
-                    LearnerButton(if(cache.packRequest == null) label("Download two sessions", "Zwei Sitzungen herunterladen") else label("Retry saved download", "Gespeicherten Download wiederholen"), !busy && (cache.packRequest != null || cache.pending == null && (available ?: 0) > 0)) { run(false) { repository.prepareReserve() } }
-                    LearnerButton(label("Start downloaded practice", "Heruntergeladene Ãœbungen starten"), !busy && cache.practice == null && valid && prepared > 0) { run(false, {screen = "practice"}) { repository.startOffline() } }
-                    cache.completedOffline.forEachIndexed { index, p ->
-                        Text(label("Saved session", "Gespeicherte Sitzung") + " ${index + 1}: ${p.outbox.count { !it.delivered }} " + label("waiting to sync", "noch zu synchronisieren"))
-                        LearnerButton(label("Sync saved session", "Gespeicherte Sitzung synchronisieren") + " ${index + 1}", !busy && p.outbox.any { !it.delivered }) { run { repository.syncSavedWork() } }
-                        p.outbox.forEach { event ->
-                            val result = when(val receipt = event.attemptReceipt) { is AttemptAcknowledgment -> receipt.evaluation; is AttemptDuplicate -> receipt.evaluation; else -> null }
-                            if(result != null && result.outcome != event.provisional?.outcome) Text(label("Updated result: ", "Aktualisiertes Ergebnis: ") + if(german) result.explanation.de else result.explanation.en)
-                            if(event.attemptReceipt is AttemptRejection || event.exposureReceipt is ExposureRejected) Text(label("An answer could not be saved to your account. Sync has stopped; your work is still on this device.", "Eine Antwort konnte nicht in deinem Konto gespeichert werden. Die Synchronisierung wurde angehalten; deine Ãœbungen bleiben auf diesem GerÃ¤t."))
-                        }
+                    SettingsSection(label("Sign out", "Abmelden"), german) {
+                        NativePrivacySignOut(repository, german, busy) { cache = repository.state }
+                    }
+                    if(repository.identityDeletionEnabled) SettingsSection(label("Delete account", "Konto löschen"), german) {
+                        NativeIdentityDeletionControl(repository,german,busy) {cache=repository.state}
                     }
                 } else if (screen in setOf("topics", "topic", "target")) {
                     NativeTopicsView(cache, screen, detailId, german, busy,

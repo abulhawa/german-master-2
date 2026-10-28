@@ -201,9 +201,10 @@ export function ProviderLearnerJourney({host,origin,deletionEnabled=false}:{host
     return <PracticeCard><h2>{labels.signInDetails}</h2>
       {pendingRound && <FoundationButton disabled={blocked} onClick={()=>setAttachDismissed(false)}>{language==='de'?'Übung speichern':'Save practice'}</FoundationButton>}
       {address ? <><p className="gm-account-email"><strong>{labels.email}</strong><br/>{address}</p>
+        <details className="gm-account-disclosure"><summary>{language==='de'?'Anmeldung verwalten':'Manage sign-in'}</summary>
         <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmailChange(account);navigateLearner('email-change');}}>{labels.changeEmail}</FoundationButton>
         <p>{labels.resetHelp}</p>
-        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);navigateLearner('reset');}}>{labels.resetPassword}</FoundationButton></>
+        <FoundationButton className="gm-secondary" disabled={blocked} onClick={()=>{setEmail(address);navigateLearner('reset');}}>{labels.resetPassword}</FoundationButton></details></>
         : <p>{labels.emailUnavailable}</p>}
     </PracticeCard>;
   }} onReauthenticate={()=>openAuth('sign-in')} localAccess={local} account={account} api={api} revoke={()=>host.provider.revoke(account)} authorizeResume={()=>host.provider.assertVerified(account)} identityDeletion={identityDeletion} clearDeletedIdentity={identityDeletion?()=>host.provider.clearDeletedIdentity(account):undefined} forgetDeletedIdentity={identityDeletion?()=>host.provider.forgetDeletedIdentity(account):undefined} />;

@@ -163,19 +163,21 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 "progress","account","downloads" -> {
                     StudyPageTitle(when(screen){"progress"->text("Progress","Fortschritt");"downloads"->text("Downloads","Downloads");else->text("Settings","Einstellungen")})
                     if(screen=="account") {
-                        StudyAppearanceSettings(german,language)
+                        SettingsSection(text("Language and appearance","Sprache und Darstellung"),german) { StudyAppearanceSettings(german,language) }
+                        SettingsSection(text("Practice preferences","Übungseinstellungen"),german) {
                         LearnerButton(text("Level","Niveau")+": "+level,true){level=if(level=="B1")"B2" else "B1";selectedTopic=null;preferences.edit().putString("level",level).apply()}
                         if(NativeReleaseCapabilities.workplacePractice) LearnerButton(text("Practice","Übung")+": "+(if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch")),true){learningContext=if(learningContext=="general")"work" else "general";selectedTopic=null;preferences.edit().putString("context",learningContext).apply()}
+                        }
                         Text(text("Account","Konto"),style=MaterialTheme.typography.titleLarge)
+                        AccountDeletionRequest(german)
                     }
                     section {
-                        Text(if(screen=="account") text("Sign in to save and sync practice across devices.","Melde dich an, um Übungen geräteübergreifend zu speichern und zu synchronisieren.") else text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
+                        Text(if(screen=="account") text("Sign in to keep your progress.","Melde dich an, um deinen Lernstand zu behalten.") else text("This page requires an account. Sign in or create an account to continue.","Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                         primary(text("Sign in","Anmelden")){account("sign-in")}
                         OutlinedButton(onClick={account("register")},modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(text("Create account","Konto erstellen"))}
                         TextButton(onClick={backToPractice()}){Text(text("Back to practice","Zurück zur Übung"))}
                         continueSaved?.let {LearnerButton(text("Continue saved account","Gespeichertes Konto fortsetzen"),true,it)}
                     }
-                    if(screen=="account") OutlinedButton(onClick={screen="downloads"},modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)){Text(text("Downloads","Downloads"))}
                 }
                 "practice" -> if(state.index>=content.session.questions.size) {
                     section {

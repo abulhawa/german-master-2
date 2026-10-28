@@ -1,5 +1,13 @@
 # Continuing German Master recovery
 
+## Grouped Settings - 28 October 2026
+
+Owner explicitly removed manual sync/export/download UI on both clients; keep
+account identity visible and preferences grouped. Account-and-related-data deletion
+requests use the existing verified-ownership support route, not enabled automated
+identity deletion. See newest PROGRESS for final checks and preview status.
+Do not restore retired data controls to satisfy historical test selectors.
+
 ## Visible account identity - 28 October 2026
 
 Owner reports native Google and Microsoft sign-in working. Android Settings now

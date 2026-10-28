@@ -39,13 +39,15 @@ fun NativePrivacySignOut(repository: LearnerRepository,german:Boolean,blocked:Bo
             if(repository.state.localRemovalPending || repository.state.authRevocationPending) LearnerButton(label("Finish saved sign-out","Gespeichertes Abmelden abschließen"),!busy&&!blocked) { run(false,true) }
             else LearnerButton(if(repository.authenticatedAccount) label("Continue after signing in to this account","Nach Anmeldung bei diesem Konto fortsetzen") else label("Resume the same local fixture learner","Denselben lokalen Beispiel-Lerner fortsetzen"),!busy&&!blocked) { run(true) }
         } else {
-            Text(if(repository.authenticatedAccount) label("Sync saved requests and retain drafts for this account, or remove its local work. Then revoke this device's sign-in session. Local removal does not delete server data.","Synchronisiere gespeicherte Anfragen und behalte Entwürfe für dieses Konto, oder entferne seine lokalen Daten. Danach wird die Anmeldung dieses Geräts widerrufen. Lokale Entfernung löscht keine Serverdaten.") else label("Sync saved requests and retain unsubmitted drafts for this learner, or explicitly remove local work. Local removal does not delete server data. This fixture does not manage a host sign-in account.","Synchronisiere gespeicherte Anfragen und behalte nicht abgegebene Entwürfe für diesen Lerner, oder entferne ausdrücklich lokale Daten. Lokale Entfernung löscht keine Serverdaten. Diese Vorschau verwaltet kein Anmeldekonto."))
-            LearnerButton(label("Sync saved work and sign out","Synchronisieren und abmelden"),!busy&&!blocked) { run(false) }
+            Text(if(repository.authenticatedAccount) label("Your progress stays with your account. Unfinished practice stays on this device.","Dein Lernstand bleibt in deinem Konto. Unfertige Übungen bleiben auf diesem Gerät.") else label("Sync saved requests and retain unsubmitted drafts for this learner, or explicitly remove local work. Local removal does not delete server data. This fixture does not manage a host sign-in account.","Synchronisiere gespeicherte Anfragen und behalte nicht abgegebene Entwürfe für diesen Lerner, oder entferne ausdrücklich lokale Daten. Lokale Entfernung löscht keine Serverdaten. Diese Vorschau verwaltet kein Anmeldekonto."))
+            LearnerButton(label("Sign out","Abmelden"),!busy&&!blocked) { run(false) }
+            if(!repository.authenticatedAccount) {
             if(!confirming) LearnerButton(label("Remove local work and sign out…","Lokale Daten entfernen und abmelden…"),!busy&&!blocked) { confirming=true }
             else {
                 Text(label("Remove this learner's downloads, drafts and unsynced work from this device?","Downloads, Entwürfe und nicht synchronisierte Vorgänge dieses Lerners von diesem Gerät entfernen?"))
                 LearnerButton(label("Confirm local removal and sign out","Lokale Entfernung und Abmelden bestätigen"),!busy&&!blocked) { run(false,true) }
                 LearnerButton(label("Keep my local work","Meine lokalen Daten behalten"),!busy) { confirming=false }
+            }
             }
         }
         if(failed) Text(label("Sign-out could not finish. Sync failure keeps your work. Retry explicitly.","Abmelden nicht abgeschlossen. Bei Synchronisierungsfehlern bleiben die Daten erhalten. Versuche es ausdrücklich erneut."),Modifier.semantics { liveRegion=LiveRegionMode.Polite })

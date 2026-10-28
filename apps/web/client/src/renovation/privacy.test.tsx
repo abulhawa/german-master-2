@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
-import { PrivacyExport } from './privacy';
+import { PrivacyExport, PrivacySignOut } from './privacy';
 import { localLearnerApi } from './api';
 import { AccountBinding } from './account';
 import type { LearnerExport } from '@german-master/contracts';
@@ -9,6 +9,13 @@ const data:LearnerExport={apiVersion:'v2',schemaVersion:'learner-export-v1',subj
   profile:{apiVersion:'v2',revision:0,setupCompleted:false,preferences:{locale:'en',timezone:'UTC',level:'B1',sessionQuestionCount:5}},
   sessions:[],attempts:[],evaluations:[],exposures:[],targets:[],reports:[],completions:[]};
 afterEach(()=>{cleanup();vi.restoreAllMocks();vi.unstubAllGlobals();});
+it('signs out an account without asking the learner to manage local data',async()=>{
+  const leave=vi.fn(async()=>{});
+  render(<PrivacySignOut locale="en" authenticated blocked={false} signedOut={false} complete={false} leave={leave} resume={()=>{}}/>);
+  expect(screen.getAllByRole('button')).toHaveLength(1);
+  fireEvent.click(screen.getByRole('button',{name:'Sign out',exact:true}));
+  await waitFor(()=>expect(leave).toHaveBeenCalledExactlyOnceWith(false));
+});
 it('uses explicit export choices, blocks duplicate clicks and preserves retry after failure',async()=>{
   const create=vi.fn(()=> 'blob:fixture');vi.stubGlobal('URL',Object.assign(URL,{createObjectURL:create,revokeObjectURL:vi.fn()}));
   vi.spyOn(HTMLAnchorElement.prototype,'click').mockImplementation(()=>{});

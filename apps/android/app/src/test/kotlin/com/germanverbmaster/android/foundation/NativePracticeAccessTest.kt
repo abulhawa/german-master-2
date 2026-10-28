@@ -66,6 +66,7 @@ class NativePracticeAccessTest {
                 NativeGuestEntry(file,false,{},auth::add)
             } } }
             compose.onNode(hasText("Settings") and hasClickAction()).performClick()
+            compose.onNodeWithText("Language and appearance").performScrollTo().performClick()
             compose.onNodeWithText("Dark").performScrollTo().performClick()
             assertEquals("dark",prefs.getString("theme",null))
             compose.onNode(hasText("Home") and hasClickAction()).performClick()
@@ -94,11 +95,10 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Start practice").assertIsEnabled()
         compose.onNodeWithText("Sign in").assertDoesNotExist()
         compose.onNodeWithText("Create account").assertDoesNotExist()
-        for(page in listOf("Progress","Downloads","Settings")) {
-            if(page=="Downloads") compose.onNode((hasText("Account") or hasText("Settings")) and hasClickAction()).performClick()
+        for(page in listOf("Progress","Settings")) {
             val entry=compose.onNode((hasText(page) or hasContentDescription(page)) and hasClickAction())
-            if(page=="Downloads") entry.performScrollTo().performClick() else entry.performClick()
-            compose.onNodeWithText(if(page=="Settings") "Sign in to save and sync practice across devices." else "This page requires an account. Sign in or create an account to continue.").assertExists()
+            entry.performClick()
+            compose.onNodeWithText(if(page=="Settings") "Sign in to keep your progress." else "This page requires an account. Sign in or create an account to continue.").assertExists()
             compose.onNodeWithText("Sign in").assertIsEnabled()
             compose.onNodeWithText("Create account").assertIsEnabled()
             compose.onNodeWithText("Back to practice").performScrollTo().performClick()

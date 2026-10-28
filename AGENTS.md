@@ -124,3 +124,16 @@ Preserve ongoing work and complete the current slice before starting unrelated f
 - Keep B1/B2 and General German/German for work preferences, topic selection under
   Topics, and five-question new rounds; avoid legacy word-type switches.
 - This implementation is WIP; use PROGRESS for blockers and rollout boundaries.
+
+## Simple Settings — owner direction (28 October 2026)
+
+- Apply the same grouped Settings on web and Android: visible account identity,
+  language/appearance, and practice preferences. Keep technical explanations out
+  of the normal learner flow.
+- Remove learner-facing manual sync, data-saving, export and download controls.
+  Keep internal persistence, account isolation and unfinished-practice protection;
+  this does not authorize silent loss of work.
+- Retain a clear request to delete the account and related learning data on both
+  clients. The established verified-ownership support request is distinct from
+  automatic identity deletion; do not claim a request was submitted merely by
+  opening its instructions or enable unverified destructive automation.

@@ -41,6 +41,7 @@ it('shows the verified account email and opens a prefilled reset with an Account
   f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'verified@example.test'})},error:null});
   render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
   await screen.findByText('verified@example.test');
+  fireEvent.click(screen.getByText('Manage sign-in'));
   fireEvent.click(screen.getByRole('button',{name:'Reset password',exact:true}));
   expect(screen.getByLabelText('Email')).toHaveValue('verified@example.test');
   expect(f.auth.resetPasswordForEmail).not.toHaveBeenCalled();
@@ -55,6 +56,7 @@ it('keeps the current email until a verified email-change event, without changin
   f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'current@example.test'})},error:null});
   render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
   await screen.findByText('current@example.test');
+  fireEvent.click(screen.getByText('Manage sign-in'));
   fireEvent.click(screen.getByRole('button',{name:'Change email',exact:true}));
   fireEvent.change(screen.getByLabelText('New email address'),{target:{value:'new@example.test'}});
   fireEvent.submit(screen.getByRole('button',{name:'Send verification emails'}).closest('form')!);
@@ -74,6 +76,7 @@ it('does not update email when the verified subject changes during the request',
   f.auth.getUser.mockResolvedValue({data:{user:Object.assign({id:subject,is_anonymous:false},{email:'current@example.test'})},error:null});
   render(<ProviderLearnerJourney host={f.host} origin="https://api.example" />);
   await screen.findByText('current@example.test');
+  fireEvent.click(screen.getByText('Manage sign-in'));
   fireEvent.click(screen.getByRole('button',{name:'Change email',exact:true}));
   f.auth.getUser.mockResolvedValueOnce({data:{user:{id:'00000000-0000-4000-8000-000000000021',is_anonymous:false}},error:null});
   fireEvent.change(screen.getByLabelText('New email address'),{target:{value:'new@example.test'}});

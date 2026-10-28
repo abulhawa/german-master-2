@@ -98,6 +98,9 @@ describe('Home screen handoff', () => {
     fireEvent.click(screen.getByRole('button', {name:'Save and return Home'}));
     fireEvent.click(screen.getByRole('button', {name: /Account|Settings/, exact:true}));
     expect(await screen.findByRole('heading', {name: /Account|Settings/, exact:true})).toHaveFocus();
+    expect(screen.getByRole('link',{name:'Request account deletion'})).toHaveAttribute('href','/delete-account');
+    expect(screen.queryByText('Download my learning data')).toBeNull();
+    expect(screen.queryByText('Sync all saved work')).toBeNull();
     expect(screen.getByLabelText('Theme')).toBeInTheDocument();
     expect(screen.getByText('Sync saved work and sign out')).not.toBeVisible();
     fireEvent.click(screen.getByText('Sign out'));

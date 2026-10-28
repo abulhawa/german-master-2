@@ -11,6 +11,7 @@ beforeEach(()=>{vi.spyOn(Math,'random').mockReturnValue(0.99999);});
 it('persists appearance without an account and preserves temporary practice on cancellation',()=>{
  render(<GuestStarterJourney onAuth={vi.fn()}/>);
  fireEvent.click(screen.getByRole('button',{name:'Settings',exact:true}));
+ fireEvent.click(screen.getByText('Language and appearance'));
  fireEvent.change(screen.getByRole('combobox',{name:'Theme'}),{target:{value:'dark'}});
  expect(localStorage.getItem(APPEARANCE_KEY)).toBe('dark');
  fireEvent.click(screen.getByRole('button',{name:'Home',exact:true}));
@@ -78,11 +79,11 @@ it("requires an account only when opening account-dependent pages and allows ret
   const onAuth = vi.fn();
   render(<GuestStarterJourney onAuth={onAuth} />);
   expect(screen.queryByRole("button", { name: "Sign in" })).toBeNull();
-  for (const page of ["Progress", "Downloads", "Settings"]) {
-    if (page === "Downloads") fireEvent.click(screen.getByRole("button", { name: /Account|Settings/, exact: true }));
+  for (const page of ["Progress", "Settings"]) {
+
     fireEvent.click(screen.getByRole("button", { name: page, exact: true }));
     expect(screen.getByRole("heading", { name: page })).toBeInTheDocument();
-    expect(screen.getByRole("status")).toHaveTextContent(page === "Settings" ? "Sign in to save and sync practice across devices." : "This page requires an account");
+    expect(screen.getByRole("status")).toHaveTextContent(page === "Settings" ? "Sign in to keep your progress." : "This page requires an account");
     expect(screen.getByRole("button", { name: "Sign in" })).toBeEnabled();
     expect(screen.getByRole("button", { name: "Create account" })).toBeEnabled();
     fireEvent.click(screen.getByRole("button", { name: "Back to practice" }));

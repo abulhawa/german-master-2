@@ -44,24 +44,28 @@ it('configured cold host reopens an owned pack, saves provisional work and prese
   let ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
   try {
     fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));
-    await waitFor(()=>expect(screen.getByText('Start downloaded practice')).toBeEnabled());
-    fireEvent.click(screen.getByText('Start downloaded practice'));
-    await screen.findByText('Question 1 / 5');
-    const repo=new OfflineRepository(db);const [id]=await repo.list();const {session}=await repo.read(id);
+    await screen.findByRole('heading', {name:'Settings',exact:true});
+    expect(screen.queryByText('Start downloaded practice')).toBeNull();
+    expect(screen.queryByText('Download my learning data')).toBeNull();
+    // Offline engine remains covered without reintroducing retired learner controls.
+    const repo=new OfflineRepository(db);const id=await repo.start(randomUUID(),new Date());
+    const {session}=await repo.read(id);
     expect(session.questions[0].exercise.type).toBe('short_answer');
-    fireEvent.change(screen.getByLabelText('Your answer'),{target:{value:'saved offline draft'}});
-    await waitFor(async()=>expect((await repo.read(id)).practice.draft).toEqual({type:'short_answer',text:'saved offline draft'}));
-    ui.unmount();ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Open saved session 1')).toBeEnabled();});
-    fireEvent.click(screen.getByText('Open saved session 1'));
-    await screen.findByLabelText('Your answer');expect(screen.getByLabelText('Your answer')).toHaveValue('saved offline draft');
-    fireEvent.click(screen.getByText('Check answer'));await screen.findByText('Not quite');
-    const before=await repo.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByText('Reconnect account'));
+    await repo.draft(id,{type:'short_answer',text:'saved offline draft'});
+    const draft=await repo.read(id);
+    ui.unmount();db.close();await db.open();
+    ui=render(<ProviderLearnerJourney host={makeHost()} origin="https://api.example" />);
+    const restarted=new OfflineRepository(db);
+    expect((await restarted.read(id)).practice).toEqual(draft.practice);
+    await restarted.answer(id,{type:'short_answer',text:'saved offline draft'});
+    const before=await restarted.read(id);expect(before.practice.events).toHaveLength(1);expect(send).not.toHaveBeenCalled();
+    fireEvent.click(await screen.findByRole('button',{name:'Reconnect account'}));
     fireEvent.change(await screen.findByLabelText('Email'),{target:{value:'synthetic@example.test'}});
     fireEvent.change(screen.getByLabelText('Password'),{target:{value:'synthetic-password'}});
     fireEvent.submit(screen.getByRole('button',{name:'Sign in',exact:true}).closest('form')!);
-    await waitFor(()=>{fireEvent.click(screen.getByRole('button', {name: "Settings", exact:true}));expect(screen.getByText('Downloaded practice')).toBeInTheDocument();});
+    fireEvent.click(await screen.findByRole('button',{name:'Settings',exact:true}));
+    await screen.findByRole('heading',{name:'Settings',exact:true});
+    expect(screen.queryByText('Downloaded practice')).toBeNull();
     expect((await repo.read(id)).practice).toEqual(before.practice); // Reauthentication never delivers saved events automatically.
     expect(send.mock.calls.length).toBeGreaterThan(0); // Fresh verified binding may read; all sends still fail locally.
     expect(before.practice.events[0].receipt).toBeNull();
