@@ -2,5 +2,2073 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000002700",
+      "title": {
+        "en": "Fail to notice something",
+        "de": "Etwas ist mir entgangen"
+      },
+      "description": {
+        "en": "entgangen means something escaped a person's notice.",
+        "de": "Eine Person hat eine Information nicht bemerkt."
+      },
+      "objective": "Recognize entgangen in the construction 'etwas ist jemandem entgangen' for failing to notice information.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L136 (067296914f23adcd48305b17dbbca4f9e3e196750cd7b72a2c858e6a8b946790), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L136-v1",
+          "contextKey": "legacy-0027-L136-context-1",
+          "transferKey": "legacy-0027-L136-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002700",
+            "type": "choice",
+            "prompt": "Die Terminänderung habe ich gar nicht bemerkt. Sie ist mir völlig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person did not notice the information.",
+              "de": "Die Information wurde von der Person nicht bemerkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erkannt"
+              },
+              {
+                "id": "1",
+                "text": "entgangen"
+              },
+              {
+                "id": "2",
+                "text": "gelungen"
+              },
+              {
+                "id": "3",
+                "text": "erklärt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "entgangen means something escaped a person's notice.",
+              "de": "entgangen bedeutet hier, dass jemand etwas nicht bemerkt hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Terminänderung habe ich gar nicht bemerkt. Sie ist mir völlig entgangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L136-v2",
+          "contextKey": "legacy-0027-L136-context-2",
+          "transferKey": "legacy-0027-L136-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002700",
+            "type": "gap_choice",
+            "prompt": "Sie hatte die E-Mail nicht gelesen. Dass die Frist gestern endete, ist ihr ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person did not notice the information.",
+              "de": "Die Information wurde von der Person nicht bemerkt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bekannt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgefallen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "entgangen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gelungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "entgangen means something escaped a person's notice.",
+              "de": "entgangen bedeutet hier, dass jemand etwas nicht bemerkt hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hatte die E-Mail nicht gelesen. Dass die Frist gestern endete, ist ihr entgangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002701",
+      "title": {
+        "en": "Subject to a fee",
+        "de": "Entgeltlich: gegen Bezahlung"
+      },
+      "description": {
+        "en": "entgeltlich means provided for payment, not free of charge.",
+        "de": "Für eine Leistung muss Geld bezahlt werden."
+      },
+      "objective": "Recognize entgeltlich for a service provided in exchange for payment, as opposed to unentgeltlich.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L137 (c0b23de122a5a494b18b9a7ae46f02a187ac7f191ff16c3d65209498e0bb54cb), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L137-v1",
+          "contextKey": "legacy-0027-L137-context-1",
+          "transferKey": "legacy-0027-L137-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002701",
+            "type": "choice",
+            "prompt": "Die Teilnahme kostet zwanzig Euro. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A fee is charged for the service.",
+              "de": "Für die Leistung wird ein Entgelt verlangt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unentgeltlich"
+              },
+              {
+                "id": "1",
+                "text": "kostenlos"
+              },
+              {
+                "id": "2",
+                "text": "entgeltlich"
+              },
+              {
+                "id": "3",
+                "text": "gratis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "entgeltlich means provided for payment, not free of charge.",
+              "de": "entgeltlich bedeutet gegen Bezahlung, im Gegensatz zu unentgeltlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Teilnahme kostet zwanzig Euro. Sie ist entgeltlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L137-v2",
+          "contextKey": "legacy-0027-L137-context-2",
+          "transferKey": "legacy-0027-L137-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002701",
+            "type": "gap_choice",
+            "prompt": "Die Beratung wird nur gegen Bezahlung angeboten. Das Angebot ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A fee is charged for the service.",
+              "de": "Für die Leistung wird ein Entgelt verlangt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entgeltlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gebührenfrei"
+                  },
+                  {
+                    "id": "2",
+                    "text": "kostenlos"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unentgeltlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "entgeltlich means provided for payment, not free of charge.",
+              "de": "entgeltlich bedeutet gegen Bezahlung, im Gegensatz zu unentgeltlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beratung wird nur gegen Bezahlung angeboten. Das Angebot ist entgeltlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002704",
+      "title": {
+        "en": "Promising prospects",
+        "de": "Erfolgsversprechend"
+      },
+      "description": {
+        "en": "erfolgsversprechend means promising or likely to succeed.",
+        "de": "Erste Anzeichen sprechen für gute Erfolgsaussichten."
+      },
+      "objective": "Recognize erfolgsversprechend when early evidence suggests a good chance of success.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L140 (159abe21ce2ed0de75ffd66fc04909de9d58e2ac4dfed8ed49bd1f5db80b8f28), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L140-v1",
+          "contextKey": "legacy-0027-L140-context-1",
+          "transferKey": "legacy-0027-L140-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002704",
+            "type": "choice",
+            "prompt": "Die ersten Tests liefern sehr gute Ergebnisse. Der neue Ansatz wirkt ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Early results indicate a good prospect.",
+              "de": "Erste Ergebnisse lassen einen Erfolg erwarten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aussichtslos"
+              },
+              {
+                "id": "1",
+                "text": "fehlerhaft"
+              },
+              {
+                "id": "2",
+                "text": "erfolgsversprechend"
+              },
+              {
+                "id": "3",
+                "text": "überholt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "erfolgsversprechend means promising or likely to succeed.",
+              "de": "erfolgsversprechend bedeutet, dass gute Aussichten auf Erfolg bestehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die ersten Tests liefern sehr gute Ergebnisse. Der neue Ansatz wirkt erfolgsversprechend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L140-v2",
+          "contextKey": "legacy-0027-L140-context-2",
+          "transferKey": "legacy-0027-L140-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002704",
+            "type": "gap_choice",
+            "prompt": "Das Pilotprojekt erreichte alle Ziele. Ein weiterer Ausbau erscheint ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Early results indicate a good prospect.",
+              "de": "Erste Ergebnisse lassen einen Erfolg erwarten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unmöglich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "erfolgsversprechend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "riskant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gescheitert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "erfolgsversprechend means promising or likely to succeed.",
+              "de": "erfolgsversprechend bedeutet, dass gute Aussichten auf Erfolg bestehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Pilotprojekt erreichte alle Ziele. Ein weiterer Ausbau erscheint erfolgsversprechend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002705",
+      "title": {
+        "en": "Required or necessary",
+        "de": "Erforderlich: notwendig"
+      },
+      "description": {
+        "en": "erforderlich means necessary or required.",
+        "de": "Eine Voraussetzung muss erfüllt sein, damit etwas möglich ist."
+      },
+      "objective": "Recognize erforderlich for something necessary to complete a process.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L141 (84367af13f7b9d2c5566a67b863737b7b4630b5b879c58bdf0c94ba11c9ad9e9), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L141-v1",
+          "contextKey": "legacy-0027-L141-context-1",
+          "transferKey": "legacy-0027-L141-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002705",
+            "type": "choice",
+            "prompt": "Ohne unterschriebenes Formular kann der Antrag nicht bearbeitet werden. Die Unterschrift ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action cannot proceed without the requirement.",
+              "de": "Ohne diese Voraussetzung kann der Vorgang nicht weitergehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "freiwillig"
+              },
+              {
+                "id": "1",
+                "text": "erforderlich"
+              },
+              {
+                "id": "2",
+                "text": "überflüssig"
+              },
+              {
+                "id": "3",
+                "text": "unwichtig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "erforderlich means necessary or required.",
+              "de": "erforderlich bedeutet notwendig oder vorgeschrieben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne unterschriebenes Formular kann der Antrag nicht bearbeitet werden. Die Unterschrift ist erforderlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L141-v2",
+          "contextKey": "legacy-0027-L141-context-2",
+          "transferKey": "legacy-0027-L141-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002705",
+            "type": "gap_choice",
+            "prompt": "Für den Zutritt zum Labor ist eine Schutzbrille ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action cannot proceed without the requirement.",
+              "de": "Ohne diese Voraussetzung kann der Vorgang nicht weitergehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verboten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "optional"
+                  },
+                  {
+                    "id": "2",
+                    "text": "erforderlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unpassend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "erforderlich means necessary or required.",
+              "de": "erforderlich bedeutet notwendig oder vorgeschrieben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Zutritt zum Labor ist eine Schutzbrille erforderlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002706",
+      "title": {
+        "en": "Serious or grave",
+        "de": "Ernst: nicht harmlos"
+      },
+      "description": {
+        "en": "ernst describes a serious or grave situation.",
+        "de": "Eine Lage ist schwerwiegend und nicht harmlos."
+      },
+      "objective": "Recognize ernst for a situation requiring serious attention.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L142 (356ee0a1136f0974c98013b9540d21fd1ca3550e99081cd21da6ce699d6e562d), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L142-v1",
+          "contextKey": "legacy-0027-L142-context-1",
+          "transferKey": "legacy-0027-L142-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002706",
+            "type": "choice",
+            "prompt": "Die Verletzung muss sofort ärztlich behandelt werden. Die Lage ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The situation requires immediate attention.",
+              "de": "Die Situation muss ernst genommen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "harmlos"
+              },
+              {
+                "id": "1",
+                "text": "lustig"
+              },
+              {
+                "id": "2",
+                "text": "ernst"
+              },
+              {
+                "id": "3",
+                "text": "entspannt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "ernst describes a serious or grave situation.",
+              "de": "ernst bezeichnet eine schwerwiegende, nicht harmlose Lage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Verletzung muss sofort ärztlich behandelt werden. Die Lage ist ernst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L142-v2",
+          "contextKey": "legacy-0027-L142-context-2",
+          "transferKey": "legacy-0027-L142-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002706",
+            "type": "gap_choice",
+            "prompt": "Die Warnung vor einer möglichen Überschwemmung ist nicht bloß ein Scherz. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The situation requires immediate attention.",
+              "de": "Die Situation muss ernst genommen werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "belanglos"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ernst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "spielerisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unwichtig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ernst describes a serious or grave situation.",
+              "de": "ernst bezeichnet eine schwerwiegende, nicht harmlose Lage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Warnung vor einer möglichen Überschwemmung ist nicht bloß ein Scherz. Sie ist ernst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002709",
+      "title": {
+        "en": "Possibly or perhaps",
+        "de": "Eventuell: möglicherweise"
+      },
+      "description": {
+        "en": "eventuell means possibly or perhaps, not definitely.",
+        "de": "Etwas ist möglich, aber nicht sicher."
+      },
+      "objective": "Recognize eventuell as expressing a possibility rather than certainty.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L146 (2fb3d02a75a5c338d65e0c85668dad50f5380b0679c5f5beacd2c94d6b641c9d), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L146-v1",
+          "contextKey": "legacy-0027-L146-context-1",
+          "transferKey": "legacy-0027-L146-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002709",
+            "type": "choice",
+            "prompt": "Es könnte morgen regnen. Nimm ___ einen Schirm mit.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The outcome is uncertain.",
+              "de": "Das Ereignis ist möglich, aber nicht garantiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sicher"
+              },
+              {
+                "id": "1",
+                "text": "eventuell"
+              },
+              {
+                "id": "2",
+                "text": "niemals"
+              },
+              {
+                "id": "3",
+                "text": "gestern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "eventuell means possibly or perhaps, not definitely.",
+              "de": "eventuell bedeutet möglicherweise, nicht sicher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es könnte morgen regnen. Nimm eventuell einen Schirm mit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L146-v2",
+          "contextKey": "legacy-0027-L146-context-2",
+          "transferKey": "legacy-0027-L146-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002709",
+            "type": "gap_choice",
+            "prompt": "Falls die Sitzung länger dauert, verschieben wir den Termin ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The outcome is uncertain.",
+              "de": "Das Ereignis ist möglich, aber nicht garantiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "garantiert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "niemals"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eventuell"
+                  },
+                  {
+                    "id": "3",
+                    "text": "immer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "eventuell means possibly or perhaps, not definitely.",
+              "de": "eventuell bedeutet möglicherweise, nicht sicher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Falls die Sitzung länger dauert, verschieben wir den Termin eventuell.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002712",
+      "title": {
+        "en": "Explicitly stated",
+        "de": "Explizit: ausdrücklich"
+      },
+      "description": {
+        "en": "explizit means stated directly and explicitly.",
+        "de": "Eine Aussage wird ausdrücklich und nicht nur indirekt formuliert."
+      },
+      "objective": "Recognize explizit for information stated directly and unambiguously.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L149 (f3e655575287a3f71cfe7f0249cf2675fdf74d0793b6fc298d737442d184ed9d), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L149-v1",
+          "contextKey": "legacy-0027-L149-context-1",
+          "transferKey": "legacy-0027-L149-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002712",
+            "type": "choice",
+            "prompt": "Im Vertrag steht ausdrücklich, dass die Daten nicht weitergegeben werden dürfen. Das ist ___ geregelt.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The requirement is directly stated, not implied.",
+              "de": "Die Vorgabe wird ausdrücklich genannt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ungefähr"
+              },
+              {
+                "id": "1",
+                "text": "explizit"
+              },
+              {
+                "id": "2",
+                "text": "zufällig"
+              },
+              {
+                "id": "3",
+                "text": "unbewusst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "explizit means stated directly and explicitly.",
+              "de": "explizit bedeutet ausdrücklich und nicht bloß angedeutet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Vertrag steht ausdrücklich, dass die Daten nicht weitergegeben werden dürfen. Das ist explizit geregelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L149-v2",
+          "contextKey": "legacy-0027-L149-context-2",
+          "transferKey": "legacy-0027-L149-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002712",
+            "type": "gap_choice",
+            "prompt": "Die Leiterin hat ausdrücklich gesagt, dass keine Fotos gemacht werden dürfen. Sie hat es ___ formuliert.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The requirement is directly stated, not implied.",
+              "de": "Die Vorgabe wird ausdrücklich genannt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "indirekt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beiläufig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "explizit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "versehentlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "explizit means stated directly and explicitly.",
+              "de": "explizit bedeutet ausdrücklich und nicht bloß angedeutet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Leiterin hat ausdrücklich gesagt, dass keine Fotos gemacht werden dürfen. Sie hat es explizit formuliert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002713",
+      "title": {
+        "en": "Extremely intense",
+        "de": "Extrem: außergewöhnlich stark"
+      },
+      "description": {
+        "en": "extrem means very intense or far beyond normal levels.",
+        "de": "Eine Eigenschaft ist ungewöhnlich stark ausgeprägt."
+      },
+      "objective": "Recognize extrem for a degree far outside the ordinary range.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L150 (f4c1f5fbd98f38687649b47ff61ea73a8a57667bf1b3754ae656feebc1ddc8b9), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L150-v1",
+          "contextKey": "legacy-0027-L150-context-1",
+          "transferKey": "legacy-0027-L150-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002713",
+            "type": "choice",
+            "prompt": "Die Temperaturen lagen weit über dem üblichen Bereich. Es war ___ heiß.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The degree is far beyond ordinary levels.",
+              "de": "Das Ausmaß liegt deutlich über dem Üblichen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "mäßig"
+              },
+              {
+                "id": "1",
+                "text": "angenehm"
+              },
+              {
+                "id": "2",
+                "text": "extrem"
+              },
+              {
+                "id": "3",
+                "text": "kühl"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "extrem means very intense or far beyond normal levels.",
+              "de": "extrem bedeutet außergewöhnlich stark oder weit außerhalb des Üblichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Temperaturen lagen weit über dem üblichen Bereich. Es war extrem heiß.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L150-v2",
+          "contextKey": "legacy-0027-L150-context-2",
+          "transferKey": "legacy-0027-L150-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002713",
+            "type": "gap_choice",
+            "prompt": "Der Anstieg war ungewöhnlich steil und der Weg dadurch ___ anstrengend.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The degree is far beyond ordinary levels.",
+              "de": "Das Ausmaß liegt deutlich über dem Üblichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "extrem"
+                  },
+                  {
+                    "id": "1",
+                    "text": "leicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "kaum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wenig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "extrem means very intense or far beyond normal levels.",
+              "de": "extrem bedeutet außergewöhnlich stark oder weit außerhalb des Üblichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Anstieg war ungewöhnlich steil und der Weg dadurch extrem anstrengend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002714",
+      "title": {
+        "en": "Fair treatment",
+        "de": "Fair: gerecht"
+      },
+      "description": {
+        "en": "fair means just, equitable or following the rules.",
+        "de": "Menschen werden gerecht behandelt und Regeln eingehalten."
+      },
+      "objective": "Recognize fair for just treatment or play that respects rules.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L151 (a5b5330b7f8df7ac2a96fca7f6aef957179404079521ec2688fc745e96ed3fd1), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L151-v1",
+          "contextKey": "legacy-0027-L151-context-1",
+          "transferKey": "legacy-0027-L151-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002714",
+            "type": "choice",
+            "prompt": "Beide Mannschaften hielten sich an die Regeln und respektierten den Gegner. Das Spiel war ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Rules are respected and people have equal chances.",
+              "de": "Die Regeln gelten für alle und Chancen sind gerecht verteilt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unfair"
+              },
+              {
+                "id": "1",
+                "text": "aggressiv"
+              },
+              {
+                "id": "2",
+                "text": "fair"
+              },
+              {
+                "id": "3",
+                "text": "unzulässig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "fair means just, equitable or following the rules.",
+              "de": "fair bedeutet gerecht und regelgerecht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beide Mannschaften hielten sich an die Regeln und respektierten den Gegner. Das Spiel war fair.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L151-v2",
+          "contextKey": "legacy-0027-L151-context-2",
+          "transferKey": "legacy-0027-L151-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002714",
+            "type": "gap_choice",
+            "prompt": "Alle Bewerber erhalten dieselben Chancen. Das Auswahlverfahren ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Rules are respected and people have equal chances.",
+              "de": "Die Regeln gelten für alle und Chancen sind gerecht verteilt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fair"
+                  },
+                  {
+                    "id": "1",
+                    "text": "willkürlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "parteiisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ungerecht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "fair means just, equitable or following the rules.",
+              "de": "fair bedeutet gerecht und regelgerecht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle Bewerber erhalten dieselben Chancen. Das Auswahlverfahren ist fair.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002715",
+      "title": {
+        "en": "Due for payment",
+        "de": "Fällig: jetzt zu bezahlen"
+      },
+      "description": {
+        "en": "fällig means due, especially for a scheduled payment.",
+        "de": "Eine Zahlung muss zum festgelegten Termin geleistet werden."
+      },
+      "objective": "Recognize fällig for a payment whose due date has arrived.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L152 (d134594c5ccc40a93329c36d4db84b8a220e1ee1073d002bcd594c1cd1d47673), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L152-v1",
+          "contextKey": "legacy-0027-L152-context-1",
+          "transferKey": "legacy-0027-L152-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002715",
+            "type": "choice",
+            "prompt": "Die Rechnung muss heute bezahlt werden. Der Betrag ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payment deadline has arrived.",
+              "de": "Der Zahlungstermin ist erreicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "freiwillig"
+              },
+              {
+                "id": "1",
+                "text": "kostenlos"
+              },
+              {
+                "id": "2",
+                "text": "fällig"
+              },
+              {
+                "id": "3",
+                "text": "ungültig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "fällig means due, especially for a scheduled payment.",
+              "de": "fällig bedeutet, dass eine Zahlung zum vorgesehenen Termin zu leisten ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Rechnung muss heute bezahlt werden. Der Betrag ist fällig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L152-v2",
+          "contextKey": "legacy-0027-L152-context-2",
+          "transferKey": "legacy-0027-L152-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002715",
+            "type": "gap_choice",
+            "prompt": "Die nächste Kreditrate muss am ersten November bezahlt werden. An diesem Tag ist sie ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payment deadline has arrived.",
+              "de": "Der Zahlungstermin ist erreicht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fällig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "erstattet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verjährt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgezahlt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "fällig means due, especially for a scheduled payment.",
+              "de": "fällig bedeutet, dass eine Zahlung zum vorgesehenen Termin zu leisten ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die nächste Kreditrate muss am ersten November bezahlt werden. An diesem Tag ist sie fällig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002716",
+      "title": {
+        "en": "Family-like atmosphere",
+        "de": "Familiäre Atmosphäre"
+      },
+      "description": {
+        "en": "familiär describes a warm, family-like and informal atmosphere.",
+        "de": "Der Umgang ist herzlich, persönlich und wenig förmlich."
+      },
+      "objective": "Recognize familiär for a warm, personal atmosphere resembling family interaction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L154 (e2cb99c372dcece3608d6593724f69c1c77ae676b394a10235f8afb01e3b8da1), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L154-v1",
+          "contextKey": "legacy-0027-L154-context-1",
+          "transferKey": "legacy-0027-L154-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002716",
+            "type": "choice",
+            "prompt": "Im kleinen Team kennt jeder jeden; der Umgang ist herzlich und persönlich. Die Atmosphäre ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People interact warmly rather than formally.",
+              "de": "Die Menschen gehen herzlich und persönlich miteinander um."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "distanziert"
+              },
+              {
+                "id": "1",
+                "text": "förmlich"
+              },
+              {
+                "id": "2",
+                "text": "familiär"
+              },
+              {
+                "id": "3",
+                "text": "kühl"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "familiär describes a warm, family-like and informal atmosphere.",
+              "de": "familiär bedeutet herzlich, persönlich und familienähnlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im kleinen Team kennt jeder jeden; der Umgang ist herzlich und persönlich. Die Atmosphäre ist familiär.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L154-v2",
+          "contextKey": "legacy-0027-L154-context-2",
+          "transferKey": "legacy-0027-L154-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002716",
+            "type": "gap_choice",
+            "prompt": "Das kleine Hotel begrüßt Gäste persönlich und alle frühstücken gemeinsam. Die Stimmung wirkt ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People interact warmly rather than formally.",
+              "de": "Die Menschen gehen herzlich und persönlich miteinander um."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "familiär"
+                  },
+                  {
+                    "id": "1",
+                    "text": "anonym"
+                  },
+                  {
+                    "id": "2",
+                    "text": "steif"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unpersönlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "familiär describes a warm, family-like and informal atmosphere.",
+              "de": "familiär bedeutet herzlich, persönlich und familienähnlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das kleine Hotel begrüßt Gäste persönlich und alle frühstücken gemeinsam. Die Stimmung wirkt familiär.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002717",
+      "title": {
+        "en": "Colored rather than monochrome",
+        "de": "Farbig: mit Farben"
+      },
+      "description": {
+        "en": "farbig means colored or in color.",
+        "de": "Ein Bild oder eine Darstellung enthält Farben."
+      },
+      "objective": "Recognize farbig for an object displaying colors rather than only black and white.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L156 (4459833cefc6f10bc7a0886e01f23ac84d34655b8d2bd56d2b5695fb37e2f530), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L156-v1",
+          "contextKey": "legacy-0027-L156-context-1",
+          "transferKey": "legacy-0027-L156-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002717",
+            "type": "choice",
+            "prompt": "Jedes Bild enthält rote, gelbe und blaue Flächen. Die Bilder sind ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The image includes multiple colors.",
+              "de": "Das Bild enthält verschiedene Farben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "farblos"
+              },
+              {
+                "id": "1",
+                "text": "einfarbig"
+              },
+              {
+                "id": "2",
+                "text": "farbig"
+              },
+              {
+                "id": "3",
+                "text": "durchsichtig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "farbig means colored or in color.",
+              "de": "farbig bedeutet mit Farben gestaltet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jedes Bild enthält rote, gelbe und blaue Flächen. Die Bilder sind farbig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L156-v2",
+          "contextKey": "legacy-0027-L156-context-2",
+          "transferKey": "legacy-0027-L156-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002717",
+            "type": "gap_choice",
+            "prompt": "Die Karte verwendet rote, blaue und grüne Markierungen. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The image includes multiple colors.",
+              "de": "Das Bild enthält verschiedene Farben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "schwarzweiß"
+                  },
+                  {
+                    "id": "1",
+                    "text": "farblos"
+                  },
+                  {
+                    "id": "2",
+                    "text": "farbig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "leer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "farbig means colored or in color.",
+              "de": "farbig bedeutet mit Farben gestaltet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Karte verwendet rote, blaue und grüne Markierungen. Sie ist farbig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002719",
+      "title": {
+        "en": "Faulty or erroneous",
+        "de": "Fehlerhaft: mit Mängeln"
+      },
+      "description": {
+        "en": "fehlerhaft means faulty or containing errors.",
+        "de": "Ein Ergebnis oder Gerät enthält Fehler und ist nicht korrekt."
+      },
+      "objective": "Recognize fehlerhaft for a product or calculation containing errors.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 low-typing exercises from pinned apps/web/data/pos/adjectives.jsonl:L159 (7b626985a4414a853d1c1a2305dc7805ac6e30db484beecb7573a623af9ead47), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate editorial review pending; no human approval.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0027-L159-v1",
+          "contextKey": "legacy-0027-L159-context-1",
+          "transferKey": "legacy-0027-L159-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002719",
+            "type": "choice",
+            "prompt": "Die Berechnung enthält mehrere falsche Zahlen. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The result is incorrect or the device malfunctions.",
+              "de": "Das Ergebnis enthält Fehler oder das Gerät funktioniert nicht richtig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "korrekt"
+              },
+              {
+                "id": "1",
+                "text": "vollständig"
+              },
+              {
+                "id": "2",
+                "text": "fehlerhaft"
+              },
+              {
+                "id": "3",
+                "text": "gültig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "fehlerhaft means faulty or containing errors.",
+              "de": "fehlerhaft bedeutet mit Fehlern oder Mängeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Berechnung enthält mehrere falsche Zahlen. Sie ist fehlerhaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        },
+        {
+          "variantKey": "legacy-0027-L159-v2",
+          "contextKey": "legacy-0027-L159-context-2",
+          "transferKey": "legacy-0027-L159-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000270191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002719",
+            "type": "gap_choice",
+            "prompt": "Der Sensor liefert wiederholt falsche Werte. Er ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the German sentence accurately.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The result is incorrect or the device malfunctions.",
+              "de": "Das Ergebnis enthält Fehler oder das Gerät funktioniert nicht richtig."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fehlerhaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zuverlässig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "präzise"
+                  },
+                  {
+                    "id": "3",
+                    "text": "intakt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "fehlerhaft means faulty or containing errors.",
+              "de": "fehlerhaft bedeutet mit Fehlern oder Mängeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Sensor liefert wiederholt falsche Werte. Er ist fehlerhaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Separate GPT-6 editorial review pending; no approval."
+        }
+      ]
+    }
+  ]
 }
