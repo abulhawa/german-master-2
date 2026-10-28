@@ -35,6 +35,7 @@ internal class BoundLearnerApi(private val api: LearnerApi, private val account:
         account.assertCurrent(); val result = work(); account.assertCurrent(); return result
     }
     override suspend fun attachGuest(request:GuestAttachmentRequest) = bound {api.attachGuest(request)}
+    override suspend fun adoptGuestRound(request:GuestRoundAdoptionRequest) = bound {api.adoptGuestRound(request)}
     override suspend fun preparePack(request: SessionRequest) = bound { api.preparePack(request) }
     override suspend fun complete(sessionId: String, request: SessionCompletionRequest) = bound { api.complete(sessionId, request) }
     override suspend fun report(request: ContentReportRequest) = bound { api.report(request) }
@@ -53,6 +54,7 @@ internal class BoundLearnerApi(private val api: LearnerApi, private val account:
 internal class ActiveLearnerApi(private val api: LearnerApi, private val active: () -> Unit) : LearnerApi {
     private suspend fun <T> run(work: suspend () -> T): T { active(); val result = work(); active(); return result }
     override suspend fun attachGuest(request:GuestAttachmentRequest) = run {api.attachGuest(request)}
+    override suspend fun adoptGuestRound(request:GuestRoundAdoptionRequest) = run {api.adoptGuestRound(request)}
     override suspend fun exportLearner() = run { api.exportLearner() }
     override suspend fun preparePack(request: SessionRequest) = run { api.preparePack(request) }
     override suspend fun complete(sessionId: String, request: SessionCompletionRequest) = run { api.complete(sessionId,request) }

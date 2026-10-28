@@ -327,7 +327,8 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
         // Whole validated reserve and acknowledgment together; practice and writes untouched.
         commit(state.copy(preparedPack = pack,packRequest = null, consumedPreparedSessions = emptyList()))
     }
-    suspend fun startOffline(now: java.time.Instant = java.time.Instant.now()) = mutex.withLock {
+    suspend fun startOffline(now: java.time.Instant = java.time.Instant.now()) = mutex.withLock { startOfflineOwned(now) }
+    private fun startOfflineOwned(now: java.time.Instant = java.time.Instant.now()) {
         check(state.practice == null) { "Resume saved practice first" }
         val pack = PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(state.preparedPack)))
         check(PreparedPackReader.canStart(pack,now)) { "Prepared reserve expired" }
@@ -396,8 +397,18 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
     suspend fun startPractice(focus: PracticeFocus? = null) = mutex.withLock { startPracticeOwned(focus) }
     private suspend fun startPracticeOwned(focus: PracticeFocus? = null) {
         // A saved request always wins, including a request awaiting its first response.
-        check(focus == null || state.practice == null) { "Resume or discard saved practice first" }
-        if(state.practice?.session != null) return
+        check(focus == null || state.practice == null || state.practice?.completionReceipt != null) { "Resume or discard saved practice first" }
+        if (state.practice?.completionReceipt != null) {
+            val catalog = state.catalog
+            val available = when (focus) {
+                null -> catalog?.targets?.sumOf { it.availableQuestionCount } ?: 0
+                is TargetFocus -> catalog?.targets?.singleOrNull { it.id == focus.id }?.availableQuestionCount ?: 0
+                is TopicFocus -> catalog?.targets?.filter { it.topicId == focus.id }?.sumOf { it.availableQuestionCount } ?: 0
+            }
+            if (available <= 0) return // Keep the completed summary when the pool is exhausted.
+            commit(state.copy(practice = null))
+        }
+        if(state.practice?.session != null && state.practice?.completionReceipt == null) return
         check(state.pending == null && state.profile?.setupCompleted == true)
         if (state.practice == null) {
             val catalog = requireNotNull(state.catalog) { "Refresh question availability before starting" }
@@ -453,14 +464,60 @@ class LearnerRepository(transport: LearnerApi, private val store: LearnerStore, 
             p = requireNotNull(state.practice)
         }
         if (p.offlinePack != null) {
-            commit(state.copy(practice = p.next(true,p.outbox + NativeOfflineWrite(exposure = p.exposure))))
+            val next = p.next(true,p.outbox + NativeOfflineWrite(exposure = p.exposure))
+            commit(state.copy(practice = next))
+            if (next.index == requireNotNull(p.session).questions.size) continueOfflineBoundaryOwned()
             return
         }
         val ack = api.expose(requireNotNull(p.exposure))
         check(ack.eventId == p.exposure.eventId)
-        commit(state.copy(practice = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)))
+        val next = if(ack is ExposureRejected) p.copy(rejected = true) else p.next(true)
+        commit(state.copy(practice = next))
+        if (ack !is ExposureRejected && next.index == requireNotNull(p.session).questions.size) continueOnlineBoundaryOwned(p.focus)
     }
-    fun continuePractice() { val p = requireNotNull(state.practice); check(p.completion == null && p.evaluation != null); commit(state.copy(practice = p.next())) }
+    suspend fun continuePractice() = mutex.withLock {
+        val p = requireNotNull(state.practice)
+        check(p.completion == null && p.evaluation != null)
+        val lastQuestion = p.session != null && p.index + 1 == p.session.questions.size
+        val focus = p.focus
+        commit(state.copy(practice = p.next()))
+        if (lastQuestion && p.offlinePack == null) {
+            // Keep the five-question server boundary authoritative and durable,
+            // then immediately request another pinned session. Completion and
+            // session creation each retain their frozen request across retries.
+            continueOnlineBoundaryOwned(focus)
+        } else if (lastQuestion && p.offlinePack != null) {
+            continueOfflineBoundaryOwned()
+        }
+    }
+    private suspend fun continueOnlineBoundaryOwned(focus: PracticeFocus?) {
+        finishPracticeOwned()
+        if (requireNotNull(state.practice).completionReceipt != null) startPracticeOwned(focus)
+    }
+    private suspend fun continueOfflineBoundaryOwned() {
+        finishPracticeOwned()
+        val completed = requireNotNull(state.practice)
+        val pack = PreparedPackReader.read(ContractReader.json.encodeToString(requireNotNull(completed.offlinePack)))
+        val next = pack.sessions.firstOrNull { it.id !in state.consumedPreparedSessions } ?: return
+        if (!PreparedPackReader.canStart(pack, java.time.Instant.now())) return
+        val request = com.germanverbmaster.android.foundation.foundationSessionRequest().copy(
+            learningContext = if(NativeReleaseCapabilities.workplacePractice) state.profile?.preferences?.learningContext ?: "general" else "general",
+            questionCount = next.questions.size)
+        // Archive the completed provisional batch and consume the next prepared
+        // session in one durable replacement. A failed write leaves the current
+        // batch and its frozen completion event available for retry.
+        commit(state.copy(practice = NativePractice(request = request,session = next,offlinePack = pack),
+            completedOffline = state.completedOffline + completed,
+            consumedPreparedSessions = state.consumedPreparedSessions + next.id))
+    }
+    suspend fun retryBoundaryContinuation() = mutex.withLock {
+        val p = requireNotNull(state.practice)
+        check(p.session != null && p.index == p.session.questions.size)
+        if (p.offlinePack != null) continueOfflineBoundaryOwned() else {
+            if (p.completionReceipt == null) finishPracticeOwned()
+            if (requireNotNull(state.practice).completionReceipt != null) startPracticeOwned(p.focus)
+        }
+    }
     suspend fun finishPractice() = mutex.withLock { finishPracticeOwned() }
     private suspend fun finishPracticeOwned() {
         var p = requireNotNull(state.practice)

@@ -18,6 +18,19 @@ import java.util.concurrent.TimeUnit
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class NativeAuthoritativeHttpTest {
+    private fun futureValidReserve(pack:PreparedPack):PreparedPack {
+        fun canonical(value:JsonElement):String = when(value) {
+            is JsonObject -> value.toSortedMap().entries.joinToString(",", "{", "}") { (key,item) -> "${JsonPrimitive(key)}:${canonical(item)}" }
+            is JsonArray -> value.joinToString(",", "[", "]") { canonical(it) }
+            else -> value.toString()
+        }
+        val now=java.time.Instant.now().truncatedTo(java.time.temporal.ChronoUnit.SECONDS)
+        val unsigned=pack.copy(issuedAt=now.minusSeconds(5).toString(),expiresAt=now.plusSeconds(3600).toString(),contentHash="0".repeat(64))
+        val body=JsonObject(ContractReader.json.encodeToJsonElement(PreparedPack.serializer(),unsigned).jsonObject - "contentHash")
+        val hash=java.security.MessageDigest.getInstance("SHA-256").digest(canonical(body).toByteArray(Charsets.UTF_8))
+            .joinToString("") { String.format(java.util.Locale.ROOT,"%02x",it.toInt() and 255) }
+        return PreparedPackReader.read(ContractReader.json.encodeToString(PreparedPack.serializer(),unsigned.copy(contentHash=hash)))
+    }
     @Test fun identityReceiptLossRecoversThroughActualHttpAfterAtomicFileRestartAndSessionLoss() = runBlocking {
         Harness().use { harness ->
             val directory=Files.createTempDirectory("identity-http").toFile()
@@ -247,13 +260,16 @@ class NativeAuthoritativeHttpTest {
                 override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {check(connected); return harness.api.complete(sessionId,request)}
             }
             var repo = LearnerRepository(api,memory); repo.prepareReserve()
-            val pack = requireNotNull(repo.state.preparedPack)
+            val pack = futureValidReserve(requireNotNull(repo.state.preparedPack))
+            assertEquals(2,pack.sessions.size)
+            memory.cache = repo.state.copy(preparedPack=pack)
+            repo = LearnerRepository(api,memory)
             connected = false; memory.fail = true
             assertTrue(runCatching {repo.startOffline(java.time.Instant.parse(pack.issuedAt))}.isFailure)
             assertNull(repo.state.practice); assertTrue(repo.state.consumedPreparedSessions.isEmpty())
             memory.fail = false; repo.startOffline(java.time.Instant.parse(pack.issuedAt))
             val first = requireNotNull(repo.state.practice).session!!.id
-            for(index in 0..4) {
+            for(index in 0..9) {
                 val p = requireNotNull(repo.state.practice); val exercise = p.question.exercise
                 val answer = pack.rubrics.single {it.exerciseId == exercise.id && it.exerciseRevision == exercise.revision}.acceptedAnswers.first()
                 repo.draft(answer); if(index == 0) repo.hint(); repo.answer()
@@ -261,13 +277,12 @@ class NativeAuthoritativeHttpTest {
                 repo.continuePractice()
                 if(index == 2) repo = LearnerRepository(api,memory)
             }
-            repo.finishPractice(); repo.discardPractice()
-            assertEquals(6,repo.state.completedOffline.single().outbox.size)
-            repo.startOffline(java.time.Instant.parse(pack.issuedAt).plusMillis(1)); repo.skip()
-            val p = requireNotNull(repo.state.practice)
-            val exercise = p.question.exercise
-            repo.draft(pack.rubrics.single {it.exerciseId == exercise.id}.acceptedAnswers.first()); repo.hint(); repo.finishPractice(); repo.discardPractice()
+            assertEquals(5,repo.state.practice!!.index)
+            assertNotNull(repo.state.practice!!.completion)
+            assertEquals(6,repo.state.practice!!.outbox.size)
+            repo.discardPractice() // Explicitly leave the terminal saved summary; no reserve remains.
             assertEquals(2,repo.state.completedOffline.size)
+            assertEquals(6,repo.state.completedOffline.last().outbox.size)
             assertEquals(2,repo.state.consumedPreparedSessions.size)
             assertTrue(runCatching {repo.startOffline(java.time.Instant.parse(pack.expiresAt))}.isFailure)
             assertTrue(sent.isEmpty())
@@ -286,11 +301,10 @@ class NativeAuthoritativeHttpTest {
             val confirmed = repo.state.completedOffline.first()
             assertTrue(confirmed.outbox.all {it.delivered}); assertEquals(5,confirmed.completionReceipt!!.correctCount)
             val second = frozen.last().session!!.id; repo.syncOffline(second)
-            assertEquals("partial",repo.state.completedOffline.last().completionReceipt!!.mode)
-            assertEquals(frozen.last().draft,repo.state.completedOffline.last().draft)
+            assertEquals("full",repo.state.completedOffline.last().completionReceipt!!.mode)
             assertNull(repo.state.pending); assertTrue(repo.state.reportRecorded); assertEquals(report,repo.state.contentReport)
             assertNull(repo.state.packRequest); assertEquals(download.requestId,repo.state.preparedPack!!.packId)
-            assertEquals(6,harness.command("stats").getValue("evidence").jsonPrimitive.int)
+            assertEquals(10,harness.command("stats").getValue("evidence").jsonPrimitive.int)
             val file = java.nio.file.Files.createTempDirectory("gm-offline-cache").resolve("learner.json").toFile()
             try { AtomicLearnerStore(file).write(repo.state); assertEquals(repo.state,AtomicLearnerStore(file).read()) }
             finally {file.delete();file.parentFile.delete()}
@@ -374,15 +388,15 @@ class NativeAuthoritativeHttpTest {
                 assertEquals(profile.revision + 1, restarted.state.profile!!.revision)
                 when (kind) {
                     "attempt" -> { restarted.answer(); assertNotNull(restarted.state.practice!!.evaluation); assertEquals(1, restarted.state.practice!!.graded) }
-                    "skip" -> { restarted.skip(); assertEquals(1, restarted.state.practice!!.skipped) }
+                    "skip" -> { restarted.skip(); assertNotEquals(session.id,restarted.state.practice!!.session!!.id); assertEquals(0,restarted.state.practice!!.skipped) }
                     else -> { restarted.startPractice(); assertEquals(session, restarted.state.practice!!.session) }
                 }
-                assertEquals(if (kind == "session") 0 else 1, harness.command("stats").getValue("evidence").jsonPrimitive.int)
+                assertEquals(if (kind == "attempt" || kind == "skip") 1 else 0, harness.command("stats").getValue("evidence").jsonPrimitive.int)
             } finally { directory.deleteRecursively() }
         }
     }
 
-    @Test fun preferredFifteenStartsAvailableMixedPracticeAndResumesToConfirmedSummary() = runBlocking {
+    @Test fun preferredFifteenStartsFiveQuestionBatchesAndContinuesAfterConfirmedCompletion() = runBlocking {
         Harness().use { harness ->
             val api = harness.api
             api.save(ProfileRequest("v2", UUID.randomUUID().toString(), 0, ProfilePreferences("en", "UTC", "B1", 15)))
@@ -419,15 +433,10 @@ class NativeAuthoritativeHttpTest {
                     assertEquals(index == 0, repo.state.practice!!.evaluation!!.assisted)
                     repo.continuePractice()
                 }
-                val summary = LearnerRepository(api, store).state.practice!!
-                assertEquals(5, summary.index); assertEquals(5, summary.graded); assertEquals(5, summary.correct)
-                assertEquals(0, summary.skipped)
-                repo.finishPractice()
-                val receipt = requireNotNull(repo.state.practice!!.completionReceipt)
-                assertEquals("full",receipt.mode); assertEquals(5,receipt.gradedCount); assertEquals(5,receipt.correctCount)
-                assertEquals(receipt,api.complete(requireNotNull(summary.session).id,requireNotNull(repo.state.practice!!.completion)))
-                repo = LearnerRepository(api,store)
-                repo.finishPractice(); assertEquals(receipt,repo.state.practice!!.completionReceipt)
+                repo = LearnerRepository(api, store)
+                assertEquals(0, repo.state.practice!!.index)
+                assertNotNull(repo.state.practice!!.session)
+                assertEquals(5, repo.state.practice!!.request.questionCount)
                 repo.refresh()
                 assertEquals(5, repo.state.targets.sumOf { it.exposureCount })
                 assertTrue(repo.state.targets.none { it.state == "mastered" })

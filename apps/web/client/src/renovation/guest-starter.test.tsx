@@ -39,7 +39,7 @@ it("starts real guest practice without authentication and restores the saved dra
   expect(screen.queryByLabelText("Your current German level")).toBeNull();
   expect(screen.queryByLabelText("Usual session")).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
-  expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
+  expect(screen.getByText("Question 1")).toBeInTheDocument();
   expect(screen.queryByText("Type the plural.")).toBeNull();
   expect(screen.queryByRole("textbox")).toBeNull();
   expect(screen.queryByText(/Shorter session:/)).toBeNull();
@@ -170,7 +170,7 @@ it("finishes and repeats practice without an account promotion", () => {
   fireEvent.click(screen.getByRole("button", { name: "Check answer" }));
   fireEvent.click(screen.getByRole("button", { name: "Continue" }));
   for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole("button", { name: "Skip" }));
-  expect(screen.getByRole("heading", { name: "Session complete" })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: "You've practised the available questions" })).toBeInTheDocument();
   expect(screen.queryByRole("button", { name: "Sign in" })).toBeNull();
   expect(screen.queryByRole("button", { name: "Create account" })).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Finish" }));
@@ -178,7 +178,7 @@ it("finishes and repeats practice without an account promotion", () => {
   render(<GuestStarterJourney onAuth={vi.fn()} />);
   expect(screen.queryByRole("heading", { name: "Save across devices" })).toBeNull();
   fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
-  expect(screen.getByText("Question 1 of 5")).toBeInTheDocument();
+  expect(screen.getByText("Question 1")).toBeInTheDocument();
 });
 
 it("localizes account gating without writing or discarding practice", () => {

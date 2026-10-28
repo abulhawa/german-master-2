@@ -122,7 +122,15 @@ Preserve ongoing work and complete the current slice before starting unrelated f
   round only. Ordinary sign-in must not attach unrelated work. Preserve temporary
   work through failed/cancelled authentication and prevent cross-account retries.
 - Keep B1/B2 and General German/German for work preferences, topic selection under
-  Topics, and five-question new rounds; avoid legacy word-type switches.
+  Topics, and five-question server batches that continue seamlessly while eligible
+  content remains; avoid legacy word-type switches. Owner direction (28 October
+  2026) explicitly supersedes the five-question learner-facing round/end rule:
+  retain five as an internal authenticated batch size only. Continue after final
+  feedback or skip using frozen completion/retry state, preserving focus. Traverse
+  finite guest pools up to the bounded 125-item contract; at exhaustion offer
+  honest review and topic-change choices instead of repeating silently. Offline
+  Android may continue only into its valid prepared reserve, then offers a topic
+  change when that reserve ends.
 - This implementation is WIP; use PROGRESS for blockers and rollout boundaries.
 
 ## Simple Settings — owner direction (28 October 2026)

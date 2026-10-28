@@ -11,6 +11,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import java.io.File
 import java.nio.file.Files
+import java.util.UUID
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
@@ -30,13 +31,14 @@ class NativePracticeTest {
         val exposures = mutableListOf<ExposureEvent>()
         val requests = mutableListOf<SessionRequest>()
         val completions = mutableListOf<SessionCompletionRequest>()
+        var rotateSessionIds = false
         override suspend fun complete(sessionId: String, request: SessionCompletionRequest): SessionCompletionReceipt {
             completions.add(request); after(); if(lose) { lose = false; error("response lost") }
-            return SessionCompletionReceipt("v2",request.requestId,sessionId,request.mode,5,0,0,0,"2026-10-05T10:00:00Z")
+            return SessionCompletionReceipt("v2",request.requestId,sessionId,request.mode,5,if(request.mode=="full")5 else 0,0,0,"2026-10-05T10:00:00Z")
         }
         var lose = false
         var after: () -> Unit = {}
-        override suspend fun session(request: SessionRequest): Session { requests.add(request); if(lose) { lose = false; error("response lost") }; return session.copy(questions = session.questions.take(request.questionCount)) }
+        override suspend fun session(request: SessionRequest): Session { requests.add(request); if(lose) { lose = false; error("response lost") }; val value=session.copy(questions = session.questions.take(request.questionCount)); return if(rotateSessionIds && requests.size > 1) value.copy(id=UUID.randomUUID().toString()) else value }
         override suspend fun submit(attempt: Attempt): Acknowledgment {
             attempts.add(attempt); after()
             if(lose) { lose = false; error("response lost") }
@@ -103,7 +105,7 @@ class NativePracticeTest {
         assertEquals(second,api.reports.last()); assertEquals(practice,repo.state.practice)
     }
     @Test fun restartPreservesDraftAssistanceFrozenAnswerFeedbackAndCounts() = runBlocking {
-        val api = Api(); val file = File(Files.createTempDirectory("practice").toFile(), "cache.json")
+        val api = Api(); api.rotateSessionIds=true; val file = File(Files.createTempDirectory("practice").toFile(), "cache.json")
         val store = AtomicLearnerStore(file); store.write(cache(api))
         var repo = LearnerRepository(api, store); repo.startPractice(); repo.draft(answers[0].answer); repo.hint()
         repo = LearnerRepository(api, store)
@@ -116,9 +118,13 @@ class NativePracticeTest {
         assertTrue(repo.state.practice!!.evaluation!!.assisted)
         repo = LearnerRepository(api, store); assertTrue(runCatching { repo.answer() }.isFailure)
         repo.continuePractice(); assertEquals(1, repo.state.practice!!.index); assertNull(repo.state.practice!!.draft)
-        repeat(4) { repo.skip() }
-        val summary = LearnerRepository(api, store).state.practice!!
-        assertEquals(5, summary.index); assertEquals(1, summary.graded); assertEquals(1, summary.correct); assertEquals(4, summary.skipped)
+        val oldSession = repo.state.practice!!.session!!.id
+        repeat(3) { repo.skip() }
+        val saved = LearnerRepository(api, store).state.practice!!
+        assertEquals(4, saved.index); assertEquals(1, saved.graded); assertEquals(1, saved.correct); assertEquals(3, saved.skipped)
+        repo.skip()
+        assertEquals(4, api.exposures.size); assertEquals("full", api.completions.single().mode)
+        assertNotEquals(oldSession, repo.state.practice!!.session!!.id); assertEquals(0, repo.state.practice!!.index)
     }
     @Test fun failedFreezeBlocksAllNetworkWrites() = runBlocking {
         val api = Api(); val store = Store(cache(api)); val repo = LearnerRepository(api, store)
@@ -134,6 +140,24 @@ class NativePracticeTest {
         api.lose = true; assertTrue(runCatching { repo.startPractice() }.isFailure)
         repo = LearnerRepository(api, store); repo.startPractice()
         assertEquals(api.requests[0], api.requests[1]); assertEquals(5, api.requests[1].questionCount)
+    }
+    @Test fun finalFeedbackContinuesOnlyAfterRetrySafeServerCompletion() = runBlocking {
+        val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api, store)
+        repo.startPractice()
+        repeat(4) { repo.skip() }
+        repo.draft(answers[4].answer); repo.answer()
+        api.lose = true
+        assertTrue(runCatching { repo.continuePractice() }.isFailure)
+        val frozen = requireNotNull(repo.state.practice!!.completion)
+        assertEquals(5, repo.state.practice!!.index)
+        assertNull(repo.state.practice!!.completionReceipt)
+        repo = LearnerRepository(api, store)
+        repo.retryBoundaryContinuation()
+        assertEquals(listOf(frozen, frozen), api.completions)
+        assertEquals(2, api.requests.size)
+        assertNotEquals(api.requests.first().requestId, api.requests.last().requestId)
+        assertEquals(0, repo.state.practice!!.index)
+        assertNotNull(repo.state.practice!!.session)
     }
     @Test fun skipAcknowledgmentSaveFailureRetriesExactEventWithoutAdvancing() = runBlocking {
         val api = Api(); val store = Store(cache(api)); var repo = LearnerRepository(api, store)

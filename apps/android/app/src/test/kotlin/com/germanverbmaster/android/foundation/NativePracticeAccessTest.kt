@@ -168,17 +168,17 @@ class NativePracticeAccessTest {
         compose.onNodeWithText("Check answer").assertExists()
     }
 
-    @Test fun finishingPracticeDoesNotPromoteAnAccountAndCanRepeat() {
+    @Test fun guestPracticeContinuesPastFirstFiveAndRequiresExplicitDiscardToRestart() {
         compose.setContent { FoundationTheme { NativeGuestEntry(path(),false,{}, {}) } }
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
         repeat(5) { compose.onNodeWithText("Skip").performScrollTo().performClick() }
-        compose.onNodeWithText("Session complete").assertExists()
-        compose.onNodeWithText("0 answered · 5 skipped").assertExists()
+        compose.onNodeWithText("Question 6").assertExists()
         compose.onNodeWithText("Sign in").assertDoesNotExist()
         compose.onNodeWithText("Create account").assertDoesNotExist()
-        compose.onNodeWithText("Finish").performScrollTo().performClick()
+        compose.onNodeWithText("Close practice").performClick()
+        compose.onNodeWithText("Leave without saving").performClick()
         compose.onNodeWithText("Start practice").performScrollTo().performClick()
-        compose.onNodeWithText("Question 1 of 5").assertExists()
+        compose.onNodeWithText("Question 1").assertExists()
     }
 
     @Test fun primaryNavigationRemainsAvailableAndTopicsNeverRequiresAnAccount() {

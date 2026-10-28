@@ -111,7 +111,7 @@ class AppReviewCaptureTest(private val scenario:String) {
                 }
                 if(kind=="offline") {val pack=PreparedPackReader.read(resource("practice-formats-pack.json"));p=NativePractice(foundationSessionRequest(),session=pack.sessions.first(),offlinePack=pack)}
                 val repo=repo(cache(german).copy(practice=p))
-                compose.setContent {FoundationTheme {Surface(Modifier.fillMaxSize()){Column(Modifier.verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)){NativePracticeView(p,german,false,{},repo,{}, {},{})}}}}
+                compose.setContent {FoundationTheme {Surface(Modifier.fillMaxSize()){Column(Modifier.verticalScroll(rememberScrollState()).padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)){NativePracticeView(p,german,false,{},repo,{}, {},{}, {})}}}}
                 if(kind=="dialog")action=when(name){"close"->if(german)"Übung schließen"else"Close practice";"report"->if(german)"Problem mit der Übung melden"else"Report an exercise problem";else->if(german)"Optionen für gespeicherte Übungen"else"Saved practice options"}
             }
             "auth"->{

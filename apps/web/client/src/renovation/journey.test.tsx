@@ -54,7 +54,7 @@ const session = SessionSchema.parse(sample);
 const ack = AttemptBatchResponseSchema.parse(acknowledgment).acknowledgments[0];
 const page = TargetPageSchema.parse(targetPage);
 function apiFixture(): LearnerApi {
-  return { expose: vi.fn(async event => ({ eventId: event.eventId, status: "accepted" as const, serverSequence: 1 })), profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
+  return { expose: vi.fn(async event => ({ eventId: event.eventId, status: "accepted" as const, serverSequence: 1 })), complete: vi.fn(async (sessionId,request) => ({apiVersion:"v2" as const,requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:request.mode === "full" ? 5 : 0,skippedCount:0,correctCount:0,completedAt:"2026-10-05T10:00:00Z"})), profile: vi.fn(async () => ({ apiVersion: "v2", revision: 1, setupCompleted: true, preferences: { locale: "en", timezone: "Europe/Berlin", level: "B1", sessionQuestionCount: 15 } })), saveProfile: vi.fn(async request => ({ apiVersion: "v2", revision: 2, setupCompleted: true, preferences: request.preferences })), catalog: vi.fn(async () => catalog as Awaited<ReturnType<LearnerApi["catalog"]>>), createFocusedSession: vi.fn(async () => ({ ...session, questions: [session.questions[0]] })), createSession: vi.fn(async () => session), submit: vi.fn(async input => ({ ...ack, attemptId: input.attemptId })),
     targets: vi.fn(async () => page), sync: vi.fn(async cursor => ({ apiVersion: "v2", changes: [], nextCursor: cursor, hasMore: false })) };
 }
 afterEach(() => { cleanup(); vi.restoreAllMocks(); localStorage.clear(); window.history.replaceState(null, "", window.location.pathname); vi.unstubAllGlobals(); });
@@ -224,6 +224,35 @@ it("Close preserves assisted drafts; partial completion retries the frozen reque
   expect(api.complete).toHaveBeenLastCalledWith(session.id,frozen);
   expect(readJourney(localStorage).practice!.draft).toEqual(before.draft);
   expect(api.submit).not.toHaveBeenCalled(); expect(api.expose).not.toHaveBeenCalled();
+});
+it("continues into a fresh batch after retry-safe full completion", async () => {
+  const api = apiFixture();
+  let loseCompletion = true;
+  api.complete = vi.fn(async (sessionId, request) => {
+    if (loseCompletion) { loseCompletion = false; throw Error("completion response lost"); }
+    return {apiVersion:"v2",requestId:request.requestId,sessionId,mode:request.mode,plannedCount:5,gradedCount:1,skippedCount:4,correctCount:1,completedAt:"2026-10-05T10:00:00Z"};
+  });
+  render(<LearnerJourney api={api} />);
+  await waitFor(() => expect(screen.getByRole("button", {name:"Start short practice"})).toBeEnabled());
+  fireEvent.click(screen.getByRole("button", {name:"Start short practice"}));
+  for (let index = 0; index < 4; index++) fireEvent.click(await screen.findByRole("button", {name:"Skip"}));
+  fireEvent.change(await screen.findByLabelText("du"), {target:{value:"arbeitest"}});
+  fireEvent.change(screen.getByLabelText("ihr"), {target:{value:"arbeitet"}});
+  fireEvent.click(screen.getByRole("button", {name:"Check answer"}));
+  await screen.findByRole("button", {name:"Continue",exact:true});
+  fireEvent.click(screen.getByRole("button", {name:"Continue",exact:true}));
+  await screen.findByText("Try saving session again");
+  const frozen = readJourney(localStorage).practice!.completion!;
+  expect(frozen.mode).toBe("full");
+  expect(api.createSession).toHaveBeenCalledTimes(1);
+  loseCompletion = false;
+  fireEvent.click(screen.getByRole("button", {name:"Try saving session again"}));
+  await waitFor(() => expect(api.createSession).toHaveBeenCalledTimes(2));
+  expect(api.complete).toHaveBeenNthCalledWith(1, session.id, frozen);
+  expect(api.complete).toHaveBeenNthCalledWith(2, session.id, frozen);
+  expect(readJourney(localStorage).practice).toMatchObject({index:0});
+  expect(readJourney(localStorage).practice!.request.requestId).not.toBe(frozen.requestId);
+  expect(screen.getByRole("heading", {name:session.questions[0].exercise.prompt})).toBeInTheDocument();
 });
 it("keeps the saved-progress warning after local practice saves until a successful refresh", async () => {
   const api=apiFixture();
@@ -430,13 +459,14 @@ it("counts graded and skipped questions separately and refreshes confirmed targe
   fireEvent.click(screen.getByText("Check answer"));
   fireEvent.click(await screen.findByText("Continue"));
   const reads = vi.mocked(api.targets).mock.calls.length;
-  for (let index = 1; index < session.questions.length; index++) {
+  for (let index = 1; index < session.questions.length - 1; index++) {
     fireEvent.click(screen.getByText("Skip"));
     await waitFor(() => expect(readJourney(localStorage).practice!.index).toBe(index + 1));
   }
-  expect(screen.getByText("Questions skipped: 4")).toBeInTheDocument();
-  expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 1 / 5");
-  expect(screen.getByText("Correct answers: 1")).toBeInTheDocument();
+  fireEvent.click(screen.getByText("Skip"));
+  await waitFor(() => expect(api.createSession).toHaveBeenCalledTimes(2));
+  expect(api.complete).toHaveBeenCalledOnce();
+  expect(readJourney(localStorage).practice).toMatchObject({index:0});
   await waitFor(() => expect(vi.mocked(api.targets).mock.calls.length).toBeGreaterThan(reads));
 });
 it("reads pre-skip saved sessions without losing pending attempts", () => {
@@ -554,6 +584,7 @@ describe("isolated learner journey", () => {
   it("opens Topics and target detail, then recovers the exact focused request after reload", async () => {
     const api = apiFixture();
     api.createFocusedSession = vi.fn().mockRejectedValueOnce(Error("lost response")).mockResolvedValue({ ...session, questions: [session.questions[0]] });
+    api.complete = vi.fn(async (sessionId, request) => ({apiVersion:"v2" as const,requestId:request.requestId,sessionId,mode:request.mode,plannedCount:1,gradedCount:request.mode === "full" ? 1 : 0,skippedCount:0,correctCount:0,completedAt:"2026-10-05T10:00:00Z"}));
     render(<LearnerJourney api={api} />);
     fireEvent.click(screen.getByRole("button", { name: "Topics" }));
     fireEvent.click(await screen.findByRole("button", { name: "German in everyday work" }));
@@ -571,7 +602,9 @@ describe("isolated learner journey", () => {
     fireEvent.change(screen.getByLabelText("Your answer"), { target: { value: "Berufe" } });
     fireEvent.click(screen.getByText("Check answer"));
     fireEvent.click(await screen.findByText("Continue"));
-    expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 1 / 1");
+    await waitFor(() => expect(api.createFocusedSession).toHaveBeenCalledTimes(2));
+    expect(api.createFocusedSession).toHaveBeenLastCalledWith(expect.objectContaining({questionCount:1,focus:{type:"target",id:catalog.targets[0].id}}));
+    expect(screen.getByRole("heading", {name:session.questions[0].exercise.prompt})).toBeInTheDocument();
   });
   it("starts topic focus and preserves unfinished practice when browsing another target", async () => {
     const api = apiFixture();
@@ -653,11 +686,13 @@ describe("isolated learner journey", () => {
       await screen.findByText("Continue");
       fireEvent.click(screen.getByText("Continue"));
     }
-    expect(screen.getByRole("status")).toHaveTextContent("Questions answered: 5 / 5");
-    expect(screen.getByRole("heading", { name: "Targets covered" })).toBeInTheDocument();
-    expect(screen.getByText("Word order after weil")).toBeInTheDocument();
+    await waitFor(() => expect(api.createSession).toHaveBeenCalledTimes(2));
+    expect(api.complete).toHaveBeenCalledOnce();
+    expect(readJourney(localStorage).practice).toMatchObject({index:0});
     await waitFor(() => expect(api.sync).toHaveBeenCalled());
-    await waitFor(() => expect(screen.getByText("Discard unfinished session")).toBeEnabled());
+    fireEvent.click(screen.getByRole("button", {name:"Close practice"}));
+    fireEvent.click(await screen.findByRole("button", {name:"Save and return Home"}));
+    await waitFor(() => expect(screen.getByRole("button", {name:"Progress",exact:true})).toBeEnabled());
     fireEvent.click(screen.getByText("Progress"));
     expect(screen.getByText("Plural of Beruf")).toBeInTheDocument();
     expect(screen.getByText("Needs practice", { selector: ".gm-state-badge" })).toBeInTheDocument();

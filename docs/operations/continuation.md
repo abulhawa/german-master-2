@@ -1,5 +1,22 @@
 # Continuing German Master recovery
 
+## Continuous practice checkpoint — 28 October 2026
+
+The learner-facing five-question ending is superseded. See the newest
+`PROGRESS.md` section and `docs/product/practice-presentation.md`. Web and
+Android now continue through authenticated five-question batches after a saved
+completion receipt; final Skip follows the same handoff. Signed-out practice
+uses the full finite eligible bundle, with an honest review/topic-change choice
+at exhaustion. Android continues only through valid prepared offline reserve,
+then preserves the terminal summary. Retry, topic focus, draft, and account
+isolation protections remain required. Do not restore the five-question
+completion UI or silently repeat finite content.
+
+The focused slice is locally implemented and committed; see current
+`PROGRESS.md` for test evidence, host limitations, and the proposed commit.
+Content expansion remains unpublished. No deployment, push or Android store
+release is implied; the Android publication hold remains.
+
 28 October: owner authorized Astra's compact Settings recommendations, explicit
 English/Deutsch choices, immediate account preference persistence and safe native
 Back. Implemented on both clients; see newest PROGRESS for final verification and

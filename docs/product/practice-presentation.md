@@ -64,8 +64,32 @@ and a return to practice. Preserve local drafts and explicit account attachment.
 This supersedes the blueprint's separate welcome/guest entry presentation.
 Apply the direction to web and Android in the same work slice. Always keep
 user-facing behavior in sync; track unavoidable gaps as release blockers.
-The Android release hold still governs store publication separately. The current signed-out content inventory is
-still the bundled five-question pack; this correction does not expand it.
+The Android release hold still governs store publication separately. Signed-out
+practice traverses the eligible bundled pool for the selected level and context;
+it does not stop after an arbitrary five items or silently recycle items.
+
+## Continuous practice — owner direction, 28 October 2026
+
+The web and Android clients request up to five questions in each authenticated
+server session, preserving pinned content and authoritative completion receipts.
+This client batch size is an internal boundary, not a learner-facing end to practice. On
+the final feedback's Continue action or final skip, clients durably record and
+confirm the completed batch, then request the next eligible session and move
+directly into it. Keep the current topic or target focus. A failed completion
+reuses its frozen completion request; a failed next-session request reuses its
+saved session request. Neither failure loses the answer, draft, account
+binding, or focus. Do not report a batch as complete until its authoritative
+receipt is saved, and do not flash the completion screen during the handoff.
+
+Finite bundled guest content must be traversed by distinct items without
+silent recycling. Current guest/session payloads are bounded at 125 questions;
+the authenticated server's request batch remains bounded at five. When the
+eligible guest pool is exhausted, say so and offer review or a topic change.
+Do not imply a new question exists when none does. Offline Android practice
+continues into a valid, unexpired prepared session from its saved reserve using
+one atomic handoff that archives the completed batch and consumes the next. If
+the finite reserve is exhausted or expired, preserve the completed summary and
+offer a topic change; do not claim online continuation.
 
 ## Navigation shell — 24 October 2026 correction
 

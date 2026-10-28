@@ -139,7 +139,7 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
             }
             if (failed) Text(label("Could not refresh or save. Saved work remains available. Retry the saved operation.", "Aktualisieren oder Speichern fehlgeschlagen. Gespeicherte Daten bleiben erhalten. Gespeicherten Vorgang erneut versuchen."), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
             if (screen == "practice" && cache.practice != null) {
-                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }) { screen = "home" }
+                NativePracticeView(requireNotNull(cache.practice), german, busy, { operation -> run(false) { operation(); if(repository.state.practice?.let { it.offlinePack == null && it.session != null && it.index == it.session.questions.size } == true) repository.refresh() } }, repository, { operation -> try { operation() } catch (_: Exception) { failed = true }; cache = repository.state }, openProgress = { screen = "progress"; run {} }, openTopics = { screen = "topics" }) { screen = "home" }
             } else {
             if (cache.pending != null) {
                 Text(label("Your preferences are saved here and still need to sync. Your progress shows previously saved results.", "Deine Einstellungen sind hier gespeichert und mÃ¼ssen noch synchronisiert werden. Dein Lernstand zeigt die bisher gespeicherten Ergebnisse."))

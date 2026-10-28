@@ -96,13 +96,13 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
         if(loaded.isFailure)return
         if(active) { screen="practice";closing=false;return }
         val available=packs.filter {selectedTopic==null || it.topicId==selectedTopic}
-        val questions=available.flatMap {it.session.questions}.shuffled().take(5).map {it.copy(id=UUID.randomUUID().toString())}
+        val questions=available.flatMap {it.session.questions}.shuffled().map {it.copy(id=UUID.randomUUID().toString())}
         if(questions.isNotEmpty() && commit(NativeGuestState(started=true,session=available.first().session.copy(id=UUID.randomUUID().toString(),questions=questions)))) {closing=false;screen="practice"}
     }
     val startLabel=when {
         !state.started -> text("Start practice","Übung starten")
         active -> text("Continue session","Übung fortsetzen")
-        else -> text("Repeat the five questions","Die fünf Fragen wiederholen")
+        else -> text("Review these questions","Diese Aufgaben wiederholen")
     }
     fun leave(next:String) {if(focused&&active){destination=next;closing=true}else{if(state.started && !active){store.discard();state=NativeGuestState()};screen=next}}
     fun openAccount() {returnTo=screen;leave("account")}
@@ -133,7 +133,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
             if(!focused) StudyHeader(german,{openAccount()},showGrammar=screen!="account"&&screen!="downloads")
             else Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
                 TextButton(onClick={leave("home")}){Text(text("Close practice","Übung schließen"))}
-                if(active) Text(text("Question ${state.index+1} of 5","Aufgabe ${state.index+1} von 5"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+                if(active) Text(text("Question ${state.index+1}","Aufgabe ${state.index+1}"),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                 TextButton(onClick={openAccount()}){Text(text("Account","Konto"))}
             }
             if(focused) GrammarReferenceButton(german)
@@ -141,9 +141,9 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 "home" -> {
                     StudyEyebrow(text("YOUR PRACTICE","DEINE ÜBUNG"))
                     StudyPageTitle(text("A little German.\nA little more confidence.","Ein wenig Deutsch.\nEin Stück sicherer."))
-                    Text(text("Make time for a short, focused session.","Nimm dir Zeit für eine kurze, gezielte Übung."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(text("Make time for focused practice.","Nimm dir Zeit für gezieltes Üben."),color=MaterialTheme.colorScheme.onSurfaceVariant)
                     section {
-                        StudyEyebrow(level+text(" · 5 questions · "," · 5 Aufgaben · ")+if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch"))
+                        StudyEyebrow(level+text(" · "," · ")+if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch"))
                         Text(text("Build your foundations","Festige deine Grundlagen"),style=MaterialTheme.typography.titleLarge)
                         Text(text("Articles, plurals and the patterns that hold a sentence together.","Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
                         primary(startLabel,loaded.isSuccess){start()}
@@ -181,10 +181,12 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 }
                 "practice" -> if(state.index>=content.session.questions.size) {
                     section {
-                        Text(text("Session complete","Übung abgeschlossen"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineSmall)
+                        Text(text("You've practised the available questions","Du hast die verfügbaren Aufgaben geübt"),Modifier.semantics {heading()},style=MaterialTheme.typography.headlineSmall)
+                        Text(text("Review this set or choose another topic. Questions are not repeated automatically.","Wiederhole dieses Paket oder wähle ein anderes Thema. Aufgaben werden nicht automatisch wiederholt."),color=MaterialTheme.colorScheme.onSurfaceVariant)
                         Text(text("${state.graded} answered · ${content.session.questions.size-state.graded} skipped","${state.graded} beantwortet · ${content.session.questions.size-state.graded} übersprungen"),Modifier.semantics {liveRegion=LiveRegionMode.Polite})
                         Text(text("${state.correct} correct","${state.correct} richtig"))
                         primary(text("Save progress","Fortschritt speichern")){save("register")}
+                        OutlinedButton(onClick={screen="topics"},modifier=Modifier.fillMaxWidth().heightIn(min=56.dp)){Text(text("Choose another topic","Anderes Thema wählen"))}
                         TextButton(onClick={destination="home";discard()}){Text(text("Finish","Abschließen"))}
                     }
                 } else if(loaded.isSuccess) {

@@ -86,7 +86,7 @@ fun nativeAnswerReady(exercise: Exercise, answer: Answer?): Boolean = when {
 }
 
 @Composable
-fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action: (suspend () -> Unit) -> Unit, repository: LearnerRepository, edit: (() -> Unit) -> Unit, openProgress: () -> Unit, close: () -> Unit) {
+fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action: (suspend () -> Unit) -> Unit, repository: LearnerRepository, edit: (() -> Unit) -> Unit, openProgress: () -> Unit, openTopics: () -> Unit, close: () -> Unit) {
     fun text(en: String, de: String) = if(german) de else en
     @Composable fun button(label: String, enabled: Boolean = !busy, block: () -> Unit) {
         OutlinedButton(onClick = block, enabled = enabled, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(label) }
@@ -97,7 +97,7 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     BackHandler { if(!busy) requestClose() }
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
         TextButton(onClick = { requestClose() }, enabled = !busy) { Text(text("Close practice", "Übung schließen")) }
-        if (p.session != null && p.index < p.session.questions.size) Text(text("Question ${p.index + 1} of ${p.session.questions.size}", "Aufgabe ${p.index + 1} von ${p.session.questions.size}"), color = MaterialTheme.colorScheme.onSurfaceVariant)
+        if (p.session != null && p.index < p.session.questions.size) Text(text("Question ${p.index + 1}", "Aufgabe ${p.index + 1}"), color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
     if (p.offlinePack != null) {
         Text(c(R.string.study_saved), color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
@@ -121,6 +121,11 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
     if(session == null) {
         button(text("Retry session", "Sitzung erneut laden")) { action { repository.startPractice() } }
     } else if(p.index == session.questions.size || p.completion != null) {
+        val offlineNextAvailable = p.offlinePack?.sessions?.any { it.id !in repository.state.consumedPreparedSessions } == true
+        val transitioning = busy && p.index == session.questions.size && p.completionReceipt == null && (p.offlinePack == null || offlineNextAvailable)
+        if (transitioning) {
+            Text(text("Continuing practice…", "Übung wird fortgesetzt …"), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+        } else {
         Text(if(p.completion?.mode == "partial") text("Partial session summary", "Zusammenfassung der Teilübung") else if(p.offlinePack != null && p.completionReceipt == null) text("Saved session summary", "Zusammenfassung der gespeicherten Sitzung") else text("Practice summary", "Zusammenfassung deiner Übung"), Modifier.semantics { heading(); liveRegion = LiveRegionMode.Polite })
         Text(if(p.completionReceipt != null) text("Session saved to your progress.", "Die Übung wurde in deinem Lernstand gespeichert.") else text("Your session still needs to sync.", "Deine Übung muss noch synchronisiert werden."))
         if(p.completionReceipt == null && (p.offlinePack == null || p.completion == null)) button(if(p.offlinePack != null) text("Save session end", "Übungsende speichern") else if(p.completion == null) text("Finish session", "Übung abschließen") else text("Try saving session again", "Übung erneut speichern")) { action { repository.finishPractice() } }
@@ -129,13 +134,17 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
         val correct = p.completionReceipt?.correctCount ?: p.correct
         Text(if(p.offlinePack != null && p.completionReceipt == null) text("Saved answers: $graded · Skipped: $skipped · Provisional correct: $correct", "Gespeicherte Antworten: $graded · Übersprungen: $skipped · Vorläufig richtig: $correct") else text("Graded: $graded · Skipped: $skipped · Correct: $correct", "Bewertet: $graded · Übersprungen: $skipped · Richtig: $correct"))
         Text(text("Getting an answer right is a good start. Later practice without hints helps it stick.", "Eine richtige Antwort ist ein guter Anfang. Späteres Üben ohne Hinweise hilft dir, das Gelernte zu behalten."))
+        if(p.completion?.mode == "full" && (p.offlinePack == null || offlineNextAvailable)) button(text("Continue practice", "Weiter üben")) { action { repository.retryBoundaryContinuation() } }
+        if(p.offlinePack != null && p.completion != null && !offlineNextAvailable) Text(text("You've used the available prepared questions. End this saved session and continue when online.", "Du hast die verfügbaren vorbereiteten Aufgaben geübt. Beende die gespeicherte Sitzung und übe weiter, wenn du online bist."), color = MaterialTheme.colorScheme.onSurfaceVariant)
         Text(text("Skills practised", "Geübte Fähigkeiten"), Modifier.semantics { heading() })
         session.questions.take(p.index + if(p.evaluation != null) 1 else 0).distinctBy { it.exercise.targetId }.forEach { question ->
             val title = repository.state.catalog?.targets?.find { it.id == question.exercise.targetId }?.title
             Text(title?.let { if (german) it.de else it.en } ?: question.exercise.prompt)
         }
         button(text("View Progress", "Fortschritt ansehen"), block = openProgress)
+        button(text("Choose another topic", "Anderes Thema wählen"), block = openTopics)
         button(text("Finish", "Abschließen"), enabled = !busy && (p.completionReceipt != null || p.offlinePack != null && p.completion != null)) { edit { repository.discardPractice() }; close() }
+        }
     } else {
         val exercise = p.question.exercise
         LinearProgressIndicator(progress = { p.index.toFloat() / session.questions.size }, modifier = Modifier.fillMaxWidth().height(4.dp), trackColor = MaterialTheme.colorScheme.outlineVariant)
@@ -143,8 +152,6 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             SuggestionChip(onClick = {}, enabled = false, label = { Text(if (german) title.de else title.en) },
                 colors = SuggestionChipDefaults.suggestionChipColors(disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant))
         }
-        val preferredCount = if (p.focus == null) repository.state.profile?.preferences?.sessionQuestionCount ?: p.request.questionCount else p.request.questionCount
-        if(session.questions.size < preferredCount) Text(text("Shorter session: ${session.questions.size} questions available.", "Kürzere Sitzung: ${session.questions.size} Fragen verfügbar."))
         Text(if(german) exercise.instruction.de else exercise.instruction.en, style = MaterialTheme.typography.titleMedium)
         PracticeHeading(exercise.prompt, p.question.id)
         if (exercise is ExerciseChoice || exercise is ExerciseGapChoice || exercise is ExerciseWordOrder || exercise is ExerciseMatching) {

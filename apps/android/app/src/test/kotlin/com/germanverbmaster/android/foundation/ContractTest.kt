@@ -33,6 +33,9 @@ class ContractTest {
         val encoded = ContractReader.json.encodeToString(request)
         ContractShape.checkFocusedSessionRequest(ContractReader.json.parseToJsonElement(encoded))
         assertEquals(request, ContractReader.json.decodeFromString<FocusedSessionRequest>(encoded))
+        assertEquals(125, SessionRequest("v2", "00000000-0000-4000-8000-000000000002", 125, listOf("short_answer@1")).questionCount)
+        assertTrue(runCatching { SessionRequest("v2", "00000000-0000-4000-8000-000000000002", 126, listOf("short_answer@1")) }.isFailure)
+        assertTrue(runCatching { FocusedSessionRequest("v2", "00000000-0000-4000-8000-000000000002", 126, listOf("short_answer@1"), TargetFocus(catalog.targets.first().id)) }.isFailure)
         val extra = JsonObject(raw.jsonObject + ("rubric" to JsonPrimitive("solution")))
         assertTrue(runCatching { ContractShape.checkCatalog(extra) }.isFailure)
     }

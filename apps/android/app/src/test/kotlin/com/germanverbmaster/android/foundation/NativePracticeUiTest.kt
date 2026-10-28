@@ -40,7 +40,7 @@ class NativePracticeUiTest {
         repo.answer()
         compose.setContent { FoundationTheme {
             androidx.compose.foundation.layout.Column {
-                NativePracticeView(repo.state.practice!!, false, false, {}, repo, { it() }, {}, {})
+                NativePracticeView(repo.state.practice!!, false, false, {}, repo, { it() }, {}, {}, {})
             }
         } }
         compose.onNodeWithText("Correct").assertExists()

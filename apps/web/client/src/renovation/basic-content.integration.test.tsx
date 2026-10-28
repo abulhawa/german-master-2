@@ -72,12 +72,16 @@ for (const [family, targetId, level] of [
     await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
     const origin = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
     let lose = true; const attempts: string[] = [];
+    const completions: {request:string;receipt:Record<string,unknown>}[] = [];
     const transport: typeof fetch = async (input, init) => {
       const url = new URL(String(input), origin);
       const response = await fetch(url, init);
       if (url.pathname === '/v2/attempts:batch') {
         attempts.push(String(init?.body));
         if (lose) { lose = false; throw Error('Accepted response lost'); }
+      }
+      if (url.pathname.endsWith('/complete')) {
+        completions.push({request:String(init?.body),receipt:await response.clone().json()});
       }
       return response;
     };
@@ -131,9 +135,16 @@ for (const [family, targetId, level] of [
       expect(readJourney(storage).practice!.evaluation?.outcome).toBe('correct');
       expect((await preview.db.query('SELECT id FROM gm.accepted_evidence')).rows).toHaveLength(1);
       fireEvent.click(screen.getByRole('button',{name:'Continue',exact:true}));
-      await waitFor(()=>expect(screen.getByRole('button',{name:'Finish session',exact:true})).toBeEnabled());
-      fireEvent.click(screen.getByRole('button',{name:'Finish session',exact:true}));
-      await waitFor(()=>expect(readJourney(storage).practice!.completionReceipt).toMatchObject({mode:'full',gradedCount:1,correctCount:1}));
+      await waitFor(()=>expect(completions[0]?.receipt).toMatchObject({sessionId:session.id,mode:'full',gradedCount:1,correctCount:1}));
+      await waitFor(()=>{
+        const next = readJourney(storage).practice!.session;
+        expect(next).not.toBeNull();
+        expect(next!.id).not.toBe(session.id);
+      });
+      expect(readJourney(storage).practice!.request).toMatchObject({focus:request.focus});
+      expect(screen.queryByRole('button',{name:'Finish session',exact:true})).not.toBeInTheDocument();
+      expect(await api.complete!(session.id,JSON.parse(completions[0].request))).toEqual(completions[0].receipt);
+      expect((await preview.db.query('SELECT id FROM gm.accepted_evidence')).rows).toHaveLength(1);
     } finally { cleanup(); await db.delete(); await new Promise<void>(resolve=>server.close(()=>resolve())); await preview.db.close(); }
   });
 }

@@ -142,6 +142,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
   const [catalogFailed, setCatalogFailed] = useState(false);
   const selectedId=route.selectedId;
   const [busy, setBusy] = useState(false);
+  const [transitioningBatch, setTransitioningBatch] = useState(false);
   const [closing, setClosing] = useState(false);
   useEffect(()=>setClosing(false),[route.view]);
   const [syncRevision, setSyncRevision] = useState(0);
@@ -291,14 +292,27 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
       editPractice({ index: practice.index + 1, draft: null, assisted: false, pendingExposure: null,
         skippedCount: practice.skippedCount + 1 });
       completed = practice.index + 1 === practice.session.questions.length;
+      if (completed) setTransitioningBatch(true);
     }, "connectionError");
-    if (completed) await refresh();
+    if (completed) await continueBatch();
   }
   function next() {
     if (!p?.evaluation) return;
     try { editPractice({ index: p.index + 1, draft: null, assisted: false, pending: null, evaluation: null, rejected: false });
-      if (p.session && p.index + 1 === p.session.questions.length) void refresh();
+      if (p.session && p.index + 1 === p.session.questions.length) void continueBatch();
     } catch { /* Error already surfaced; leave acknowledged question in place. */ }
+  }
+  async function continueBatch() {
+    // Each five-question batch remains an authoritative server session. Freeze
+    // and replay its completion before requesting another one; both writes are
+    // durable, so a lost response can be retried without duplicating evidence.
+    const currentPractice = current.current.practice;
+    const focus = currentPractice && "focus" in currentPractice.request ? currentPractice.request.focus : undefined;
+    setTransitioningBatch(true);
+    try {
+      await finish();
+      if (current.current.practice?.completionReceipt) { await refresh(); await start(focus); }
+    } finally { setTransitioningBatch(false); }
   }
   const confirmed = state.confirmed;
   const needs = confirmed?.targets.filter(t => t.state === "needs_practice").length ?? 0;
@@ -336,7 +350,7 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
     </aside>}
     <div className="gm-column gm-workspace-content">
       {view === 'practice' ? <header className="gm-practice-header"><strong>German Master</strong>
-        {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1} {c.of} {p.session.questions.length}</span>}
+        {p?.session && !complete && <span className="gm-meta">{c.question} {p.index + 1}</span>}
         <FoundationButton className="gm-secondary" disabled={busy} onClick={() => { if (complete || !p?.session) navigate("home"); else setClosing(true); }}>{c.close}</FoundationButton>
         <GrammarReference locale={state.locale}/>
       </header> : <header className="gm-workspace-header"><span>{view === 'home' ? s.homeLabel : s.workspace}</span>{confirmed && <span className="gm-status"><span className="gm-status-dot" aria-hidden="true"/>{s.confirmed}</span>}</header>}
@@ -405,18 +419,18 @@ function ActiveLearnerJourney({ api: suppliedApi, storage: suppliedStorage, acco
             <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); heading.current?.focus(); }}>{c.keepPractising}</FoundationButton>
             <FoundationButton className="gm-secondary" onClick={() => { setClosing(false); navigate("home"); }}>{c.saveAndLeave}</FoundationButton>
           </PracticeCard> : <PracticeCard>
-            {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : complete ? <>
+            {!p?.session ? <><h1 ref={heading} tabIndex={-1}>{c.loading}</h1><FoundationButton disabled={busy || !canPractice} onClick={() => void start()}>{c.retry}</FoundationButton></> : transitioningBatch ? <h1 ref={heading} tabIndex={-1}>{c.loading}</h1> : complete ? <>
               <h1 ref={heading} tabIndex={-1}>{p.completion?.mode === 'partial' ? c.partialSummary : c.complete}</h1><p role="status">{c.summary}: {p.completionReceipt?.gradedCount ?? p.confirmedCount} / {p.session.questions.length}</p>
               <p>{p.completionReceipt ? c.completionConfirmed : c.completionPending}</p>
-              {!p.completionReceipt && <FoundationButton disabled={busy} onClick={() => void finish()}>{p.completion ? c.retryCompletion : c.confirmCompletion}</FoundationButton>}
+              {!p.completionReceipt && <FoundationButton disabled={busy} onClick={() => void (p.completion?.mode === 'full' ? continueBatch() : finish())}>{p.completion ? c.retryCompletion : c.confirmCompletion}</FoundationButton>}
               <p>{c.skippedCount}: {p.completionReceipt?.skippedCount ?? p.skippedCount}</p><p>{c.correctCount}: {p.completionReceipt?.correctCount ?? p.correctCount}</p><p>{c.retentionNote}</p>
               <h2>{c.coveredTargets}</h2>
               <ul>{p.session.questions.slice(0, p.index + (p.evaluation ? 1 : 0)).filter((question, index, questions) => questions.findIndex(q => q.exercise.targetId === question.exercise.targetId) === index).map(question =>
                 <li key={question.exercise.targetId}>{catalog?.targets.find(t => t.id === question.exercise.targetId)?.title[state.locale] ?? question.exercise.prompt}</li>)}</ul>
               <FoundationButton onClick={() => { navigate("progress"); void refresh(); }}>{c.progress}</FoundationButton>
+              <FoundationButton className="gm-secondary" onClick={() => navigate("topics")}>{state.locale === 'de' ? 'Anderes Thema wählen' : 'Choose another topic'}</FoundationButton>
             </> : exercise ? <>
               {catalog?.targets.find(t => t.id === exercise.targetId)?.title[state.locale] && <p className="gm-practice-target">{catalog.targets.find(t => t.id === exercise.targetId)!.title[state.locale]}</p>}
-              {!("focus" in p.request) && p.session.questions.length < (profile?.preferences.sessionQuestionCount ?? p.request.questionCount) && <p>{c.shorterSession}: {p.session.questions.length}</p>}
               <p>{exercise.instruction[state.locale]}</p><h1 ref={heading} tabIndex={-1} lang="de">{exercise.prompt}</h1>
               <fieldset className="gm-answer-group" disabled={!!p.pending || !!p.pendingExposure || !!p.evaluation || p.rejected || busy} onKeyDown={event => {
                 if (event.key !== "Enter" || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229 || event.repeat || !(event.target instanceof HTMLInputElement) || event.target.type !== "text") return;

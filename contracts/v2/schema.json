@@ -870,7 +870,7 @@
             "$ref": "#/$defs/Question"
           },
           "minItems": 1,
-          "maxItems": 50
+          "maxItems": 125
         }
       },
       "required": [
@@ -1034,7 +1034,7 @@
             "$ref": "#/$defs/GuestAttempt"
           },
           "minItems": 1,
-          "maxItems": 50
+          "maxItems": 125
         }
       },
       "required": [
@@ -1086,7 +1086,7 @@
         "questionCount": {
           "type": "integer",
           "minimum": 1,
-          "maximum": 50
+          "maximum": 125
         },
         "capabilities": {
           "type": "array",
@@ -1693,7 +1693,7 @@
         "questionCount": {
           "type": "integer",
           "minimum": 1,
-          "maximum": 50
+          "maximum": 125
         },
         "capabilities": {
           "type": "array",
@@ -2510,14 +2510,14 @@
             "$ref": "#/$defs/GuestRoundQuestion"
           },
           "minItems": 1,
-          "maxItems": 50
+          "maxItems": 125
         },
         "attempts": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/GuestRoundAttempt"
           },
-          "maxItems": 50
+          "maxItems": 125
         },
         "skippedIndices": {
           "type": "array",
@@ -2526,7 +2526,7 @@
             "minimum": 0,
             "maximum": 2147483647
           },
-          "maxItems": 50,
+          "maxItems": 125,
           "uniqueItems": true
         },
         "index": {

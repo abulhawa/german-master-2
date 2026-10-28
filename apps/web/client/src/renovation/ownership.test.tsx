@@ -142,10 +142,11 @@ it("preserves the frozen profile request when an offline owner hands over to ano
   const first = render(<LearnerJourney api={api} />); const a = within(first.container);
   fireEvent.click(await a.findByRole("button", { name: "Settings", exact: true }));
   await waitFor(() => expect(a.getByText("Practice preferences")).toBeEnabled());
-  fireEvent.click(a.getByText("Practice preferences"));
-  await a.findByText("Save preferences");
+  fireEvent.click(a.getByRole("button", { name: /Practice level/ }));
+  await a.findByLabelText("Practice level");
   fireEvent.change(a.getByLabelText("Practice level"), { target: { value: "B2" } });
-  fireEvent.click(a.getByText("Save preferences")); await a.findByRole("alert");
+  fireEvent.click(a.getByText("Save preferences"));
+  await a.findByRole("alert");
   const frozen = JSON.parse(localStorage.getItem(PROFILE_PENDING_KEY)!);
   const second = render(<LearnerJourney api={api} />); const b = within(second.container);
   expect(b.getByRole("status")).toHaveTextContent("another tab");

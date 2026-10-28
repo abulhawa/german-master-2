@@ -192,7 +192,7 @@ export const SessionSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   id: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  questions: z.array(QuestionSchema).min(1).max(50),
+  questions: z.array(QuestionSchema).min(1).max(125),
 });
 export type Session = z.infer<typeof SessionSchema>;
 export const AttemptSchema = z.strictObject({
@@ -226,7 +226,7 @@ export const GuestAttachmentRequestSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  attempts: z.array(GuestAttemptSchema).min(1).max(50),
+  attempts: z.array(GuestAttemptSchema).min(1).max(125),
 });
 export type GuestAttachmentRequest = z.infer<typeof GuestAttachmentRequestSchema>;
 export const ApiErrorSchema = z.strictObject({
@@ -239,7 +239,7 @@ export type ApiError = z.infer<typeof ApiErrorSchema>;
 export const SessionRequestSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  questionCount: z.number().int().min(1).max(50),
+  questionCount: z.number().int().min(1).max(125),
   capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
   learningContext: z.enum(["general","work"]).optional(),
 });
@@ -374,7 +374,7 @@ export type PracticeFocus = z.infer<typeof PracticeFocusSchema>;
 export const FocusedSessionRequestSchema = z.strictObject({
   apiVersion: z.literal("v2"),
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  questionCount: z.number().int().min(1).max(50),
+  questionCount: z.number().int().min(1).max(125),
   capabilities: z.array(z.enum(["short_answer@1","choice@1","cloze@1","word_order@1","multi_slot@1","gap_choice@1","matching@1"])).min(1).refine(v => new Set(v).size === v.length, "Duplicate items"),
   focus: PracticeFocusSchema,
   learningContext: z.enum(["general","work"]).optional(),
@@ -553,9 +553,9 @@ export const GuestRoundAdoptionRequestSchema = z.strictObject({
   requestId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   deviceId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
   contentReleaseId: z.string().regex(new RegExp("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")),
-  questions: z.array(GuestRoundQuestionSchema).min(1).max(50),
-  attempts: z.array(GuestRoundAttemptSchema).max(50),
-  skippedIndices: z.array(z.number().int().min(0).max(2147483647)).max(50).refine(v => new Set(v).size === v.length, "Duplicate items"),
+  questions: z.array(GuestRoundQuestionSchema).min(1).max(125),
+  attempts: z.array(GuestRoundAttemptSchema).max(125),
+  skippedIndices: z.array(z.number().int().min(0).max(2147483647)).max(125).refine(v => new Set(v).size === v.length, "Duplicate items"),
   index: z.number().int().min(0).max(2147483647),
   draft: AnswerSchema.optional(),
   assisted: z.boolean(),

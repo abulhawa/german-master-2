@@ -50,6 +50,18 @@ class NativeEntryTest {
         compose.onNodeWithText("Continue").performScrollTo().performClick()
         assertEquals(1,NativeGuestStore(path).read().index)
     }
+    @Test fun freshGuestPracticeUsesTheFullEligiblePoolPastTheOldFiveItemBoundary() {
+        val context=ApplicationProvider.getApplicationContext<Context>()
+        val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
+        compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {})}}
+        compose.onNodeWithText("Start practice").performScrollTo().performClick()
+        assertEquals(65,NativeGuestStore(path).read().session!!.questions.size)
+        compose.onNodeWithText("Question 1").assertExists()
+        repeat(5) { compose.onNodeWithText("Skip").performScrollTo().performClick() }
+        assertEquals(5,NativeGuestStore(path).read().index)
+        compose.onNodeWithText("Question 6").assertExists()
+        compose.onNodeWithText("You've practised the available questions").assertDoesNotExist()
+    }
     @Test fun pausePreservesDraftAndResumeReturnsToQuestion() {
         val context=ApplicationProvider.getApplicationContext<Context>()
         val path=File(context.cacheDir,"guest-${java.util.UUID.randomUUID()}")
@@ -61,7 +73,7 @@ class NativeEntryTest {
         compose.onNodeWithText("Create account").assertExists()
         assertEquals(AnswerShortAnswer("Berufe"),NativeGuestStore(path).read().draft)
         compose.onNodeWithText("Keep practising").performClick()
-        compose.onNodeWithText("Question 1 of 5").assertExists()
+        compose.onNodeWithText("Question 1").assertExists()
         compose.onNodeWithText("Check answer").assertIsEnabled()
     }
     @Test fun completionKeepsResultsUntilExplicitFinishWithoutAccountPromotion() {
@@ -71,7 +83,7 @@ class NativeEntryTest {
         compose.setContent {FoundationTheme {NativeGuestEntry(path,false,{}, {})}}
         compose.onNodeWithText("Continue session").performScrollTo().performClick()
         compose.onNodeWithText("Skip").performScrollTo().performClick()
-        compose.onNodeWithText("Session complete").assertExists()
+        compose.onNodeWithText("You've practised the available questions").assertExists()
         compose.onNodeWithText("4 answered · 1 skipped").assertExists()
         compose.onNodeWithText("Create account").assertDoesNotExist()
         assertEquals(3,NativeGuestStore(path).read().correct)

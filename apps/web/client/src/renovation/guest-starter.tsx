@@ -401,9 +401,9 @@ function localEvaluation(exercise: Exercise, answer: Answer, assisted: boolean):
 
 const copy = {
   en: {
-    subtitle: "B1 · 5 questions",
+    subtitle: "B1 · Mixed practice",
     title: "Practise what needs attention.",
-    intro: "Try five B1 questions, see clear corrections and discover what to practise next. No account needed.",
+    intro: "Practise the available questions, see clear corrections and discover what to work on next. No account needed.",
     language: "Interface language",
     settings: "Settings", appearance: "Language and appearance", theme: "Theme", system: "System", light: "Light", dark: "Dark", appearanceError: "Appearance changed, but could not be saved on this device.",
     languageHelp: "You can change this later.",
@@ -419,8 +419,8 @@ const copy = {
     existing: "I already have an account",
     resumeAccount: "Continue saved account",
     localStatus: "Guest practice · saved on this device",
-    shorter: "This starter has five reviewed B1 questions.",
-    question: "Question", of: "of",
+    shorter: "You've reached the end of this question set. Review these questions or choose another topic.",
+    question: "Question",
     hint: "Hint", check: "Check answer", skip: "Skip", next: "Continue",
     correct: "Correct", incorrect: "Not quite",
     yourAnswer: "Your answer", accepted: "Accepted answer",
@@ -428,35 +428,35 @@ const copy = {
     close: "Close practice", leaveTitle: "Leave this session?", leaveBody: "Your answers and draft stay on this device.",
     saveHome: "Save and return Home", keep: "Keep practising",
     homeTitle: "A little German. A little more confidence.", homeStatus: "Your practice is saved on this device.",
-    homeOpening: "A little German.", homeEnding: "A little more confidence.", eyebrow: "Your practice", build: "Build your foundations", sessionMeta: "B1 · 5 questions · Mixed practice", viewTopics: "View topics",
+    homeOpening: "A little German.", homeEnding: "A little more confidence.", eyebrow: "Your practice", build: "Build your foundations", sessionMeta: "B1 · Mixed practice", viewTopics: "View topics",
     sessionBody: "Articles, plurals and the patterns that hold a sentence together.",
     home: "Home", progress: "Progress", topics: "Topics", downloads: "Downloads", account: "Account",
-    practiceIntro: "Make time for a short, focused session.",
-    foundations: "Grammar foundations", topicIntro: "Five B1 questions to practise the basics.",
+    practiceIntro: "Make time for focused practice.",
+    foundations: "Grammar foundations", topicIntro: "Practise the basics with a focused set of questions.",
     covered: "In this session", skills: ["Noun plurals", "Dative articles", "Prepositions", "Word order", "Verb forms"],
     accountRequired: "This page requires an account. Sign in or create an account to continue.",
     settingsAccount: "Sign in to keep your progress.",
     backPractice: "Back to practice", navigation: "Main navigation",
-    continueSession: "Continue session", start: "Start practice", restart: "Repeat the five questions",
+    continueSession: "Continue session", start: "Start practice", restart: "Review this question set",
     saveAcross: "Save across devices",
     saveAcrossBody: "Sign in when you want to attach eligible guest attempts and build confirmed progress.",
     create: "Create account", signIn: "Sign in",
-    complete: "Session complete", saved: "Session saved",
+    complete: "You've practised the available questions", saved: "Session saved",
     answered: "answered", skipped: "skipped", lookCorrect: "correct",
     retention: "Good start. Try another short session to practise more, or save your results to track progress over time.",
     keepProgress: "Keep your progress",
     keepProgressBody: "Create an account or sign in to save this practice and use confirmed progress across devices.",
     notNow: "Not now", finish: "Finish",
-    setupAgain: "Change setup",
+    setupAgain: "Change setup", reviewSet: "Review this question set", changeTopic: "Choose another topic",
     storageError: "Practice could not be saved on this device. New answers are blocked until storage is available.",
     damaged: "Saved practice could not be read. It has been preserved and will not be overwritten.",
     reset: "Reset saved practice",
-    b2Note: "The current starter pack contains five reviewed B1 foundation questions.",
+    b2Note: "Choose a topic with available reviewed questions.",
   },
   de: {
-    subtitle: "B1 · 5 Aufgaben",
+    subtitle: "B1 · Gemischte Übung",
     title: "Übe, was noch Aufmerksamkeit braucht.",
-    intro: "Probiere fünf B1-Aufgaben aus, erhalte klare Erklärungen und entdecke, was du als Nächstes üben kannst. Ohne Konto.",
+    intro: "Übe die verfügbaren Aufgaben, erhalte klare Erklärungen und entdecke, woran du als Nächstes arbeiten kannst. Ohne Konto.",
     language: "Sprache der Oberfläche",
     settings: "Einstellungen", appearance: "Sprache und Darstellung", theme: "Design", system: "Systemeinstellung", light: "Hell", dark: "Dunkel", appearanceError: "Die Darstellung wurde geändert, konnte aber auf diesem Gerät nicht gespeichert werden.",
     languageHelp: "Du kannst das später ändern.",
@@ -472,8 +472,8 @@ const copy = {
     existing: "Ich habe bereits ein Konto",
     resumeAccount: "Gespeichertes Konto fortsetzen",
     localStatus: "Gastübung · auf diesem Gerät gespeichert",
-    shorter: "Dieser Einstieg enthält fünf geprüfte B1-Aufgaben.",
-    question: "Frage", of: "von",
+    shorter: "Du hast das Ende dieses Aufgabenpakets erreicht. Wiederhole die Aufgaben oder wähle ein anderes Thema.",
+    question: "Frage",
     hint: "Hinweis", check: "Antwort prüfen", skip: "Überspringen", next: "Weiter",
     correct: "Richtig", incorrect: "Noch nicht ganz",
     yourAnswer: "Deine Antwort", accepted: "Akzeptierte Antwort",
@@ -481,30 +481,30 @@ const copy = {
     close: "Übung schließen", leaveTitle: "Diese Übung verlassen?", leaveBody: "Deine Antworten und dein Entwurf bleiben auf diesem Gerät.",
     saveHome: "Speichern und zur Startseite", keep: "Weiter üben",
     homeTitle: "Ein wenig Deutsch. Ein Stück sicherer.", homeStatus: "Deine Übungen sind auf diesem Gerät gespeichert.",
-    homeOpening: "Ein wenig Deutsch.", homeEnding: "Ein Stück sicherer.", eyebrow: "Deine Übung", build: "Festige deine Grundlagen", sessionMeta: "B1 · 5 Aufgaben · Gemischte Übung", viewTopics: "Themen ansehen",
+    homeOpening: "Ein wenig Deutsch.", homeEnding: "Ein Stück sicherer.", eyebrow: "Deine Übung", build: "Festige deine Grundlagen", sessionMeta: "B1 · Gemischte Übung", viewTopics: "Themen ansehen",
     sessionBody: "Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten.",
     home: "Startseite", progress: "Fortschritt", topics: "Themen", downloads: "Downloads", account: "Konto",
-    practiceIntro: "Nimm dir Zeit für eine kurze, gezielte Übung.",
-    foundations: "Grammatik-Grundlagen", topicIntro: "Fünf B1-Aufgaben, um die Grundlagen zu üben.",
+    practiceIntro: "Nimm dir Zeit für gezieltes Üben.",
+    foundations: "Grammatik-Grundlagen", topicIntro: "Übe die Grundlagen mit gezielten Aufgaben.",
     covered: "In dieser Übung", skills: ["Pluralformen", "Dativartikel", "Präpositionen", "Wortstellung", "Verbformen"],
     accountRequired: "Für diese Seite brauchst du ein Konto. Melde dich an oder erstelle ein Konto, um fortzufahren.",
     settingsAccount: "Melde dich an, um deinen Lernstand zu behalten.",
     backPractice: "Zurück zur Übung", navigation: "Hauptnavigation",
-    continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Die fünf Fragen wiederholen",
+    continueSession: "Übung fortsetzen", start: "Übung starten", restart: "Dieses Aufgabenpaket wiederholen",
     saveAcross: "Auf mehreren Geräten speichern",
     saveAcrossBody: "Melde dich an, wenn du geeignete Gastversuche übernehmen und bestätigten Fortschritt aufbauen möchtest.",
     create: "Konto erstellen", signIn: "Anmelden",
-    complete: "Übung abgeschlossen", saved: "Übung gespeichert",
+    complete: "Du hast die verfügbaren Aufgaben geübt", saved: "Übung gespeichert",
     answered: "beantwortet", skipped: "übersprungen", lookCorrect: "richtig",
     retention: "Guter Anfang. Übe weiter oder speichere deine Ergebnisse, um deine Fortschritte langfristig zu verfolgen.",
     keepProgress: "Fortschritt behalten",
     keepProgressBody: "Erstelle ein Konto oder melde dich an, um diese Übungen zu speichern und bestätigten Fortschritt auf mehreren Geräten zu nutzen.",
     notNow: "Nicht jetzt", finish: "Abschließen",
-    setupAgain: "Auswahl ändern",
+    setupAgain: "Auswahl ändern", reviewSet: "Dieses Aufgabenpaket wiederholen", changeTopic: "Anderes Thema wählen",
     storageError: "Die Übung konnte auf diesem Gerät nicht gespeichert werden. Neue Antworten sind blockiert, bis Speicher verfügbar ist.",
     damaged: "Gespeicherte Übungen konnten nicht gelesen werden. Sie bleiben erhalten und werden nicht überschrieben.",
     reset: "Gespeicherte Übungen zurücksetzen",
-    b2Note: "Das aktuelle Startpaket enthält fünf geprüfte B1-Grundlagenfragen.",
+    b2Note: "Wähle ein Thema mit verfügbaren geprüften Aufgaben.",
   },
 } as const;
 
@@ -631,7 +631,7 @@ export function GuestStarterJourney({
 
         if(!questions.length)throw Error('No practice available');
 
-        return SessionSchema.parse({...available[0].session,id:crypto.randomUUID(),questions:questions.slice(0,5).map(q=>({...q,id:crypto.randomUUID()}))});
+        return SessionSchema.parse({...available[0].session,id:crypto.randomUUID(),questions:questions.map(q=>({...q,id:crypto.randomUUID()}))});
 
       })(),
 
@@ -725,7 +725,7 @@ export function GuestStarterJourney({
         <div className="gm-page-heading"><p className="gm-eyebrow">{c.eyebrow}</p><h1 aria-label={c.homeTitle}>{c.homeOpening}<br/>{c.homeEnding}</h1><p>{c.practiceIntro}</p></div>
         <section className="gm-primary-card"><PracticeCard>
 
-          <span className="gm-session-meta">{state.level} · 5 {state.locale==='de'?'Aufgaben':'questions'} · {learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</span>
+          <span className="gm-session-meta">{state.level} · {learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</span>
 
           <h2>{c.build}</h2>
           <p className="gm-meta">{c.sessionBody}</p>
@@ -768,7 +768,7 @@ export function GuestStarterJourney({
 
   return <main className="gm-foundation gm-workspace gm-focused" data-theme={appearance.theme} lang={state.locale}><div className="gm-column gm-workspace-content">
     <header className="gm-practice-header"><strong>German Master</strong>
-      {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1} {c.of} {state.session.questions.length}</span>}
+      {!complete && state.session && <span className="gm-meta">{c.question} {state.index + 1}</span>}
       <div className="gm-guest-practice-actions">
         <GrammarReference locale={state.locale}/>
         <FoundationButton className="gm-secondary" onClick={() => setView("account")}>{c.account}</FoundationButton>
@@ -777,7 +777,7 @@ export function GuestStarterJourney({
 
       </div>
     </header>
-    {!complete && state.session && <progress className="gm-session-progress" value={state.index} max={state.session.questions.length} aria-label={`${c.question} ${state.index + 1} ${c.of} ${state.session.questions.length}`} />}
+    {!complete && state.session && <progress className="gm-session-progress" value={state.index} max={state.session.questions.length} aria-label={`${c.question} ${state.index + 1}`} />}
     {storageError && <p role="alert">{c.storageError}</p>}
 
     {complete ? <PracticeCard>
@@ -787,7 +787,8 @@ export function GuestStarterJourney({
       <p role="status">{state.graded} {c.answered} · {state.skipped} {c.skipped}</p>
       <p>{state.correct} {c.lookCorrect}</p>
 
-      <FoundationButton onClick={()=>saveToAccount('register')}>{state.locale==='de'?'Fortschritt speichern':'Save progress'}</FoundationButton>
+          <FoundationButton onClick={()=>saveToAccount('register')}>{state.locale==='de'?'Fortschritt speichern':'Save progress'}</FoundationButton>
+      <FoundationButton className="gm-secondary" onClick={()=>setView('topics')}>{c.changeTopic}</FoundationButton>
 
       <FoundationButton className="gm-secondary" onClick={()=>{destination.current='home';discard();}}>{c.finish}</FoundationButton>
 

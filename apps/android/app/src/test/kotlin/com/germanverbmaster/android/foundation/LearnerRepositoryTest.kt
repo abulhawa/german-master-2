@@ -14,6 +14,7 @@ import java.nio.file.Files
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class LearnerRepositoryTest {
+    private fun resource(name:String) = requireNotNull(javaClass.classLoader?.getResource(name)).readText()
     @Test fun deletionFreezeAndReceiptSaveFailuresPreserveWorkAndFrozenReplay() = runBlocking {
         val identity=LearnerIdentity(FIXTURE_SUBJECT,0)
         val account=LearnerAccount(identity) {identity}
@@ -118,5 +119,31 @@ class LearnerRepositoryTest {
         val api = Api(); val repo = LearnerRepository(api, Store(LearnerCache(profile = api.current)))
         assertTrue(runCatching { repo.save(prefs.copy(timezone = "invalid")) }.isFailure)
         assertTrue(api.writes.isEmpty())
+    }
+    @Test fun adoptedFullPoolKeepsItsBoundedAllocationDraftAndPositionAcrossReload() = runBlocking {
+        val base=Api()
+        val identity=LearnerIdentity(FIXTURE_SUBJECT,0)
+        val account=LearnerAccount(identity) { identity }
+        val source=ContractReader.session(resource("session.json"))
+        val questions=(0 until 65).map { index -> source.questions[index % source.questions.size].copy(id=java.util.UUID.randomUUID().toString()) }
+        val full=source.copy(questions=questions)
+        val draft=AnswerShortAnswer("Entwurf")
+        val api=object : LearnerApi by base {
+            override suspend fun adoptGuestRound(request:GuestRoundAdoptionRequest):GuestRoundAdoptionResponse =
+                GuestRoundAdoptionResponse("v2",full,12,draft,false,null,null,12,7,0)
+        }
+        val store=Store(LearnerCache(profile=base.current))
+        val repo=LearnerRepository(api,store,account)
+        val file=File(Files.createTempDirectory("adopt-65").toFile(),"guest.json")
+        NativeGuestStore(file).write(NativeGuestState(started=true,index=12,draft=draft,graded=12,correct=7,session=full,saveRequested=true,saveSubject=FIXTURE_SUBJECT))
+        repo.attachGuestPractice(file)
+        assertEquals(65,repo.state.practice!!.request.questionCount)
+        assertEquals(65,repo.state.practice!!.session!!.questions.size)
+        assertEquals(12,repo.state.practice!!.index)
+        assertEquals(draft,repo.state.practice!!.draft)
+        val reopened=LearnerRepository(api,store,account)
+        assertEquals(65,reopened.state.practice!!.request.questionCount)
+        assertEquals(12,reopened.state.practice!!.index)
+        assertEquals(draft,reopened.state.practice!!.draft)
     }
 }

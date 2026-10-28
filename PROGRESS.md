@@ -1,5 +1,60 @@
 # German Master 2.0 current checkpoint
 
+## Continuous practice boundaries — 28 October 2026
+
+Owner direction supersedes the historical five-question new-round rule. Web
+and Android now treat five as the client-requested authenticated batch size:
+after final feedback Continue or final Skip, a completed batch is confirmed and
+the next eligible session starts in place, preserving topic/target focus. Frozen
+completion and next-session requests remain durable for retry; the completion
+screen does not flash during the handoff. Content availability is refreshed
+before starting again, and an exhausted pool retains an honest summary with a
+topic-change route.
+
+Signed-out web and Android traverse the full eligible bundled pool without
+recycling. The B1 general bundle exercises 65 distinct items (B2 general has
+60). Session, focused-session and adoption payload contracts are bounded at
+125 so the saved adopted round retains its real question count, draft and index;
+126 is rejected. Authenticated clients still request batches of at most five.
+Android offline continues atomically only into a valid, unexpired session in its
+two-session prepared reserve. Once that finite reserve is exhausted, it keeps
+the terminal saved summary until an explicit exit/topic change. Web OfflineDesk
+has no product-flow consumer, so no retired download UI was restored for parity.
+
+Account isolation now wraps guest-round adoption in the captured-account and
+active-learner guards. This fixes an Android path that previously fell through
+to the API's default “saving unavailable” implementation. Web also completes
+the authoritative original batch before fetching the focused successor.
+
+Evidence: focused web boundary/guest/adoption tests passed 69/69; the full web
+unit run passed 464/465 before the remaining fixture navigation assertion was
+updated, and the corrected ownership/temporary-practice files then passed 9/9.
+The full web suite was not rerun after that last test-only correction. Root
+backend tests passed 199/199; root HTTP tests passed 20/20 and the focused
+boundary HTTP checks passed 7/7. Generated contracts, design/native guest and
+grammar checks passed; web and backend TypeScript checks passed; learner-product
+Vite build passed. The npm wrapper is unavailable on this host, so checks ran
+through the installed Node runtime directly; `npm ci` was not run.
+
+Android focused practice, guest-entry/access, contract, repository and
+authoritative-HTTP tests passed (53 tests, 0 failures). The fresh guest-entry
+regression loaded all 65 B1 questions and reached Question 6 after five skips.
+`lintDebug` and `assembleDebug` passed. No emulator/device run was performed.
+
+Parent-owned work completed alongside this slice: the unpublished 20-question
+General German expansion pilot and legacy-source prioritization are recorded in
+`docs/content/general-expansion-2026-10-28.md`; content remains unpublished.
+Obsolete stopped recovery containers were removed after the parent verified
+112 private manifest hashes and DB/Storage restore; backup archives and image
+remain preserved. No private recovery paths are tracked.
+
+No deployment, push, live database access or store release occurred. Android's
+publication hold remains. Committed locally with message
+`fix(practice): continue across finite batch boundaries`. Next: if a future
+verification pass is requested, rerun the complete web unit suite after its
+final fixture-selector correction; no other implementation work is queued in
+this slice.
+
 ## Local/remote history reconciliation - 28 October 2026
 
 Owner reported main diverged by 10 local and 27 remote commits. Fresh fetch

@@ -1,5 +1,6 @@
 import {afterEach,expect,it,vi} from 'vitest';
 import {cleanup,fireEvent,render,screen} from '@testing-library/react';
+import {SessionRequestSchema} from '@german-master/contracts';
 import {GuestStarterJourney,TEMPORARY_KEY,SAVE_INTENT_KEY,authorizeGuestSave,hasGuestSaveIntent,buildGuestRoundAdoptionRequest,clearGuestPractice} from './guest-starter';
 import {installAdoptedRound} from './adopted-round';
 import {emptyJourney,readJourney,saveJourney} from './storage';
@@ -25,7 +26,7 @@ it('binds zero-answer save to the frozen round and initiating tab, rejecting ano
  const request=buildGuestRoundAdoptionRequest(subject)!;
  expect(request.requestId).toBe(original.session.id);
  expect(request.index).toBe(0);expect(request.attempts).toEqual([]);
- expect(request.questions).toHaveLength(5);
+ expect(request.questions).toHaveLength(original.session.questions.length);
  expect(()=>buildGuestRoundAdoptionRequest('00000000-0000-4000-8000-000000000021')).toThrow(/another account/);
 });
 
@@ -39,6 +40,22 @@ it('installs an unanswered draft durably, never rewinds replay or overwrites ano
  installAdoptedRound(storage,saved);expect(readJourney(storage).practice!.index).toBe(1);
  expect(()=>installAdoptedRound(storage,{...saved,session:{...saved.session,id:crypto.randomUUID()}})).toThrow(/Finish/);
  expect(readJourney(storage).practice!.session!.id).toBe(saved.session.id);
+});
+
+it('installs and reloads a full 65-question adopted pool with its exact frozen allocation and draft',()=>{
+ const guest=start();
+ expect(guest.session.questions).toHaveLength(65);
+ const questions=guest.session.questions;
+ const saved={apiVersion:'v2' as const,session:guest.session,index:12,draft:{type:'short_answer' as const,text:'Entwurf'},assisted:false,confirmedCount:12,correctCount:7,skippedCount:0};
+ saveJourney(localStorage,emptyJourney());
+ installAdoptedRound(localStorage,saved);
+ const restored=readJourney(localStorage).practice!;
+ expect(restored.request.questionCount).toBe(65);
+ expect(restored.session?.questions).toHaveLength(65);
+ expect(restored).toMatchObject({index:12,draft:saved.draft});
+ expect(restored.session?.questions).toEqual(questions);
+ expect(SessionRequestSchema.parse({...restored.request,questionCount:125}).questionCount).toBe(125);
+ expect(()=>SessionRequestSchema.parse({...restored.request,questionCount:126})).toThrow();
 });
 
 it('hides unavailable workplace selection while preserving B1/B2 choices',()=>{

@@ -6,7 +6,7 @@ it('keeps a temporary round on cancel and discards only after an explicit choice
  render(<GuestStarterJourney onAuth={vi.fn()}/>);
  fireEvent.click(screen.getByRole('button',{name:'Start practice'}));
  const round=JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!);
- expect(round.session.questions).toHaveLength(5);
+ expect(round.session.questions).toHaveLength(65);
  fireEvent.click(screen.getByRole('button',{name:'Account',exact:true}));
  expect(screen.getByRole('dialog')).toBeInTheDocument();
  fireEvent.click(screen.getByRole('button',{name:'Keep practising'}));

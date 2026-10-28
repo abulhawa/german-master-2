@@ -424,7 +424,7 @@ data class Session(
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(id)) { "Invalid Session.id" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid Session.contentReleaseId" }
         require(questions.size >= 1) { "Invalid Session.questions" }
-        require(questions.size <= 50) { "Invalid Session.questions" }
+        require(questions.size <= 125) { "Invalid Session.questions" }
     }
 }
 
@@ -502,7 +502,7 @@ data class GuestAttachmentRequest(
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid GuestAttachmentRequest.requestId" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid GuestAttachmentRequest.deviceId" }
         require(attempts.size >= 1) { "Invalid GuestAttachmentRequest.attempts" }
-        require(attempts.size <= 50) { "Invalid GuestAttachmentRequest.attempts" }
+        require(attempts.size <= 125) { "Invalid GuestAttachmentRequest.attempts" }
     }
 }
 
@@ -532,7 +532,7 @@ data class SessionRequest(
         require(apiVersion == "v2") { "Invalid SessionRequest.apiVersion" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid SessionRequest.requestId" }
         require(questionCount >= 1) { "Invalid SessionRequest.questionCount" }
-        require(questionCount <= 50) { "Invalid SessionRequest.questionCount" }
+        require(questionCount <= 125) { "Invalid SessionRequest.questionCount" }
         require(capabilities.size >= 1) { "Invalid SessionRequest.capabilities" }
         require(capabilities.distinct().size == capabilities.size) { "Invalid SessionRequest.capabilities" }
         require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1", "gap_choice@1", "matching@1") }) { "Invalid SessionRequest.capabilities" }
@@ -833,7 +833,7 @@ data class FocusedSessionRequest(
         require(apiVersion == "v2") { "Invalid FocusedSessionRequest.apiVersion" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(requestId)) { "Invalid FocusedSessionRequest.requestId" }
         require(questionCount >= 1) { "Invalid FocusedSessionRequest.questionCount" }
-        require(questionCount <= 50) { "Invalid FocusedSessionRequest.questionCount" }
+        require(questionCount <= 125) { "Invalid FocusedSessionRequest.questionCount" }
         require(capabilities.size >= 1) { "Invalid FocusedSessionRequest.capabilities" }
         require(capabilities.distinct().size == capabilities.size) { "Invalid FocusedSessionRequest.capabilities" }
         require(capabilities.all { it in setOf("short_answer@1", "choice@1", "cloze@1", "word_order@1", "multi_slot@1", "gap_choice@1", "matching@1") }) { "Invalid FocusedSessionRequest.capabilities" }
@@ -1219,9 +1219,9 @@ data class GuestRoundAdoptionRequest(
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(deviceId)) { "Invalid GuestRoundAdoptionRequest.deviceId" }
         require(Regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$").matches(contentReleaseId)) { "Invalid GuestRoundAdoptionRequest.contentReleaseId" }
         require(questions.size >= 1) { "Invalid GuestRoundAdoptionRequest.questions" }
-        require(questions.size <= 50) { "Invalid GuestRoundAdoptionRequest.questions" }
-        require(attempts.size <= 50) { "Invalid GuestRoundAdoptionRequest.attempts" }
-        require(skippedIndices.size <= 50) { "Invalid GuestRoundAdoptionRequest.skippedIndices" }
+        require(questions.size <= 125) { "Invalid GuestRoundAdoptionRequest.questions" }
+        require(attempts.size <= 125) { "Invalid GuestRoundAdoptionRequest.attempts" }
+        require(skippedIndices.size <= 125) { "Invalid GuestRoundAdoptionRequest.skippedIndices" }
         require(skippedIndices.distinct().size == skippedIndices.size) { "Invalid GuestRoundAdoptionRequest.skippedIndices" }
         require(index >= 0) { "Invalid GuestRoundAdoptionRequest.index" }
         require(index <= 2147483647) { "Invalid GuestRoundAdoptionRequest.index" }
