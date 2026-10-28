@@ -2,5 +2,3186 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000003600",
+      "title": {
+        "en": "To calm or reassure someone",
+        "de": "Jemanden beruhigen"
+      },
+      "description": {
+        "en": "To help an upset or frightened person become calm.",
+        "de": "Eine aufgeregte oder ängstliche Person wieder ruhiger machen."
+      },
+      "objective": "Recognize beruhigen in two distinct contexts: To help an upset or frightened person become calm.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L213 (713ca960d083a85e0c65951c4900db806cca9994542f41f974ec16616300e56c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L213-v1",
+          "contextKey": "legacy-0036-L213-context-1",
+          "transferKey": "legacy-0036-L213-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003600",
+            "type": "choice",
+            "prompt": "Das Kind weinte nach dem lauten Knall. Seine Mutter versuchte, es zu ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The mother wanted to calm the frightened child.",
+              "de": "Die Mutter wollte dem Kind die Angst nehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erschrecken"
+              },
+              {
+                "id": "1",
+                "text": "beruhigen"
+              },
+              {
+                "id": "2",
+                "text": "kritisieren"
+              },
+              {
+                "id": "3",
+                "text": "bestrafen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To help an upset or frightened person become calm.",
+              "de": "Eine aufgeregte oder ängstliche Person wieder ruhiger machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind weinte nach dem lauten Knall. Seine Mutter versuchte, es zu beruhigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (erschrecken, beruhigen, kritisieren, bestrafen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beruhigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L213-v2",
+          "contextKey": "legacy-0036-L213-context-2",
+          "transferKey": "legacy-0036-L213-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003600",
+            "type": "gap_choice",
+            "prompt": "Der Arzt sprach ruhig mit dem nervösen Patienten und konnte ihn ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The doctor's calm words reassured the patient.",
+              "de": "Das ruhige Gespräch nahm dem Patienten die Unruhe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verwirren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verärgern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beruhigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschleunigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To help an upset or frightened person become calm.",
+              "de": "Eine aufgeregte oder ängstliche Person wieder ruhiger machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Arzt sprach ruhig mit dem nervösen Patienten und konnte ihn beruhigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verwirren, verärgern, beruhigen, beschleunigen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beruhigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003601",
+      "title": {
+        "en": "To damage something",
+        "de": "Etwas beschädigen"
+      },
+      "description": {
+        "en": "To cause partial damage to an object or impair its function.",
+        "de": "Einen Gegenstand teilweise kaputt machen oder seine Funktion beeinträchtigen."
+      },
+      "objective": "Recognize beschädigen in two distinct contexts: To cause partial damage to an object or impair its function.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L214 (b7814143e2cdd7ca4b6ab3b24c127aac5ded87151950ee96d2019f0128f9f61e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L214-v1",
+          "contextKey": "legacy-0036-L214-context-1",
+          "transferKey": "legacy-0036-L214-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003601",
+            "type": "choice",
+            "prompt": "Der Hagel hat das Dach des Hauses ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Hail caused damage to the roof.",
+              "de": "Die Hagelkörner verursachten Schäden am Dach."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestrichen"
+              },
+              {
+                "id": "1",
+                "text": "beschädigt"
+              },
+              {
+                "id": "2",
+                "text": "gereinigt"
+              },
+              {
+                "id": "3",
+                "text": "geplant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To cause partial damage to an object or impair its function.",
+              "de": "Einen Gegenstand teilweise kaputt machen oder seine Funktion beeinträchtigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hagel hat das Dach des Hauses beschädigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (gestrichen, beschädigt, gereinigt, geplant), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschädigt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L214-v2",
+          "contextKey": "legacy-0036-L214-context-2",
+          "transferKey": "legacy-0036-L214-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003601",
+            "type": "gap_choice",
+            "prompt": "Beim Umzug stieß der Schrank gegen die Wand und ___ den Putz.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The collision harmed the wall surface.",
+              "de": "Der Stoß hinterließ eine beschädigte Stelle an der Wand."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verbesserte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "versicherte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beschädigte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschriftete"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To cause partial damage to an object or impair its function.",
+              "de": "Einen Gegenstand teilweise kaputt machen oder seine Funktion beeinträchtigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Umzug stieß der Schrank gegen die Wand und beschädigte den Putz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verbesserte, versicherte, beschädigte, beschriftete), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschädigte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003602",
+      "title": {
+        "en": "To procure supplies",
+        "de": "Material beschaffen"
+      },
+      "description": {
+        "en": "To obtain needed items or materials.",
+        "de": "Benötigte Gegenstände oder Materialien organisieren und besorgen."
+      },
+      "objective": "Recognize beschaffen in two distinct contexts: To obtain needed items or materials.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L215 (9e74ec1d4e96e2acbdd373c439aaada83ca66928a92f690488b12b377d80aa2e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L215-v1",
+          "contextKey": "legacy-0036-L215-context-1",
+          "transferKey": "legacy-0036-L215-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003602",
+            "type": "choice",
+            "prompt": "Für die Reparatur fehlen Ersatzteile. Der Einkauf muss sie bis Freitag ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The missing parts must be obtained before Friday.",
+              "de": "Die fehlenden Teile müssen rechtzeitig organisiert werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entsorgen"
+              },
+              {
+                "id": "1",
+                "text": "ausstellen"
+              },
+              {
+                "id": "2",
+                "text": "beschaffen"
+              },
+              {
+                "id": "3",
+                "text": "überprüfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To obtain needed items or materials.",
+              "de": "Benötigte Gegenstände oder Materialien organisieren und besorgen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reparatur fehlen Ersatzteile. Der Einkauf muss sie bis Freitag beschaffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (entsorgen, ausstellen, beschaffen, überprüfen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschaffen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L215-v2",
+          "contextKey": "legacy-0036-L215-context-2",
+          "transferKey": "legacy-0036-L215-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003602",
+            "type": "gap_choice",
+            "prompt": "Die Schule braucht zehn neue Laptops. Die Verwaltung soll die Geräte ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The administration must acquire the laptops.",
+              "de": "Die Verwaltung muss dafür sorgen, dass die Geräte verfügbar werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verleihen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschaffen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "entsorgen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bewerten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To obtain needed items or materials.",
+              "de": "Benötigte Gegenstände oder Materialien organisieren und besorgen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule braucht zehn neue Laptops. Die Verwaltung soll die Geräte beschaffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verleihen, beschaffen, entsorgen, bewerten), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschaffen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003603",
+      "title": {
+        "en": "To engage with a subject",
+        "de": "Sich mit einem Thema beschäftigen"
+      },
+      "description": {
+        "en": "To devote time and attention to working on a subject.",
+        "de": "Zeit und Aufmerksamkeit auf die Bearbeitung eines Themas verwenden."
+      },
+      "objective": "Recognize beschäftigen in two distinct contexts: To devote time and attention to working on a subject.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L216 (06f2e9ebeb86a72d96bd8cb10a474cb9fe37cfd43eaa51a6cf861bff71197cc5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L216-v1",
+          "contextKey": "legacy-0036-L216-context-1",
+          "transferKey": "legacy-0036-L216-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003603",
+            "type": "choice",
+            "prompt": "Seit Wochen ___ sich das Team mit der Frage, wie es Energie sparen kann.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team has been working on the question for weeks.",
+              "de": "Das Team arbeitet seit Längerem an diesem Thema."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beschwert"
+              },
+              {
+                "id": "1",
+                "text": "bewirbt"
+              },
+              {
+                "id": "2",
+                "text": "beschäftigt"
+              },
+              {
+                "id": "3",
+                "text": "bedankt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To devote time and attention to working on a subject.",
+              "de": "Zeit und Aufmerksamkeit auf die Bearbeitung eines Themas verwenden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit Wochen beschäftigt sich das Team mit der Frage, wie es Energie sparen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beschwert, bewirbt, beschäftigt, bedankt), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschäftigt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L216-v2",
+          "contextKey": "legacy-0036-L216-context-2",
+          "transferKey": "legacy-0036-L216-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003603",
+            "type": "gap_choice",
+            "prompt": "Im Seminar haben wir uns intensiv mit den Folgen der Digitalisierung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The group examined the issue in depth.",
+              "de": "Die Gruppe setzte sich ausführlich mit dem Thema auseinander."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beschwert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschäftigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "geeinigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verabschiedet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To devote time and attention to working on a subject.",
+              "de": "Zeit und Aufmerksamkeit auf die Bearbeitung eines Themas verwenden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Seminar haben wir uns intensiv mit den Folgen der Digitalisierung beschäftigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beschwert, beschäftigt, geeinigt, verabschiedet), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschäftigt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003604",
+      "title": {
+        "en": "To receive a decision or notification",
+        "de": "Bescheid bekommen"
+      },
+      "description": {
+        "en": "To be informed of an outcome or decision.",
+        "de": "Über ein Ergebnis oder eine Entscheidung informiert werden."
+      },
+      "objective": "Recognize Bescheid bekommen in two distinct contexts: To be informed of an outcome or decision.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L217 (28eed9370d9e24d355c52906bd822e447f9b231d63e098438265e414de7f3215), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L217-v1",
+          "contextKey": "legacy-0036-L217-context-1",
+          "transferKey": "legacy-0036-L217-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003604",
+            "type": "choice",
+            "prompt": "Die Bewerbung ist eingegangen. Sobald die Entscheidung feststeht, werden Sie ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The applicant will be notified of the decision.",
+              "de": "Die Bewerberin wird über die Entscheidung informiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Rechnung zahlen"
+              },
+              {
+                "id": "1",
+                "text": "Bescheid bekommen"
+              },
+              {
+                "id": "2",
+                "text": "einen Vertrag kündigen"
+              },
+              {
+                "id": "3",
+                "text": "eine Prüfung schreiben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To be informed of an outcome or decision.",
+              "de": "Über ein Ergebnis oder eine Entscheidung informiert werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bewerbung ist eingegangen. Sobald die Entscheidung feststeht, werden Sie Bescheid bekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (eine Rechnung zahlen, Bescheid bekommen, einen Vertrag kündigen, eine Prüfung schreiben), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"Bescheid bekommen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L217-v2",
+          "contextKey": "legacy-0036-L217-context-2",
+          "transferKey": "legacy-0036-L217-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003604",
+            "type": "gap_choice",
+            "prompt": "Lena wartet auf die Antwort der Behörde. Sie möchte endlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She wants to receive the authority's decision.",
+              "de": "Sie möchte erfahren, wie die Behörde entschieden hat."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaub machen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geld abheben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bescheid bekommen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeit verlieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To be informed of an outcome or decision.",
+              "de": "Über ein Ergebnis oder eine Entscheidung informiert werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Lena wartet auf die Antwort der Behörde. Sie möchte endlich Bescheid bekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (Urlaub machen, Geld abheben, Bescheid bekommen, Zeit verlieren), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"Bescheid bekommen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003605",
+      "title": {
+        "en": "To pass a decision",
+        "de": "Etwas beschließen"
+      },
+      "description": {
+        "en": "To reach a binding decision, often after discussion or a vote.",
+        "de": "Nach Beratung oder Abstimmung eine verbindliche Entscheidung treffen."
+      },
+      "objective": "Recognize beschließen in two distinct contexts: To reach a binding decision, often after discussion or a vote.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L218 (ec9b471ebf066e3c7c91f514635e8fd17017f89405cd179031ca0a8ea9ebf1f9), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L218-v1",
+          "contextKey": "legacy-0036-L218-context-1",
+          "transferKey": "legacy-0036-L218-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003605",
+            "type": "choice",
+            "prompt": "Nach langer Diskussion ___ der Gemeinderat den Bau eines neuen Radwegs.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The council made a formal decision.",
+              "de": "Das Gremium traf eine verbindliche Entscheidung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "besuchte"
+              },
+              {
+                "id": "1",
+                "text": "beschrieb"
+              },
+              {
+                "id": "2",
+                "text": "beschloss"
+              },
+              {
+                "id": "3",
+                "text": "besorgte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To reach a binding decision, often after discussion or a vote.",
+              "de": "Nach Beratung oder Abstimmung eine verbindliche Entscheidung treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach langer Diskussion beschloss der Gemeinderat den Bau eines neuen Radwegs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (besuchte, beschrieb, beschloss, besorgte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschloss\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L218-v2",
+          "contextKey": "legacy-0036-L218-context-2",
+          "transferKey": "legacy-0036-L218-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003605",
+            "type": "gap_choice",
+            "prompt": "Die Mitglieder stimmten ab und ___ einstimmig eine neue Satzung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vote resulted in a unanimous resolution.",
+              "de": "Die Abstimmung führte zu einem gemeinsamen Beschluss."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bemerkten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "berechneten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bestellten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschlossen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To reach a binding decision, often after discussion or a vote.",
+              "de": "Nach Beratung oder Abstimmung eine verbindliche Entscheidung treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitglieder stimmten ab und beschlossen einstimmig eine neue Satzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bemerkten, berechneten, bestellten, beschlossen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschlossen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003606",
+      "title": {
+        "en": "To limit or restrict",
+        "de": "Etwas beschränken"
+      },
+      "description": {
+        "en": "To impose a fixed limit on a number or extent.",
+        "de": "Eine Anzahl oder einen Umfang auf eine festgelegte Grenze begrenzen."
+      },
+      "objective": "Recognize beschränken in two distinct contexts: To impose a fixed limit on a number or extent.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L219 (6b141271e365b6519e1416e11269ad678fac529b74f5e19b7269eeb51ac0cc6a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L219-v1",
+          "contextKey": "legacy-0036-L219-context-1",
+          "transferKey": "legacy-0036-L219-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003606",
+            "type": "choice",
+            "prompt": "Um Kosten zu sparen, ___ die Firma die Zahl der Dienstreisen auf fünf pro Monat.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company sets a maximum of five trips per month.",
+              "de": "Es dürfen höchstens fünf Dienstreisen stattfinden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erhöht"
+              },
+              {
+                "id": "1",
+                "text": "berechnet"
+              },
+              {
+                "id": "2",
+                "text": "beschränkt"
+              },
+              {
+                "id": "3",
+                "text": "beschreibt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To impose a fixed limit on a number or extent.",
+              "de": "Eine Anzahl oder einen Umfang auf eine festgelegte Grenze begrenzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um Kosten zu sparen, beschränkt die Firma die Zahl der Dienstreisen auf fünf pro Monat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (erhöht, berechnet, beschränkt, beschreibt), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschränkt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L219-v2",
+          "contextKey": "legacy-0036-L219-context-2",
+          "transferKey": "legacy-0036-L219-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003606",
+            "type": "gap_choice",
+            "prompt": "Wegen der Raumgröße ist die Teilnehmerzahl auf zwanzig Personen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "No more than twenty people may attend.",
+              "de": "Mehr als zwanzig Menschen dürfen nicht teilnehmen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erhöht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschränkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verteilt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorbereitet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To impose a fixed limit on a number or extent.",
+              "de": "Eine Anzahl oder einen Umfang auf eine festgelegte Grenze begrenzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Raumgröße ist die Teilnehmerzahl auf zwanzig Personen beschränkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (erhöht, beschränkt, verteilt, vorbereitet), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beschränkt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003607",
+      "title": {
+        "en": "To eliminate a problem",
+        "de": "Eine Störung beseitigen"
+      },
+      "description": {
+        "en": "To remove a problem or obstruction completely.",
+        "de": "Ein Hindernis oder eine Störung vollständig entfernen."
+      },
+      "objective": "Recognize beseitigen in two distinct contexts: To remove a problem or obstruction completely.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L222 (f968009b7109feb1cb894a478190021767131b8227d79e1b3c6c046fe51f4c83), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L222-v1",
+          "contextKey": "legacy-0036-L222-context-1",
+          "transferKey": "legacy-0036-L222-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003607",
+            "type": "choice",
+            "prompt": "Nach der Reparatur funktionierte das Netzwerk wieder. Die Techniker konnten die Störung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The network problem was removed.",
+              "de": "Das Problem war nach der Arbeit nicht mehr vorhanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verursachen"
+              },
+              {
+                "id": "1",
+                "text": "melden"
+              },
+              {
+                "id": "2",
+                "text": "beseitigen"
+              },
+              {
+                "id": "3",
+                "text": "verschieben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To remove a problem or obstruction completely.",
+              "de": "Ein Hindernis oder eine Störung vollständig entfernen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Reparatur funktionierte das Netzwerk wieder. Die Techniker konnten die Störung beseitigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verursachen, melden, beseitigen, verschieben), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beseitigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L222-v2",
+          "contextKey": "legacy-0036-L222-context-2",
+          "transferKey": "legacy-0036-L222-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003607",
+            "type": "gap_choice",
+            "prompt": "Nach dem Sturm mussten Arbeiter umgestürzte Äste von der Straße ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The fallen branches had to be cleared from the road.",
+              "de": "Die Straße sollte wieder frei werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bewässern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beseitigen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bemalen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestellen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To remove a problem or obstruction completely.",
+              "de": "Ein Hindernis oder eine Störung vollständig entfernen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sturm mussten Arbeiter umgestürzte Äste von der Straße beseitigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bewässern, beseitigen, bemalen, bestellen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beseitigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003608",
+      "title": {
+        "en": "To occupy seats",
+        "de": "Plätze besetzen"
+      },
+      "description": {
+        "en": "To occupy seats so they are no longer available.",
+        "de": "Sitzplätze einnehmen, sodass sie nicht mehr frei sind."
+      },
+      "objective": "Recognize besetzen in two distinct contexts: To occupy seats so they are no longer available.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L223 (f6248ca171fa72d8c9bba4d149eb68ba5c7955b93f55208048b9fe46fc4a6a17), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L223-v1",
+          "contextKey": "legacy-0036-L223-context-1",
+          "transferKey": "legacy-0036-L223-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003608",
+            "type": "choice",
+            "prompt": "Als wir ins Kino kamen, fanden wir keinen freien Sitzplatz. Alle Plätze waren bereits ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Every seat was occupied.",
+              "de": "Auf jedem Platz saß schon jemand."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nummeriert"
+              },
+              {
+                "id": "1",
+                "text": "gepolstert"
+              },
+              {
+                "id": "2",
+                "text": "besetzt"
+              },
+              {
+                "id": "3",
+                "text": "beleuchtet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To occupy seats so they are no longer available.",
+              "de": "Sitzplätze einnehmen, sodass sie nicht mehr frei sind."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als wir ins Kino kamen, fanden wir keinen freien Sitzplatz. Alle Plätze waren bereits besetzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (nummeriert, gepolstert, besetzt, beleuchtet), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besetzt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L223-v2",
+          "contextKey": "legacy-0036-L223-context-2",
+          "transferKey": "legacy-0036-L223-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003608",
+            "type": "gap_choice",
+            "prompt": "Um nah am Redner zu sitzen, ___ die Gruppe vor Beginn des Vortrags die erste Reihe.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The group occupied the front row.",
+              "de": "Die Gruppe nahm die Plätze in der ersten Reihe ein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verließ"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschrieb"
+                  },
+                  {
+                    "id": "2",
+                    "text": "besetzte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verkaufte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To occupy seats so they are no longer available.",
+              "de": "Sitzplätze einnehmen, sodass sie nicht mehr frei sind."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um nah am Redner zu sitzen, besetzte die Gruppe vor Beginn des Vortrags die erste Reihe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verließ, beschrieb, besetzte, verkaufte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besetzte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003609",
+      "title": {
+        "en": "To get something needed",
+        "de": "Etwas besorgen"
+      },
+      "description": {
+        "en": "To obtain an item that is needed.",
+        "de": "Einen benötigten Gegenstand für jemanden organisieren oder kaufen."
+      },
+      "objective": "Recognize besorgen in two distinct contexts: To obtain an item that is needed.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L225 (a9f1e4a63ecaf709084882b36a6c96b65fc50b1a04814471df618f761702bcd0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L225-v1",
+          "contextKey": "legacy-0036-L225-context-1",
+          "transferKey": "legacy-0036-L225-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003609",
+            "type": "choice",
+            "prompt": "Uns fehlt noch Papier für den Drucker. Kannst du welches ___?",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone needs to obtain more paper.",
+              "de": "Es muss zusätzliches Papier organisiert werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entsorgen"
+              },
+              {
+                "id": "1",
+                "text": "besorgen"
+              },
+              {
+                "id": "2",
+                "text": "bezahlen"
+              },
+              {
+                "id": "3",
+                "text": "beschriften"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To obtain an item that is needed.",
+              "de": "Einen benötigten Gegenstand für jemanden organisieren oder kaufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Uns fehlt noch Papier für den Drucker. Kannst du welches besorgen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (entsorgen, besorgen, bezahlen, beschriften), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besorgen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L225-v2",
+          "contextKey": "legacy-0036-L225-context-2",
+          "transferKey": "legacy-0036-L225-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003609",
+            "type": "gap_choice",
+            "prompt": "Vor der Reise ___ Lea noch die nötigen Medikamente in der Apotheke.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She obtained the necessary medicine before travelling.",
+              "de": "Sie holte die benötigten Mittel rechtzeitig ab."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entsorgte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "betrachtete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "besorgte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vergaß"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To obtain an item that is needed.",
+              "de": "Einen benötigten Gegenstand für jemanden organisieren oder kaufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Reise besorgte Lea noch die nötigen Medikamente in der Apotheke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (entsorgte, betrachtete, besorgte, vergaß), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besorgte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003610",
+      "title": {
+        "en": "To discuss something",
+        "de": "Etwas besprechen"
+      },
+      "description": {
+        "en": "To discuss an issue with others in conversation.",
+        "de": "Ein Thema gemeinsam im Gespräch klären."
+      },
+      "objective": "Recognize besprechen in two distinct contexts: To discuss an issue with others in conversation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L226 (74c37ec4fb57b028c0d832b324af9f35200367b4a3db269d7470768d217a3fc5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L226-v1",
+          "contextKey": "legacy-0036-L226-context-1",
+          "transferKey": "legacy-0036-L226-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003610",
+            "type": "choice",
+            "prompt": "Bevor wir unterschreiben, müssen wir die offenen Vertragsfragen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The parties need to discuss unresolved terms.",
+              "de": "Die Beteiligten sollen gemeinsam über die offenen Punkte reden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschweigen"
+              },
+              {
+                "id": "1",
+                "text": "besprechen"
+              },
+              {
+                "id": "2",
+                "text": "verkaufen"
+              },
+              {
+                "id": "3",
+                "text": "beschränken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To discuss an issue with others in conversation.",
+              "de": "Ein Thema gemeinsam im Gespräch klären."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor wir unterschreiben, müssen wir die offenen Vertragsfragen besprechen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (verschweigen, besprechen, verkaufen, beschränken), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besprechen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L226-v2",
+          "contextKey": "legacy-0036-L226-context-2",
+          "transferKey": "legacy-0036-L226-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003610",
+            "type": "gap_choice",
+            "prompt": "Die Eltern ___ mit der Lehrerin, wie sie das Kind unterstützen können.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The parents discussed support with the teacher.",
+              "de": "Eltern und Lehrerin tauschten sich über Unterstützung aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestraften"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschädigten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "besprachen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschafften"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To discuss an issue with others in conversation.",
+              "de": "Ein Thema gemeinsam im Gespräch klären."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eltern besprachen mit der Lehrerin, wie sie das Kind unterstützen können.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bestraften, beschädigten, besprachen, beschafften), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besprachen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003611",
+      "title": {
+        "en": "To climb a mountain",
+        "de": "Einen Berg besteigen"
+      },
+      "description": {
+        "en": "To ascend a mountain summit or tall tower.",
+        "de": "Durch einen Aufstieg einen Gipfel oder hohen Turm erreichen."
+      },
+      "objective": "Recognize besteigen in two distinct contexts: To ascend a mountain summit or tall tower.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L229 (9c235bd55ed04862c6f254558b3319abe6a18401ca64774f6b98c70eee3be425), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L229-v1",
+          "contextKey": "legacy-0036-L229-context-1",
+          "transferKey": "legacy-0036-L229-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003611",
+            "type": "choice",
+            "prompt": "Die Bergsteiger wollen morgen den Gipfel des hohen Berges ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The climbers plan to ascend to the summit.",
+              "de": "Sie planen den Aufstieg bis zum Gipfel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beschriften"
+              },
+              {
+                "id": "1",
+                "text": "überweisen"
+              },
+              {
+                "id": "2",
+                "text": "besteigen"
+              },
+              {
+                "id": "3",
+                "text": "untersuchen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To ascend a mountain summit or tall tower.",
+              "de": "Durch einen Aufstieg einen Gipfel oder hohen Turm erreichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bergsteiger wollen morgen den Gipfel des hohen Berges besteigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beschriften, überweisen, besteigen, untersuchen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besteigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L229-v2",
+          "contextKey": "legacy-0036-L229-context-2",
+          "transferKey": "legacy-0036-L229-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003611",
+            "type": "gap_choice",
+            "prompt": "Die Touristengruppe durfte den alten Aussichtsturm nur mit einer Führung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Visitors could ascend the tower only with a guide.",
+              "de": "Nur mit einer Führung war der Aufstieg auf den Turm erlaubt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestreiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bestätigen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "besteigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschädigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To ascend a mountain summit or tall tower.",
+              "de": "Durch einen Aufstieg einen Gipfel oder hohen Turm erreichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Touristengruppe durfte den alten Aussichtsturm nur mit einer Führung besteigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bestreiten, bestätigen, besteigen, beschädigen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"besteigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003612",
+      "title": {
+        "en": "To determine or decide",
+        "de": "Eine Entscheidung bestimmen"
+      },
+      "description": {
+        "en": "To decide authoritatively who takes a role or which outcome applies.",
+        "de": "Verbindlich festlegen, wer eine Aufgabe übernimmt oder welches Ergebnis gilt."
+      },
+      "objective": "Recognize bestimmen in two distinct contexts: To decide authoritatively who takes a role or which outcome applies.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L231 (d141eae91c5d27814a83865168f5d87610713404fcd5ac10592a1be240aaf46a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L231-v1",
+          "contextKey": "legacy-0036-L231-context-1",
+          "transferKey": "legacy-0036-L231-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003612",
+            "type": "choice",
+            "prompt": "Nach der Abstimmung wird der Vorstand ___, wer das neue Projekt leitet.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The board will designate the project lead.",
+              "de": "Der Vorstand legt die verantwortliche Person fest."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beobachten"
+              },
+              {
+                "id": "1",
+                "text": "bestimmen"
+              },
+              {
+                "id": "2",
+                "text": "beschaffen"
+              },
+              {
+                "id": "3",
+                "text": "beschränken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To decide authoritatively who takes a role or which outcome applies.",
+              "de": "Verbindlich festlegen, wer eine Aufgabe übernimmt oder welches Ergebnis gilt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Abstimmung wird der Vorstand bestimmen, wer das neue Projekt leitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beobachten, bestimmen, beschaffen, beschränken), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"bestimmen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L231-v2",
+          "contextKey": "legacy-0036-L231-context-2",
+          "transferKey": "legacy-0036-L231-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003612",
+            "type": "gap_choice",
+            "prompt": "Nach Prüfung aller Arbeiten ___ die Jury die Gewinnerin des Wettbewerbs.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The panel decided who won.",
+              "de": "Die Jury wählte verbindlich aus, wer gewonnen hatte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "betrachtete"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bestrafte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bestimmte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "besorgte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To decide authoritatively who takes a role or which outcome applies.",
+              "de": "Verbindlich festlegen, wer eine Aufgabe übernimmt oder welches Ergebnis gilt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Prüfung aller Arbeiten bestimmte die Jury die Gewinnerin des Wettbewerbs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (betrachtete, bestrafte, bestimmte, besorgte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"bestimmte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003613",
+      "title": {
+        "en": "To punish someone",
+        "de": "Jemanden bestrafen"
+      },
+      "description": {
+        "en": "To impose a penalty for breaking a rule.",
+        "de": "Für einen Regelverstoß eine Sanktion verhängen."
+      },
+      "objective": "Recognize bestrafen in two distinct contexts: To impose a penalty for breaking a rule.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L232 (7b362b267956c43da88526eb88d0479a25a7d28cc930e1c289507b1cea7c7900), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L232-v1",
+          "contextKey": "legacy-0036-L232-context-1",
+          "transferKey": "legacy-0036-L232-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003613",
+            "type": "choice",
+            "prompt": "Der Schiedsrichter ___ den Spieler wegen groben Foulspiels mit einer Sperre.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The suspension is a penalty for the foul.",
+              "de": "Die Sperre ist eine Sanktion für den Regelverstoß."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "belohnte"
+              },
+              {
+                "id": "1",
+                "text": "begrüßte"
+              },
+              {
+                "id": "2",
+                "text": "bestrafte"
+              },
+              {
+                "id": "3",
+                "text": "beruhigte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To impose a penalty for breaking a rule.",
+              "de": "Für einen Regelverstoß eine Sanktion verhängen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Schiedsrichter bestrafte den Spieler wegen groben Foulspiels mit einer Sperre.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (belohnte, begrüßte, bestrafte, beruhigte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"bestrafte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L232-v2",
+          "contextKey": "legacy-0036-L232-context-2",
+          "transferKey": "legacy-0036-L232-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003613",
+            "type": "gap_choice",
+            "prompt": "Wer gegen die Vorschriften verstößt, kann mit einer Geldbuße ___ werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A fine is a possible punishment.",
+              "de": "Eine Geldbuße ist eine mögliche Strafe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beschäftigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "besorgt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bestraft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschädigt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To impose a penalty for breaking a rule.",
+              "de": "Für einen Regelverstoß eine Sanktion verhängen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer gegen die Vorschriften verstößt, kann mit einer Geldbuße bestraft werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beschäftigt, besorgt, bestraft, beschädigt), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"bestraft\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003614",
+      "title": {
+        "en": "To operate a switch",
+        "de": "Einen Schalter betätigen"
+      },
+      "description": {
+        "en": "To press or operate a control to make a device respond.",
+        "de": "Einen Knopf oder Schalter drücken oder bewegen, damit ein Gerät reagiert."
+      },
+      "objective": "Recognize betätigen in two distinct contexts: To press or operate a control to make a device respond.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L234 (f2906ea3544ada4faebf1d7768c339ee807f5be95b19da45e820e062f75d4536), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L234-v1",
+          "contextKey": "legacy-0036-L234-context-1",
+          "transferKey": "legacy-0036-L234-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003614",
+            "type": "choice",
+            "prompt": "Um die Maschine sofort zu stoppen, musst du den roten Not-Aus-Schalter ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Pressing the emergency switch stops the machine.",
+              "de": "Der Schalter muss gedrückt werden, um die Maschine anzuhalten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beobachten"
+              },
+              {
+                "id": "1",
+                "text": "bestellen"
+              },
+              {
+                "id": "2",
+                "text": "betätigen"
+              },
+              {
+                "id": "3",
+                "text": "beschriften"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To press or operate a control to make a device respond.",
+              "de": "Einen Knopf oder Schalter drücken oder bewegen, damit ein Gerät reagiert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um die Maschine sofort zu stoppen, musst du den roten Not-Aus-Schalter betätigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beobachten, bestellen, betätigen, beschriften), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betätigen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L234-v2",
+          "contextKey": "legacy-0036-L234-context-2",
+          "transferKey": "legacy-0036-L234-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003614",
+            "type": "gap_choice",
+            "prompt": "Damit die Warnblinker angingen, ___ die Fahrerin den entsprechenden Knopf.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She operated the hazard-light control.",
+              "de": "Sie drückte den Knopf, der die Warnlichter einschaltet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beurteilte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "betätigte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beschädigte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "besuchte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To press or operate a control to make a device respond.",
+              "de": "Einen Knopf oder Schalter drücken oder bewegen, damit ein Gerät reagiert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Damit die Warnblinker angingen, betätigte die Fahrerin den entsprechenden Knopf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beurteilte, betätigte, beschädigte, besuchte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betätigte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003615",
+      "title": {
+        "en": "To participate in something",
+        "de": "Sich an etwas beteiligen"
+      },
+      "description": {
+        "en": "To take an active part in a shared activity.",
+        "de": "Bei einer gemeinsamen Aktion aktiv mitmachen."
+      },
+      "objective": "Recognize beteiligen in two distinct contexts: To take an active part in a shared activity.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L235 (080e94847a798081f79769e15709db478576c4c84ca5cf00627a985cb7738f12), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L235-v1",
+          "contextKey": "legacy-0036-L235-context-1",
+          "transferKey": "legacy-0036-L235-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003615",
+            "type": "choice",
+            "prompt": "Viele Bürger ___ sich an der Diskussion über den neuen Park.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Residents participate in the discussion.",
+              "de": "Die Menschen nehmen aktiv an der Diskussion teil."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bedanken"
+              },
+              {
+                "id": "1",
+                "text": "beklagen"
+              },
+              {
+                "id": "2",
+                "text": "beteiligen"
+              },
+              {
+                "id": "3",
+                "text": "beruhigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To take an active part in a shared activity.",
+              "de": "Bei einer gemeinsamen Aktion aktiv mitmachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Bürger beteiligen sich an der Diskussion über den neuen Park.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bedanken, beklagen, beteiligen, beruhigen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beteiligen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L235-v2",
+          "contextKey": "legacy-0036-L235-context-2",
+          "transferKey": "legacy-0036-L235-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003615",
+            "type": "gap_choice",
+            "prompt": "An der Spendenaktion haben sich mehr als hundert Menschen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "More than a hundred people took part.",
+              "de": "Mehr als hundert Personen machten bei der Aktion mit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beschäftigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "besorgt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beteiligt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschwert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To take an active part in a shared activity.",
+              "de": "Bei einer gemeinsamen Aktion aktiv mitmachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An der Spendenaktion haben sich mehr als hundert Menschen beteiligt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beschäftigt, besorgt, beteiligt, beschwert), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beteiligt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003616",
+      "title": {
+        "en": "To emphasize a point",
+        "de": "Eine Aussage betonen"
+      },
+      "description": {
+        "en": "To stress a statement and make its importance clear.",
+        "de": "Eine Aussage besonders hervorheben und ihre Bedeutung deutlich machen."
+      },
+      "objective": "Recognize betonen in two distinct contexts: To stress a statement and make its importance clear.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L236 (3cafa01bf31a669d6d6bee4d147244b059722679e8a30742995e425ea26ee770), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L236-v1",
+          "contextKey": "legacy-0036-L236-context-1",
+          "transferKey": "legacy-0036-L236-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003616",
+            "type": "choice",
+            "prompt": "Die Chefin wiederholte es dreimal, um zu ___, dass Sicherheit wichtiger als Tempo ist.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Repeating the message highlights its importance.",
+              "de": "Die Wiederholung hebt die wichtige Aussage hervor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bestreiten"
+              },
+              {
+                "id": "1",
+                "text": "betonen"
+              },
+              {
+                "id": "2",
+                "text": "beschaffen"
+              },
+              {
+                "id": "3",
+                "text": "beschränken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To stress a statement and make its importance clear.",
+              "de": "Eine Aussage besonders hervorheben und ihre Bedeutung deutlich machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Chefin wiederholte es dreimal, um zu betonen, dass Sicherheit wichtiger als Tempo ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bestreiten, betonen, beschaffen, beschränken), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betonen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L236-v2",
+          "contextKey": "legacy-0036-L236-context-2",
+          "transferKey": "legacy-0036-L236-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003616",
+            "type": "gap_choice",
+            "prompt": "In seiner Dankesrede ___ der Bürgermeister die Bedeutung der Freiwilligenarbeit und lobte alle Helfer.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The mayor stressed the importance of volunteering.",
+              "de": "Er stellte die Wichtigkeit des Engagements heraus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestritt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "betrachtete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "betonte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestrafte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To stress a statement and make its importance clear.",
+              "de": "Eine Aussage besonders hervorheben und ihre Bedeutung deutlich machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In seiner Dankesrede betonte der Bürgermeister die Bedeutung der Freiwilligenarbeit und lobte alle Helfer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bestritt, betrachtete, betonte, bestrafte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betonte\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003617",
+      "title": {
+        "en": "To examine or view something",
+        "de": "Etwas betrachten"
+      },
+      "description": {
+        "en": "To look at something carefully or consider it from a viewpoint.",
+        "de": "Etwas aufmerksam ansehen oder aus einer Perspektive beurteilen."
+      },
+      "objective": "Recognize betrachten in two distinct contexts: To look at something carefully or consider it from a viewpoint.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L237 (4fc3abfc6ab3f0949be4a39eaf744211af9a51fd4b9ede9a0f8abb8feebf25e6), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L237-v1",
+          "contextKey": "legacy-0036-L237-context-1",
+          "transferKey": "legacy-0036-L237-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003617",
+            "type": "choice",
+            "prompt": "Die Kunsthistorikerin ___ das Gemälde aus nächster Nähe, um Details zu erkennen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The historian examined the painting closely.",
+              "de": "Sie sah das Bild aufmerksam an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bestrafte"
+              },
+              {
+                "id": "1",
+                "text": "betrachtete"
+              },
+              {
+                "id": "2",
+                "text": "besorgte"
+              },
+              {
+                "id": "3",
+                "text": "beschaffte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To look at something carefully or consider it from a viewpoint.",
+              "de": "Etwas aufmerksam ansehen oder aus einer Perspektive beurteilen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kunsthistorikerin betrachtete das Gemälde aus nächster Nähe, um Details zu erkennen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (bestrafte, betrachtete, besorgte, beschaffte), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betrachtete\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L237-v2",
+          "contextKey": "legacy-0036-L237-context-2",
+          "transferKey": "legacy-0036-L237-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003617",
+            "type": "gap_choice",
+            "prompt": "Wir sollten das Problem aus verschiedenen Perspektiven ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The problem should be considered from several viewpoints.",
+              "de": "Es geht darum, mehrere Sichtweisen einzubeziehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beseitigen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschließen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "betrachten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestrafen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To look at something carefully or consider it from a viewpoint.",
+              "de": "Etwas aufmerksam ansehen oder aus einer Perspektive beurteilen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sollten das Problem aus verschiedenen Perspektiven betrachten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beseitigen, beschließen, betrachten, bestrafen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betrachten\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003618",
+      "title": {
+        "en": "To amount to a sum",
+        "de": "Eine Summe betragen"
+      },
+      "description": {
+        "en": "To amount to a stated quantity or distance.",
+        "de": "Eine bestimmte Höhe, Menge oder Distanz haben."
+      },
+      "objective": "Recognize betragen in two distinct contexts: To amount to a stated quantity or distance.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L238 (1bdec038bc4ab5b21c33b199aedb2e195bb6bf0b8413d8dd7ff17a94bdc6f232), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L238-v1",
+          "contextKey": "legacy-0036-L238-context-1",
+          "transferKey": "legacy-0036-L238-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003618",
+            "type": "choice",
+            "prompt": "Die Reparatur kostet genau 480 Euro. Die Gesamtkosten ___ also 480 Euro.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence states the total amount.",
+              "de": "Gesucht ist die Höhe der Gesamtkosten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "betonen"
+              },
+              {
+                "id": "1",
+                "text": "betreffen"
+              },
+              {
+                "id": "2",
+                "text": "betragen"
+              },
+              {
+                "id": "3",
+                "text": "bestimmen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To amount to a stated quantity or distance.",
+              "de": "Eine bestimmte Höhe, Menge oder Distanz haben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur kostet genau 480 Euro. Die Gesamtkosten betragen also 480 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (betonen, betreffen, betragen, bestimmen), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betragen\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L238-v2",
+          "contextKey": "legacy-0036-L238-context-2",
+          "transferKey": "legacy-0036-L238-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003618",
+            "type": "gap_choice",
+            "prompt": "Der Abstand zwischen den beiden Orten ___ zwölf Kilometer.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The distance is given as a numerical quantity.",
+              "de": "Die Entfernung wird als Zahl angegeben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "betrifft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschränkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beträgt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestimmt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To amount to a stated quantity or distance.",
+              "de": "Eine bestimmte Höhe, Menge oder Distanz haben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Abstand zwischen den beiden Orten beträgt zwölf Kilometer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (betrifft, beschränkt, beträgt, bestimmt), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"beträgt\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003619",
+      "title": {
+        "en": "To affect or concern",
+        "de": "Jemanden oder etwas betreffen"
+      },
+      "description": {
+        "en": "To apply to or affect a person or group.",
+        "de": "Für eine Person oder Gruppe gelten oder Auswirkungen auf sie haben."
+      },
+      "objective": "Recognize betreffen in two distinct contexts: To apply to or affect a person or group.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L239 (c5783b7d7d1deabe3e910a7ad458f00e45adc412a8f86334cdd454bffd4256e5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0036-L239-v1",
+          "contextKey": "legacy-0036-L239-context-1",
+          "transferKey": "legacy-0036-L239-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003619",
+            "type": "choice",
+            "prompt": "Die neue Sicherheitsregel gilt für alle Beschäftigten. Sie ___ also auch die Auszubildenden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rule applies to apprentices as well.",
+              "de": "Die Regel gilt auch für die Auszubildenden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "betont"
+              },
+              {
+                "id": "1",
+                "text": "bestimmt"
+              },
+              {
+                "id": "2",
+                "text": "betrifft"
+              },
+              {
+                "id": "3",
+                "text": "bestraft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To apply to or affect a person or group.",
+              "de": "Für eine Person oder Gruppe gelten oder Auswirkungen auf sie haben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Sicherheitsregel gilt für alle Beschäftigten. Sie betrifft also auch die Auszubildenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (betont, bestimmt, betrifft, bestraft), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betrifft\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        },
+        {
+          "variantKey": "legacy-0036-L239-v2",
+          "contextKey": "legacy-0036-L239-context-2",
+          "transferKey": "legacy-0036-L239-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000360191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003619",
+            "type": "gap_choice",
+            "prompt": "Die Änderung ___ nur die Abteilung Einkauf; alle anderen arbeiten wie bisher.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Only the purchasing department is affected.",
+              "de": "Nur eine Abteilung ist von der Änderung betroffen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beruhigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "betrifft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beschäftigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "belohnt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To apply to or affect a person or group.",
+              "de": "Für eine Person oder Gruppe gelten oder Auswirkungen auf sie haben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Änderung betrifft nur die Abteilung Einkauf; alle anderen arbeiten wie bisher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, four options (beruhigt, betrifft, beschäftigt, belohnt), morphology, contextual meaning, accepted answer, bilingual explanation and hint. \"betrifft\" is the only supported completion in this scenario; paired question differs. Independent human approval pending."
+        }
+      ]
+    }
+  ]
 }
