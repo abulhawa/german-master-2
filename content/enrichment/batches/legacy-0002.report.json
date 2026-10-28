@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "batchId": "legacy-0002",
   "state": "ready-for-review",
-  "catalogSha256": "57c1f5664c190a46bed552b61a3102def1798db5bf579d0a47d4101640b23e40",
+  "catalogSha256": "ce0a9aed534ac1bf57939227aba66954906490e498a04643ac85716e90e93ccb",
   "aiReviewer": "OpenAI GPT-6 (AI editorial review; not human or independent review)",
   "reviewedAt": "2026-10-28",
-  "reviewNotes": "AI editorial assessment of 32 original low-typing recognition questions from 16 verb seeds. Per question: solved without relying on the suggested key, evaluated every offered distractor, morphology/infinitival grammar, explicit task cues, alternate readings, bilingual hint and explanation, linkages, completed-answer naturalness, CEFR source label and two distinct usage situations. Four source records deferred because inherited glosses/examples or objective mapping conflict. Publication remains unapproved; no human endorsement, licensing certification or measured learning transfer. Repository structural validation assigned to branch CI, not claimed locally.",
+  "reviewNotes": "AI editorial assessment of 32 original low-typing recognition questions from 16 verb seeds. Per question: solved without relying on the suggested key, evaluated every offered distractor, morphology/infinitival grammar, explicit task cues, alternate readings, bilingual hint and explanation, linkages, completed-answer naturalness, CEFR source label and two distinct usage situations. Four source records deferred because inherited glosses/examples or objective mapping conflict. Publication remains unapproved; no human endorsement, licensing certification or measured learning transfer. Repository structural validation assigned to branch CI, not claimed locally. Final grammar pass after GitHub save caught and corrected the abgelten modal/passive error and the missing zu requirement with abgewöhnen; amended completed answers and reviewed all choices. Earlier saved commit remains in Git history. New SHA computed after corrected catalog.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/verbs.jsonl:L1",
@@ -58,8 +58,8 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000000204"
       ],
-      "notes": "Independent AI editorial pass reviewed both authored contexts and all four answer options per question, ensuring meaning, grammar, unambiguous key, rubric, bilingual feedback and B1/B2 label preserved. Variant contexts: Die angesammelten Überstunden lassen sich gemäß der Betriebsvereinbarung durch freie Tage ___. / Mit der vereinbarten Pauschale sollen die zusätzlichen Arbeitsstunden vollständig ___ werden.",
-      "corrections": "Original lexical sense retained and clarified; no old example sentences reused. Grammar/meaning verified in authored contexts rather than treating the old approval flag as a quality guarantee.",
+      "notes": "Independent AI editorial pass reviewed both authored contexts and all four answer options per question, ensuring meaning, grammar, unambiguous key, rubric, bilingual feedback and B1/B2 label preserved. Variant contexts: Die angesammelten Überstunden lassen sich gemäß der Betriebsvereinbarung durch freie Tage ___. / Mit der vereinbarten Pauschale sollen die zusätzlichen Arbeitsstunden vollständig ___ werden. Follow-up grammatical audit corrected sentence and key context.",
+      "corrections": "Original lexical sense retained and clarified; no old example sentences reused. Grammar/meaning verified in authored contexts rather than treating the old approval flag as a quality guarantee. Second-variant passive incorrectly yielded 'abgelten werden'; changed to grammatical active infinitive and replaced distractors with appropriate infinitives.",
       "rightsBasis": "Lexical/grammar facts and source lemma only; prompts, distractors, bilingual explanations and contexts freshly authored. Source examples not reproduced; rights and publication acceptance remain pending."
     },
     {
@@ -69,8 +69,8 @@
       "targetIds": [
         "80000000-0000-4000-8000-000000000205"
       ],
-      "notes": "Independent AI editorial pass reviewed both authored contexts and all four answer options per question, ensuring meaning, grammar, unambiguous key, rubric, bilingual feedback and B1/B2 label preserved. Variant contexts: Ich möchte mir das ständige Nägelkauen endlich ___. / Nach mehreren Beschwerden versucht er, sich das laute Telefonieren im Zug ___.",
-      "corrections": "Original lexical sense retained and clarified; no old example sentences reused. Grammar/meaning verified in authored contexts rather than treating the old approval flag as a quality guarantee.",
+      "notes": "Independent AI editorial pass reviewed both authored contexts and all four answer options per question, ensuring meaning, grammar, unambiguous key, rubric, bilingual feedback and B1/B2 label preserved. Variant contexts: Ich möchte mir das ständige Nägelkauen endlich ___. / Nach mehreren Beschwerden versucht er, sich das laute Telefonieren im Zug ___. Follow-up grammatical audit corrected sentence and key context.",
+      "corrections": "Original lexical sense retained and clarified; no old example sentences reused. Grammar/meaning verified in authored contexts rather than treating the old approval flag as a quality guarantee. Second-variant 'versucht ... abgewöhnen' omitted mandatory zu; switched to modal 'will ... abgewöhnen' for a grammatical bare infinitive.",
       "rightsBasis": "Lexical/grammar facts and source lemma only; prompts, distractors, bilingual explanations and contexts freshly authored. Source examples not reproduced; rights and publication acceptance remain pending."
     },
     {
