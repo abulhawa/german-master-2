@@ -1,191 +1,227 @@
 {
   "schemaVersion": 1,
   "batchId": "legacy-0032",
-  "state": "draft",
-  "catalogSha256": "051c7d843e126ba60cb905aadd2e9321e56b8c8fd3ca130ae4f54376e630c271",
-  "aiReviewer": "Not yet reviewed",
+  "state": "ready-for-review",
+  "catalogSha256": "08941b06d76847a6d12e09ea22c29b5802cd4ae2b15c03cec6c0c64e9be1ed34",
+  "aiReviewer": "GPT-6 (AI editorial review only)",
   "reviewedAt": "2026-10-28",
-  "reviewNotes": "Resumable draft checkpoint after legacy-0031 passed CI. All 20 source rows pending. Resume source triage, existing objective lookup, original authoring and editorial review; no approval claimed.",
+  "reviewNotes": "Separate GPT-6 AI editorial review of 36 original questions: checked each German sentence, all four options, correct morphological form, intended meaning, bilingual feedback and context differences. 18 sources authored, two deferred (near-duplicate Auftrag concepts and contradictory Ausführung gloss/example). No human approval, CEFR certification or rights clearance. Reviews pending; publicationApproved=false.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L176",
       "sourceHash": "b2859b9edfab142b8b96fc05f2d8b834522b2650e2801a52f3f4b6666e351194",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003200"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Auftragsabwicklung; full sentences and every option editorially reviewed.",
+      "corrections": "Distinguish administrative order processing from award of a contract and actual work execution.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L177",
       "sourceHash": "953f38eec9bea1398632d1d362d57a156aac515f5cd546f8429850f1f76cf5bc",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Auftragsausführung is close to Auftragsabwicklung and Ausführung; precise distinct objective and rights/CEFR mapping need review before authoring competing synonym exercises.",
+      "corrections": "Sense or objective overlap requires independent editorial review.",
+      "rightsBasis": "No exercise authored or source examples reused."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L178",
       "sourceHash": "5e3c2c5f3e0bdc542553669a4f6dc0fcd387ccb0690173ef172d6800dce4bc39",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003202"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Auftragsvergabe; full sentences and every option editorially reviewed.",
+      "corrections": "Auftragsvergabe means award/selection, not the performance of contracted work.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L179",
       "sourceHash": "8f54b8f761f76ab7d07af696352a48a4f50118b2db95d3b5c427cdcf0baeb8ea",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003203"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Auftritt; full sentences and every option editorially reviewed.",
+      "corrections": "Source gloss emphasizes demeanor; target the equally valid public stage performance sense, recorded as a sense restriction.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L180",
       "sourceHash": "bf00abebe344d09f413540a5a61b837401151c964338fdd31e76454cabede2f6",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003204"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Aufwand; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L181",
       "sourceHash": "bae64b7b59e2d242465e27e9db541d9ff0a5c24f74dcfd07cc2431981daf3412",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003205"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Aufzählung; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L184",
       "sourceHash": "56ac4f4ae625b7e62b43624037d9e3fad7c13e3d9dcd959ebff22b80bc51d95b",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003206"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Augenblick; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L187",
       "sourceHash": "5708fafd78dbf4c98b3d7929e3527ef4fa2f1648dcdb81cefbb671397f75e09b",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003207"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Ausdruck; full sentences and every option editorially reviewed.",
+      "corrections": "Target the linguistic expression and idiom, not a printed output.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L188",
       "sourceHash": "759359a498893d0c79caafee106379555f541a1e23c256753b791af4878fc073",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003208"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Ausfahrt; full sentences and every option editorially reviewed.",
+      "corrections": "Target motorway exit, not a driveway or departure.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L190",
       "sourceHash": "2ad1a4fa55833686576228b89a6849d892e8b918278de7060b55737b317ebf99",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Source gloss Ausführung='version' conflicts with its example about execution of work. Defer until the intended sense and objective can be mapped unambiguously.",
+      "corrections": "Sense or objective overlap requires independent editorial review.",
+      "rightsBasis": "No exercise authored or source examples reused."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L191",
       "sourceHash": "a03e3c1509e0a8bcaa0ba403d197f6d7bf818fba4466bfe9a711df6ccd0e4f0e",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003210"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Ausgabe; full sentences and every option editorially reviewed.",
+      "corrections": "Ausgabe is polysemous (publication issue, expenditure, output); use only the publication sense.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L193",
       "sourceHash": "242e94c9f767ee918c03a5f983de1d6c81476abb8de91a945a27d5bbb4e3502d",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003211"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Ausgleich; full sentences and every option editorially reviewed.",
+      "corrections": "Source gloss compensation and example balance are distinct senses; both are represented in different contexts.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L194",
       "sourceHash": "57dedf920f41b9b14919f51f4a1aaf80f9298cc54a29e78dea71b1146d178a8a",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003212"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Aushang; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L195",
       "sourceHash": "4aa8a33f58a2de3f657ec5f8cfded543b382976e464f647c23dc7bc6e2c11fdd",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003213"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Aushilfe; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L199",
       "sourceHash": "2b34bf2f03044b12294e8647a76f3aee06af0061edb48cea4d05aed129799959",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003214"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Ausnahme; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L200",
       "sourceHash": "861fe1c57da2b65a9cac5b3e880cef1b17fdbba30717b9299aa7baed1a787b71",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003215"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Ausrede; full sentences and every option editorially reviewed.",
+      "corrections": "Distinguish fabricated Ausrede from a legitimate Entschuldigung; avoid competing synonyms.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L202",
       "sourceHash": "13c02f9736a588b540a85c9575a14aa93f469e806613bdd3e8a11ea18d25378e",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003216"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Außendienstmitarbeiter; full sentences and every option editorially reviewed.",
+      "corrections": "Use the gendered masculine source noun; no claim that all field workers are men.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L203",
       "sourceHash": "dc6300a774014fc057cdbd530131feb385b2f92d962edbf3f518440c70cef02d",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003217"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Äußerung; full sentences and every option editorially reviewed.",
+      "corrections": "Inherited gloss and level treated as unverified claims; precise sense selected.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L204",
       "sourceHash": "da080d750f22967c0e3bf637e9db5d24b1f7d4f0c7ad84877a506d231d512029",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003218"
+      ],
+      "notes": "Two original B1 selection exercises for precise meaning of Aussprache; full sentences and every option editorially reviewed.",
+      "corrections": "Pronunciation is normally uncountable in this sense; the inherited plural is not used.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L205",
       "sourceHash": "1d47ef48862b4c632771f4fe32d2e4312be18c2e553a4ff4cc7e04b5da28fccb",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003219"
+      ],
+      "notes": "Two original B2 selection exercises for precise meaning of Ausstattung; full sentences and every option editorially reviewed.",
+      "corrections": "Ausstattung means equipment/facilities, not necessarily a single item.",
+      "rightsBasis": "Original contexts, prompts, options and bilingual feedback authored from general lexical facts; inherited examples not copied. Independent rights review pending."
     }
   ]
 }

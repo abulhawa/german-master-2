@@ -2,5 +2,2868 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000003200",
+      "title": {
+        "en": "Order processing",
+        "de": "Auftragsabwicklung"
+      },
+      "description": {
+        "en": "Administrative processing of an order from receipt to fulfilment.",
+        "de": "Organisatorische Bearbeitung eines Auftrags vom Eingang bis zur Erledigung."
+      },
+      "objective": "Recognize Auftragsabwicklung in two distinct contexts: Administrative processing of an order from receipt to fulfilment.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L176 (b2859b9edfab142b8b96fc05f2d8b834522b2650e2801a52f3f4b6666e351194), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L176-v1",
+          "contextKey": "legacy-0032-L176-context-1",
+          "transferKey": "legacy-0032-L176-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003200",
+            "type": "choice",
+            "prompt": "Die Bestellung ist eingegangen; Rechnung, Lagerbestand und Versand werden geprüft. Die gesamte ___ läuft digital.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The administrative stages of a customer order are handled digitally.",
+              "de": "Die Bearbeitung des Kundenauftrags läuft digital."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auftragsabwicklung"
+              },
+              {
+                "id": "1",
+                "text": "Auftragsvergabe"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Administrative processing of an order from receipt to fulfilment.",
+              "de": "Organisatorische Bearbeitung eines Auftrags vom Eingang bis zur Erledigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bestellung ist eingegangen; Rechnung, Lagerbestand und Versand werden geprüft. Die gesamte Auftragsabwicklung läuft digital.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auftragsabwicklung, Auftragsvergabe, Bewerbung, Kündigung), grammar, answer, bilingual explanation and hint. Auftragsabwicklung covers processing an existing order; Auftragsvergabe concerns awarding a contract. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L176-v2",
+          "contextKey": "legacy-0032-L176-context-2",
+          "transferKey": "legacy-0032-L176-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003200",
+            "type": "gap_choice",
+            "prompt": "Kunden können online verfolgen, ob ihre Bestellung geprüft, verpackt oder versendet wurde. So wird die ___ transparent.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The order's processing stages are visible.",
+              "de": "Der Bearbeitungsstand des Auftrags ist sichtbar."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaubsplanung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Auftragsabwicklung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Personalwahl"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reklame"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Administrative processing of an order from receipt to fulfilment.",
+              "de": "Organisatorische Bearbeitung eines Auftrags vom Eingang bis zur Erledigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kunden können online verfolgen, ob ihre Bestellung geprüft, verpackt oder versendet wurde. So wird die Auftragsabwicklung transparent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Urlaubsplanung, Auftragsabwicklung, Personalwahl, Reklame), grammar, answer, bilingual explanation and hint. Only Auftragsabwicklung names the processing workflow shown in the tracking system. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003202",
+      "title": {
+        "en": "Awarding a contract",
+        "de": "Auftragsvergabe"
+      },
+      "description": {
+        "en": "Decision about which bidder receives a contract.",
+        "de": "Entscheidung, welcher Anbieter einen Auftrag erhält."
+      },
+      "objective": "Recognize Auftragsvergabe in two distinct contexts: Decision about which bidder receives a contract.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L178 (5e3c2c5f3e0bdc542553669a4f6dc0fcd387ccb0690173ef172d6800dce4bc39), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L178-v1",
+          "contextKey": "legacy-0032-L178-context-1",
+          "transferKey": "legacy-0032-L178-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003202",
+            "type": "choice",
+            "prompt": "Drei Baufirmen haben Angebote abgegeben. Nach der Prüfung entscheidet die Gemeinde über die ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A bidder is selected to receive the contract.",
+              "de": "Die Gemeinde entscheidet, welche Firma den Auftrag erhält."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auftragsausführung"
+              },
+              {
+                "id": "1",
+                "text": "Auftragsvergabe"
+              },
+              {
+                "id": "2",
+                "text": "Abrechnung"
+              },
+              {
+                "id": "3",
+                "text": "Abnahme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Decision about which bidder receives a contract.",
+              "de": "Entscheidung, welcher Anbieter einen Auftrag erhält."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Drei Baufirmen haben Angebote abgegeben. Nach der Prüfung entscheidet die Gemeinde über die Auftragsvergabe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auftragsausführung, Auftragsvergabe, Abrechnung, Abnahme), grammar, answer, bilingual explanation and hint. Auftragsvergabe means awarding the contract; Ausführung means doing the work afterward. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L178-v2",
+          "contextKey": "legacy-0032-L178-context-2",
+          "transferKey": "legacy-0032-L178-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003202",
+            "type": "gap_choice",
+            "prompt": "Nach der Ausschreibung wählt die Universität einen IT-Dienstleister aus. Die ___ wird schriftlich dokumentiert.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The institution chooses a service provider.",
+              "de": "Die Universität vergibt den Auftrag an einen Anbieter."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Auftragsvergabe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausführung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Decision about which bidder receives a contract.",
+              "de": "Entscheidung, welcher Anbieter einen Auftrag erhält."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Ausschreibung wählt die Universität einen IT-Dienstleister aus. Die Auftragsvergabe wird schriftlich dokumentiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Lieferung, Auftragsvergabe, Ausführung, Reparatur), grammar, answer, bilingual explanation and hint. Auftragsvergabe is the selection decision, not the subsequent service. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003203",
+      "title": {
+        "en": "Stage appearance or performance",
+        "de": "Auftritt auf der Bühne"
+      },
+      "description": {
+        "en": "An appearance or performance before an audience.",
+        "de": "Ein Erscheinen oder eine Darbietung vor Publikum."
+      },
+      "objective": "Recognize Auftritt in two distinct contexts: An appearance or performance before an audience.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L179 (8f54b8f761f76ab7d07af696352a48a4f50118b2db95d3b5c427cdcf0baeb8ea), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L179-v1",
+          "contextKey": "legacy-0032-L179-context-1",
+          "transferKey": "legacy-0032-L179-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003203",
+            "type": "choice",
+            "prompt": "Die Sängerin betritt die Bühne; ihr ___ beginnt in wenigen Sekunden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The singer is about to perform.",
+              "de": "Die Sängerin tritt vor Publikum auf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auftrag"
+              },
+              {
+                "id": "1",
+                "text": "Auftritt"
+              },
+              {
+                "id": "2",
+                "text": "Umzug"
+              },
+              {
+                "id": "3",
+                "text": "Antrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An appearance or performance before an audience.",
+              "de": "Ein Erscheinen oder eine Darbietung vor Publikum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sängerin betritt die Bühne; ihr Auftritt beginnt in wenigen Sekunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auftrag, Auftritt, Umzug, Antrag), grammar, answer, bilingual explanation and hint. Auftritt is the stage performance; the other nouns refer to different activities. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L179-v2",
+          "contextKey": "legacy-0032-L179-context-2",
+          "transferKey": "legacy-0032-L179-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003203",
+            "type": "gap_choice",
+            "prompt": "Nach seinem ___ vor Publikum erhielt der Komiker langen Applaus.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The comedian performed for an audience.",
+              "de": "Der Komiker hat vor Publikum gespielt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auftritt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausflug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abschied"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An appearance or performance before an audience.",
+              "de": "Ein Erscheinen oder eine Darbietung vor Publikum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach seinem Auftritt vor Publikum erhielt der Komiker langen Applaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auftritt, Ausflug, Vertrag, Abschied), grammar, answer, bilingual explanation and hint. Applause follows the performer's Auftritt, not a contract or excursion. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003204",
+      "title": {
+        "en": "Effort and expenditure",
+        "de": "Aufwand"
+      },
+      "description": {
+        "en": "Time, work or resources needed for a task.",
+        "de": "Benötigte Arbeit, Zeit oder Mittel für eine Aufgabe."
+      },
+      "objective": "Recognize Aufwand in two distinct contexts: Time, work or resources needed for a task.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L180 (bf00abebe344d09f413540a5a61b837401151c964338fdd31e76454cabede2f6), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L180-v1",
+          "contextKey": "legacy-0032-L180-context-1",
+          "transferKey": "legacy-0032-L180-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003204",
+            "type": "choice",
+            "prompt": "Für die Datenmigration sind zweihundert Arbeitsstunden nötig. Der ___ ist hoch.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The task requires many work hours.",
+              "de": "Die Migration kostet viel Arbeitszeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewinn"
+              },
+              {
+                "id": "1",
+                "text": "Umsatz"
+              },
+              {
+                "id": "2",
+                "text": "Aufwand"
+              },
+              {
+                "id": "3",
+                "text": "Rabatt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Time, work or resources needed for a task.",
+              "de": "Benötigte Arbeit, Zeit oder Mittel für eine Aufgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Datenmigration sind zweihundert Arbeitsstunden nötig. Der Aufwand ist hoch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Gewinn, Umsatz, Aufwand, Rabatt), grammar, answer, bilingual explanation and hint. Aufwand denotes the work required, not revenue or profit. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L180-v2",
+          "contextKey": "legacy-0032-L180-context-2",
+          "transferKey": "legacy-0032-L180-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003204",
+            "type": "gap_choice",
+            "prompt": "Die Reparatur würde drei Tage dauern und mehr kosten als das Gerät wert ist. Der ___ lohnt sich nicht.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The repair requires disproportionate resources.",
+              "de": "Der Arbeits- und Kostenaufwand ist zu hoch."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aufwand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorrat"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eingang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Time, work or resources needed for a task.",
+              "de": "Benötigte Arbeit, Zeit oder Mittel für eine Aufgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur würde drei Tage dauern und mehr kosten als das Gerät wert ist. Der Aufwand lohnt sich nicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aufwand, Vorrat, Verkauf, Eingang), grammar, answer, bilingual explanation and hint. Aufwand expresses the time and cost needed for repair. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003205",
+      "title": {
+        "en": "Enumeration or list",
+        "de": "Aufzählung"
+      },
+      "description": {
+        "en": "Listing several items one after another.",
+        "de": "Nacheinander genanntes Verzeichnis mehrerer Punkte."
+      },
+      "objective": "Recognize Aufzählung in two distinct contexts: Listing several items one after another.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L181 (bae64b7b59e2d242465e27e9db541d9ff0a5c24f74dcfd07cc2431981daf3412), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L181-v1",
+          "contextKey": "legacy-0032-L181-context-1",
+          "transferKey": "legacy-0032-L181-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003205",
+            "type": "choice",
+            "prompt": "Im Bericht stehen fünf Gründe direkt hintereinander. Diese ___ findet man im zweiten Abschnitt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Several reasons are listed in sequence.",
+              "de": "Mehrere Gründe werden nacheinander genannt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zusammenfassung"
+              },
+              {
+                "id": "1",
+                "text": "Aufzählung"
+              },
+              {
+                "id": "2",
+                "text": "Frage"
+              },
+              {
+                "id": "3",
+                "text": "Ausnahme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Listing several items one after another.",
+              "de": "Nacheinander genanntes Verzeichnis mehrerer Punkte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bericht stehen fünf Gründe direkt hintereinander. Diese Aufzählung findet man im zweiten Abschnitt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Zusammenfassung, Aufzählung, Frage, Ausnahme), grammar, answer, bilingual explanation and hint. Aufzählung is a list of points; a summary condenses information instead. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L181-v2",
+          "contextKey": "legacy-0032-L181-context-2",
+          "transferKey": "legacy-0032-L181-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003205",
+            "type": "gap_choice",
+            "prompt": "Zwischen den einzelnen Wörtern einer ___ setzt man oft Kommas.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Commas separate items in a list.",
+              "de": "In einer Aufzählung trennt man Elemente oft durch Kommas."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aufzählung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Überschrift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Behauptung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Frage"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Listing several items one after another.",
+              "de": "Nacheinander genanntes Verzeichnis mehrerer Punkte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den einzelnen Wörtern einer Aufzählung setzt man oft Kommas.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aufzählung, Überschrift, Behauptung, Frage), grammar, answer, bilingual explanation and hint. Only Aufzählung names the list whose items are separated by commas. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003206",
+      "title": {
+        "en": "A brief moment",
+        "de": "Augenblick"
+      },
+      "description": {
+        "en": "A very short period of time.",
+        "de": "Ein sehr kurzer Zeitraum."
+      },
+      "objective": "Recognize Augenblick in two distinct contexts: A very short period of time.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L184 (56ac4f4ae625b7e62b43624037d9e3fad7c13e3d9dcd959ebff22b80bc51d95b), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L184-v1",
+          "contextKey": "legacy-0032-L184-context-1",
+          "transferKey": "legacy-0032-L184-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003206",
+            "type": "choice",
+            "prompt": "Warten Sie einen ___, ich hole schnell die Unterlagen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks for a short wait.",
+              "de": "Es geht nur um einen kurzen Moment."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Monat"
+              },
+              {
+                "id": "1",
+                "text": "Termin"
+              },
+              {
+                "id": "2",
+                "text": "Augenblick"
+              },
+              {
+                "id": "3",
+                "text": "Feiertag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A very short period of time.",
+              "de": "Ein sehr kurzer Zeitraum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Warten Sie einen Augenblick, ich hole schnell die Unterlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Monat, Termin, Augenblick, Feiertag), grammar, answer, bilingual explanation and hint. Augenblick is a brief moment, unlike a month or appointment. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L184-v2",
+          "contextKey": "legacy-0032-L184-context-2",
+          "transferKey": "legacy-0032-L184-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003206",
+            "type": "gap_choice",
+            "prompt": "Für einen kurzen ___ war das Licht aus, dann ging es sofort wieder an.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The outage lasted only a moment.",
+              "de": "Das Licht war nur sehr kurz aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Augenblick"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vormittag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Jahr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abschnitt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A very short period of time.",
+              "de": "Ein sehr kurzer Zeitraum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für einen kurzen Augenblick war das Licht aus, dann ging es sofort wieder an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Augenblick, Vormittag, Jahr, Abschnitt), grammar, answer, bilingual explanation and hint. Augenblick expresses a momentary interruption. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003207",
+      "title": {
+        "en": "Expression or phrase",
+        "de": "Ausdruck"
+      },
+      "description": {
+        "en": "A word, phrase or way of expressing an idea.",
+        "de": "Ein Wort, eine Wendung oder sprachlicher Ausdruck."
+      },
+      "objective": "Recognize Ausdruck in two distinct contexts: A word, phrase or way of expressing an idea.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L187 (5708fafd78dbf4c98b3d7929e3527ef4fa2f1648dcdb81cefbb671397f75e09b), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L187-v1",
+          "contextKey": "legacy-0032-L187-context-1",
+          "transferKey": "legacy-0032-L187-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003207",
+            "type": "choice",
+            "prompt": "Was bedeutet die deutsche Wendung „auf jeden Fall“? Ich kenne diesen ___ nicht.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The learner asks about a phrase.",
+              "de": "Die Wendung ist ein sprachlicher Ausdruck."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausweis"
+              },
+              {
+                "id": "1",
+                "text": "Ausdruck"
+              },
+              {
+                "id": "2",
+                "text": "Antrag"
+              },
+              {
+                "id": "3",
+                "text": "Auftrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A word, phrase or way of expressing an idea.",
+              "de": "Ein Wort, eine Wendung oder sprachlicher Ausdruck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Was bedeutet die deutsche Wendung „auf jeden Fall“? Ich kenne diesen Ausdruck nicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausweis, Ausdruck, Antrag, Auftrag), grammar, answer, bilingual explanation and hint. Ausdruck means a linguistic phrase, not a document or assignment. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L187-v2",
+          "contextKey": "legacy-0032-L187-context-2",
+          "transferKey": "legacy-0032-L187-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003207",
+            "type": "gap_choice",
+            "prompt": "Er möchte seine Meinung klar zum ___ bringen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The fixed phrase means to express an opinion.",
+              "de": "Die feste Wendung lautet „zum Ausdruck bringen“."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausgang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abschluss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausdruck"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anfang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A word, phrase or way of expressing an idea.",
+              "de": "Ein Wort, eine Wendung oder sprachlicher Ausdruck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er möchte seine Meinung klar zum Ausdruck bringen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausgang, Abschluss, Ausdruck, Anfang), grammar, answer, bilingual explanation and hint. Only Ausdruck completes the idiom zum Ausdruck bringen. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003208",
+      "title": {
+        "en": "Motorway exit",
+        "de": "Ausfahrt"
+      },
+      "description": {
+        "en": "A road leading off a motorway.",
+        "de": "Abzweigung, über die man eine Autobahn verlässt."
+      },
+      "objective": "Recognize Ausfahrt in two distinct contexts: A road leading off a motorway.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L188 (759359a498893d0c79caafee106379555f541a1e23c256753b791af4878fc073), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L188-v1",
+          "contextKey": "legacy-0032-L188-context-1",
+          "transferKey": "legacy-0032-L188-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003208",
+            "type": "choice",
+            "prompt": "Verlassen Sie die Autobahn an der nächsten ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The driver needs to leave the motorway.",
+              "de": "Die Autobahn wird über eine Ausfahrt verlassen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Ausfahrt"
+              },
+              {
+                "id": "2",
+                "text": "Haltestelle"
+              },
+              {
+                "id": "3",
+                "text": "Ampel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A road leading off a motorway.",
+              "de": "Abzweigung, über die man eine Autobahn verlässt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Verlassen Sie die Autobahn an der nächsten Ausfahrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Einfahrt, Ausfahrt, Haltestelle, Ampel), grammar, answer, bilingual explanation and hint. Ausfahrt leads off the motorway; Einfahrt leads onto it. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L188-v2",
+          "contextKey": "legacy-0032-L188-context-2",
+          "transferKey": "legacy-0032-L188-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003208",
+            "type": "gap_choice",
+            "prompt": "Das Navigationsgerät sagt: „In zwei Kilometern nehmen Sie die ___ 12.“",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The navigation instruction specifies a numbered motorway exit.",
+              "de": "Die Nummer 12 bezeichnet hier die Ausfahrt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausfahrt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einfahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrspur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Parkbucht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A road leading off a motorway.",
+              "de": "Abzweigung, über die man eine Autobahn verlässt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Navigationsgerät sagt: „In zwei Kilometern nehmen Sie die Ausfahrt 12.“",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausfahrt, Einfahrt, Fahrspur, Parkbucht), grammar, answer, bilingual explanation and hint. A numbered exit is an Ausfahrt, not an entrance or parking bay. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003210",
+      "title": {
+        "en": "Edition or issue",
+        "de": "Ausgabe"
+      },
+      "description": {
+        "en": "A particular published version or issue of a work.",
+        "de": "Eine bestimmte veröffentlichte Fassung oder Nummer eines Werks."
+      },
+      "objective": "Recognize Ausgabe in two distinct contexts: A particular published version or issue of a work.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L191 (a03e3c1509e0a8bcaa0ba403d197f6d7bf818fba4466bfe9a711df6ccd0e4f0e), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L191-v1",
+          "contextKey": "legacy-0032-L191-context-1",
+          "transferKey": "legacy-0032-L191-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003210",
+            "type": "choice",
+            "prompt": "Ich habe die neueste ___ der Wochenzeitung gekauft.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The newspaper has a newly published issue.",
+              "de": "Eine Zeitung erscheint in einzelnen Ausgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aussage"
+              },
+              {
+                "id": "1",
+                "text": "Ausgabe"
+              },
+              {
+                "id": "2",
+                "text": "Ausrede"
+              },
+              {
+                "id": "3",
+                "text": "Anlage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A particular published version or issue of a work.",
+              "de": "Eine bestimmte veröffentlichte Fassung oder Nummer eines Werks."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe die neueste Ausgabe der Wochenzeitung gekauft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aussage, Ausgabe, Ausrede, Anlage), grammar, answer, bilingual explanation and hint. Ausgabe means an issue of a publication, not a statement or excuse. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L191-v2",
+          "contextKey": "legacy-0032-L191-context-2",
+          "transferKey": "legacy-0032-L191-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003210",
+            "type": "gap_choice",
+            "prompt": "Das Wörterbuch gibt es in einer digitalen und einer gedruckten ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The dictionary is published in two formats.",
+              "de": "Das Wörterbuch hat zwei Ausgaben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anmeldung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausnahme"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausgabe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Antwort"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A particular published version or issue of a work.",
+              "de": "Eine bestimmte veröffentlichte Fassung oder Nummer eines Werks."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Wörterbuch gibt es in einer digitalen und einer gedruckten Ausgabe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Anmeldung, Ausnahme, Ausgabe, Antwort), grammar, answer, bilingual explanation and hint. Ausgabe describes a published version, unlike registration or exception. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003211",
+      "title": {
+        "en": "Balance or compensation",
+        "de": "Ausgleich"
+      },
+      "description": {
+        "en": "Something that offsets a burden or restores balance.",
+        "de": "Etwas, das eine Belastung ausgleicht oder ein Gleichgewicht schafft."
+      },
+      "objective": "Recognize Ausgleich in two distinct contexts: Something that offsets a burden or restores balance.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L193 (242e94c9f767ee918c03a5f983de1d6c81476abb8de91a945a27d5bbb4e3502d), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L193-v1",
+          "contextKey": "legacy-0032-L193-context-1",
+          "transferKey": "legacy-0032-L193-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003211",
+            "type": "choice",
+            "prompt": "Nach vielen Überstunden sucht sie einen ___ zwischen Arbeit und Freizeit.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She seeks a better work-life balance.",
+              "de": "Sie möchte Arbeit und Freizeit ins Gleichgewicht bringen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auftrag"
+              },
+              {
+                "id": "1",
+                "text": "Ausgleich"
+              },
+              {
+                "id": "2",
+                "text": "Aufwand"
+              },
+              {
+                "id": "3",
+                "text": "Abschluss"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Something that offsets a burden or restores balance.",
+              "de": "Etwas, das eine Belastung ausgleicht oder ein Gleichgewicht schafft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach vielen Überstunden sucht sie einen Ausgleich zwischen Arbeit und Freizeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auftrag, Ausgleich, Aufwand, Abschluss), grammar, answer, bilingual explanation and hint. Ausgleich names balance between demands, not an assignment or expenditure. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L193-v2",
+          "contextKey": "legacy-0032-L193-context-2",
+          "transferKey": "legacy-0032-L193-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003211",
+            "type": "gap_choice",
+            "prompt": "Als ___ für die Nachtschicht erhalten die Mitarbeitenden einen freien Tag.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The day off compensates for night work.",
+              "de": "Der freie Tag gleicht die zusätzliche Belastung aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausgleich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eingriff"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umweg"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Something that offsets a burden or restores balance.",
+              "de": "Etwas, das eine Belastung ausgleicht oder ein Gleichgewicht schafft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Ausgleich für die Nachtschicht erhalten die Mitarbeitenden einen freien Tag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausgleich, Eingriff, Umweg, Vertrag), grammar, answer, bilingual explanation and hint. Ausgleich denotes compensation for the night shift. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003212",
+      "title": {
+        "en": "Posted notice",
+        "de": "Aushang"
+      },
+      "description": {
+        "en": "A notice displayed publicly on a board or wall.",
+        "de": "Öffentlich an einer Wand oder Tafel befestigte Mitteilung."
+      },
+      "objective": "Recognize Aushang in two distinct contexts: A notice displayed publicly on a board or wall.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L194 (57dedf920f41b9b14919f51f4a1aaf80f9298cc54a29e78dea71b1146d178a8a), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L194-v1",
+          "contextKey": "legacy-0032-L194-context-1",
+          "transferKey": "legacy-0032-L194-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003212",
+            "type": "choice",
+            "prompt": "Die neuen Öffnungszeiten stehen auf einem ___ neben dem Eingang.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The information is posted for visitors.",
+              "de": "Die Öffnungszeiten werden öffentlich ausgehängt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Antrag"
+              },
+              {
+                "id": "1",
+                "text": "Aushang"
+              },
+              {
+                "id": "2",
+                "text": "Ausweis"
+              },
+              {
+                "id": "3",
+                "text": "Ausflug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A notice displayed publicly on a board or wall.",
+              "de": "Öffentlich an einer Wand oder Tafel befestigte Mitteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neuen Öffnungszeiten stehen auf einem Aushang neben dem Eingang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Antrag, Aushang, Ausweis, Ausflug), grammar, answer, bilingual explanation and hint. Aushang is a posted notice; the alternatives are not public notices. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L194-v2",
+          "contextKey": "legacy-0032-L194-context-2",
+          "transferKey": "legacy-0032-L194-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003212",
+            "type": "gap_choice",
+            "prompt": "Die Schule informiert über die Raumänderung mit einem ___ am Schwarzen Brett.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The notice is on a bulletin board.",
+              "de": "Am Schwarzen Brett hängt eine Mitteilung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anruf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschluss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Aushang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Antrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A notice displayed publicly on a board or wall.",
+              "de": "Öffentlich an einer Wand oder Tafel befestigte Mitteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule informiert über die Raumänderung mit einem Aushang am Schwarzen Brett.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Anruf, Anschluss, Aushang, Antrag), grammar, answer, bilingual explanation and hint. Aushang is the notice physically posted on the board. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003213",
+      "title": {
+        "en": "Temporary employee",
+        "de": "Aushilfe"
+      },
+      "description": {
+        "en": "A person hired to help temporarily.",
+        "de": "Eine Person, die vorübergehend bei der Arbeit hilft."
+      },
+      "objective": "Recognize Aushilfe in two distinct contexts: A person hired to help temporarily.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L195 (4aa8a33f58a2de3f657ec5f8cfded543b382976e464f647c23dc7bc6e2c11fdd), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L195-v1",
+          "contextKey": "legacy-0032-L195-context-1",
+          "transferKey": "legacy-0032-L195-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003213",
+            "type": "choice",
+            "prompt": "Für die Weihnachtszeit stellt der Laden eine zusätzliche ___ ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The store needs extra temporary staff.",
+              "de": "Der Laden braucht zeitweise zusätzliches Personal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausnahme"
+              },
+              {
+                "id": "1",
+                "text": "Aushilfe"
+              },
+              {
+                "id": "2",
+                "text": "Ausfahrt"
+              },
+              {
+                "id": "3",
+                "text": "Ausrede"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A person hired to help temporarily.",
+              "de": "Eine Person, die vorübergehend bei der Arbeit hilft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Weihnachtszeit stellt der Laden eine zusätzliche Aushilfe ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausnahme, Aushilfe, Ausfahrt, Ausrede), grammar, answer, bilingual explanation and hint. Aushilfe is a temporary worker, not an exception or excuse. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L195-v2",
+          "contextKey": "legacy-0032-L195-context-2",
+          "transferKey": "legacy-0032-L195-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003213",
+            "type": "gap_choice",
+            "prompt": "Weil zwei Kollegen krank sind, arbeitet am Wochenende eine ___ an der Kasse.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A temporary worker fills in for absent colleagues.",
+              "de": "Eine Aushilfe vertritt die kranken Kollegen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kundin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Besucherin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Aushilfe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerberin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A person hired to help temporarily.",
+              "de": "Eine Person, die vorübergehend bei der Arbeit hilft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil zwei Kollegen krank sind, arbeitet am Wochenende eine Aushilfe an der Kasse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Kundin, Besucherin, Aushilfe, Bewerberin), grammar, answer, bilingual explanation and hint. Aushilfe is the replacement worker, unlike a customer or applicant. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003214",
+      "title": {
+        "en": "An exception",
+        "de": "Ausnahme"
+      },
+      "description": {
+        "en": "A case that does not follow the usual rule.",
+        "de": "Ein Fall, für den eine allgemeine Regel nicht gilt."
+      },
+      "objective": "Recognize Ausnahme in two distinct contexts: A case that does not follow the usual rule.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L199 (2b34bf2f03044b12294e8647a76f3aee06af0061edb48cea4d05aed129799959), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L199-v1",
+          "contextKey": "legacy-0032-L199-context-1",
+          "transferKey": "legacy-0032-L199-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003214",
+            "type": "choice",
+            "prompt": "Alle müssen um acht beginnen, nur Mia darf später kommen. Das ist eine ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One person is exempted from the general rule.",
+              "de": "Nur Mia darf von der Regel abweichen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Regel"
+              },
+              {
+                "id": "1",
+                "text": "Ausnahme"
+              },
+              {
+                "id": "2",
+                "text": "Ausrede"
+              },
+              {
+                "id": "3",
+                "text": "Aussage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A case that does not follow the usual rule.",
+              "de": "Ein Fall, für den eine allgemeine Regel nicht gilt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle müssen um acht beginnen, nur Mia darf später kommen. Das ist eine Ausnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Regel, Ausnahme, Ausrede, Aussage), grammar, answer, bilingual explanation and hint. Ausnahme means an exception, while Regel means the general rule. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L199-v2",
+          "contextKey": "legacy-0032-L199-context-2",
+          "transferKey": "legacy-0032-L199-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003214",
+            "type": "gap_choice",
+            "prompt": "Normalerweise sind Hunde im Gebäude verboten; für Blindenführhunde gibt es eine ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Guide dogs are allowed despite the usual ban.",
+              "de": "Für Führhunde gilt die allgemeine Regel nicht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflicht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Strafe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausnahme"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verlängerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A case that does not follow the usual rule.",
+              "de": "Ein Fall, für den eine allgemeine Regel nicht gilt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Normalerweise sind Hunde im Gebäude verboten; für Blindenführhunde gibt es eine Ausnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Pflicht, Strafe, Ausnahme, Verlängerung), grammar, answer, bilingual explanation and hint. Ausnahme is the special case that overrides the general ban. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003215",
+      "title": {
+        "en": "An invented excuse",
+        "de": "Ausrede"
+      },
+      "description": {
+        "en": "A pretext used to avoid admitting a reason or responsibility.",
+        "de": "Vorgeschobene Begründung, um Verantwortung zu vermeiden."
+      },
+      "objective": "Recognize Ausrede in two distinct contexts: A pretext used to avoid admitting a reason or responsibility.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L200 (861fe1c57da2b65a9cac5b3e880cef1b17fdbba30717b9299aa7baed1a787b71), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L200-v1",
+          "contextKey": "legacy-0032-L200-context-1",
+          "transferKey": "legacy-0032-L200-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003215",
+            "type": "choice",
+            "prompt": "Er behauptet, der Bus sei ausgefallen, obwohl er verschlafen hat. Das ist eine ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "He invents a false reason for being late.",
+              "de": "Er erfindet einen Grund, statt den Fehler zuzugeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auskunft"
+              },
+              {
+                "id": "1",
+                "text": "Ausrede"
+              },
+              {
+                "id": "2",
+                "text": "Ausgabe"
+              },
+              {
+                "id": "3",
+                "text": "Aussprache"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A pretext used to avoid admitting a reason or responsibility.",
+              "de": "Vorgeschobene Begründung, um Verantwortung zu vermeiden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er behauptet, der Bus sei ausgefallen, obwohl er verschlafen hat. Das ist eine Ausrede.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Auskunft, Ausrede, Ausgabe, Aussprache), grammar, answer, bilingual explanation and hint. Ausrede is a pretext; the other options do not express an invented justification. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L200-v2",
+          "contextKey": "legacy-0032-L200-context-2",
+          "transferKey": "legacy-0032-L200-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003215",
+            "type": "gap_choice",
+            "prompt": "Statt den Fehler zuzugeben, erfindet sie jedes Mal eine neue ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She repeatedly invents excuses.",
+              "de": "Sie sucht erfundene Gründe für ihren Fehler."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausrede"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Auszahlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A pretext used to avoid admitting a reason or responsibility.",
+              "de": "Vorgeschobene Begründung, um Verantwortung zu vermeiden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt den Fehler zuzugeben, erfindet sie jedes Mal eine neue Ausrede.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Einladung, Ausrede, Auszahlung, Rechnung), grammar, answer, bilingual explanation and hint. Ausrede fits avoiding responsibility; the other nouns are unrelated. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003216",
+      "title": {
+        "en": "Field sales or service employee",
+        "de": "Außendienstmitarbeiter"
+      },
+      "description": {
+        "en": "An employee who visits clients outside the company's office.",
+        "de": "Mitarbeiter, der Kunden außerhalb des Betriebs besucht."
+      },
+      "objective": "Recognize Außendienstmitarbeiter in two distinct contexts: An employee who visits clients outside the company's office.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L202 (13c02f9736a588b540a85c9575a14aa93f469e806613bdd3e8a11ea18d25378e), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L202-v1",
+          "contextKey": "legacy-0032-L202-context-1",
+          "transferKey": "legacy-0032-L202-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003216",
+            "type": "choice",
+            "prompt": "Er besucht Kunden direkt in ihren Betrieben und ist täglich unterwegs. Er arbeitet als ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "He works at customers' sites.",
+              "de": "Er besucht Kunden im Außendienst."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buchhalter"
+              },
+              {
+                "id": "1",
+                "text": "Außendienstmitarbeiter"
+              },
+              {
+                "id": "2",
+                "text": "Lagerist"
+              },
+              {
+                "id": "3",
+                "text": "Pförtner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An employee who visits clients outside the company's office.",
+              "de": "Mitarbeiter, der Kunden außerhalb des Betriebs besucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er besucht Kunden direkt in ihren Betrieben und ist täglich unterwegs. Er arbeitet als Außendienstmitarbeiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Buchhalter, Außendienstmitarbeiter, Lagerist, Pförtner), grammar, answer, bilingual explanation and hint. Außendienstmitarbeiter specifically describes the travelling customer-facing role. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L202-v2",
+          "contextKey": "legacy-0032-L202-context-2",
+          "transferKey": "legacy-0032-L202-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003216",
+            "type": "gap_choice",
+            "prompt": "Die Firma schickt ihren ___ zum Kunden, um die Maschine vor Ort vorzuführen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The employee demonstrates equipment at the client's site.",
+              "de": "Der Mitarbeiter fährt zum Kunden und führt die Maschine vor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalchef"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Außendienstmitarbeiter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Archivar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hausmeister"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An employee who visits clients outside the company's office.",
+              "de": "Mitarbeiter, der Kunden außerhalb des Betriebs besucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma schickt ihren Außendienstmitarbeiter zum Kunden, um die Maschine vor Ort vorzuführen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Personalchef, Außendienstmitarbeiter, Archivar, Hausmeister), grammar, answer, bilingual explanation and hint. The client visit is typical Außendienst work, not archiving or personnel management. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003217",
+      "title": {
+        "en": "A spoken remark or statement",
+        "de": "Äußerung"
+      },
+      "description": {
+        "en": "Something said or expressed verbally.",
+        "de": "Eine mündlich oder schriftlich geäußerte Bemerkung."
+      },
+      "objective": "Recognize Äußerung in two distinct contexts: Something said or expressed verbally.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L203 (dc6300a774014fc057cdbd530131feb385b2f92d962edbf3f518440c70cef02d), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L203-v1",
+          "contextKey": "legacy-0032-L203-context-1",
+          "transferKey": "legacy-0032-L203-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003217",
+            "type": "choice",
+            "prompt": "Seine ___ in der Sitzung wurde wortwörtlich protokolliert.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "His words were recorded in the meeting.",
+              "de": "Seine Worte wurden protokolliert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausstattung"
+              },
+              {
+                "id": "1",
+                "text": "Äußerung"
+              },
+              {
+                "id": "2",
+                "text": "Ausfahrt"
+              },
+              {
+                "id": "3",
+                "text": "Aushilfe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Something said or expressed verbally.",
+              "de": "Eine mündlich oder schriftlich geäußerte Bemerkung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seine Äußerung in der Sitzung wurde wortwörtlich protokolliert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausstattung, Äußerung, Ausfahrt, Aushilfe), grammar, answer, bilingual explanation and hint. Äußerung means a statement or remark; the alternatives do not. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L203-v2",
+          "contextKey": "legacy-0032-L203-context-2",
+          "transferKey": "legacy-0032-L203-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003217",
+            "type": "gap_choice",
+            "prompt": "Die beleidigende ___ der Politikerin löste starke Kritik aus.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The politician made an offensive remark.",
+              "de": "Die Politikerin sagte etwas Beleidigendes."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausnahme"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausgabe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Äußerung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Aufzählung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Something said or expressed verbally.",
+              "de": "Eine mündlich oder schriftlich geäußerte Bemerkung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beleidigende Äußerung der Politikerin löste starke Kritik aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Ausnahme, Ausgabe, Äußerung, Aufzählung), grammar, answer, bilingual explanation and hint. Äußerung denotes the offensive statement, not an issue or exception. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003218",
+      "title": {
+        "en": "Pronunciation",
+        "de": "Aussprache"
+      },
+      "description": {
+        "en": "The way sounds in a word are spoken.",
+        "de": "Die Art, wie Laute und Wörter gesprochen werden."
+      },
+      "objective": "Recognize Aussprache in two distinct contexts: The way sounds in a word are spoken.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L204 (da080d750f22967c0e3bf637e9db5d24b1f7d4f0c7ad84877a506d231d512029), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L204-v1",
+          "contextKey": "legacy-0032-L204-context-1",
+          "transferKey": "legacy-0032-L204-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003218",
+            "type": "choice",
+            "prompt": "Die Lernenden wissen nicht, wie man die Laute im Wort „Chemie“ sagt. Sie üben die ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "They practice how to say the word.",
+              "de": "Sie üben, wie das Wort gesprochen wird."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schreibweise"
+              },
+              {
+                "id": "1",
+                "text": "Aussprache"
+              },
+              {
+                "id": "2",
+                "text": "Übersetzung"
+              },
+              {
+                "id": "3",
+                "text": "Bedeutung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The way sounds in a word are spoken.",
+              "de": "Die Art, wie Laute und Wörter gesprochen werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lernenden wissen nicht, wie man die Laute im Wort „Chemie“ sagt. Sie üben die Aussprache.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Schreibweise, Aussprache, Übersetzung, Bedeutung), grammar, answer, bilingual explanation and hint. Aussprache concerns speech sounds, not spelling or meaning. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L204-v2",
+          "contextKey": "legacy-0032-L204-context-2",
+          "transferKey": "legacy-0032-L204-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003218",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin spricht das neue Wort langsam vor, damit die Klasse die ___ hören kann.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Students hear how the word is pronounced.",
+              "de": "Die Lehrerin macht die Laute hörbar."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aussprache"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schreibweise"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bedeutung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Übersetzung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The way sounds in a word are spoken.",
+              "de": "Die Art, wie Laute und Wörter gesprochen werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin spricht das neue Wort langsam vor, damit die Klasse die Aussprache hören kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aussprache, Schreibweise, Bedeutung, Übersetzung), grammar, answer, bilingual explanation and hint. Aussprache is audible; spelling and translation are not pronunciation. Distinct context from paired question; no human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003219",
+      "title": {
+        "en": "Equipment and facilities",
+        "de": "Ausstattung"
+      },
+      "description": {
+        "en": "Equipment and facilities provided in a place.",
+        "de": "Vorhandene Geräte und Einrichtungen an einem Ort."
+      },
+      "objective": "Recognize Ausstattung in two distinct contexts: Equipment and facilities provided in a place.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L205 (1d47ef48862b4c632771f4fe32d2e4312be18c2e553a4ff4cc7e04b5da28fccb), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0032-L205-v1",
+          "contextKey": "legacy-0032-L205-context-1",
+          "transferKey": "legacy-0032-L205-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003219",
+            "type": "choice",
+            "prompt": "Der Konferenzraum hat Beamer, Mikrofone und schnelles Internet. Seine technische ___ ist gut.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The room has useful technical equipment.",
+              "de": "Die Geräte gehören zur Ausstattung des Raums."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aushilfe"
+              },
+              {
+                "id": "1",
+                "text": "Ausstattung"
+              },
+              {
+                "id": "2",
+                "text": "Ausnahme"
+              },
+              {
+                "id": "3",
+                "text": "Ausfahrt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Equipment and facilities provided in a place.",
+              "de": "Vorhandene Geräte und Einrichtungen an einem Ort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Konferenzraum hat Beamer, Mikrofone und schnelles Internet. Seine technische Ausstattung ist gut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aushilfe, Ausstattung, Ausnahme, Ausfahrt), grammar, answer, bilingual explanation and hint. Ausstattung names the available equipment. Distinct context from paired question; no human approval."
+        },
+        {
+          "variantKey": "legacy-0032-L205-v2",
+          "contextKey": "legacy-0032-L205-context-2",
+          "transferKey": "legacy-0032-L205-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000320191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003219",
+            "type": "gap_choice",
+            "prompt": "Das Labor bekommt neue Messgeräte. Damit verbessert sich seine ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "New instruments improve the laboratory's equipment.",
+              "de": "Neue Messgeräte verbessern die Ausstattung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aufgabe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausstattung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Aufteilung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ausnahme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Equipment and facilities provided in a place.",
+              "de": "Vorhandene Geräte und Einrichtungen an einem Ort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Labor bekommt neue Messgeräte. Damit verbessert sich seine Ausstattung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: checked complete German sentence, all four choices (Aufgabe, Ausstattung, Aufteilung, Ausnahme), grammar, answer, bilingual explanation and hint. Ausstattung refers to the lab's instruments and facilities. Distinct context from paired question; no human approval."
+        }
+      ]
+    }
+  ]
 }
