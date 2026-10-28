@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000002100",
+      "title": {
+        "en": "A procedural instruction",
+        "de": "Anweisung: konkrete Vorgabe"
+      },
+      "description": {
+        "en": "An Anweisung tells someone which steps to follow.",
+        "de": "Eine Anweisung gibt vor, welche Schritte jemand ausführen soll."
+      },
+      "objective": "Recognize Anweisung as a specific instruction on what to do or how to proceed.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L101 (aead5a0d02449ce1155e1234172a6d22cd800418fddc8bbadc09faef1a0e307b), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L101-v1",
+          "contextKey": "legacy-0021-L101-context-1",
+          "transferKey": "legacy-0021-L101-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002100",
+            "type": "choice",
+            "prompt": "Die Maschine darf nur nach der schriftlichen ___ des Herstellers gestartet werden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document or supervisor specifies how to proceed.",
+              "de": "Ein Dokument oder eine Person gibt konkrete Handlungsschritte vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werbung"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Anweisung"
+              },
+              {
+                "id": "3",
+                "text": "Einladung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anweisung means instruction or directive, especially for a procedure.",
+              "de": "Anweisung bedeutet eine konkrete Vorgabe oder Handlungsanleitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Maschine darf nur nach der schriftlichen Anweisung des Herstellers gestartet werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Werbung, Rechnung, Einladung). Only Anweisung fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L101-v2",
+          "contextKey": "legacy-0021-L101-context-2",
+          "transferKey": "legacy-0021-L101-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002100",
+            "type": "gap_choice",
+            "prompt": "Die Teamleiterin erklärte genau, welche Schritte zuerst erledigt werden müssen. Alle folgten ihrer ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document or supervisor specifies how to proceed.",
+              "de": "Ein Dokument oder eine Person gibt konkrete Handlungsschritte vor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermutung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erinnerung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Frage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anweisung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anweisung means instruction or directive, especially for a procedure.",
+              "de": "Anweisung bedeutet eine konkrete Vorgabe oder Handlungsanleitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Teamleiterin erklärte genau, welche Schritte zuerst erledigt werden müssen. Alle folgten ihrer Anweisung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Vermutung, Erinnerung, Frage). Only Anweisung fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002101",
+      "title": {
+        "en": "Presence or attendance",
+        "de": "Anwesenheit: vor Ort sein"
+      },
+      "description": {
+        "en": "Anwesenheit means someone's presence or attendance.",
+        "de": "Anwesenheit bedeutet, dass jemand an einem Ort oder bei einer Veranstaltung anwesend ist."
+      },
+      "objective": "Recognize Anwesenheit as the state of being present at a place or event.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L102 (2a17b71c933546619cdd8694c92425674980b97153f69984d8cafa7c3a8fbb47), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L102-v1",
+          "contextKey": "legacy-0021-L102-context-1",
+          "transferKey": "legacy-0021-L102-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002101",
+            "type": "choice",
+            "prompt": "Für die Sicherheitsunterweisung ist die ___ aller Beschäftigten erforderlich.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person must be there, not absent.",
+              "de": "Die Person muss vor Ort sein und darf nicht fehlen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abwesenheit"
+              },
+              {
+                "id": "1",
+                "text": "Verspätung"
+              },
+              {
+                "id": "2",
+                "text": "Anwesenheit"
+              },
+              {
+                "id": "3",
+                "text": "Vertretung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anwesenheit means presence or attendance, the opposite of Abwesenheit.",
+              "de": "Anwesenheit bedeutet das Anwesendsein und ist das Gegenteil von Abwesenheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Sicherheitsunterweisung ist die Anwesenheit aller Beschäftigten erforderlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Abwesenheit, Verspätung, Vertretung). Only Anwesenheit fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L102-v2",
+          "contextKey": "legacy-0021-L102-context-2",
+          "transferKey": "legacy-0021-L102-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002101",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin kontrolliert zu Beginn, wer im Raum ist. Sie überprüft die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person must be there, not absent.",
+              "de": "Die Person muss vor Ort sein und darf nicht fehlen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausaufgabe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Note"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prüfung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anwesenheit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anwesenheit means presence or attendance, the opposite of Abwesenheit.",
+              "de": "Anwesenheit bedeutet das Anwesendsein und ist das Gegenteil von Abwesenheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin kontrolliert zu Beginn, wer im Raum ist. Sie überprüft die Anwesenheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Hausaufgabe, Note, Prüfung). Only Anwesenheit fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002102",
+      "title": {
+        "en": "Number of items",
+        "de": "Anzahl: wie viele"
+      },
+      "description": {
+        "en": "Anzahl is the number of items or people in a set.",
+        "de": "Anzahl bezeichnet, wie viele Personen oder Gegenstände es gibt."
+      },
+      "objective": "Recognize Anzahl as the count of people or objects, rather than a percentage.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L103 (d2c0997183716bebb11fc56209c5913656f6efd036d73604d66b19ce2f7437dd), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L103-v1",
+          "contextKey": "legacy-0021-L103-context-1",
+          "transferKey": "legacy-0021-L103-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002102",
+            "type": "choice",
+            "prompt": "Wir wissen, wer sich angemeldet hat, aber nicht, wie viele. Die genaue ___ der Gäste fehlt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question asks how many, not what proportion.",
+              "de": "Es wird nach der Stückzahl gefragt, nicht nach einem Prozentsatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anteil"
+              },
+              {
+                "id": "1",
+                "text": "Anlass"
+              },
+              {
+                "id": "2",
+                "text": "Anzahl"
+              },
+              {
+                "id": "3",
+                "text": "Antrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anzahl is a count or number, distinct from Anteil, a share.",
+              "de": "Anzahl bedeutet Stückzahl oder Zahl, anders als Anteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir wissen, wer sich angemeldet hat, aber nicht, wie viele. Die genaue Anzahl der Gäste fehlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Anteil, Anlass, Antrag). Only Anzahl fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L103-v2",
+          "contextKey": "legacy-0021-L103-context-2",
+          "transferKey": "legacy-0021-L103-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002102",
+            "type": "gap_choice",
+            "prompt": "Die ___ der verfügbaren Plätze ist auf 30 begrenzt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question asks how many, not what proportion.",
+              "de": "Es wird nach der Stückzahl gefragt, nicht nach einem Prozentsatz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dauer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Qualität"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anzahl"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anzahl is a count or number, distinct from Anteil, a share.",
+              "de": "Anzahl bedeutet Stückzahl oder Zahl, anders als Anteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anzahl der verfügbaren Plätze ist auf 30 begrenzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Dauer, Qualität, Lage). Only Anzahl fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002103",
+      "title": {
+        "en": "A campaign of advertisements",
+        "de": "Anzeigekampagne: Werbung mit Anzeigen"
+      },
+      "description": {
+        "en": "An Anzeigekampagne consists of planned advertising placements across media.",
+        "de": "Eine Anzeigekampagne umfasst geplante Werbeanzeigen in verschiedenen Medien."
+      },
+      "objective": "Identify Anzeigekampagne as a coordinated campaign using advertisements.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L105 (ffa5ff8d908664c8c3fb01236e6a1c1865d9512156baf61799e0b59a3450ce10), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L105-v1",
+          "contextKey": "legacy-0021-L105-context-1",
+          "transferKey": "legacy-0021-L105-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002103",
+            "type": "choice",
+            "prompt": "Die Firma schaltet vier Wochen lang Werbeanzeigen in Zeitungen und auf Webseiten. Diese ___ soll neue Kunden gewinnen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Several advertisements are coordinated to promote something.",
+              "de": "Mehrere Anzeigen werden als gemeinsame Werbemaßnahme eingesetzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückrufaktion"
+              },
+              {
+                "id": "1",
+                "text": "Inventur"
+              },
+              {
+                "id": "2",
+                "text": "Anzeigekampagne"
+              },
+              {
+                "id": "3",
+                "text": "Bewerbungsrunde"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Anzeigekampagne is an advertising campaign made up of ads.",
+              "de": "Anzeigekampagne bedeutet eine geplante Werbeaktion mit Anzeigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma schaltet vier Wochen lang Werbeanzeigen in Zeitungen und auf Webseiten. Diese Anzeigekampagne soll neue Kunden gewinnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Rückrufaktion, Inventur, Bewerbungsrunde). Only Anzeigekampagne fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L105-v2",
+          "contextKey": "legacy-0021-L105-context-2",
+          "transferKey": "legacy-0021-L105-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002103",
+            "type": "gap_choice",
+            "prompt": "Für die Einführung des Produkts plant das Marketingteam eine ___ mit Anzeigen in mehreren Medien.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Several advertisements are coordinated to promote something.",
+              "de": "Mehrere Anzeigen werden als gemeinsame Werbemaßnahme eingesetzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Betriebsprüfung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigungswelle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anzeigekampagne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anzeigekampagne is an advertising campaign made up of ads.",
+              "de": "Anzeigekampagne bedeutet eine geplante Werbeaktion mit Anzeigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Einführung des Produkts plant das Marketingteam eine Anzeigekampagne mit Anzeigen in mehreren Medien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Betriebsprüfung, Kündigungswelle, Lohnabrechnung). Only Anzeigekampagne fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002105",
+      "title": {
+        "en": "A manual worker",
+        "de": "Arbeiter: körperliche oder technische Arbeit"
+      },
+      "description": {
+        "en": "An Arbeiter performs manual, industrial or physical work.",
+        "de": "Ein Arbeiter verrichtet körperliche, handwerkliche oder industrielle Arbeit."
+      },
+      "objective": "Identify Arbeiter as a male worker doing manual or industrial work.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L116 (f932e56e4ed1699ddf1f2b6fa56aad44b64d65cfbeace9f21e8eae06c7fecb73), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L116-v1",
+          "contextKey": "legacy-0021-L116-context-1",
+          "transferKey": "legacy-0021-L116-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002105",
+            "type": "choice",
+            "prompt": "Auf der Baustelle trägt der ___ einen Helm und bedient die Maschine.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person performs hands-on work, often with tools or machines.",
+              "de": "Die Person arbeitet praktisch mit Werkzeugen oder Maschinen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kunde"
+              },
+              {
+                "id": "1",
+                "text": "Patient"
+              },
+              {
+                "id": "2",
+                "text": "Arbeiter"
+              },
+              {
+                "id": "3",
+                "text": "Richter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeiter means a male worker, often in manual or industrial employment.",
+              "de": "Arbeiter bezeichnet einen männlichen Beschäftigten, oft in körperlicher Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Baustelle trägt der Arbeiter einen Helm und bedient die Maschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Kunde, Patient, Richter). Only Arbeiter fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L116-v2",
+          "contextKey": "legacy-0021-L116-context-2",
+          "transferKey": "legacy-0021-L116-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002105",
+            "type": "gap_choice",
+            "prompt": "Nach der Frühschicht legt der ___ sein Werkzeug zurück in den Spind.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person performs hands-on work, often with tools or machines.",
+              "de": "Die Person arbeitet praktisch mit Werkzeugen oder Maschinen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Besucher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrgast"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Käufer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeiter means a male worker, often in manual or industrial employment.",
+              "de": "Arbeiter bezeichnet einen männlichen Beschäftigten, oft in körperlicher Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Frühschicht legt der Arbeiter sein Werkzeug zurück in den Spind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Besucher, Fahrgast, Käufer). Only Arbeiter fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002106",
+      "title": {
+        "en": "A female manual worker",
+        "de": "Arbeiterin: weibliche Beschäftigte"
+      },
+      "description": {
+        "en": "An Arbeiterin is a female manual or industrial worker.",
+        "de": "Eine Arbeiterin ist eine weibliche Beschäftigte, oft in Produktion oder Handwerk."
+      },
+      "objective": "Identify Arbeiterin as the feminine noun for a worker doing manual or industrial work.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L117 (7b86c82faac52dec20fcb893e7d4788516494952d36aa5f1927571e9c768c2a8), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L117-v1",
+          "contextKey": "legacy-0021-L117-context-1",
+          "transferKey": "legacy-0021-L117-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002106",
+            "type": "choice",
+            "prompt": "Die ___ überprüft in der Fabrik die Qualität der gefertigten Teile.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A woman is doing practical production or factory work.",
+              "de": "Eine Frau verrichtet praktische Arbeit in der Produktion."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kundin"
+              },
+              {
+                "id": "1",
+                "text": "Ärztin"
+              },
+              {
+                "id": "2",
+                "text": "Arbeiterin"
+              },
+              {
+                "id": "3",
+                "text": "Richterin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeiterin is the feminine noun for a worker.",
+              "de": "Arbeiterin ist die weibliche Form von Arbeiter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Arbeiterin überprüft in der Fabrik die Qualität der gefertigten Teile.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Kundin, Ärztin, Richterin). Only Arbeiterin fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L117-v2",
+          "contextKey": "legacy-0021-L117-context-2",
+          "transferKey": "legacy-0021-L117-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002106",
+            "type": "gap_choice",
+            "prompt": "Nach ihrer Schicht an der Produktionslinie meldet die ___ einen Defekt an der Maschine.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A woman is doing practical production or factory work.",
+              "de": "Eine Frau verrichtet praktische Arbeit in der Produktion."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerberin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reisende"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuschauerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeiterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeiterin is the feminine noun for a worker.",
+              "de": "Arbeiterin ist die weibliche Form von Arbeiter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach ihrer Schicht an der Produktionslinie meldet die Arbeiterin einen Defekt an der Maschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Bewerberin, Reisende, Zuschauerin). Only Arbeiterin fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002107",
+      "title": {
+        "en": "An employer",
+        "de": "Arbeitgeber: Beschäftigung anbieten"
+      },
+      "description": {
+        "en": "An Arbeitgeber hires employees and is party to their employment contracts.",
+        "de": "Ein Arbeitgeber beschäftigt Arbeitnehmerinnen und Arbeitnehmer und schließt Arbeitsverträge."
+      },
+      "objective": "Identify Arbeitgeber as the person or organization employing and paying workers.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L118 (256935c5a0fd74cf28af46e90e03303c6ca9013b26f7e7123b2adabbcb148fef), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L118-v1",
+          "contextKey": "legacy-0021-L118-context-1",
+          "transferKey": "legacy-0021-L118-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002107",
+            "type": "choice",
+            "prompt": "Die Firma zahlt das Gehalt und schließt den Arbeitsvertrag mit Elena. Sie ist Elenas ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company hires and pays the employee.",
+              "de": "Das Unternehmen stellt die Person ein und zahlt das Gehalt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitnehmer"
+              },
+              {
+                "id": "1",
+                "text": "Kunde"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitgeber"
+              },
+              {
+                "id": "3",
+                "text": "Vermieter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeber means employer, as opposed to Arbeitnehmer, the employee.",
+              "de": "Arbeitgeber bedeutet die beschäftigende Person oder Firma, im Gegensatz zu Arbeitnehmer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma zahlt das Gehalt und schließt den Arbeitsvertrag mit Elena. Sie ist Elenas Arbeitgeber.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitnehmer, Kunde, Vermieter). Only Arbeitgeber fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L118-v2",
+          "contextKey": "legacy-0021-L118-context-2",
+          "transferKey": "legacy-0021-L118-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002107",
+            "type": "gap_choice",
+            "prompt": "Bei Fragen zur Lohnabrechnung wendet sich Jonas an seinen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company hires and pays the employee.",
+              "de": "Das Unternehmen stellt die Person ein und zahlt das Gehalt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mieter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Patient"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferanten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitgeber"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeber means employer, as opposed to Arbeitnehmer, the employee.",
+              "de": "Arbeitgeber bedeutet die beschäftigende Person oder Firma, im Gegensatz zu Arbeitnehmer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Fragen zur Lohnabrechnung wendet sich Jonas an seinen Arbeitgeber.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Mieter, Patient, Lieferanten). Only Arbeitgeber fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002108",
+      "title": {
+        "en": "Employer-paid contribution",
+        "de": "Arbeitgeberanteil: Beitrag der Firma"
+      },
+      "description": {
+        "en": "Arbeitgeberanteil is the employer's share of a contribution, separate from the employee's share.",
+        "de": "Arbeitgeberanteil ist der vom Arbeitgeber getragene Teil eines Beitrags."
+      },
+      "objective": "Recognize Arbeitgeberanteil as the portion of a social insurance contribution paid by an employer.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L119 (5856fb20ab9962b8a2171385681dcc8fa53a989dcbd66f7254f04adddac6016b), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L119-v1",
+          "contextKey": "legacy-0021-L119-context-1",
+          "transferKey": "legacy-0021-L119-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002108",
+            "type": "choice",
+            "prompt": "Die Sozialversicherungsbeiträge werden zwischen Firma und Beschäftigten geteilt. Der Teil, den die Firma zahlt, heißt ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contribution is split between the employer and employee.",
+              "de": "Der Beitrag wird zwischen Firma und Beschäftigten aufgeteilt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitnehmeranteil"
+              },
+              {
+                "id": "1",
+                "text": "Nettolohn"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitgeberanteil"
+              },
+              {
+                "id": "3",
+                "text": "Urlaubsgeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeberanteil is the employer-paid part, not the Arbeitnehmeranteil.",
+              "de": "Arbeitgeberanteil bezeichnet den Anteil des Arbeitgebers, nicht den der Arbeitnehmer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sozialversicherungsbeiträge werden zwischen Firma und Beschäftigten geteilt. Der Teil, den die Firma zahlt, heißt Arbeitgeberanteil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitnehmeranteil, Nettolohn, Urlaubsgeld). Only Arbeitgeberanteil fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L119-v2",
+          "contextKey": "legacy-0021-L119-context-2",
+          "transferKey": "legacy-0021-L119-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002108",
+            "type": "gap_choice",
+            "prompt": "Auf der Lohnabrechnung stehen Arbeitnehmer- und ___ getrennt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contribution is split between the employer and employee.",
+              "de": "Der Beitrag wird zwischen Firma und Beschäftigten aufgeteilt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrtkosten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaubstage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fehlzeiten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitgeberanteil"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeberanteil is the employer-paid part, not the Arbeitnehmeranteil.",
+              "de": "Arbeitgeberanteil bezeichnet den Anteil des Arbeitgebers, nicht den der Arbeitnehmer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Lohnabrechnung stehen Arbeitnehmer- und Arbeitgeberanteil getrennt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Fahrtkosten, Urlaubstage, Fehlzeiten). Only Arbeitgeberanteil fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002110",
+      "title": {
+        "en": "An employers' association",
+        "de": "Arbeitgeberverband: Zusammenschluss von Firmen"
+      },
+      "description": {
+        "en": "An Arbeitgeberverband represents employers, including in collective bargaining.",
+        "de": "Ein Arbeitgeberverband vertritt gemeinsame Interessen von Arbeitgebern, etwa bei Tarifverhandlungen."
+      },
+      "objective": "Recognize Arbeitgeberverband as an organization representing employers' common interests.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L121 (5a0bb81e8a454d9cee6617531526be140466e066e729d8c455b2cbc6c99e9b5a), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L121-v1",
+          "contextKey": "legacy-0021-L121-context-1",
+          "transferKey": "legacy-0021-L121-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002110",
+            "type": "choice",
+            "prompt": "Mehrere Unternehmen schließen sich zusammen, um ihre Interessen bei Tarifverhandlungen zu vertreten. Sie bilden einen ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Companies organize together to represent their side in negotiations.",
+              "de": "Unternehmen schließen sich zur gemeinsamen Interessenvertretung zusammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betriebsrat"
+              },
+              {
+                "id": "1",
+                "text": "Gewerkschaft"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitgeberverband"
+              },
+              {
+                "id": "3",
+                "text": "Sportverein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeberverband represents employers, unlike a trade union representing employees.",
+              "de": "Arbeitgeberverband vertritt Arbeitgeber, anders als eine Gewerkschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mehrere Unternehmen schließen sich zusammen, um ihre Interessen bei Tarifverhandlungen zu vertreten. Sie bilden einen Arbeitgeberverband.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Betriebsrat, Gewerkschaft, Sportverein). Only Arbeitgeberverband fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L121-v2",
+          "contextKey": "legacy-0021-L121-context-2",
+          "transferKey": "legacy-0021-L121-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002110",
+            "type": "gap_choice",
+            "prompt": "Bei den Tarifgesprächen verhandelt die Gewerkschaft mit dem ___ der Branche.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Companies organize together to represent their side in negotiations.",
+              "de": "Unternehmen schließen sich zur gemeinsamen Interessenvertretung zusammen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mieterverein"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kundenservice"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Betriebsarzt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitgeberverband"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitgeberverband represents employers, unlike a trade union representing employees.",
+              "de": "Arbeitgeberverband vertritt Arbeitgeber, anders als eine Gewerkschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei den Tarifgesprächen verhandelt die Gewerkschaft mit dem Arbeitgeberverband der Branche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Mieterverein, Kundenservice, Betriebsarzt). Only Arbeitgeberverband fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002111",
+      "title": {
+        "en": "Workload pressure",
+        "de": "Arbeitsbelastung: Menge und Druck"
+      },
+      "description": {
+        "en": "Arbeitsbelastung describes how demanding someone's workload is.",
+        "de": "Arbeitsbelastung beschreibt, wie viele und wie belastende Aufgaben jemand bei der Arbeit hat."
+      },
+      "objective": "Recognize Arbeitsbelastung as the volume or intensity of demands at work.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L122 (e0e770060ddd4a29c5da6d0fbc352fa226ea9470db2b6ee062637491ed5d59ed), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L122-v1",
+          "contextKey": "legacy-0021-L122-context-1",
+          "transferKey": "legacy-0021-L122-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002111",
+            "type": "choice",
+            "prompt": "Seit drei Kollegen fehlen, müssen alle deutlich mehr Aufgaben erledigen. Die ___ ist gestiegen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "More tasks make work more demanding.",
+              "de": "Mehr Aufgaben erhöhen die Anforderungen bei der Arbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Freizeit"
+              },
+              {
+                "id": "1",
+                "text": "Urlaubszeit"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitsbelastung"
+              },
+              {
+                "id": "3",
+                "text": "Bezahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsbelastung means workload or work-related strain.",
+              "de": "Arbeitsbelastung bezeichnet die Menge und Beanspruchung durch Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit drei Kollegen fehlen, müssen alle deutlich mehr Aufgaben erledigen. Die Arbeitsbelastung ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Freizeit, Urlaubszeit, Bezahlung). Only Arbeitsbelastung fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L122-v2",
+          "contextKey": "legacy-0021-L122-context-2",
+          "transferKey": "legacy-0021-L122-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002111",
+            "type": "gap_choice",
+            "prompt": "Die Führungskraft verteilt Aufgaben neu, damit die ___ im Team nicht zu hoch wird.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "More tasks make work more demanding.",
+              "de": "Mehr Aufgaben erhöhen die Anforderungen bei der Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anwesenheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anreise"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitsbelastung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsbelastung means workload or work-related strain.",
+              "de": "Arbeitsbelastung bezeichnet die Menge und Beanspruchung durch Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Führungskraft verteilt Aufgaben neu, damit die Arbeitsbelastung im Team nicht zu hoch wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Anwesenheit, Bewerbung, Anreise). Only Arbeitsbelastung fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002112",
+      "title": {
+        "en": "Permission to work",
+        "de": "Arbeitserlaubnis: Beschäftigung erlaubt"
+      },
+      "description": {
+        "en": "An Arbeitserlaubnis is authorization to work under applicable immigration rules.",
+        "de": "Eine Arbeitserlaubnis ist die erforderliche behördliche Berechtigung zur Beschäftigung."
+      },
+      "objective": "Recognize Arbeitserlaubnis as official permission to take up employment when required.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L123 (8e3ed30442fa12176cae73e5427e69e47387bb16bb558fb4ef474b915fcccf5c), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L123-v1",
+          "contextKey": "legacy-0021-L123-context-1",
+          "transferKey": "legacy-0021-L123-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002112",
+            "type": "choice",
+            "prompt": "Sie darf erst arbeiten, wenn die Behörde ihr die erforderliche ___ erteilt hat.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person needs official authorization to take the job.",
+              "de": "Die Person benötigt eine behördliche Berechtigung, um zu arbeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Meldebescheinigung"
+              },
+              {
+                "id": "1",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitserlaubnis"
+              },
+              {
+                "id": "3",
+                "text": "Versicherung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitserlaubnis means work authorization; whether it is needed depends on status and law.",
+              "de": "Arbeitserlaubnis bedeutet Arbeitserlaubnis; ob sie nötig ist, hängt vom Aufenthaltsstatus und Recht ab."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie darf erst arbeiten, wenn die Behörde ihr die erforderliche Arbeitserlaubnis erteilt hat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Meldebescheinigung, Fahrkarte, Versicherung). Only Arbeitserlaubnis fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L123-v2",
+          "contextKey": "legacy-0021-L123-context-2",
+          "transferKey": "legacy-0021-L123-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002112",
+            "type": "gap_choice",
+            "prompt": "Sein Aufenthaltstitel erlaubt ihm das Wohnen, aber noch keine Beschäftigung. Für den Job braucht er eine ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person needs official authorization to take the job.",
+              "de": "Die Person benötigt eine behördliche Berechtigung, um zu arbeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrerlaubnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bescheinigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitserlaubnis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitserlaubnis means work authorization; whether it is needed depends on status and law.",
+              "de": "Arbeitserlaubnis bedeutet Arbeitserlaubnis; ob sie nötig ist, hängt vom Aufenthaltsstatus und Recht ab."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sein Aufenthaltstitel erlaubt ihm das Wohnen, aber noch keine Beschäftigung. Für den Job braucht er eine Arbeitserlaubnis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Rechnung, Fahrerlaubnis, Bescheinigung). Only Arbeitserlaubnis fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002114",
+      "title": {
+        "en": "Industrial action in a labor dispute",
+        "de": "Arbeitskampf: Streik und Tarifkonflikt"
+      },
+      "description": {
+        "en": "Arbeitskampf covers industrial action such as strikes in employment disputes.",
+        "de": "Arbeitskampf umfasst kollektive Maßnahmen wie Streiks bei Tarifkonflikten."
+      },
+      "objective": "Recognize Arbeitskampf as organized industrial action during a labor dispute.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L125 (edd3c3f32471345cd0c9c4fd2778ccbce2d1dcb16309fb0b1169f57ef9aa6a2a), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L125-v1",
+          "contextKey": "legacy-0021-L125-context-1",
+          "transferKey": "legacy-0021-L125-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002114",
+            "type": "choice",
+            "prompt": "Die Gewerkschaft organisiert einen Streik, um höhere Löhne durchzusetzen. Das ist eine Form des ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A union organizes collective action in a labor dispute.",
+              "de": "Eine Gewerkschaft organisiert gemeinsame Maßnahmen im Tarifkonflikt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitsvertrags"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitsschutzes"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitskampfs"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitsplans"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitskampf means industrial action, including strikes, not ordinary work.",
+              "de": "Arbeitskampf bezeichnet kollektive Maßnahmen wie einen Streik."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gewerkschaft organisiert einen Streik, um höhere Löhne durchzusetzen. Das ist eine Form des Arbeitskampfs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitsvertrags, Arbeitsschutzes, Arbeitsplans). Only Arbeitskampfs fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L125-v2",
+          "contextKey": "legacy-0021-L125-context-2",
+          "transferKey": "legacy-0021-L125-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002114",
+            "type": "gap_choice",
+            "prompt": "Während des ___ legten viele Beschäftigte die Arbeit nieder.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A union organizes collective action in a labor dispute.",
+              "de": "Eine Gewerkschaft organisiert gemeinsame Maßnahmen im Tarifkonflikt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitsbeginns"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaubs"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Feierabends"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitskampfs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitskampf means industrial action, including strikes, not ordinary work.",
+              "de": "Arbeitskampf bezeichnet kollektive Maßnahmen wie einen Streik."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während des Arbeitskampfs legten viele Beschäftigte die Arbeit nieder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitsbeginns, Urlaubs, Feierabends). Only Arbeitskampfs fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002115",
+      "title": {
+        "en": "Quality and output of work",
+        "de": "Arbeitsleistung: erbrachte Arbeit"
+      },
+      "description": {
+        "en": "Arbeitsleistung describes the amount or quality of work someone provides.",
+        "de": "Arbeitsleistung bezeichnet die erbrachte Arbeit nach Menge oder Qualität."
+      },
+      "objective": "Recognize Arbeitsleistung as the work performed or performance delivered by an employee.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L126 (f96456e634418bcccd65d196b1d702cc2a3a8f7c3f962a89ff462060c6c95ee7), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L126-v1",
+          "contextKey": "legacy-0021-L126-context-1",
+          "transferKey": "legacy-0021-L126-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002115",
+            "type": "choice",
+            "prompt": "Die Vorgesetzte bewertet, wie sorgfältig und zuverlässig die Aufgaben erledigt wurden. Sie beurteilt die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence evaluates work output or quality.",
+              "de": "Es geht um die Menge oder Qualität der geleisteten Arbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitszeit"
+              },
+              {
+                "id": "1",
+                "text": "Urlaubsplanung"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitsleistung"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitskleidung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsleistung means work performance or work delivered.",
+              "de": "Arbeitsleistung bezeichnet die erbrachte Arbeitsleistung nach Umfang oder Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vorgesetzte bewertet, wie sorgfältig und zuverlässig die Aufgaben erledigt wurden. Sie beurteilt die Arbeitsleistung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitszeit, Urlaubsplanung, Arbeitskleidung). Only Arbeitsleistung fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L126-v2",
+          "contextKey": "legacy-0021-L126-context-2",
+          "transferKey": "legacy-0021-L126-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002115",
+            "type": "gap_choice",
+            "prompt": "Durch die neue Maschine schafft das Team mehr Stücke pro Stunde. Seine ___ ist gestiegen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence evaluates work output or quality.",
+              "de": "Es geht um die Menge oder Qualität der geleisteten Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fehlzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaubsdauer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Miete"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitsleistung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsleistung means work performance or work delivered.",
+              "de": "Arbeitsleistung bezeichnet die erbrachte Arbeitsleistung nach Umfang oder Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die neue Maschine schafft das Team mehr Stücke pro Stunde. Seine Arbeitsleistung ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Fehlzeit, Urlaubsdauer, Miete). Only Arbeitsleistung fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002116",
+      "title": {
+        "en": "Unemployment insurance benefit",
+        "de": "Arbeitslosengeld: Leistung bei Arbeitslosigkeit"
+      },
+      "description": {
+        "en": "Arbeitslosengeld is an unemployment benefit paid subject to eligibility and approval.",
+        "de": "Arbeitslosengeld ist eine Leistung für Arbeitslose bei erfüllten Voraussetzungen und Bewilligung."
+      },
+      "objective": "Recognize Arbeitslosengeld as a benefit for eligible unemployed people, distinct from other benefits.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L127 (8942d90fbf0df23b50843586c8ebbbc4874d1b138dbe5c9143b387828bc1ed07), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L127-v1",
+          "contextKey": "legacy-0021-L127-context-1",
+          "transferKey": "legacy-0021-L127-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002116",
+            "type": "choice",
+            "prompt": "Nach dem Verlust seiner Stelle beantragt er bei der Agentur für Arbeit eine Versicherungsleistung. Er beantragt ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person applies for an unemployment-related insurance benefit.",
+              "de": "Die Person beantragt eine Versicherungsleistung wegen Arbeitslosigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kindergeld"
+              },
+              {
+                "id": "1",
+                "text": "Wohngeld"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitslosengeld"
+              },
+              {
+                "id": "3",
+                "text": "Elterngeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosengeld is an unemployment benefit, distinct from child or housing benefits.",
+              "de": "Arbeitslosengeld ist eine Leistung bei Arbeitslosigkeit, nicht Kindergeld oder Wohngeld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Verlust seiner Stelle beantragt er bei der Agentur für Arbeit eine Versicherungsleistung. Er beantragt Arbeitslosengeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Kindergeld, Wohngeld, Elterngeld). Only Arbeitslosengeld fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L127-v2",
+          "contextKey": "legacy-0021-L127-context-2",
+          "transferKey": "legacy-0021-L127-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002116",
+            "type": "gap_choice",
+            "prompt": "Sie war sozialversicherungspflichtig beschäftigt und erhält nach Bewilligung vorübergehend ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person applies for an unemployment-related insurance benefit.",
+              "de": "Die Person beantragt eine Versicherungsleistung wegen Arbeitslosigkeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "BAföG"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rente"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Krankengeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitslosengeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosengeld is an unemployment benefit, distinct from child or housing benefits.",
+              "de": "Arbeitslosengeld ist eine Leistung bei Arbeitslosigkeit, nicht Kindergeld oder Wohngeld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie war sozialversicherungspflichtig beschäftigt und erhält nach Bewilligung vorübergehend Arbeitslosengeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (BAföG, Rente, Krankengeld). Only Arbeitslosengeld fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002117",
+      "title": {
+        "en": "Unemployment as a percentage",
+        "de": "Arbeitslosenquote: Anteil in Prozent"
+      },
+      "description": {
+        "en": "Arbeitslosenquote expresses unemployment as a rate or percentage.",
+        "de": "Arbeitslosenquote bezeichnet den Anteil der Arbeitslosen als Prozentwert."
+      },
+      "objective": "Distinguish Arbeitslosenquote as a percentage from Arbeitslosenzahl as an absolute count.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L128 (64fe939251932b1e9f65fbd7d7ce7b018c3bb134aa9b8083afb2048721c40c52), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L128-v1",
+          "contextKey": "legacy-0021-L128-context-1",
+          "transferKey": "legacy-0021-L128-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002117",
+            "type": "choice",
+            "prompt": "Von 1.000 Erwerbspersonen sind 50 arbeitslos. Die ___ beträgt fünf Prozent.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statistic is expressed as a percentage, not a number of people.",
+              "de": "Die Statistik wird in Prozent statt in Personen angegeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitslosenzahl"
+              },
+              {
+                "id": "1",
+                "text": "Bevölkerungszahl"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitslosenquote"
+              },
+              {
+                "id": "3",
+                "text": "Lohnsumme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenquote is the unemployment rate; Arbeitslosenzahl is a count.",
+              "de": "Arbeitslosenquote ist der Prozentwert, Arbeitslosenzahl die absolute Zahl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von 1.000 Erwerbspersonen sind 50 arbeitslos. Die Arbeitslosenquote beträgt fünf Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitslosenzahl, Bevölkerungszahl, Lohnsumme). Only Arbeitslosenquote fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L128-v2",
+          "contextKey": "legacy-0021-L128-context-2",
+          "transferKey": "legacy-0021-L128-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002117",
+            "type": "gap_choice",
+            "prompt": "Der Bericht nennt nicht die absolute Zahl, sondern den Prozentsatz der Arbeitslosen. Er zeigt die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statistic is expressed as a percentage, not a number of people.",
+              "de": "Die Statistik wird in Prozent statt in Personen angegeben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitslosenzahl"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Arbeitszeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitsleistung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitslosenquote"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenquote is the unemployment rate; Arbeitslosenzahl is a count.",
+              "de": "Arbeitslosenquote ist der Prozentwert, Arbeitslosenzahl die absolute Zahl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht nennt nicht die absolute Zahl, sondern den Prozentsatz der Arbeitslosen. Er zeigt die Arbeitslosenquote.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitslosenzahl, Arbeitszeit, Arbeitsleistung). Only Arbeitslosenquote fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002118",
+      "title": {
+        "en": "Insurance against unemployment",
+        "de": "Arbeitslosenversicherung: Beitragsversicherung"
+      },
+      "description": {
+        "en": "Arbeitslosenversicherung is the social insurance system covering unemployment risk under applicable rules.",
+        "de": "Arbeitslosenversicherung ist die Sozialversicherung für das Risiko der Arbeitslosigkeit."
+      },
+      "objective": "Recognize Arbeitslosenversicherung as insurance financing benefits for eligible unemployment.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L129 (e84a84af2c023544eafd3106dbba560e27512c224e446f9c9a514790f3b50f07), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L129-v1",
+          "contextKey": "legacy-0021-L129-context-1",
+          "transferKey": "legacy-0021-L129-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002118",
+            "type": "choice",
+            "prompt": "Beschäftigte und Arbeitgeber zahlen Beiträge in eine Versicherung, die bei Arbeitslosigkeit Leistungen finanzieren kann. Das ist die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contributions relate specifically to unemployment risk.",
+              "de": "Die Beiträge sichern das Risiko der Arbeitslosigkeit ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankenversicherung"
+              },
+              {
+                "id": "1",
+                "text": "Haftpflichtversicherung"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitslosenversicherung"
+              },
+              {
+                "id": "3",
+                "text": "Reiseversicherung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenversicherung is unemployment insurance, distinct from health or pension insurance.",
+              "de": "Arbeitslosenversicherung ist die Versicherung gegen Arbeitslosigkeit, nicht Kranken- oder Rentenversicherung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beschäftigte und Arbeitgeber zahlen Beiträge in eine Versicherung, die bei Arbeitslosigkeit Leistungen finanzieren kann. Das ist die Arbeitslosenversicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Krankenversicherung, Haftpflichtversicherung, Reiseversicherung). Only Arbeitslosenversicherung fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L129-v2",
+          "contextKey": "legacy-0021-L129-context-2",
+          "transferKey": "legacy-0021-L129-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002118",
+            "type": "gap_choice",
+            "prompt": "Auf der Gehaltsabrechnung ist ein Beitrag zur ___ ausgewiesen, der gegen das Risiko der Arbeitslosigkeit absichert.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contributions relate specifically to unemployment risk.",
+              "de": "Die Beiträge sichern das Risiko der Arbeitslosigkeit ab."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegeversicherung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unfallversicherung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rentenversicherung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitslosenversicherung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenversicherung is unemployment insurance, distinct from health or pension insurance.",
+              "de": "Arbeitslosenversicherung ist die Versicherung gegen Arbeitslosigkeit, nicht Kranken- oder Rentenversicherung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Gehaltsabrechnung ist ein Beitrag zur Arbeitslosenversicherung ausgewiesen, der gegen das Risiko der Arbeitslosigkeit absichert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Pflegeversicherung, Unfallversicherung, Rentenversicherung). Only Arbeitslosenversicherung fits the stated meaning. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002119",
+      "title": {
+        "en": "Absolute number of unemployed people",
+        "de": "Arbeitslosenzahl: Personen statt Prozent"
+      },
+      "description": {
+        "en": "Arbeitslosenzahl counts unemployed people as a number of persons.",
+        "de": "Arbeitslosenzahl bezeichnet die absolute Anzahl arbeitsloser Personen."
+      },
+      "objective": "Distinguish Arbeitslosenzahl as the absolute count of unemployed people rather than an unemployment rate.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L130 (4d45de64d594060fa66547163d3db7df6ce227930e08495c7fa63cc1f60b2671), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0021-L130-v1",
+          "contextKey": "legacy-0021-L130-context-1",
+          "transferKey": "legacy-0021-L130-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002119",
+            "type": "choice",
+            "prompt": "Die Statistik meldet 12.000 arbeitslose Menschen in der Region. Das ist die ___, nicht die Quote.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statistic counts people rather than giving a percentage.",
+              "de": "Die Statistik nennt Personen statt Prozentwerte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitslosenquote"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitslosenversicherung"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitslosenzahl"
+              },
+              {
+                "id": "3",
+                "text": "Erwerbsquote"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenzahl is the number of unemployed people; Arbeitslosenquote is the percentage.",
+              "de": "Arbeitslosenzahl ist die Personenzahl; Arbeitslosenquote ist der Prozentwert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Statistik meldet 12.000 arbeitslose Menschen in der Region. Das ist die Arbeitslosenzahl, nicht die Quote.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitslosenquote, Arbeitslosenversicherung, Erwerbsquote). Only Arbeitslosenzahl fits the stated meaning. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0021-L130-v2",
+          "contextKey": "legacy-0021-L130-context-2",
+          "transferKey": "legacy-0021-L130-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000210191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002119",
+            "type": "gap_choice",
+            "prompt": "Die ___ ist von 8.000 auf 7.500 Personen gesunken; die Angabe steht ausdrücklich in Personen, nicht in Prozent.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statistic counts people rather than giving a percentage.",
+              "de": "Die Statistik nennt Personen statt Prozentwerte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitslosenquote"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beschäftigungsquote"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lohnquote"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitslosenzahl"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitslosenzahl is the number of unemployed people; Arbeitslosenquote is the percentage.",
+              "de": "Arbeitslosenzahl ist die Personenzahl; Arbeitslosenquote ist der Prozentwert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Arbeitslosenzahl ist von 8.000 auf 7.500 Personen gesunken; die Angabe steht ausdrücklich in Personen, nicht in Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence, noun sense, grammatical form and each offered alternative checked (Arbeitslosenquote, Beschäftigungsquote, Lohnquote). Only Arbeitslosenzahl fits the stated meaning. Independent review pending."
+        }
+      ]
+    }
+  ]
+}
