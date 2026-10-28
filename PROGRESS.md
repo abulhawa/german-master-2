@@ -2,6 +2,11 @@
 
 ## Visible native account identity - 28 October 2026
 
+Follow-up: owner connected the Pixel; ADB replacement installation of the updated
+preview APK succeeded without clearing app data. The preview launcher was opened.
+Settings/email display has not been inspected on the device in this follow-up;
+the earlier local tests remain the verification evidence. No store upload.
+
 Owner reports both Google and Microsoft sign-in working on the phone, but no
 visible current account. This is owner-reported provider acceptance; no new
 agent-operated device flow is claimed. Android Settings now includes Sign-in
