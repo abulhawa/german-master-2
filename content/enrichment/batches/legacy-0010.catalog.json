@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001000",
+      "title": {
+        "en": "Apparently, based on evidence",
+        "de": "Anscheinend: eine Vermutung"
+      },
+      "description": {
+        "en": "The speaker infers something from clues but cannot confirm it.",
+        "de": "Aus Hinweisen wird etwas vermutet, ohne dass es sicher feststeht."
+      },
+      "objective": "Recognize anscheinend as expressing an inference based on available evidence, without certainty.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L24 (ff06700cc65852ccdc145a83f661e39a8b9d68262555f0aca032394306e89604), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L24-v1",
+          "contextKey": "legacy-0010-L24-context-1",
+          "transferKey": "legacy-0010-L24-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001000",
+            "type": "choice",
+            "prompt": "Die Fenster sind dunkel und niemand öffnet. ___ ist niemand zu Hause.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker infers something from clues but cannot confirm it.",
+              "de": "Aus Hinweisen wird etwas vermutet, ohne dass es sicher feststeht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anscheinend"
+              },
+              {
+                "id": "1",
+                "text": "Absichtlich"
+              },
+              {
+                "id": "2",
+                "text": "Ausdrücklich"
+              },
+              {
+                "id": "3",
+                "text": "Endgültig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Anscheinend expresses an appearance-based inference, not a confirmed fact.",
+              "de": "Anscheinend drückt eine Vermutung aufgrund von Anzeichen aus, keine Gewissheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fenster sind dunkel und niemand öffnet. Anscheinend ist niemand zu Hause.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives Absichtlich, Ausdrücklich, Endgültig do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L24-v2",
+          "contextKey": "legacy-0010-L24-context-2",
+          "transferKey": "legacy-0010-L24-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001000",
+            "type": "gap_choice",
+            "prompt": "Die Bestellung steht im System noch auf „offen“. ___ wurde sie noch nicht verschickt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker infers something from clues but cannot confirm it.",
+              "de": "Aus Hinweisen wird etwas vermutet, ohne dass es sicher feststeht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausführlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschließend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anscheinend"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pünktlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anscheinend expresses an appearance-based inference, not a confirmed fact.",
+              "de": "Anscheinend drückt eine Vermutung aufgrund von Anzeichen aus, keine Gewissheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bestellung steht im System noch auf „offen“. Anscheinend wurde sie noch nicht verschickt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives Ausführlich, Anschließend, Pünktlich do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001001",
+      "title": {
+        "en": "Subsequently",
+        "de": "Anschließend: zeitliche Folge"
+      },
+      "description": {
+        "en": "One event finishes before the next begins.",
+        "de": "Eine Handlung endet, bevor die nächste beginnt."
+      },
+      "objective": "Recognize anschließend as indicating the next action in a sequence.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L25 (5eec368ff1971c425fefd85b6b19ef61551921a2509c7dc3a8ee54506d7ad7d8), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L25-v1",
+          "contextKey": "legacy-0010-L25-context-1",
+          "transferKey": "legacy-0010-L25-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001001",
+            "type": "choice",
+            "prompt": "Zuerst prüfen wir die Rechnung. ___ überweisen wir den Betrag.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One event finishes before the next begins.",
+              "de": "Eine Handlung endet, bevor die nächste beginnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Trotzdem"
+              },
+              {
+                "id": "1",
+                "text": "Gleichzeitig"
+              },
+              {
+                "id": "2",
+                "text": "Allerdings"
+              },
+              {
+                "id": "3",
+                "text": "Anschließend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Anschließend means afterward or subsequently, marking sequence.",
+              "de": "Anschließend bedeutet danach und kennzeichnet die zeitliche Reihenfolge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zuerst prüfen wir die Rechnung. Anschließend überweisen wir den Betrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives Trotzdem, Gleichzeitig, Allerdings do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L25-v2",
+          "contextKey": "legacy-0010-L25-context-2",
+          "transferKey": "legacy-0010-L25-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001001",
+            "type": "gap_choice",
+            "prompt": "Der Kurs endet um 16 Uhr. ___ können die Teilnehmenden Fragen stellen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One event finishes before the next begins.",
+              "de": "Eine Handlung endet, bevor die nächste beginnt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anderswo"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschließend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stattdessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anschließend means afterward or subsequently, marking sequence.",
+              "de": "Anschließend bedeutet danach und kennzeichnet die zeitliche Reihenfolge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kurs endet um 16 Uhr. Anschließend können die Teilnehmenden Fragen stellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives Anderswo, Vorher, Stattdessen do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001002",
+      "title": {
+        "en": "Contagious",
+        "de": "Ansteckend"
+      },
+      "description": {
+        "en": "The concern is that other people may catch the infection.",
+        "de": "Die Sorge ist, dass sich andere Menschen infizieren können."
+      },
+      "objective": "Recognize ansteckend as describing an infection that can be transmitted to others.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L26 (da7b626e399442e3d9b77d797dde31c7326fd708d4639884a9f4babc3af21852), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L26-v1",
+          "contextKey": "legacy-0010-L26-context-1",
+          "transferKey": "legacy-0010-L26-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001002",
+            "type": "choice",
+            "prompt": "Die Ärztin rät zur Isolation, weil die Krankheit sehr ___ ist.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The concern is that other people may catch the infection.",
+              "de": "Die Sorge ist, dass sich andere Menschen infizieren können."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "heilbar"
+              },
+              {
+                "id": "1",
+                "text": "chronisch"
+              },
+              {
+                "id": "2",
+                "text": "ansteckend"
+              },
+              {
+                "id": "3",
+                "text": "harmlos"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Ansteckend means contagious, not merely painful or long-lasting.",
+              "de": "Ansteckend bedeutet übertragbar, nicht einfach schmerzhaft oder langwierig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin rät zur Isolation, weil die Krankheit sehr ansteckend ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives heilbar, chronisch, harmlos do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L26-v2",
+          "contextKey": "legacy-0010-L26-context-2",
+          "transferKey": "legacy-0010-L26-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001002",
+            "type": "gap_choice",
+            "prompt": "Der Patient darf noch keinen Besuch empfangen; die Infektion ist weiterhin ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The concern is that other people may catch the infection.",
+              "de": "Die Sorge ist, dass sich andere Menschen infizieren können."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ansteckend"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgeheilt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schmerzfrei"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unauffällig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ansteckend means contagious, not merely painful or long-lasting.",
+              "de": "Ansteckend bedeutet übertragbar, nicht einfach schmerzhaft oder langwierig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Patient darf noch keinen Besuch empfangen; die Infektion ist weiterhin ansteckend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ausgeheilt, schmerzfrei, unauffällig do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001003",
+      "title": {
+        "en": "Present at a place",
+        "de": "Anwesend"
+      },
+      "description": {
+        "en": "The question is who is actually there, not merely registered.",
+        "de": "Es geht darum, wer wirklich vor Ort ist, nicht nur angemeldet."
+      },
+      "objective": "Recognize anwesend as physically present at a meeting or in a room.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L27 (2a52bb4a8972e656e3a72602ced7a5f01b83decded098b6aed00f09879de1fc1), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L27-v1",
+          "contextKey": "legacy-0010-L27-context-1",
+          "transferKey": "legacy-0010-L27-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001003",
+            "type": "choice",
+            "prompt": "Bei der Besprechung sind heute alle zehn Mitglieder ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question is who is actually there, not merely registered.",
+              "de": "Es geht darum, wer wirklich vor Ort ist, nicht nur angemeldet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterwegs"
+              },
+              {
+                "id": "1",
+                "text": "anwesend"
+              },
+              {
+                "id": "2",
+                "text": "abwesend"
+              },
+              {
+                "id": "3",
+                "text": "krank"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anwesend means present; abwesend means absent.",
+              "de": "Anwesend bedeutet vor Ort; abwesend bedeutet nicht da."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Besprechung sind heute alle zehn Mitglieder anwesend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unterwegs, abwesend, krank do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L27-v2",
+          "contextKey": "legacy-0010-L27-context-2",
+          "transferKey": "legacy-0010-L27-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001003",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin ruft die Namen auf und markiert, wer im Raum ___ ist.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question is who is actually there, not merely registered.",
+              "de": "Es geht darum, wer wirklich vor Ort ist, nicht nur angemeldet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "angemeldet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verspätet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgemeldet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anwesend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anwesend means present; abwesend means absent.",
+              "de": "Anwesend bedeutet vor Ort; abwesend bedeutet nicht da."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin ruft die Namen auf und markiert, wer im Raum anwesend ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives angemeldet, verspätet, abgemeldet do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001004",
+      "title": {
+        "en": "Able to work",
+        "de": "Arbeitsfähig"
+      },
+      "description": {
+        "en": "The person can carry out the required tasks.",
+        "de": "Die Person kann ihre beruflichen Aufgaben ausführen."
+      },
+      "objective": "Recognize arbeitsfähig as currently able to perform one's work.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L28 (8ff51a402cce459822d3e72289713f16862256f664ae4a93a0f3e35cfebfa219), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L28-v1",
+          "contextKey": "legacy-0010-L28-context-1",
+          "transferKey": "legacy-0010-L28-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001004",
+            "type": "choice",
+            "prompt": "Nach der Genesung kann er seine Aufgaben wieder ohne Einschränkung erledigen. Er ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person can carry out the required tasks.",
+              "de": "Die Person kann ihre beruflichen Aufgaben ausführen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "arbeitsfähig"
+              },
+              {
+                "id": "1",
+                "text": "arbeitslos"
+              },
+              {
+                "id": "2",
+                "text": "arbeitsunfähig"
+              },
+              {
+                "id": "3",
+                "text": "arbeitssuchend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsfähig describes ability to work; it is not the same as being employed.",
+              "de": "Arbeitsfähig heißt, arbeiten zu können; es sagt nichts darüber, ob man eine Stelle hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Genesung kann er seine Aufgaben wieder ohne Einschränkung erledigen. Er ist arbeitsfähig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives arbeitslos, arbeitsunfähig, arbeitssuchend do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L28-v2",
+          "contextKey": "legacy-0010-L28-context-2",
+          "transferKey": "legacy-0010-L28-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001004",
+            "type": "gap_choice",
+            "prompt": "Trotz der alten Verletzung kann sie ihre Büroarbeit vollständig ausüben. Sie gilt als ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person can carry out the required tasks.",
+              "de": "Die Person kann ihre beruflichen Aufgaben ausführen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "arbeitslos"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beurlaubt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "arbeitsfähig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "arbeitsunfähig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsfähig describes ability to work; it is not the same as being employed.",
+              "de": "Arbeitsfähig heißt, arbeiten zu können; es sagt nichts darüber, ob man eine Stelle hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trotz der alten Verletzung kann sie ihre Büroarbeit vollständig ausüben. Sie gilt als arbeitsfähig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives arbeitslos, beurlaubt, arbeitsunfähig do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001005",
+      "title": {
+        "en": "Looking for a job",
+        "de": "Arbeitssuchend"
+      },
+      "description": {
+        "en": "The person is applying for positions and wants to find work.",
+        "de": "Die Person bewirbt sich und sucht eine Stelle."
+      },
+      "objective": "Recognize arbeitssuchend as actively seeking employment.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L30 (0d1d1df93070dc5f10c2b4db8db16176540ddff0d29af8b59b29ab710528d05e), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L30-v1",
+          "contextKey": "legacy-0010-L30-context-1",
+          "transferKey": "legacy-0010-L30-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001005",
+            "type": "choice",
+            "prompt": "Er ist derzeit ohne Stelle und sucht eine neue. Im Formular kreuzt er ___ an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is applying for positions and wants to find work.",
+              "de": "Die Person bewirbt sich und sucht eine Stelle."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "berufstätig"
+              },
+              {
+                "id": "1",
+                "text": "selbstständig"
+              },
+              {
+                "id": "2",
+                "text": "verrentet"
+              },
+              {
+                "id": "3",
+                "text": "arbeitssuchend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitssuchend means seeking employment; it is not synonymous with being unable to work.",
+              "de": "Arbeitssuchend bedeutet, eine Stelle zu suchen, nicht arbeitsunfähig zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er ist derzeit ohne Stelle und sucht eine neue. Im Formular kreuzt er arbeitssuchend an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives berufstätig, selbstständig, verrentet do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L30-v2",
+          "contextKey": "legacy-0010-L30-context-2",
+          "transferKey": "legacy-0010-L30-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001005",
+            "type": "gap_choice",
+            "prompt": "Sie hat gerade ihr Studium beendet und bewirbt sich bei mehreren Firmen. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is applying for positions and wants to find work.",
+              "de": "Die Person bewirbt sich und sucht eine Stelle."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "pensioniert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "arbeitssuchend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "angestellt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beurlaubt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitssuchend means seeking employment; it is not synonymous with being unable to work.",
+              "de": "Arbeitssuchend bedeutet, eine Stelle zu suchen, nicht arbeitsunfähig zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat gerade ihr Studium beendet und bewirbt sich bei mehreren Firmen. Sie ist arbeitssuchend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives pensioniert, angestellt, beurlaubt do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001006",
+      "title": {
+        "en": "Unable to work",
+        "de": "Arbeitsunfähig"
+      },
+      "description": {
+        "en": "An illness or injury prevents the person from working.",
+        "de": "Eine Erkrankung oder Verletzung verhindert die Arbeit."
+      },
+      "objective": "Recognize arbeitsunfähig as temporarily unable to perform work because of illness or injury.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L31 (a8c3d332b0ee3cd18f2b9277af2e383ccca79e49c4a8c8c4b2cf6cc8e933356d), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L31-v1",
+          "contextKey": "legacy-0010-L31-context-1",
+          "transferKey": "legacy-0010-L31-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001006",
+            "type": "choice",
+            "prompt": "Wegen des gebrochenen Arms kann der Mechaniker vorübergehend nicht arbeiten. Er ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An illness or injury prevents the person from working.",
+              "de": "Eine Erkrankung oder Verletzung verhindert die Arbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "arbeitssuchend"
+              },
+              {
+                "id": "1",
+                "text": "arbeitsfähig"
+              },
+              {
+                "id": "2",
+                "text": "arbeitsunfähig"
+              },
+              {
+                "id": "3",
+                "text": "arbeitslos"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsunfähig means unfit for work, which differs from being unemployed.",
+              "de": "Arbeitsunfähig bedeutet, krankheitsbedingt nicht arbeiten zu können; das ist nicht arbeitslos."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des gebrochenen Arms kann der Mechaniker vorübergehend nicht arbeiten. Er ist arbeitsunfähig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives arbeitssuchend, arbeitsfähig, arbeitslos do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L31-v2",
+          "contextKey": "legacy-0010-L31-context-2",
+          "transferKey": "legacy-0010-L31-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001006",
+            "type": "gap_choice",
+            "prompt": "Die Ärztin stellt eine Bescheinigung aus, weil ihre Patientin diese Woche nicht arbeiten kann. Sie ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An illness or injury prevents the person from working.",
+              "de": "Eine Erkrankung oder Verletzung verhindert die Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "arbeitsunfähig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "arbeitsfähig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "arbeitslos"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgebildet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsunfähig means unfit for work, which differs from being unemployed.",
+              "de": "Arbeitsunfähig bedeutet, krankheitsbedingt nicht arbeiten zu können; das ist nicht arbeitslos."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin stellt eine Bescheinigung aus, weil ihre Patientin diese Woche nicht arbeiten kann. Sie ist arbeitsunfähig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives arbeitsfähig, arbeitslos, ausgebildet do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001007",
+      "title": {
+        "en": "Specified in an employment contract",
+        "de": "Arbeitsvertraglich geregelt"
+      },
+      "description": {
+        "en": "The rule is contained in the signed employment agreement.",
+        "de": "Die Regel steht im unterschriebenen Arbeitsvertrag."
+      },
+      "objective": "Recognize arbeitsvertraglich as stipulated in an employment contract.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L32 (db87ad9bef8a1ae75dd7c0e19d137cf650af0e3589dabd82e95310242e397af6), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L32-v1",
+          "contextKey": "legacy-0010-L32-context-1",
+          "transferKey": "legacy-0010-L32-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001007",
+            "type": "choice",
+            "prompt": "Die Kündigungsfrist steht ausdrücklich im Arbeitsvertrag. Sie ist ___ geregelt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rule is contained in the signed employment agreement.",
+              "de": "Die Regel steht im unterschriebenen Arbeitsvertrag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "freiwillig"
+              },
+              {
+                "id": "1",
+                "text": "arbeitsvertraglich"
+              },
+              {
+                "id": "2",
+                "text": "mündlich"
+              },
+              {
+                "id": "3",
+                "text": "zufällig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsvertraglich means defined or agreed in an employment contract.",
+              "de": "Arbeitsvertraglich bedeutet, im Arbeitsvertrag geregelt oder vereinbart."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kündigungsfrist steht ausdrücklich im Arbeitsvertrag. Sie ist arbeitsvertraglich geregelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives freiwillig, mündlich, zufällig do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L32-v2",
+          "contextKey": "legacy-0010-L32-context-2",
+          "transferKey": "legacy-0010-L32-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001007",
+            "type": "gap_choice",
+            "prompt": "Die Pflicht zur Rufbereitschaft steht im unterschriebenen Arbeitsvertrag. Sie ist ___ vereinbart.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rule is contained in the signed employment agreement.",
+              "de": "Die Regel steht im unterschriebenen Arbeitsvertrag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "privat"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unverbindlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versehentlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "arbeitsvertraglich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsvertraglich means defined or agreed in an employment contract.",
+              "de": "Arbeitsvertraglich bedeutet, im Arbeitsvertrag geregelt oder vereinbart."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflicht zur Rufbereitschaft steht im unterschriebenen Arbeitsvertrag. Sie ist arbeitsvertraglich vereinbart.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives privat, unverbindlich, versehentlich do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001008",
+      "title": {
+        "en": "Annoying or frustrating",
+        "de": "Ärgerlich"
+      },
+      "description": {
+        "en": "Something unwanted causes irritation or frustration.",
+        "de": "Etwas Unerwünschtes sorgt für Verärgerung."
+      },
+      "objective": "Recognize ärgerlich as describing a frustrating or annoying situation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L33 (a572f6274f83b66730007a8613b4a6446f0d1c2b78beea8fa44bcf229a857073), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L33-v1",
+          "contextKey": "legacy-0010-L33-context-1",
+          "transferKey": "legacy-0010-L33-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001008",
+            "type": "choice",
+            "prompt": "Der Zug fährt zehn Minuten vor der geplanten Zeit ab. Das ist wirklich ___ für die Wartenden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something unwanted causes irritation or frustration.",
+              "de": "Etwas Unerwünschtes sorgt für Verärgerung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ärgerlich"
+              },
+              {
+                "id": "1",
+                "text": "angenehm"
+              },
+              {
+                "id": "2",
+                "text": "hilfreich"
+              },
+              {
+                "id": "3",
+                "text": "pünktlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Ärgerlich describes something annoying or regrettable in context.",
+              "de": "Ärgerlich beschreibt hier etwas, das stört oder frustriert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug fährt zehn Minuten vor der geplanten Zeit ab. Das ist wirklich ärgerlich für die Wartenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives angenehm, hilfreich, pünktlich do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L33-v2",
+          "contextKey": "legacy-0010-L33-context-2",
+          "transferKey": "legacy-0010-L33-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001008",
+            "type": "gap_choice",
+            "prompt": "Die Rechnung enthält schon wieder denselben Fehler. Wie ___!",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something unwanted causes irritation or frustration.",
+              "de": "Etwas Unerwünschtes sorgt für Verärgerung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "freundlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zuverlässig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ärgerlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "praktisch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ärgerlich describes something annoying or regrettable in context.",
+              "de": "Ärgerlich beschreibt hier etwas, das stört oder frustriert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Rechnung enthält schon wieder denselben Fehler. Wie ärgerlich!",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives freundlich, zuverlässig, praktisch do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001009",
+      "title": {
+        "en": "Attractive to a group",
+        "de": "Attraktiv"
+      },
+      "description": {
+        "en": "The offer or place has features that people value.",
+        "de": "Das Angebot oder der Ort hat Eigenschaften, die Menschen ansprechen."
+      },
+      "objective": "Recognize attraktiv as appealing because of desirable qualities or benefits.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L35 (55ca0b91cf6cb635a688bb8313d3328d2172056cdc3b3cb011fcfd92b3af864a), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L35-v1",
+          "contextKey": "legacy-0010-L35-context-1",
+          "transferKey": "legacy-0010-L35-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001009",
+            "type": "choice",
+            "prompt": "Das Stellenangebot bietet flexible Zeiten und gute Bezahlung. Es ist für viele Bewerber ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The offer or place has features that people value.",
+              "de": "Das Angebot oder der Ort hat Eigenschaften, die Menschen ansprechen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abschreckend"
+              },
+              {
+                "id": "1",
+                "text": "unverbindlich"
+              },
+              {
+                "id": "2",
+                "text": "unpassend"
+              },
+              {
+                "id": "3",
+                "text": "attraktiv"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Attraktiv means appealing or desirable, not necessarily physically beautiful.",
+              "de": "Attraktiv bedeutet ansprechend oder vorteilhaft, nicht nur äußerlich schön."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Stellenangebot bietet flexible Zeiten und gute Bezahlung. Es ist für viele Bewerber attraktiv.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives abschreckend, unverbindlich, unpassend do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L35-v2",
+          "contextKey": "legacy-0010-L35-context-2",
+          "transferKey": "legacy-0010-L35-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001009",
+            "type": "gap_choice",
+            "prompt": "Die Stadt hat neue Parks und günstige Wohnungen gebaut und ist für Familien ___ geworden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The offer or place has features that people value.",
+              "de": "Das Angebot oder der Ort hat Eigenschaften, die Menschen ansprechen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unbekannt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "attraktiv"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unbewohnbar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gefährlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Attraktiv means appealing or desirable, not necessarily physically beautiful.",
+              "de": "Attraktiv bedeutet ansprechend oder vorteilhaft, nicht nur äußerlich schön."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt hat neue Parks und günstige Wohnungen gebaut und ist für Familien attraktiv geworden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unbekannt, unbewohnbar, gefährlich do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001010",
+      "title": {
+        "en": "Intrusive or pushy",
+        "de": "Aufdringlich"
+      },
+      "description": {
+        "en": "Someone keeps pressing despite signs that attention is unwanted.",
+        "de": "Jemand drängt sich auf, obwohl das nicht erwünscht ist."
+      },
+      "objective": "Recognize aufdringlich as describing unwanted, persistent approaches that ignore boundaries.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L36 (5a975cfb33ea774b6119a22ce388bbce34f1aa5b23869ee7d36700065264f9fd), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L36-v1",
+          "contextKey": "legacy-0010-L36-context-1",
+          "transferKey": "legacy-0010-L36-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001010",
+            "type": "choice",
+            "prompt": "Der Verkäufer lässt die Kundin nicht in Ruhe und spricht sie immer wieder an. Sie findet ihn ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone keeps pressing despite signs that attention is unwanted.",
+              "de": "Jemand drängt sich auf, obwohl das nicht erwünscht ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "höflich"
+              },
+              {
+                "id": "1",
+                "text": "geduldig"
+              },
+              {
+                "id": "2",
+                "text": "aufdringlich"
+              },
+              {
+                "id": "3",
+                "text": "zurückhaltend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufdringlich means pushy or intrusive, unlike reserved or considerate behavior.",
+              "de": "Aufdringlich bedeutet sich aufdrängend, im Gegensatz zu zurückhaltend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verkäufer lässt die Kundin nicht in Ruhe und spricht sie immer wieder an. Sie findet ihn aufdringlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives höflich, geduldig, zurückhaltend do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L36-v2",
+          "contextKey": "legacy-0010-L36-context-2",
+          "transferKey": "legacy-0010-L36-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001010",
+            "type": "gap_choice",
+            "prompt": "Obwohl sie Nein gesagt hat, erhält sie täglich Werbeanrufe. Die Anrufe wirken ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone keeps pressing despite signs that attention is unwanted.",
+              "de": "Jemand drängt sich auf, obwohl das nicht erwünscht ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufdringlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unauffällig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "willkommen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "selten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufdringlich means pushy or intrusive, unlike reserved or considerate behavior.",
+              "de": "Aufdringlich bedeutet sich aufdrängend, im Gegensatz zu zurückhaltend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Obwohl sie Nein gesagt hat, erhält sie täglich Werbeanrufe. Die Anrufe wirken aufdringlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unauffällig, willkommen, selten do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001011",
+      "title": {
+        "en": "Attentive or considerate",
+        "de": "Aufmerksam"
+      },
+      "description": {
+        "en": "One person notices details; another notices what someone needs.",
+        "de": "Eine Person achtet auf Details, eine andere auf die Bedürfnisse von Menschen."
+      },
+      "objective": "Recognize aufmerksam as either carefully attentive or thoughtfully considerate, according to context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L37 (35a85d65e697c4a74b0ef77349c4003d60bd0af4e3aaffb29066b71341e9c2e3), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L37-v1",
+          "contextKey": "legacy-0010-L37-context-1",
+          "transferKey": "legacy-0010-L37-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001011",
+            "type": "choice",
+            "prompt": "Der Schüler hört genau zu und bemerkt sogar kleine Fehler. Er ist sehr ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One person notices details; another notices what someone needs.",
+              "de": "Eine Person achtet auf Details, eine andere auf die Bedürfnisse von Menschen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "müde"
+              },
+              {
+                "id": "1",
+                "text": "aufmerksam"
+              },
+              {
+                "id": "2",
+                "text": "abgelenkt"
+              },
+              {
+                "id": "3",
+                "text": "unbeteiligt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Aufmerksam can mean alert and observant, or considerate toward someone.",
+              "de": "Aufmerksam kann aufmerksam beobachtend oder rücksichtsvoll und zugewandt bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Schüler hört genau zu und bemerkt sogar kleine Fehler. Er ist sehr aufmerksam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives müde, abgelenkt, unbeteiligt do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L37-v2",
+          "contextKey": "legacy-0010-L37-context-2",
+          "transferKey": "legacy-0010-L37-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001011",
+            "type": "gap_choice",
+            "prompt": "Die Kollegin merkt, dass ich Hilfe brauche, und bringt mir unaufgefordert Unterlagen. Das ist sehr ___ von ihr.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One person notices details; another notices what someone needs.",
+              "de": "Eine Person achtet auf Details, eine andere auf die Bedürfnisse von Menschen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unhöflich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ärgerlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gleichgültig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufmerksam"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufmerksam can mean alert and observant, or considerate toward someone.",
+              "de": "Aufmerksam kann aufmerksam beobachtend oder rücksichtsvoll und zugewandt bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kollegin merkt, dass ich Hilfe brauche, und bringt mir unaufgefordert Unterlagen. Das ist sehr aufmerksam von ihr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unhöflich, ärgerlich, gleichgültig do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001012",
+      "title": {
+        "en": "Explicitly stated",
+        "de": "Ausdrücklich"
+      },
+      "description": {
+        "en": "A requirement is stated unmistakably rather than merely implied.",
+        "de": "Eine Vorgabe wird eindeutig genannt und nicht nur angedeutet."
+      },
+      "objective": "Recognize ausdrücklich as stating a rule or condition clearly and explicitly.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L38 (e4a147ec273b37b4f60ad731fd06e3b0a71cdb679c77ff5e979df1dca3affe38), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L38-v1",
+          "contextKey": "legacy-0010-L38-context-1",
+          "transferKey": "legacy-0010-L38-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001012",
+            "type": "choice",
+            "prompt": "Die Chefin hat klar gesagt, dass private Daten nicht geteilt werden dürfen. Sie hat es ___ verboten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A requirement is stated unmistakably rather than merely implied.",
+              "de": "Eine Vorgabe wird eindeutig genannt und nicht nur angedeutet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausdrücklich"
+              },
+              {
+                "id": "1",
+                "text": "zufällig"
+              },
+              {
+                "id": "2",
+                "text": "stillschweigend"
+              },
+              {
+                "id": "3",
+                "text": "ungefähr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Ausdrücklich means expressly or explicitly, not silently or by chance.",
+              "de": "Ausdrücklich bedeutet klar und ausdrücklich gesagt, nicht stillschweigend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Chefin hat klar gesagt, dass private Daten nicht geteilt werden dürfen. Sie hat es ausdrücklich verboten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives zufällig, stillschweigend, ungefähr do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L38-v2",
+          "contextKey": "legacy-0010-L38-context-2",
+          "transferKey": "legacy-0010-L38-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001012",
+            "type": "gap_choice",
+            "prompt": "In der Einladung steht ___, dass eine Anmeldung erforderlich ist.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A requirement is stated unmistakably rather than merely implied.",
+              "de": "Eine Vorgabe wird eindeutig genannt und nicht nur angedeutet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermutlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nebenbei"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausdrücklich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "heimlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ausdrücklich means expressly or explicitly, not silently or by chance.",
+              "de": "Ausdrücklich bedeutet klar und ausdrücklich gesagt, nicht stillschweigend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Einladung steht ausdrücklich, dass eine Anmeldung erforderlich ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives vermutlich, nebenbei, heimlich do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001013",
+      "title": {
+        "en": "Detailed explanation",
+        "de": "Ausführlich"
+      },
+      "description": {
+        "en": "The explanation covers many steps and supporting details.",
+        "de": "Die Erklärung enthält viele Schritte und zusätzliche Einzelheiten."
+      },
+      "objective": "Recognize ausführlich as providing thorough detail rather than a brief summary.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L39 (626340d0ebf2f53089f01285c7fc9a8bd2e49a63afe948437bba4a75618d33c1), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L39-v1",
+          "contextKey": "legacy-0010-L39-context-1",
+          "transferKey": "legacy-0010-L39-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001013",
+            "type": "choice",
+            "prompt": "Der Bericht erklärt jeden Schritt mit Beispielen und Belegen. Er ist sehr ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The explanation covers many steps and supporting details.",
+              "de": "Die Erklärung enthält viele Schritte und zusätzliche Einzelheiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "knapp"
+              },
+              {
+                "id": "1",
+                "text": "oberflächlich"
+              },
+              {
+                "id": "2",
+                "text": "unvollständig"
+              },
+              {
+                "id": "3",
+                "text": "ausführlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Ausführlich means detailed or thorough, unlike knapp or oberflächlich.",
+              "de": "Ausführlich bedeutet detailliert und gründlich, anders als knapp oder oberflächlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht erklärt jeden Schritt mit Beispielen und Belegen. Er ist sehr ausführlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives knapp, oberflächlich, unvollständig do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L39-v2",
+          "contextKey": "legacy-0010-L39-context-2",
+          "transferKey": "legacy-0010-L39-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001013",
+            "type": "gap_choice",
+            "prompt": "Sie beantwortet die Frage nicht mit einem Satz, sondern erklärt alle Hintergründe ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The explanation covers many steps and supporting details.",
+              "de": "Die Erklärung enthält viele Schritte und zusätzliche Einzelheiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "widersprüchlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausführlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "kurz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beiläufig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ausführlich means detailed or thorough, unlike knapp or oberflächlich.",
+              "de": "Ausführlich bedeutet detailliert und gründlich, anders als knapp oder oberflächlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie beantwortet die Frage nicht mit einem Satz, sondern erklärt alle Hintergründe ausführlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives widersprüchlich, kurz, beiläufig do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001014",
+      "title": {
+        "en": "Professionally trained",
+        "de": "Ausgebildet"
+      },
+      "description": {
+        "en": "The person has acquired the relevant skills through training.",
+        "de": "Die Person hat die nötigen Kenntnisse durch eine Ausbildung erworben."
+      },
+      "objective": "Recognize ausgebildet as having received appropriate training for a role or task.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L40 (04a5703fad239cccb4c48e9a374ef47f30ff5b474bee7337aca826c4cc633c49), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L40-v1",
+          "contextKey": "legacy-0010-L40-context-1",
+          "transferKey": "legacy-0010-L40-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001014",
+            "type": "choice",
+            "prompt": "Die Technikerin hat eine anerkannte Ausbildung abgeschlossen und ist für die Aufgabe gut ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has acquired the relevant skills through training.",
+              "de": "Die Person hat die nötigen Kenntnisse durch eine Ausbildung erworben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unerfahren"
+              },
+              {
+                "id": "1",
+                "text": "abwesend"
+              },
+              {
+                "id": "2",
+                "text": "ausgebildet"
+              },
+              {
+                "id": "3",
+                "text": "unvorbereitet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Ausgebildet means trained or qualified through training, not merely experienced.",
+              "de": "Ausgebildet bedeutet durch Ausbildung geschult, nicht bloß erfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Technikerin hat eine anerkannte Ausbildung abgeschlossen und ist für die Aufgabe gut ausgebildet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unerfahren, abwesend, unvorbereitet do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L40-v2",
+          "contextKey": "legacy-0010-L40-context-2",
+          "transferKey": "legacy-0010-L40-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001014",
+            "type": "gap_choice",
+            "prompt": "Für die Wartung der Spezialanlage braucht man eigens ___ Fachkräfte.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has acquired the relevant skills through training.",
+              "de": "Die Person hat die nötigen Kenntnisse durch eine Ausbildung erworben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebildete"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zufällige"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unbeteiligte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unbekannte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ausgebildet means trained or qualified through training, not merely experienced.",
+              "de": "Ausgebildet bedeutet durch Ausbildung geschult, nicht bloß erfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Wartung der Spezialanlage braucht man eigens ausgebildete Fachkräfte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives zufällige, unbeteiligte, unbekannte do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001015",
+      "title": {
+        "en": "Starting from a basis",
+        "de": "Von etwas ausgehend"
+      },
+      "description": {
+        "en": "The plan begins from information that is already available.",
+        "de": "Die weitere Planung nimmt vorhandene Informationen als Ausgangspunkt."
+      },
+      "objective": "Recognize von ... ausgehend as taking facts or results as the starting point for further reasoning.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L41 (b7c3001bd4116d897365289e5f95feb796cdadc17a908115f1c7e71e183b034d), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L41-v1",
+          "contextKey": "legacy-0010-L41-context-1",
+          "transferKey": "legacy-0010-L41-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001015",
+            "type": "choice",
+            "prompt": "Von den aktuellen Zahlen ___ erstellen wir eine neue Prognose.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The plan begins from information that is already available.",
+              "de": "Die weitere Planung nimmt vorhandene Informationen als Ausgangspunkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgestattet"
+              },
+              {
+                "id": "1",
+                "text": "ausgehend"
+              },
+              {
+                "id": "2",
+                "text": "ausgeschlossen"
+              },
+              {
+                "id": "3",
+                "text": "ausgebildet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Von etwas ausgehend means starting from or based on something.",
+              "de": "Von etwas ausgehend bedeutet, etwas als Ausgangspunkt zu nehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von den aktuellen Zahlen ausgehend erstellen wir eine neue Prognose.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ausgestattet, ausgeschlossen, ausgebildet do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L41-v2",
+          "contextKey": "legacy-0010-L41-context-2",
+          "transferKey": "legacy-0010-L41-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001015",
+            "type": "gap_choice",
+            "prompt": "___ von den bisherigen Ergebnissen, planen wir die nächste Phase.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The plan begins from information that is already available.",
+              "de": "Die weitere Planung nimmt vorhandene Informationen als Ausgangspunkt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abwesend"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ansteckend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausgeschrieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ausgehend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Von etwas ausgehend means starting from or based on something.",
+              "de": "Von etwas ausgehend bedeutet, etwas als Ausgangspunkt zu nehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ausgehend von den bisherigen Ergebnissen, planen wir die nächste Phase.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives Abwesend, Ansteckend, Ausgeschrieben do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001016",
+      "title": {
+        "en": "Advertised or written out",
+        "de": "Ausgeschrieben"
+      },
+      "description": {
+        "en": "One context is a published vacancy; the other is a full written form.",
+        "de": "Einmal geht es um eine veröffentlichte Stelle, einmal um ein ausgeschriebenes Wort."
+      },
+      "objective": "Recognize ausgeschrieben as publicly advertised for a vacancy or written in full rather than abbreviated.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L42 (c0bea33e67d824a1ca05098c37a309ad8215f0c5f95e461214f44aa5e271e470), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L42-v1",
+          "contextKey": "legacy-0010-L42-context-1",
+          "transferKey": "legacy-0010-L42-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001016",
+            "type": "choice",
+            "prompt": "Die Firma sucht offiziell Bewerber. Die Stelle ist seit Montag ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One context is a published vacancy; the other is a full written form.",
+              "de": "Einmal geht es um eine veröffentlichte Stelle, einmal um ein ausgeschriebenes Wort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgeschrieben"
+              },
+              {
+                "id": "1",
+                "text": "ausgestattet"
+              },
+              {
+                "id": "2",
+                "text": "abgesichert"
+              },
+              {
+                "id": "3",
+                "text": "abgeschlossen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A job can be ausgeschrieben (advertised); a word can be ausgeschrieben (written out in full).",
+              "de": "Eine Stelle kann ausgeschrieben sein; ebenso kann ein Wort vollständig ausgeschrieben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma sucht offiziell Bewerber. Die Stelle ist seit Montag ausgeschrieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ausgestattet, abgesichert, abgeschlossen do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L42-v2",
+          "contextKey": "legacy-0010-L42-context-2",
+          "transferKey": "legacy-0010-L42-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001016",
+            "type": "gap_choice",
+            "prompt": "Im Zeugnis steht nicht die Abkürzung „Dr.“, sondern der Titel ist vollständig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One context is a published vacancy; the other is a full written form.",
+              "de": "Einmal geht es um eine veröffentlichte Stelle, einmal um ein ausgeschriebenes Wort."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebildet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgeschrieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgestattet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A job can be ausgeschrieben (advertised); a word can be ausgeschrieben (written out in full).",
+              "de": "Eine Stelle kann ausgeschrieben sein; ebenso kann ein Wort vollständig ausgeschrieben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Zeugnis steht nicht die Abkürzung „Dr.“, sondern der Titel ist vollständig ausgeschrieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ausgebildet, ausgehend, ausgestattet do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001017",
+      "title": {
+        "en": "Equipped with resources",
+        "de": "Ausgestattet"
+      },
+      "description": {
+        "en": "The room or workplace has the items needed for its purpose.",
+        "de": "Der Raum oder Arbeitsplatz verfügt über die nötige Ausstattung."
+      },
+      "objective": "Recognize ausgestattet as having necessary facilities, tools or equipment.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L43 (70cc2f44fcaac2740c00dd671e971b1ce81b0a0deddc63f1c6f3b83c0fbfda4f), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L43-v1",
+          "contextKey": "legacy-0010-L43-context-1",
+          "transferKey": "legacy-0010-L43-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001017",
+            "type": "choice",
+            "prompt": "Das Labor verfügt über moderne Messgeräte. Es ist technisch gut ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The room or workplace has the items needed for its purpose.",
+              "de": "Der Raum oder Arbeitsplatz verfügt über die nötige Ausstattung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgebildet"
+              },
+              {
+                "id": "1",
+                "text": "ausgeschrieben"
+              },
+              {
+                "id": "2",
+                "text": "abwesend"
+              },
+              {
+                "id": "3",
+                "text": "ausgestattet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Ausgestattet means furnished or equipped with appropriate resources.",
+              "de": "Ausgestattet bedeutet mit Geräten, Möbeln oder anderen Mitteln versehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Labor verfügt über moderne Messgeräte. Es ist technisch gut ausgestattet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ausgebildet, ausgeschrieben, abwesend do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L43-v2",
+          "contextKey": "legacy-0010-L43-context-2",
+          "transferKey": "legacy-0010-L43-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001017",
+            "type": "gap_choice",
+            "prompt": "Jedes Gästezimmer hat WLAN und einen Schreibtisch. Die Zimmer sind entsprechend ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The room or workplace has the items needed for its purpose.",
+              "de": "Der Raum oder Arbeitsplatz verfügt über die nötige Ausstattung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ansteckend"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgestattet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgeschlossen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "angemessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ausgestattet means furnished or equipped with appropriate resources.",
+              "de": "Ausgestattet bedeutet mit Geräten, Möbeln oder anderen Mitteln versehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jedes Gästezimmer hat WLAN und einen Schreibtisch. Die Zimmer sind entsprechend ausgestattet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives ansteckend, abgeschlossen, angemessen do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001018",
+      "title": {
+        "en": "Informative evidence",
+        "de": "Aussagekräftig"
+      },
+      "description": {
+        "en": "The data or presentation supports an interpretation clearly.",
+        "de": "Die Daten oder die Darstellung erlauben eine klare Aussage."
+      },
+      "objective": "Recognize aussagekräftig as providing clear, informative evidence for a conclusion.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L45 (9dba95f50452cb64d2da267535f40bcf407418fcec9a6d2f1c3b6100d708011a), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L45-v1",
+          "contextKey": "legacy-0010-L45-context-1",
+          "transferKey": "legacy-0010-L45-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001018",
+            "type": "choice",
+            "prompt": "Die Grafik zeigt klare Unterschiede zwischen den Gruppen. Sie ist besonders ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The data or presentation supports an interpretation clearly.",
+              "de": "Die Daten oder die Darstellung erlauben eine klare Aussage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unvollständig"
+              },
+              {
+                "id": "1",
+                "text": "zufällig"
+              },
+              {
+                "id": "2",
+                "text": "aussagekräftig"
+              },
+              {
+                "id": "3",
+                "text": "unleserlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aussagekräftig means informative and meaningful enough to support a judgment.",
+              "de": "Aussagekräftig bedeutet, dass Informationen eine begründete Aussage ermöglichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Grafik zeigt klare Unterschiede zwischen den Gruppen. Sie ist besonders aussagekräftig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unvollständig, zufällig, unleserlich do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L45-v2",
+          "contextKey": "legacy-0010-L45-context-2",
+          "transferKey": "legacy-0010-L45-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001018",
+            "type": "gap_choice",
+            "prompt": "Der Bericht enthält konkrete Zahlen und Beispiele, die die Aussage stützen. Er ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The data or presentation supports an interpretation clearly.",
+              "de": "Die Daten oder die Darstellung erlauben eine klare Aussage."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aussagekräftig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unverständlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unbelegt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "belanglos"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aussagekräftig means informative and meaningful enough to support a judgment.",
+              "de": "Aussagekräftig bedeutet, dass Informationen eine begründete Aussage ermöglichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht enthält konkrete Zahlen und Beispiele, die die Aussage stützen. Er ist aussagekräftig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives unverständlich, unbelegt, belanglos do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001019",
+      "title": {
+        "en": "Decisive factor",
+        "de": "Ausschlaggebend"
+      },
+      "description": {
+        "en": "One factor makes the difference between possible outcomes.",
+        "de": "Ein bestimmter Faktor entscheidet über das Ergebnis."
+      },
+      "objective": "Recognize ausschlaggebend as the factor that ultimately determines an outcome.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adjectives.jsonl:L46 (b8aca957531383047dc70b377e108fbe8cf830638aa2b2fd43ea29cb7185a8c2), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent publication review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0010-L46-v1",
+          "contextKey": "legacy-0010-L46-context-1",
+          "transferKey": "legacy-0010-L46-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001019",
+            "type": "choice",
+            "prompt": "Zwei Angebote kosten gleich viel. Die längere Garantie ist für unsere Entscheidung ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One factor makes the difference between possible outcomes.",
+              "de": "Ein bestimmter Faktor entscheidet über das Ergebnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachträglich"
+              },
+              {
+                "id": "1",
+                "text": "ausschlaggebend"
+              },
+              {
+                "id": "2",
+                "text": "unwichtig"
+              },
+              {
+                "id": "3",
+                "text": "zufällig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ausschlaggebend means decisive, not merely relevant or incidental.",
+              "de": "Ausschlaggebend bedeutet entscheidend, nicht nur nebensächlich beteiligt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwei Angebote kosten gleich viel. Die längere Garantie ist für unsere Entscheidung ausschlaggebend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives nachträglich, unwichtig, zufällig do not express the required sense in this context. No human approval or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0010-L46-v2",
+          "contextKey": "legacy-0010-L46-context-2",
+          "transferKey": "legacy-0010-L46-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000100191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001019",
+            "type": "gap_choice",
+            "prompt": "Das Team verlor knapp; ein Fehler in der letzten Minute war ___ für die Niederlage.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One factor makes the difference between possible outcomes.",
+              "de": "Ein bestimmter Faktor entscheidet über das Ergebnis."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "harmlos"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unbeteiligt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unverbindlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausschlaggebend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ausschlaggebend means decisive, not merely relevant or incidental.",
+              "de": "Ausschlaggebend bedeutet entscheidend, nicht nur nebensächlich beteiligt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team verlor knapp; ein Fehler in der letzten Minute war ausschlaggebend für die Niederlage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial check 2026-10-28: examined the complete German sentence and all offered options. The alternatives harmlos, unbeteiligt, unverbindlich do not express the required sense in this context. No human approval or transfer claim."
+        }
+      ]
+    }
+  ]
+}
