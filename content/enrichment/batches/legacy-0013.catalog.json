@@ -1,0 +1,802 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001300",
+      "title": {
+        "en": "Everyday life",
+        "de": "Der Alltag"
+      },
+      "description": {
+        "en": "Think of regular routines, work and household tasks.",
+        "de": "Denke an regelmäßige Abläufe, Arbeit und Haushalt."
+      },
+      "objective": "Recognize Alltag as ordinary daily life rather than holidays or special events.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L48 (93a41bc054ed3b74e8ef96c0409bbff9ef6d155ef364217094c446dd9fa2389d), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0013-L48-v1",
+          "contextKey": "legacy-0013-L48-context-1",
+          "transferKey": "legacy-0013-L48-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001300",
+            "type": "choice",
+            "prompt": "Nach dem Urlaub beginnt wieder der normale ___ mit Arbeit und Haushalt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of regular routines, work and household tasks.",
+              "de": "Denke an regelmäßige Abläufe, Arbeit und Haushalt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Alltag"
+              },
+              {
+                "id": "1",
+                "text": "Feiertag"
+              },
+              {
+                "id": "2",
+                "text": "Ausflug"
+              },
+              {
+                "id": "3",
+                "text": "Aufenthalt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Alltag means everyday life and its ordinary routines.",
+              "de": "Alltag bezeichnet das tägliche Leben und seine gewohnten Abläufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Urlaub beginnt wieder der normale Alltag mit Arbeit und Haushalt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Feiertag, Ausflug, Aufenthalt do not express the intended sense in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0013-L48-v2",
+          "contextKey": "legacy-0013-L48-context-2",
+          "transferKey": "legacy-0013-L48-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001300",
+            "type": "gap_choice",
+            "prompt": "Für viele Menschen gehören Einkaufen und Pendeln zum ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of regular routines, work and household tasks.",
+              "de": "Denke an regelmäßige Abläufe, Arbeit und Haushalt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausflug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausnahme"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Alltag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urlaub"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Alltag means everyday life and its ordinary routines.",
+              "de": "Alltag bezeichnet das tägliche Leben und seine gewohnten Abläufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für viele Menschen gehören Einkaufen und Pendeln zum Alltag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Ausflug, Ausnahme, Urlaub do not express the intended sense in this context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001302",
+      "title": {
+        "en": "Residential home for older people",
+        "de": "Das Altenheim"
+      },
+      "description": {
+        "en": "Older residents live in a dedicated residential or care facility.",
+        "de": "Ältere Menschen wohnen in einer dafür vorgesehenen Einrichtung."
+      },
+      "objective": "Recognize Altenheim as a residential institution for older people.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L50 (a6602e821c85ea1b701b0c451a9313c3aa8b662d7d8cba99f0347afa5914fd30), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0013-L50-v1",
+          "contextKey": "legacy-0013-L50-context-1",
+          "transferKey": "legacy-0013-L50-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001302",
+            "type": "choice",
+            "prompt": "Herr Braun kann nicht mehr allein wohnen und zieht in ein ___, in dem ältere Menschen betreut werden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Older residents live in a dedicated residential or care facility.",
+              "de": "Ältere Menschen wohnen in einer dafür vorgesehenen Einrichtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kinderheim"
+              },
+              {
+                "id": "1",
+                "text": "Studentenwohnheim"
+              },
+              {
+                "id": "2",
+                "text": "Jugendzentrum"
+              },
+              {
+                "id": "3",
+                "text": "Altenheim"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "An Altenheim is a residential home for older people; modern alternatives include Seniorenheim, depending on the facility.",
+              "de": "Ein Altenheim ist eine Wohneinrichtung für ältere Menschen; heute sagt man je nach Einrichtung auch Seniorenheim."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Herr Braun kann nicht mehr allein wohnen und zieht in ein Altenheim, in dem ältere Menschen betreut werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Kinderheim, Studentenwohnheim, Jugendzentrum do not express the intended sense in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0013-L50-v2",
+          "contextKey": "legacy-0013-L50-context-2",
+          "transferKey": "legacy-0013-L50-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001302",
+            "type": "gap_choice",
+            "prompt": "Im ___ organisiert das Personal für die älteren Bewohner einen Spielenachmittag.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Older residents live in a dedicated residential or care facility.",
+              "de": "Ältere Menschen wohnen in einer dafür vorgesehenen Einrichtung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bahnhof"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Altenheim"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kindergarten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rathaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Altenheim is a residential home for older people; modern alternatives include Seniorenheim, depending on the facility.",
+              "de": "Ein Altenheim ist eine Wohneinrichtung für ältere Menschen; heute sagt man je nach Einrichtung auch Seniorenheim."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Altenheim organisiert das Personal für die älteren Bewohner einen Spielenachmittag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Bahnhof, Kindergarten, Rathaus do not express the intended sense in this context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001303",
+      "title": {
+        "en": "Care for older adults",
+        "de": "Die Altenpflege"
+      },
+      "description": {
+        "en": "The work involves supporting older adults with care needs.",
+        "de": "Die Arbeit unterstützt ältere Menschen bei Pflegebedarf."
+      },
+      "objective": "Recognize Altenpflege as professional care and assistance for older people.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L51 (24ca25256590c1d726c83394a8eb065c77a793a5c34bffcfaa4acd3fc61ee43b), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0013-L51-v1",
+          "contextKey": "legacy-0013-L51-context-1",
+          "transferKey": "legacy-0013-L51-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001303",
+            "type": "choice",
+            "prompt": "Sie hilft älteren Menschen beruflich beim Waschen und Anziehen. Ihr Arbeitsbereich ist die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The work involves supporting older adults with care needs.",
+              "de": "Die Arbeit unterstützt ältere Menschen bei Pflegebedarf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "1",
+                "text": "Gebäudereinigung"
+              },
+              {
+                "id": "2",
+                "text": "Altenpflege"
+              },
+              {
+                "id": "3",
+                "text": "Kinderbetreuung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Altenpflege means care for older people, not bookkeeping or childcare.",
+              "de": "Altenpflege bedeutet Pflege älterer Menschen, nicht Buchhaltung oder Kinderbetreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hilft älteren Menschen beruflich beim Waschen und Anziehen. Ihr Arbeitsbereich ist die Altenpflege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Buchhaltung, Gebäudereinigung, Kinderbetreuung do not express the intended sense in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0013-L51-v2",
+          "contextKey": "legacy-0013-L51-context-2",
+          "transferKey": "legacy-0013-L51-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001303",
+            "type": "gap_choice",
+            "prompt": "Im Kurs lernen die Auszubildenden, wie man Senioren im Pflegealltag unterstützt. Sie bereiten sich auf die ___ vor.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The work involves supporting older adults with care needs.",
+              "de": "Die Arbeit unterstützt ältere Menschen bei Pflegebedarf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Altenpflege"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Steuerberatung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkehrsplanung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gastronomie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Altenpflege means care for older people, not bookkeeping or childcare.",
+              "de": "Altenpflege bedeutet Pflege älterer Menschen, nicht Buchhaltung oder Kinderbetreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Kurs lernen die Auszubildenden, wie man Senioren im Pflegealltag unterstützt. Sie bereiten sich auf die Altenpflege vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Steuerberatung, Verkehrsplanung, Gastronomie do not express the intended sense in this context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001304",
+      "title": {
+        "en": "An alternative option",
+        "de": "Die Alternative"
+      },
+      "description": {
+        "en": "Another workable choice replaces the original plan.",
+        "de": "Eine andere brauchbare Möglichkeit ersetzt den bisherigen Plan."
+      },
+      "objective": "Recognize Alternative as a different viable option when an original choice is unavailable or unsuitable.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L53 (00bf724d5e030d4dbc19e3b1a33db54f6b87f5d0a0e5dd9dea1ef73ec0ce38c3), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0013-L53-v1",
+          "contextKey": "legacy-0013-L53-context-1",
+          "transferKey": "legacy-0013-L53-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001304",
+            "type": "choice",
+            "prompt": "Der Zug fällt aus. Als ___ können wir den Bus nehmen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Another workable choice replaces the original plan.",
+              "de": "Eine andere brauchbare Möglichkeit ersetzt den bisherigen Plan."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Änderung"
+              },
+              {
+                "id": "1",
+                "text": "Alternative"
+              },
+              {
+                "id": "2",
+                "text": "Anfrage"
+              },
+              {
+                "id": "3",
+                "text": "Anforderung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An Alternative is another option that can be chosen instead.",
+              "de": "Eine Alternative ist eine andere Möglichkeit, die man stattdessen wählen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug fällt aus. Als Alternative können wir den Bus nehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Änderung, Anfrage, Anforderung do not express the intended sense in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0013-L53-v2",
+          "contextKey": "legacy-0013-L53-context-2",
+          "transferKey": "legacy-0013-L53-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001304",
+            "type": "gap_choice",
+            "prompt": "Das alte Programm wird eingestellt. Wir brauchen eine brauchbare ___, die dieselben Aufgaben übernimmt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Another workable choice replaces the original plan.",
+              "de": "Eine andere brauchbare Möglichkeit ersetzt den bisherigen Plan."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Anweisung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anfahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Alternative"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Alternative is another option that can be chosen instead.",
+              "de": "Eine Alternative ist eine andere Möglichkeit, die man stattdessen wählen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das alte Programm wird eingestellt. Wir brauchen eine brauchbare Alternative, die dieselben Aufgaben übernimmt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Anweisung, Anfahrt, Abrechnung do not express the intended sense in this context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001306",
+      "title": {
+        "en": "Old-age pension",
+        "de": "Die Altersrente"
+      },
+      "description": {
+        "en": "The payment is associated with retirement due to age.",
+        "de": "Die regelmäßige Zahlung gehört zum Ruhestand aus Altersgründen."
+      },
+      "objective": "Recognize Altersrente as a recurring pension paid on reaching the applicable retirement age.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/nouns.jsonl:L55 (c3a5768393bc0f9fefbde44a6eba9b9bb00242afb91e107d9a260c07a88007f5), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0013-L55-v1",
+          "contextKey": "legacy-0013-L55-context-1",
+          "transferKey": "legacy-0013-L55-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001306",
+            "type": "choice",
+            "prompt": "Nach Erreichen des gesetzlichen Rentenalters bezieht sie monatlich eine ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payment is associated with retirement due to age.",
+              "de": "Die regelmäßige Zahlung gehört zum Ruhestand aus Altersgründen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Altersrente"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitslosenhilfe"
+              },
+              {
+                "id": "2",
+                "text": "Ausbildungsvergütung"
+              },
+              {
+                "id": "3",
+                "text": "Reisekostenpauschale"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Altersrente is an old-age pension, distinct from unemployment benefits or a disability pension.",
+              "de": "Altersrente ist eine Rente wegen Alters, nicht Arbeitslosengeld oder Erwerbsminderungsrente."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Erreichen des gesetzlichen Rentenalters bezieht sie monatlich eine Altersrente.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Arbeitslosenhilfe, Ausbildungsvergütung, Reisekostenpauschale do not express the intended sense in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0013-L55-v2",
+          "contextKey": "legacy-0013-L55-context-2",
+          "transferKey": "legacy-0013-L55-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000130061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001306",
+            "type": "gap_choice",
+            "prompt": "Der Bescheid betrifft die regelmäßige Zahlung im Ruhestand, nicht eine Erwerbsminderungsrente. Es geht um die ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payment is associated with retirement due to age.",
+              "de": "Die regelmäßige Zahlung gehört zum Ruhestand aus Altersgründen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kinderzulage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausbildungsförderung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Altersrente"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unfallversicherung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Altersrente is an old-age pension, distinct from unemployment benefits or a disability pension.",
+              "de": "Altersrente ist eine Rente wegen Alters, nicht Arbeitslosengeld oder Erwerbsminderungsrente."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bescheid betrifft die regelmäßige Zahlung im Ruhestand, nicht eine Erwerbsminderungsrente. Es geht um die Altersrente.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: full German sentence and all four options checked. The alternatives Kinderzulage, Ausbildungsförderung, Unfallversicherung do not express the intended sense in this context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
