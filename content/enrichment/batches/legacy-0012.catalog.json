@@ -574,7 +574,7 @@
             "revision": 1,
             "targetId": "80000000-0000-4000-8000-000000001205",
             "type": "gap_choice",
-            "prompt": "Das Produkt kostet 119 Euro inklusive Mehrwertsteuer. Dieser Preis ist ___.",
+            "prompt": "Auf der Rechnung wird der Preis ___ ausgewiesen; die Mehrwertsteuer ist schon enthalten.",
             "instruction": {
               "en": "Choose the expression that completes the sentence accurately.",
               "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
@@ -629,13 +629,13 @@
               "schemaVersion": 1,
               "parts": [
                 {
-                  "text": "Das Produkt kostet 119 Euro inklusive Mehrwertsteuer. Dieser Preis ist brutto.",
+                  "text": "Auf der Rechnung wird der Preis brutto ausgewiesen; die Mehrwertsteuer ist schon enthalten.",
                   "emphasis": false
                 }
               ]
             }
           },
-          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; netto, steuerfrei, unverbindlich do not express the required sense here. No human approval."
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; netto, steuerfrei, unverbindlich do not express the required sense here. No human approval. Revised to idiomatic 'brutto ausgewiesen' during final batch editorial pass."
         }
       ]
     },
@@ -795,6 +795,960 @@
             }
           },
           "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; daher, somit, deswegen do not express the required sense here. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001207",
+      "title": {
+        "en": "This time",
+        "de": "Diesmal"
+      },
+      "description": {
+        "en": "Earlier attempts or occasions were different.",
+        "de": "Frühere Versuche oder Gelegenheiten verliefen anders."
+      },
+      "objective": "Recognize diesmal as referring to the current attempt or occasion in contrast with earlier ones.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L39 (d03bafcf5aec55c811e14f026b1f4b1d371685f6748f1aa693693d74793c43b3), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L39-v1",
+          "contextKey": "legacy-0012-L39-context-1",
+          "transferKey": "legacy-0012-L39-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001207",
+            "type": "choice",
+            "prompt": "Letzte Woche fiel das Treffen aus. ___ findet es wie geplant statt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Earlier attempts or occasions were different.",
+              "de": "Frühere Versuche oder Gelegenheiten verliefen anders."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Diesmal"
+              },
+              {
+                "id": "1",
+                "text": "Damals"
+              },
+              {
+                "id": "2",
+                "text": "Früher"
+              },
+              {
+                "id": "3",
+                "text": "Niemals"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Diesmal means on this occasion, often contrasted with a previous one.",
+              "de": "Diesmal bedeutet bei dieser Gelegenheit, oft im Gegensatz zu früher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Letzte Woche fiel das Treffen aus. Diesmal findet es wie geplant statt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; Damals, Früher, Niemals do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L39-v2",
+          "contextKey": "legacy-0012-L39-context-2",
+          "transferKey": "legacy-0012-L39-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001207",
+            "type": "gap_choice",
+            "prompt": "Bei den letzten beiden Versuchen war der Code falsch. ___ hat die Anmeldung funktioniert.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Earlier attempts or occasions were different.",
+              "de": "Frühere Versuche oder Gelegenheiten verliefen anders."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bisher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Später"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Diesmal"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Damals"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Diesmal means on this occasion, often contrasted with a previous one.",
+              "de": "Diesmal bedeutet bei dieser Gelegenheit, oft im Gegensatz zu früher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei den letzten beiden Versuchen war der Code falsch. Diesmal hat die Anmeldung funktioniert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; Bisher, Später, Damals do not express the required meaning in this context. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001210",
+      "title": {
+        "en": "In disorder",
+        "de": "Durcheinander"
+      },
+      "description": {
+        "en": "The order has been lost and things are confused.",
+        "de": "Die Ordnung ist verloren gegangen und alles ist vermischt."
+      },
+      "objective": "Recognize durcheinander as a disordered or mixed-up arrangement.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L47 (e54a29bd2725d301b1a20c503be16725acc6fb93dfdb8a1f5e4a6ae3594caf40), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L47-v1",
+          "contextKey": "legacy-0012-L47-context-1",
+          "transferKey": "legacy-0012-L47-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001210",
+            "type": "choice",
+            "prompt": "Nach dem Umzug liegen die Unterlagen ungeordnet auf dem Tisch. Alles ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The order has been lost and things are confused.",
+              "de": "Die Ordnung ist verloren gegangen und alles ist vermischt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sortiert"
+              },
+              {
+                "id": "1",
+                "text": "vollständig"
+              },
+              {
+                "id": "2",
+                "text": "erledigt"
+              },
+              {
+                "id": "3",
+                "text": "durcheinander"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Durcheinander describes a confused or disorderly state.",
+              "de": "Durcheinander beschreibt einen ungeordneten oder verwirrten Zustand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Umzug liegen die Unterlagen ungeordnet auf dem Tisch. Alles ist durcheinander.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; sortiert, vollständig, erledigt do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L47-v2",
+          "contextKey": "legacy-0012-L47-context-2",
+          "transferKey": "legacy-0012-L47-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001210",
+            "type": "gap_choice",
+            "prompt": "Die Termine wurden falsch eingetragen, und niemand weiß mehr, was wann stattfindet. Der Plan ist völlig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The order has been lost and things are confused.",
+              "de": "Die Ordnung ist verloren gegangen und alles ist vermischt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "pünktlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "durcheinander"
+                  },
+                  {
+                    "id": "2",
+                    "text": "übersichtlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbindlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Durcheinander describes a confused or disorderly state.",
+              "de": "Durcheinander beschreibt einen ungeordneten oder verwirrten Zustand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Termine wurden falsch eingetragen, und niemand weiß mehr, was wann stattfindet. Der Plan ist völlig durcheinander.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; pünktlich, übersichtlich, verbindlich do not express the required meaning in this context. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001212",
+      "title": {
+        "en": "Equally or likewise",
+        "de": "Ebenso im Vergleich"
+      },
+      "description": {
+        "en": "Two things are equally important or done in the same way.",
+        "de": "Zwei Dinge sind gleich wichtig oder werden auf gleiche Weise getan."
+      },
+      "objective": "Recognize ebenso as indicating equal degree or a similar manner, rather than merely adding another item.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L49 (7df380b54f85dbbf8786fcd1c356d1bb1d80cdec90b1a6c8aa5f579fbf378a60), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L49-v1",
+          "contextKey": "legacy-0012-L49-context-1",
+          "transferKey": "legacy-0012-L49-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001212",
+            "type": "choice",
+            "prompt": "Der neue Vertrag ist ___ wichtig wie der alte.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two things are equally important or done in the same way.",
+              "de": "Zwei Dinge sind gleich wichtig oder werden auf gleiche Weise getan."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bisher"
+              },
+              {
+                "id": "1",
+                "text": "damals"
+              },
+              {
+                "id": "2",
+                "text": "ebenso"
+              },
+              {
+                "id": "3",
+                "text": "trotzdem"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Ebenso means equally or in the same way; ebenso ... wie expresses equal degree.",
+              "de": "Ebenso bedeutet genauso; ebenso ... wie drückt den gleichen Grad aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Vertrag ist ebenso wichtig wie der alte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; bisher, damals, trotzdem do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L49-v2",
+          "contextKey": "legacy-0012-L49-context-2",
+          "transferKey": "legacy-0012-L49-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001212",
+            "type": "gap_choice",
+            "prompt": "Mira arbeitet sehr sorgfältig. Ihr Kollege macht es ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two things are equally important or done in the same way.",
+              "de": "Zwei Dinge sind gleich wichtig oder werden auf gleiche Weise getan."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ebenso"
+                  },
+                  {
+                    "id": "1",
+                    "text": "dagegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "damals"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ebenso means equally or in the same way; ebenso ... wie expresses equal degree.",
+              "de": "Ebenso bedeutet genauso; ebenso ... wie drückt den gleichen Grad aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mira arbeitet sehr sorgfältig. Ihr Kollege macht es ebenso.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; dagegen, damals, erst do not express the required meaning in this context. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001213",
+      "title": {
+        "en": "On the one hand",
+        "de": "Einerseits ... andererseits"
+      },
+      "description": {
+        "en": "Two opposing considerations are being weighed.",
+        "de": "Zwei gegensätzliche Gesichtspunkte werden einander gegenübergestellt."
+      },
+      "objective": "Recognize einerseits as introducing one side of a contrast completed with andererseits.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L51 (b0ef3ca339c485870f6da884b288673e44ab9aacedfe7b83359d7e385451de68), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L51-v1",
+          "contextKey": "legacy-0012-L51-context-1",
+          "transferKey": "legacy-0012-L51-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001213",
+            "type": "choice",
+            "prompt": "___ möchte sie umziehen, andererseits gefällt ihr die Nachbarschaft.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two opposing considerations are being weighed.",
+              "de": "Zwei gegensätzliche Gesichtspunkte werden einander gegenübergestellt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sobald"
+              },
+              {
+                "id": "1",
+                "text": "Einerseits"
+              },
+              {
+                "id": "2",
+                "text": "Deshalb"
+              },
+              {
+                "id": "3",
+                "text": "Trotzdem"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einerseits introduces one consideration; andererseits presents the other.",
+              "de": "Einerseits nennt die eine Seite; andererseits stellt die andere gegenüber."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Einerseits möchte sie umziehen, andererseits gefällt ihr die Nachbarschaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; Sobald, Deshalb, Trotzdem do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L51-v2",
+          "contextKey": "legacy-0012-L51-context-2",
+          "transferKey": "legacy-0012-L51-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001213",
+            "type": "gap_choice",
+            "prompt": "Das Angebot ist ___ günstig, andererseits fehlen wichtige Leistungen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Two opposing considerations are being weighed.",
+              "de": "Zwei gegensätzliche Gesichtspunkte werden einander gegenübergestellt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bereits"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bloß"
+                  },
+                  {
+                    "id": "2",
+                    "text": "damals"
+                  },
+                  {
+                    "id": "3",
+                    "text": "einerseits"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einerseits introduces one consideration; andererseits presents the other.",
+              "de": "Einerseits nennt die eine Seite; andererseits stellt die andere gegenüber."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Angebot ist einerseits günstig, andererseits fehlen wichtige Leistungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; bereits, bloß, damals do not express the required meaning in this context. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001217",
+      "title": {
+        "en": "Approximately",
+        "de": "Etwa als ungefähre Angabe"
+      },
+      "description": {
+        "en": "The quantity is estimated rather than counted exactly.",
+        "de": "Die Menge ist geschätzt und nicht genau gezählt."
+      },
+      "objective": "Recognize etwa as indicating an approximate number or quantity.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L58 (d30f53ebe487bd6ada2f2136bcede0c1c1873c9a0c4f7a2fd2eb38e146972b10), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L58-v1",
+          "contextKey": "legacy-0012-L58-context-1",
+          "transferKey": "legacy-0012-L58-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001217",
+            "type": "choice",
+            "prompt": "Die Fahrt dauert nicht genau zwei Stunden, sondern ___ zwei Stunden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The quantity is estimated rather than counted exactly.",
+              "de": "Die Menge ist geschätzt und nicht genau gezählt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "etwa"
+              },
+              {
+                "id": "1",
+                "text": "bereits"
+              },
+              {
+                "id": "2",
+                "text": "niemals"
+              },
+              {
+                "id": "3",
+                "text": "deshalb"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Etwa means approximately or about when used with numbers.",
+              "de": "Etwa bedeutet ungefähr bei Mengen- und Zahlenangaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fahrt dauert nicht genau zwei Stunden, sondern etwa zwei Stunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; bereits, niemals, deshalb do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L58-v2",
+          "contextKey": "legacy-0012-L58-context-2",
+          "transferKey": "legacy-0012-L58-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001217",
+            "type": "gap_choice",
+            "prompt": "Wir haben nicht gezählt; es sind ___ 80 Besucher.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The quantity is estimated rather than counted exactly.",
+              "de": "Die Menge ist geschätzt und nicht genau gezählt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "niemals"
+                  },
+                  {
+                    "id": "1",
+                    "text": "anschließend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "etwa"
+                  },
+                  {
+                    "id": "3",
+                    "text": "exakt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Etwa means approximately or about when used with numbers.",
+              "de": "Etwa bedeutet ungefähr bei Mengen- und Zahlenangaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir haben nicht gezählt; es sind etwa 80 Besucher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; niemals, anschließend, exakt do not express the required meaning in this context. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001218",
+      "title": {
+        "en": "Especially for a purpose",
+        "de": "Extra für einen Zweck"
+      },
+      "description": {
+        "en": "Something was arranged specifically for this task.",
+        "de": "Etwas wurde eigens für diese Aufgabe organisiert."
+      },
+      "objective": "Recognize extra as indicating something done specially for a particular purpose.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L59 (035211816c15a699ac1e62a2f1b1bd2c954dea0ebc08daff98fe4aac6bc49b64), 2026-10-28; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L59-v1",
+          "contextKey": "legacy-0012-L59-context-1",
+          "transferKey": "legacy-0012-L59-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001218",
+            "type": "choice",
+            "prompt": "Die Technikerin kam ___ für diese Reparatur aus Hamburg angereist.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something was arranged specifically for this task.",
+              "de": "Etwas wurde eigens für diese Aufgabe organisiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zufällig"
+              },
+              {
+                "id": "1",
+                "text": "bisher"
+              },
+              {
+                "id": "2",
+                "text": "dennoch"
+              },
+              {
+                "id": "3",
+                "text": "extra"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Extra means specifically or specially for a purpose in these contexts.",
+              "de": "Extra bedeutet hier eigens oder speziell für einen bestimmten Zweck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Technikerin kam extra für diese Reparatur aus Hamburg angereist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; zufällig, bisher, dennoch do not express the required meaning in this context. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L59-v2",
+          "contextKey": "legacy-0012-L59-context-2",
+          "transferKey": "legacy-0012-L59-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001218",
+            "type": "gap_choice",
+            "prompt": "Für dieses eine empfindliche Gerät wurde eine Kiste ___ angefertigt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something was arranged specifically for this task.",
+              "de": "Etwas wurde eigens für diese Aufgabe organisiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ungefähr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "extra"
+                  },
+                  {
+                    "id": "2",
+                    "text": "damals"
+                  },
+                  {
+                    "id": "3",
+                    "text": "dennoch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Extra means specifically or specially for a purpose in these contexts.",
+              "de": "Extra bedeutet hier eigens oder speziell für einen bestimmten Zweck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für dieses eine empfindliche Gerät wurde eine Kiste extra angefertigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed full German sentence and all four offered options; ungefähr, damals, dennoch do not express the required meaning in this context. No human approval."
         }
       ]
     }
