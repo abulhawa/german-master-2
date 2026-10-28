@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "batchId": "legacy-0007",
+  "state": "ready-for-review",
+  "catalogSha256": "4fee7b3a6cb298c245142623257d35a195b2e2e7540a3f72fff96632deb5daff",
+  "aiReviewer": "OpenAI GPT-6, AI-only editorial review",
+  "reviewedAt": "2026-10-28",
+  "reviewNotes": "Four particle seeds: one authored source (two reviewed original questions), one spelling duplicate, two deferred for conflicting source senses. Each offered alternative assessed; no inherited examples copied. Source approval flags were not trusted. No independent human review, publication or CEFR claim; CI validates structure.",
+  "rows": [
+    {
+      "sourceId": "apps/web/data/pos/particles.jsonl:L3",
+      "sourceHash": "f30dfdf0fe71fc768ec87300f4367058289e2da51b078d82912b33876fa82b50",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Legacy gloss 'Stop!, wait!' is an interjection, whereas the example 'Das ist halt so' uses modal-particle halt ('simply/just'); meaning and category conflict, so defer.",
+      "corrections": "Legacy meaning/spelling discrepancy noted without forcing an unverified objective.",
+      "rightsBasis": "No exercise authored and no old example reused."
+    },
+    {
+      "sourceId": "apps/web/data/pos/particles.jsonl:L5",
+      "sourceHash": "50c28a380b11547d60242c3d3072a292efdfcf7294fc90beb6187543cac30add",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000000701"
+      ],
+      "notes": "Both original exercises reviewed: complete natural German, four choices each, repetition semantics, accepted answers, hints, contexts and bilingual explanations.",
+      "corrections": "Nochmal is an equally acceptable joined spelling; mapped as duplicate source row L6 rather than a separate learning target.",
+      "rightsBasis": "Only lexical and spelling facts reused; question sentences and feedback originally written."
+    },
+    {
+      "sourceId": "apps/web/data/pos/particles.jsonl:L6",
+      "sourceHash": "4e97b4199276b7910e803d86d438886137e8501897cfa0236c469e2576e6c646",
+      "decision": "duplicate",
+      "targetIds": [],
+      "notes": "Noch mal and nochmal are alternative accepted spellings for the same 'again' expression, authored under row L5.",
+      "corrections": "Legacy meaning/spelling discrepancy noted without forcing an unverified objective.",
+      "rightsBasis": "No exercise authored and no old example reused."
+    },
+    {
+      "sourceId": "apps/web/data/pos/particles.jsonl:L7",
+      "sourceHash": "40bc9f1046c626a0f2d26d1be6d32d401d404598d3c23b28ee23a3f3fe94946e",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "The legacy gloss 'something; replaces unknown words' for sowieso conflicts with its usual sense 'anyway/in any case' and requires semantic/register verification.",
+      "corrections": "Legacy meaning/spelling discrepancy noted without forcing an unverified objective.",
+      "rightsBasis": "No exercise authored and no old example reused."
+    }
+  ]
+}
