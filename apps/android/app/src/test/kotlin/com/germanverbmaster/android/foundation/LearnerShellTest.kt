@@ -15,6 +15,17 @@ import org.robolectric.annotation.Config
 @Config(sdk = [35])
 class LearnerShellTest {
     @get:Rule val compose = createComposeRule()
+    @Test fun settingsDisplaysCurrentAccountEmailAndHidesItForLocalAccess() {
+        val repo = repository(true)
+        val local = mutableStateOf(false)
+        compose.setContent { FoundationTheme { LearnerShell(repo, localOnly = local.value, accountEmail = { "learner@example.test" }) } }
+        compose.onNode(hasText("Settings") and hasClickAction()).performScrollTo().performClick()
+        compose.onNodeWithText("Sign-in details").performScrollTo().assertExists()
+        compose.onNodeWithText("learner@example.test").assertExists()
+        compose.runOnIdle { local.value = true }
+        compose.onNodeWithText("learner@example.test").assertDoesNotExist()
+        compose.onNodeWithText("Reconnect your account to view your email.").assertExists()
+    }
     private val id = "00000000-0000-4000-8000-000000000001"
     private fun repository(completed: Boolean, pending: Boolean = false, blockRefresh: Boolean = false): LearnerRepository {
         val prefs = ProfilePreferences("en", "UTC", "B1", 5)

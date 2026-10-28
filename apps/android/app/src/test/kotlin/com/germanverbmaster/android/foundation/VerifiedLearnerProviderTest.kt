@@ -15,10 +15,32 @@ class VerifiedLearnerProviderTest {
         var session = owner
         var offline = false
         var revocations = 0
+        var email: String? = "learner@example.test"
+        override fun verifiedEmail(subject: String) = email.takeIf { subject == this.subject }
         override fun accessToken() = "e30." + Base64.getUrlEncoder().withoutPadding().encodeToString(
             """{"iss":"https://$project.supabase.co/auth/v1","aud":"authenticated","role":"authenticated","sub":"$subject","session_id":"$session","exp":10}""".toByteArray()) + ".c2ln"
         override suspend fun verifiedSubject(token: String): String { check(!offline); return subject }
         override suspend fun revoke() { revocations++; check(!offline) }
+    }
+    @Test fun accountEmailIsVerifiedAndClearedOnSwitchExpiryAndInvalidation() = runBlocking {
+        val auth = Auth(); var time = 1000L
+        val provider = VerifiedLearnerProvider(auth, project) { time }
+        assertNull(provider.currentEmail())
+        provider.bind()
+        assertEquals("learner@example.test", provider.currentEmail())
+        auth.subject = "00000000-0000-4000-8000-000000000021"
+        assertNull(provider.currentEmail())
+        auth.email = "second@example.test"
+        provider.bind()
+        assertEquals("second@example.test", provider.currentEmail())
+        auth.session = "00000000-0000-4000-8000-000000000022"
+        assertNull(provider.currentEmail())
+        provider.bind(); time = 10000L
+        assertNull(provider.currentEmail())
+        time = 1000L; provider.invalidate()
+        assertNull(provider.currentEmail())
+        auth.email = null; provider.bind()
+        assertNull(provider.currentEmail())
     }
     @Test fun expirySwitchAndRenewalInvalidateCapturedBindings() = runBlocking {
         val auth = Auth(); var time = 1000L

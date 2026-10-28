@@ -1,5 +1,13 @@
 # Continuing German Master recovery
 
+## Visible account identity - 28 October 2026
+
+Owner reports native Google and Microsoft sign-in working. Android Settings now
+shows the verified account email, matching existing web account details. See
+PROGRESS.md for local verification and artifact status. Owner requests local
+tests without a physical device or emulator for this slice. Preserve remaining
+lifecycle gates and the Android UX/publication hold; no upload is authorized.
+
 ## Authorized social-login rollout - 27 October 2026
 
 Both providers are configured and the owner authorized commit/push to verify live.

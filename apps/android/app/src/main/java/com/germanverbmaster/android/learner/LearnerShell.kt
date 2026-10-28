@@ -31,12 +31,12 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun LearnerShell(repository: LearnerRepository, onSignIn: (() -> Unit)? = null, localOnly: Boolean = false) {
-    key(repository) { AccountLearnerShell(repository,onSignIn,localOnly) }
+fun LearnerShell(repository: LearnerRepository, onSignIn: (() -> Unit)? = null, localOnly: Boolean = false, accountEmail: () -> String? = { null }) {
+    key(repository) { AccountLearnerShell(repository,onSignIn,localOnly,accountEmail) }
 }
 
 @Composable
-private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> Unit)?, localOnly: Boolean) {
+private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> Unit)?, localOnly: Boolean, accountEmail: () -> String?) {
     var cache by remember { mutableStateOf(repository.state) }
     var busy by remember { mutableStateOf(false) }
     var failed by remember { mutableStateOf(false) }
@@ -122,6 +122,12 @@ private fun AccountLearnerShell(repository: LearnerRepository, onSignIn: (() -> 
                 LearnerButton(label("Reload current preferences", "Aktuelle Einstellungen laden"), !busy) { run { repository.reloadProfile() } }
             }
             if (screen == "account") {
+                Text(label("Sign-in details", "Anmeldedaten"), Modifier.semantics { heading() }, style = MaterialTheme.typography.titleLarge)
+                val address = if (localOnly) null else accountEmail()
+                if (address != null) {
+                    Text(label("Email", "E-Mail"), style = MaterialTheme.typography.labelLarge)
+                    androidx.compose.foundation.text.selection.SelectionContainer { Text(address) }
+                } else Text(label("Reconnect your account to view your email.", "Verbinde dein Konto erneut, um deine E-Mail zu sehen."))
                 LearnerButton(label("Refresh", "Aktualisieren"), !busy) { run {} }
                 LearnerButton(label("Sync all saved work", "Alle gespeicherten VorgÃ¤nge synchronisieren"), !busy) { run { repository.syncSavedWork() } }
             }

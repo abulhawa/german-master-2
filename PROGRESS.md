@@ -1,5 +1,26 @@
 # German Master 2.0 current checkpoint
 
+## Visible native account identity - 28 October 2026
+
+Owner reports both Google and Microsoft sign-in working on the phone, but no
+visible current account. This is owner-reported provider acceptance; no new
+agent-operated device flow is claimed. Android Settings now includes Sign-in
+details and selectable Email, matching the existing web Settings account details.
+The email comes from the Auth user returned during verified account binding,
+stays in memory and is hidden after account/session changes, expiry, invalidation
+or local-only access. Missing email shows a reconnect message; no JWT email,
+provider-name guess or extra personal-data persistence is used.
+
+Verification uses only local JVM/Compose tests, lint and preview assembly, plus
+the existing web provider suite. No physical device, emulator, live Auth request,
+deployment or store publication is involved. Results: 11/11 focused native
+provider/shell tests pass, lintDebug and assembleLearnerPreview pass offline;
+25/25 existing web provider-journey tests pass. The preview APK is at
+`apps/android/app/build/outputs/apk/learnerPreview/app-learnerPreview.apk`.
+No web source change was required because verified email presentation exists.
+Android owner UX/publication hold remains. Next: install the resulting preview
+when requested and review Settings; other lifecycle gates remain outstanding.
+
 ## Android implementation disposition - 28 October 2026
 
 Owner resumed Android readiness, then explicitly asked to skip checks and work

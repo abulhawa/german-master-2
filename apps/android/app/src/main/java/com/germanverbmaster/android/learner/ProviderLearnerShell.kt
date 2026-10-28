@@ -22,7 +22,7 @@ fun ProviderLearnerShell(provider: VerifiedLearnerProvider, origin: String, dire
         }
         DisposableEffect(provider) { onDispose { provider.invalidate() } }
         val c=providerCopy(loaded?.getOrNull()?.state?.profile?.preferences?.locale ?: locale)
-        loaded?.fold(onSuccess = { LearnerShell(it,onSignIn,localOnly) },onFailure = {
+        loaded?.fold(onSuccess = { LearnerShell(it,onSignIn,localOnly,provider::currentEmail) },onFailure = {
             Column(Modifier.safeDrawingPadding().padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
                 Text(c.failed)
                 LearnerButton(c.retry,true) { retry++ }

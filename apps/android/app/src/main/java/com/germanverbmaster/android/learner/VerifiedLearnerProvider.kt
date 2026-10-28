@@ -13,6 +13,7 @@ interface LearnerAuth {
     suspend fun awaitReady() {}
     fun accessToken(): String?
     suspend fun verifiedSubject(token: String): String
+    fun verifiedEmail(subject: String): String? = null
     suspend fun revoke()
     suspend fun clearDeleted(subject: String) { error("Local identity cleanup unavailable") }
 }
@@ -35,13 +36,16 @@ class AtomicVerifiedSubjectStore(file: java.io.File) : VerifiedSubjectStore {
 
 /** An explicitly supplied dedicated v2 SDK client; no legacy singleton or credential file. */
 class SupabaseLearnerAuth(private val client: SupabaseClient) : LearnerAuth {
+    private var verifiedUser: Pair<String, String?>? = null
     override suspend fun awaitReady() { client.auth.awaitInitialization() }
     override fun accessToken() = client.auth.currentSessionOrNull()?.accessToken
     override suspend fun verifiedSubject(token: String): String {
         val user = client.auth.retrieveUser(token)
         check(user.isAnonymous != true) { "Anonymous learner unavailable" }
+        verifiedUser = user.id to user.email
         return user.id
     }
+    override fun verifiedEmail(subject: String) = verifiedUser?.takeIf { it.first == subject }?.second
     override suspend fun revoke() { client.auth.signOut(SignOutScope.LOCAL) }
     override suspend fun clearDeleted(subject: String) {
         client.auth.awaitInitialization()
@@ -61,9 +65,15 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
     private var generation = 0L
     private var operation = 0L
     @Volatile private var online = false
+    @Volatile private var email: String? = null
     init { require(Regex("[a-z]{20}").matches(projectRef)) }
     private data class Credential(val token: String, val subject: String, val sessionId: String, val expiresAt: Long)
-    @Synchronized fun invalidate() { operation++; active = null; sessionId = null; online = false }
+    @Synchronized fun invalidate() { operation++; active = null; sessionId = null; online = false; email = null }
+    /** Display-only verified identity; never read an email from an unverified JWT. */
+    @Synchronized fun currentEmail(): String? {
+        val current = runCatching { credential() }.getOrNull() ?: return null
+        return email.takeIf { online && current.subject == active?.subject && current.sessionId == sessionId }
+    }
     @Synchronized fun localBinding(): LearnerAccount? {
         val subject = saved?.read() ?: return null
         check(UUID.fromString(subject).toString() == subject)
@@ -98,6 +108,7 @@ class VerifiedLearnerProvider(private val auth: LearnerAuth, private val project
         val identity = synchronized(this) {
             check(ticket == operation) { "Sign-in changed" }
             saved?.write(value.subject)
+            email = auth.verifiedEmail(value.subject)?.trim()?.takeIf { it.isNotEmpty() }
             LearnerIdentity(value.subject, ++generation).also { active = it; sessionId = value.sessionId; online = true }
         }
         return LearnerAccount(identity) {
