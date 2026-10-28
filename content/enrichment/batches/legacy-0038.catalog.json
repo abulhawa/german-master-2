@@ -2,5 +2,2391 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000003800",
+      "title": {
+        "en": "A volume of a book series",
+        "de": "Der Band einer Buchreihe"
+      },
+      "description": {
+        "en": "To identify one volume within a multi-book series.",
+        "de": "Ein einzelnes Buch innerhalb einer mehrteiligen Reihe bezeichnen."
+      },
+      "objective": "Recognize Band in two distinct contexts: To identify one volume within a multi-book series.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L241 (1bb582a56debed716b66b64e7b8c07daaa1e1f406798b40748a8a415a4cdb189), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L241-v1",
+          "contextKey": "legacy-0038-L241-context-1",
+          "transferKey": "legacy-0038-L241-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003800",
+            "type": "choice",
+            "prompt": "Die Romanreihe besteht aus fünf Büchern. Ich lese gerade den dritten ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is the third book in the series.",
+              "de": "Es geht um das dritte Buch der Reihe, nicht um ein Kapitel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschnitt"
+              },
+              {
+                "id": "1",
+                "text": "Band"
+              },
+              {
+                "id": "2",
+                "text": "Absatz"
+              },
+              {
+                "id": "3",
+                "text": "Kapitel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To identify one volume within a multi-book series.",
+              "de": "Ein einzelnes Buch innerhalb einer mehrteiligen Reihe bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Romanreihe besteht aus fünf Büchern. Ich lese gerade den dritten Band.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Abschnitt, Band, Absatz, Kapitel), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Band\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L241-v2",
+          "contextKey": "legacy-0038-L241-context-2",
+          "transferKey": "legacy-0038-L241-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003800",
+            "type": "gap_choice",
+            "prompt": "Der erste ___ der Enzyklopädie behandelt die Geschichte Europas.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The first complete volume covers European history.",
+              "de": "Gemeint ist ein ganzes Buch einer mehrteiligen Enzyklopädie."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Aufsatz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eintrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Band"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Satz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To identify one volume within a multi-book series.",
+              "de": "Ein einzelnes Buch innerhalb einer mehrteiligen Reihe bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der erste Band der Enzyklopädie behandelt die Geschichte Europas.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Aufsatz, Eintrag, Band, Satz), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Band\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003804",
+      "title": {
+        "en": "A bar for drinks",
+        "de": "Die Bar als Getränketheke"
+      },
+      "description": {
+        "en": "To identify a counter or venue where drinks are served.",
+        "de": "Einen Ort oder eine Theke bezeichnen, an dem Getränke ausgegeben werden."
+      },
+      "objective": "Recognize Bar in two distinct contexts: To identify a counter or venue where drinks are served.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L246 (74116a640f233ef1f3df7a39927a876e0080b0c2993b3ca045f4571d607053a5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L246-v1",
+          "contextKey": "legacy-0038-L246-context-1",
+          "transferKey": "legacy-0038-L246-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003804",
+            "type": "choice",
+            "prompt": "Nach dem Konzert bestellten sie an der ___ zwei alkoholfreie Getränke.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The guests order drinks at the counter.",
+              "de": "Dort werden Getränke für Gäste ausgegeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bühne"
+              },
+              {
+                "id": "1",
+                "text": "Bar"
+              },
+              {
+                "id": "2",
+                "text": "Garderobe"
+              },
+              {
+                "id": "3",
+                "text": "Treppe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To identify a counter or venue where drinks are served.",
+              "de": "Einen Ort oder eine Theke bezeichnen, an dem Getränke ausgegeben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Konzert bestellten sie an der Bar zwei alkoholfreie Getränke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Bühne, Bar, Garderobe, Treppe), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bar\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L246-v2",
+          "contextKey": "legacy-0038-L246-context-2",
+          "transferKey": "legacy-0038-L246-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003804",
+            "type": "gap_choice",
+            "prompt": "Im Hotel gibt es im Erdgeschoss eine ___, an der Gäste Getränke bekommen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The hotel has a dedicated place for serving drinks.",
+              "de": "Gesucht ist der Bereich für den Getränkeausschank."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rezeption"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sauna"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Treppe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To identify a counter or venue where drinks are served.",
+              "de": "Einen Ort oder eine Theke bezeichnen, an dem Getränke ausgegeben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Hotel gibt es im Erdgeschoss eine Bar, an der Gäste Getränke bekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Rezeption, Sauna, Bar, Treppe), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bar\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003805",
+      "title": {
+        "en": "Cash in notes and coins",
+        "de": "Das Bargeld"
+      },
+      "description": {
+        "en": "To refer to money in the form of banknotes and coins.",
+        "de": "Geld in Form von Scheinen und Münzen bezeichnen."
+      },
+      "objective": "Recognize Bargeld in two distinct contexts: To refer to money in the form of banknotes and coins.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L247 (09311131cfd45c7bf83d33fbef382ee95f9d38596ff7cb8c445a57cb820dbcfe), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L247-v1",
+          "contextKey": "legacy-0038-L247-context-1",
+          "transferKey": "legacy-0038-L247-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003805",
+            "type": "choice",
+            "prompt": "Das Café nimmt nur Scheine und Münzen. Wir müssen mit ___ bezahlen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Payment is made with notes and coins.",
+              "de": "Die Zahlung erfolgt mit Münzen oder Banknoten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gutschein"
+              },
+              {
+                "id": "1",
+                "text": "Bargeld"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Überweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to money in the form of banknotes and coins.",
+              "de": "Geld in Form von Scheinen und Münzen bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Café nimmt nur Scheine und Münzen. Wir müssen mit Bargeld bezahlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Gutschein, Bargeld, Rechnung, Überweisung), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bargeld\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L247-v2",
+          "contextKey": "legacy-0038-L247-context-2",
+          "transferKey": "legacy-0038-L247-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003805",
+            "type": "gap_choice",
+            "prompt": "Am Automaten hob sie fünfzig Euro in Scheinen ab. Jetzt hat sie ___ im Portemonnaie.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The withdrawn notes are physical cash.",
+              "de": "Das abgehobene Geld liegt als Scheine im Geldbeutel."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kredit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wechselgeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bargeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schulden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to money in the form of banknotes and coins.",
+              "de": "Geld in Form von Scheinen und Münzen bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Automaten hob sie fünfzig Euro in Scheinen ab. Jetzt hat sie Bargeld im Portemonnaie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Kredit, Wechselgeld, Bargeld, Schulden), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bargeld\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003806",
+      "title": {
+        "en": "A beard",
+        "de": "Der Bart"
+      },
+      "description": {
+        "en": "To refer to facial hair on the chin or cheeks.",
+        "de": "Gesichtsbehaarung am Kinn oder an den Wangen bezeichnen."
+      },
+      "objective": "Recognize Bart in two distinct contexts: To refer to facial hair on the chin or cheeks.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L248 (e14fd7c824e560368d3d1f0b92ec06463b8e6b1b20bed101e8ef7f2f902113d8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L248-v1",
+          "contextKey": "legacy-0038-L248-context-1",
+          "transferKey": "legacy-0038-L248-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003806",
+            "type": "choice",
+            "prompt": "Seit einem Monat rasiert sich Tom nicht mehr. Sein ___ ist deutlich gewachsen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The facial hair has grown.",
+              "de": "Es geht um Haare, die im Gesicht wachsen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mantel"
+              },
+              {
+                "id": "1",
+                "text": "Bart"
+              },
+              {
+                "id": "2",
+                "text": "Gürtel"
+              },
+              {
+                "id": "3",
+                "text": "Hut"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to facial hair on the chin or cheeks.",
+              "de": "Gesichtsbehaarung am Kinn oder an den Wangen bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit einem Monat rasiert sich Tom nicht mehr. Sein Bart ist deutlich gewachsen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Mantel, Bart, Gürtel, Hut), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bart\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L248-v2",
+          "contextKey": "legacy-0038-L248-context-2",
+          "transferKey": "legacy-0038-L248-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003806",
+            "type": "gap_choice",
+            "prompt": "Der Mann hat einen langen ___ am Kinn.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The long facial hair is on his chin.",
+              "de": "Gemeint ist die Gesichtsbehaarung am Kinn."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schal"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kragen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bart"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hut"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to facial hair on the chin or cheeks.",
+              "de": "Gesichtsbehaarung am Kinn oder an den Wangen bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann hat einen langen Bart am Kinn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Schal, Kragen, Bart, Hut), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bart\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003807",
+      "title": {
+        "en": "A foundation or basis",
+        "de": "Die Basis als Grundlage"
+      },
+      "description": {
+        "en": "To refer to an underlying foundation or basis.",
+        "de": "Eine notwendige Grundlage für etwas bezeichnen."
+      },
+      "objective": "Recognize Basis in two distinct contexts: To refer to an underlying foundation or basis.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L249 (783b220723e656d4d9a4875257a405aea2a3098a196f5240f88d0afda8b9800e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L249-v1",
+          "contextKey": "legacy-0038-L249-context-1",
+          "transferKey": "legacy-0038-L249-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003807",
+            "type": "choice",
+            "prompt": "Vertrauen ist die ___ einer guten Zusammenarbeit.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Trust is a fundamental condition for collaboration.",
+              "de": "Ohne Vertrauen funktioniert die Zusammenarbeit schlecht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Folge"
+              },
+              {
+                "id": "1",
+                "text": "Ausnahme"
+              },
+              {
+                "id": "2",
+                "text": "Basis"
+              },
+              {
+                "id": "3",
+                "text": "Gefahr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to an underlying foundation or basis.",
+              "de": "Eine notwendige Grundlage für etwas bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vertrauen ist die Basis einer guten Zusammenarbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Folge, Ausnahme, Basis, Gefahr), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Basis\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L249-v2",
+          "contextKey": "legacy-0038-L249-context-2",
+          "transferKey": "legacy-0038-L249-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003807",
+            "type": "gap_choice",
+            "prompt": "Ohne zuverlässige Daten fehlt dem Bericht eine solide ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Reliable data provide the report's foundation.",
+              "de": "Verlässliche Daten bilden die Grundlage der Analyse."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dekoration"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Basis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Überschrift"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterschrift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to an underlying foundation or basis.",
+              "de": "Eine notwendige Grundlage für etwas bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne zuverlässige Daten fehlt dem Bericht eine solide Basis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Dekoration, Basis, Überschrift, Unterschrift), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Basis\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003808",
+      "title": {
+        "en": "Basic knowledge",
+        "de": "Basiskenntnisse"
+      },
+      "description": {
+        "en": "To refer to elementary knowledge of a subject or skill.",
+        "de": "Elementares Wissen in einem Fach oder einer Fertigkeit bezeichnen."
+      },
+      "objective": "Recognize Basiskenntnisse in two distinct contexts: To refer to elementary knowledge of a subject or skill.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L250 (4f294fca88b1c4fb64b742aa6198a11b35dec79027167c62ddd4450d3c214b1d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L250-v1",
+          "contextKey": "legacy-0038-L250-context-1",
+          "transferKey": "legacy-0038-L250-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003808",
+            "type": "choice",
+            "prompt": "Für den Einstieg in den Kurs genügen ___ in Excel; Expertenwissen wird nicht verlangt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Only basic prior knowledge is needed.",
+              "de": "Einfaches Vorwissen reicht für die Teilnahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Spezialkenntnisse"
+              },
+              {
+                "id": "1",
+                "text": "Basiskenntnisse"
+              },
+              {
+                "id": "2",
+                "text": "Führungsqualitäten"
+              },
+              {
+                "id": "3",
+                "text": "Zertifikate"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to elementary knowledge of a subject or skill.",
+              "de": "Elementares Wissen in einem Fach oder einer Fertigkeit bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Einstieg in den Kurs genügen Basiskenntnisse in Excel; Expertenwissen wird nicht verlangt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Spezialkenntnisse, Basiskenntnisse, Führungsqualitäten, Zertifikate), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Basiskenntnisse\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L250-v2",
+          "contextKey": "legacy-0038-L250-context-2",
+          "transferKey": "legacy-0038-L250-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003808",
+            "type": "gap_choice",
+            "prompt": "Sie kann einfache Gespräche auf Französisch führen, aber keine Fachtexte lesen. Sie hat nur ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Her language ability is limited to the basics.",
+              "de": "Ihre Sprachkenntnisse reichen für einfache Situationen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Muttersprachkenntnisse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Expertenwissen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Basiskenntnisse"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fachkenntnisse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to elementary knowledge of a subject or skill.",
+              "de": "Elementares Wissen in einem Fach oder einer Fertigkeit bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie kann einfache Gespräche auf Französisch führen, aber keine Fachtexte lesen. Sie hat nur Basiskenntnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Muttersprachkenntnisse, Expertenwissen, Basiskenntnisse, Fachkenntnisse), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Basiskenntnisse\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003809",
+      "title": {
+        "en": "An electrical battery",
+        "de": "Die Batterie als Stromquelle"
+      },
+      "description": {
+        "en": "To refer to a portable source of electrical power.",
+        "de": "Eine tragbare Stromquelle für ein Gerät bezeichnen."
+      },
+      "objective": "Recognize Batterie in two distinct contexts: To refer to a portable source of electrical power.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L252 (875e9e8146c6c5dc04ca8bc869108643d85ab8e007bb3f19cf562eaf3d500cb8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L252-v1",
+          "contextKey": "legacy-0038-L252-context-1",
+          "transferKey": "legacy-0038-L252-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003809",
+            "type": "choice",
+            "prompt": "Die Fernbedienung funktioniert nicht mehr, weil ihre Stromquelle leer ist. Wir müssen die ___ wechseln.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The remote's depleted power source needs replacing.",
+              "de": "Die Stromquelle muss ersetzt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Antenne"
+              },
+              {
+                "id": "1",
+                "text": "Batterie"
+              },
+              {
+                "id": "2",
+                "text": "Taste"
+              },
+              {
+                "id": "3",
+                "text": "Hülle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to a portable source of electrical power.",
+              "de": "Eine tragbare Stromquelle für ein Gerät bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fernbedienung funktioniert nicht mehr, weil ihre Stromquelle leer ist. Wir müssen die Batterie wechseln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Antenne, Batterie, Taste, Hülle), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Batterie\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L252-v2",
+          "contextKey": "legacy-0038-L252-context-2",
+          "transferKey": "legacy-0038-L252-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003809",
+            "type": "gap_choice",
+            "prompt": "Die Taschenlampe leuchtet nicht, weil ihre ___ keinen Strom mehr liefert.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The flashlight's power source is empty.",
+              "de": "Das Bauteil versorgt die Lampe mit elektrischer Energie."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Linse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Halterung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Batterie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schraube"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to a portable source of electrical power.",
+              "de": "Eine tragbare Stromquelle für ein Gerät bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Taschenlampe leuchtet nicht, weil ihre Batterie keinen Strom mehr liefert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Linse, Halterung, Batterie, Schraube), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Batterie\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003810",
+      "title": {
+        "en": "Construction work",
+        "de": "Der Bau eines Gebäudes"
+      },
+      "description": {
+        "en": "To refer to the process of constructing a building or structure.",
+        "de": "Den Vorgang des Errichtens eines Gebäudes oder Bauwerks bezeichnen."
+      },
+      "objective": "Recognize Bau in two distinct contexts: To refer to the process of constructing a building or structure.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L253 (5266912766cbe253ef61aefa967a777380966005184601bd42d4ab7350506b0e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L253-v1",
+          "contextKey": "legacy-0038-L253-context-1",
+          "transferKey": "legacy-0038-L253-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003810",
+            "type": "choice",
+            "prompt": "Der ___ der neuen Brücke soll im Frühjahr beginnen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Construction of the new bridge is about to start.",
+              "de": "Die Brücke wird erst errichtet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abriss"
+              },
+              {
+                "id": "1",
+                "text": "Verkauf"
+              },
+              {
+                "id": "2",
+                "text": "Bau"
+              },
+              {
+                "id": "3",
+                "text": "Besuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the process of constructing a building or structure.",
+              "de": "Den Vorgang des Errichtens eines Gebäudes oder Bauwerks bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bau der neuen Brücke soll im Frühjahr beginnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Abriss, Verkauf, Bau, Besuch), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bau\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L253-v2",
+          "contextKey": "legacy-0038-L253-context-2",
+          "transferKey": "legacy-0038-L253-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003810",
+            "type": "gap_choice",
+            "prompt": "Wegen der Baustelle bleibt die Zufahrt während des ___ des Krankenhauses gesperrt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The road is closed during construction.",
+              "de": "Die Zufahrt ist während der Errichtung des Gebäudes gesperrt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Betriebs"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Baus"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkaufs"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umzugs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the process of constructing a building or structure.",
+              "de": "Den Vorgang des Errichtens eines Gebäudes oder Bauwerks bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Baustelle bleibt die Zufahrt während des Baus des Krankenhauses gesperrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Betriebs, Baus, Verkaufs, Umzugs), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Baus\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003811",
+      "title": {
+        "en": "Formal acceptance of construction work",
+        "de": "Die Bauabnahme"
+      },
+      "description": {
+        "en": "To refer to formal inspection and acceptance of completed building work.",
+        "de": "Die offizielle Prüfung und Übernahme fertiggestellter Bauleistungen."
+      },
+      "objective": "Recognize Bauabnahme in two distinct contexts: To refer to formal inspection and acceptance of completed building work.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L254 (928a017022a5742d07ed7dc0f2e3a46c78f467b3854cbf2ce315c10b6aa7f059), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L254-v1",
+          "contextKey": "legacy-0038-L254-context-1",
+          "transferKey": "legacy-0038-L254-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003811",
+            "type": "choice",
+            "prompt": "Das Gebäude ist fertig. Nun wird geprüft, ob die Arbeiten vertragsgemäß ausgeführt wurden. Es folgt die ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The completed work is formally checked and accepted.",
+              "de": "Nach Fertigstellung wird die Bauleistung offiziell überprüft und übernommen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Baugenehmigung"
+              },
+              {
+                "id": "1",
+                "text": "Bauplanung"
+              },
+              {
+                "id": "2",
+                "text": "Bauabnahme"
+              },
+              {
+                "id": "3",
+                "text": "Ausschreibung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to formal inspection and acceptance of completed building work.",
+              "de": "Die offizielle Prüfung und Übernahme fertiggestellter Bauleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gebäude ist fertig. Nun wird geprüft, ob die Arbeiten vertragsgemäß ausgeführt wurden. Es folgt die Bauabnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Baugenehmigung, Bauplanung, Bauabnahme, Ausschreibung), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauabnahme\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L254-v2",
+          "contextKey": "legacy-0038-L254-context-2",
+          "transferKey": "legacy-0038-L254-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003811",
+            "type": "gap_choice",
+            "prompt": "Nach der ___ wurden die letzten Mängel protokolliert und die Bauleistung offiziell übernommen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The completed building work is formally accepted.",
+              "de": "Die Übernahme der fertigen Leistung erfolgt am Ende des Bauprozesses."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Grundsteinlegung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bauabnahme"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausschreibung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Finanzierung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to formal inspection and acceptance of completed building work.",
+              "de": "Die offizielle Prüfung und Übernahme fertiggestellter Bauleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Bauabnahme wurden die letzten Mängel protokolliert und die Bauleistung offiziell übernommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Grundsteinlegung, Bauabnahme, Ausschreibung, Finanzierung), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauabnahme\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003813",
+      "title": {
+        "en": "A farm",
+        "de": "Der Bauernhof"
+      },
+      "description": {
+        "en": "To identify a farm with crops or livestock.",
+        "de": "Einen landwirtschaftlichen Betrieb mit Feldern oder Nutztieren bezeichnen."
+      },
+      "objective": "Recognize Bauernhof in two distinct contexts: To identify a farm with crops or livestock.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L257 (307d72cdd2b9f1df7aaf7150e545cb5121391d0ed47938aedf1649ac7a686854), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L257-v1",
+          "contextKey": "legacy-0038-L257-context-1",
+          "transferKey": "legacy-0038-L257-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003813",
+            "type": "choice",
+            "prompt": "Auf dem ___ leben Kühe, Hühner und Schweine, und die Familie baut Gemüse an.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The family raises animals and grows crops.",
+              "de": "Die Familie betreibt Landwirtschaft und hält Tiere."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bahnhof"
+              },
+              {
+                "id": "1",
+                "text": "Bauernhof"
+              },
+              {
+                "id": "2",
+                "text": "Flughafen"
+              },
+              {
+                "id": "3",
+                "text": "Marktplatz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To identify a farm with crops or livestock.",
+              "de": "Einen landwirtschaftlichen Betrieb mit Feldern oder Nutztieren bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Bauernhof leben Kühe, Hühner und Schweine, und die Familie baut Gemüse an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Bahnhof, Bauernhof, Flughafen, Marktplatz), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauernhof\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L257-v2",
+          "contextKey": "legacy-0038-L257-context-2",
+          "transferKey": "legacy-0038-L257-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003813",
+            "type": "gap_choice",
+            "prompt": "Die Schulklasse besucht einen ___ und sieht, wie Milch produziert wird.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The pupils visit a working farm.",
+              "de": "Die Kinder besuchen einen landwirtschaftlichen Betrieb."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Baumarkt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verlag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bauernhof"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Theater"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To identify a farm with crops or livestock.",
+              "de": "Einen landwirtschaftlichen Betrieb mit Feldern oder Nutztieren bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schulklasse besucht einen Bauernhof und sieht, wie Milch produziert wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Baumarkt, Verlag, Bauernhof, Theater), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauernhof\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003814",
+      "title": {
+        "en": "The construction industry",
+        "de": "Das Baugewerbe"
+      },
+      "description": {
+        "en": "To refer to the sector of businesses that perform construction work.",
+        "de": "Die Branche der Unternehmen, die Bauarbeiten ausführen."
+      },
+      "objective": "Recognize Baugewerbe in two distinct contexts: To refer to the sector of businesses that perform construction work.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L258 (02a592e509fc3981d6ce04de27e09fb53e7479464748f43da52df3a361585546), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L258-v1",
+          "contextKey": "legacy-0038-L258-context-1",
+          "transferKey": "legacy-0038-L258-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003814",
+            "type": "choice",
+            "prompt": "Maurer, Dachdecker und Betonbauer arbeiten im ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "All three occupations are in construction.",
+              "de": "Alle drei Berufe gehören zur Bauwirtschaft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "1",
+                "text": "Baugewerbe"
+              },
+              {
+                "id": "2",
+                "text": "Tourismus"
+              },
+              {
+                "id": "3",
+                "text": "Einzelhandel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the sector of businesses that perform construction work.",
+              "de": "Die Branche der Unternehmen, die Bauarbeiten ausführen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Maurer, Dachdecker und Betonbauer arbeiten im Baugewerbe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Gesundheitswesen, Baugewerbe, Tourismus, Einzelhandel), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Baugewerbe\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L258-v2",
+          "contextKey": "legacy-0038-L258-context-2",
+          "transferKey": "legacy-0038-L258-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003814",
+            "type": "gap_choice",
+            "prompt": "Wegen vieler neuer Wohnhäuser sucht das ___ zusätzliche Fachkräfte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Housing construction creates demand for skilled construction workers.",
+              "de": "Neue Wohnhäuser erhöhen den Bedarf an Baupersonal."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gastgewerbe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bildungswesen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Baugewerbe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bankenwesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the sector of businesses that perform construction work.",
+              "de": "Die Branche der Unternehmen, die Bauarbeiten ausführen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen vieler neuer Wohnhäuser sucht das Baugewerbe zusätzliche Fachkräfte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Gastgewerbe, Bildungswesen, Baugewerbe, Bankenwesen), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Baugewerbe\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003815",
+      "title": {
+        "en": "The client commissioning a building",
+        "de": "Der Bauherr"
+      },
+      "description": {
+        "en": "To refer to the person commissioning and responsible for a construction project.",
+        "de": "Eine Person bezeichnen, die ein Bauvorhaben in Auftrag gibt und verantwortet."
+      },
+      "objective": "Recognize Bauherr in two distinct contexts: To refer to the person commissioning and responsible for a construction project.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L259 (f11a77319b17b399ec6685a1e7cd753d62663e50a408f2adb9081eeeb23f9748), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L259-v1",
+          "contextKey": "legacy-0038-L259-context-1",
+          "transferKey": "legacy-0038-L259-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003815",
+            "type": "choice",
+            "prompt": "Die Architektin entwirft das Haus im Auftrag eines Kunden. Dieser Kunde ist der ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person commissions the building project.",
+              "de": "Die Person gibt das Bauprojekt in Auftrag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bauarbeiter"
+              },
+              {
+                "id": "1",
+                "text": "Hausmeister"
+              },
+              {
+                "id": "2",
+                "text": "Bauherr"
+              },
+              {
+                "id": "3",
+                "text": "Nachbar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the person commissioning and responsible for a construction project.",
+              "de": "Eine Person bezeichnen, die ein Bauvorhaben in Auftrag gibt und verantwortet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Architektin entwirft das Haus im Auftrag eines Kunden. Dieser Kunde ist der Bauherr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Bauarbeiter, Hausmeister, Bauherr, Nachbar), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauherr\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L259-v2",
+          "contextKey": "legacy-0038-L259-context-2",
+          "transferKey": "legacy-0038-L259-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003815",
+            "type": "gap_choice",
+            "prompt": "Der ___ unterschrieb den Vertrag mit der Baufirma und finanzierte das Projekt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "He is the client commissioning the construction.",
+              "de": "Er ist der Auftraggeber der Bauarbeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mieter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bauherr"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Polier"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besucher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to the person commissioning and responsible for a construction project.",
+              "de": "Eine Person bezeichnen, die ein Bauvorhaben in Auftrag gibt und verantwortet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bauherr unterschrieb den Vertrag mit der Baufirma und finanzierte das Projekt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Mieter, Bauherr, Polier, Besucher), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bauherr\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003817",
+      "title": {
+        "en": "A construction material",
+        "de": "Der Baustoff"
+      },
+      "description": {
+        "en": "To identify material used in building construction.",
+        "de": "Ein Material bezeichnen, das zum Errichten eines Bauwerks verwendet wird."
+      },
+      "objective": "Recognize Baustoff in two distinct contexts: To identify material used in building construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L263 (152901224193f01772f6f94ccb3518abd2811a7213f2870abde333c9be650e9d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L263-v1",
+          "contextKey": "legacy-0038-L263-context-1",
+          "transferKey": "legacy-0038-L263-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003817",
+            "type": "choice",
+            "prompt": "Holz, Beton und Ziegel sind typische ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Wood, concrete and bricks are building materials.",
+              "de": "Die genannten Dinge werden als Material beim Bauen verwendet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werkzeuge"
+              },
+              {
+                "id": "1",
+                "text": "Baustoffe"
+              },
+              {
+                "id": "2",
+                "text": "Baupläne"
+              },
+              {
+                "id": "3",
+                "text": "Geräte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To identify material used in building construction.",
+              "de": "Ein Material bezeichnen, das zum Errichten eines Bauwerks verwendet wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Holz, Beton und Ziegel sind typische Baustoffe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Werkzeuge, Baustoffe, Baupläne, Geräte), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Baustoffe\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L263-v2",
+          "contextKey": "legacy-0038-L263-context-2",
+          "transferKey": "legacy-0038-L263-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003817",
+            "type": "gap_choice",
+            "prompt": "Für die Dämmung wählen die Planer einen ___, der Wärme schlecht leitet.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The planners need a suitable insulating material.",
+              "de": "Gesucht ist ein Material für die Konstruktion."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bauherr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bauantrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Baustoff"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Baukran"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To identify material used in building construction.",
+              "de": "Ein Material bezeichnen, das zum Errichten eines Bauwerks verwendet wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Dämmung wählen die Planer einen Baustoff, der Wärme schlecht leitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Bauherr, Bauantrag, Baustoff, Baukran), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Baustoff\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003818",
+      "title": {
+        "en": "A female civil servant",
+        "de": "Die Beamtin"
+      },
+      "description": {
+        "en": "To identify a woman appointed as a civil servant.",
+        "de": "Eine Frau bezeichnen, die in einem öffentlich-rechtlichen Beamtenverhältnis arbeitet."
+      },
+      "objective": "Recognize Beamtin in two distinct contexts: To identify a woman appointed as a civil servant.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L265 (bea3478e80bfc620929fbc5449b979cb9e52de878c04c89a1318aa39300237bb), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L265-v1",
+          "contextKey": "legacy-0038-L265-context-1",
+          "transferKey": "legacy-0038-L265-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003818",
+            "type": "choice",
+            "prompt": "Sie wurde auf Lebenszeit in den Staatsdienst berufen und arbeitet als ___ in der Verwaltung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She has been formally appointed as a civil servant.",
+              "de": "Sie steht in einem Beamtenverhältnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Unternehmerin"
+              },
+              {
+                "id": "1",
+                "text": "Kundin"
+              },
+              {
+                "id": "2",
+                "text": "Beamtin"
+              },
+              {
+                "id": "3",
+                "text": "Bewerberin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To identify a woman appointed as a civil servant.",
+              "de": "Eine Frau bezeichnen, die in einem öffentlich-rechtlichen Beamtenverhältnis arbeitet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wurde auf Lebenszeit in den Staatsdienst berufen und arbeitet als Beamtin in der Verwaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Unternehmerin, Kundin, Beamtin, Bewerberin), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Beamtin\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L265-v2",
+          "contextKey": "legacy-0038-L265-context-2",
+          "transferKey": "legacy-0038-L265-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003818",
+            "type": "gap_choice",
+            "prompt": "Die ___ bearbeitet im Amt die Anträge und ist als Staatsbedienstete verbeamtet.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She holds civil-servant status rather than ordinary employment.",
+              "de": "Das Beamtenverhältnis unterscheidet sie von einer tariflich Beschäftigten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Angestellte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beamtin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Besucherin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Praktikantin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To identify a woman appointed as a civil servant.",
+              "de": "Eine Frau bezeichnen, die in einem öffentlich-rechtlichen Beamtenverhältnis arbeitet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beamtin bearbeitet im Amt die Anträge und ist als Staatsbedienstete verbeamtet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Angestellte, Beamtin, Besucherin, Praktikantin), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Beamtin\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000003819",
+      "title": {
+        "en": "Processing an application",
+        "de": "Die Bearbeitung eines Antrags"
+      },
+      "description": {
+        "en": "To refer to reviewing and handling an application or case.",
+        "de": "Die Prüfung und Erledigung eines Antrags oder Vorgangs bezeichnen."
+      },
+      "objective": "Recognize Bearbeitung in two distinct contexts: To refer to reviewing and handling an application or case.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L266 (4b56db326b814aeda8833ac9c9131a0ada7d132ad70ff1eb0c00996becb610c8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0038-L266-v1",
+          "contextKey": "legacy-0038-L266-context-1",
+          "transferKey": "legacy-0038-L266-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003819",
+            "type": "choice",
+            "prompt": "Die ___ des Antrags dauert normalerweise zwei Wochen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The application is reviewed and processed during this period.",
+              "de": "In dieser Zeit wird der Antrag geprüft und behandelt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anmeldung"
+              },
+              {
+                "id": "1",
+                "text": "Ablehnung"
+              },
+              {
+                "id": "2",
+                "text": "Bearbeitung"
+              },
+              {
+                "id": "3",
+                "text": "Auszahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "To refer to reviewing and handling an application or case.",
+              "de": "Die Prüfung und Erledigung eines Antrags oder Vorgangs bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bearbeitung des Antrags dauert normalerweise zwei Wochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Anmeldung, Ablehnung, Bearbeitung, Auszahlung), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bearbeitung\" is supported by the context; paired scenario differs. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0038-L266-v2",
+          "contextKey": "legacy-0038-L266-context-2",
+          "transferKey": "legacy-0038-L266-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000380191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000003819",
+            "type": "gap_choice",
+            "prompt": "Das Supportteam beginnt heute mit der ___ der gemeldeten Störung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team starts working on the reported issue.",
+              "de": "Das Team nimmt sich des gemeldeten Problems an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bearbeitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verteilung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To refer to reviewing and handling an application or case.",
+              "de": "Die Prüfung und Erledigung eines Antrags oder Vorgangs bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Supportteam beginnt heute mit der Bearbeitung der gemeldeten Störung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete German sentence, all four options (Werbung, Bearbeitung, Verteilung, Kündigung), morphology, intended meaning, accepted answer, bilingual hint and explanation. \"Bearbeitung\" is supported by the context; paired scenario differs. Human approval pending."
+        }
+      ]
+    }
+  ]
 }

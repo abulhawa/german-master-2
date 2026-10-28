@@ -1,191 +1,221 @@
 {
   "schemaVersion": 1,
   "batchId": "legacy-0038",
-  "state": "draft",
-  "catalogSha256": "051c7d843e126ba60cb905aadd2e9321e56b8c8fd3ca130ae4f54376e630c271",
-  "aiReviewer": "Not yet reviewed",
+  "state": "ready-for-review",
+  "catalogSha256": "1707fb671cfc09ce4ef07b9521c28ad00b749cc8c6af44fffe6fa979125d1a46",
+  "aiReviewer": "GPT-6 (AI editorial review; no human review)",
   "reviewedAt": "2026-10-29",
-  "reviewNotes": "Resumable draft checkpoint after legacy-0037 passed CI. All 20 planned source rows pending; no exercise authoring or editorial approval claimed.",
+  "reviewNotes": "Separate GPT-6 AI editorial pass over 30 original low-typing questions: checked complete German sentences, four offered choices, morphology, intended meaning, accepted answers, bilingual hints and explanations and distinct contexts. Fifteen sources authored, five deferred for obsolete banking identifiers, regional register, rare birdcage sense and questionable B2 level. Corrected Bart gender, Batterie gloss, Bargeld plurality, Bauabnahme and Bauherr semantics. No independent human approval, CEFR certification or rights clearance. All target reviews pending; publicationApproved=false.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L241",
       "sourceHash": "1bb582a56debed716b66b64e7b8c07daaa1e1f406798b40748a8a415a4cdb189",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003800"
+      ],
+      "notes": "Two original B2 low-typing questions for Band; complete sentences and all options AI-reviewed.",
+      "corrections": "Source correctly uses der Band (plural Bände), distinct from die Band (music group) and das Band (ribbon).",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L243",
       "sourceHash": "ee82cb856682664af666c66dc1e40c535e7ee4670b174b28656a9519cfbbf93a",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Bankleitzahl is a legacy German domestic bank identifier; modern SEPA payments generally use IBAN, and its current B1 learning objective is uncertain.",
+      "corrections": "Defer current usage and level; do not teach outdated form as the default.",
+      "rightsBasis": "No exercise or inherited example reused; CEFR/register/accuracy review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L244",
       "sourceHash": "19ee0822bc519a5fd7987c86b3ae3ccfb4681f6c2b05554e6e862004ee4aa836",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Bankomat is predominantly Austrian regional usage for an ATM; its standard-German scope and B1 level need review.",
+      "corrections": "Defer regional-register mapping alongside Bancomat.",
+      "rightsBasis": "No exercise or inherited example reused; CEFR/register/accuracy review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L245",
       "sourceHash": "7eab0e6130f07d3b41d038a18d3d195ff737f5c78689cdb443c37940250be14d",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Bankomatkarte is an Austrian regional expression for a bank/debit card; standard register and B1 suitability need review.",
+      "corrections": "Defer with Bankomat and Bancomatkarte.",
+      "rightsBasis": "No exercise or inherited example reused; CEFR/register/accuracy review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L246",
       "sourceHash": "74116a640f233ef1f3df7a39927a876e0080b0c2993b3ca045f4571d607053a5",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003804"
+      ],
+      "notes": "Two original B1 low-typing questions for Bar; complete sentences and all options AI-reviewed.",
+      "corrections": "The inherited gloss 'bar (desk)' is incomplete; choose drinks counter or venue.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L247",
       "sourceHash": "09311131cfd45c7bf83d33fbef382ee95f9d38596ff7cb8c445a57cb820dbcfe",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003805"
+      ],
+      "notes": "Two original B1 low-typing questions for Bargeld; complete sentences and all options AI-reviewed.",
+      "corrections": "Bargeld is normally a mass noun; the source's plural Bargelder is specialized and not assessed.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L248",
       "sourceHash": "e14fd7c824e560368d3d1f0b92ec06463b8e6b1b20bed101e8ef7f2f902113d8",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003806"
+      ],
+      "notes": "Two original B1 low-typing questions for Bart; complete sentences and all options AI-reviewed.",
+      "corrections": "Important source correction: Bart is masculine (der Bart), not das Bart; plural Bärte is correct.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L249",
       "sourceHash": "783b220723e656d4d9a4875257a405aea2a3098a196f5240f88d0afda8b9800e",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003807"
+      ],
+      "notes": "Two original B2 low-typing questions for Basis; complete sentences and all options AI-reviewed.",
+      "corrections": "Focuses on figurative foundation rather than physical base of an object.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L250",
       "sourceHash": "4f294fca88b1c4fb64b742aa6198a11b35dec79027167c62ddd4450d3c214b1d",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003808"
+      ],
+      "notes": "Two original B2 low-typing questions for Basiskenntnisse; complete sentences and all options AI-reviewed.",
+      "corrections": "The plural form describes beginner-level competence, not expert knowledge.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L252",
       "sourceHash": "875e9e8146c6c5dc04ca8bc869108643d85ab8e007bb3f19cf562eaf3d500cb8",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003809"
+      ],
+      "notes": "Two original B1 low-typing questions for Batterie; complete sentences and all options AI-reviewed.",
+      "corrections": "Source English gloss wrongly restricts Batterie to artillery, while the example clearly uses an electrical battery.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L253",
       "sourceHash": "5266912766cbe253ef61aefa967a777380966005184601bd42d4ab7350506b0e",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003810"
+      ],
+      "notes": "Two original B1 low-typing questions for Bau; complete sentences and all options AI-reviewed.",
+      "corrections": "The source's plural Baue is not used for this sense; focus on singular construction process.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L254",
       "sourceHash": "928a017022a5742d07ed7dc0f2e3a46c78f467b3854cbf2ce315c10b6aa7f059",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003811"
+      ],
+      "notes": "Two original B2 low-typing questions for Bauabnahme; complete sentences and all options AI-reviewed.",
+      "corrections": "More precise than the inherited 'building inspection': Bauabnahme is contractual acceptance, not any inspection.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L256",
       "sourceHash": "c2eb9af3863f335b4d6dde8314360c1ebc219d8c390ef19aea42133ce3a8b1fd",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Bauer meaning birdcage is rare or regional; the common modern meaning is farmer, so the inherited example and target sense are unsuitable without lexical verification.",
+      "corrections": "Defer rare sense and objective mapping rather than invent standard exercises.",
+      "rightsBasis": "No exercise or inherited example reused; CEFR/register/accuracy review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L257",
       "sourceHash": "307d72cdd2b9f1df7aaf7150e545cb5121391d0ed47938aedf1649ac7a686854",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003813"
+      ],
+      "notes": "Two original B1 low-typing questions for Bauernhof; complete sentences and all options AI-reviewed.",
+      "corrections": "Distinguish farm from farm shop or other rural venues.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L258",
       "sourceHash": "02a592e509fc3981d6ce04de27e09fb53e7479464748f43da52df3a361585546",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003814"
+      ],
+      "notes": "Two original B2 low-typing questions for Baugewerbe; complete sentences and all options AI-reviewed.",
+      "corrections": "Industry objective distinct from a single construction project.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L259",
       "sourceHash": "f11a77319b17b399ec6685a1e7cd753d62663e50a408f2adb9081eeeb23f9748",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003815"
+      ],
+      "notes": "Two original B2 low-typing questions for Bauherr; complete sentences and all options AI-reviewed.",
+      "corrections": "Bauherr is not necessarily the legal owner; clarify role as project client.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L261",
       "sourceHash": "a9cb79ec491287aa5e32814650ffaca4cf673d26d81835bb076a40e344471426",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Baumarkt is everyday retail vocabulary; inherited B2 level appears too high without an advanced objective.",
+      "corrections": "Defer CEFR and lower-level objective mapping.",
+      "rightsBasis": "No exercise or inherited example reused; CEFR/register/accuracy review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L263",
       "sourceHash": "152901224193f01772f6f94ccb3518abd2811a7213f2870abde333c9be650e9d",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003817"
+      ],
+      "notes": "Two original B2 low-typing questions for Baustoff; complete sentences and all options AI-reviewed.",
+      "corrections": "Distinguish materials from equipment, plans and people.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L265",
       "sourceHash": "bea3478e80bfc620929fbc5449b979cb9e52de878c04c89a1318aa39300237bb",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003818"
+      ],
+      "notes": "Two original B1 low-typing questions for Beamtin; complete sentences and all options AI-reviewed.",
+      "corrections": "Distinguish Beamte from any employee in a public office.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L266",
       "sourceHash": "4b56db326b814aeda8833ac9c9131a0ada7d132ad70ff1eb0c00996becb610c8",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting row triage, objective lookup and original question authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000003819"
+      ],
+      "notes": "Two original B2 low-typing questions for Bearbeitung; complete sentences and all options AI-reviewed.",
+      "corrections": "Distinguish handling a request from approving or rejecting it.",
+      "rightsBasis": "Original contexts, options, hints and bilingual feedback authored from lexical facts; inherited examples not copied. Independent rights review pending."
     }
   ]
 }
