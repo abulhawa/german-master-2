@@ -1,0 +1,802 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001202",
+      "title": {
+        "en": "Already happened",
+        "de": "Bereits"
+      },
+      "description": {
+        "en": "The action was completed earlier than the current moment.",
+        "de": "Die Handlung ist zum jetzigen Zeitpunkt schon geschehen."
+      },
+      "objective": "Recognize bereits as indicating an action or state that has already occurred.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L28 (222544c9aeec8d8f053b24426b457a919890a291ab604753c90957b822b7c73a), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L28-v1",
+          "contextKey": "legacy-0012-L28-context-1",
+          "transferKey": "legacy-0012-L28-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001202",
+            "type": "choice",
+            "prompt": "Die Unterlagen sind ___ angekommen; du musst sie nicht noch einmal schicken.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action was completed earlier than the current moment.",
+              "de": "Die Handlung ist zum jetzigen Zeitpunkt schon geschehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bereits"
+              },
+              {
+                "id": "1",
+                "text": "bald"
+              },
+              {
+                "id": "2",
+                "text": "später"
+              },
+              {
+                "id": "3",
+                "text": "niemals"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Bereits means already, not later or never.",
+              "de": "Bereits bedeutet schon, nicht später oder niemals."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Unterlagen sind bereits angekommen; du musst sie nicht noch einmal schicken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; bald, später, niemals do not express the required sense here. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L28-v2",
+          "contextKey": "legacy-0012-L28-context-2",
+          "transferKey": "legacy-0012-L28-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001202",
+            "type": "gap_choice",
+            "prompt": "Als ich anrief, hatte die Sitzung ___ begonnen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action was completed earlier than the current moment.",
+              "de": "Die Handlung ist zum jetzigen Zeitpunkt schon geschehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "noch nie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bisher nicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bereits"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erst später"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Bereits means already, not later or never.",
+              "de": "Bereits bedeutet schon, nicht später oder niemals."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als ich anrief, hatte die Sitzung bereits begonnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; noch nie, bisher nicht, erst später do not express the required sense here. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001203",
+      "title": {
+        "en": "So far",
+        "de": "Bisher"
+      },
+      "description": {
+        "en": "The statement covers the time until now, and more may happen later.",
+        "de": "Die Aussage gilt bis jetzt; später kann sich noch etwas ändern."
+      },
+      "objective": "Recognize bisher as describing what has happened up to the present, with further change possible.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L30 (f2cde7641507a9fb762597493df077e538467bf673bbe4db270adbdfe0ebfbd9), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L30-v1",
+          "contextKey": "legacy-0012-L30-context-1",
+          "transferKey": "legacy-0012-L30-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001203",
+            "type": "choice",
+            "prompt": "___ haben wir nur drei Rückmeldungen erhalten; weitere erwarten wir morgen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statement covers the time until now, and more may happen later.",
+              "de": "Die Aussage gilt bis jetzt; später kann sich noch etwas ändern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Künftig"
+              },
+              {
+                "id": "1",
+                "text": "Damals"
+              },
+              {
+                "id": "2",
+                "text": "Danach"
+              },
+              {
+                "id": "3",
+                "text": "Bisher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Bisher means so far or until now.",
+              "de": "Bisher bedeutet bis jetzt oder bislang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bisher haben wir nur drei Rückmeldungen erhalten; weitere erwarten wir morgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; Künftig, Damals, Danach do not express the required sense here. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L30-v2",
+          "contextKey": "legacy-0012-L30-context-2",
+          "transferKey": "legacy-0012-L30-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001203",
+            "type": "gap_choice",
+            "prompt": "Die Suche läuft noch. ___ gibt es keine Ergebnisse.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statement covers the time until now, and more may happen later.",
+              "de": "Die Aussage gilt bis jetzt; später kann sich noch etwas ändern."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Künftig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bisher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Danach"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gestern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Bisher means so far or until now.",
+              "de": "Bisher bedeutet bis jetzt oder bislang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Suche läuft noch. Bisher gibt es keine Ergebnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; Künftig, Danach, Gestern do not express the required sense here. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001204",
+      "title": {
+        "en": "Merely or only",
+        "de": "Bloß als Einschränkung"
+      },
+      "description": {
+        "en": "The speaker emphasizes that the amount or affected part is limited.",
+        "de": "Es wird betont, dass nur eine kleine Menge oder ein Teil gemeint ist."
+      },
+      "objective": "Recognize bloß as limiting an amount or scope to only something.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L32 (c8174095a8a93785e202b903da96f5178d234c841389265949508bfbcac16da5), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L32-v1",
+          "contextKey": "legacy-0012-L32-context-1",
+          "transferKey": "legacy-0012-L32-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001204",
+            "type": "choice",
+            "prompt": "Es sind genau fünf Euro, nicht mehr. Ich habe ___ fünf Euro dabei.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker emphasizes that the amount or affected part is limited.",
+              "de": "Es wird betont, dass nur eine kleine Menge oder ein Teil gemeint ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zusätzlich"
+              },
+              {
+                "id": "1",
+                "text": "mindestens"
+              },
+              {
+                "id": "2",
+                "text": "bloß"
+              },
+              {
+                "id": "3",
+                "text": "sogar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Bloß can mean only or merely; nur can also be used in many such contexts.",
+              "de": "Bloß kann nur oder lediglich bedeuten; oft ist auch nur möglich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es sind genau fünf Euro, nicht mehr. Ich habe bloß fünf Euro dabei.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; zusätzlich, mindestens, sogar do not express the required sense here. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L32-v2",
+          "contextKey": "legacy-0012-L32-context-2",
+          "transferKey": "legacy-0012-L32-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001204",
+            "type": "gap_choice",
+            "prompt": "Der Fehler betrifft ___ die Überschrift, nicht den restlichen Text.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker emphasizes that the amount or affected part is limited.",
+              "de": "Es wird betont, dass nur eine kleine Menge oder ein Teil gemeint ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bloß"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sogar"
+                  },
+                  {
+                    "id": "2",
+                    "text": "auch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zusätzlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Bloß can mean only or merely; nur can also be used in many such contexts.",
+              "de": "Bloß kann nur oder lediglich bedeuten; oft ist auch nur möglich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fehler betrifft bloß die Überschrift, nicht den restlichen Text.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; sogar, auch, zusätzlich do not express the required sense here. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001205",
+      "title": {
+        "en": "Gross amount before deductions",
+        "de": "Brutto"
+      },
+      "description": {
+        "en": "The amount is before deductions or includes VAT.",
+        "de": "Der Betrag ist vor Abzügen oder enthält die Mehrwertsteuer."
+      },
+      "objective": "Recognize brutto as an amount before payroll deductions or including VAT in a price.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L33 (7f3671d8adb889039ded7f8d9e7cac060225dc7115ee6bc3c06637ab9c37af5a), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L33-v1",
+          "contextKey": "legacy-0012-L33-context-1",
+          "transferKey": "legacy-0012-L33-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001205",
+            "type": "choice",
+            "prompt": "Auf der Gehaltsabrechnung steht der Betrag vor Abzug von Steuern. Er ist ___ angegeben.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The amount is before deductions or includes VAT.",
+              "de": "Der Betrag ist vor Abzügen oder enthält die Mehrwertsteuer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "freiwillig"
+              },
+              {
+                "id": "1",
+                "text": "brutto"
+              },
+              {
+                "id": "2",
+                "text": "netto"
+              },
+              {
+                "id": "3",
+                "text": "pauschal"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Brutto is before payroll deductions or including VAT; netto is the corresponding net amount.",
+              "de": "Brutto bedeutet vor Lohnabzügen oder inklusive Mehrwertsteuer; netto bezeichnet den Nettobetrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Gehaltsabrechnung steht der Betrag vor Abzug von Steuern. Er ist brutto angegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; freiwillig, netto, pauschal do not express the required sense here. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L33-v2",
+          "contextKey": "legacy-0012-L33-context-2",
+          "transferKey": "legacy-0012-L33-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001205",
+            "type": "gap_choice",
+            "prompt": "Das Produkt kostet 119 Euro inklusive Mehrwertsteuer. Dieser Preis ist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The amount is before deductions or includes VAT.",
+              "de": "Der Betrag ist vor Abzügen oder enthält die Mehrwertsteuer."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "netto"
+                  },
+                  {
+                    "id": "1",
+                    "text": "steuerfrei"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unverbindlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "brutto"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Brutto is before payroll deductions or including VAT; netto is the corresponding net amount.",
+              "de": "Brutto bedeutet vor Lohnabzügen oder inklusive Mehrwertsteuer; netto bezeichnet den Nettobetrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Produkt kostet 119 Euro inklusive Mehrwertsteuer. Dieser Preis ist brutto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; netto, steuerfrei, unverbindlich do not express the required sense here. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001206",
+      "title": {
+        "en": "Nevertheless",
+        "de": "Dennoch"
+      },
+      "description": {
+        "en": "The second event happens despite what the first statement suggests.",
+        "de": "Das zweite Ereignis tritt trotz eines Hindernisses ein."
+      },
+      "objective": "Recognize dennoch as introducing an outcome that happens despite an obstacle.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 sentences based on pinned source apps/web/data/pos/adverbs.jsonl:L38 (efcc1689a3fa438dd1b382f33e772cd3a3c42741014b9b1061ca35595f81c7e5), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in partial report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0012-L38-v1",
+          "contextKey": "legacy-0012-L38-context-1",
+          "transferKey": "legacy-0012-L38-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001206",
+            "type": "choice",
+            "prompt": "Es regnete stark. ___ fand das Konzert im Freien statt.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The second event happens despite what the first statement suggests.",
+              "de": "Das zweite Ereignis tritt trotz eines Hindernisses ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dennoch"
+              },
+              {
+                "id": "1",
+                "text": "Deshalb"
+              },
+              {
+                "id": "2",
+                "text": "Darum"
+              },
+              {
+                "id": "3",
+                "text": "Folglich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Dennoch means nevertheless, expressing a concession.",
+              "de": "Dennoch bedeutet trotzdem und drückt einen Gegensatz zur Erwartung aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es regnete stark. Dennoch fand das Konzert im Freien statt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; Deshalb, Darum, Folglich do not express the required sense here. No human approval."
+        },
+        {
+          "variantKey": "legacy-0012-L38-v2",
+          "contextKey": "legacy-0012-L38-context-2",
+          "transferKey": "legacy-0012-L38-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000120061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001206",
+            "type": "gap_choice",
+            "prompt": "Die Prüfung war schwierig. Sie hat sie ___ bestanden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The second event happens despite what the first statement suggests.",
+              "de": "Das zweite Ereignis tritt trotz eines Hindernisses ein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "daher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "somit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "dennoch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "deswegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Dennoch means nevertheless, expressing a concession.",
+              "de": "Dennoch bedeutet trotzdem und drückt einen Gegensatz zur Erwartung aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Prüfung war schwierig. Sie hat sie dennoch bestanden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 partial AI editorial review 2026-10-28: checked all four choices and complete German sentence; daher, somit, deswegen do not express the required sense here. No human approval."
+        }
+      ]
+    }
+  ]
+}
