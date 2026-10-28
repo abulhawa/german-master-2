@@ -2,5 +2,2868 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000002200",
+      "title": {
+        "en": "Appear unexpectedly",
+        "de": "Unerwartet auftauchen"
+      },
+      "description": {
+        "en": "auftauchen describes something that unexpectedly appears or reappears.",
+        "de": "Etwas erscheint unerwartet oder wird nach längerer Suche wieder gefunden."
+      },
+      "objective": "Recognize auftauchen when a missing object or new issue unexpectedly appears.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L106 (dbbcfe442920eebbda6561d4c56d55496123303febe99a2b4d85b6ab0a327df5), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L106-v1",
+          "contextKey": "legacy-0022-L106-context-1",
+          "transferKey": "legacy-0022-L106-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002200",
+            "type": "choice",
+            "prompt": "Die seit Monaten vermisste Rechnung ist gestern plötzlich wieder ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for an unexpected appearance, not a planned action.",
+              "de": "Achte auf ein unerwartetes Erscheinen statt auf eine geplante Handlung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufgeteilt"
+              },
+              {
+                "id": "1",
+                "text": "aufgetaucht"
+              },
+              {
+                "id": "2",
+                "text": "ausgebildet"
+              },
+              {
+                "id": "3",
+                "text": "ausgehängt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "auftauchen describes something that unexpectedly appears or reappears.",
+              "de": "auftauchen bezeichnet das unerwartete Erscheinen oder Wiederfinden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die seit Monaten vermisste Rechnung ist gestern plötzlich wieder aufgetaucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L106-v2",
+          "contextKey": "legacy-0022-L106-context-2",
+          "transferKey": "legacy-0022-L106-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002200",
+            "type": "gap_choice",
+            "prompt": "Auf dem Bildschirm kann bei Überlastung plötzlich eine Fehlermeldung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for an unexpected appearance, not a planned action.",
+              "de": "Achte auf ein unerwartetes Erscheinen statt auf eine geplante Handlung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aushändigen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "auslagern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "auftauchen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgleichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "auftauchen describes something that unexpectedly appears or reappears.",
+              "de": "auftauchen bezeichnet das unerwartete Erscheinen oder Wiederfinden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Bildschirm kann bei Überlastung plötzlich eine Fehlermeldung auftauchen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002201",
+      "title": {
+        "en": "Divide work among people",
+        "de": "Arbeit aufteilen"
+      },
+      "description": {
+        "en": "aufteilen means to divide something into parts or shares.",
+        "de": "Eine Gesamtmenge oder Aufgabe wird in mehrere Teile verteilt."
+      },
+      "objective": "Recognize aufteilen when dividing a whole into assigned parts.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L107 (0bd4be1fbc95f382aa0f9563eecdd69b589a7e77a478aa8fbbb88dd36d7aabeb), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L107-v1",
+          "contextKey": "legacy-0022-L107-context-1",
+          "transferKey": "legacy-0022-L107-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002201",
+            "type": "choice",
+            "prompt": "Die Lehrerin möchte die Klasse für das Projekt in vier Gruppen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The whole is distributed into smaller parts.",
+              "de": "Ein Ganzes wird in kleinere Teile verteilt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "auslösen"
+              },
+              {
+                "id": "1",
+                "text": "aufteilen"
+              },
+              {
+                "id": "2",
+                "text": "ausbilden"
+              },
+              {
+                "id": "3",
+                "text": "aushändigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "aufteilen means to divide something into parts or shares.",
+              "de": "aufteilen bedeutet, etwas in Teile oder Anteile zu zerlegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin möchte die Klasse für das Projekt in vier Gruppen aufteilen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L107-v2",
+          "contextKey": "legacy-0022-L107-context-2",
+          "transferKey": "legacy-0022-L107-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002201",
+            "type": "gap_choice",
+            "prompt": "Der Erlös wurde nach dem Verkauf gleichmäßig unter den drei Partnern ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The whole is distributed into smaller parts.",
+              "de": "Ein Ganzes wird in kleinere Teile verteilt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgelöst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgebaut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgeteilt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgewiesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aufteilen means to divide something into parts or shares.",
+              "de": "aufteilen bedeutet, etwas in Teile oder Anteile zu zerlegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Erlös wurde nach dem Verkauf gleichmäßig unter den drei Partnern aufgeteilt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002202",
+      "title": {
+        "en": "Problems occur",
+        "de": "Störungen treten auf"
+      },
+      "description": {
+        "en": "auftreten means to occur, especially for symptoms or problems.",
+        "de": "Ein Ereignis oder Problem zeigt sich in einer bestimmten Situation."
+      },
+      "objective": "Recognize auftreten for an event or problem occurring.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L108 (70a22321ed04274289029b53abcc7d1fd3785dad205a6b4970ff898fab6a8371), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L108-v1",
+          "contextKey": "legacy-0022-L108-context-1",
+          "transferKey": "legacy-0022-L108-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002202",
+            "type": "choice",
+            "prompt": "Bei starkem Regen können an dieser Stelle Überschwemmungen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes an event happening, not a person performing.",
+              "de": "Hier geht es um das Vorkommen eines Ereignisses, nicht um einen Auftritt auf der Bühne."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausführen"
+              },
+              {
+                "id": "1",
+                "text": "auftreten"
+              },
+              {
+                "id": "2",
+                "text": "auslagern"
+              },
+              {
+                "id": "3",
+                "text": "aushängen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "auftreten means to occur, especially for symptoms or problems.",
+              "de": "auftreten bedeutet hier, dass ein Problem oder Ereignis vorkommt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei starkem Regen können an dieser Stelle Überschwemmungen auftreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L108-v2",
+          "contextKey": "legacy-0022-L108-context-2",
+          "transferKey": "legacy-0022-L108-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002202",
+            "type": "gap_choice",
+            "prompt": "Während des Belastungstests sind unerwartete Störungen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes an event happening, not a person performing.",
+              "de": "Hier geht es um das Vorkommen eines Ereignisses, nicht um einen Auftritt auf der Bühne."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgeteilt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgetreten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgebaut"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "auftreten means to occur, especially for symptoms or problems.",
+              "de": "auftreten bedeutet hier, dass ein Problem oder Ereignis vorkommt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während des Belastungstests sind unerwartete Störungen aufgetreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002204",
+      "title": {
+        "en": "Exhibit characteristics",
+        "de": "Merkmale aufweisen"
+      },
+      "description": {
+        "en": "aufweisen means to exhibit or have particular characteristics.",
+        "de": "Ein Gegenstand oder eine Probe besitzt bestimmte Merkmale oder Mängel."
+      },
+      "objective": "Recognize aufweisen for having identifiable properties or defects.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L110 (c07df85ba1909b9c8c0ba2e20d73dd617dc345010958276bf169a9502c7c43ab), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L110-v1",
+          "contextKey": "legacy-0022-L110-context-1",
+          "transferKey": "legacy-0022-L110-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002204",
+            "type": "choice",
+            "prompt": "Die Probe kann trotz sorgfältiger Lagerung geringe Verunreinigungen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A property is present in the object.",
+              "de": "Eine Eigenschaft ist am Gegenstand vorhanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aushandeln"
+              },
+              {
+                "id": "1",
+                "text": "aufweisen"
+              },
+              {
+                "id": "2",
+                "text": "aushändigen"
+              },
+              {
+                "id": "3",
+                "text": "auslagern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "aufweisen means to exhibit or have particular characteristics.",
+              "de": "aufweisen bedeutet, bestimmte Eigenschaften oder Mängel zu besitzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Probe kann trotz sorgfältiger Lagerung geringe Verunreinigungen aufweisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L110-v2",
+          "contextKey": "legacy-0022-L110-context-2",
+          "transferKey": "legacy-0022-L110-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002204",
+            "type": "gap_choice",
+            "prompt": "Die Untersuchung ergab, dass das Material mehrere kleine Risse ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A property is present in the object.",
+              "de": "Eine Eigenschaft ist am Gegenstand vorhanden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aushändigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "auslagert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufweist"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aushandelt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aufweisen means to exhibit or have particular characteristics.",
+              "de": "aufweisen bedeutet, bestimmte Eigenschaften oder Mängel zu besitzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Untersuchung ergab, dass das Material mehrere kleine Risse aufweist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002205",
+      "title": {
+        "en": "List reasons one by one",
+        "de": "Gründe aufzählen"
+      },
+      "description": {
+        "en": "aufzählen means to list several items one after another.",
+        "de": "Mehrere Punkte werden einzeln nacheinander genannt."
+      },
+      "objective": "Recognize aufzählen when enumerating several items without explaining them.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L111 (30b1d4c1a9da2d92fd95143bd9c74f96755932d55c72bccaddc54379e510e4d7), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L111-v1",
+          "contextKey": "legacy-0022-L111-context-1",
+          "transferKey": "legacy-0022-L111-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002205",
+            "type": "choice",
+            "prompt": "Nennen Sie die Ursachen einzeln, ohne sie schon zu bewerten. Sie sollen sie zunächst nur ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The task is to name each item in a list.",
+              "de": "Die Punkte sollen einzeln genannt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "1",
+                "text": "aufzählen"
+              },
+              {
+                "id": "2",
+                "text": "auslagern"
+              },
+              {
+                "id": "3",
+                "text": "aushändigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "aufzählen means to list several items one after another.",
+              "de": "aufzählen bedeutet, mehrere Dinge einzeln nacheinander zu nennen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nennen Sie die Ursachen einzeln, ohne sie schon zu bewerten. Sie sollen sie zunächst nur aufzählen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L111-v2",
+          "contextKey": "legacy-0022-L111-context-2",
+          "transferKey": "legacy-0022-L111-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002205",
+            "type": "gap_choice",
+            "prompt": "Im Bericht hat sie alle drei Gründe nacheinander ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The task is to name each item in a list.",
+              "de": "Die Punkte sollen einzeln genannt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgewiesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgezählt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgebildet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aufzählen means to list several items one after another.",
+              "de": "aufzählen bedeutet, mehrere Dinge einzeln nacheinander zu nennen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bericht hat sie alle drei Gründe nacheinander aufgezählt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002206",
+      "title": {
+        "en": "Show possible solutions",
+        "de": "Möglichkeiten aufzeigen"
+      },
+      "description": {
+        "en": "aufzeigen means to demonstrate or point out possibilities.",
+        "de": "Eine Darstellung macht Wege oder Möglichkeiten deutlich."
+      },
+      "objective": "Recognize aufzeigen when demonstrating options or explaining a way forward.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L112 (85f62999619d8473d246ceecc4a0138ab770fc5b1929ee38e70b9fc5982514ac), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L112-v1",
+          "contextKey": "legacy-0022-L112-context-1",
+          "transferKey": "legacy-0022-L112-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002206",
+            "type": "choice",
+            "prompt": "Der Bericht soll konkrete Wege ___, wie die Wartezeit verkürzt werden kann.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The report makes potential approaches visible.",
+              "de": "Der Bericht verdeutlicht mögliche Lösungswege."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausdrucken"
+              },
+              {
+                "id": "1",
+                "text": "aufteilen"
+              },
+              {
+                "id": "2",
+                "text": "aufzeigen"
+              },
+              {
+                "id": "3",
+                "text": "aushängen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "aufzeigen means to demonstrate or point out possibilities.",
+              "de": "aufzeigen bedeutet, Möglichkeiten oder Zusammenhänge deutlich zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht soll konkrete Wege aufzeigen, wie die Wartezeit verkürzt werden kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L112-v2",
+          "contextKey": "legacy-0022-L112-context-2",
+          "transferKey": "legacy-0022-L112-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002206",
+            "type": "gap_choice",
+            "prompt": "Die Analyse hat deutlich ___, wo im Ablauf Zeit verloren geht.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The report makes potential approaches visible.",
+              "de": "Der Bericht verdeutlicht mögliche Lösungswege."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgezeigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgezählt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aufzeigen means to demonstrate or point out possibilities.",
+              "de": "aufzeigen bedeutet, Möglichkeiten oder Zusammenhänge deutlich zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Analyse hat deutlich aufgezeigt, wo im Ablauf Zeit verloren geht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002207",
+      "title": {
+        "en": "Expand infrastructure",
+        "de": "Infrastruktur ausbauen"
+      },
+      "description": {
+        "en": "ausbauen means to expand or further develop an existing system.",
+        "de": "Ein bestehendes Netz oder Angebot wird erweitert und leistungsfähiger gemacht."
+      },
+      "objective": "Recognize ausbauen for extending the scale or capacity of an existing system.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L114 (e26ae525ee5e24c01d59e95678ec6fad565e70acd0e1ebb6ab1ab6e56a11e30f), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L114-v1",
+          "contextKey": "legacy-0022-L114-context-1",
+          "transferKey": "legacy-0022-L114-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002207",
+            "type": "choice",
+            "prompt": "Die Gemeinde will das Glasfasernetz bis in die Außenbezirke ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something already exists and gains more capacity.",
+              "de": "Etwas Bestehendes erhält zusätzliche Kapazität."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aushändigen"
+              },
+              {
+                "id": "1",
+                "text": "ausbauen"
+              },
+              {
+                "id": "2",
+                "text": "auslösen"
+              },
+              {
+                "id": "3",
+                "text": "aushandeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "ausbauen means to expand or further develop an existing system.",
+              "de": "ausbauen bedeutet, ein bestehendes System oder Angebot zu erweitern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gemeinde will das Glasfasernetz bis in die Außenbezirke ausbauen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L114-v2",
+          "contextKey": "legacy-0022-L114-context-2",
+          "transferKey": "legacy-0022-L114-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002207",
+            "type": "gap_choice",
+            "prompt": "Nach der Einstellung neuer Mitarbeiter wurde die Kundenbetreuung deutlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something already exists and gains more capacity.",
+              "de": "Etwas Bestehendes erhält zusätzliche Kapazität."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgelöst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgebaut"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgetreten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausbauen means to expand or further develop an existing system.",
+              "de": "ausbauen bedeutet, ein bestehendes System oder Angebot zu erweitern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Einstellung neuer Mitarbeiter wurde die Kundenbetreuung deutlich ausgebaut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002208",
+      "title": {
+        "en": "Train for a profession",
+        "de": "Beruflich ausbilden"
+      },
+      "description": {
+        "en": "ausbilden refers to training people for a profession.",
+        "de": "Ein Betrieb vermittelt die Kenntnisse und Fertigkeiten für einen Beruf."
+      },
+      "objective": "Recognize ausbilden for vocational training of apprentices.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L115 (7e36a6defb929f83512ae96c619c0b6a7f42bcd96ca08964104f31133e8945c7), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L115-v1",
+          "contextKey": "legacy-0022-L115-context-1",
+          "transferKey": "legacy-0022-L115-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002208",
+            "type": "choice",
+            "prompt": "Der Handwerksbetrieb darf junge Menschen zu Tischlern ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A business teaches apprentices the skills of a trade.",
+              "de": "Ein Betrieb vermittelt Auszubildenden berufliche Fertigkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "1",
+                "text": "aufweisen"
+              },
+              {
+                "id": "2",
+                "text": "ausbilden"
+              },
+              {
+                "id": "3",
+                "text": "ausführen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "ausbilden refers to training people for a profession.",
+              "de": "ausbilden bezeichnet die berufliche Qualifizierung von Menschen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Handwerksbetrieb darf junge Menschen zu Tischlern ausbilden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L115-v2",
+          "contextKey": "legacy-0022-L115-context-2",
+          "transferKey": "legacy-0022-L115-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002208",
+            "type": "gap_choice",
+            "prompt": "In der Werkstatt wurden in fünf Jahren mehr als dreißig Lehrlinge ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A business teaches apprentices the skills of a trade.",
+              "de": "Ein Betrieb vermittelt Auszubildenden berufliche Fertigkeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgebildet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgezählt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgelagert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausbilden refers to training people for a profession.",
+              "de": "ausbilden bezeichnet die berufliche Qualifizierung von Menschen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Werkstatt wurden in fünf Jahren mehr als dreißig Lehrlinge ausgebildet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002209",
+      "title": {
+        "en": "Spread through an area",
+        "de": "Sich ausbreiten"
+      },
+      "description": {
+        "en": "sich ausbreiten means to spread over a wider area or among people.",
+        "de": "Etwas verbreitet sich von einem Ort in weitere Bereiche."
+      },
+      "objective": "Recognize sich ausbreiten for smoke, news or other phenomena spreading.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L116 (7193d9e05c762b6ebf94b4cec1d9f6eb26f041a0579a623807224446605e3abc), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L116-v1",
+          "contextKey": "legacy-0022-L116-context-1",
+          "transferKey": "legacy-0022-L116-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002209",
+            "type": "choice",
+            "prompt": "Ohne ausreichende Belüftung kann sich der Rauch rasch im ganzen Gebäude ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The phenomenon reaches more places or people.",
+              "de": "Das Phänomen erreicht weitere Orte oder Menschen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufteilen"
+              },
+              {
+                "id": "1",
+                "text": "ausführen"
+              },
+              {
+                "id": "2",
+                "text": "ausbreiten"
+              },
+              {
+                "id": "3",
+                "text": "ausgleichen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "sich ausbreiten means to spread over a wider area or among people.",
+              "de": "sich ausbreiten bedeutet, dass sich etwas räumlich oder sozial verbreitet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne ausreichende Belüftung kann sich der Rauch rasch im ganzen Gebäude ausbreiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L116-v2",
+          "contextKey": "legacy-0022-L116-context-2",
+          "transferKey": "legacy-0022-L116-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002209",
+            "type": "gap_choice",
+            "prompt": "Das Gerücht hat sich innerhalb eines Tages in der ganzen Stadt ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The phenomenon reaches more places or people.",
+              "de": "Das Phänomen erreicht weitere Orte oder Menschen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebaut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgebreitet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgezählt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich ausbreiten means to spread over a wider area or among people.",
+              "de": "sich ausbreiten bedeutet, dass sich etwas räumlich oder sozial verbreitet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerücht hat sich innerhalb eines Tages in der ganzen Stadt ausgebreitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002211",
+      "title": {
+        "en": "Be cancelled or fail",
+        "de": "Ausfallen: nicht stattfinden oder funktionieren"
+      },
+      "description": {
+        "en": "ausfallen can mean that a service is cancelled or a machine stops working.",
+        "de": "Ein geplanter Termin findet nicht statt oder ein Gerät funktioniert nicht mehr."
+      },
+      "objective": "Recognize ausfallen for a cancelled service or a technical breakdown.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L118 (21787183fa573188399455236987d936c87726c7679339e5bb9f2384306cc593), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L118-v1",
+          "contextKey": "legacy-0022-L118-context-1",
+          "transferKey": "legacy-0022-L118-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002211",
+            "type": "choice",
+            "prompt": "Wegen des Streiks wird der Zug morgen leider ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something expected to run or take place does not.",
+              "de": "Etwas Geplantes oder ein technisches System funktioniert nicht wie erwartet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausbauen"
+              },
+              {
+                "id": "1",
+                "text": "ausfallen"
+              },
+              {
+                "id": "2",
+                "text": "ausführen"
+              },
+              {
+                "id": "3",
+                "text": "aufweisen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "ausfallen can mean that a service is cancelled or a machine stops working.",
+              "de": "ausfallen bedeutet unter anderem, dass etwas entfällt oder technisch versagt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des Streiks wird der Zug morgen leider ausfallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L118-v2",
+          "contextKey": "legacy-0022-L118-context-2",
+          "transferKey": "legacy-0022-L118-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002211",
+            "type": "gap_choice",
+            "prompt": "Als die Kühlung versagte, ist die gesamte Anlage ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something expected to run or take place does not.",
+              "de": "Etwas Geplantes oder ein technisches System funktioniert nicht wie erwartet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebildet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehängt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgefallen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgebaut"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausfallen can mean that a service is cancelled or a machine stops working.",
+              "de": "ausfallen bedeutet unter anderem, dass etwas entfällt oder technisch versagt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als die Kühlung versagte, ist die gesamte Anlage ausgefallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002212",
+      "title": {
+        "en": "Carry out a task",
+        "de": "Eine Aufgabe ausführen"
+      },
+      "description": {
+        "en": "ausführen means to carry out an assigned action or procedure.",
+        "de": "Eine konkrete Tätigkeit wird nach einer Vorgabe durchgeführt."
+      },
+      "objective": "Recognize ausführen for carrying out specified work or a procedure.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L119 (bae572fde676bb5c8a8d76474de5b83d84d9dba37364c9ae90f685f9284d7fd0), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L119-v1",
+          "contextKey": "legacy-0022-L119-context-1",
+          "transferKey": "legacy-0022-L119-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002212",
+            "type": "choice",
+            "prompt": "Das Labor muss die Messung exakt nach dem festgelegten Verfahren ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The work is performed according to a procedure.",
+              "de": "Eine Arbeit wird nach einem Verfahren erledigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "auslösen"
+              },
+              {
+                "id": "1",
+                "text": "ausführen"
+              },
+              {
+                "id": "2",
+                "text": "aushängen"
+              },
+              {
+                "id": "3",
+                "text": "auslagern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "ausführen means to carry out an assigned action or procedure.",
+              "de": "ausführen bedeutet, eine Aufgabe oder Handlung durchzuführen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Labor muss die Messung exakt nach dem festgelegten Verfahren ausführen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L119-v2",
+          "contextKey": "legacy-0022-L119-context-2",
+          "transferKey": "legacy-0022-L119-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002212",
+            "type": "gap_choice",
+            "prompt": "Die Reparatur wurde vom Techniker vor Ort sorgfältig ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The work is performed according to a procedure.",
+              "de": "Eine Arbeit wird nach einem Verfahren erledigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehandelt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgeführt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehändigt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausführen means to carry out an assigned action or procedure.",
+              "de": "ausführen bedeutet, eine Aufgabe oder Handlung durchzuführen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur wurde vom Techniker vor Ort sorgfältig ausgeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002213",
+      "title": {
+        "en": "Offset losses or time",
+        "de": "Verluste ausgleichen"
+      },
+      "description": {
+        "en": "ausgleichen means to compensate for a loss or balance a deficit.",
+        "de": "Ein Verlust oder ein Ungleichgewicht wird durch einen Ausgleich vermindert."
+      },
+      "objective": "Recognize ausgleichen for compensating a deficit with an offsetting amount or action.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L123 (2edaf0840ec5298a3faab8d6e10ee83ebd2d7c0f56bd1939e760a1419ee1f999), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L123-v1",
+          "contextKey": "legacy-0022-L123-context-1",
+          "transferKey": "legacy-0022-L123-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002213",
+            "type": "choice",
+            "prompt": "Die Einnahmen aus dem Zusatzgeschäft sollen die Verluste des letzten Quartals ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A deficit is offset rather than merely reported.",
+              "de": "Ein Fehlbetrag wird ausgeglichen und nicht nur beschrieben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufzeigen"
+              },
+              {
+                "id": "1",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "2",
+                "text": "aushängen"
+              },
+              {
+                "id": "3",
+                "text": "auslösen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "ausgleichen means to compensate for a loss or balance a deficit.",
+              "de": "ausgleichen bedeutet, einen Verlust oder Unterschied durch einen Gegenwert auszugleichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einnahmen aus dem Zusatzgeschäft sollen die Verluste des letzten Quartals ausgleichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L123-v2",
+          "contextKey": "legacy-0022-L123-context-2",
+          "transferKey": "legacy-0022-L123-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002213",
+            "type": "gap_choice",
+            "prompt": "Nach vielen Überstunden konnte die Mitarbeiterin ihr Zeitkonto durch freie Tage ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A deficit is offset rather than merely reported.",
+              "de": "Ein Fehlbetrag wird ausgeglichen und nicht nur beschrieben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "auslagern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufteilen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausdrucken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgleichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausgleichen means to compensate for a loss or balance a deficit.",
+              "de": "ausgleichen bedeutet, einen Verlust oder Unterschied durch einen Gegenwert auszugleichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach vielen Überstunden konnte die Mitarbeiterin ihr Zeitkonto durch freie Tage ausgleichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002214",
+      "title": {
+        "en": "Negotiate terms",
+        "de": "Bedingungen aushandeln"
+      },
+      "description": {
+        "en": "aushandeln means to negotiate terms or an agreement.",
+        "de": "Zwei Seiten verhandeln, bis sie sich auf Bedingungen einigen."
+      },
+      "objective": "Recognize aushandeln when parties agree on terms through negotiation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L124 (dc9444dbae25375c7edf2c67e3a9433f1cf49e7c31cfd38e60e3c00291e6abf9), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L124-v1",
+          "contextKey": "legacy-0022-L124-context-1",
+          "transferKey": "legacy-0022-L124-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002214",
+            "type": "choice",
+            "prompt": "Nach mehreren Gesprächen konnten die beiden Firmen einen fairen Preis ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The result follows discussion between parties.",
+              "de": "Das Ergebnis entsteht durch Gespräche zwischen Verhandlungspartnern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aushändigen"
+              },
+              {
+                "id": "1",
+                "text": "auslösen"
+              },
+              {
+                "id": "2",
+                "text": "aushandeln"
+              },
+              {
+                "id": "3",
+                "text": "aufweisen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "aushandeln means to negotiate terms or an agreement.",
+              "de": "aushandeln bedeutet, durch Verhandlungen eine Einigung zu erreichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach mehreren Gesprächen konnten die beiden Firmen einen fairen Preis aushandeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L124-v2",
+          "contextKey": "legacy-0022-L124-context-2",
+          "transferKey": "legacy-0022-L124-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002214",
+            "type": "gap_choice",
+            "prompt": "Nach drei schwierigen Verhandlungsrunden haben die Tarifparteien neue Vertragsbedingungen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The result follows discussion between parties.",
+              "de": "Das Ergebnis entsteht durch Gespräche zwischen Verhandlungspartnern."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehandelt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgezählt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehängt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aushandeln means to negotiate terms or an agreement.",
+              "de": "aushandeln bedeutet, durch Verhandlungen eine Einigung zu erreichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach drei schwierigen Verhandlungsrunden haben die Tarifparteien neue Vertragsbedingungen ausgehandelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002215",
+      "title": {
+        "en": "Hand over documents",
+        "de": "Dokumente aushändigen"
+      },
+      "description": {
+        "en": "aushändigen means to hand an item over to someone, often formally.",
+        "de": "Ein Dokument oder Gegenstand wird einer bestimmten Person übergeben."
+      },
+      "objective": "Recognize aushändigen for physically or formally handing an item to a recipient.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L125 (24a61857e53d1633975136b48b0991be953998f1a03edc0ad98dfc30a3c99758), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L125-v1",
+          "contextKey": "legacy-0022-L125-context-1",
+          "transferKey": "legacy-0022-L125-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002215",
+            "type": "choice",
+            "prompt": "Nach der Prüfung muss die Behörde den Bescheid der Antragstellerin persönlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The recipient receives the item directly.",
+              "de": "Die empfangende Person bekommt den Gegenstand unmittelbar."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aushandeln"
+              },
+              {
+                "id": "1",
+                "text": "auslagern"
+              },
+              {
+                "id": "2",
+                "text": "aushändigen"
+              },
+              {
+                "id": "3",
+                "text": "auslösen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "aushändigen means to hand an item over to someone, often formally.",
+              "de": "aushändigen bedeutet, einer Person etwas direkt zu übergeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Prüfung muss die Behörde den Bescheid der Antragstellerin persönlich aushändigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L125-v2",
+          "contextKey": "legacy-0022-L125-context-2",
+          "transferKey": "legacy-0022-L125-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002215",
+            "type": "gap_choice",
+            "prompt": "Am Schalter wurde ihr der neue Ausweis gegen Unterschrift ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The recipient receives the item directly.",
+              "de": "Die empfangende Person bekommt den Gegenstand unmittelbar."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebaut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgehändigt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgeteilt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehandelt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aushändigen means to hand an item over to someone, often formally.",
+              "de": "aushändigen bedeutet, einer Person etwas direkt zu übergeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Schalter wurde ihr der neue Ausweis gegen Unterschrift ausgehändigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002216",
+      "title": {
+        "en": "Post a notice",
+        "de": "Hinweise aushängen"
+      },
+      "description": {
+        "en": "aushängen means to put up a notice where people can see it.",
+        "de": "Ein Aushang wird an einem sichtbaren Ort befestigt."
+      },
+      "objective": "Recognize aushängen for displaying a notice publicly on a wall or board.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L126 (8de2508141e23dffbfdb6fb0888f404efa2cff8f559c733ad3c7ec068859a623), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L126-v1",
+          "contextKey": "legacy-0022-L126-context-1",
+          "transferKey": "legacy-0022-L126-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002216",
+            "type": "choice",
+            "prompt": "Die Hausverwaltung möchte die neuen Hausregeln im Treppenhaus ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The notice is placed on a wall or board.",
+              "de": "Ein Hinweis wird an einer Wand oder Tafel befestigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "1",
+                "text": "aushandeln"
+              },
+              {
+                "id": "2",
+                "text": "aushängen"
+              },
+              {
+                "id": "3",
+                "text": "auslösen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "aushängen means to put up a notice where people can see it.",
+              "de": "aushängen bedeutet, einen Hinweis öffentlich sichtbar anzubringen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hausverwaltung möchte die neuen Hausregeln im Treppenhaus aushängen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L126-v2",
+          "contextKey": "legacy-0022-L126-context-2",
+          "transferKey": "legacy-0022-L126-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002216",
+            "type": "gap_choice",
+            "prompt": "Der geänderte Dienstplan wurde gut sichtbar am schwarzen Brett ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The notice is placed on a wall or board.",
+              "de": "Ein Hinweis wird an einer Wand oder Tafel befestigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgeführt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgehängt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgebildet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "aushängen means to put up a notice where people can see it.",
+              "de": "aushängen bedeutet, einen Hinweis öffentlich sichtbar anzubringen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der geänderte Dienstplan wurde gut sichtbar am schwarzen Brett ausgehängt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002217",
+      "title": {
+        "en": "Outsource work",
+        "de": "Arbeit auslagern"
+      },
+      "description": {
+        "en": "auslagern means to outsource a function to an outside provider.",
+        "de": "Eine bisher interne Aufgabe wird von einem externen Anbieter übernommen."
+      },
+      "objective": "Recognize auslagern when work is transferred to an external provider.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L127 (95499201ccdb1675907bbcffbc38a4fb358f3562ff255d7d9a80dfa25181d9cc), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L127-v1",
+          "contextKey": "legacy-0022-L127-context-1",
+          "transferKey": "legacy-0022-L127-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002217",
+            "type": "choice",
+            "prompt": "Die Firma gibt ihre Buchhaltung an einen externen Dienstleister ab. Sie will sie ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company no longer performs the function internally.",
+              "de": "Die Firma erledigt die Aufgabe nicht mehr selbst."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausbauen"
+              },
+              {
+                "id": "1",
+                "text": "auslagern"
+              },
+              {
+                "id": "2",
+                "text": "aufteilen"
+              },
+              {
+                "id": "3",
+                "text": "auslösen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "auslagern means to outsource a function to an outside provider.",
+              "de": "auslagern bedeutet, eine Aufgabe an einen externen Anbieter zu vergeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma gibt ihre Buchhaltung an einen externen Dienstleister ab. Sie will sie auslagern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L127-v2",
+          "contextKey": "legacy-0022-L127-context-2",
+          "transferKey": "legacy-0022-L127-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002217",
+            "type": "gap_choice",
+            "prompt": "Der Hersteller hat die Fertigung nicht mehr selbst übernommen, sondern an einen Partnerbetrieb ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company no longer performs the function internally.",
+              "de": "Die Firma erledigt die Aufgabe nicht mehr selbst."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgezeigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgebaut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehändigt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "auslagern means to outsource a function to an outside provider.",
+              "de": "auslagern bedeutet, eine Aufgabe an einen externen Anbieter zu vergeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hersteller hat die Fertigung nicht mehr selbst übernommen, sondern an einen Partnerbetrieb ausgelagert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002218",
+      "title": {
+        "en": "Trigger a reaction",
+        "de": "Eine Reaktion auslösen"
+      },
+      "description": {
+        "en": "auslösen means to cause or trigger a consequence.",
+        "de": "Ein Ereignis verursacht eine weitere Reaktion oder Folge."
+      },
+      "objective": "Recognize auslösen for causing an event, alarm or emotional reaction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L128 (4e2313f32095eedc6837e83e9c9542b4a77065d1bb9d98e877d2cf4525e18c20), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L128-v1",
+          "contextKey": "legacy-0022-L128-context-1",
+          "transferKey": "legacy-0022-L128-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002218",
+            "type": "choice",
+            "prompt": "Ein Kurzschluss kann im Sicherungskasten einen Brand ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One event causes another event or response.",
+              "de": "Ein Ereignis ruft eine weitere Reaktion hervor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "1",
+                "text": "auslösen"
+              },
+              {
+                "id": "2",
+                "text": "aufzählen"
+              },
+              {
+                "id": "3",
+                "text": "aushandeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "auslösen means to cause or trigger a consequence.",
+              "de": "auslösen bedeutet, eine Folge oder Reaktion hervorzurufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Kurzschluss kann im Sicherungskasten einen Brand auslösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L128-v2",
+          "contextKey": "legacy-0022-L128-context-2",
+          "transferKey": "legacy-0022-L128-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002218",
+            "type": "gap_choice",
+            "prompt": "Die unerwartete Nachricht hat bei vielen Beschäftigten große Unsicherheit ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "One event causes another event or response.",
+              "de": "Ein Ereignis ruft eine weitere Reaktion hervor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgelagert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgebildet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgelöst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehändigt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "auslösen means to cause or trigger a consequence.",
+              "de": "auslösen bedeutet, eine Folge oder Reaktion hervorzurufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die unerwartete Nachricht hat bei vielen Beschäftigten große Unsicherheit ausgelöst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000002219",
+      "title": {
+        "en": "Exempt from a rule",
+        "de": "Von einer Regel ausnehmen"
+      },
+      "description": {
+        "en": "ausnehmen in this construction means to exempt someone from a rule.",
+        "de": "Eine Person ist von einer bestimmten Pflicht oder Regel nicht betroffen."
+      },
+      "objective": "Recognize jemanden von etwas ausnehmen for exempting a person from a requirement.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on lexical facts in pinned apps/web/data/pos/verbs.jsonl:L130 (7b5b80c0eff3e40a51e5ed435dd6f2daa5016875c5fac6576e380ba234d88206), 2026-10-28; no inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review pending; independent approval not granted.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0022-L130-v1",
+          "contextKey": "legacy-0022-L130-context-1",
+          "transferKey": "legacy-0022-L130-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002219",
+            "type": "choice",
+            "prompt": "In besonderen Fällen darf die Leitung einzelne Beschäftigte von der Pflicht ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A rule generally applies but a particular person is exempt.",
+              "de": "Eine Regel gilt grundsätzlich, aber für eine Person wird eine Ausnahme gemacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausgleichen"
+              },
+              {
+                "id": "1",
+                "text": "auslösen"
+              },
+              {
+                "id": "2",
+                "text": "ausnehmen"
+              },
+              {
+                "id": "3",
+                "text": "aufteilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "ausnehmen in this construction means to exempt someone from a rule.",
+              "de": "ausnehmen bedeutet in der Verbindung 'von etwas ausnehmen', eine Ausnahme zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In besonderen Fällen darf die Leitung einzelne Beschäftigte von der Pflicht ausnehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        },
+        {
+          "variantKey": "legacy-0022-L130-v2",
+          "contextKey": "legacy-0022-L130-context-2",
+          "transferKey": "legacy-0022-L130-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000220191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000002219",
+            "type": "gap_choice",
+            "prompt": "Menschen mit einer gültigen Befreiung sind von der Zahlung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A rule generally applies but a particular person is exempt.",
+              "de": "Eine Regel gilt grundsätzlich, aber für eine Person wird eine Ausnahme gemacht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausgebildet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ausgenommen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ausgefallen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausgehängt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ausnehmen in this construction means to exempt someone from a rule.",
+              "de": "ausnehmen bedeutet in der Verbindung 'von etwas ausnehmen', eine Ausnahme zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Menschen mit einer gültigen Befreiung sind von der Zahlung ausgenommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "Pending separate GPT-6 AI editorial review of every offered option and the full German sentence; no approval."
+        }
+      ]
+    }
+  ]
 }
