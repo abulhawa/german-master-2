@@ -1,5 +1,31 @@
 # German Master 2.0 current checkpoint
 
+## Android implementation disposition - 28 October 2026
+
+Owner resumed Android readiness, then explicitly asked to skip checks and work
+only on remaining implementation, or report if none remains. No outstanding core
+implementation item was identified in the current finite stabilization scope.
+Whole-round adoption/resume, round-specific consent/account isolation, native
+Continue, provider controls and privacy export are implemented. Cross-device
+unfinished-draft resume remains an explicitly documented limitation, outside this
+bounded scope; Work and identity deletion retain their existing release gates.
+
+No application source changed. The started offline native test/lint/preview build
+was interrupted at the owner's direction; no fresh passing result is claimed.
+ADB listed no connected device; no device interaction or account modification
+occurred. Existing Google and exact-draft restart evidence remains unchanged.
+
+Remote inspection found main advanced to `7faca9b`, with CI/security changes and
+no Android application-source changes relative to this checkpoint. Local history
+has two unpushed evidence commits and was not merged or pushed during this pass.
+Do not attribute remote CI results to the local candidate automatically.
+
+Next action when the owner requests acceptance: preserve the existing account
+round and finish Microsoft handoff, offline/reconnect/sync, inspected export and
+second-account isolation. These checks are deferred, not waived or passed.
+Android readiness is not complete; renewed owner UX approval, applicable live
+Play versionCode verification and owner signing/publication remain separate.
+
 ## Physical Google sign-in and account-round restoration - 27 October 2026
 
 Budget-bounded owner-authorized device acceptance on the configured Pixel preview
