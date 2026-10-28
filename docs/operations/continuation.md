@@ -1,5 +1,16 @@
 # Continuing German Master recovery
 
+## Enrichment handoff — 28 October 2026
+
+The owner requested ChatGPT web/GitHub batch preparation. Use
+`content/enrichment-workbench`, starting at `content/enrichment/README.md` and
+`CHATGPT-PROMPT.md`. Legacy references, the frozen 175-batch source plan, first
+input, partial/ready reports, validation and content-only GitHub CI are prepared.
+No batch questions are generated or published by this setup. Follow scoped
+instructions; per-batch reports are the authoring checkpoint, not app milestones.
+Keep main, application behavior, production catalogs, database and Android release
+boundaries unchanged. See newest PROGRESS for preparation checks and exact next step.
+
 ## Authorized rollout completed — 28 October 2026
 
 Continuous-practice source `e637612` is pushed and deployed to the existing web

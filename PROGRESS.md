@@ -1,5 +1,38 @@
 # German Master 2.0 current checkpoint
 
+## GitHub enrichment workbench prepared — 28 October 2026
+
+Owner requests a repository reference and ChatGPT web prompt for direct GitHub
+saving in batches. Prepared `content/enrichment/` on the dedicated
+`content/enrichment-workbench` branch: README, scoped instructions, copy-ready
+prompt, output contract, 15 hash-bound source references, a frozen 175-batch plan
+for 3,452 B1/B2-labelled JSONL seed records, and the first 20-record input. This
+uses the preserved imported learning files already in the monorepo, not database
+backups or machine-local source paths. Counts are source records, not unique
+reviewed objectives or new exercises. Auxiliary CSV/verb lists remain references.
+
+Added bounded start/show/next/verify tools, a draft/report validator using the
+existing grading/content contracts, and scoped GitHub Actions validation. Resume
+partial batches before new work; each batch covers at most 20 seeds and 40 new
+questions. All sources receive an authored/duplicate/deferred/out-of-scope
+disposition, with pending checkpoints allowed only for partial drafts. Reports
+bind catalog bytes and exact source rows; identities, grading, duplicated prompts
+and false publication/approval flags are checked. Semantic correctness and rights
+still require review; generated content stays pending and unpublished.
+
+Evidence: 15 source hashes match, the empty workbench validates, backend TypeScript
+checks pass, and 10 temporary fixture scenarios passed (partial save/resume, ready
+batch/next selection and rejection of stale hashes, bad identities, unfinished
+ready rows and approval/publication flags). Fixtures were removed. No app source,
+production content/bundle, database, environment or device change occurred.
+ChatGPT must verify actual GitHub write capability; the prompt cannot grant it.
+Official cloud documentation provides the repository-connected web fallback.
+
+The prepared content branch is the GitHub handoff target. Next: run one pilot
+batch using `content/enrichment/CHATGPT-PROMPT.md`. Do not merge it into main
+or publish resulting content without the separate release decision. No API model
+calls or content authorship were performed for this workbench preparation.
+
 ## Owner-authorized web and phone rollout — 28 October 2026
 
 Owner explicitly requested deployment to web and phone. Final complete web unit

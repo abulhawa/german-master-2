@@ -157,3 +157,14 @@ Preserve ongoing work and complete the current slice before starting unrelated f
   clients. The established verified-ownership support request is distinct from
   automatic identity deletion; do not claim a request was submitted merely by
   opening its instructions or enable unverified destructive automation.
+
+## Batched content enrichment — owner direction (28 October 2026)
+
+- Owner authorizes preparing legacy references and a resumable GitHub content
+  workbench, with ChatGPT-assisted authoring/review in bounded batches. Follow
+  `content/enrichment/AGENTS.md` for the content-only assignment. Its per-batch
+  source report replaces root PROGRESS updates for batch authors; do not advance
+  app milestones or edit unrelated runtime/deployment code.
+- Keep batch drafts on `content/enrichment-workbench` or a PR into that branch.
+  Main remains a deployment boundary. This does not authorize merging, content
+  publication, production database writes, paid APIs or Android store release.
