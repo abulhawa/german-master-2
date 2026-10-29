@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012200",
+      "title": {
+        "en": "Using Kursleiterin in context",
+        "de": "Kursleiterin im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kursleiterin: female course instructor.",
+        "de": "Kursleiterin erkennen und verwenden: Leiterin eines Kurses."
+      },
+      "objective": "Recognize the German noun Kursleiterin (female course instructor) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1385 (a379a0c765af72a0741c866dc6d55e5174488471d8fe05ed678164ccd04865cd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1385-v1",
+          "contextKey": "legacy-0122-L1385-context-1",
+          "transferKey": "legacy-0122-L1385-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012200",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Integrationskurses stellte den Teilnehmenden den neuen Lernplan vor.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "She is responsible for leading the course.",
+              "de": "Sie leitet den Kurs und plant den Unterricht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kursleiterin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kursteilnehmerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sekretärin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prüfungskandidatin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kursleiterin is the woman leading the course.",
+              "de": "Die Kursleiterin ist die Frau, die den Kurs leitet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kursleiterin des Integrationskurses stellte den Teilnehmenden den neuen Lernplan vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Kursleiterin des Integrationskurses stellte den Teilnehmenden den neuen Lernplan vor.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Kursleiterin); individually checked alternatives: Kursteilnehmerin learns in the course; Sekretärin handles administration; Prüfungskandidatin takes an exam. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1385-v2",
+          "contextKey": "legacy-0122-L1385-context-2",
+          "transferKey": "legacy-0122-L1385-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012200",
+            "type": "choice",
+            "prompt": "Nach der Gruppenübung gab die ___ den Lernenden eine Rückmeldung zu ihren Fortschritten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A teacher-like role evaluates the learning progress.",
+              "de": "Gesucht ist die Person, die den Unterricht betreut."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Besucherin"
+              },
+              {
+                "id": "1",
+                "text": "Kursleiterin"
+              },
+              {
+                "id": "2",
+                "text": "Mitschülerin"
+              },
+              {
+                "id": "3",
+                "text": "Kundin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The course instructor gives learning feedback.",
+              "de": "Die Kursleiterin betreut die Gruppe und gibt Feedback."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Gruppenübung gab die Kursleiterin den Lernenden eine Rückmeldung zu ihren Fortschritten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach der Gruppenübung gab die Kursleiterin den Lernenden eine Rückmeldung zu ihren Fortschritten.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Kursleiterin); individually checked alternatives: Besucherin is a visitor; Mitschülerin is a peer; Kundin receives a service rather than teaching. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012201",
+      "title": {
+        "en": "Using Kurve in context",
+        "de": "Kurve im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kurve: bend or curve in a road.",
+        "de": "Kurve erkennen und verwenden: Biegung einer Straße."
+      },
+      "objective": "Recognize the German noun Kurve (bend or curve in a road) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1386 (bf423fb21adda98eb0bb685369707eacf32e4acc590abfc6b53aeeb8e188d59a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1386-v1",
+          "contextKey": "legacy-0122-L1386-context-1",
+          "transferKey": "legacy-0122-L1386-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012201",
+            "type": "gap_choice",
+            "prompt": "Vor der engen ___ musste der Reisebus stark abbremsen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The road changes direction sharply.",
+              "de": "Die Straße biegt an dieser Stelle stark ab."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ampel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Brücke"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Haltestelle"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kurve"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Kurve is a bend in the road.",
+              "de": "Eine Kurve ist eine Biegung im Straßenverlauf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der engen Kurve musste der Reisebus stark abbremsen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Vor der engen Kurve musste der Reisebus stark abbremsen.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Kurve); individually checked alternatives: Ampel can require braking but is not described as eng; Brücke is a structure, not a bend; Haltestelle is a stopping place, not a bend. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1386-v2",
+          "contextKey": "legacy-0122-L1386-context-2",
+          "transferKey": "legacy-0122-L1386-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012201",
+            "type": "choice",
+            "prompt": "Hinter dem Tunnel beschreibt die Straße eine scharfe ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The road bends rather than crossing or climbing.",
+              "de": "Nach dem Tunnel ändert die Straße ihre Richtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kurve"
+              },
+              {
+                "id": "1",
+                "text": "Pause"
+              },
+              {
+                "id": "2",
+                "text": "Kreuzung"
+              },
+              {
+                "id": "3",
+                "text": "Steigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The road makes a sharp curve.",
+              "de": "Die Straße macht eine scharfe Kurve."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Hinter dem Tunnel beschreibt die Straße eine scharfe Kurve.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Hinter dem Tunnel beschreibt die Straße eine scharfe Kurve.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Kurve); individually checked alternatives: Pause is not a road feature; Kreuzung is an intersection, not described by eine scharfe in this construction; Steigung is a slope, not a directional bend. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012203",
+      "title": {
+        "en": "Using Küste in context",
+        "de": "Küste im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Küste: coast or coastline.",
+        "de": "Küste erkennen und verwenden: Küste, Landstreifen am Meer."
+      },
+      "objective": "Recognize the German noun Küste (coast or coastline) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1388 (7deaed44467d17d5353125f7a9c57837e33688cad9be7a6edac6dc9c861667f5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1388-v1",
+          "contextKey": "legacy-0122-L1388-context-1",
+          "transferKey": "legacy-0122-L1388-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012203",
+            "type": "gap_choice",
+            "prompt": "Nach drei Tagen auf See konnten die Seeleute endlich die ___ erkennen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "They see land where the sea ends.",
+              "de": "Gesucht ist der Rand des Landes am Meer."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wüste"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Küste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hochebene"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bergkette"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Küste is the land bordering the sea.",
+              "de": "Die Küste ist der Landstreifen am Meer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach drei Tagen auf See konnten die Seeleute endlich die Küste erkennen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach drei Tagen auf See konnten die Seeleute endlich die Küste erkennen.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Küste); individually checked alternatives: Wüste is a desert, not necessarily at sea; Hochebene is a plateau; Bergkette is a mountain range. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1388-v2",
+          "contextKey": "legacy-0122-L1388-context-2",
+          "transferKey": "legacy-0122-L1388-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012203",
+            "type": "choice",
+            "prompt": "Wegen der Sturmflut mussten mehrere Häuser an der ___ geräumt werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Storm surges threaten areas beside the sea.",
+              "de": "Eine Sturmflut betrifft vor allem Gebiete am Meer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Innenstadt"
+              },
+              {
+                "id": "1",
+                "text": "Wüste"
+              },
+              {
+                "id": "2",
+                "text": "Küste"
+              },
+              {
+                "id": "3",
+                "text": "Hochebene"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A storm surge threatens the coast.",
+              "de": "Eine Sturmflut gefährdet die Küste."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Sturmflut mussten mehrere Häuser an der Küste geräumt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Wegen der Sturmflut mussten mehrere Häuser an der Küste geräumt werden.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Küste); individually checked alternatives: Innenstadt is an urban centre without a necessary sea boundary; Wüste is dry inland terrain; Hochebene is elevated land. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012205",
+      "title": {
+        "en": "Using Labor in context",
+        "de": "Labor im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Labor: laboratory.",
+        "de": "Labor erkennen und verwenden: Labor, Raum für wissenschaftliche Untersuchungen."
+      },
+      "objective": "Recognize the German noun Labor (laboratory) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1390 (69ccff73450bd5a66a8a11d182404c6b5b82dc1572e61fa71103fc0c4a3ba59e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1390-v1",
+          "contextKey": "legacy-0122-L1390-context-1",
+          "transferKey": "legacy-0122-L1390-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012205",
+            "type": "gap_choice",
+            "prompt": "Die Wasserprobe wird im ___ auf Schwermetalle untersucht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Special instruments are used to analyse a sample.",
+              "de": "Für die Analyse einer Probe braucht man Messgeräte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Archiv"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Büro"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Labor"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Labor is a place for scientific testing.",
+              "de": "Ein Labor dient wissenschaftlichen Untersuchungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wasserprobe wird im Labor auf Schwermetalle untersucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Wasserprobe wird im Labor auf Schwermetalle untersucht.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Labor); individually checked alternatives: Archiv stores records; Büro is an office; Lager stores goods rather than conducting chemical analysis. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1390-v2",
+          "contextKey": "legacy-0122-L1390-context-2",
+          "transferKey": "legacy-0122-L1390-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012205",
+            "type": "choice",
+            "prompt": "Vor dem Betreten des ___ zog die Chemikerin einen Schutzkittel an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The place requires protective clothing for experiments.",
+              "de": "Dort arbeitet die Chemikerin mit Stoffen und Geräten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Labors"
+              },
+              {
+                "id": "1",
+                "text": "Parkhauses"
+              },
+              {
+                "id": "2",
+                "text": "Speisesaals"
+              },
+              {
+                "id": "3",
+                "text": "Konferenzraums"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Labors is the genitive singular of Labor.",
+              "de": "Labors ist der Genitiv Singular von Labor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Betreten des Labors zog die Chemikerin einen Schutzkittel an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Vor dem Betreten des Labors zog die Chemikerin einen Schutzkittel an.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Labors); individually checked alternatives: Parkhaus is for vehicles; Speisesaal is for eating; Konferenzraum is for meetings, none specifically requires a chemistry coat. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012206",
+      "title": {
+        "en": "Using Laborant in context",
+        "de": "Laborant im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Laborant: male laboratory technician.",
+        "de": "Laborant erkennen und verwenden: Laborant, Fachkraft im Labor."
+      },
+      "objective": "Recognize the German noun Laborant (male laboratory technician) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1391 (ab1a84d69ed353741411e364e90254bcdd8c1b7b8ec9eba3fb337a84d376b7c3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1391-v1",
+          "contextKey": "legacy-0122-L1391-context-1",
+          "transferKey": "legacy-0122-L1391-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012206",
+            "type": "gap_choice",
+            "prompt": "Der ___ bereitete im Chemielabor die Reagenzien für den Versuch vor.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A trained technician prepares experiments.",
+              "de": "Gesucht ist eine Fachkraft, die Versuche im Labor vorbereitet."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Laborant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kassierer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Laborant works as a laboratory technician.",
+              "de": "Ein Laborant arbeitet als Fachkraft im Labor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Laborant bereitete im Chemielabor die Reagenzien für den Versuch vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Der Laborant bereitete im Chemielabor die Reagenzien für den Versuch vor.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Laborant); individually checked alternatives: Buchhalter manages accounts; Fahrer transports people or goods; Kassierer handles payments. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1391-v2",
+          "contextKey": "legacy-0122-L1391-context-2",
+          "transferKey": "legacy-0122-L1391-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012206",
+            "type": "choice",
+            "prompt": "Vor der Messreihe kontrollierte der ___ die Kalibrierung der Geräte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "This professional handles laboratory instruments.",
+              "de": "Die Aufgabe gehört zur technischen Laborarbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pförtner"
+              },
+              {
+                "id": "1",
+                "text": "Kellner"
+              },
+              {
+                "id": "2",
+                "text": "Verkäufer"
+              },
+              {
+                "id": "3",
+                "text": "Laborant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A laboratory technician checks measurement equipment.",
+              "de": "Ein Laborant prüft Messgeräte vor Versuchen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Messreihe kontrollierte der Laborant die Kalibrierung der Geräte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Vor der Messreihe kontrollierte der Laborant die Kalibrierung der Geräte.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Laborant); individually checked alternatives: Pförtner controls access; Kellner serves guests; Verkäufer sells products rather than calibrating lab devices. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012207",
+      "title": {
+        "en": "Using Laborgerät in context",
+        "de": "Laborgerät im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Laborgerät: laboratory instrument or device.",
+        "de": "Laborgerät erkennen und verwenden: Laborgerät, Gerät für Untersuchungen im Labor."
+      },
+      "objective": "Recognize the German noun Laborgerät (laboratory instrument or device) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1392 (2270a5d69b554f40ccd4470138d8d682feb650e837f8aadf9bce8090e8383875), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1392-v1",
+          "contextKey": "legacy-0122-L1392-context-1",
+          "transferKey": "legacy-0122-L1392-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012207",
+            "type": "gap_choice",
+            "prompt": "Das defekte ___ musste vor der nächsten Messung repariert werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The faulty object is used to measure samples.",
+              "de": "Gesucht ist ein technisches Gerät für Versuche."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Laborgerät"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Etikett"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Formular"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Laborgerät is a device used in a laboratory.",
+              "de": "Ein Laborgerät ist ein technisches Gerät im Labor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das defekte Laborgerät musste vor der nächsten Messung repariert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Das defekte Laborgerät musste vor der nächsten Messung repariert werden.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Laborgerät); individually checked alternatives: Protokoll is a record, not a repairable measuring device; Etikett is a label; Formular is a form. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1392-v2",
+          "contextKey": "legacy-0122-L1392-context-2",
+          "transferKey": "legacy-0122-L1392-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012207",
+            "type": "choice",
+            "prompt": "Vor dem Experiment prüfte die Technikerin, ob das ___ richtig eingestellt war.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The item has settings that affect an experiment.",
+              "de": "Man kann dieses Gerät für eine Messung einstellen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Notizbuch"
+              },
+              {
+                "id": "1",
+                "text": "Formular"
+              },
+              {
+                "id": "2",
+                "text": "Laborgerät"
+              },
+              {
+                "id": "3",
+                "text": "Regal"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A laboratory device must be configured correctly.",
+              "de": "Ein Laborgerät muss vor dem Versuch richtig eingestellt sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Experiment prüfte die Technikerin, ob das Laborgerät richtig eingestellt war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Vor dem Experiment prüfte die Technikerin, ob das Laborgerät richtig eingestellt war.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Laborgerät); individually checked alternatives: Notizbuch has no measurement settings; Formular is a document; Regal is a shelf, not an experimental instrument. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012208",
+      "title": {
+        "en": "Using Labormitarbeiter in context",
+        "de": "Labormitarbeiter im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Labormitarbeiter: male laboratory employee.",
+        "de": "Labormitarbeiter erkennen und verwenden: Labormitarbeiter, Beschäftigter im Labor."
+      },
+      "objective": "Recognize the German noun Labormitarbeiter (male laboratory employee) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1393 (664d357c2f709de8f17f91be2dafebda0fa76f1c436d7b93b0c800ab2e72aa26), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1393-v1",
+          "contextKey": "legacy-0122-L1393-context-1",
+          "transferKey": "legacy-0122-L1393-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012208",
+            "type": "gap_choice",
+            "prompt": "Ein ___ nahm im Diagnostiklabor die Probe entgegen und vergab eine Kennnummer.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is employed in the laboratory.",
+              "de": "Die Person arbeitet im Labor und erfasst Proben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Labormitarbeiter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kunde"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Labormitarbeiter means an employee working in a laboratory.",
+              "de": "Labormitarbeiter bezeichnet einen Beschäftigten im Labor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Labormitarbeiter nahm im Diagnostiklabor die Probe entgegen und vergab eine Kennnummer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Ein Labormitarbeiter nahm im Diagnostiklabor die Probe entgegen und vergab eine Kennnummer.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Labormitarbeiter); individually checked alternatives: Kunde submits a sample, not as employee; Hausmeister maintains buildings; Fahrer delivers goods, not registers lab samples. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1393-v2",
+          "contextKey": "legacy-0122-L1393-context-2",
+          "transferKey": "legacy-0122-L1393-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012208",
+            "type": "choice",
+            "prompt": "Die ___ dokumentierten die Ergebnisse jeder Untersuchung im internen System.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "These are the laboratory's own staff.",
+              "de": "Es geht um Beschäftigte, die Untersuchungen protokollieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Besucher"
+              },
+              {
+                "id": "1",
+                "text": "Labormitarbeiter"
+              },
+              {
+                "id": "2",
+                "text": "Lieferanten"
+              },
+              {
+                "id": "3",
+                "text": "Patienten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Labormitarbeiter can be the plural of the masculine noun.",
+              "de": "Labormitarbeiter ist auch die Pluralform des maskulinen Nomens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Labormitarbeiter dokumentierten die Ergebnisse jeder Untersuchung im internen System.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Labormitarbeiter dokumentierten die Ergebnisse jeder Untersuchung im internen System.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Labormitarbeiter); individually checked alternatives: Besucher visit rather than routinely document tests; Lieferanten supply materials; Patienten receive tests rather than recording results. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012209",
+      "title": {
+        "en": "Using Ladestation in context",
+        "de": "Ladestation im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Ladestation: electric-vehicle charging station.",
+        "de": "Ladestation erkennen und verwenden: Ladestation, Anlage zum Laden von Akkus."
+      },
+      "objective": "Recognize the German noun Ladestation (electric-vehicle charging station) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1395 (868ef220d7d2f7bfcfec32d3571255f4e17ad7e81ef3bee3b17606192c8e7cde), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1395-v1",
+          "contextKey": "legacy-0122-L1395-context-1",
+          "transferKey": "legacy-0122-L1395-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012209",
+            "type": "gap_choice",
+            "prompt": "Der Akku des Elektrotransporters wurde an der ___ aufgeladen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle needs electricity, not fuel or cleaning.",
+              "de": "Der Akku braucht Strom über einen Ladeanschluss."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Waschanlage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bushaltestelle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ladestation"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Ladestation supplies electricity to charge a battery.",
+              "de": "An einer Ladestation lädt man einen Akku auf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Akku des Elektrotransporters wurde an der Ladestation aufgeladen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Der Akku des Elektrotransporters wurde an der Ladestation aufgeladen.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Ladestation); individually checked alternatives: Waschanlage cleans vehicles; Bushaltestelle is for boarding buses; Werkstatt repairs vehicles, not specifically a charging point. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1395-v2",
+          "contextKey": "legacy-0122-L1395-context-2",
+          "transferKey": "legacy-0122-L1395-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012209",
+            "type": "choice",
+            "prompt": "Auf dem Firmenparkplatz wurde eine neue ___ mit vier Anschlüssen für E-Autos installiert.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Four connectors supply electric cars.",
+              "de": "Die Anschlüsse sind zum Laden von Elektroautos gedacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ladestation"
+              },
+              {
+                "id": "1",
+                "text": "Schranke"
+              },
+              {
+                "id": "2",
+                "text": "Ampel"
+              },
+              {
+                "id": "3",
+                "text": "Bushaltestelle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The four charging connectors belong to a charging station.",
+              "de": "Eine Ladestation hat Anschlüsse zum Laden von E-Autos."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Firmenparkplatz wurde eine neue Ladestation mit vier Anschlüssen für E-Autos installiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Auf dem Firmenparkplatz wurde eine neue Ladestation mit vier Anschlüssen für E-Autos installiert.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Ladestation); individually checked alternatives: Schranke controls entry; Ampel controls traffic; Bushaltestelle is for passengers and has no four charging connectors. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012210",
+      "title": {
+        "en": "Using Lage in context",
+        "de": "Lage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lage: location or situation.",
+        "de": "Lage erkennen und verwenden: Lage, Standort oder Situation."
+      },
+      "objective": "Recognize the German noun Lage (location or situation) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1396 (4b7772c8a800c26ae24c3d09b9c2aaa03e056a1a70705175d33439ffba2266d0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1396-v1",
+          "contextKey": "legacy-0122-L1396-context-1",
+          "transferKey": "legacy-0122-L1396-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012210",
+            "type": "gap_choice",
+            "prompt": "Die ___ der Wohnung ist praktisch: Bis zur U-Bahn läuft man nur zwei Minuten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The clue describes where the flat is.",
+              "de": "Es geht um den Standort der Wohnung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Miete"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Größe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ausstattung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lage refers to the location of the apartment.",
+              "de": "Lage bezeichnet hier den Standort der Wohnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lage der Wohnung ist praktisch: Bis zur U-Bahn läuft man nur zwei Minuten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Lage der Wohnung ist praktisch: Bis zur U-Bahn läuft man nur zwei Minuten.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Lage); individually checked alternatives: Miete is rent, not distance; Größe is size, not distance; Ausstattung is facilities, not location. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1396-v2",
+          "contextKey": "legacy-0122-L1396-context-2",
+          "transferKey": "legacy-0122-L1396-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012210",
+            "type": "choice",
+            "prompt": "Nach dem Stromausfall hat sich die ___ im Krankenhaus wieder stabilisiert.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The hospital's situation has improved.",
+              "de": "Gemeint ist die aktuelle Situation, nicht der Standort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Adresse"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferung"
+              },
+              {
+                "id": "3",
+                "text": "Lage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Lage can also mean the current situation.",
+              "de": "Lage kann auch die aktuelle Situation bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Stromausfall hat sich die Lage im Krankenhaus wieder stabilisiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach dem Stromausfall hat sich die Lage im Krankenhaus wieder stabilisiert.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Lage); individually checked alternatives: Adresse is an address; Rechnung is an invoice; Lieferung is a delivery, none describes the hospital's overall situation. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012211",
+      "title": {
+        "en": "Using Lager in context",
+        "de": "Lager im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lager: warehouse or storage facility.",
+        "de": "Lager erkennen und verwenden: Lager, Ort zur Aufbewahrung von Waren."
+      },
+      "objective": "Recognize the German noun Lager (warehouse or storage facility) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1397 (e3aa57150ccedb878f72fd95fe93dc99f977f42d570e3ba779f5b002333ea373), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1397-v1",
+          "contextKey": "legacy-0122-L1397-context-1",
+          "transferKey": "legacy-0122-L1397-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012211",
+            "type": "gap_choice",
+            "prompt": "Im ___ stehen Paletten mit Ersatzteilen für die Produktion bereit.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Goods are stored on pallets until needed.",
+              "de": "Dort werden Waren und Ersatzteile aufbewahrt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Büro"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Labor"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kino"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lager is a place for storing goods.",
+              "de": "Ein Lager ist ein Ort zur Aufbewahrung von Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Lager stehen Paletten mit Ersatzteilen für die Produktion bereit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Im Lager stehen Paletten mit Ersatzteilen für die Produktion bereit.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Lager); individually checked alternatives: Büro is for office work; Labor is for experiments; Kino is for films, not routine pallet storage. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1397-v2",
+          "contextKey": "legacy-0122-L1397-context-2",
+          "transferKey": "legacy-0122-L1397-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012211",
+            "type": "choice",
+            "prompt": "Nach der Warenannahme brachte der Fahrer die Kartons direkt ins ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The cartons go to the storage area.",
+              "de": "Die Kartons sollen bis zum Versand aufbewahrt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Studio"
+              },
+              {
+                "id": "1",
+                "text": "Archiv"
+              },
+              {
+                "id": "2",
+                "text": "Lager"
+              },
+              {
+                "id": "3",
+                "text": "Sekretariat"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Goods are taken into the warehouse for storage.",
+              "de": "Waren werden im Lager bis zur Weiterverwendung aufbewahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Warenannahme brachte der Fahrer die Kartons direkt ins Lager.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach der Warenannahme brachte der Fahrer die Kartons direkt ins Lager.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Lager); individually checked alternatives: Studio is for recording or production; Archiv holds records; Sekretariat handles administration, not carton stock. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012213",
+      "title": {
+        "en": "Using Lagerist in context",
+        "de": "Lagerist im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lagerist: warehouse worker.",
+        "de": "Lagerist erkennen und verwenden: Lagerist, Beschäftigter im Warenlager."
+      },
+      "objective": "Recognize the German noun Lagerist (warehouse worker) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1399 (bb91b4647a01177db438dc6c12392615842511f7a649a48616fe5cad393792ca), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1399-v1",
+          "contextKey": "legacy-0122-L1399-context-1",
+          "transferKey": "legacy-0122-L1399-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012213",
+            "type": "gap_choice",
+            "prompt": "Der ___ prüfte beim Wareneingang die Stückzahlen auf dem Lieferschein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "This worker receives and checks stored goods.",
+              "de": "Die Person arbeitet im Warenlager."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kellner"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Friseur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erzieher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lagerist"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lagerist checks goods in a warehouse.",
+              "de": "Ein Lagerist kontrolliert Waren im Lager."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lagerist prüfte beim Wareneingang die Stückzahlen auf dem Lieferschein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Der Lagerist prüfte beim Wareneingang die Stückzahlen auf dem Lieferschein.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Lagerist); individually checked alternatives: Kellner serves guests; Friseur cuts hair; Erzieher supervises children. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1399-v2",
+          "contextKey": "legacy-0122-L1399-context-2",
+          "transferKey": "legacy-0122-L1399-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012213",
+            "type": "choice",
+            "prompt": "Die ___ sortierten die Pakete nach Artikelnummern in die richtigen Regale.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The plural refers to workers handling warehouse stock.",
+              "de": "Gesucht sind Beschäftigte im Warenlager."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lageristen"
+              },
+              {
+                "id": "1",
+                "text": "Laboranten"
+              },
+              {
+                "id": "2",
+                "text": "Journalisten"
+              },
+              {
+                "id": "3",
+                "text": "Gärtner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Lageristen is the plural of Lagerist.",
+              "de": "Lageristen ist der Plural von Lagerist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lageristen sortierten die Pakete nach Artikelnummern in die richtigen Regale.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Lageristen sortierten die Pakete nach Artikelnummern in die richtigen Regale.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Lageristen); individually checked alternatives: Laboranten work in labs; Journalisten report news; Gärtner tend plants rather than organise warehouse stock. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012214",
+      "title": {
+        "en": "Using Lagerkapazität in context",
+        "de": "Lagerkapazität im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lagerkapazität: storage capacity.",
+        "de": "Lagerkapazität erkennen und verwenden: Lagerkapazität, verfügbarer Lagerraum."
+      },
+      "objective": "Recognize the German noun Lagerkapazität (storage capacity) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1400 (bf75468fa061e75c3ebb5dae8de1e42d6e09b94d7500abcab775d8b554efe4c0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1400-v1",
+          "contextKey": "legacy-0122-L1400-context-1",
+          "transferKey": "legacy-0122-L1400-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012214",
+            "type": "gap_choice",
+            "prompt": "Weil alle Regale voll sind, reicht die ___ nicht mehr aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "There is not enough room for additional stock.",
+              "de": "Es fehlt Platz für weitere Waren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferfrist"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Öffnungszeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lagerkapazität"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Personalnummer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lagerkapazität is the amount of available storage space.",
+              "de": "Lagerkapazität bezeichnet den verfügbaren Platz für Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil alle Regale voll sind, reicht die Lagerkapazität nicht mehr aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Weil alle Regale voll sind, reicht die Lagerkapazität nicht mehr aus.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Lagerkapazität); individually checked alternatives: Lieferfrist is a delivery deadline; Öffnungszeit is opening time; Personalnummer is an employee ID. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1400-v2",
+          "contextKey": "legacy-0122-L1400-context-2",
+          "transferKey": "legacy-0122-L1400-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012214",
+            "type": "choice",
+            "prompt": "Durch den Anbau einer neuen Halle steigt die ___ des Betriebs.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The extension creates more space for stock.",
+              "de": "Eine neue Halle bietet zusätzlichen Lagerraum."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reisezeit"
+              },
+              {
+                "id": "1",
+                "text": "Fehlerquote"
+              },
+              {
+                "id": "2",
+                "text": "Versandgebühr"
+              },
+              {
+                "id": "3",
+                "text": "Lagerkapazität"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Adding a hall increases storage capacity.",
+              "de": "Eine zusätzliche Halle erhöht die Lagerkapazität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch den Anbau einer neuen Halle steigt die Lagerkapazität des Betriebs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Durch den Anbau einer neuen Halle steigt die Lagerkapazität des Betriebs.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Lagerkapazität); individually checked alternatives: Reisezeit is travel duration; Fehlerquote is an error rate; Versandgebühr is a shipping fee, none is directly increased by new storage space. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012215",
+      "title": {
+        "en": "Using Lagerlogistik in context",
+        "de": "Lagerlogistik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lagerlogistik: warehouse logistics.",
+        "de": "Lagerlogistik erkennen und verwenden: Lagerlogistik, Planung der Lagerprozesse."
+      },
+      "objective": "Recognize the German noun Lagerlogistik (warehouse logistics) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1401 (a33d5776c35b23e3cb16f0e9ecd565f07c0fba5dfc94f026940d824f68bf9b7b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1401-v1",
+          "contextKey": "legacy-0122-L1401-context-1",
+          "transferKey": "legacy-0122-L1401-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012215",
+            "type": "gap_choice",
+            "prompt": "Die ___ plant, wo Waren gelagert und wie sie zum Versand gebracht werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The work concerns the flow of goods inside a warehouse.",
+              "de": "Es geht um Lagerplätze und Transportwege für Waren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerlogistik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kundenbetreuung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Personalabteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lagerlogistik coordinates warehouse processes.",
+              "de": "Lagerlogistik organisiert Abläufe im Warenlager."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lagerlogistik plant, wo Waren gelagert und wie sie zum Versand gebracht werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Lagerlogistik plant, wo Waren gelagert und wie sie zum Versand gebracht werden.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Lagerlogistik); individually checked alternatives: Buchhaltung manages accounts; Kundenbetreuung serves customers; Personalabteilung handles staff. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1401-v2",
+          "contextKey": "legacy-0122-L1401-context-2",
+          "transferKey": "legacy-0122-L1401-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012215",
+            "type": "choice",
+            "prompt": "Durch eine bessere ___ konnten die Wege der Gabelstapler deutlich verkürzt werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The change improves routes inside the warehouse.",
+              "de": "Die Transportwege im Lager wurden neu geplant."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lohnabrechnung"
+              },
+              {
+                "id": "1",
+                "text": "Werbung"
+              },
+              {
+                "id": "2",
+                "text": "Lagerlogistik"
+              },
+              {
+                "id": "3",
+                "text": "Kantinenplanung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Better warehouse logistics reduces internal transport routes.",
+              "de": "Eine bessere Lagerlogistik verkürzt interne Transportwege."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch eine bessere Lagerlogistik konnten die Wege der Gabelstapler deutlich verkürzt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Durch eine bessere Lagerlogistik konnten die Wege der Gabelstapler deutlich verkürzt werden.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Lagerlogistik); individually checked alternatives: Lohnabrechnung concerns payroll; Werbung promotes products; Kantinenplanung organises meals, not forklift routes. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012216",
+      "title": {
+        "en": "Using Lagerlogistiker in context",
+        "de": "Lagerlogistiker im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lagerlogistiker: warehouse logistics specialist.",
+        "de": "Lagerlogistiker erkennen und verwenden: Lagerlogistiker, Fachkraft für Lagerabläufe."
+      },
+      "objective": "Recognize the German noun Lagerlogistiker (warehouse logistics specialist) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1402 (71ff3e4b608010c77f6d63f2ac641b5495c4fe99488bc708b3ff7af77e8afe88), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1402-v1",
+          "contextKey": "legacy-0122-L1402-context-1",
+          "transferKey": "legacy-0122-L1402-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012216",
+            "type": "gap_choice",
+            "prompt": "Der ___ organisiert die Warenbewegungen zwischen Wareneingang und Versand.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "This specialist coordinates flows through the warehouse.",
+              "de": "Die Person plant die Abläufe im Warenlager."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lagerlogistiker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Laborant"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkäufer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lagerlogistiker coordinates warehouse operations.",
+              "de": "Ein Lagerlogistiker organisiert Warenbewegungen im Lager."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lagerlogistiker organisiert die Warenbewegungen zwischen Wareneingang und Versand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Der Lagerlogistiker organisiert die Warenbewegungen zwischen Wareneingang und Versand.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Lagerlogistiker); individually checked alternatives: Laborant works with experiments; Buchhalter manages financial records; Verkäufer sells goods rather than coordinating warehouse flows. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1402-v2",
+          "contextKey": "legacy-0122-L1402-context-2",
+          "transferKey": "legacy-0122-L1402-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012216",
+            "type": "choice",
+            "prompt": "Für die Optimierung der Lagerabläufe stellte die Firma einen ___ ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company needs someone who improves warehouse processes.",
+              "de": "Gesucht wird eine Fachkraft für Lagerprozesse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dolmetscher"
+              },
+              {
+                "id": "1",
+                "text": "Lagerlogistiker"
+              },
+              {
+                "id": "2",
+                "text": "Kellner"
+              },
+              {
+                "id": "3",
+                "text": "Erzieher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A warehouse logistics specialist improves storage workflows.",
+              "de": "Ein Lagerlogistiker verbessert die Abläufe im Lager."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Optimierung der Lagerabläufe stellte die Firma einen Lagerlogistiker ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Für die Optimierung der Lagerabläufe stellte die Firma einen Lagerlogistiker ein.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Lagerlogistiker); individually checked alternatives: Dolmetscher interprets speech; Kellner serves food; Erzieher works in education. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012217",
+      "title": {
+        "en": "Using Land- und Forstwirtschaft in context",
+        "de": "Land- und Forstwirtschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Land- und Forstwirtschaft: agriculture and forestry.",
+        "de": "Land- und Forstwirtschaft erkennen und verwenden: Land- und Forstwirtschaft, Ackerbau und Waldwirtschaft."
+      },
+      "objective": "Recognize the German noun Land- und Forstwirtschaft (agriculture and forestry) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1405 (a5c4577be8453008b031a5635ade1f452f840f98553db29501d7723b1d1717a7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1405-v1",
+          "contextKey": "legacy-0122-L1405-context-1",
+          "transferKey": "legacy-0122-L1405-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012217",
+            "type": "gap_choice",
+            "prompt": "In der ___ werden sowohl Felder bewirtschaftet als auch Wälder gepflegt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sector combines farming and forest management.",
+              "de": "Gesucht ist der Bereich für Äcker und Wälder."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bauwirtschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Energiewirtschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tourismusbranche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Land- und Forstwirtschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Land- und Forstwirtschaft includes agriculture and forestry.",
+              "de": "Land- und Forstwirtschaft umfasst Landwirtschaft und Waldwirtschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Land- und Forstwirtschaft werden sowohl Felder bewirtschaftet als auch Wälder gepflegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"In der Land- und Forstwirtschaft werden sowohl Felder bewirtschaftet als auch Wälder gepflegt.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Land- und Forstwirtschaft); individually checked alternatives: Bauwirtschaft constructs buildings; Energiewirtschaft supplies energy; Tourismusbranche serves travellers. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1405-v2",
+          "contextKey": "legacy-0122-L1405-context-2",
+          "transferKey": "legacy-0122-L1405-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012217",
+            "type": "choice",
+            "prompt": "Nach der Dürre diskutierten Betriebe der ___ über Wasserverbrauch auf Feldern und im Wald.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Both farming and forestry are affected by drought.",
+              "de": "Die Betriebe kümmern sich um Äcker und Wälder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Land- und Forstwirtschaft"
+              },
+              {
+                "id": "1",
+                "text": "Gastronomie"
+              },
+              {
+                "id": "2",
+                "text": "Finanzverwaltung"
+              },
+              {
+                "id": "3",
+                "text": "Medienbranche"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The combined sector covers fields and forests.",
+              "de": "Der Begriff umfasst Betriebe mit land- und forstwirtschaftlichen Aufgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Dürre diskutierten Betriebe der Land- und Forstwirtschaft über Wasserverbrauch auf Feldern und im Wald.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach der Dürre diskutierten Betriebe der Land- und Forstwirtschaft über Wasserverbrauch auf Feldern und im Wald.\", grammar, intended B1/B2 objective and one defensible key. Correct option 0 (Land- und Forstwirtschaft); individually checked alternatives: Gastronomie serves food; Finanzverwaltung handles finances; Medienbranche produces media, not field and forest management. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012218",
+      "title": {
+        "en": "Using Landung in context",
+        "de": "Landung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Landung: landing of an aircraft.",
+        "de": "Landung erkennen und verwenden: Landung, Aufsetzen eines Flugzeugs."
+      },
+      "objective": "Recognize the German noun Landung (landing of an aircraft) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1407 (b967ec63dfd0247f70555365070661aaffd256d4b5f5b4eb35650f812b723bcc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1407-v1",
+          "contextKey": "legacy-0122-L1407-context-1",
+          "transferKey": "legacy-0122-L1407-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012218",
+            "type": "gap_choice",
+            "prompt": "Wegen des starken Seitenwinds musste der Pilot die ___ abbrechen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The aircraft cannot safely touch down.",
+              "de": "Der Pilot versucht, das Flugzeug aufzusetzen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Landung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Landung means the act of an aircraft touching down.",
+              "de": "Landung bezeichnet das Aufsetzen eines Flugzeugs."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des starken Seitenwinds musste der Pilot die Landung abbrechen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Wegen des starken Seitenwinds musste der Pilot die Landung abbrechen.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Landung); individually checked alternatives: Buchung is a reservation; Wartung is maintenance; Beladung is loading, none is a manoeuvre aborted by crosswind during flight. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1407-v2",
+          "contextKey": "legacy-0122-L1407-context-2",
+          "transferKey": "legacy-0122-L1407-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012218",
+            "type": "choice",
+            "prompt": "Nach der ___ rollte das Flugzeug langsam zur Parkposition.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The aircraft is on the ground after touching down.",
+              "de": "Das Flugzeug hat die Landebahn erreicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anmeldung"
+              },
+              {
+                "id": "1",
+                "text": "Prüfung"
+              },
+              {
+                "id": "2",
+                "text": "Durchsage"
+              },
+              {
+                "id": "3",
+                "text": "Landung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "After landing, an aircraft taxis to its stand.",
+              "de": "Nach der Landung rollt das Flugzeug zur Parkposition."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Landung rollte das Flugzeug langsam zur Parkposition.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach der Landung rollte das Flugzeug langsam zur Parkposition.\", grammar, intended B1/B2 objective and one defensible key. Correct option 3 (Landung); individually checked alternatives: Anmeldung is registration; Prüfung is a test; Durchsage is an announcement, none is the touchdown event. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012219",
+      "title": {
+        "en": "Using Landwirtschaft in context",
+        "de": "Landwirtschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Landwirtschaft: agriculture.",
+        "de": "Landwirtschaft erkennen und verwenden: Landwirtschaft, Anbau von Pflanzen und Tierhaltung."
+      },
+      "objective": "Recognize the German noun Landwirtschaft (agriculture) and select its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1408 (65ebe107b34321677bb2591aaa5a2eb066214eddd44d27340b41d8978d35c568), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0122-L1408-v1",
+          "contextKey": "legacy-0122-L1408-context-1",
+          "transferKey": "legacy-0122-L1408-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012219",
+            "type": "gap_choice",
+            "prompt": "Die ___ baut Getreide an und hält Nutztiere.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sector produces crops and raises animals.",
+              "de": "Es geht um den Anbau von Pflanzen und die Tierhaltung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Industrie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Landwirtschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verwaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Forschung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Landwirtschaft means farming and agriculture.",
+              "de": "Landwirtschaft umfasst Pflanzenbau und Tierhaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Landwirtschaft baut Getreide an und hält Nutztiere.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Die Landwirtschaft baut Getreide an und hält Nutztiere.\", grammar, intended B1/B2 objective and one defensible key. Correct option 1 (Landwirtschaft); individually checked alternatives: Industrie manufactures goods; Verwaltung administers organisations; Forschung conducts research, not primarily crop growing and livestock keeping. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0122-L1408-v2",
+          "contextKey": "legacy-0122-L1408-context-2",
+          "transferKey": "legacy-0122-L1408-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001220191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012219",
+            "type": "choice",
+            "prompt": "Nach der langen Trockenheit rechneten viele Betriebe in der ___ mit geringeren Ernten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Drought affects harvest yields.",
+              "de": "Die Betriebe bauen Nutzpflanzen an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Versicherung"
+              },
+              {
+                "id": "1",
+                "text": "Gastronomie"
+              },
+              {
+                "id": "2",
+                "text": "Landwirtschaft"
+              },
+              {
+                "id": "3",
+                "text": "Bauwirtschaft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Agricultural businesses depend on crop yields.",
+              "de": "Landwirtschaftliche Betriebe sind von Ernteerträgen abhängig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der langen Trockenheit rechneten viele Betriebe in der Landwirtschaft mit geringeren Ernten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked natural full sentence \"Nach der langen Trockenheit rechneten viele Betriebe in der Landwirtschaft mit geringeren Ernten.\", grammar, intended B1/B2 objective and one defensible key. Correct option 2 (Landwirtschaft); individually checked alternatives: Versicherung handles risk contracts; Gastronomie serves meals; Bauwirtschaft builds structures, none primarily produces harvests. Bilingual instructions, hints and explanations reviewed. Human review pending."
+        }
+      ]
+    }
+  ]
+}
