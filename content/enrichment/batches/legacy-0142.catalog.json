@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000014201",
+      "title": {
+        "en": "Understanding Raucherin in context",
+        "de": "Raucherin im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Raucherin in its female habitual smoker sense.",
+        "de": "Raucherin in der Bedeutung weibliche Raucherin erkennen."
+      },
+      "objective": "Recognize the noun Raucherin in the specified female habitual smoker sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1919 (e59a714dce1e4949f81e90979babbbf92673bc4756816d69c5ad376d81f3b9df), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1919-v1",
+          "contextKey": "legacy-0142-L1919-context-1",
+          "transferKey": "legacy-0142-L1919-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014201",
+            "type": "gap_choice",
+            "prompt": "Die ___ verließ das rauchfreie Gebäude, um draußen eine Zigarette zu rauchen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She goes outside to smoke a cigarette.",
+              "de": "Sie geht nach draußen, um eine Zigarette zu rauchen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Joggerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Raucherin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Köchin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Leserin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Raucherin means a woman who smokes.",
+              "de": "Raucherin bezeichnet eine Frau, die raucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Raucherin verließ das rauchfreie Gebäude, um draußen eine Zigarette zu rauchen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Raucherin\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Joggerin\": Joggerin describes running, not smoking. \"Köchin\": Köchin describes cooking, not smoking. \"Leserin\": Leserin describes reading, not smoking. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1919-v2",
+          "contextKey": "legacy-0142-L1919-context-2",
+          "transferKey": "legacy-0142-L1919-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014201",
+            "type": "choice",
+            "prompt": "Eine Frau raucht regelmäßig Zigaretten. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The term describes her smoking habit.",
+              "de": "Das Wort beschreibt ihre Rauchgewohnheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Nichtraucherin"
+              },
+              {
+                "id": "1",
+                "text": "Radfahrerin"
+              },
+              {
+                "id": "2",
+                "text": "Sängerin"
+              },
+              {
+                "id": "3",
+                "text": "Raucherin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The woman is a Raucherin.",
+              "de": "Die Frau ist eine Raucherin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist Raucherin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Raucherin\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Nichtraucherin\": Nichtraucherin means a woman who does not smoke. \"Radfahrerin\": Radfahrerin describes cycling. \"Sängerin\": Sängerin describes singing. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014202",
+      "title": {
+        "en": "Understanding Reaktion in context",
+        "de": "Reaktion im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Reaktion in its response or reaction sense.",
+        "de": "Reaktion in der Bedeutung Reaktion auf ein Ereignis erkennen."
+      },
+      "objective": "Recognize the noun Reaktion in the specified response or reaction sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1921 (ade0c9fedb4280ad51beb12005f464a41ebe05b9db4430a2455da2ac8fcc390f), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1921-v1",
+          "contextKey": "legacy-0142-L1921-context-1",
+          "transferKey": "legacy-0142-L1921-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014202",
+            "type": "gap_choice",
+            "prompt": "Auf die unerwartete Nachricht war ihre erste ___ ein erstauntes Schweigen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Her silence followed the news.",
+              "de": "Ihr Schweigen folgte auf die Nachricht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reaktion"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verhandlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Reaktion is a response to something.",
+              "de": "Reaktion ist eine Antwort auf ein Ereignis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf die unerwartete Nachricht war ihre erste Reaktion ein erstauntes Schweigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Reaktion\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Bewerbung\": A job application requests employment. \"Lieferung\": A delivery transports goods. \"Verhandlung\": A negotiation seeks agreement. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1921-v2",
+          "contextKey": "legacy-0142-L1921-context-2",
+          "transferKey": "legacy-0142-L1921-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014202",
+            "type": "choice",
+            "prompt": "Ein Kind lacht, als es eine lustige Geschichte hört. Was ist das Lachen?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The laughter happens because of the story.",
+              "de": "Das Lachen entsteht als Antwort auf die Geschichte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ursache"
+              },
+              {
+                "id": "1",
+                "text": "Vorhersage"
+              },
+              {
+                "id": "2",
+                "text": "Reaktion"
+              },
+              {
+                "id": "3",
+                "text": "Anweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The laughter is a Reaktion.",
+              "de": "Das Lachen ist eine Reaktion."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Lachen ist eine Reaktion auf die Geschichte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Reaktion\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Ursache\": The cause is the story, not the laughter. \"Vorhersage\": A prediction concerns the future. \"Anweisung\": An instruction tells someone what to do. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014203",
+      "title": {
+        "en": "Understanding Realität in context",
+        "de": "Realität im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Realität in its actual reality as opposed to expectation sense.",
+        "de": "Realität in der Bedeutung tatsächliche Wirklichkeit erkennen."
+      },
+      "objective": "Recognize the noun Realität in the specified actual reality as opposed to expectation sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1922 (83949f8a411de8e12ee404c9819c12e1db303b1002696cb09fa3a8b80231d34c), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1922-v1",
+          "contextKey": "legacy-0142-L1922-context-1",
+          "transferKey": "legacy-0142-L1922-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014203",
+            "type": "gap_choice",
+            "prompt": "Der Plan klang einfach, aber in der ___ gab es viele unerwartete Probleme.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "What actually happened differed from the plan.",
+              "de": "Was tatsächlich geschah, unterschied sich vom Plan."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fantasie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erfindung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Realität"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Realität is the actual state of affairs.",
+              "de": "Realität ist die tatsächliche Wirklichkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Plan klang einfach, aber in der Realität gab es viele unerwartete Probleme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Realität\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Fantasie\": Fantasy is imagined, not what happened. \"Werbung\": Advertising promotes something. \"Erfindung\": An invention is a new creation, not actual circumstances in general. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1922-v2",
+          "contextKey": "legacy-0142-L1922-context-2",
+          "transferKey": "legacy-0142-L1922-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014203",
+            "type": "choice",
+            "prompt": "Eine Firma verspricht Lieferung am nächsten Tag; tatsächlich dauert es fünf Tage. Was beschreibt die tatsächliche Lage?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Look at what really occurs.",
+              "de": "Achte darauf, was wirklich geschieht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wunsch"
+              },
+              {
+                "id": "1",
+                "text": "Realität"
+              },
+              {
+                "id": "2",
+                "text": "Prognose"
+              },
+              {
+                "id": "3",
+                "text": "Gerücht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The actual delay is the Realität.",
+              "de": "Die tatsächliche Verzögerung ist die Realität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Realität ist eine Lieferzeit von fünf Tagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Realität\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Wunsch\": A wish describes what is desired. \"Prognose\": A forecast predicts what may happen. \"Gerücht\": A rumour is unverified information. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014204",
+      "title": {
+        "en": "Understanding Recherche in context",
+        "de": "Recherche im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Recherche in its investigation and source research sense.",
+        "de": "Recherche in der Bedeutung Recherche von Informationen erkennen."
+      },
+      "objective": "Recognize the noun Recherche in the specified investigation and source research sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1923 (23d2a8e651a487aa8ef0794a5bffc2cb0f9c2787ef43f0dfc006a194bb7f0aad), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1923-v1",
+          "contextKey": "legacy-0142-L1923-context-1",
+          "transferKey": "legacy-0142-L1923-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014204",
+            "type": "gap_choice",
+            "prompt": "Vor dem Artikel führte die Journalistin eine gründliche ___ in mehreren Archiven durch.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She checks information before writing.",
+              "de": "Sie prüft Informationen vor dem Schreiben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Recherche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verlosung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Recherche means systematic investigation of information.",
+              "de": "Recherche ist die gezielte Suche und Prüfung von Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Artikel führte die Journalistin eine gründliche Recherche in mehreren Archiven durch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Recherche\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Lieferung\": Delivery transports goods. \"Buchung\": Booking reserves something. \"Verlosung\": A raffle randomly selects winners. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1923-v2",
+          "contextKey": "legacy-0142-L1923-context-2",
+          "transferKey": "legacy-0142-L1923-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014204",
+            "type": "choice",
+            "prompt": "Ein Autor prüft Quellen, vergleicht Dokumente und befragt Fachleute, bevor er schreibt. Wie nennt man diese Arbeit?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The author is gathering reliable information.",
+              "de": "Der Autor sammelt und prüft verlässliche Informationen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Recherche"
+              },
+              {
+                "id": "1",
+                "text": "Werbung"
+              },
+              {
+                "id": "2",
+                "text": "Übersetzung"
+              },
+              {
+                "id": "3",
+                "text": "Druck"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "This is Recherche.",
+              "de": "Das ist Recherche."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Autor betreibt Recherche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Recherche\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Werbung\": Advertising promotes products. \"Übersetzung\": Translation changes language. \"Druck\": Printing produces physical copies. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014205",
+      "title": {
+        "en": "Understanding Rechner in context",
+        "de": "Rechner im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rechner in its computer sense.",
+        "de": "Rechner in der Bedeutung Computer oder Rechner erkennen."
+      },
+      "objective": "Recognize the noun Rechner in the specified computer sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1924 (c67195230442ac0831b1d216452bcbd178597086b79495f5e00dffada4f7e070), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1924-v1",
+          "contextKey": "legacy-0142-L1924-context-1",
+          "transferKey": "legacy-0142-L1924-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014205",
+            "type": "gap_choice",
+            "prompt": "Der ___ im Büro startet nicht mehr, deshalb kann sie ihre lokalen Dateien nicht öffnen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device normally runs programs and stores files.",
+              "de": "Das Gerät führt Programme aus und speichert Dateien."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Drucker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schrank"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Router"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rechner is another word for computer.",
+              "de": "Rechner ist ein anderes Wort für Computer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Rechner im Büro startet nicht mehr, deshalb kann sie ihre lokalen Dateien nicht öffnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rechner\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Drucker\": A printer produces paper output. \"Schrank\": A cabinet stores objects, not digital files. \"Router\": A router handles network connections rather than running local files. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1924-v2",
+          "contextKey": "legacy-0142-L1924-context-2",
+          "transferKey": "legacy-0142-L1924-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014205",
+            "type": "choice",
+            "prompt": "Ein Gerät mit Prozessor und Arbeitsspeicher führt Programme aus. Welches Wort passt?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It processes information rather than just displaying it.",
+              "de": "Es verarbeitet Informationen, statt sie nur anzuzeigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Monitor"
+              },
+              {
+                "id": "1",
+                "text": "Tastatur"
+              },
+              {
+                "id": "2",
+                "text": "Lautsprecher"
+              },
+              {
+                "id": "3",
+                "text": "Rechner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The device is a Rechner.",
+              "de": "Das Gerät ist ein Rechner."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät ist ein Rechner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rechner\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Monitor\": A monitor displays images. \"Tastatur\": A keyboard enters text. \"Lautsprecher\": A speaker plays sound. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014206",
+      "title": {
+        "en": "Understanding Rechnungseingang in context",
+        "de": "Rechnungseingang im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rechnungseingang in its receipt of incoming invoices sense.",
+        "de": "Rechnungseingang in der Bedeutung Eingang von Rechnungen erkennen."
+      },
+      "objective": "Recognize the noun Rechnungseingang in the specified receipt of incoming invoices sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1926 (09ae8cbae7f10437894cea1e176316f26dcfd7e0e3052f702f8578cfcdb6905a), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1926-v1",
+          "contextKey": "legacy-0142-L1926-context-1",
+          "transferKey": "legacy-0142-L1926-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014206",
+            "type": "gap_choice",
+            "prompt": "Das Buchhaltungssystem erfasst jeden ___ mit Datum und Lieferant.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The system records newly received bills.",
+              "de": "Das System erfasst neu eingegangene Rechnungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnungseingang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Warenausgang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaubsantrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stellenwechsel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rechnungseingang means receipt of an invoice.",
+              "de": "Rechnungseingang bezeichnet den Eingang einer Rechnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Buchhaltungssystem erfasst jeden Rechnungseingang mit Datum und Lieferant.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rechnungseingang\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Warenausgang\": Goods dispatch concerns outgoing items. \"Urlaubsantrag\": A leave request concerns time off. \"Stellenwechsel\": A job change concerns employment. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1926-v2",
+          "contextKey": "legacy-0142-L1926-context-2",
+          "transferKey": "legacy-0142-L1926-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014206",
+            "type": "choice",
+            "prompt": "Heute erhält die Firma drei neue Lieferantenrechnungen. Was registriert die Buchhaltung?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The invoices have arrived but may not yet be paid.",
+              "de": "Die Rechnungen sind eingegangen, aber noch nicht unbedingt bezahlt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zahlungsausgang"
+              },
+              {
+                "id": "1",
+                "text": "Wareneingang"
+              },
+              {
+                "id": "2",
+                "text": "Rechnungseingang"
+              },
+              {
+                "id": "3",
+                "text": "Personalwechsel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Accounting records Rechnungseingang.",
+              "de": "Die Buchhaltung erfasst den Rechnungseingang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Buchhaltung registriert den Rechnungseingang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rechnungseingang\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Zahlungsausgang\": Payment outflow happens when money is paid. \"Wareneingang\": Goods receipt concerns physical items. \"Personalwechsel\": Staff changes concern employees. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014208",
+      "title": {
+        "en": "Understanding Rechtsabteilung in context",
+        "de": "Rechtsabteilung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rechtsabteilung in its company legal department sense.",
+        "de": "Rechtsabteilung in der Bedeutung Rechtsabteilung erkennen."
+      },
+      "objective": "Recognize the noun Rechtsabteilung in the specified company legal department sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1928 (d8860b7198e94d8cf57e1b924646235b8e6431e390e59c9c7ed331a831705058), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1928-v1",
+          "contextKey": "legacy-0142-L1928-context-1",
+          "transferKey": "legacy-0142-L1928-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014208",
+            "type": "gap_choice",
+            "prompt": "Vor der Unterschrift prüft die ___ den Vertragsentwurf auf rechtliche Risiken.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The review concerns legal questions in a contract.",
+              "de": "Die Prüfung betrifft rechtliche Fragen eines Vertrags."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Marketingabteilung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerverwaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechtsabteilung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kantine"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Rechtsabteilung handles legal matters in an organisation.",
+              "de": "Eine Rechtsabteilung bearbeitet rechtliche Fragen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Unterschrift prüft die Rechtsabteilung den Vertragsentwurf auf rechtliche Risiken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rechtsabteilung\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Marketingabteilung\": Marketing handles promotion. \"Lagerverwaltung\": Warehouse administration manages inventory. \"Kantine\": A canteen serves meals. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1928-v2",
+          "contextKey": "legacy-0142-L1928-context-2",
+          "transferKey": "legacy-0142-L1928-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014208",
+            "type": "choice",
+            "prompt": "Ein Unternehmen braucht interne Unterstützung bei Vertragsfragen und Rechtsrisiken. An welche Abteilung wendet es sich?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It needs legal expertise, not purchasing or staffing.",
+              "de": "Es braucht rechtliche Fachkenntnisse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechtsabteilung"
+              },
+              {
+                "id": "1",
+                "text": "Personalentwicklung"
+              },
+              {
+                "id": "2",
+                "text": "Einkauf"
+              },
+              {
+                "id": "3",
+                "text": "Empfang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The relevant department is Rechtsabteilung.",
+              "de": "Die zuständige Abteilung ist die Rechtsabteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen wendet sich an die Rechtsabteilung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rechtsabteilung\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Personalentwicklung\": Staff development trains employees. \"Einkauf\": Purchasing buys goods. \"Empfang\": Reception welcomes visitors. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014211",
+      "title": {
+        "en": "Understanding Rede in context",
+        "de": "Rede im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rede in its formal speech to an audience sense.",
+        "de": "Rede in der Bedeutung öffentliche Rede erkennen."
+      },
+      "objective": "Recognize the noun Rede in the specified formal speech to an audience sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1931 (c3fea611a422cfe76e604d363c1d95972926761aa9962b707c0d3a238cfaf7b4), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1931-v1",
+          "contextKey": "legacy-0142-L1931-context-1",
+          "transferKey": "legacy-0142-L1931-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014211",
+            "type": "gap_choice",
+            "prompt": "Zur Eröffnung der Konferenz hielt die Direktorin eine kurze ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She addresses the audience formally.",
+              "de": "Sie spricht offiziell zu den Zuhörenden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Probe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rede"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rede means a speech or address.",
+              "de": "Rede bedeutet eine Ansprache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Eröffnung der Konferenz hielt die Direktorin eine kurze Rede.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rede\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Rechnung\": An invoice concerns payment. \"Probe\": A rehearsal is practice. \"Pause\": A break interrupts an event. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1931-v2",
+          "contextKey": "legacy-0142-L1931-context-2",
+          "transferKey": "legacy-0142-L1931-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014211",
+            "type": "choice",
+            "prompt": "Ein Bürgermeister spricht bei einer Feier offiziell zu den Gästen. Was hält er?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He speaks to everyone as an audience.",
+              "de": "Er spricht zu allen Gästen als Publikum."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Interview"
+              },
+              {
+                "id": "1",
+                "text": "Rede"
+              },
+              {
+                "id": "2",
+                "text": "Prüfung"
+              },
+              {
+                "id": "3",
+                "text": "Verhandlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "He gives a Rede.",
+              "de": "Er hält eine Rede."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bürgermeister hält eine Rede.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rede\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Interview\": An interview involves questions and answers. \"Prüfung\": An examination tests knowledge. \"Verhandlung\": A negotiation seeks agreement. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014212",
+      "title": {
+        "en": "Understanding Referat in context",
+        "de": "Referat im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Referat in its school presentation or report sense.",
+        "de": "Referat in der Bedeutung schulisches Referat erkennen."
+      },
+      "objective": "Recognize the noun Referat in the specified school presentation or report sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1932 (e8e2c0329c89b38fd5fe635b582a9e90649274b27f5eb9e33e6736509fbe53b6), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1932-v1",
+          "contextKey": "legacy-0142-L1932-context-1",
+          "transferKey": "legacy-0142-L1932-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014212",
+            "type": "gap_choice",
+            "prompt": "Im Geschichtsunterricht hielt die Schülerin ein ___ über die Industrialisierung.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She presents a prepared topic to her class.",
+              "de": "Sie stellt der Klasse ein vorbereitetes Thema vor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeugnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Referat"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Formular"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Referat is a prepared school talk.",
+              "de": "Ein Referat ist ein vorbereiteter Vortrag in der Schule."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Geschichtsunterricht hielt die Schülerin ein Referat über die Industrialisierung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Referat\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Protokoll\": Minutes record a meeting. \"Zeugnis\": A certificate records grades. \"Formular\": A form collects information. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1932-v2",
+          "contextKey": "legacy-0142-L1932-context-2",
+          "transferKey": "legacy-0142-L1932-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014212",
+            "type": "choice",
+            "prompt": "Ein Schüler bereitet einen kurzen sachlichen Vortrag für seine Klasse vor. Wie nennt man diese Aufgabe?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a talk given by a student.",
+              "de": "Es ist ein Vortrag eines Schülers."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Referat"
+              },
+              {
+                "id": "1",
+                "text": "Hausordnung"
+              },
+              {
+                "id": "2",
+                "text": "Diktat"
+              },
+              {
+                "id": "3",
+                "text": "Klassenbuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The assignment is a Referat.",
+              "de": "Die Aufgabe ist ein Referat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Schüler bereitet ein Referat vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Referat\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Hausordnung\": School rules regulate behaviour. \"Diktat\": Dictation tests spelling. \"Klassenbuch\": A class register records attendance or class data. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014213",
+      "title": {
+        "en": "Understanding Referent in context",
+        "de": "Referent im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Referent in its speaker delivering a specialist talk sense.",
+        "de": "Referent in der Bedeutung Referent bei einer Veranstaltung erkennen."
+      },
+      "objective": "Recognize the noun Referent in the specified speaker delivering a specialist talk sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1933 (a00d27239f15b2ffa62d421c424430d78f4a7bc7ab7d7f94047fdd5074f834ad), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1933-v1",
+          "contextKey": "legacy-0142-L1933-context-1",
+          "transferKey": "legacy-0142-L1933-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014213",
+            "type": "gap_choice",
+            "prompt": "Der ___ erklärte den Teilnehmenden auf dem Fachkongress neue Forschungsergebnisse.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He is the invited person presenting expertise.",
+              "de": "Er ist der eingeladene Vortragende."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Referent"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kassierer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zuschauer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Referent means a speaker presenting specialist information.",
+              "de": "Ein Referent hält einen Fachvortrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Referent erklärte den Teilnehmenden auf dem Fachkongress neue Forschungsergebnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Referent\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Hausmeister\": A caretaker maintains buildings. \"Kassierer\": A cashier handles payments. \"Zuschauer\": A spectator watches rather than presents. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1933-v2",
+          "contextKey": "legacy-0142-L1933-context-2",
+          "transferKey": "legacy-0142-L1933-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014213",
+            "type": "choice",
+            "prompt": "Eine Person wird eingeladen, bei einer Fortbildung einen Fachvortrag zu halten. Welche Rolle hat sie?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She gives the talk rather than attends it.",
+              "de": "Sie hält den Vortrag, statt nur zuzuhören."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Teilnehmer"
+              },
+              {
+                "id": "1",
+                "text": "Protokollant"
+              },
+              {
+                "id": "2",
+                "text": "Caterer"
+              },
+              {
+                "id": "3",
+                "text": "Referent"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The invited speaker is a Referent.",
+              "de": "Die vortragende Person ist ein Referent oder eine Referentin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person übernimmt die Rolle eines Referenten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Referent\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Teilnehmer\": A participant attends. \"Protokollant\": A minute-taker records proceedings. \"Caterer\": A caterer provides food. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014214",
+      "title": {
+        "en": "Understanding Reform in context",
+        "de": "Reform im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Reform in its planned institutional reform sense.",
+        "de": "Reform in der Bedeutung gezielte grundlegende Reform erkennen."
+      },
+      "objective": "Recognize the noun Reform in the specified planned institutional reform sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1934 (54dd5cc88b2df3df85d9273fab42cc8e1e47c75fa1244e364b2d1b5e11d3f6e3), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1934-v1",
+          "contextKey": "legacy-0142-L1934-context-1",
+          "transferKey": "legacy-0142-L1934-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014214",
+            "type": "gap_choice",
+            "prompt": "Die geplante ___ soll das Bildungssystem grundlegend verändern.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The change aims to alter an existing system.",
+              "de": "Die Änderung soll ein bestehendes System umgestalten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reform"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wiederholung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reservierung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Reform changes an existing system deliberately.",
+              "de": "Eine Reform gestaltet ein bestehendes System gezielt um."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die geplante Reform soll das Bildungssystem grundlegend verändern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Reform\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Wiederholung\": Repetition repeats something. \"Lieferung\": Delivery transports goods. \"Reservierung\": Reservation books something. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1934-v2",
+          "contextKey": "legacy-0142-L1934-context-2",
+          "transferKey": "legacy-0142-L1934-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014214",
+            "type": "choice",
+            "prompt": "Ein Land ändert mehrere bestehende Verwaltungsregeln, um Abläufe zu verbessern. Wie nennt man eine solche gezielte Veränderung?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a deliberate restructuring.",
+              "de": "Es ist eine bewusste Umgestaltung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tradition"
+              },
+              {
+                "id": "1",
+                "text": "Stillstand"
+              },
+              {
+                "id": "2",
+                "text": "Reform"
+              },
+              {
+                "id": "3",
+                "text": "Rückgabe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "This is a Reform.",
+              "de": "Das ist eine Reform."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Land führt eine Reform durch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Reform\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Tradition\": Tradition preserves established practices. \"Stillstand\": Stagnation means no progress. \"Rückgabe\": A return gives something back. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014215",
+      "title": {
+        "en": "Understanding Regal in context",
+        "de": "Regal im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Regal in its shelving unit sense.",
+        "de": "Regal in der Bedeutung Regal als Möbelstück erkennen."
+      },
+      "objective": "Recognize the noun Regal in the specified shelving unit sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1935 (9b25acb58e09fe5ea39cec2d68ee9c45abfdcb63d94896ce95535122252eb92b), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1935-v1",
+          "contextKey": "legacy-0142-L1935-context-1",
+          "transferKey": "legacy-0142-L1935-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014215",
+            "type": "gap_choice",
+            "prompt": "Die Bücher stehen ordentlich in einem hohen ___ an der Wand.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The furniture has shelves for storing books.",
+              "de": "Das Möbelstück hat Böden zum Aufbewahren von Büchern."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Teppich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorhang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Koffer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Regal"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Regal means a shelving unit.",
+              "de": "Regal ist ein Möbelstück mit Ablageböden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bücher stehen ordentlich in einem hohen Regal an der Wand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Regal\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Teppich\": A carpet covers a floor. \"Vorhang\": A curtain covers a window. \"Koffer\": A suitcase carries luggage. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1935-v2",
+          "contextKey": "legacy-0142-L1935-context-2",
+          "transferKey": "legacy-0142-L1935-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014215",
+            "type": "choice",
+            "prompt": "Ein Möbelstück hat mehrere übereinanderliegende Böden für Bücher. Wie heißt es?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The books stand on several levels.",
+              "de": "Die Bücher stehen auf mehreren Ebenen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sofa"
+              },
+              {
+                "id": "1",
+                "text": "Regal"
+              },
+              {
+                "id": "2",
+                "text": "Schreibtisch"
+              },
+              {
+                "id": "3",
+                "text": "Bett"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The furniture is a Regal.",
+              "de": "Das Möbelstück ist ein Regal."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Möbelstück ist ein Regal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Regal\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Sofa\": A sofa is for sitting. \"Schreibtisch\": A desk is a work surface. \"Bett\": A bed is for sleeping. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014216",
+      "title": {
+        "en": "Understanding Regalbrett in context",
+        "de": "Regalbrett im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Regalbrett in its individual shelf board sense.",
+        "de": "Regalbrett in der Bedeutung einzelnes Regalbrett erkennen."
+      },
+      "objective": "Recognize the noun Regalbrett in the specified individual shelf board sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1936 (179738fff08c420fda22f20e429f90c332e3384963e8ec3d87d6471317c17bc4), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1936-v1",
+          "contextKey": "legacy-0142-L1936-context-1",
+          "transferKey": "legacy-0142-L1936-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014216",
+            "type": "gap_choice",
+            "prompt": "Das obere ___ ist locker und muss neu befestigt werden.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "One horizontal board in the shelving is loose.",
+              "de": "Ein waagerechter Boden im Regal ist locker."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Türschloss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fenstergriff"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Regalbrett"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tischbein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Regalbrett is one board in a shelf unit.",
+              "de": "Ein Regalbrett ist ein einzelner Ablageboden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das obere Regalbrett ist locker und muss neu befestigt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Regalbrett\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Türschloss\": A door lock secures a door. \"Fenstergriff\": A window handle opens a window. \"Tischbein\": A table leg supports a table. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1936-v2",
+          "contextKey": "legacy-0142-L1936-context-2",
+          "transferKey": "legacy-0142-L1936-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014216",
+            "type": "choice",
+            "prompt": "Ein einzelnes waagerechtes Brett in einem Bücherregal wird ausgetauscht. Wie nennt man es?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It supports books horizontally.",
+              "de": "Es trägt Bücher in waagerechter Lage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Regalbrett"
+              },
+              {
+                "id": "1",
+                "text": "Regalwand"
+              },
+              {
+                "id": "2",
+                "text": "Schublade"
+              },
+              {
+                "id": "3",
+                "text": "Fußleiste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The board is a Regalbrett.",
+              "de": "Das Brett ist ein Regalbrett."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Teil ist ein Regalbrett.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Regalbrett\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Regalwand\": A shelving side panel is vertical. \"Schublade\": A drawer slides out. \"Fußleiste\": A skirting board runs along a wall base. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014217",
+      "title": {
+        "en": "Understanding Regel in context",
+        "de": "Regel im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Regel in its rule of conduct sense.",
+        "de": "Regel in der Bedeutung Verhaltensregel erkennen."
+      },
+      "objective": "Recognize the noun Regel in the specified rule of conduct sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1937 (aa32e7f90695901d126088be4af1985646da4a83666c7dbd638ae300baeeeb76), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1937-v1",
+          "contextKey": "legacy-0142-L1937-context-1",
+          "transferKey": "legacy-0142-L1937-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014217",
+            "type": "gap_choice",
+            "prompt": "Die Schule hat eine klare ___: Im Unterricht bleiben die Handys ausgeschaltet.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It tells students how to behave.",
+              "de": "Sie legt fest, wie sich Schüler verhalten sollen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Regel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestellung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Regel is a rule to follow.",
+              "de": "Eine Regel ist eine Vorgabe, die man einhalten soll."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule hat eine klare Regel: Im Unterricht bleiben die Handys ausgeschaltet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Regel\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Rechnung\": An invoice requests payment. \"Bewerbung\": An application requests a job. \"Bestellung\": An order requests goods. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1937-v2",
+          "contextKey": "legacy-0142-L1937-context-2",
+          "transferKey": "legacy-0142-L1937-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014217",
+            "type": "choice",
+            "prompt": "Alle Kinder müssen vor dem Essen die Hände waschen; diese Vorgabe gilt für alle. Was ist das?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The requirement applies to everyone.",
+              "de": "Die Vorgabe gilt für alle verbindlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wunsch"
+              },
+              {
+                "id": "1",
+                "text": "Zufall"
+              },
+              {
+                "id": "2",
+                "text": "Angebot"
+              },
+              {
+                "id": "3",
+                "text": "Regel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "It is a Regel.",
+              "de": "Das ist eine Regel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Regel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Regel\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Wunsch\": A wish is not binding. \"Zufall\": Chance is not an instruction. \"Angebot\": An offer may be declined. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014218",
+      "title": {
+        "en": "Understanding Regelung in context",
+        "de": "Regelung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Regelung in its binding institutional regulation sense.",
+        "de": "Regelung in der Bedeutung verbindliche betriebliche Regelung erkennen."
+      },
+      "objective": "Recognize the noun Regelung in the specified binding institutional regulation sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1938 (c0a11e56168290b8bce51c164d2de901be01bf3c34e383b28d23d3e1fbca8661), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1938-v1",
+          "contextKey": "legacy-0142-L1938-context-1",
+          "transferKey": "legacy-0142-L1938-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014218",
+            "type": "gap_choice",
+            "prompt": "Die neue betriebliche ___ legt fest, wann die Büros geöffnet sind.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company has formally determined opening times.",
+              "de": "Die Firma hat die Öffnungszeiten verbindlich festgelegt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Regelung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umfrage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reklamation"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Regelung is a formal arrangement or regulation.",
+              "de": "Eine Regelung ist eine verbindliche Festlegung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue betriebliche Regelung legt fest, wann die Büros geöffnet sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Regelung\" (option 0). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Lieferung\": A delivery transports goods. \"Umfrage\": A survey collects opinions. \"Reklamation\": A complaint reports dissatisfaction. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1938-v2",
+          "contextKey": "legacy-0142-L1938-context-2",
+          "transferKey": "legacy-0142-L1938-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014218",
+            "type": "choice",
+            "prompt": "Ein Unternehmen führt eine verbindliche schriftliche Vorgabe für Homeoffice-Tage ein. Wie nennt man diese Festlegung?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The written requirement is binding.",
+              "de": "Die schriftliche Vorgabe ist verbindlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfehlung"
+              },
+              {
+                "id": "1",
+                "text": "Werbung"
+              },
+              {
+                "id": "2",
+                "text": "Regelung"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The formal requirement is a Regelung.",
+              "de": "Die verbindliche Vorgabe ist eine Regelung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen führt eine Regelung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Regelung\" (option 2). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Empfehlung\": A recommendation is not binding. \"Werbung\": Advertising promotes goods. \"Rechnung\": An invoice concerns payment. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014219",
+      "title": {
+        "en": "Understanding Region in context",
+        "de": "Region im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Region in its geographic region sense.",
+        "de": "Region in der Bedeutung geografische Region erkennen."
+      },
+      "objective": "Recognize the noun Region in the specified geographic region sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1941 (efa880f8758a2aaa550fdc9b0c22b315afb8b326aa26a16554e647f2f800a77c), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0142-L1941-v1",
+          "contextKey": "legacy-0142-L1941-context-1",
+          "transferKey": "legacy-0142-L1941-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014219",
+            "type": "gap_choice",
+            "prompt": "Die ___ an der Küste ist für ihre kleinen Fischerdörfer bekannt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the sentence.",
+              "de": "Wähle das Wort, das den Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It describes a geographical area.",
+              "de": "Es geht um ein geografisches Gebiet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Region"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Region means a geographical area.",
+              "de": "Region bezeichnet ein geografisches Gebiet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Region an der Küste ist für ihre kleinen Fischerdörfer bekannt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Region\" (option 3). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Rechnung\": An invoice concerns payment. \"Einladung\": An invitation asks someone to attend. \"Bewerbung\": An application requests employment. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0142-L1941-v2",
+          "contextKey": "legacy-0142-L1941-context-2",
+          "transferKey": "legacy-0142-L1941-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001420191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014219",
+            "type": "choice",
+            "prompt": "Mehrere benachbarte Gemeinden bilden ein geografisches Gebiet mit gemeinsamen Merkmalen. Wie nennt man dieses Gebiet?",
+            "instruction": {
+              "en": "Read the situation and choose the one correct answer.",
+              "de": "Lies die Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The area includes several places.",
+              "de": "Das Gebiet umfasst mehrere Orte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Adresse"
+              },
+              {
+                "id": "1",
+                "text": "Region"
+              },
+              {
+                "id": "2",
+                "text": "Zimmer"
+              },
+              {
+                "id": "3",
+                "text": "Straße"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The area is a Region.",
+              "de": "Das Gebiet ist eine Region."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gebiet ist eine Region.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Region\" (option 1). Reviewed complete German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, unique answer and distinct context. Checked all rejected choices: \"Adresse\": An address identifies a specific location. \"Zimmer\": A room is inside a building. \"Straße\": A street is a road, not a whole geographic area. No human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
