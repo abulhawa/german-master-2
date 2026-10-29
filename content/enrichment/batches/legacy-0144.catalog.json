@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000014400",
+      "title": {
+        "en": "Understanding Retourenschein in context",
+        "de": "Retourenschein im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Retourenschein in its return form enclosed with returned goods sense.",
+        "de": "Retourenschein in der Bedeutung Retourenschein erkennen."
+      },
+      "objective": "Recognize the noun Retourenschein in the specified return form enclosed with returned goods sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1974 (bd939cf759353c7dd40d2974c26b14d4484f9f22277469172889912a57294292), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1974-v1",
+          "contextKey": "legacy-0144-L1974-context-1",
+          "transferKey": "legacy-0144-L1974-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014400",
+            "type": "gap_choice",
+            "prompt": "Der Kunde legte den ausgefüllten ___ ins Paket, damit die Rücksendung zugeordnet werden kann.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The paper identifies a returned order.",
+              "de": "Das Formular ordnet die zurückgeschickte Bestellung zu."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gutschein"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werbeprospekt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Retourenschein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Retourenschein is a return slip.",
+              "de": "Ein Retourenschein begleitet eine Warenrücksendung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kunde legte den ausgefüllten Retourenschein ins Paket, damit die Rücksendung zugeordnet werden kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Retourenschein\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Gutschein\": A voucher gives credit or discount. \"Kaufvertrag\": A contract records sale terms. \"Werbeprospekt\": An advertising brochure promotes goods. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1974-v2",
+          "contextKey": "legacy-0144-L1974-context-2",
+          "transferKey": "legacy-0144-L1974-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014400",
+            "type": "choice",
+            "prompt": "Ein Formular mit Bestellnummer und Rücksendegrund wird einer zurückgeschickten Ware beigelegt. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It accompanies a return, not an initial delivery.",
+              "de": "Es begleitet eine Rücksendung und keine neue Lieferung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferschein"
+              },
+              {
+                "id": "1",
+                "text": "Retourenschein"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Einladung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The form is a Retourenschein.",
+              "de": "Das Formular ist ein Retourenschein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Formular ist ein Retourenschein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Retourenschein\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Lieferschein\": A delivery note lists supplied goods. \"Rechnung\": An invoice requests payment. \"Einladung\": An invitation requests attendance. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014401",
+      "title": {
+        "en": "Understanding Rettungsdienst in context",
+        "de": "Rettungsdienst im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rettungsdienst in its medical emergency rescue service sense.",
+        "de": "Rettungsdienst in der Bedeutung medizinischer Rettungsdienst erkennen."
+      },
+      "objective": "Recognize the noun Rettungsdienst in the specified medical emergency rescue service sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1975 (9fdac84cfe017e98feef091f104a8f3952b81c903d8eada02ba872b483766bf7), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1975-v1",
+          "contextKey": "legacy-0144-L1975-context-1",
+          "transferKey": "legacy-0144-L1975-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014401",
+            "type": "gap_choice",
+            "prompt": "Nach dem Verkehrsunfall wurde der ___ alarmiert, um Verletzte zu versorgen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The call concerns injured people needing emergency care.",
+              "de": "Es geht um Verletzte, die dringend versorgt werden müssen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pannendienst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reinigungsdienst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rettungsdienst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferservice"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rettungsdienst provides emergency medical assistance.",
+              "de": "Der Rettungsdienst hilft bei medizinischen Notfällen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Verkehrsunfall wurde der Rettungsdienst alarmiert, um Verletzte zu versorgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rettungsdienst\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Pannendienst\": A breakdown service assists disabled vehicles. \"Reinigungsdienst\": Cleaning services clean premises. \"Lieferservice\": Delivery services transport goods. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1975-v2",
+          "contextKey": "legacy-0144-L1975-context-2",
+          "transferKey": "legacy-0144-L1975-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014401",
+            "type": "choice",
+            "prompt": "Sanitäter und Rettungswagen werden zu einem medizinischen Notfall geschickt. Welche Organisation hilft?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The service provides urgent medical aid.",
+              "de": "Der Dienst leistet dringende medizinische Hilfe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rettungsdienst"
+              },
+              {
+                "id": "1",
+                "text": "Postdienst"
+              },
+              {
+                "id": "2",
+                "text": "Paketdienst"
+              },
+              {
+                "id": "3",
+                "text": "Hausverwaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The organisation is the Rettungsdienst.",
+              "de": "Die Organisation ist der Rettungsdienst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Rettungsdienst hilft beim Notfall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rettungsdienst\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Postdienst\": Postal services deliver mail. \"Paketdienst\": Parcel services deliver packages. \"Hausverwaltung\": Property management maintains buildings. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014402",
+      "title": {
+        "en": "Understanding Rettungsweg in context",
+        "de": "Rettungsweg im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rettungsweg in its emergency escape route sense.",
+        "de": "Rettungsweg in der Bedeutung Rettungsweg erkennen."
+      },
+      "objective": "Recognize the noun Rettungsweg in the specified emergency escape route sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1976 (e199ad66c6e43db1d3b9c55c25f7b85c19b90a977abe6001156e4191b96dcb58), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1976-v1",
+          "contextKey": "legacy-0144-L1976-context-1",
+          "transferKey": "legacy-0144-L1976-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014402",
+            "type": "gap_choice",
+            "prompt": "Im Gebäude muss der ___ zum Notausgang frei bleiben.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The path is needed to leave safely in an emergency.",
+              "de": "Der Weg wird zum sicheren Verlassen im Notfall benötigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferweg"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rettungsweg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rundgang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rettungsweg means an emergency escape route.",
+              "de": "Ein Rettungsweg führt im Notfall nach draußen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Gebäude muss der Rettungsweg zum Notausgang frei bleiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rettungsweg\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Lieferweg\": A delivery route serves shipments. \"Rundgang\": A tour is for visiting a place. \"Fahrplan\": A timetable lists times. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1976-v2",
+          "contextKey": "legacy-0144-L1976-context-2",
+          "transferKey": "legacy-0144-L1976-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014402",
+            "type": "choice",
+            "prompt": "Ein markierter Flur führt im Notfall sicher aus dem Gebäude. Wie nennt man diesen Weg?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The route is for emergency evacuation.",
+              "de": "Der Weg dient der Evakuierung im Notfall."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Besucherweg"
+              },
+              {
+                "id": "1",
+                "text": "Transportauftrag"
+              },
+              {
+                "id": "2",
+                "text": "Parkplatz"
+              },
+              {
+                "id": "3",
+                "text": "Rettungsweg"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The route is a Rettungsweg.",
+              "de": "Der Weg ist ein Rettungsweg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Rettungsweg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rettungsweg\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Besucherweg\": A visitor route is not specifically an escape route. \"Transportauftrag\": A transport order is a document. \"Parkplatz\": A car park is a place for vehicles. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014403",
+      "title": {
+        "en": "Understanding Rettungszeichen in context",
+        "de": "Rettungszeichen im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rettungszeichen in its emergency escape sign sense.",
+        "de": "Rettungszeichen in der Bedeutung Rettungszeichen erkennen."
+      },
+      "objective": "Recognize the noun Rettungszeichen in the specified emergency escape sign sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1977 (009c1c17a317119401a86c8f1bbd3061743ecca4484c8b878be319c9400807e9), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1977-v1",
+          "contextKey": "legacy-0144-L1977-context-1",
+          "transferKey": "legacy-0144-L1977-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014403",
+            "type": "gap_choice",
+            "prompt": "Das grüne ___ über der Tür weist zum nächsten Notausgang.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The pictogram marks an emergency exit.",
+              "de": "Das Symbol kennzeichnet einen Notausgang."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rettungszeichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbeschild"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Namensschild"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Preisschild"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Rettungszeichen indicates emergency escape or rescue information.",
+              "de": "Ein Rettungszeichen zeigt einen Rettungsweg oder Notausgang an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das grüne Rettungszeichen über der Tür weist zum nächsten Notausgang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rettungszeichen\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Werbeschild\": An advertisement promotes goods. \"Namensschild\": A nameplate identifies a person or place. \"Preisschild\": A price tag displays cost. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1977-v2",
+          "contextKey": "legacy-0144-L1977-context-2",
+          "transferKey": "legacy-0144-L1977-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014403",
+            "type": "choice",
+            "prompt": "Ein grünes Piktogramm mit einer laufenden Person und einem Pfeil zeigt den Fluchtweg. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The sign guides people during evacuation.",
+              "de": "Das Zeichen weist bei der Evakuierung den Weg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verkehrsverbot"
+              },
+              {
+                "id": "1",
+                "text": "Firmenlogo"
+              },
+              {
+                "id": "2",
+                "text": "Rettungszeichen"
+              },
+              {
+                "id": "3",
+                "text": "Preisetikett"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "It is a Rettungszeichen.",
+              "de": "Das ist ein Rettungszeichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Piktogramm ist ein Rettungszeichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rettungszeichen\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Verkehrsverbot\": A traffic prohibition restricts road use. \"Firmenlogo\": A company logo identifies a brand. \"Preisetikett\": A price label displays cost. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014404",
+      "title": {
+        "en": "Understanding Revolution in context",
+        "de": "Revolution im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Revolution in its fundamental social or economic transformation sense.",
+        "de": "Revolution in der Bedeutung grundlegende Umwälzung erkennen."
+      },
+      "objective": "Recognize the noun Revolution in the specified fundamental social or economic transformation sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1978 (7ffd2235a12e8f4047db33ea8edf862b28ea98bb0105d09437e9413b8fe2c0aa), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1978-v1",
+          "contextKey": "legacy-0144-L1978-context-1",
+          "transferKey": "legacy-0144-L1978-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014404",
+            "type": "gap_choice",
+            "prompt": "Die industrielle ___ veränderte die Herstellung von Waren grundlegend.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A major historical transformation changed production.",
+              "de": "Eine tiefgreifende historische Umwälzung veränderte die Produktion."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rezession"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Routine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Revolution"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Revolution can mean a fundamental transformation.",
+              "de": "Revolution kann eine grundlegende Umwälzung bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die industrielle Revolution veränderte die Herstellung von Waren grundlegend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Revolution\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Rezession\": A recession is an economic downturn. \"Reparatur\": Repair fixes damage. \"Routine\": Routine is a repeated habit. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1978-v2",
+          "contextKey": "legacy-0144-L1978-context-2",
+          "transferKey": "legacy-0144-L1978-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014404",
+            "type": "choice",
+            "prompt": "Eine tiefgreifende Umwälzung verändert Wirtschaft und Gesellschaft. Welches Wort passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The change is fundamental, not routine.",
+              "de": "Die Veränderung ist grundlegend und nicht alltäglich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stillstand"
+              },
+              {
+                "id": "1",
+                "text": "Revolution"
+              },
+              {
+                "id": "2",
+                "text": "Wiederholung"
+              },
+              {
+                "id": "3",
+                "text": "Lieferung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "This is a Revolution.",
+              "de": "Das ist eine Revolution."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Veränderung ist eine Revolution.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Revolution\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Stillstand\": Stagnation means little or no change. \"Wiederholung\": Repetition repeats an action. \"Lieferung\": Delivery transports goods. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014405",
+      "title": {
+        "en": "Understanding Rezeptionist in context",
+        "de": "Rezeptionist im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rezeptionist in its male hotel receptionist sense.",
+        "de": "Rezeptionist in der Bedeutung männlicher Rezeptionist erkennen."
+      },
+      "objective": "Recognize the noun Rezeptionist in the specified male hotel receptionist sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1981 (b25c50bf8dfa3e61828ba0a74a42ca2aa29eea9eeef4f77cbb751beb70817082), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1981-v1",
+          "contextKey": "legacy-0144-L1981-context-1",
+          "transferKey": "legacy-0144-L1981-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014405",
+            "type": "gap_choice",
+            "prompt": "Der ___ begrüßte die Hotelgäste am Empfang und gab ihnen die Zimmerschlüssel.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He works at the hotel's front desk.",
+              "de": "Er arbeitet am Empfang des Hotels."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Koch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rezeptionist"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reiseleiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Rezeptionist works at reception.",
+              "de": "Ein Rezeptionist arbeitet am Empfang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Rezeptionist begrüßte die Hotelgäste am Empfang und gab ihnen die Zimmerschlüssel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rezeptionist\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Koch\": A cook prepares meals. \"Hausmeister\": A caretaker maintains a building. \"Reiseleiter\": A tour guide accompanies travellers. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1981-v2",
+          "contextKey": "legacy-0144-L1981-context-2",
+          "transferKey": "legacy-0144-L1981-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014405",
+            "type": "choice",
+            "prompt": "Ein Mann erledigt am Hotelempfang Check-ins und beantwortet Gästeanfragen. Welche Berufsbezeichnung passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "His work is at the front desk.",
+              "de": "Seine Arbeit findet am Empfang statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rezeptionist"
+              },
+              {
+                "id": "1",
+                "text": "Kellner"
+              },
+              {
+                "id": "2",
+                "text": "Busfahrer"
+              },
+              {
+                "id": "3",
+                "text": "Zimmermann"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The role is Rezeptionist.",
+              "de": "Die Berufsbezeichnung ist Rezeptionist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Rezeptionist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rezeptionist\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Kellner\": A waiter serves food. \"Busfahrer\": A bus driver transports passengers. \"Zimmermann\": A carpenter works with wood. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014407",
+      "title": {
+        "en": "Understanding Richter in context",
+        "de": "Richter im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Richter in its male judge in a court sense.",
+        "de": "Richter in der Bedeutung männlicher Richter erkennen."
+      },
+      "objective": "Recognize the noun Richter in the specified male judge in a court sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1983 (f57f688a76107c4de35ca157a6a84b7c4b98c37d7cc1dd5b024987226f50d48f), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1983-v1",
+          "contextKey": "legacy-0144-L1983-context-1",
+          "transferKey": "legacy-0144-L1983-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014407",
+            "type": "gap_choice",
+            "prompt": "Der ___ leitete die Gerichtsverhandlung und verkündete das Urteil.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He presides over the court proceeding.",
+              "de": "Er leitet das Gerichtsverfahren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Richter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anwalt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zeuge"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dolmetscher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Richter is a judge.",
+              "de": "Ein Richter entscheidet in einem Gerichtsverfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Richter leitete die Gerichtsverhandlung und verkündete das Urteil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Richter\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Anwalt\": A lawyer represents or advises a party. \"Zeuge\": A witness gives testimony. \"Dolmetscher\": An interpreter translates speech. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1983-v2",
+          "contextKey": "legacy-0144-L1983-context-2",
+          "transferKey": "legacy-0144-L1983-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014407",
+            "type": "choice",
+            "prompt": "Ein Mann entscheidet in einem Gerichtsverfahren nach Anhörung der Beteiligten. Welche Funktion hat er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is responsible for the judicial decision.",
+              "de": "Er ist für die richterliche Entscheidung zuständig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Staatsanwalt"
+              },
+              {
+                "id": "1",
+                "text": "Verteidiger"
+              },
+              {
+                "id": "2",
+                "text": "Richter"
+              },
+              {
+                "id": "3",
+                "text": "Gerichtsschreiber"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The role is Richter.",
+              "de": "Die Funktion heißt Richter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Richter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Richter\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Staatsanwalt\": A prosecutor represents the prosecution. \"Verteidiger\": A defence lawyer represents the accused. \"Gerichtsschreiber\": A court clerk records proceedings. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014409",
+      "title": {
+        "en": "Understanding Richtigkeit in context",
+        "de": "Richtigkeit im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Richtigkeit in its correctness or accuracy of information sense.",
+        "de": "Richtigkeit in der Bedeutung Richtigkeit von Angaben erkennen."
+      },
+      "objective": "Recognize the noun Richtigkeit in the specified correctness or accuracy of information sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1985 (cc23257d82b78dfcb7938ab5aba84958730f172d246ab6882eaf84f1c44e8d64), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1985-v1",
+          "contextKey": "legacy-0144-L1985-context-1",
+          "transferKey": "legacy-0144-L1985-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014409",
+            "type": "gap_choice",
+            "prompt": "Vor dem Versand prüft die Sachbearbeiterin die ___ der eingegebenen Daten.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The data must match the originals.",
+              "de": "Die Daten sollen mit den Originalangaben übereinstimmen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schönheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Richtigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautstärke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Richtigkeit means correctness or accuracy.",
+              "de": "Richtigkeit bedeutet sachliche Korrektheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Versand prüft die Sachbearbeiterin die Richtigkeit der eingegebenen Daten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Richtigkeit\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Schönheit\": Beauty is aesthetic quality. \"Geschwindigkeit\": Speed measures rate. \"Lautstärke\": Volume concerns sound. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1985-v2",
+          "contextKey": "legacy-0144-L1985-context-2",
+          "transferKey": "legacy-0144-L1985-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014409",
+            "type": "choice",
+            "prompt": "Alle Zahlen im Bericht stimmen mit den Originalbelegen überein. Welche Eigenschaft wurde geprüft?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The numbers were checked for being correct.",
+              "de": "Die Zahlen wurden auf Korrektheit geprüft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Richtigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Lesbarkeit"
+              },
+              {
+                "id": "2",
+                "text": "Farbe"
+              },
+              {
+                "id": "3",
+                "text": "Länge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The checked property is Richtigkeit.",
+              "de": "Geprüft wurde die Richtigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Richtigkeit der Zahlen wurde geprüft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Richtigkeit\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Lesbarkeit\": Readability concerns ease of reading. \"Farbe\": Colour is appearance. \"Länge\": Length is extent. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014410",
+      "title": {
+        "en": "Understanding Richtung in context",
+        "de": "Richtung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Richtung in its direction of movement sense.",
+        "de": "Richtung in der Bedeutung Richtung erkennen."
+      },
+      "objective": "Recognize the noun Richtung in the specified direction of movement sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1986 (acf4361cacbe14310772a4e112a7fa84f9270ff6f8cf1c6d81c75117a8743dd2), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1986-v1",
+          "contextKey": "legacy-0144-L1986-context-1",
+          "transferKey": "legacy-0144-L1986-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014410",
+            "type": "gap_choice",
+            "prompt": "An der Kreuzung zeigte der Wegweiser die ___ zum Bahnhof an.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sign tells where to go.",
+              "de": "Das Schild zeigt, wohin man gehen soll."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Richtung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Uhrzeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Temperatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Richtung tells where something points or moves.",
+              "de": "Richtung gibt an, wohin etwas führt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An der Kreuzung zeigte der Wegweiser die Richtung zum Bahnhof an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Richtung\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Geschwindigkeit\": Speed describes how fast. \"Uhrzeit\": Time gives a clock reading. \"Temperatur\": Temperature measures heat. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1986-v2",
+          "contextKey": "legacy-0144-L1986-context-2",
+          "transferKey": "legacy-0144-L1986-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014410",
+            "type": "choice",
+            "prompt": "Ein Pfeil auf der Karte zeigt nach Norden. Welche Information vermittelt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The arrow points where to travel.",
+              "de": "Der Pfeil zeigt, wohin man sich bewegen soll."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Entfernung"
+              },
+              {
+                "id": "1",
+                "text": "Dauer"
+              },
+              {
+                "id": "2",
+                "text": "Preis"
+              },
+              {
+                "id": "3",
+                "text": "Richtung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The arrow indicates Richtung.",
+              "de": "Der Pfeil zeigt eine Richtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Pfeil zeigt die Richtung an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Richtung\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Entfernung\": Distance measures length. \"Dauer\": Duration measures time. \"Preis\": Price measures cost. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014411",
+      "title": {
+        "en": "Understanding Risiko in context",
+        "de": "Risiko im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Risiko in its possibility of an undesirable outcome sense.",
+        "de": "Risiko in der Bedeutung Risiko erkennen."
+      },
+      "objective": "Recognize the noun Risiko in the specified possibility of an undesirable outcome sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1989 (d59967cd0c72974d3db6d852418d232d1bd88192b847c8c03c0e0b5e1d9498ac), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1989-v1",
+          "contextKey": "legacy-0144-L1989-context-1",
+          "transferKey": "legacy-0144-L1989-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014411",
+            "type": "gap_choice",
+            "prompt": "Ohne Sicherheitskopie besteht das ___, wichtige Dateien zu verlieren.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The loss is possible but not certain.",
+              "de": "Der Verlust ist möglich, aber nicht sicher."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Risiko"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorteil"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Recht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ergebnis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Risiko is the possibility of an unwanted outcome.",
+              "de": "Risiko ist die Möglichkeit eines unerwünschten Ereignisses."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Sicherheitskopie besteht das Risiko, wichtige Dateien zu verlieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Risiko\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Vorteil\": An advantage is beneficial. \"Recht\": A right is an entitlement. \"Ergebnis\": A result is an outcome, not its uncertainty. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1989-v2",
+          "contextKey": "legacy-0144-L1989-context-2",
+          "transferKey": "legacy-0144-L1989-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014411",
+            "type": "choice",
+            "prompt": "Eine Firma weiß, dass eine Investition scheitern könnte. Was bezeichnet die Möglichkeit eines Verlusts?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The outcome is uncertain and could be negative.",
+              "de": "Der Ausgang ist unsicher und könnte negativ sein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Garantie"
+              },
+              {
+                "id": "1",
+                "text": "Gewinn"
+              },
+              {
+                "id": "2",
+                "text": "Risiko"
+              },
+              {
+                "id": "3",
+                "text": "Rabatt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The possibility of loss is Risiko.",
+              "de": "Die Möglichkeit eines Verlusts ist ein Risiko."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Investition birgt ein Risiko.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Risiko\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Garantie\": A guarantee promises a condition. \"Gewinn\": Profit is a positive return. \"Rabatt\": A discount lowers price. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014412",
+      "title": {
+        "en": "Understanding Risikobereitschaft in context",
+        "de": "Risikobereitschaft im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Risikobereitschaft in its willingness to accept risk sense.",
+        "de": "Risikobereitschaft in der Bedeutung Risikobereitschaft erkennen."
+      },
+      "objective": "Recognize the noun Risikobereitschaft in the specified willingness to accept risk sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1990 (9d1f671cdb24be1b3a100d98a82dc9bde933497a117984add091560ea87512a1), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1990-v1",
+          "contextKey": "legacy-0144-L1990-context-1",
+          "transferKey": "legacy-0144-L1990-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014412",
+            "type": "gap_choice",
+            "prompt": "Die Gründerin investiert trotz unsicherer Aussichten; ihre ___ ist hoch.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She accepts uncertainty in pursuit of a goal.",
+              "de": "Sie akzeptiert Unsicherheit, um ein Ziel zu erreichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pünktlichkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sprachkenntnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Risikobereitschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Risikobereitschaft is willingness to take risks.",
+              "de": "Risikobereitschaft bedeutet, Risiken bewusst einzugehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gründerin investiert trotz unsicherer Aussichten; ihre Risikobereitschaft ist hoch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Risikobereitschaft\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Pünktlichkeit\": Punctuality means being on time. \"Sprachkenntnis\": Language skill concerns languages. \"Geduld\": Patience means waiting calmly. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1990-v2",
+          "contextKey": "legacy-0144-L1990-context-2",
+          "transferKey": "legacy-0144-L1990-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014412",
+            "type": "choice",
+            "prompt": "Eine Person akzeptiert für eine mögliche Chance bewusst einen unsicheren Ausgang. Welche Eigenschaft zeigt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She is willing to face possible losses.",
+              "de": "Sie ist bereit, mögliche Verluste in Kauf zu nehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sparsamkeit"
+              },
+              {
+                "id": "1",
+                "text": "Risikobereitschaft"
+              },
+              {
+                "id": "2",
+                "text": "Zurückhaltung"
+              },
+              {
+                "id": "3",
+                "text": "Gleichgültigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "This shows Risikobereitschaft.",
+              "de": "Das zeigt Risikobereitschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person zeigt Risikobereitschaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Risikobereitschaft\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Sparsamkeit\": Thrift concerns spending less. \"Zurückhaltung\": Restraint means holding back. \"Gleichgültigkeit\": Indifference means not caring, not deliberate risk acceptance. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014413",
+      "title": {
+        "en": "Understanding Rivalität in context",
+        "de": "Rivalität im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rivalität in its longstanding rivalry or competition sense.",
+        "de": "Rivalität in der Bedeutung Rivalität erkennen."
+      },
+      "objective": "Recognize the noun Rivalität in the specified longstanding rivalry or competition sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1991 (d6803490e2551bb7f9498e4a5fa676d800aa77d185fafb74f1726fc09030ccbf), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1991-v1",
+          "contextKey": "legacy-0144-L1991-context-1",
+          "transferKey": "legacy-0144-L1991-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014413",
+            "type": "gap_choice",
+            "prompt": "Zwischen den beiden Sportvereinen besteht seit Jahren eine starke ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The clubs compete against each other.",
+              "de": "Die Vereine konkurrieren miteinander."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Freundschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zusammenarbeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rivalität"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vereinbarung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rivalität is sustained competition.",
+              "de": "Rivalität ist ein dauerhaftes Konkurrenzverhältnis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den beiden Sportvereinen besteht seit Jahren eine starke Rivalität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rivalität\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Freundschaft\": Friendship is an amicable relationship. \"Zusammenarbeit\": Cooperation is working together. \"Vereinbarung\": An agreement is a negotiated arrangement. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1991-v2",
+          "contextKey": "legacy-0144-L1991-context-2",
+          "transferKey": "legacy-0144-L1991-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014413",
+            "type": "choice",
+            "prompt": "Zwei Firmen versuchen dauerhaft, sich gegenseitig zu übertreffen. Wie nennt man dieses Verhältnis?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Each company wants to outperform the other.",
+              "de": "Jede Firma will besser sein als die andere."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rivalität"
+              },
+              {
+                "id": "1",
+                "text": "Partnerschaft"
+              },
+              {
+                "id": "2",
+                "text": "Fusion"
+              },
+              {
+                "id": "3",
+                "text": "Neutralität"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "This relationship is Rivalität.",
+              "de": "Dieses Verhältnis ist Rivalität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den Firmen besteht Rivalität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rivalität\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Partnerschaft\": A partnership is cooperation. \"Fusion\": A merger combines companies. \"Neutralität\": Neutrality means not taking sides. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014414",
+      "title": {
+        "en": "Understanding Rohmaterial in context",
+        "de": "Rohmaterial im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rohmaterial in its unprocessed raw material sense.",
+        "de": "Rohmaterial in der Bedeutung Rohmaterial erkennen."
+      },
+      "objective": "Recognize the noun Rohmaterial in the specified unprocessed raw material sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1993 (fbd064043726f5c7f8db227397b22868836bfd86ca0992328b4a4bed8f718f48), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1993-v1",
+          "contextKey": "legacy-0144-L1993-context-1",
+          "transferKey": "legacy-0144-L1993-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014414",
+            "type": "gap_choice",
+            "prompt": "Für die Möbelproduktion wird ___ wie unbehandeltes Holz benötigt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The material has not yet been turned into a finished product.",
+              "de": "Das Material wurde noch nicht zum Endprodukt verarbeitet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fertigware"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rohmaterial"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werbematerial"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verpackung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rohmaterial is unprocessed input for production.",
+              "de": "Rohmaterial ist unverarbeitetes Material für die Herstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Möbelproduktion wird Rohmaterial wie unbehandeltes Holz benötigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rohmaterial\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Fertigware\": Finished goods have already been produced. \"Werbematerial\": Advertising material promotes goods. \"Verpackung\": Packaging encloses products. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1993-v2",
+          "contextKey": "legacy-0144-L1993-context-2",
+          "transferKey": "legacy-0144-L1993-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014414",
+            "type": "choice",
+            "prompt": "Eine Fabrik kauft unverarbeitetes Metall, aus dem später Bauteile entstehen. Was ist das Metall?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is an input to manufacturing.",
+              "de": "Es ist ein Ausgangsstoff für die Fertigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Endprodukt"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Ersatzteil"
+              },
+              {
+                "id": "3",
+                "text": "Rohmaterial"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The metal is Rohmaterial.",
+              "de": "Das Metall ist Rohmaterial."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Metall ist Rohmaterial.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rohmaterial\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Endprodukt\": A finished product comes after processing. \"Rechnung\": An invoice is a document. \"Ersatzteil\": A spare part is a manufactured component. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014415",
+      "title": {
+        "en": "Understanding Rohr in context",
+        "de": "Rohr im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rohr in its pipe or tube for conveying liquid sense.",
+        "de": "Rohr in der Bedeutung Rohr erkennen."
+      },
+      "objective": "Recognize the noun Rohr in the specified pipe or tube for conveying liquid sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1994 (3d40e18cdf9cda99ebc12d87bcd1c228dbe9d9820646c92639788875cc8431b4), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1994-v1",
+          "contextKey": "legacy-0144-L1994-context-1",
+          "transferKey": "legacy-0144-L1994-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014415",
+            "type": "gap_choice",
+            "prompt": "Unter der Spüle ist ein ___ undicht, deshalb tropft Wasser auf den Boden.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Water flows through the hollow component.",
+              "de": "Wasser fließt durch das hohle Bauteil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rohr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kabel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Brett"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schalter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Rohr is a pipe or tube.",
+              "de": "Ein Rohr ist eine hohle Leitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Unter der Spüle ist ein Rohr undicht, deshalb tropft Wasser auf den Boden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rohr\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Kabel\": A cable carries electricity or signals. \"Brett\": A board is solid wood. \"Schalter\": A switch controls a circuit. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1994-v2",
+          "contextKey": "legacy-0144-L1994-context-2",
+          "transferKey": "legacy-0144-L1994-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014415",
+            "type": "choice",
+            "prompt": "Ein hohler Zylinder leitet Wasser durch die Hauswand. Wie nennt man ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The object conducts liquid through its interior.",
+              "de": "Das Bauteil leitet Flüssigkeit durch sein Inneres."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Draht"
+              },
+              {
+                "id": "1",
+                "text": "Schraube"
+              },
+              {
+                "id": "2",
+                "text": "Rohr"
+              },
+              {
+                "id": "3",
+                "text": "Fliese"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The object is a Rohr.",
+              "de": "Das Bauteil ist ein Rohr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Rohr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rohr\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Draht\": Wire is a thin conductor. \"Schraube\": A screw fastens parts. \"Fliese\": A tile covers a surface. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014417",
+      "title": {
+        "en": "Understanding Rollentausch in context",
+        "de": "Rollentausch im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rollentausch in its exchange of roles between people sense.",
+        "de": "Rollentausch in der Bedeutung Rollentausch erkennen."
+      },
+      "objective": "Recognize the noun Rollentausch in the specified exchange of roles between people sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1996 (a2063f7b95e706816b960d2942c6988d8297768460485419563167de1e22c55a), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1996-v1",
+          "contextKey": "legacy-0144-L1996-context-1",
+          "transferKey": "legacy-0144-L1996-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014417",
+            "type": "gap_choice",
+            "prompt": "Beim Training übernehmen Chefin und Mitarbeiter gegenseitig ihre Aufgaben; dieser ___ zeigt neue Perspektiven.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The participants exchange what each normally does.",
+              "de": "Die Beteiligten tauschen ihre üblichen Aufgaben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stellenabbau"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tarifabschluss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rollentausch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferwechsel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rollentausch means exchanging roles.",
+              "de": "Rollentausch bedeutet den Wechsel von Rollen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Training übernehmen Chefin und Mitarbeiter gegenseitig ihre Aufgaben; dieser Rollentausch zeigt neue Perspektiven.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rollentausch\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Stellenabbau\": Staff reduction removes jobs. \"Tarifabschluss\": A collective agreement settles employment terms. \"Lieferwechsel\": A supplier change changes vendors. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1996-v2",
+          "contextKey": "legacy-0144-L1996-context-2",
+          "transferKey": "legacy-0144-L1996-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014417",
+            "type": "choice",
+            "prompt": "In einem Rollenspiel spielt der Kunde den Verkäufer und umgekehrt. Wie nennt man den Wechsel der Rollen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The participants switch their parts.",
+              "de": "Die Beteiligten wechseln ihre Rollen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rollentausch"
+              },
+              {
+                "id": "1",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "2",
+                "text": "Dienstreise"
+              },
+              {
+                "id": "3",
+                "text": "Abrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "This is Rollentausch.",
+              "de": "Das ist ein Rollentausch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Rollentausch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rollentausch\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Bewerbung\": An application seeks a role. \"Dienstreise\": A business trip is travel. \"Abrechnung\": Billing calculates charges. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014418",
+      "title": {
+        "en": "Understanding Roman in context",
+        "de": "Roman im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Roman in its novel as long fictional prose sense.",
+        "de": "Roman in der Bedeutung Roman als längere Erzählung erkennen."
+      },
+      "objective": "Recognize the noun Roman in the specified novel as long fictional prose sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1997 (54ea4c2b4fe010e71bfcf373d81ff783b809d0dfe0782e92e6405982077840fb), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L1997-v1",
+          "contextKey": "legacy-0144-L1997-context-1",
+          "transferKey": "legacy-0144-L1997-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014418",
+            "type": "gap_choice",
+            "prompt": "Der neue ___ erzählt die erfundene Geschichte einer Familie über drei Generationen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The book tells an extended fictional story.",
+              "de": "Das Buch erzählt eine längere erfundene Geschichte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Roman"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bericht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rezept"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Roman is a novel.",
+              "de": "Ein Roman ist eine längere erzählende Dichtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Roman erzählt die erfundene Geschichte einer Familie über drei Generationen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Roman\" (option 1). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Fahrplan\": A timetable lists times. \"Bericht\": A report presents factual information. \"Rezept\": A recipe gives cooking instructions. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L1997-v2",
+          "contextKey": "legacy-0144-L1997-context-2",
+          "transferKey": "legacy-0144-L1997-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014418",
+            "type": "choice",
+            "prompt": "Eine Autorin schreibt eine längere fiktive Erzählung mit mehreren Figuren. Welche Textsorte ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The work is fiction, not instructions.",
+              "de": "Der Text ist eine erfundene Erzählung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wörterbuch"
+              },
+              {
+                "id": "1",
+                "text": "Gebrauchsanweisung"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Roman"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The text is a Roman.",
+              "de": "Der Text ist ein Roman."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Autorin schreibt einen Roman.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Roman\" (option 3). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Wörterbuch\": A dictionary defines words. \"Gebrauchsanweisung\": An instruction manual explains use. \"Rechnung\": An invoice requests payment. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014419",
+      "title": {
+        "en": "Understanding Rückfahrt in context",
+        "de": "Rückfahrt im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rückfahrt in its return journey to the starting point sense.",
+        "de": "Rückfahrt in der Bedeutung Rückfahrt erkennen."
+      },
+      "objective": "Recognize the noun Rückfahrt in the specified return journey to the starting point sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2000 (9d9ba978e56c6a33ebee4cb256111f07b69c054cdcbab7be0fb14c9aed9292a1), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0144-L2000-v1",
+          "contextKey": "legacy-0144-L2000-context-1",
+          "transferKey": "legacy-0144-L2000-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014419",
+            "type": "gap_choice",
+            "prompt": "Nach dem Konzert dauerte die ___ nach Hause wegen des Staus länger.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The journey goes back home after the event.",
+              "de": "Die Fahrt führt nach der Veranstaltung zurück nach Hause."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rückfahrt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hinfahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rundfahrt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Probefahrt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rückfahrt is the journey back.",
+              "de": "Rückfahrt bedeutet die Fahrt zurück."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Konzert dauerte die Rückfahrt nach Hause wegen des Staus länger.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rückfahrt\" (option 0). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Hinfahrt\": Hinfahrt is the outward journey. \"Rundfahrt\": Rundfahrt is a circular sightseeing trip. \"Probefahrt\": Probefahrt tests a vehicle. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        },
+        {
+          "variantKey": "legacy-0144-L2000-v2",
+          "contextKey": "legacy-0144-L2000-context-2",
+          "transferKey": "legacy-0144-L2000-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001440191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014419",
+            "type": "choice",
+            "prompt": "Die Gruppe fährt nach einem Ausflug wieder zum Ausgangsort. Wie nennt man diese Fahrt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The direction is back to where they started.",
+              "de": "Die Richtung führt zurück zum Ausgangsort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anreise"
+              },
+              {
+                "id": "1",
+                "text": "Umleitung"
+              },
+              {
+                "id": "2",
+                "text": "Rückfahrt"
+              },
+              {
+                "id": "3",
+                "text": "Fahrprüfung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The journey is Rückfahrt.",
+              "de": "Die Fahrt ist die Rückfahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe beginnt die Rückfahrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rückfahrt\" (option 2). Reviewed complete German sentence, source B1/B2 label, grammar, bilingual instruction/hint/explanation, unique answer and distinct context. Every rejected option: \"Anreise\": Anreise is arrival or travel to a destination. \"Umleitung\": A detour is an alternative route. \"Fahrprüfung\": A driving test assesses driving skill. Human linguistic, CEFR and rights approval pending; no measured transfer."
+        }
+      ]
+    }
+  ]
+}
