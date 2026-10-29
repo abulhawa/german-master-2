@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000016800",
+      "title": {
+        "en": "Using Vollzeit accurately",
+        "de": "Vollzeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vollzeit in the sense of full-time employment rather than part-time work.",
+        "de": "Vollzeit im Sinn von Beschäftigung in Vollzeit statt Teilzeit erkennen."
+      },
+      "objective": "Recognize Vollzeit in the specified full-time employment rather than part-time work sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2599 (1fca87a3db645b7773a5d424e3f984f4ab263dff015b2dcf550a823c645377ee), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2599-v1",
+          "contextKey": "legacy-0168-L2599-context-1",
+          "transferKey": "legacy-0168-L2599-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016800",
+            "type": "gap_choice",
+            "prompt": "Nach zwei Jahren Teilzeit arbeitet Lara jetzt wieder in ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She now works the regular full schedule.",
+              "de": "Sie arbeitet jetzt mit der regulären vollen Stundenzahl."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Elternzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Freizeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vollzeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kurzarbeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vollzeit means working the full regular hours.",
+              "de": "Vollzeit bedeutet die reguläre volle Arbeitszeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zwei Jahren Teilzeit arbeitet Lara jetzt wieder in Vollzeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vollzeit' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Elternzeit: Parental leave. Freizeit: Time outside work. Vollzeit: Correct: full-time employment. Kurzarbeit: Reduced hours due to economic conditions. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2599-v2",
+          "contextKey": "legacy-0168-L2599-context-2",
+          "transferKey": "legacy-0168-L2599-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016800",
+            "type": "choice",
+            "prompt": "Eine Stelle umfasst die übliche volle Wochenarbeitszeit des Betriebs. Wie wird diese Beschäftigung bezeichnet?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The role is not a reduced-hours position.",
+              "de": "Die Stelle hat keine reduzierte Wochenarbeitszeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ehrenamt"
+              },
+              {
+                "id": "1",
+                "text": "Vollzeit"
+              },
+              {
+                "id": "2",
+                "text": "Minijob"
+              },
+              {
+                "id": "3",
+                "text": "Teilzeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vollzeit means working the full regular hours.",
+              "de": "Vollzeit bedeutet die reguläre volle Arbeitszeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stelle ist eine Vollzeitstelle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vollzeit' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ehrenamt: Unpaid voluntary work. Vollzeit: Correct: full-time. Minijob: A low-earnings employment category. Teilzeit: Reduced working hours. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016801",
+      "title": {
+        "en": "Using Voranmeldung accurately",
+        "de": "Voranmeldung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Voranmeldung in the sense of registration completed before an event.",
+        "de": "Voranmeldung im Sinn von Anmeldung vor einer Veranstaltung erkennen."
+      },
+      "objective": "Recognize Voranmeldung in the specified registration completed before an event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2600 (233a569d93064e7128de1da728f160c274deb98025907b4022cf69bebf13e062), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2600-v1",
+          "contextKey": "legacy-0168-L2600-context-1",
+          "transferKey": "legacy-0168-L2600-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016801",
+            "type": "gap_choice",
+            "prompt": "Für die Führung ist eine ___ bis Freitag erforderlich.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Participants must register before the event.",
+              "de": "Teilnehmer müssen sich vor der Veranstaltung anmelden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abmeldung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Nachzahlung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rückgabe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Voranmeldung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Voranmeldung is registration ahead of time.",
+              "de": "Voranmeldung bedeutet, sich im Voraus anzumelden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Führung ist eine Voranmeldung bis Freitag erforderlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Voranmeldung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Abmeldung: Cancellation of registration. Nachzahlung: Additional payment. Rückgabe: Return of goods. Voranmeldung: Correct: register in advance. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2600-v2",
+          "contextKey": "legacy-0168-L2600-context-2",
+          "transferKey": "legacy-0168-L2600-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016801",
+            "type": "choice",
+            "prompt": "Ein Workshop hat nur zwölf Plätze. Interessierte müssen sich eine Woche vorher eintragen. Was ist nötig?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Places are reserved before the workshop.",
+              "de": "Die Plätze werden vor dem Workshop reserviert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reklamation"
+              },
+              {
+                "id": "1",
+                "text": "Kündigung"
+              },
+              {
+                "id": "2",
+                "text": "Voranmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Nachbestellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Voranmeldung is registration ahead of time.",
+              "de": "Voranmeldung bedeutet, sich im Voraus anzumelden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Voranmeldung ist nötig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Voranmeldung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Reklamation: Complaint about a defect. Kündigung: Termination of a contract. Voranmeldung: Correct: advance registration. Nachbestellung: Ordering more goods. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016802",
+      "title": {
+        "en": "Using Voraussetzung accurately",
+        "de": "Voraussetzung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Voraussetzung in the sense of a condition that must be met beforehand.",
+        "de": "Voraussetzung im Sinn von Bedingung, die vorher erfüllt sein muss erkennen."
+      },
+      "objective": "Recognize Voraussetzung in the specified a condition that must be met beforehand sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2601 (b813701ca2747a8bfb30ae104a239d764335ce13a11636660d42208ccfb5c927), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2601-v1",
+          "contextKey": "legacy-0168-L2601-context-1",
+          "transferKey": "legacy-0168-L2601-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016802",
+            "type": "gap_choice",
+            "prompt": "Ein gültiger Führerschein ist eine ___ für diese Fahrerstelle.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The condition is required before employment.",
+              "de": "Die Bedingung muss vor der Einstellung erfüllt sein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Voraussetzung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Belohnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausnahme"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verspätung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Voraussetzung means a prerequisite.",
+              "de": "Eine Voraussetzung ist eine notwendige Bedingung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein gültiger Führerschein ist eine Voraussetzung für diese Fahrerstelle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Voraussetzung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Voraussetzung: Correct: necessary condition. Belohnung: A reward comes afterward. Ausnahme: An exception changes a rule. Verspätung: A delay concerns time. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2601-v2",
+          "contextKey": "legacy-0168-L2601-context-2",
+          "transferKey": "legacy-0168-L2601-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016802",
+            "type": "choice",
+            "prompt": "Ohne abgeschlossenes Studium darf man sich für das Programm nicht bewerben. Was ist der Abschluss?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The qualification is mandatory.",
+              "de": "Die Qualifikation ist verpflichtend."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ergebnis"
+              },
+              {
+                "id": "1",
+                "text": "Empfehlung"
+              },
+              {
+                "id": "2",
+                "text": "Zufall"
+              },
+              {
+                "id": "3",
+                "text": "Voraussetzung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Voraussetzung means a prerequisite.",
+              "de": "Eine Voraussetzung ist eine notwendige Bedingung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Abschluss ist eine Voraussetzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Voraussetzung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ergebnis: An outcome occurs afterward. Empfehlung: Advice is not necessarily mandatory. Zufall: Chance is not a condition. Voraussetzung: Correct: a prerequisite. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016803",
+      "title": {
+        "en": "Using Vorbereitung accurately",
+        "de": "Vorbereitung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorbereitung in the sense of work done in advance to be ready.",
+        "de": "Vorbereitung im Sinn von Vorbereitung auf eine Aufgabe erkennen."
+      },
+      "objective": "Recognize Vorbereitung in the specified work done in advance to be ready sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2602 (47fb4c4374c5849e3177843510f8deaf431b9fec2024a79bbaef650dcfed8bdc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2602-v1",
+          "contextKey": "legacy-0168-L2602-context-1",
+          "transferKey": "legacy-0168-L2602-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016803",
+            "type": "gap_choice",
+            "prompt": "Zur ___ auf das Vorstellungsgespräch liest Amir Informationen über die Firma.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He gets ready before the interview.",
+              "de": "Er macht sich vor dem Gespräch bereit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorbereitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nachbereitung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verzögerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorbereitung is getting ready for a future task.",
+              "de": "Vorbereitung bedeutet, sich auf eine kommende Aufgabe einzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Vorbereitung auf das Vorstellungsgespräch liest Amir Informationen über die Firma.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorbereitung' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Entlassung: Dismissal from employment. Vorbereitung: Correct: advance preparation. Nachbereitung: Follow-up work afterward. Verzögerung: A delay. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2602-v2",
+          "contextKey": "legacy-0168-L2602-context-2",
+          "transferKey": "legacy-0168-L2602-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016803",
+            "type": "choice",
+            "prompt": "Vor einer Prüfung erstellt Jana einen Lernplan und wiederholt alle Themen. Wie nennt man diese Tätigkeiten?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The activities happen before the exam.",
+              "de": "Die Tätigkeiten finden vor der Prüfung statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vorbereitung"
+              },
+              {
+                "id": "1",
+                "text": "Erholung"
+              },
+              {
+                "id": "2",
+                "text": "Abrechnung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Vorbereitung is getting ready for a future task.",
+              "de": "Vorbereitung bedeutet, sich auf eine kommende Aufgabe einzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Vorbereitung auf die Prüfung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorbereitung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorbereitung: Correct: exam preparation. Erholung: Rest and recovery. Abrechnung: Financial settlement. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016804",
+      "title": {
+        "en": "Using Vordergrund accurately",
+        "de": "Vordergrund im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vordergrund in the sense of the front part of an image or scene.",
+        "de": "Vordergrund im Sinn von vorderer Bereich eines Bildes erkennen."
+      },
+      "objective": "Recognize Vordergrund in the specified the front part of an image or scene sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2603 (49671e77e2f9a4f0fef83f64b608af19fa9b3f96fb944ddae22410d6c5ea298e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2603-v1",
+          "contextKey": "legacy-0168-L2603-context-1",
+          "transferKey": "legacy-0168-L2603-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016804",
+            "type": "gap_choice",
+            "prompt": "Im ___ des Fotos sieht man eine rote Blume; die Berge sind weit hinten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The flower is nearest the viewer.",
+              "de": "Die Blume ist dem Betrachter am nächsten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rahmen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bildtitel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vordergrund"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hintergrund"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vordergrund is the foreground of a scene.",
+              "de": "Vordergrund ist der vordere Bereich einer Darstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Vordergrund des Fotos sieht man eine rote Blume; die Berge sind weit hinten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vordergrund' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rahmen: The border around an image. Bildtitel: The caption or title. Vordergrund: Correct: front of the image. Hintergrund: The distant part. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2603-v2",
+          "contextKey": "legacy-0168-L2603-context-2",
+          "transferKey": "legacy-0168-L2603-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016804",
+            "type": "choice",
+            "prompt": "Auf einem Gemälde steht ein Baum ganz vorne, dahinter sieht man Häuser. Wo befindet sich der Baum?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is the closest depicted object.",
+              "de": "Er ist das am nächsten dargestellte Objekt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "hinter dem Rahmen"
+              },
+              {
+                "id": "1",
+                "text": "im Vordergrund"
+              },
+              {
+                "id": "2",
+                "text": "im Hintergrund"
+              },
+              {
+                "id": "3",
+                "text": "außerhalb des Bildes"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vordergrund is the foreground of a scene.",
+              "de": "Vordergrund ist der vordere Bereich einer Darstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Baum befindet sich im Vordergrund.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'im Vordergrund' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: hinter dem Rahmen: The frame surrounds the painting. im Vordergrund: Correct: the tree is in front. im Hintergrund: The background is farther away. außerhalb des Bildes: The tree is visible in the painting. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016806",
+      "title": {
+        "en": "Using Vorfahrt accurately",
+        "de": "Vorfahrt im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorfahrt in the sense of the right of way in road traffic.",
+        "de": "Vorfahrt im Sinn von Vorfahrt im Straßenverkehr erkennen."
+      },
+      "objective": "Recognize Vorfahrt in the specified the right of way in road traffic sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2605 (43f4f878d34117b51d23b5759ee359b25f762d5a682821e19760790306f97598), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2605-v1",
+          "contextKey": "legacy-0168-L2605-context-1",
+          "transferKey": "legacy-0168-L2605-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016806",
+            "type": "gap_choice",
+            "prompt": "An dieser Kreuzung muss das Auto von rechts zuerst fahren, weil es ___ hat.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "One vehicle has priority to proceed.",
+              "de": "Ein Fahrzeug darf zuerst fahren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorrat"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorschrift"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorfahrt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorfahrt is the priority to proceed in traffic.",
+              "de": "Vorfahrt ist das Recht, im Verkehr zuerst zu fahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An dieser Kreuzung muss das Auto von rechts zuerst fahren, weil es Vorfahrt hat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorfahrt' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verspätung: Being late. Vorrat: Stored supplies. Vorschrift: A rule in general. Vorfahrt: Correct: right of way. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2605-v2",
+          "contextKey": "legacy-0168-L2605-context-2",
+          "transferKey": "legacy-0168-L2605-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016806",
+            "type": "choice",
+            "prompt": "Ein Schild verlangt, dass du andere Fahrzeuge zuerst passieren lässt. Was musst du ihnen gewähren?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They have priority at the junction.",
+              "de": "Sie haben an der Kreuzung Vorrang beim Fahren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "1",
+                "text": "Versicherung"
+              },
+              {
+                "id": "2",
+                "text": "Vorfahrt"
+              },
+              {
+                "id": "3",
+                "text": "Parkplatz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Vorfahrt is the priority to proceed in traffic.",
+              "de": "Vorfahrt ist das Recht, im Verkehr zuerst zu fahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Du musst ihnen Vorfahrt gewähren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorfahrt' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Fahrkarte: A travel ticket. Versicherung: Risk coverage. Vorfahrt: Correct: give way. Parkplatz: A parking place. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016807",
+      "title": {
+        "en": "Using Vorgang accurately",
+        "de": "Vorgang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorgang in the sense of an administrative or technical process.",
+        "de": "Vorgang im Sinn von Ablauf eines Vorgangs erkennen."
+      },
+      "objective": "Recognize Vorgang in the specified an administrative or technical process sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2606 (6ea5d637b17acedc864f1a9fa579b424bdd0db3869cd0dee2da7835bff5b0b54), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2606-v1",
+          "contextKey": "legacy-0168-L2606-context-1",
+          "transferKey": "legacy-0168-L2606-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016807",
+            "type": "gap_choice",
+            "prompt": "Der digitale ___ zur Anmeldung besteht aus drei Schritten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a sequence of administrative steps.",
+              "de": "Es ist eine Folge von Verwaltungsschritten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorgang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vortrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorrat"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorschlag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorgang is a process or sequence of actions.",
+              "de": "Ein Vorgang ist ein Ablauf zusammengehöriger Schritte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der digitale Vorgang zur Anmeldung besteht aus drei Schritten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorgang' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorgang: Correct: a process. Vortrag: A presentation. Vorrat: A stock of supplies. Vorschlag: A proposal. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2606-v2",
+          "contextKey": "legacy-0168-L2606-context-2",
+          "transferKey": "legacy-0168-L2606-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016807",
+            "type": "choice",
+            "prompt": "Ein Antrag wird empfangen, geprüft und anschließend entschieden. Wie nennt man diesen gesamten Ablauf?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Focus on the full process, not its outcome.",
+              "de": "Gesucht ist der gesamte Ablauf, nicht das Ergebnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ergebnis"
+              },
+              {
+                "id": "1",
+                "text": "Gebühr"
+              },
+              {
+                "id": "2",
+                "text": "Bescheid"
+              },
+              {
+                "id": "3",
+                "text": "Vorgang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Vorgang is a process or sequence of actions.",
+              "de": "Ein Vorgang ist ein Ablauf zusammengehöriger Schritte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Verwaltungsvorgang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorgang' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ergebnis: The outcome. Gebühr: A fee. Bescheid: An official decision document. Vorgang: Correct: administrative process. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016809",
+      "title": {
+        "en": "Using Vorkenntnis accurately",
+        "de": "Vorkenntnis im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorkenntnis in the sense of knowledge or skills acquired before a course.",
+        "de": "Vorkenntnis im Sinn von Kenntnisse, die man bereits vorher besitzt erkennen."
+      },
+      "objective": "Recognize Vorkenntnis in the specified knowledge or skills acquired before a course sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2608 (a8376f0186bf202f5b02efcc88f810b2eaa1086c4bfe9af4e35e8620d41537dd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2608-v1",
+          "contextKey": "legacy-0168-L2608-context-1",
+          "transferKey": "legacy-0168-L2608-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016809",
+            "type": "gap_choice",
+            "prompt": "Für den Aufbaukurs sind ___ in Python erforderlich.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Participants should know some Python already.",
+              "de": "Teilnehmer sollen Python bereits etwas kennen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verspätungen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorkenntnisse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nachzahlungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorladungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorkenntnisse are knowledge gained beforehand.",
+              "de": "Vorkenntnisse sind bereits vorhandene Kenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Aufbaukurs sind Vorkenntnisse in Python erforderlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorkenntnisse' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verspätungen: Delays. Vorkenntnisse: Correct: prior knowledge. Nachzahlungen: Additional payments. Vorladungen: Official summonses. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2608-v2",
+          "contextKey": "legacy-0168-L2608-context-2",
+          "transferKey": "legacy-0168-L2608-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016809",
+            "type": "choice",
+            "prompt": "Ein Seminar beginnt nicht bei null. Die Teilnehmenden müssen das Grundwissen schon mitbringen. Was brauchen sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The knowledge exists before the seminar.",
+              "de": "Das Wissen ist schon vor dem Seminar vorhanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vorkenntnisse"
+              },
+              {
+                "id": "1",
+                "text": "Zertifikate über Anwesenheit"
+              },
+              {
+                "id": "2",
+                "text": "Reisekosten"
+              },
+              {
+                "id": "3",
+                "text": "Erstattungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Vorkenntnisse are knowledge gained beforehand.",
+              "de": "Vorkenntnisse sind bereits vorhandene Kenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie brauchen Vorkenntnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorkenntnisse' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorkenntnisse: Correct: prior knowledge. Zertifikate über Anwesenheit: Attendance certificates prove presence, not necessarily knowledge. Reisekosten: Travel expenses are costs. Erstattungen: Refunds return money. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016810",
+      "title": {
+        "en": "Using Vorlage accurately",
+        "de": "Vorlage im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorlage in the sense of a reusable document template.",
+        "de": "Vorlage im Sinn von wiederverwendbare Dokumentvorlage erkennen."
+      },
+      "objective": "Recognize Vorlage in the specified a reusable document template sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2609 (88849938dd1ed8b672cb29caf3a6382a9201d99507db86869b22479db390f155), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2609-v1",
+          "contextKey": "legacy-0168-L2609-context-1",
+          "transferKey": "legacy-0168-L2609-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016810",
+            "type": "gap_choice",
+            "prompt": "Für alle Rechnungen benutzt das Büro dieselbe ___ mit Firmenlogo.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document layout is reused.",
+              "de": "Das Dokumentlayout wird immer wieder verwendet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorspeise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorhersage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorlage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorlage can mean a reusable template.",
+              "de": "Vorlage kann ein wiederverwendbares Muster sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für alle Rechnungen benutzt das Büro dieselbe Vorlage mit Firmenlogo.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorlage' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorspeise: A starter dish. Vorhersage: A prediction. Vorlage: Correct: reusable template. Vorladung: A summons to appear. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2609-v2",
+          "contextKey": "legacy-0168-L2609-context-2",
+          "transferKey": "legacy-0168-L2609-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016810",
+            "type": "choice",
+            "prompt": "Eine Firma stellt ein Musterformular bereit, das Mitarbeitende für neue Berichte kopieren. Wie heißt dieses Muster?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The sample is copied for repeated use.",
+              "de": "Das Muster wird für neue Dokumente kopiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Vorlage"
+              },
+              {
+                "id": "2",
+                "text": "Vertrag"
+              },
+              {
+                "id": "3",
+                "text": "Protokoll"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vorlage can mean a reusable template.",
+              "de": "Vorlage kann ein wiederverwendbares Muster sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Muster ist eine Vorlage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorlage' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnung: An invoice requests payment. Vorlage: Correct: document template. Vertrag: A contract sets obligations. Protokoll: A record describes an event. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016812",
+      "title": {
+        "en": "Using Vorort accurately",
+        "de": "Vorort im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorort in the sense of a residential suburb outside a city center.",
+        "de": "Vorort im Sinn von Vorort am Rand einer Stadt erkennen."
+      },
+      "objective": "Recognize Vorort in the specified a residential suburb outside a city center sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2613 (55a63eebc1189516596b0d600914fc6dccd58391ba6df03857795ff3e7804ac0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2613-v1",
+          "contextKey": "legacy-0168-L2613-context-1",
+          "transferKey": "legacy-0168-L2613-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016812",
+            "type": "gap_choice",
+            "prompt": "Die Familie wohnt in einem ruhigen ___ außerhalb des Stadtzentrums.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The neighborhood lies on the outskirts.",
+              "de": "Der Wohnort liegt am Stadtrand."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorrat"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vortrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorgang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorort"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorort is a suburb near a city.",
+              "de": "Ein Vorort ist ein Ort am Rand einer Stadt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie wohnt in einem ruhigen Vorort außerhalb des Stadtzentrums.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorort' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorrat: Stored supplies. Vortrag: A presentation. Vorgang: A process. Vorort: Correct: a suburb. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2613-v2",
+          "contextKey": "legacy-0168-L2613-context-2",
+          "transferKey": "legacy-0168-L2613-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016812",
+            "type": "choice",
+            "prompt": "Ein Wohngebiet liegt am Rand einer Großstadt und gehört zu ihrem Umland. Wie nennt man einen solchen Ort?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is outside the central urban area.",
+              "de": "Es liegt außerhalb des Stadtzentrums."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Innenstadt"
+              },
+              {
+                "id": "1",
+                "text": "Altstadt"
+              },
+              {
+                "id": "2",
+                "text": "Vorort"
+              },
+              {
+                "id": "3",
+                "text": "Hauptbahnhof"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Vorort is a suburb near a city.",
+              "de": "Ein Vorort ist ein Ort am Rand einer Stadt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Wohngebiet liegt in einem Vorort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorort' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Innenstadt: The city center. Altstadt: The historic old town. Vorort: Correct: suburban area. Hauptbahnhof: A central railway station. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016813",
+      "title": {
+        "en": "Using Vorrang accurately",
+        "de": "Vorrang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorrang in the sense of priority over another task or concern.",
+        "de": "Vorrang im Sinn von Vorrang vor anderen Aufgaben erkennen."
+      },
+      "objective": "Recognize Vorrang in the specified priority over another task or concern sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2614 (fe4686a7fa1aa114c0a91547eb8404b640d3a4f250b19855563fc1b4a4f35a59), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2614-v1",
+          "contextKey": "legacy-0168-L2614-context-1",
+          "transferKey": "legacy-0168-L2614-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016813",
+            "type": "gap_choice",
+            "prompt": "Bei einem Brand hat die Sicherheit der Menschen absoluten ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Safety comes before everything else.",
+              "de": "Sicherheit ist wichtiger als alles andere."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorrang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorrat"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vortrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorgang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorrang means precedence or priority.",
+              "de": "Vorrang bedeutet, dass etwas zuerst berücksichtigt wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einem Brand hat die Sicherheit der Menschen absoluten Vorrang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorrang' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorrang: Correct: highest priority. Vorrat: A stock of supplies. Vortrag: A presentation. Vorgang: A process. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2614-v2",
+          "contextKey": "legacy-0168-L2614-context-2",
+          "transferKey": "legacy-0168-L2614-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016813",
+            "type": "choice",
+            "prompt": "Ein Krankenhaus behandelt lebensbedrohliche Notfälle zuerst. Welches Prinzip gilt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The most urgent cases are treated first.",
+              "de": "Die dringendsten Fälle werden zuerst behandelt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gleichgültigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Nachrang"
+              },
+              {
+                "id": "2",
+                "text": "Zufall"
+              },
+              {
+                "id": "3",
+                "text": "Vorrang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Vorrang means precedence or priority.",
+              "de": "Vorrang bedeutet, dass etwas zuerst berücksichtigt wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Lebensbedrohliche Notfälle haben Vorrang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorrang' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Gleichgültigkeit: Indifference ignores importance. Nachrang: Lower priority is the opposite. Zufall: Chance is not triage priority. Vorrang: Correct: urgent cases take priority. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016814",
+      "title": {
+        "en": "Using Vorschrift accurately",
+        "de": "Vorschrift im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorschrift in the sense of a binding regulation or instruction.",
+        "de": "Vorschrift im Sinn von verbindliche Vorschrift erkennen."
+      },
+      "objective": "Recognize Vorschrift in the specified a binding regulation or instruction sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2616 (a2c723e128a9e0fc141b3073b2a001de1233e9cc54497c071e32b0fab61a7660), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2616-v1",
+          "contextKey": "legacy-0168-L2616-context-1",
+          "transferKey": "legacy-0168-L2616-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016814",
+            "type": "gap_choice",
+            "prompt": "Im Labor muss jeder die Sicherheits___ beachten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The safety rules are mandatory.",
+              "de": "Die Sicherheitsregeln sind verbindlich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wünsche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorschriften"
+                  },
+                  {
+                    "id": "2",
+                    "text": "empfehlungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "angebote"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorschrift is a rule that must be followed.",
+              "de": "Eine Vorschrift ist eine verbindliche Regel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor muss jeder die Sicherheitsvorschriften beachten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'vorschriften' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: wünsche: Wishes express preferences. vorschriften: Correct: binding safety rules. empfehlungen: Recommendations are advice. angebote: Offers make something available. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2616-v2",
+          "contextKey": "legacy-0168-L2616-context-2",
+          "transferKey": "legacy-0168-L2616-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016814",
+            "type": "choice",
+            "prompt": "Ein Betrieb schreibt verbindlich vor, dass Schutzbrillen getragen werden. Wie nennt man diese Regel?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The rule is obligatory.",
+              "de": "Die Regel ist verpflichtend."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vorschrift"
+              },
+              {
+                "id": "1",
+                "text": "Empfehlung"
+              },
+              {
+                "id": "2",
+                "text": "Bitte"
+              },
+              {
+                "id": "3",
+                "text": "Vorschlag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Vorschrift is a rule that must be followed.",
+              "de": "Eine Vorschrift ist eine verbindliche Regel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Vorschrift.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorschrift' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorschrift: Correct: a binding regulation. Empfehlung: Nonbinding advice. Bitte: A request. Vorschlag: A proposal. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016815",
+      "title": {
+        "en": "Using Vorsichtsmaßnahme accurately",
+        "de": "Vorsichtsmaßnahme im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorsichtsmaßnahme in the sense of a precaution taken to reduce risk.",
+        "de": "Vorsichtsmaßnahme im Sinn von Maßnahme zur Vorbeugung gegen Risiken erkennen."
+      },
+      "objective": "Recognize Vorsichtsmaßnahme in the specified a precaution taken to reduce risk sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2618 (21325464173c9a309340c5efc0e07963f40ae7fc200202d8e1cd85dedd28c6ee), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2618-v1",
+          "contextKey": "legacy-0168-L2618-context-1",
+          "transferKey": "legacy-0168-L2618-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016815",
+            "type": "gap_choice",
+            "prompt": "Das Tragen einer Schutzbrille ist eine wichtige ___ im Labor.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It reduces the risk of injury.",
+              "de": "Es verringert das Verletzungsrisiko."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorsichtsmaßnahme"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Belohnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorsichtsmaßnahme reduces a possible risk.",
+              "de": "Eine Vorsichtsmaßnahme verringert ein mögliches Risiko."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Tragen einer Schutzbrille ist eine wichtige Vorsichtsmaßnahme im Labor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorsichtsmaßnahme' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verspätung: A delay. Abrechnung: A financial settlement. Vorsichtsmaßnahme: Correct: preventive safety action. Belohnung: A reward. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2618-v2",
+          "contextKey": "legacy-0168-L2618-context-2",
+          "transferKey": "legacy-0168-L2618-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016815",
+            "type": "choice",
+            "prompt": "Vor einem Sturm sichern die Bewohner lose Gegenstände auf dem Balkon. Was ist diese Handlung?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They act before damage occurs.",
+              "de": "Sie handeln, bevor ein Schaden entsteht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "1",
+                "text": "Vorsichtsmaßnahme"
+              },
+              {
+                "id": "2",
+                "text": "Schadensmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Reparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vorsichtsmaßnahme reduces a possible risk.",
+              "de": "Eine Vorsichtsmaßnahme verringert ein mögliches Risiko."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Vorsichtsmaßnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorsichtsmaßnahme' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Beschwerde: Expresses dissatisfaction. Vorsichtsmaßnahme: Correct: a precaution. Schadensmeldung: Reports damage after it happens. Reparatur: Fixes something broken. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016817",
+      "title": {
+        "en": "Using Vorsorgeuntersuchung accurately",
+        "de": "Vorsorgeuntersuchung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorsorgeuntersuchung in the sense of a preventive medical check-up.",
+        "de": "Vorsorgeuntersuchung im Sinn von medizinische Untersuchung zur Früherkennung erkennen."
+      },
+      "objective": "Recognize Vorsorgeuntersuchung in the specified a preventive medical check-up sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2620 (4220da954e8a05c56a104e16a44e07b296ae93701b804e180f1c5cdf518db301), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2620-v1",
+          "contextKey": "legacy-0168-L2620-context-1",
+          "transferKey": "legacy-0168-L2620-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016817",
+            "type": "gap_choice",
+            "prompt": "Bei der ___ sollen mögliche Erkrankungen früh erkannt werden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The check is performed before symptoms necessarily appear.",
+              "de": "Die Untersuchung dient der frühen Erkennung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notoperation"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Impfbescheinigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorsorgeuntersuchung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorsorgeuntersuchung is a preventive health examination.",
+              "de": "Eine Vorsorgeuntersuchung dient der Vorbeugung oder Früherkennung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Vorsorgeuntersuchung sollen mögliche Erkrankungen früh erkannt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorsorgeuntersuchung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Notoperation: Emergency surgery treats an acute problem. Reparatur: Repairs an object. Impfbescheinigung: Documents vaccination. Vorsorgeuntersuchung: Correct: preventive check-up. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2620-v2",
+          "contextKey": "legacy-0168-L2620-context-2",
+          "transferKey": "legacy-0168-L2620-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016817",
+            "type": "choice",
+            "prompt": "Eine Person geht ohne akute Beschwerden zu einem geplanten Gesundheitscheck, um Risiken früh zu erkennen. Wie heißt dieser Termin?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The aim is prevention and early detection.",
+              "de": "Das Ziel ist Vorsorge und Früherkennung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankschreibung"
+              },
+              {
+                "id": "1",
+                "text": "Rezeptabholung"
+              },
+              {
+                "id": "2",
+                "text": "Vorsorgeuntersuchung"
+              },
+              {
+                "id": "3",
+                "text": "Notaufnahme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Vorsorgeuntersuchung is a preventive health examination.",
+              "de": "Eine Vorsorgeuntersuchung dient der Vorbeugung oder Früherkennung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Termin ist eine Vorsorgeuntersuchung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorsorgeuntersuchung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Krankschreibung: Certification of inability to work. Rezeptabholung: Collecting a prescription. Vorsorgeuntersuchung: Correct: preventive examination. Notaufnahme: Emergency department for acute needs. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016818",
+      "title": {
+        "en": "Using Vorspeise accurately",
+        "de": "Vorspeise im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vorspeise in the sense of a small dish served before the main course.",
+        "de": "Vorspeise im Sinn von Gericht vor dem Hauptgang erkennen."
+      },
+      "objective": "Recognize Vorspeise in the specified a small dish served before the main course sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2621 (573e4df6d0dd6c91aa369612f4defd841cb4041664b5a175d2ba31b737e7a12c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0168-L2621-v1",
+          "contextKey": "legacy-0168-L2621-context-1",
+          "transferKey": "legacy-0168-L2621-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016818",
+            "type": "gap_choice",
+            "prompt": "Als ___ bestellte sie eine kleine Suppe vor dem Hauptgericht.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The dish comes before the main course.",
+              "de": "Das Gericht kommt vor dem Hauptgang."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorspeise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Nachspeise"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hauptgericht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Getränk"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorspeise is a starter served before the main course.",
+              "de": "Eine Vorspeise wird vor dem Hauptgericht serviert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Vorspeise bestellte sie eine kleine Suppe vor dem Hauptgericht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vorspeise' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorspeise: Correct: starter dish. Nachspeise: Dessert follows the main course. Hauptgericht: The main course itself. Getränk: A beverage is a drink. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0168-L2621-v2",
+          "contextKey": "legacy-0168-L2621-context-2",
+          "transferKey": "legacy-0168-L2621-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001680181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016818",
+            "type": "choice",
+            "prompt": "Im Restaurant gibt es zuerst einen kleinen Salat, danach Fisch und zum Schluss Eis. Welche Rolle hat der Salat?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is served first.",
+              "de": "Er wird zuerst serviert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Nachspeise"
+              },
+              {
+                "id": "1",
+                "text": "Hauptspeise"
+              },
+              {
+                "id": "2",
+                "text": "Beilage zum Eis"
+              },
+              {
+                "id": "3",
+                "text": "Vorspeise"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Vorspeise is a starter served before the main course.",
+              "de": "Eine Vorspeise wird vor dem Hauptgericht serviert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Salat ist die Vorspeise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vorspeise' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Nachspeise: Dessert comes last. Hauptspeise: The fish is the main course. Beilage zum Eis: A salad is not a side for ice cream here. Vorspeise: Correct: appetizer. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
