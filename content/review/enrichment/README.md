@@ -75,7 +75,7 @@ or infringement, and a missing match does not prove originality. The earlier
 worker's claimed exact match in batch 0010 was a misreading and is corrected in
 the saved finding; its common near-phrase overlap is advisory only.
 
-Current saved continuation coverage is 456 variants through batch 0015, with 61
+Current saved continuation coverage is 488 variants through batch 0016, with 61
 inactive correction proposals. The owner subsequently waived both the weekly
 reserve and five-hour-headroom operating thresholds for this session and directed
 continuation from 0012. Review is resumed with one worker and durable slices.

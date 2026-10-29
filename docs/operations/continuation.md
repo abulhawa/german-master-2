@@ -6,9 +6,9 @@ Resume the fixed queue at 0012, one worker and durable validated slices. Preserv
 the prohibition on reset credits, purchases, paid fallback and billing changes.
 Actual service quota cannot be bypassed. The older headroom pause below is
 superseded; it must not stop resumed review or require another confirmation.
-Current saved continuation coverage: 456 questions through 0015, 61 inactive
+Current saved continuation coverage: 488 questions through 0016, 61 inactive
 proposals and 51 exact-hash-bound coordinator rechecks. Continue at the first
-pending frozen batch (0016 at this checkpoint); coverage.json is authoritative.
+pending frozen batch (0017 at this checkpoint); coverage.json is authoritative.
 
 29 October: supervised enrichment review has live desktop allowance telemetry.
 Owner waived the study-reserve requirement for this session and requested
