@@ -1,0 +1,1597 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012501",
+      "title": {
+        "en": "Using Liefersicherheit in context",
+        "de": "Liefersicherheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Liefersicherheit: reliability of supply and deliveries.",
+        "de": "Liefersicherheit erkennen und verwenden: Liefersicherheit, Zuverlässigkeit der Versorgung mit Waren."
+      },
+      "objective": "Recognize the German noun Liefersicherheit (reliability of supply and deliveries) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1458 (b9c6219548168d32be0e188dc695ceda1ea1aa861d2507295a5c2ba9dd8e1545), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1458-v1",
+          "contextKey": "legacy-0125-L1458-context-1",
+          "transferKey": "legacy-0125-L1458-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012501",
+            "type": "gap_choice",
+            "prompt": "Für die Produktion ist eine hohe ___ entscheidend, damit Rohstoffe pünktlich ankommen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The factory needs dependable supplies.",
+              "de": "Die benötigten Rohstoffe müssen zuverlässig eintreffen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fehlerquote"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fluktuation"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Liefersicherheit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Liefersicherheit is reliability of deliveries.",
+              "de": "Liefersicherheit bedeutet, dass Lieferungen zuverlässig ankommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Produktion ist eine hohe Liefersicherheit entscheidend, damit Rohstoffe pünktlich ankommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für die Produktion ist eine hohe Liefersicherheit entscheidend, damit Rohstoffe pünktlich ankommen.\" checked for grammar, intended meaning, naturalness and unique correct option 3 (Liefersicherheit). All distractors individually checked: Fehlerquote is an error rate; Werbung is advertising; Fluktuation is staff turnover, none denotes dependable supplies. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1458-v2",
+          "contextKey": "legacy-0125-L1458-context-2",
+          "transferKey": "legacy-0125-L1458-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012501",
+            "type": "choice",
+            "prompt": "Der Betrieb hält einen zweiten Zulieferer bereit, um die ___ auch bei Ausfällen zu erhöhen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A backup supplier prevents supply interruptions.",
+              "de": "Ein zweiter Lieferant verringert das Risiko von Engpässen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Liefersicherheit"
+              },
+              {
+                "id": "1",
+                "text": "Verpackung"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitszeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A backup supplier improves supply reliability.",
+              "de": "Ein Ersatzlieferant erhöht die Liefersicherheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb hält einen zweiten Zulieferer bereit, um die Liefersicherheit auch bei Ausfällen zu erhöhen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Betrieb hält einen zweiten Zulieferer bereit, um die Liefersicherheit auch bei Ausfällen zu erhöhen.\" checked for grammar, intended meaning, naturalness and unique correct option 0 (Liefersicherheit). All distractors individually checked: Verpackung is packaging; Rechnung is an invoice; Arbeitszeit is working time, none is the reliability of supply. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012502",
+      "title": {
+        "en": "Using Lieferung in context",
+        "de": "Lieferung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lieferung: delivery or shipment of goods.",
+        "de": "Lieferung erkennen und verwenden: Lieferung, Zustellung oder Sendung von Waren."
+      },
+      "objective": "Recognize the German noun Lieferung (delivery or shipment of goods) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1459 (c9a6a2a0a445efa967bd37db494e7001f056c3e9b31359a6f0b1a4ac3c78c268), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1459-v1",
+          "contextKey": "legacy-0125-L1459-context-1",
+          "transferKey": "legacy-0125-L1459-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012502",
+            "type": "gap_choice",
+            "prompt": "Die ___ mit den bestellten Büromöbeln traf einen Tag früher ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Ordered goods have arrived.",
+              "de": "Die bestellten Waren werden zugestellt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sitzung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lieferung refers to goods delivered or their arrival.",
+              "de": "Lieferung bezeichnet die Zustellung von Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lieferung mit den bestellten Büromöbeln traf einen Tag früher ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Lieferung mit den bestellten Büromöbeln traf einen Tag früher ein.\" checked for grammar, intended meaning, naturalness and unique correct option 2 (Lieferung). All distractors individually checked: Bewerbung is an application; Sitzung is a meeting; Rechnung is an invoice, not the arrival of furniture. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1459-v2",
+          "contextKey": "legacy-0125-L1459-context-2",
+          "transferKey": "legacy-0125-L1459-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012502",
+            "type": "choice",
+            "prompt": "Wegen eines Fehlers im Lager musste die ___ an den Kunden verschoben werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The customer will receive the goods later.",
+              "de": "Die Waren kommen wegen des Lagerfehlers später an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Besprechung"
+              },
+              {
+                "id": "1",
+                "text": "Buchung"
+              },
+              {
+                "id": "2",
+                "text": "Prüfung"
+              },
+              {
+                "id": "3",
+                "text": "Lieferung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A shipment can be postponed by warehouse problems.",
+              "de": "Eine Lieferung kann wegen Lagerproblemen verschoben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen eines Fehlers im Lager musste die Lieferung an den Kunden verschoben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wegen eines Fehlers im Lager musste die Lieferung an den Kunden verschoben werden.\" checked for grammar, intended meaning, naturalness and unique correct option 3 (Lieferung). All distractors individually checked: Besprechung is a meeting; Buchung is a reservation; Prüfung is an examination, none is the shipment to the customer. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012503",
+      "title": {
+        "en": "Using Lieferverzögerung in context",
+        "de": "Lieferverzögerung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lieferverzögerung: delay in delivering goods.",
+        "de": "Lieferverzögerung erkennen und verwenden: Lieferverzögerung, verspätete Warenzustellung."
+      },
+      "objective": "Recognize the German noun Lieferverzögerung (delay in delivering goods) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1460 (0da72e0c000927f368e4804c432c821d47d340ffb2ef2090a5127b2e7b5f14ce), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1460-v1",
+          "contextKey": "legacy-0125-L1460-context-1",
+          "transferKey": "legacy-0125-L1460-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012503",
+            "type": "gap_choice",
+            "prompt": "Ein Streik im Hafen führte zu einer ___ von mehreren Tagen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shipment arrives later than planned.",
+              "de": "Der Transport dauert wegen des Streiks länger als vorgesehen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Preissenkung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferverzögerung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Qualitätsprüfung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestellbestätigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lieferverzögerung is an unplanned delivery delay.",
+              "de": "Lieferverzögerung bedeutet, dass Waren verspätet eintreffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Streik im Hafen führte zu einer Lieferverzögerung von mehreren Tagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ein Streik im Hafen führte zu einer Lieferverzögerung von mehreren Tagen.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Lieferverzögerung). All distractors individually checked: Preissenkung is a price cut; Qualitätsprüfung is inspection; Bestellbestätigung is order confirmation, none is the delay caused by transport disruption. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1460-v2",
+          "contextKey": "legacy-0125-L1460-context-2",
+          "transferKey": "legacy-0125-L1460-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012503",
+            "type": "choice",
+            "prompt": "Der Händler entschuldigte sich für die ___ und nannte einen neuen Ankunftstermin.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The promised arrival date was missed.",
+              "de": "Der neue Termin ersetzt den verspäteten Liefertermin."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Preissteigerung"
+              },
+              {
+                "id": "1",
+                "text": "Reklamation"
+              },
+              {
+                "id": "2",
+                "text": "Lieferverzögerung"
+              },
+              {
+                "id": "3",
+                "text": "Bestellmenge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A delivery delay requires a revised arrival date.",
+              "de": "Bei einer Lieferverzögerung wird oft ein neuer Termin genannt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Händler entschuldigte sich für die Lieferverzögerung und nannte einen neuen Ankunftstermin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Händler entschuldigte sich für die Lieferverzögerung und nannte einen neuen Ankunftstermin.\" checked for grammar, intended meaning, naturalness and unique correct option 2 (Lieferverzögerung). All distractors individually checked: Preissteigerung is a price increase; Reklamation is a complaint; Bestellmenge is order quantity, none is itself the missed arrival date. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012504",
+      "title": {
+        "en": "Using Lieferzeit in context",
+        "de": "Lieferzeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lieferzeit: estimated time until goods are delivered.",
+        "de": "Lieferzeit erkennen und verwenden: Lieferzeit, Dauer bis zur Ankunft einer Bestellung."
+      },
+      "objective": "Recognize the German noun Lieferzeit (estimated time until goods are delivered) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1461 (7761c9a148670ee80054605ffdf48d3dc1595b8ac018486f70a1c0cff70b9305), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1461-v1",
+          "contextKey": "legacy-0125-L1461-context-1",
+          "transferKey": "legacy-0125-L1461-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012504",
+            "type": "gap_choice",
+            "prompt": "Die angegebene ___ für das Sofa liegt bei etwa sechs Wochen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The customer wants to know when the sofa arrives.",
+              "de": "Gesucht ist die ungefähre Dauer bis zur Zustellung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garantie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferadresse"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lagergröße"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lieferzeit is the expected time before delivery.",
+              "de": "Lieferzeit bezeichnet die erwartete Dauer bis zur Lieferung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die angegebene Lieferzeit für das Sofa liegt bei etwa sechs Wochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die angegebene Lieferzeit für das Sofa liegt bei etwa sechs Wochen.\" checked for grammar, intended meaning, naturalness and unique correct option 0 (Lieferzeit). All distractors individually checked: Garantie is warranty period, not expected arrival; Lieferadresse is destination; Lagergröße is storage size. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1461-v2",
+          "contextKey": "legacy-0125-L1461-context-2",
+          "transferKey": "legacy-0125-L1461-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012504",
+            "type": "choice",
+            "prompt": "Bei Artikeln auf Lager ist die ___ meist kürzer als bei Sonderanfertigungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Ready stock can be dispatched sooner.",
+              "de": "Vorrätige Waren kommen normalerweise schneller an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lebensdauer"
+              },
+              {
+                "id": "1",
+                "text": "Lieferzeit"
+              },
+              {
+                "id": "2",
+                "text": "Bearbeitungsgebühr"
+              },
+              {
+                "id": "3",
+                "text": "Steuerlast"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "In-stock items often have a shorter delivery time.",
+              "de": "Vorrätige Artikel haben meist eine kürzere Lieferzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Artikeln auf Lager ist die Lieferzeit meist kürzer als bei Sonderanfertigungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bei Artikeln auf Lager ist die Lieferzeit meist kürzer als bei Sonderanfertigungen.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Lieferzeit). All distractors individually checked: Lebensdauer is product lifespan; Bearbeitungsgebühr is processing fee; Steuerlast is tax burden, none primarily reflects how quickly goods arrive. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012507",
+      "title": {
+        "en": "Using Linie in context",
+        "de": "Linie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Linie: line drawn on a surface or numbered transport route.",
+        "de": "Linie erkennen und verwenden: Linie, gezeichneter Strich oder Verkehrsverbindung."
+      },
+      "objective": "Recognize the German noun Linie (line drawn on a surface or numbered transport route) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1464 (167e379c9b31d19870fa3630774d2b3fbc0f75129204e4e9693b5ee85ddd1a98), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1464-v1",
+          "contextKey": "legacy-0125-L1464-context-1",
+          "transferKey": "legacy-0125-L1464-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012507",
+            "type": "gap_choice",
+            "prompt": "Die ___ 7 fährt alle zehn Minuten zum Hauptbahnhof.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A numbered public transport service runs regularly.",
+              "de": "Gesucht ist eine nummerierte Verkehrsverbindung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Straße"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Linie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Brücke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gasse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Linie can denote a numbered bus or tram service.",
+              "de": "Eine Linie kann eine nummerierte Bus- oder Straßenbahnverbindung sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Linie 7 fährt alle zehn Minuten zum Hauptbahnhof.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Linie 7 fährt alle zehn Minuten zum Hauptbahnhof.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Linie). All distractors individually checked: Straße is a road; Brücke is a bridge; Gasse is a lane, none is the numbered scheduled service. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1464-v2",
+          "contextKey": "legacy-0125-L1464-context-2",
+          "transferKey": "legacy-0125-L1464-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012507",
+            "type": "choice",
+            "prompt": "Zieh mit dem Lineal eine gerade ___ zwischen den Punkten A und B.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The ruler creates a straight mark.",
+              "de": "Mit dem Lineal zeichnet man einen geraden Strich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kurve"
+              },
+              {
+                "id": "1",
+                "text": "Fläche"
+              },
+              {
+                "id": "2",
+                "text": "Linie"
+              },
+              {
+                "id": "3",
+                "text": "Ecke"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Linie also means a drawn line.",
+              "de": "Eine Linie kann ein gezeichneter Strich sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zieh mit dem Lineal eine gerade Linie zwischen den Punkten A und B.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Zieh mit dem Lineal eine gerade Linie zwischen den Punkten A und B.\" checked for grammar, intended meaning, naturalness and unique correct option 2 (Linie). All distractors individually checked: Kurve bends rather than being straight; Fläche is an area; Ecke is a corner, not the straight mark joining points. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012510",
+      "title": {
+        "en": "Using Literatur in context",
+        "de": "Literatur im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Literatur: literary or scholarly written works.",
+        "de": "Literatur erkennen und verwenden: Literatur, literarische oder wissenschaftliche Texte."
+      },
+      "objective": "Recognize the German noun Literatur (literary or scholarly written works) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1469 (56d8b821449bd463b6dd7f69b67a44c9fb669873df798bda0cb316d4f45af8ec), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1469-v1",
+          "contextKey": "legacy-0125-L1469-context-1",
+          "transferKey": "legacy-0125-L1469-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012510",
+            "type": "gap_choice",
+            "prompt": "Im Seminar lasen wir moderne deutschsprachige ___ und diskutierten mehrere Romane.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The discussion concerns written literary works.",
+              "de": "Romane gehören zu den literarischen Texten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mathematik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Musik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Literatur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Chemie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Literatur includes literary works such as novels.",
+              "de": "Zur Literatur gehören zum Beispiel Romane."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Seminar lasen wir moderne deutschsprachige Literatur und diskutierten mehrere Romane.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Seminar lasen wir moderne deutschsprachige Literatur und diskutierten mehrere Romane.\" checked for grammar, intended meaning, naturalness and unique correct option 2 (Literatur). All distractors individually checked: Mathematik studies quantities; Musik is sound art; Chemie studies substances, none is the collective noun for novels. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1469-v2",
+          "contextKey": "legacy-0125-L1469-context-2",
+          "transferKey": "legacy-0125-L1469-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012510",
+            "type": "choice",
+            "prompt": "Für ihre Hausarbeit suchte sie wissenschaftliche ___ zu erneuerbaren Energien.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "She needs published research sources.",
+              "de": "Für die Hausarbeit braucht sie wissenschaftliche Texte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kleidung"
+              },
+              {
+                "id": "1",
+                "text": "Werkzeuge"
+              },
+              {
+                "id": "2",
+                "text": "Maschinen"
+              },
+              {
+                "id": "3",
+                "text": "Literatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Wissenschaftliche Literatur means scholarly publications.",
+              "de": "Wissenschaftliche Literatur umfasst Fachtexte und Studien."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für ihre Hausarbeit suchte sie wissenschaftliche Literatur zu erneuerbaren Energien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für ihre Hausarbeit suchte sie wissenschaftliche Literatur zu erneuerbaren Energien.\" checked for grammar, intended meaning, naturalness and unique correct option 3 (Literatur). All distractors individually checked: Kleidung is clothing; Werkzeuge are tools; Maschinen are machines, none is scholarly reading material. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012512",
+      "title": {
+        "en": "Using Logistik in context",
+        "de": "Logistik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Logistik: planning and coordination of transport and supplies.",
+        "de": "Logistik erkennen und verwenden: Logistik, Planung von Transport- und Versorgungsabläufen."
+      },
+      "objective": "Recognize the German noun Logistik (planning and coordination of transport and supplies) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1473 (faeb4d3ddbfafbb8248583f39b58a07567e2243ca9b8f0353d8c4c310c2a6301), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1473-v1",
+          "contextKey": "legacy-0125-L1473-context-1",
+          "transferKey": "legacy-0125-L1473-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012512",
+            "type": "gap_choice",
+            "prompt": "Die ___ koordinierte die Anlieferung von Bühnenmaterial für das Festival.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Transport and timing must be organised.",
+              "de": "Es geht um die Planung von Transporten und Material."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Logistik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pressearbeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gastronomie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Logistik coordinates movement and supply of goods.",
+              "de": "Logistik organisiert Transporte und Materialflüsse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Logistik koordinierte die Anlieferung von Bühnenmaterial für das Festival.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Logistik koordinierte die Anlieferung von Bühnenmaterial für das Festival.\" checked for grammar, intended meaning, naturalness and unique correct option 0 (Logistik). All distractors individually checked: Buchhaltung manages finances; Pressearbeit handles media; Gastronomie serves food, not delivery coordination. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1473-v2",
+          "contextKey": "legacy-0125-L1473-context-2",
+          "transferKey": "legacy-0125-L1473-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012512",
+            "type": "choice",
+            "prompt": "Dank guter ___ erreichten die Ersatzteile trotz mehrerer Zwischenlager pünktlich die Werkstatt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Several transport stages were coordinated.",
+              "de": "Die Warenbewegungen wurden gut geplant."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werbung"
+              },
+              {
+                "id": "1",
+                "text": "Logistik"
+              },
+              {
+                "id": "2",
+                "text": "Dekoration"
+              },
+              {
+                "id": "3",
+                "text": "Personalwerbung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Good logistics coordinates multi-stage deliveries.",
+              "de": "Gute Logistik sorgt für koordinierte Lieferketten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dank guter Logistik erreichten die Ersatzteile trotz mehrerer Zwischenlager pünktlich die Werkstatt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Dank guter Logistik erreichten die Ersatzteile trotz mehrerer Zwischenlager pünktlich die Werkstatt.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Logistik). All distractors individually checked: Werbung promotes products; Dekoration arranges appearance; Personalwerbung recruits staff, none organises supply routes. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012513",
+      "title": {
+        "en": "Using Lohn in context",
+        "de": "Lohn im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lohn: wage paid for work.",
+        "de": "Lohn erkennen und verwenden: Lohn, Entgelt für geleistete Arbeit."
+      },
+      "objective": "Recognize the German noun Lohn (wage paid for work) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1474 (8f034236f07a8078c21b978f814f68f693ad9853da3a26dc918cec7ea5c6c467), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1474-v1",
+          "contextKey": "legacy-0125-L1474-context-1",
+          "transferKey": "legacy-0125-L1474-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012513",
+            "type": "gap_choice",
+            "prompt": "Der ___ wurde für die geleisteten Arbeitsstunden am Monatsende ausgezahlt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The worker receives payment for work.",
+              "de": "Die Zahlung ist das Entgelt für Arbeitsstunden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mietzins"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufpreis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kredit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lohn"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lohn is pay for work performed.",
+              "de": "Lohn ist die Bezahlung für geleistete Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lohn wurde für die geleisteten Arbeitsstunden am Monatsende ausgezahlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Lohn wurde für die geleisteten Arbeitsstunden am Monatsende ausgezahlt.\" checked for grammar, intended meaning, naturalness and unique correct option 3 (Lohn). All distractors individually checked: Mietzins is rent; Kaufpreis is purchase price; Kredit is a loan, not earned wages. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1474-v2",
+          "contextKey": "legacy-0125-L1474-context-2",
+          "transferKey": "legacy-0125-L1474-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012513",
+            "type": "choice",
+            "prompt": "Nach den Tarifverhandlungen stieg der ___ der Beschäftigten um drei Prozent.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Collective bargaining changes pay.",
+              "de": "Es geht um die Höhe der Bezahlung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lohn"
+              },
+              {
+                "id": "1",
+                "text": "Urlaub"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitsweg"
+              },
+              {
+                "id": "3",
+                "text": "Dienstplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Tariff negotiations can raise wages.",
+              "de": "Tarifverhandlungen können den Lohn erhöhen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach den Tarifverhandlungen stieg der Lohn der Beschäftigten um drei Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach den Tarifverhandlungen stieg der Lohn der Beschäftigten um drei Prozent.\" checked for grammar, intended meaning, naturalness and unique correct option 0 (Lohn). All distractors individually checked: Urlaub is leave; Arbeitsweg is commute; Dienstplan is work roster, none is the wage amount increased by a pay agreement. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012516",
+      "title": {
+        "en": "Using Lohnsteuer in context",
+        "de": "Lohnsteuer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lohnsteuer: German wage tax withheld from employment income.",
+        "de": "Lohnsteuer erkennen und verwenden: Lohnsteuer, Steuerabzug vom Arbeitslohn."
+      },
+      "objective": "Recognize the German noun Lohnsteuer (German wage tax withheld from employment income) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1477 (fdf0b0e74f79f29450e4d3ec174156d9f2f4c7f1cc6e7373268990eaf1ac4de8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1477-v1",
+          "contextKey": "legacy-0125-L1477-context-1",
+          "transferKey": "legacy-0125-L1477-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012516",
+            "type": "gap_choice",
+            "prompt": "Die ___ wird direkt vom Arbeitslohn einbehalten und an das Finanzamt abgeführt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The employer withholds this tax from wages.",
+              "de": "Diese Steuer wird über die Gehaltsabrechnung abgezogen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lohnsteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mehrwertsteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Grundsteuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kfz-Steuer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lohnsteuer is wage tax withheld by the employer.",
+              "de": "Lohnsteuer wird vom Arbeitslohn einbehalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lohnsteuer wird direkt vom Arbeitslohn einbehalten und an das Finanzamt abgeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Lohnsteuer wird direkt vom Arbeitslohn einbehalten und an das Finanzamt abgeführt.\" checked for grammar, intended meaning, naturalness and unique correct option 0 (Lohnsteuer). All distractors individually checked: Mehrwertsteuer is VAT on consumption; Grundsteuer taxes property; Kfz-Steuer taxes vehicles, none is payroll wage withholding. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1477-v2",
+          "contextKey": "legacy-0125-L1477-context-2",
+          "transferKey": "legacy-0125-L1477-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012516",
+            "type": "choice",
+            "prompt": "Auf der Gehaltsabrechnung steht die ___ als Abzug neben den Sozialversicherungsbeiträgen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The deduction appears on a payslip.",
+              "de": "Gesucht ist der Steuerabzug vom Lohn."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umsatzsteuer"
+              },
+              {
+                "id": "1",
+                "text": "Lohnsteuer"
+              },
+              {
+                "id": "2",
+                "text": "Erbschaftsteuer"
+              },
+              {
+                "id": "3",
+                "text": "Hundesteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Lohnsteuer appears as a deduction on the payslip.",
+              "de": "Die Lohnsteuer steht als Abzug auf der Gehaltsabrechnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Gehaltsabrechnung steht die Lohnsteuer als Abzug neben den Sozialversicherungsbeiträgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf der Gehaltsabrechnung steht die Lohnsteuer als Abzug neben den Sozialversicherungsbeiträgen.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Lohnsteuer). All distractors individually checked: Umsatzsteuer is VAT; Erbschaftsteuer concerns inheritances; Hundesteuer is a local dog tax, none is withheld from wages on a payslip. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012519",
+      "title": {
+        "en": "Using Luftfracht in context",
+        "de": "Luftfracht im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Luftfracht: freight transported by aircraft.",
+        "de": "Luftfracht erkennen und verwenden: Luftfracht, Warenversand mit dem Flugzeug."
+      },
+      "objective": "Recognize the German noun Luftfracht (freight transported by aircraft) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1482 (f04c8031253d2ee7fa4fa66aff13859a7128537f39cded14825253c5fabd7424), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0125-L1482-v1",
+          "contextKey": "legacy-0125-L1482-context-1",
+          "transferKey": "legacy-0125-L1482-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012519",
+            "type": "gap_choice",
+            "prompt": "Die Sendung wurde am Flughafen als ___ abgefertigt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shipment travels by plane.",
+              "de": "Die Waren werden über den Flughafen transportiert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Seefracht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Luftfracht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bahnfracht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Straßenfracht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Luftfracht is cargo transported by air.",
+              "de": "Luftfracht bezeichnet Gütertransport mit dem Flugzeug."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sendung wurde am Flughafen als Luftfracht abgefertigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Sendung wurde am Flughafen als Luftfracht abgefertigt.\" checked for grammar, intended meaning, naturalness and unique correct option 1 (Luftfracht). All distractors individually checked: Seefracht travels by ship; Bahnfracht by train; Straßenfracht by road, not through airport cargo handling. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0125-L1482-v2",
+          "contextKey": "legacy-0125-L1482-context-2",
+          "transferKey": "legacy-0125-L1482-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001250191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012519",
+            "type": "choice",
+            "prompt": "Für den Transport von Frankfurt nach Tokio innerhalb eines Tages wählte das Unternehmen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The long-distance shipment must arrive very quickly.",
+              "de": "Die Strecke ist interkontinental und die Zeit knapp."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bahnfracht"
+              },
+              {
+                "id": "1",
+                "text": "Straßenfracht"
+              },
+              {
+                "id": "2",
+                "text": "Luftfracht"
+              },
+              {
+                "id": "3",
+                "text": "Binnenschifffahrt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Air freight can move goods quickly between continents.",
+              "de": "Luftfracht ermöglicht schnelle Transporte über große Entfernungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Transport von Frankfurt nach Tokio innerhalb eines Tages wählte das Unternehmen Luftfracht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für den Transport von Frankfurt nach Tokio innerhalb eines Tages wählte das Unternehmen Luftfracht.\" checked for grammar, intended meaning, naturalness and unique correct option 2 (Luftfracht). All distractors individually checked: Bahnfracht is rail cargo, too slow for this route; Straßenfracht uses roads and cannot cross this intercontinental route in a day; Binnenschifffahrt uses inland waterways. Bilingual hint, instruction and explanation reviewed. Human review pending."
+        }
+      ]
+    }
+  ]
+}
