@@ -1,0 +1,1915 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011802",
+      "title": {
+        "en": "Using Kloß in context",
+        "de": "Kloß im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kloß: a boiled dumpling made from potato or bread dough.",
+        "de": "Kloß erkennen und verwenden: ein gekochter Kloß aus Kartoffel- oder Brotteig."
+      },
+      "objective": "Recognize the German noun Kloß (a boiled dumpling made from potato or bread dough) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1281 (6ff6d4df8f92c3674c6b07f42cc4af89e1b71c0efed00578cc7eeef570a267d6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1281-v1",
+          "contextKey": "legacy-0118-L1281-context-1",
+          "transferKey": "legacy-0118-L1281-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011802",
+            "type": "gap_choice",
+            "prompt": "Als Beilage zum Braten gab es mehrere ___ aus Kartoffelteig.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The side dish consists of boiled balls of potato dough.",
+              "de": "Die Beilage besteht aus gekochten Kugeln aus Kartoffelteig."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schnitzel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Salate"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Brötchen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Klöße"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klöße is the plural of Kloß, a boiled dumpling.",
+              "de": "Klöße ist der Plural von Kloß, einer gekochten Teigbeilage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Beilage zum Braten gab es mehrere Klöße aus Kartoffelteig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Als Beilage zum Braten gab es mehrere Klöße aus Kartoffelteig.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Schnitzel: Cutlets are not dumplings made from potato dough.; Salate: Salads are not cooked potato-dough dumplings.; Brötchen: Bread rolls are baked, not this boiled potato-dough side dish.; Klöße: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1281-v2",
+          "contextKey": "legacy-0118-L1281-context-2",
+          "transferKey": "legacy-0118-L1281-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011802",
+            "type": "choice",
+            "prompt": "Sie formte aus dem Teig einen runden ___ und legte ihn vorsichtig ins heiße Wasser.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The dough ball is boiled as a side dish.",
+              "de": "Die geformte Teigkugel wird als Beilage gekocht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pfannkuchen"
+              },
+              {
+                "id": "1",
+                "text": "Kloß"
+              },
+              {
+                "id": "2",
+                "text": "Salat"
+              },
+              {
+                "id": "3",
+                "text": "Kuchen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Kloß is the singular noun for the boiled dough ball.",
+              "de": "Kloß bezeichnet die einzelne gekochte Teigkugel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie formte aus dem Teig einen runden Kloß und legte ihn vorsichtig ins heiße Wasser.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Sie formte aus dem Teig einen runden Kloß und legte ihn vorsichtig ins heiße Wasser.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Pfannkuchen: A pancake is normally cooked in a pan, not lowered into water as a ball.; Kloß: correct form and meaning in context; Salat: Salad is not shaped from dough and boiled.; Kuchen: Cake is baked rather than cooked as a ball in water.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011803",
+      "title": {
+        "en": "Using Kneipe in context",
+        "de": "Kneipe im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kneipe: an informal pub or bar.",
+        "de": "Kneipe erkennen und verwenden: eine umgangssprachlich bezeichnete Gaststätte oder Bar."
+      },
+      "objective": "Recognize the German noun Kneipe (an informal pub or bar) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1283 (ec13d906bd9046673ce4cacad5eee6f35fb0c602c2ba14a729c5321ed3e301f6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1283-v1",
+          "contextKey": "legacy-0118-L1283-context-1",
+          "transferKey": "legacy-0118-L1283-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011803",
+            "type": "gap_choice",
+            "prompt": "Nach Feierabend trafen sich die Kollegen in einer kleinen ___ auf ein Getränk.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They meet for a drink in an informal local establishment.",
+              "de": "Sie treffen sich nach der Arbeit in einem Lokal auf ein Getränk."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Apotheke"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kneipe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkstatt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kneipe is an informal pub.",
+              "de": "Kneipe bezeichnet umgangssprachlich eine Gaststätte oder Bar."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Feierabend trafen sich die Kollegen in einer kleinen Kneipe auf ein Getränk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Nach Feierabend trafen sich die Kollegen in einer kleinen Kneipe auf ein Getränk.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Bibliothek: A library is not the typical licensed pub described.; Apotheke: A pharmacy is not a pub for after-work drinks.; Kneipe: correct form and meaning in context; Werkstatt: A workshop is not the drinking establishment intended here.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1283-v2",
+          "contextKey": "legacy-0118-L1283-context-2",
+          "transferKey": "legacy-0118-L1283-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011803",
+            "type": "choice",
+            "prompt": "Die ___ an der Ecke hat einen Tresen und schenkt abends Bier aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A counter and evening drinks characterize this local venue.",
+              "de": "Ein Tresen und abendlicher Getränkeausschank kennzeichnen das Lokal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kneipe"
+              },
+              {
+                "id": "1",
+                "text": "Bäckerei"
+              },
+              {
+                "id": "2",
+                "text": "Postfiliale"
+              },
+              {
+                "id": "3",
+                "text": "Arztpraxis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kneipe fits a neighborhood pub with a bar counter.",
+              "de": "Kneipe passt zu einer Gaststätte mit Tresen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kneipe an der Ecke hat einen Tresen und schenkt abends Bier aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Kneipe an der Ecke hat einen Tresen und schenkt abends Bier aus.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Kneipe: correct form and meaning in context; Bäckerei: A bakery is not primarily a bar serving beer in the evening.; Postfiliale: A post office does not run the bar described.; Arztpraxis: A doctor's office does not serve drinks at a bar counter.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011806",
+      "title": {
+        "en": "Using Knödel in context",
+        "de": "Knödel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Knödel: a round boiled dumpling used as a side dish.",
+        "de": "Knödel erkennen und verwenden: ein runder gekochter Knödel als Beilage."
+      },
+      "objective": "Recognize the German noun Knödel (a round boiled dumpling used as a side dish) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1286 (f02c7fbdd93221111689a492150b09a63323733b16d1f8af24c24adbd2ba8506), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1286-v1",
+          "contextKey": "legacy-0118-L1286-context-1",
+          "transferKey": "legacy-0118-L1286-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011806",
+            "type": "gap_choice",
+            "prompt": "Zum Gulasch bestellten wir ___ aus Semmeln als Beilage.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The side dish is made from bread rolls and boiled.",
+              "de": "Die Beilage wird aus Semmeln geformt und gekocht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Salate"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Waffeln"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bratwürste"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Knödel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Knödel are boiled dumplings served as a side dish.",
+              "de": "Knödel sind gekochte Teigkugeln als Beilage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Gulasch bestellten wir Knödel aus Semmeln als Beilage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Zum Gulasch bestellten wir Knödel aus Semmeln als Beilage.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Salate: A salad is not formed from bread-roll dough.; Waffeln: Waffles are baked, not boiled bread dumplings.; Bratwürste: Sausages are not made from bread-roll dough.; Knödel: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1286-v2",
+          "contextKey": "legacy-0118-L1286-context-2",
+          "transferKey": "legacy-0118-L1286-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011806",
+            "type": "choice",
+            "prompt": "Der Koch formte aus dem Kartoffelteig runde ___ und kochte sie in Wasser.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Round portions of potato dough are cooked in water.",
+              "de": "Runde Portionen aus Kartoffelteig werden in Wasser gegart."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schnitzel"
+              },
+              {
+                "id": "1",
+                "text": "Knödel"
+              },
+              {
+                "id": "2",
+                "text": "Pfannkuchen"
+              },
+              {
+                "id": "3",
+                "text": "Brezeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Knödel denotes the boiled dumplings described.",
+              "de": "Knödel bezeichnet die beschriebenen gekochten Teigkugeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Koch formte aus dem Kartoffelteig runde Knödel und kochte sie in Wasser.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Der Koch formte aus dem Kartoffelteig runde Knödel und kochte sie in Wasser.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Schnitzel: Cutlets are not round balls made from potato dough.; Knödel: correct form and meaning in context; Pfannkuchen: Pancakes are cooked in a pan rather than as dough balls in water.; Brezeln: Pretzels are not round boiled potato dumplings.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011808",
+      "title": {
+        "en": "Using Know-how in context",
+        "de": "Know-how im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Know-how: specialist practical knowledge or expertise.",
+        "de": "Know-how erkennen und verwenden: praktisches Fachwissen oder besondere Erfahrung."
+      },
+      "objective": "Recognize the German noun Know-how (specialist practical knowledge or expertise) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1288 (1441b0616a7bb8ca4acfdec29f2651337a2fc81b93abb8b0d32b8c9d9839ff1a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1288-v1",
+          "contextKey": "legacy-0118-L1288-context-1",
+          "transferKey": "legacy-0118-L1288-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011808",
+            "type": "gap_choice",
+            "prompt": "Für die Reparatur der Spezialmaschine fehlt uns das technische ___, obwohl alle Ersatzteile vorhanden sind.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The missing resource is specialist experience, not spare parts.",
+              "de": "Es fehlt spezielles Fachwissen, nicht Material."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Inventar"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Know-how"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zubehör"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Know-how means specialist practical knowledge.",
+              "de": "Know-how bezeichnet besonderes praktisches Fachwissen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reparatur der Spezialmaschine fehlt uns das technische Know-how, obwohl alle Ersatzteile vorhanden sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Für die Reparatur der Spezialmaschine fehlt uns das technische Know-how, obwohl alle Ersatzteile vorhanden sind.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Inventar: Inventory is not the specialist knowledge needed to perform a repair.; Know-how: correct form and meaning in context; Protokoll: A log is not practical technical expertise.; Zubehör: Accessories are not the missing expertise when all parts are present.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1288-v2",
+          "contextKey": "legacy-0118-L1288-context-2",
+          "transferKey": "legacy-0118-L1288-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011808",
+            "type": "choice",
+            "prompt": "Das Team gibt sein ___ in Schulungen an neue Mitarbeitende weiter.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Training transfers knowledge acquired through practice.",
+              "de": "In Schulungen wird Wissen aus der Praxis weitergegeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werkzeug"
+              },
+              {
+                "id": "1",
+                "text": "Gebäude"
+              },
+              {
+                "id": "2",
+                "text": "Gehalt"
+              },
+              {
+                "id": "3",
+                "text": "Know-how"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Know-how is the expertise shared in training.",
+              "de": "Know-how ist das in Schulungen vermittelte Fachwissen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team gibt sein Know-how in Schulungen an neue Mitarbeitende weiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Das Team gibt sein Know-how in Schulungen an neue Mitarbeitende weiter.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Werkzeug: Tools are physical items, not the knowledge transferred in training.; Gebäude: A building cannot be passed on through training.; Gehalt: Salary is not shared as expertise in a training course.; Know-how: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011811",
+      "title": {
+        "en": "Using Kombination in context",
+        "de": "Kombination im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kombination: a combination of elements used together.",
+        "de": "Kombination erkennen und verwenden: die Verbindung mehrerer Elemente."
+      },
+      "objective": "Recognize the German noun Kombination (a combination of elements used together) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1294 (469c180c24de63953da03087fd8170ae453755cb799a91707cf496229424afe1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1294-v1",
+          "contextKey": "legacy-0118-L1294-context-1",
+          "transferKey": "legacy-0118-L1294-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011811",
+            "type": "gap_choice",
+            "prompt": "Die ___ aus blauem Hemd und grauer Hose wirkt sehr harmonisch.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Two clothing items are worn together.",
+              "de": "Zwei Kleidungsstücke werden zusammen getragen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Trennung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kombination"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kombination is the pairing of items in an outfit.",
+              "de": "Kombination bezeichnet das Zusammenstellen von Kleidungsstücken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kombination aus blauem Hemd und grauer Hose wirkt sehr harmonisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Kombination aus blauem Hemd und grauer Hose wirkt sehr harmonisch.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Trennung: Separation is the opposite of combining clothes into an outfit.; Rechnung: An invoice is not the coordinated outfit described.; Kombination: correct form and meaning in context; Lieferung: A delivery does not describe the pairing of clothing.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1294-v2",
+          "contextKey": "legacy-0118-L1294-context-2",
+          "transferKey": "legacy-0118-L1294-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011811",
+            "type": "choice",
+            "prompt": "Die Forschenden testeten eine ___ aus zwei Wirkstoffen, nicht jeden einzeln.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The two substances are tested together.",
+              "de": "Zwei Wirkstoffe werden gemeinsam untersucht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kombination"
+              },
+              {
+                "id": "1",
+                "text": "Unterbrechung"
+              },
+              {
+                "id": "2",
+                "text": "Verwechslung"
+              },
+              {
+                "id": "3",
+                "text": "Entfernung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kombination denotes the deliberate use of two components together.",
+              "de": "Kombination bezeichnet die gemeinsame Verwendung zweier Bestandteile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forschenden testeten eine Kombination aus zwei Wirkstoffen, nicht jeden einzeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Forschenden testeten eine Kombination aus zwei Wirkstoffen, nicht jeden einzeln.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Kombination: correct form and meaning in context; Unterbrechung: An interruption does not mean testing two substances together.; Verwechslung: Confusion between substances is not their intentional combination.; Entfernung: Removal does not mean simultaneous use of two substances.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011812",
+      "title": {
+        "en": "Using Kommunikation in context",
+        "de": "Kommunikation im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kommunikation: the exchange of information between people.",
+        "de": "Kommunikation erkennen und verwenden: den Austausch von Informationen zwischen Menschen."
+      },
+      "objective": "Recognize the German noun Kommunikation (the exchange of information between people) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1295 (4828ad6a69452115acb0772666853f8d240375d95004a49712500373020a8d23), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1295-v1",
+          "contextKey": "legacy-0118-L1295-context-1",
+          "transferKey": "legacy-0118-L1295-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011812",
+            "type": "gap_choice",
+            "prompt": "Ohne klare ___ zwischen den Schichten gehen wichtige Informationen verloren.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Work shifts need to pass information to one another.",
+              "de": "Arbeitsschichten müssen Informationen austauschen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dekoration"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kommunikation"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kalkulation"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Produktion"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kommunikation means the exchange of information.",
+              "de": "Kommunikation bedeutet den Austausch von Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne klare Kommunikation zwischen den Schichten gehen wichtige Informationen verloren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Ohne klare Kommunikation zwischen den Schichten gehen wichtige Informationen verloren.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Dekoration: Decoration does not transfer operational information.; Kommunikation: correct form and meaning in context; Kalkulation: Calculation is not the exchange between work shifts.; Produktion: Production is not the information exchange described.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1295-v2",
+          "contextKey": "legacy-0118-L1295-context-2",
+          "transferKey": "legacy-0118-L1295-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011812",
+            "type": "choice",
+            "prompt": "Die ___ mit den Kundinnen und Kunden erfolgt überwiegend per E-Mail.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The contact consists mostly of written messages.",
+              "de": "Der Kontakt findet überwiegend durch schriftliche Nachrichten statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferung"
+              },
+              {
+                "id": "1",
+                "text": "Reinigung"
+              },
+              {
+                "id": "2",
+                "text": "Lagerung"
+              },
+              {
+                "id": "3",
+                "text": "Kommunikation"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Kommunikation is the exchange of messages with customers.",
+              "de": "Kommunikation ist der Nachrichtenaustausch mit Kundinnen und Kunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kommunikation mit den Kundinnen und Kunden erfolgt überwiegend per E-Mail.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Kommunikation mit den Kundinnen und Kunden erfolgt überwiegend per E-Mail.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Lieferung: Delivery of goods is not the exchange conducted via email here.; Reinigung: Cleaning is not the customer correspondence.; Lagerung: Storage is not the exchange of messages.; Kommunikation: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011813",
+      "title": {
+        "en": "Using Kommunikationsmittel in context",
+        "de": "Kommunikationsmittel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kommunikationsmittel: a medium or tool used to communicate.",
+        "de": "Kommunikationsmittel erkennen und verwenden: ein Mittel zur Übermittlung von Nachrichten."
+      },
+      "objective": "Recognize the German noun Kommunikationsmittel (a medium or tool used to communicate) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1296 (a5ad060ce680fc8a0d0514201fd7e26d58b14451c4cb0a967ad8455649bad798), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1296-v1",
+          "contextKey": "legacy-0118-L1296-context-1",
+          "transferKey": "legacy-0118-L1296-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011813",
+            "type": "gap_choice",
+            "prompt": "In abgelegenen Gebieten ist das Satellitentelefon oft ein wichtiges ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The device transmits information over long distances.",
+              "de": "Das Gerät überträgt Nachrichten über große Entfernungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kommunikationsmittel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkehrsmittel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zahlungsmittel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Heilmittel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A satellite phone is a Kommunikationsmittel.",
+              "de": "Ein Satellitentelefon ist ein Kommunikationsmittel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In abgelegenen Gebieten ist das Satellitentelefon oft ein wichtiges Kommunikationsmittel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"In abgelegenen Gebieten ist das Satellitentelefon oft ein wichtiges Kommunikationsmittel.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Kommunikationsmittel: correct form and meaning in context; Verkehrsmittel: A means of transport is not a satellite phone.; Zahlungsmittel: A payment method is not the phone's role here.; Heilmittel: A remedy does not transmit messages.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1296-v2",
+          "contextKey": "legacy-0118-L1296-context-2",
+          "transferKey": "legacy-0118-L1296-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011813",
+            "type": "choice",
+            "prompt": "E-Mail und Messenger sind digitale ___ für den Austausch von Nachrichten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Both services are used to exchange messages.",
+              "de": "Beide Dienste dienen dem Austausch von Nachrichten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zahlungsmittel"
+              },
+              {
+                "id": "1",
+                "text": "Heilmittel"
+              },
+              {
+                "id": "2",
+                "text": "Kommunikationsmittel"
+              },
+              {
+                "id": "3",
+                "text": "Verkehrsmittel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Kommunikationsmittel is also the plural form here.",
+              "de": "Kommunikationsmittel ist hier auch die richtige Pluralform."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "E-Mail und Messenger sind digitale Kommunikationsmittel für den Austausch von Nachrichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"E-Mail und Messenger sind digitale Kommunikationsmittel für den Austausch von Nachrichten.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Zahlungsmittel: Payment methods are not primarily message-exchange tools.; Heilmittel: Remedies do not carry messages.; Kommunikationsmittel: correct form and meaning in context; Verkehrsmittel: Vehicles are not digital messaging tools.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011814",
+      "title": {
+        "en": "Using Kompetenz in context",
+        "de": "Kompetenz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kompetenz: a person's skill or ability in a field.",
+        "de": "Kompetenz erkennen und verwenden: die Fähigkeit oder das Fachwissen in einem Bereich."
+      },
+      "objective": "Recognize the German noun Kompetenz (a person's skill or ability in a field) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1297 (253c0dee43fe6c55d94076df046dd58c9509152bf9e70b3c1510a30a9865f97e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1297-v1",
+          "contextKey": "legacy-0118-L1297-context-1",
+          "transferKey": "legacy-0118-L1297-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011814",
+            "type": "gap_choice",
+            "prompt": "Für die fachliche Beurteilung der Messdaten braucht das Team die nötige ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The team needs expertise to interpret measurements.",
+              "de": "Das Team braucht Fachwissen zur Bewertung der Messdaten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausstattung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ablenkung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kompetenz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kompetenz is the necessary expertise.",
+              "de": "Kompetenz bezeichnet das erforderliche Fachwissen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die fachliche Beurteilung der Messdaten braucht das Team die nötige Kompetenz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Für die fachliche Beurteilung der Messdaten braucht das Team die nötige Kompetenz.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Ausstattung: Equipment alone is not the ability to assess measurements.; Ablenkung: Distraction does not support professional assessment.; Verspätung: Lateness is not a required analytical ability.; Kompetenz: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1297-v2",
+          "contextKey": "legacy-0118-L1297-context-2",
+          "transferKey": "legacy-0118-L1297-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011814",
+            "type": "choice",
+            "prompt": "Im Bewerbungsgespräch beschrieb er seine soziale ___ im Umgang mit Konflikten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Handling disagreements constructively is an interpersonal skill.",
+              "de": "Konstruktiver Umgang mit Streit ist eine soziale Fähigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verpackung"
+              },
+              {
+                "id": "1",
+                "text": "Kompetenz"
+              },
+              {
+                "id": "2",
+                "text": "Versicherung"
+              },
+              {
+                "id": "3",
+                "text": "Verwaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Soziale Kompetenz is interpersonal ability.",
+              "de": "Soziale Kompetenz bezeichnet zwischenmenschliche Fähigkeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bewerbungsgespräch beschrieb er seine soziale Kompetenz im Umgang mit Konflikten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Im Bewerbungsgespräch beschrieb er seine soziale Kompetenz im Umgang mit Konflikten.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Verpackung: Packaging is not a social skill.; Kompetenz: correct form and meaning in context; Versicherung: Insurance is not the ability to handle conflicts.; Verwaltung: Administration is not the interpersonal ability described.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011815",
+      "title": {
+        "en": "Using Komponente in context",
+        "de": "Komponente im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Komponente: one part of a larger system.",
+        "de": "Komponente erkennen und verwenden: einen Bestandteil eines größeren Systems."
+      },
+      "objective": "Recognize the German noun Komponente (one part of a larger system) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1298 (e3531cd329b18a48a7277a503ed313db8e3847d02ecc2b544fd99e8e8d79c649), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1298-v1",
+          "contextKey": "legacy-0118-L1298-context-1",
+          "transferKey": "legacy-0118-L1298-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011815",
+            "type": "gap_choice",
+            "prompt": "Der Techniker tauschte eine defekte elektronische ___ auf der Platine aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "One physical part on the circuit board is faulty.",
+              "de": "Ein einzelner Bauteil auf der Platine ist defekt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorschrift"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anweisung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Komponente"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verabredung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Komponente denotes a part of a technical system.",
+              "de": "Komponente bezeichnet einen Bestandteil eines technischen Systems."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Techniker tauschte eine defekte elektronische Komponente auf der Platine aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Der Techniker tauschte eine defekte elektronische Komponente auf der Platine aus.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Vorschrift: A rule is not an electronic part soldered to a board.; Anweisung: An instruction is not a physical electronic part.; Komponente: correct form and meaning in context; Verabredung: An appointment is not a part on a circuit board.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1298-v2",
+          "contextKey": "legacy-0118-L1298-context-2",
+          "transferKey": "legacy-0118-L1298-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011815",
+            "type": "choice",
+            "prompt": "Die Batterie ist eine wichtige ___ des Messgeräts, weil sie die Stromversorgung übernimmt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The battery is one constituent of the instrument.",
+              "de": "Die Batterie ist ein Bestandteil des Geräts."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Komponente"
+              },
+              {
+                "id": "1",
+                "text": "Lieferung"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Abteilung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Komponente is one constituent part of the instrument.",
+              "de": "Komponente ist ein einzelner Bestandteil des Messgeräts."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Batterie ist eine wichtige Komponente des Messgeräts, weil sie die Stromversorgung übernimmt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Batterie ist eine wichtige Komponente des Messgeräts, weil sie die Stromversorgung übernimmt.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Komponente: correct form and meaning in context; Lieferung: A delivery is not a built-in part of the measuring device.; Rechnung: An invoice is not part of the device.; Abteilung: A department is not a physical component of the device.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011816",
+      "title": {
+        "en": "Using Kompromiss in context",
+        "de": "Kompromiss im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kompromiss: a settlement reached through mutual concessions.",
+        "de": "Kompromiss erkennen und verwenden: eine Einigung durch gegenseitiges Nachgeben."
+      },
+      "objective": "Recognize the German noun Kompromiss (a settlement reached through mutual concessions) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1299 (176c5a137f13fa6fdc60ade1303be95f1c5f57c711841c3569bdb7118ff6f4fc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1299-v1",
+          "contextKey": "legacy-0118-L1299-context-1",
+          "transferKey": "legacy-0118-L1299-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011816",
+            "type": "gap_choice",
+            "prompt": "Beide Seiten gaben etwas nach und fanden einen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Neither side got everything it wanted.",
+              "de": "Beide Seiten mussten auf einen Teil ihrer Forderungen verzichten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Befehl"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kompromiss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorwand"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Widerspruch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kompromiss is an agreement reached through concessions.",
+              "de": "Kompromiss ist eine Einigung durch gegenseitiges Nachgeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beide Seiten gaben etwas nach und fanden einen Kompromiss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Beide Seiten gaben etwas nach und fanden einen Kompromiss.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Befehl: An order does not arise from mutual concessions.; Kompromiss: correct form and meaning in context; Vorwand: An excuse is not a mutually negotiated settlement.; Widerspruch: A contradiction is not the agreement reached here.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1299-v2",
+          "contextKey": "legacy-0118-L1299-context-2",
+          "transferKey": "legacy-0118-L1299-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011816",
+            "type": "choice",
+            "prompt": "Nach langen Verhandlungen einigten sich die Parteien auf einen ___, mit dem beide leben konnten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Both parties accepted a middle ground.",
+              "de": "Beide Parteien akzeptierten eine Lösung zwischen ihren Forderungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abbruch"
+              },
+              {
+                "id": "1",
+                "text": "Streit"
+              },
+              {
+                "id": "2",
+                "text": "Betrug"
+              },
+              {
+                "id": "3",
+                "text": "Kompromiss"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Kompromiss is the negotiated middle ground.",
+              "de": "Kompromiss bezeichnet die ausgehandelte Lösung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach langen Verhandlungen einigten sich die Parteien auf einen Kompromiss, mit dem beide leben konnten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Nach langen Verhandlungen einigten sich die Parteien auf einen Kompromiss, mit dem beide leben konnten.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Abbruch: Ending talks is not the mutually acceptable agreement described.; Streit: A dispute is not the settlement reached.; Betrug: Fraud is not the fair negotiated settlement intended here.; Kompromiss: correct form and meaning in context. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011817",
+      "title": {
+        "en": "Using Konferenz in context",
+        "de": "Konferenz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Konferenz: an organized meeting with talks and discussion.",
+        "de": "Konferenz erkennen und verwenden: eine organisierte Tagung mit Vorträgen und Diskussionen."
+      },
+      "objective": "Recognize the German noun Konferenz (an organized meeting with talks and discussion) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1300 (71c4b3ef34d4899ecd93051b9920ac1301be417e5d63acb87fa601cea73e4364), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1300-v1",
+          "contextKey": "legacy-0118-L1300-context-1",
+          "transferKey": "legacy-0118-L1300-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011817",
+            "type": "gap_choice",
+            "prompt": "Auf der internationalen ___ hielten Forschende Vorträge über neue Energietechnologien.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Researchers present their work at an organized meeting.",
+              "de": "Forschende stellen ihre Ergebnisse auf einer Tagung vor."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Konferenz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kantine"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Apotheke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Konferenz is a meeting with presentations.",
+              "de": "Konferenz bezeichnet eine Tagung mit Vorträgen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der internationalen Konferenz hielten Forschende Vorträge über neue Energietechnologien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Auf der internationalen Konferenz hielten Forschende Vorträge über neue Energietechnologien.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Konferenz: correct form and meaning in context; Kantine: A cafeteria is not an organized international research meeting.; Werkstatt: A workshop is not the international conference with research talks described.; Apotheke: A pharmacy is not a scientific conference venue in this usage.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1300-v2",
+          "contextKey": "legacy-0118-L1300-context-2",
+          "transferKey": "legacy-0118-L1300-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011817",
+            "type": "choice",
+            "prompt": "Die ___ beginnt um neun Uhr; danach folgen drei Fachvorträge und eine Diskussion.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The agenda lists presentations and discussion.",
+              "de": "Auf dem Programm stehen Vorträge und eine Diskussion."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mittagspause"
+              },
+              {
+                "id": "1",
+                "text": "Dienstreise"
+              },
+              {
+                "id": "2",
+                "text": "Konferenz"
+              },
+              {
+                "id": "3",
+                "text": "Prüfung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Konferenz fits this professional event agenda.",
+              "de": "Konferenz passt zu dieser Tagung mit Fachvorträgen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Konferenz beginnt um neun Uhr; danach folgen drei Fachvorträge und eine Diskussion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Konferenz beginnt um neun Uhr; danach folgen drei Fachvorträge und eine Diskussion.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Mittagspause: A lunch break does not consist of professional talks and discussion.; Dienstreise: A business trip is not the scheduled event of talks.; Konferenz: correct form and meaning in context; Prüfung: An examination does not normally consist of expert presentations and a panel discussion.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011819",
+      "title": {
+        "en": "Using Konflikt in context",
+        "de": "Konflikt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Konflikt: a dispute or clash of interests.",
+        "de": "Konflikt erkennen und verwenden: einen Streit oder Gegensatz von Interessen."
+      },
+      "objective": "Recognize the German noun Konflikt (a dispute or clash of interests) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1302 (8262c2b8d5648c8ee405643d0a18908700533382f45adada4641c12ee9c8177c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0118-L1302-v1",
+          "contextKey": "legacy-0118-L1302-context-1",
+          "transferKey": "legacy-0118-L1302-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011819",
+            "type": "gap_choice",
+            "prompt": "Zwischen den beiden Abteilungen entstand ein ___ über die Zuständigkeiten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The departments disagree about who is responsible.",
+              "de": "Die Abteilungen streiten über ihre Aufgaben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rabatt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Konflikt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorteil"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Konflikt is a disagreement between the departments.",
+              "de": "Konflikt bezeichnet den Streit zwischen den Abteilungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den beiden Abteilungen entstand ein Konflikt über die Zuständigkeiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Zwischen den beiden Abteilungen entstand ein Konflikt über die Zuständigkeiten.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Vertrag: A contract is not the disagreement over responsibilities.; Rabatt: A discount is not an interdepartmental dispute.; Konflikt: correct form and meaning in context; Vorteil: An advantage is not the clash of responsibilities.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0118-L1302-v2",
+          "contextKey": "legacy-0118-L1302-context-2",
+          "transferKey": "legacy-0118-L1302-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001180191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011819",
+            "type": "choice",
+            "prompt": "Die Mediatorin half, den ___ zwischen Nachbarn friedlich zu lösen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A neutral person helps settle a dispute.",
+              "de": "Eine neutrale Person hilft, einen Streit beizulegen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Konflikt"
+              },
+              {
+                "id": "1",
+                "text": "Einkauf"
+              },
+              {
+                "id": "2",
+                "text": "Ausflug"
+              },
+              {
+                "id": "3",
+                "text": "Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Konflikt is the dispute resolved through mediation.",
+              "de": "Konflikt ist der Streit, den die Mediatorin schlichten hilft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mediatorin half, den Konflikt zwischen Nachbarn friedlich zu lösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete sentence \"Die Mediatorin half, den Konflikt zwischen Nachbarn friedlich zu lösen.\" reviewed for naturalness, grammar and defensible single answer. All options checked: Konflikt: correct form and meaning in context; Einkauf: A shopping trip is not settled by mediation.; Ausflug: An outing is not the dispute being resolved.; Termin: An appointment is not the disagreement a mediator resolves.. Bilingual hint and explanation checked; second context is distinct. Human review pending."
+        }
+      ]
+    }
+  ]
+}
