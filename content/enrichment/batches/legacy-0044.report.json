@@ -1,191 +1,223 @@
 {
   "schemaVersion": 1,
   "batchId": "legacy-0044",
-  "state": "draft",
-  "catalogSha256": "051c7d843e126ba60cb905aadd2e9321e56b8c8fd3ca130ae4f54376e630c271",
-  "aiReviewer": "Not yet reviewed",
+  "state": "ready-for-review",
+  "catalogSha256": "cf8601198d7979b02edf0fdb354fc380f6b19f27eb6b0582e1fc48b03f8715e6",
+  "aiReviewer": "GPT-6 (AI editorial review only)",
   "reviewedAt": "2026-10-29",
-  "reviewNotes": "Resumable draft checkpoint after legacy-0043 passed GitHub CI. All 20 source rows pending; no exercise authoring or editorial approval claimed.",
+  "reviewNotes": "Separate GPT-6 AI editorial pass over 32 original low-typing questions: reviewed complete German sentences, noun meaning/case, all four options, accepted answers, bilingual hints/explanations and distinct scenarios. Three seeds deferred for level/register and one duplicate (Bekanntheitsgrad) mapped to Bekanntheit. Corrected Beratung consultation gloss and Berufsgenossenschaft statutory accident insurer meaning; no inherited long Beleg quote reused. Structural CI does not certify German, CEFR, rights or transfer. Reviews pending and publicationApproved=false.",
   "rows": [
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L289",
       "sourceHash": "5f147bf9e8bd793f54d7aa9550712ae226341fbfccf60788b4eccdf3d3efe9f1",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004400"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L291",
       "sourceHash": "df4ee4eacc2e5f7775aa8ddcad4148703fb1a9acbdac96677e8ccd13254331ae",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004401"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
+      "corrections": "Bekanntheit means recognition/awareness, not necessarily positive popularity (Beliebtheit).",
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L292",
       "sourceHash": "41404dd6e65f31f9350bd8c61e4c13db48ac964f4dc7531afb212a9f4bb2af5a",
-      "decision": "pending",
+      "decision": "duplicate",
       "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "notes": "Bekanntheitsgrad expresses the degree of Bekanntheit (awareness); same assessable brand-awareness objective as the newly authored Bekanntheit target for source line 291. Avoid two near-identical targets. New questions omitted. Mapped conceptually to 80000000-0000-4000-8000-000000004401; same-batch target is not recorded as an external existing target ID.",
+      "corrections": "Bekanntheitsgrad is the degree of Bekanntheit, not an independent learning objective for this batch.",
+      "rightsBasis": "No exercise authored or third-party content reused; semantic overlap documented."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L293",
       "sourceHash": "0a9485c669bd9febfef9dfb02444191829d21c80f9963dd24de723a7a5e1bdfd",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004403"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L294",
       "sourceHash": "ee9ed9ea069cae0bcc47a3acfeb6b42ccfc0dfe99658ebad0c912b0c0f0084dd",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004404"
+      ],
+      "notes": "Original B1 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
+      "corrections": "Inherited long news excerpt not reused; original contexts assess proof and receipt senses of Beleg.",
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L295",
       "sourceHash": "0004880c3a3d1587be9860615746c03914a6db6717f86e80e9a15b95720b077f",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004405"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L296",
       "sourceHash": "c970f3b753382a40ab6badb7249b8eefef665214ca8dcb248cf97065d3a14227",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004406"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L297",
       "sourceHash": "4be83a7f5294ccd6cf1252ca343423bc821b9de01dd0329e4065f5a73fb1f406",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "notes": "Benutzung is basic usage vocabulary; inherited B2 label is unsupported without a specific advanced objective.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "No exercise authored or third-party text reused; pending CEFR/linguistic review."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L298",
       "sourceHash": "2f92993f63c80f0bfd89ab9fcf272087b1710455baf47c57e32ef2bfd2417815",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "notes": "Benzin is basic A1/A2 fuel vocabulary; inherited B1 label would lead to filler rather than a B1 target.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "No exercise authored or third-party text reused; pending CEFR/linguistic review."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L299",
       "sourceHash": "83d65d6f62273d60935bf6580ec0fe706abda070397918b9dd857b10c536d213",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004409"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L300",
       "sourceHash": "4337291e44ee0df595abe6a8dbdbd33352970ac30742c2ff5a6b6c3d0df73f81",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004410"
+      ],
+      "notes": "Original B1 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
+      "corrections": "Inherited English 'discussion' is too broad for Beratung; both new questions assess consultation/advice.",
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L301",
       "sourceHash": "3693a9c7eaca9ec2b7a1397224f8e4866ac5b2469d7bc1dc3dc740f10eb39808",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004411"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L302",
       "sourceHash": "7ff8b2ec31786947758957b923c9f2171e703324ac83593edbac791f220bf9a9",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004412"
+      ],
+      "notes": "Original B1 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L304",
       "sourceHash": "78f05d9312acf6e5fcd80cb495e60157a4600f22a0c79e6d6436047c63a954c3",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004413"
+      ],
+      "notes": "Original B1 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L305",
       "sourceHash": "c60bead31365f2413adccf943c42ac9d11317c6c4a9972a4f237aa3d4ff90be4",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004414"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L307",
       "sourceHash": "0e1065b5c172ae005f645d4610269db6307a9d2c8e88414aa1e43bc505cc26c1",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004415"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L308",
       "sourceHash": "a119962893f1be05103dc452a54c6a0d424751c91698ce2d5d26a34f02d3fbc0",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
-      "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004416"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
+      "corrections": "Inherited English 'professional association' is incorrect for German Berufsgenossenschaft, a statutory occupational accident insurance carrier.",
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L309",
       "sourceHash": "6ee0cc706a62fa71992c48b575b69b45194eee21978180aa509fc01d7b167ab7",
-      "decision": "pending",
+      "decision": "deferred",
       "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "notes": "Berufsumsteiger is less standard than Quereinsteiger/Berufswechsler for a career changer; regional/register and B2 suitability require confirmation.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "No exercise authored or third-party text reused; pending CEFR/linguistic review."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L310",
       "sourceHash": "41ad6bc2a017ca267d11127ee56b856606dc10046b3df3736c1585a57793a0bf",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004418"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     },
     {
       "sourceId": "apps/web/data/pos/nouns.jsonl:L311",
       "sourceHash": "07e552573aa6327ff4e28309754e9c99af3728ccc3d3dd98ccc43ebf1ffadc60",
-      "decision": "pending",
-      "targetIds": [],
-      "notes": "Awaiting source review, existing objective lookup and original exercise authoring.",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000004419"
+      ],
+      "notes": "Original B2 noun questions in two distinct contexts; German sentences and all distractors AI-reviewed. Human target approval pending.",
       "corrections": "",
-      "rightsBasis": "Not yet assessed; do not publish."
+      "rightsBasis": "Lexical meaning and grammar only from pinned source; original prompts, options and bilingual feedback. No inherited third-party example copied. Human rights review pending."
     }
   ]
 }
