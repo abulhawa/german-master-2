@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012000",
+      "title": {
+        "en": "Using Kosten in context",
+        "de": "Kosten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kosten: expenses or costs.",
+        "de": "Kosten erkennen und verwenden: Ausgaben oder Kosten."
+      },
+      "objective": "Recognize the German noun Kosten (expenses or costs) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1329 (b1a4b5d76f155eedce42d77d5972803892bcd892e28b911e145ad2271581f8f5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1329-v1",
+          "contextKey": "legacy-0120-L1329-context-1",
+          "transferKey": "legacy-0120-L1329-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012000",
+            "type": "gap_choice",
+            "prompt": "Die ___ für die Reparatur sind höher als erwartet.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The repair is more expensive than planned.",
+              "de": "Die Reparatur ist teurer als erwartet."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Termine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kosten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Formulare"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Aufträge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kosten are the expenses of the repair.",
+              "de": "Kosten sind die Ausgaben für die Reparatur."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kosten für die Reparatur sind höher als erwartet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Kosten für die Reparatur sind höher als erwartet.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Termine: checked and rejected; Termine does not express expenses or costs with the required form in this complete context; Kosten: correct meaning and grammar; Formulare: checked and rejected; Formulare does not express expenses or costs with the required form in this complete context; Aufträge: checked and rejected; Aufträge does not express expenses or costs with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1329-v2",
+          "contextKey": "legacy-0120-L1329-context-2",
+          "transferKey": "legacy-0120-L1329-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012000",
+            "type": "choice",
+            "prompt": "Wer übernimmt die ___ für den Rückversand des Pakets?",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Who pays for shipping?",
+              "de": "Wer bezahlt den Versand?"
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ziele"
+              },
+              {
+                "id": "1",
+                "text": "Zeiten"
+              },
+              {
+                "id": "2",
+                "text": "Pakete"
+              },
+              {
+                "id": "3",
+                "text": "Kosten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Kosten are the return-shipping charges.",
+              "de": "Kosten sind die Gebühren für den Rückversand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer übernimmt die Kosten für den Rückversand des Pakets?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Wer übernimmt die Kosten für den Rückversand des Pakets?\" checked for naturalness, grammar, intended meaning and a single key. Every option: Ziele: checked and rejected; Ziele does not express expenses or costs with the required form in this complete context; Zeiten: checked and rejected; Zeiten does not express expenses or costs with the required form in this complete context; Pakete: checked and rejected; Pakete does not express expenses or costs with the required form in this complete context; Kosten: correct meaning and grammar. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012001",
+      "title": {
+        "en": "Using Kostüm in context",
+        "de": "Kostüm im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kostüm: a matching skirt-and-jacket suit.",
+        "de": "Kostüm erkennen und verwenden: ein zusammenpassendes Ensemble aus Rock und Jacke."
+      },
+      "objective": "Recognize the German noun Kostüm (a matching skirt-and-jacket suit) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1330 (a48883629204e649f24f4934fcf47b1bb361c027a1d0e2c840d00f8cdf4cf671), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1330-v1",
+          "contextKey": "legacy-0120-L1330-context-1",
+          "transferKey": "legacy-0120-L1330-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012001",
+            "type": "gap_choice",
+            "prompt": "Zum Vorstellungsgespräch trug sie ein dunkles ___ aus Rock und Jacke.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The outfit has two matching pieces.",
+              "de": "Das Outfit besteht aus zwei passenden Teilen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kostüm"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kleid"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mantel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pullover"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kostüm means a matching skirt suit here.",
+              "de": "Kostüm bedeutet hier ein Ensemble aus Rock und Jacke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Vorstellungsgespräch trug sie ein dunkles Kostüm aus Rock und Jacke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Zum Vorstellungsgespräch trug sie ein dunkles Kostüm aus Rock und Jacke.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kostüm: correct meaning and grammar; Kleid: checked and rejected; Kleid does not express a matching skirt-and-jacket suit with the required form in this complete context; Mantel: checked and rejected; Mantel does not express a matching skirt-and-jacket suit with the required form in this complete context; Pullover: checked and rejected; Pullover does not express a matching skirt-and-jacket suit with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1330-v2",
+          "contextKey": "legacy-0120-L1330-context-2",
+          "transferKey": "legacy-0120-L1330-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012001",
+            "type": "choice",
+            "prompt": "Das elegante ___ bestand aus einem knielangen Rock und einem passenden Blazer.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Two separate garments form a formal outfit.",
+              "de": "Zwei Kleidungsstücke bilden ein elegantes Ensemble."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Overall"
+              },
+              {
+                "id": "1",
+                "text": "Abendkleid"
+              },
+              {
+                "id": "2",
+                "text": "Kostüm"
+              },
+              {
+                "id": "3",
+                "text": "Trainingsanzug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Kostüm is the two-piece formal outfit.",
+              "de": "Kostüm bezeichnet das zweiteilige Ensemble."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das elegante Kostüm bestand aus einem knielangen Rock und einem passenden Blazer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Das elegante Kostüm bestand aus einem knielangen Rock und einem passenden Blazer.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Overall: checked and rejected; Overall does not express a matching skirt-and-jacket suit with the required form in this complete context; Abendkleid: checked and rejected; Abendkleid does not express a matching skirt-and-jacket suit with the required form in this complete context; Kostüm: correct meaning and grammar; Trainingsanzug: checked and rejected; Trainingsanzug does not express a matching skirt-and-jacket suit with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012002",
+      "title": {
+        "en": "Using Kraft in context",
+        "de": "Kraft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kraft: physical strength or force.",
+        "de": "Kraft erkennen und verwenden: körperliche Stärke oder Kraft."
+      },
+      "objective": "Recognize the German noun Kraft (physical strength or force) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1331 (0ebcffae75ffb7175906fb946e5337841b0c29c4a0b5febc9a9656df5ae274df), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1331-v1",
+          "contextKey": "legacy-0120-L1331-context-1",
+          "transferKey": "legacy-0120-L1331-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012002",
+            "type": "gap_choice",
+            "prompt": "Nach der langen Wanderung hatte er kaum noch ___, um den schweren Rucksack zu tragen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He is physically exhausted.",
+              "de": "Er ist körperlich erschöpft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lust"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kraft is physical strength.",
+              "de": "Kraft bedeutet körperliche Stärke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der langen Wanderung hatte er kaum noch Kraft, um den schweren Rucksack zu tragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Nach der langen Wanderung hatte er kaum noch Kraft, um den schweren Rucksack zu tragen.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Zeit: checked and rejected; Zeit does not express physical strength or force with the required form in this complete context; Lust: checked and rejected; Lust does not express physical strength or force with the required form in this complete context; Geld: checked and rejected; Geld does not express physical strength or force with the required form in this complete context; Kraft: correct meaning and grammar. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1331-v2",
+          "contextKey": "legacy-0120-L1331-context-2",
+          "transferKey": "legacy-0120-L1331-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012002",
+            "type": "choice",
+            "prompt": "Die Feuerwehrleute mussten viel ___ aufbringen, um die schwere Tür aufzudrücken.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A heavy door requires force.",
+              "de": "Eine schwere Tür erfordert körperlichen Einsatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geduld"
+              },
+              {
+                "id": "1",
+                "text": "Kraft"
+              },
+              {
+                "id": "2",
+                "text": "Glück"
+              },
+              {
+                "id": "3",
+                "text": "Geld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Kraft is the force used to push the door.",
+              "de": "Kraft ist die zum Öffnen eingesetzte Stärke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehrleute mussten viel Kraft aufbringen, um die schwere Tür aufzudrücken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Feuerwehrleute mussten viel Kraft aufbringen, um die schwere Tür aufzudrücken.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Geduld: checked and rejected; Geduld does not express physical strength or force with the required form in this complete context; Kraft: correct meaning and grammar; Glück: checked and rejected; Glück does not express physical strength or force with the required form in this complete context; Geld: checked and rejected; Geld does not express physical strength or force with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012003",
+      "title": {
+        "en": "Using Kraftfahrzeug in context",
+        "de": "Kraftfahrzeug im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kraftfahrzeug: a motor-powered road vehicle.",
+        "de": "Kraftfahrzeug erkennen und verwenden: ein motorbetriebenes Straßenfahrzeug."
+      },
+      "objective": "Recognize the German noun Kraftfahrzeug (a motor-powered road vehicle) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1332 (db1e6734025b2413b4df9915a920de51569fd7be0b7a34664e8cbac7b3a6c3bd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1332-v1",
+          "contextKey": "legacy-0120-L1332-context-1",
+          "transferKey": "legacy-0120-L1332-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012003",
+            "type": "gap_choice",
+            "prompt": "Das Schild verbietet das Parken von ___ auf dem Gehweg.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "After 'von', use dative plural.",
+              "de": "Nach „von“ steht der Dativ Plural."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kraftfahrzeug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kraftfahrzeuges"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kraftfahrzeugen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kraftfahrzeuge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kraftfahrzeugen is dative plural.",
+              "de": "Kraftfahrzeugen ist der Dativ Plural."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Schild verbietet das Parken von Kraftfahrzeugen auf dem Gehweg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Das Schild verbietet das Parken von Kraftfahrzeugen auf dem Gehweg.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kraftfahrzeug: checked and rejected; Kraftfahrzeug does not express a motor-powered road vehicle with the required form in this complete context; Kraftfahrzeuges: checked and rejected; Kraftfahrzeuges does not express a motor-powered road vehicle with the required form in this complete context; Kraftfahrzeugen: correct meaning and grammar; Kraftfahrzeuge: checked and rejected; Kraftfahrzeuge does not express a motor-powered road vehicle with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1332-v2",
+          "contextKey": "legacy-0120-L1332-context-2",
+          "transferKey": "legacy-0120-L1332-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012003",
+            "type": "choice",
+            "prompt": "Ein Motorrad zählt ebenso wie ein Auto als ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Both examples have their own motor.",
+              "de": "Beide Beispiele besitzen einen eigenen Motor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kraftfahrzeug"
+              },
+              {
+                "id": "1",
+                "text": "Fahrrad"
+              },
+              {
+                "id": "2",
+                "text": "Fußgänger"
+              },
+              {
+                "id": "3",
+                "text": "Anhänger"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kraftfahrzeug means a motor vehicle.",
+              "de": "Kraftfahrzeug ist ein Fahrzeug mit Motorantrieb."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Motorrad zählt ebenso wie ein Auto als Kraftfahrzeug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Ein Motorrad zählt ebenso wie ein Auto als Kraftfahrzeug.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kraftfahrzeug: correct meaning and grammar; Fahrrad: checked and rejected; Fahrrad does not express a motor-powered road vehicle with the required form in this complete context; Fußgänger: checked and rejected; Fußgänger does not express a motor-powered road vehicle with the required form in this complete context; Anhänger: checked and rejected; Anhänger does not express a motor-powered road vehicle with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012004",
+      "title": {
+        "en": "Using Kraftwerk in context",
+        "de": "Kraftwerk im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kraftwerk: a facility generating electricity.",
+        "de": "Kraftwerk erkennen und verwenden: eine Anlage zur Stromerzeugung."
+      },
+      "objective": "Recognize the German noun Kraftwerk (a facility generating electricity) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1333 (b78758ff1d5faba6c35960d8aedcca307a24e0b162236cefb4d851b12549111c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1333-v1",
+          "contextKey": "legacy-0120-L1333-context-1",
+          "transferKey": "legacy-0120-L1333-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012004",
+            "type": "gap_choice",
+            "prompt": "Das ___ erzeugt Strom aus Wasserkraft.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The facility converts energy into electricity.",
+              "de": "Die Anlage wandelt Energie in Strom um."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rathaus"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kraftwerk"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lagerhaus"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Parkhaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kraftwerk generates electricity.",
+              "de": "Kraftwerk bezeichnet eine Anlage zur Stromerzeugung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kraftwerk erzeugt Strom aus Wasserkraft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Das Kraftwerk erzeugt Strom aus Wasserkraft.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Rathaus: checked and rejected; Rathaus does not express a facility generating electricity with the required form in this complete context; Kraftwerk: correct meaning and grammar; Lagerhaus: checked and rejected; Lagerhaus does not express a facility generating electricity with the required form in this complete context; Parkhaus: checked and rejected; Parkhaus does not express a facility generating electricity with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1333-v2",
+          "contextKey": "legacy-0120-L1333-context-2",
+          "transferKey": "legacy-0120-L1333-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012004",
+            "type": "choice",
+            "prompt": "Im ___ wird Wärme in elektrische Energie umgewandelt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Heat is converted into electrical energy.",
+              "de": "Wärme wird in elektrische Energie umgewandelt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kaufhaus"
+              },
+              {
+                "id": "1",
+                "text": "Krankenhaus"
+              },
+              {
+                "id": "2",
+                "text": "Schulhaus"
+              },
+              {
+                "id": "3",
+                "text": "Kraftwerk"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Kraftwerk is a power-generating facility.",
+              "de": "Kraftwerk ist eine Anlage zur Stromerzeugung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Kraftwerk wird Wärme in elektrische Energie umgewandelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Im Kraftwerk wird Wärme in elektrische Energie umgewandelt.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kaufhaus: checked and rejected; Kaufhaus does not express a facility generating electricity with the required form in this complete context; Krankenhaus: checked and rejected; Krankenhaus does not express a facility generating electricity with the required form in this complete context; Schulhaus: checked and rejected; Schulhaus does not express a facility generating electricity with the required form in this complete context; Kraftwerk: correct meaning and grammar. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012005",
+      "title": {
+        "en": "Using Kranke in context",
+        "de": "Kranke im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kranke: a sick person, expressed as a nominalized adjective.",
+        "de": "Kranke erkennen und verwenden: eine kranke Person als substantiviertes Adjektiv."
+      },
+      "objective": "Recognize the German noun Kranke (a sick person, expressed as a nominalized adjective) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1334 (3586102e9a74e28a1842db759557692b68b91670169a0aaea7eb5efc2c25825f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1334-v1",
+          "contextKey": "legacy-0120-L1334-context-1",
+          "transferKey": "legacy-0120-L1334-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012005",
+            "type": "gap_choice",
+            "prompt": "Der ___ wurde nach der Untersuchung wieder nach Hause geschickt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "After 'der', use nominative masculine adjective ending.",
+              "de": "Nach „der“ gilt die schwache Endung im Nominativ Maskulinum."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kranke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kranken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kranker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Krankes"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Der Kranke is nominative masculine.",
+              "de": "Der Kranke ist Nominativ Maskulinum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kranke wurde nach der Untersuchung wieder nach Hause geschickt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Der Kranke wurde nach der Untersuchung wieder nach Hause geschickt.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kranke: correct meaning and grammar; Kranken: checked and rejected; Kranken does not express a sick person, expressed as a nominalized adjective with the required form in this complete context; Kranker: checked and rejected; Kranker does not express a sick person, expressed as a nominalized adjective with the required form in this complete context; Krankes: checked and rejected; Krankes does not express a sick person, expressed as a nominalized adjective with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1334-v2",
+          "contextKey": "legacy-0120-L1334-context-2",
+          "transferKey": "legacy-0120-L1334-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012005",
+            "type": "choice",
+            "prompt": "Die Ärztin sprach mit einem ___ über die Behandlung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "'Mit' requires dative.",
+              "de": "„Mit“ verlangt den Dativ."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kranke"
+              },
+              {
+                "id": "1",
+                "text": "Kranker"
+              },
+              {
+                "id": "2",
+                "text": "Kranken"
+              },
+              {
+                "id": "3",
+                "text": "Krankes"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Mit einem Kranken uses dative masculine -en.",
+              "de": "Mit einem Kranken ist die Dativform."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin sprach mit einem Kranken über die Behandlung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Ärztin sprach mit einem Kranken über die Behandlung.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kranke: checked and rejected; Kranke does not express a sick person, expressed as a nominalized adjective with the required form in this complete context; Kranker: checked and rejected; Kranker does not express a sick person, expressed as a nominalized adjective with the required form in this complete context; Kranken: correct meaning and grammar; Krankes: checked and rejected; Krankes does not express a sick person, expressed as a nominalized adjective with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012006",
+      "title": {
+        "en": "Using Krankengeld in context",
+        "de": "Krankengeld im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankengeld: a sickness-related wage replacement from health insurance.",
+        "de": "Krankengeld erkennen und verwenden: eine Entgeltersatzleistung bei Arbeitsunfähigkeit."
+      },
+      "objective": "Recognize the German noun Krankengeld (a sickness-related wage replacement from health insurance) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1335 (eb37c7564f3577f3be8323a41f71405308dea7a2d511beb2f52bbf68b32a8543), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1335-v1",
+          "contextKey": "legacy-0120-L1335-context-1",
+          "transferKey": "legacy-0120-L1335-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012006",
+            "type": "gap_choice",
+            "prompt": "Während einer längeren Arbeitsunfähigkeit erhielt er von seiner Krankenkasse ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The payment comes from health insurance during incapacity.",
+              "de": "Die Krankenkasse zahlt wegen Arbeitsunfähigkeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kindergeld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wohngeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaubsgeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Krankengeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankengeld is a sickness-related benefit.",
+              "de": "Krankengeld ist eine Leistung bei Arbeitsunfähigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während einer längeren Arbeitsunfähigkeit erhielt er von seiner Krankenkasse Krankengeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Während einer längeren Arbeitsunfähigkeit erhielt er von seiner Krankenkasse Krankengeld.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kindergeld: checked and rejected; Kindergeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context; Wohngeld: checked and rejected; Wohngeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context; Urlaubsgeld: checked and rejected; Urlaubsgeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context; Krankengeld: correct meaning and grammar. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1335-v2",
+          "contextKey": "legacy-0120-L1335-context-2",
+          "transferKey": "legacy-0120-L1335-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012006",
+            "type": "choice",
+            "prompt": "Im Brief der Krankenkasse stand, wann die Zahlung von ___ beginnt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The insurer discusses a sickness benefit.",
+              "de": "Die Krankenkasse schreibt über eine Leistung wegen Krankheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elterngeld"
+              },
+              {
+                "id": "1",
+                "text": "Krankengeld"
+              },
+              {
+                "id": "2",
+                "text": "Bürgergeld"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitslosengeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Krankengeld is the benefit named in the letter.",
+              "de": "Krankengeld ist die hier genannte Leistung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Brief der Krankenkasse stand, wann die Zahlung von Krankengeld beginnt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Im Brief der Krankenkasse stand, wann die Zahlung von Krankengeld beginnt.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Elterngeld: checked and rejected; Elterngeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context; Krankengeld: correct meaning and grammar; Bürgergeld: checked and rejected; Bürgergeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context; Arbeitslosengeld: checked and rejected; Arbeitslosengeld does not express a sickness-related wage replacement from health insurance with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012007",
+      "title": {
+        "en": "Using Krankenpflege in context",
+        "de": "Krankenpflege im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankenpflege: nursing care for sick people.",
+        "de": "Krankenpflege erkennen und verwenden: die pflegerische Versorgung kranker Menschen."
+      },
+      "objective": "Recognize the German noun Krankenpflege (nursing care for sick people) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1338 (02761c1617fab103b21884259d614b77de39888d199b681f2608fa47a58a5ed2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1338-v1",
+          "contextKey": "legacy-0120-L1338-context-1",
+          "transferKey": "legacy-0120-L1338-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012007",
+            "type": "gap_choice",
+            "prompt": "Sie arbeitet in der ___ und versorgt Menschen nach Operationen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Her work involves caring for patients.",
+              "de": "Ihre Arbeit besteht in der Versorgung von Kranken."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Logistik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Krankenpflege"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankenpflege is nursing care.",
+              "de": "Krankenpflege bedeutet pflegerische Versorgung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitet in der Krankenpflege und versorgt Menschen nach Operationen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Sie arbeitet in der Krankenpflege und versorgt Menschen nach Operationen.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Buchhaltung: checked and rejected; Buchhaltung does not express nursing care for sick people with the required form in this complete context; Logistik: checked and rejected; Logistik does not express nursing care for sick people with the required form in this complete context; Krankenpflege: correct meaning and grammar; Werbung: checked and rejected; Werbung does not express nursing care for sick people with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1338-v2",
+          "contextKey": "legacy-0120-L1338-context-2",
+          "transferKey": "legacy-0120-L1338-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012007",
+            "type": "choice",
+            "prompt": "Zur ___ gehören die Beobachtung von Patienten und die Unterstützung im Alltag.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "These are nursing tasks.",
+              "de": "Das sind pflegerische Aufgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankenpflege"
+              },
+              {
+                "id": "1",
+                "text": "Gebäudereinigung"
+              },
+              {
+                "id": "2",
+                "text": "Buchführung"
+              },
+              {
+                "id": "3",
+                "text": "Warenannahme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Krankenpflege includes observing and supporting patients.",
+              "de": "Krankenpflege umfasst die Betreuung von Patienten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Krankenpflege gehören die Beobachtung von Patienten und die Unterstützung im Alltag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Zur Krankenpflege gehören die Beobachtung von Patienten und die Unterstützung im Alltag.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankenpflege: correct meaning and grammar; Gebäudereinigung: checked and rejected; Gebäudereinigung does not express nursing care for sick people with the required form in this complete context; Buchführung: checked and rejected; Buchführung does not express nursing care for sick people with the required form in this complete context; Warenannahme: checked and rejected; Warenannahme does not express nursing care for sick people with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012009",
+      "title": {
+        "en": "Using Krankenpfleger in context",
+        "de": "Krankenpfleger im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankenpfleger: a male nursing professional.",
+        "de": "Krankenpfleger erkennen und verwenden: ein männlicher Pflegefachmann."
+      },
+      "objective": "Recognize the German noun Krankenpfleger (a male nursing professional) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1340 (abafb30afa03a838f7209bffef20f03b0404d5b2a52e3d04b37716ce4311fac8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1340-v1",
+          "contextKey": "legacy-0120-L1340-context-1",
+          "transferKey": "legacy-0120-L1340-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012009",
+            "type": "gap_choice",
+            "prompt": "Der ___ kontrollierte die Vitalwerte und dokumentierte sie.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This person performs nursing tasks.",
+              "de": "Diese Person übernimmt pflegerische Aufgaben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Krankenpfleger"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Koch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankenpfleger is a male nursing professional.",
+              "de": "Krankenpfleger bezeichnet einen männlichen Pflegefachmann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Krankenpfleger kontrollierte die Vitalwerte und dokumentierte sie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Der Krankenpfleger kontrollierte die Vitalwerte und dokumentierte sie.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankenpfleger: correct meaning and grammar; Koch: checked and rejected; Koch does not express a male nursing professional with the required form in this complete context; Mechaniker: checked and rejected; Mechaniker does not express a male nursing professional with the required form in this complete context; Fahrer: checked and rejected; Fahrer does not express a male nursing professional with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1340-v2",
+          "contextKey": "legacy-0120-L1340-context-2",
+          "transferKey": "legacy-0120-L1340-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012009",
+            "type": "choice",
+            "prompt": "Wir bedankten uns bei dem ___ für die Betreuung auf der Station.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "After 'bei dem', use masculine dative singular.",
+              "de": "Nach „bei dem“ steht der Dativ Singular."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankenpflegerin"
+              },
+              {
+                "id": "1",
+                "text": "Krankenpflegers"
+              },
+              {
+                "id": "2",
+                "text": "Krankenpfleger"
+              },
+              {
+                "id": "3",
+                "text": "Krankenpflegern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Bei dem Krankenpfleger is dative singular.",
+              "de": "Bei dem Krankenpfleger ist die Dativform."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir bedankten uns bei dem Krankenpfleger für die Betreuung auf der Station.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Wir bedankten uns bei dem Krankenpfleger für die Betreuung auf der Station.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankenpflegerin: checked and rejected; Krankenpflegerin does not express a male nursing professional with the required form in this complete context; Krankenpflegers: checked and rejected; Krankenpflegers does not express a male nursing professional with the required form in this complete context; Krankenpfleger: correct meaning and grammar; Krankenpflegern: checked and rejected; Krankenpflegern does not express a male nursing professional with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012011",
+      "title": {
+        "en": "Using Krankenversicherung in context",
+        "de": "Krankenversicherung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankenversicherung: insurance covering medical care under its terms.",
+        "de": "Krankenversicherung erkennen und verwenden: eine Versicherung für medizinische Behandlungskosten."
+      },
+      "objective": "Recognize the German noun Krankenversicherung (insurance covering medical care under its terms) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1342 (703fd719d4ac23fada060c0f7aea2a57fae301e2e88f31de5c0a1d5c1be432bd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1342-v1",
+          "contextKey": "legacy-0120-L1342-context-1",
+          "transferKey": "legacy-0120-L1342-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012011",
+            "type": "gap_choice",
+            "prompt": "Die ___ ist für die Absicherung medizinischer Behandlungskosten zuständig.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The policy concerns medical treatment.",
+              "de": "Die Versicherung betrifft medizinische Behandlung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausratversicherung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Haftpflichtversicherung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Krankenversicherung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Autoversicherung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankenversicherung is health insurance.",
+              "de": "Krankenversicherung ist die Absicherung medizinischer Kosten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Krankenversicherung ist für die Absicherung medizinischer Behandlungskosten zuständig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Krankenversicherung ist für die Absicherung medizinischer Behandlungskosten zuständig.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Hausratversicherung: checked and rejected; Hausratversicherung does not express insurance covering medical care under its terms with the required form in this complete context; Haftpflichtversicherung: checked and rejected; Haftpflichtversicherung does not express insurance covering medical care under its terms with the required form in this complete context; Krankenversicherung: correct meaning and grammar; Autoversicherung: checked and rejected; Autoversicherung does not express insurance covering medical care under its terms with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1342-v2",
+          "contextKey": "legacy-0120-L1342-context-2",
+          "transferKey": "legacy-0120-L1342-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012011",
+            "type": "choice",
+            "prompt": "Beim Arztbesuch zeigte er seine Karte der ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The card proves health insurance coverage.",
+              "de": "Die Karte weist Krankenversicherungsschutz nach."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankenversicherung"
+              },
+              {
+                "id": "1",
+                "text": "Autoversicherung"
+              },
+              {
+                "id": "2",
+                "text": "Rechtsschutzversicherung"
+              },
+              {
+                "id": "3",
+                "text": "Hausratversicherung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Krankenversicherung issues the health coverage card.",
+              "de": "Krankenversicherung bezeichnet die Gesundheitsabsicherung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Arztbesuch zeigte er seine Karte der Krankenversicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Beim Arztbesuch zeigte er seine Karte der Krankenversicherung.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankenversicherung: correct meaning and grammar; Autoversicherung: checked and rejected; Autoversicherung does not express insurance covering medical care under its terms with the required form in this complete context; Rechtsschutzversicherung: checked and rejected; Rechtsschutzversicherung does not express insurance covering medical care under its terms with the required form in this complete context; Hausratversicherung: checked and rejected; Hausratversicherung does not express insurance covering medical care under its terms with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012013",
+      "title": {
+        "en": "Using Krankheitserreger in context",
+        "de": "Krankheitserreger im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankheitserreger: a pathogen capable of causing disease.",
+        "de": "Krankheitserreger erkennen und verwenden: ein Erreger, der Krankheiten auslösen kann."
+      },
+      "objective": "Recognize the German noun Krankheitserreger (a pathogen capable of causing disease) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1345 (7f820427f9a6e7a283264a04323ffb278e477afcc963815368282f1e951cca5e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1345-v1",
+          "contextKey": "legacy-0120-L1345-context-1",
+          "transferKey": "legacy-0120-L1345-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012013",
+            "type": "gap_choice",
+            "prompt": "Bakterien und Viren können ___ sein, wenn sie Infektionen auslösen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "These agents can cause infection.",
+              "de": "Diese Erreger können Infektionen auslösen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Krankheitserreger"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Heilmittel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nährstoffe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Impfstoffe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankheitserreger cause disease.",
+              "de": "Krankheitserreger sind Auslöser von Krankheiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bakterien und Viren können Krankheitserreger sein, wenn sie Infektionen auslösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Bakterien und Viren können Krankheitserreger sein, wenn sie Infektionen auslösen.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankheitserreger: correct meaning and grammar; Heilmittel: checked and rejected; Heilmittel does not express a pathogen capable of causing disease with the required form in this complete context; Nährstoffe: checked and rejected; Nährstoffe does not express a pathogen capable of causing disease with the required form in this complete context; Impfstoffe: checked and rejected; Impfstoffe does not express a pathogen capable of causing disease with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1345-v2",
+          "contextKey": "legacy-0120-L1345-context-2",
+          "transferKey": "legacy-0120-L1345-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012013",
+            "type": "choice",
+            "prompt": "Das Labor untersuchte die Probe auf mögliche ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The lab looks for infectious agents.",
+              "de": "Das Labor sucht nach Infektionserregern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitsverträge"
+              },
+              {
+                "id": "1",
+                "text": "Ersatzteile"
+              },
+              {
+                "id": "2",
+                "text": "Krankheitserreger"
+              },
+              {
+                "id": "3",
+                "text": "Rechnungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Krankheitserreger are possible infectious agents.",
+              "de": "Krankheitserreger können Infektionen auslösen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Labor untersuchte die Probe auf mögliche Krankheitserreger.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Das Labor untersuchte die Probe auf mögliche Krankheitserreger.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Arbeitsverträge: checked and rejected; Arbeitsverträge does not express a pathogen capable of causing disease with the required form in this complete context; Ersatzteile: checked and rejected; Ersatzteile does not express a pathogen capable of causing disease with the required form in this complete context; Krankheitserreger: correct meaning and grammar; Rechnungen: checked and rejected; Rechnungen does not express a pathogen capable of causing disease with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012014",
+      "title": {
+        "en": "Using Krankmeldung in context",
+        "de": "Krankmeldung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankmeldung: notification to an employer of being sick.",
+        "de": "Krankmeldung erkennen und verwenden: die Mitteilung einer Erkrankung an den Arbeitgeber."
+      },
+      "objective": "Recognize the German noun Krankmeldung (notification to an employer of being sick) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1346 (b500534edb9b647ec54e48e108c6a606a734a4cfb3e45c93a56feb8b6e109ba2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1346-v1",
+          "contextKey": "legacy-0120-L1346-context-1",
+          "transferKey": "legacy-0120-L1346-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012014",
+            "type": "gap_choice",
+            "prompt": "Am Morgen informierte sie ihren Arbeitgeber über ihre Erkrankung. Diese ___ erfolgte telefonisch.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She reports being sick to her employer.",
+              "de": "Sie meldet dem Arbeitgeber ihre Erkrankung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Krankschreibung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Krankmeldung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankmeldung is the notification of sickness.",
+              "de": "Krankmeldung ist die Mitteilung einer Erkrankung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Morgen informierte sie ihren Arbeitgeber über ihre Erkrankung. Diese Krankmeldung erfolgte telefonisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Am Morgen informierte sie ihren Arbeitgeber über ihre Erkrankung. Diese Krankmeldung erfolgte telefonisch.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankschreibung: checked and rejected; Krankschreibung does not express notification to an employer of being sick with the required form in this complete context; Bewerbung: checked and rejected; Bewerbung does not express notification to an employer of being sick with the required form in this complete context; Kündigung: checked and rejected; Kündigung does not express notification to an employer of being sick with the required form in this complete context; Krankmeldung: correct meaning and grammar. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1346-v2",
+          "contextKey": "legacy-0120-L1346-context-2",
+          "transferKey": "legacy-0120-L1346-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012014",
+            "type": "choice",
+            "prompt": "Die ___ beim Arbeitgeber muss nicht automatisch ein ärztliches Attest sein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Distinguish a notification from a medical certificate.",
+              "de": "Unterscheide Mitteilung und ärztlichen Nachweis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankschreibung"
+              },
+              {
+                "id": "1",
+                "text": "Krankmeldung"
+              },
+              {
+                "id": "2",
+                "text": "Krankengeld"
+              },
+              {
+                "id": "3",
+                "text": "Krankenpflege"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Krankmeldung is the notification, not necessarily a certificate.",
+              "de": "Krankmeldung ist die Mitteilung, nicht zwingend ein Attest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Krankmeldung beim Arbeitgeber muss nicht automatisch ein ärztliches Attest sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Krankmeldung beim Arbeitgeber muss nicht automatisch ein ärztliches Attest sein.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankschreibung: checked and rejected; Krankschreibung does not express notification to an employer of being sick with the required form in this complete context; Krankmeldung: correct meaning and grammar; Krankengeld: checked and rejected; Krankengeld does not express notification to an employer of being sick with the required form in this complete context; Krankenpflege: checked and rejected; Krankenpflege does not express notification to an employer of being sick with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012015",
+      "title": {
+        "en": "Using Krankschreibung in context",
+        "de": "Krankschreibung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Krankschreibung: medical certification of incapacity for work.",
+        "de": "Krankschreibung erkennen und verwenden: die ärztliche Feststellung einer Arbeitsunfähigkeit."
+      },
+      "objective": "Recognize the German noun Krankschreibung (medical certification of incapacity for work) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1347 (957b6d15ff865e5ffd283a0008420a8d69e48ec744d3ecb926624dd9995fc150), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1347-v1",
+          "contextKey": "legacy-0120-L1347-context-1",
+          "transferKey": "legacy-0120-L1347-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012015",
+            "type": "gap_choice",
+            "prompt": "Die Ärztin stellte eine ___ aus, die die Arbeitsunfähigkeit bescheinigt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A doctor certifies inability to work.",
+              "de": "Die Ärztin bestätigt die Arbeitsunfähigkeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Krankmeldung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Krankschreibung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Überweisung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Krankschreibung is medical certification.",
+              "de": "Krankschreibung ist die ärztliche Bescheinigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin stellte eine Krankschreibung aus, die die Arbeitsunfähigkeit bescheinigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Die Ärztin stellte eine Krankschreibung aus, die die Arbeitsunfähigkeit bescheinigt.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankmeldung: checked and rejected; Krankmeldung does not express medical certification of incapacity for work with the required form in this complete context; Rechnung: checked and rejected; Rechnung does not express medical certification of incapacity for work with the required form in this complete context; Krankschreibung: correct meaning and grammar; Überweisung: checked and rejected; Überweisung does not express medical certification of incapacity for work with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1347-v2",
+          "contextKey": "legacy-0120-L1347-context-2",
+          "transferKey": "legacy-0120-L1347-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012015",
+            "type": "choice",
+            "prompt": "Nach der Untersuchung erhielt er eine ___ vom Arzt; danach informierte er seinen Betrieb.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Medical certification precedes the separate employer notification.",
+              "de": "Die ärztliche Feststellung und die Meldung sind getrennt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankschreibung"
+              },
+              {
+                "id": "1",
+                "text": "Krankmeldung"
+              },
+              {
+                "id": "2",
+                "text": "Kündigung"
+              },
+              {
+                "id": "3",
+                "text": "Bewerbung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Krankschreibung is the medical certification.",
+              "de": "Krankschreibung bezeichnet die ärztliche Feststellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Untersuchung erhielt er eine Krankschreibung vom Arzt; danach informierte er seinen Betrieb.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Nach der Untersuchung erhielt er eine Krankschreibung vom Arzt; danach informierte er seinen Betrieb.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Krankschreibung: correct meaning and grammar; Krankmeldung: checked and rejected; Krankmeldung does not express medical certification of incapacity for work with the required form in this complete context; Kündigung: checked and rejected; Kündigung does not express medical certification of incapacity for work with the required form in this complete context; Bewerbung: checked and rejected; Bewerbung does not express medical certification of incapacity for work with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012019",
+      "title": {
+        "en": "Using Kreuzfahrt in context",
+        "de": "Kreuzfahrt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kreuzfahrt: a holiday voyage on a passenger ship.",
+        "de": "Kreuzfahrt erkennen und verwenden: eine Urlaubsreise auf einem Kreuzfahrtschiff."
+      },
+      "objective": "Recognize the German noun Kreuzfahrt (a holiday voyage on a passenger ship) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1353 (0419f6304179aff4ccda864be05e7797825b775c2eb983b776d7489c0cd62310), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0120-L1353-v1",
+          "contextKey": "legacy-0120-L1353-context-1",
+          "transferKey": "legacy-0120-L1353-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012019",
+            "type": "gap_choice",
+            "prompt": "Auf der ___ hielt das Schiff in mehreren Hafenstädten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The journey takes place on a ship.",
+              "de": "Die Reise findet auf einem Schiff statt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zugreise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wanderung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kreuzfahrt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Radtour"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kreuzfahrt is a cruise voyage.",
+              "de": "Kreuzfahrt ist eine Schiffsreise."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Kreuzfahrt hielt das Schiff in mehreren Hafenstädten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Auf der Kreuzfahrt hielt das Schiff in mehreren Hafenstädten.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Zugreise: checked and rejected; Zugreise does not express a holiday voyage on a passenger ship with the required form in this complete context; Wanderung: checked and rejected; Wanderung does not express a holiday voyage on a passenger ship with the required form in this complete context; Kreuzfahrt: correct meaning and grammar; Radtour: checked and rejected; Radtour does not express a holiday voyage on a passenger ship with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        },
+        {
+          "variantKey": "legacy-0120-L1353-v2",
+          "contextKey": "legacy-0120-L1353-context-2",
+          "transferKey": "legacy-0120-L1353-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001200191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012019",
+            "type": "choice",
+            "prompt": "Sie buchten eine ___ mit Kabine an Bord und Stopps auf mehreren Inseln.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The passengers stay in a ship's cabin.",
+              "de": "Die Reisenden übernachten in einer Schiffskabine."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kreuzfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Flugreise"
+              },
+              {
+                "id": "2",
+                "text": "Busfahrt"
+              },
+              {
+                "id": "3",
+                "text": "Bergtour"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kreuzfahrt is the ship-based holiday.",
+              "de": "Kreuzfahrt bezeichnet die Reise auf einem Kreuzfahrtschiff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie buchten eine Kreuzfahrt mit Kabine an Bord und Stopps auf mehreren Inseln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete sentence \"Sie buchten eine Kreuzfahrt mit Kabine an Bord und Stopps auf mehreren Inseln.\" checked for naturalness, grammar, intended meaning and a single key. Every option: Kreuzfahrt: correct meaning and grammar; Flugreise: checked and rejected; Flugreise does not express a holiday voyage on a passenger ship with the required form in this complete context; Busfahrt: checked and rejected; Busfahrt does not express a holiday voyage on a passenger ship with the required form in this complete context; Bergtour: checked and rejected; Bergtour does not express a holiday voyage on a passenger ship with the required form in this complete context. Bilingual feedback and distinct sibling context checked; human review pending."
+        }
+      ]
+    }
+  ]
+}
