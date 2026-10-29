@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010701",
+      "title": {
+        "en": "Using Geschäftsverbindung in context",
+        "de": "Geschäftsverbindung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geschäftsverbindung: business relationship, in two different situations.",
+        "de": "Geschäftsverbindung erkennen und verwenden: Geschäftsverbindung zwischen Unternehmen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geschäftsverbindung meaning business relationship, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L963 (81b1050769f11f5a18a61e3ccbaf3b187ff8eff685a6f2e9dffde4ab59ee8def), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L963-v1",
+          "contextKey": "legacy-0107-L963-context-1",
+          "transferKey": "legacy-0107-L963-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010701",
+            "type": "gap_choice",
+            "prompt": "Die Firma pflegt seit Jahren eine enge ___ zu ihrem Lieferanten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The company maintains a long-term business relationship.",
+              "de": "Das Unternehmen hat eine langjährige geschäftliche Beziehung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschäftsidee"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschäftsverbindung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftszeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geschwindigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geschäftsverbindung means business relationship here; \"Geschäftsverbindung\" is the appropriate form.",
+              "de": "Geschäftsverbindung bedeutet hier: Geschäftsverbindung zwischen Unternehmen. Die Form „Geschäftsverbindung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma pflegt seit Jahren eine enge Geschäftsverbindung zu ihrem Lieferanten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Firma pflegt seit Jahren eine enge Geschäftsverbindung zu ihrem Lieferanten.\" checked. All four options evaluated: Geschäftsidee: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsverbindung: correct for noun form and contextual meaning; Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L963-v2",
+          "contextKey": "legacy-0107-L963-context-2",
+          "transferKey": "legacy-0107-L963-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010701",
+            "type": "choice",
+            "prompt": "Durch die Messe entstanden neue ___ zwischen den Unternehmen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The event helped companies establish contacts.",
+              "de": "Die Messe führte zu neuen geschäftlichen Kontakten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschwindigkeiten"
+              },
+              {
+                "id": "1",
+                "text": "Gewerkschaften"
+              },
+              {
+                "id": "2",
+                "text": "Geschäftsverbindungen"
+              },
+              {
+                "id": "3",
+                "text": "Gesetze"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Geschäftsverbindung means business relationship here; \"Geschäftsverbindungen\" is the appropriate form.",
+              "de": "Geschäftsverbindung bedeutet hier: Geschäftsverbindung zwischen Unternehmen. Die Form „Geschäftsverbindungen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die Messe entstanden neue Geschäftsverbindungen zwischen den Unternehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Durch die Messe entstanden neue Geschäftsverbindungen zwischen den Unternehmen.\" checked. All four options evaluated: Geschwindigkeiten: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaften: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsverbindungen: correct for noun form and contextual meaning; Gesetze: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010702",
+      "title": {
+        "en": "Using Geschäftszeit in context",
+        "de": "Geschäftszeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geschäftszeit: business hours, in two different situations.",
+        "de": "Geschäftszeit erkennen und verwenden: Geschäftszeit als Öffnungs- oder Servicezeit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geschäftszeit meaning business hours, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L964 (a7e1d8343fa9333eeee5b41cb5e68a2b75331766d62efe93cd009e4112d000a1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L964-v1",
+          "contextKey": "legacy-0107-L964-context-1",
+          "transferKey": "legacy-0107-L964-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010702",
+            "type": "gap_choice",
+            "prompt": "Bitte rufen Sie während unserer ___ an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Calls should be made during the hours the office operates.",
+              "de": "Anrufe sind während der Betriebszeiten erwünscht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschäftszeiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschwindigkeiten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewerkschaften"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesetze"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geschäftszeit means business hours here; \"Geschäftszeiten\" is the appropriate form.",
+              "de": "Geschäftszeit bedeutet hier: Geschäftszeit als Öffnungs- oder Servicezeit. Die Form „Geschäftszeiten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte rufen Sie während unserer Geschäftszeiten an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte rufen Sie während unserer Geschäftszeiten an.\" checked. All four options evaluated: Geschäftszeiten: correct for noun form and contextual meaning; Geschwindigkeiten: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaften: rejected; wrong referent, grammatical form or contextual meaning; Gesetze: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L964-v2",
+          "contextKey": "legacy-0107-L964-context-2",
+          "transferKey": "legacy-0107-L964-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010702",
+            "type": "choice",
+            "prompt": "Außerhalb der ___ bleibt der Kundenschalter geschlossen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The counter is closed outside working hours.",
+              "de": "Der Schalter ist außerhalb der Betriebszeiten geschlossen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschwindigkeiten"
+              },
+              {
+                "id": "1",
+                "text": "Gesetzgeber"
+              },
+              {
+                "id": "2",
+                "text": "Gesprächspartner"
+              },
+              {
+                "id": "3",
+                "text": "Geschäftszeiten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Geschäftszeit means business hours here; \"Geschäftszeiten\" is the appropriate form.",
+              "de": "Geschäftszeit bedeutet hier: Geschäftszeit als Öffnungs- oder Servicezeit. Die Form „Geschäftszeiten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Außerhalb der Geschäftszeiten bleibt der Kundenschalter geschlossen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Außerhalb der Geschäftszeiten bleibt der Kundenschalter geschlossen.\" checked. All four options evaluated: Geschwindigkeiten: rejected; wrong referent, grammatical form or contextual meaning; Gesetzgeber: rejected; wrong referent, grammatical form or contextual meaning; Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning; Geschäftszeiten: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010704",
+      "title": {
+        "en": "Using Geschmack in context",
+        "de": "Geschmack im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geschmack: taste or flavour, in two different situations.",
+        "de": "Geschmack erkennen und verwenden: Geschmack als geschmackliche Wahrnehmung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geschmack meaning taste or flavour, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L969 (aee05f282a569be2c2acdb6debbd5cd723509c403aa08370353f785f288d593f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L969-v1",
+          "contextKey": "legacy-0107-L969-context-1",
+          "transferKey": "legacy-0107-L969-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010704",
+            "type": "gap_choice",
+            "prompt": "Die Suppe hat einen angenehmen ___ nach frischen Kräutern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The soup has a pleasant flavour.",
+              "de": "Die Suppe schmeckt angenehm nach Kräutern."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesetz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschmack"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gesprächspartner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewerbe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geschmack means taste or flavour here; \"Geschmack\" is the appropriate form.",
+              "de": "Geschmack bedeutet hier: Geschmack als geschmackliche Wahrnehmung. Die Form „Geschmack“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Suppe hat einen angenehmen Geschmack nach frischen Kräutern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Suppe hat einen angenehmen Geschmack nach frischen Kräutern.\" checked. All four options evaluated: Gesetz: rejected; wrong referent, grammatical form or contextual meaning; Geschmack: correct for noun form and contextual meaning; Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L969-v2",
+          "contextKey": "legacy-0107-L969-context-2",
+          "transferKey": "legacy-0107-L969-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010704",
+            "type": "choice",
+            "prompt": "Der ___ des Kaffees ist zu bitter für mich.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker dislikes the coffee's flavour.",
+              "de": "Der Kaffee schmeckt der Person zu bitter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschwindigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "2",
+                "text": "Geschmack"
+              },
+              {
+                "id": "3",
+                "text": "Gewerkschaft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Geschmack means taste or flavour here; \"Geschmack\" is the appropriate form.",
+              "de": "Geschmack bedeutet hier: Geschmack als geschmackliche Wahrnehmung. Die Form „Geschmack“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Geschmack des Kaffees ist zu bitter für mich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Geschmack des Kaffees ist zu bitter für mich.\" checked. All four options evaluated: Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: rejected; wrong referent, grammatical form or contextual meaning; Geschmack: correct for noun form and contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010705",
+      "title": {
+        "en": "Using Geschwindigkeit in context",
+        "de": "Geschwindigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geschwindigkeit: speed, in two different situations.",
+        "de": "Geschwindigkeit erkennen und verwenden: Geschwindigkeit als Tempo, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geschwindigkeit meaning speed, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L970 (5bd2237e0f70731943bcd1a4920cdaaa9b2a574494c4ff95ac76c4e2ab8a3634), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L970-v1",
+          "contextKey": "legacy-0107-L970-context-1",
+          "transferKey": "legacy-0107-L970-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010705",
+            "type": "gap_choice",
+            "prompt": "Bei Regen sollte man die ___ deutlich reduzieren.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Drivers should slow down in rain.",
+              "de": "Bei Regen sollte man langsamer fahren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesellschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geselligkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewerkschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geschwindigkeit means speed here; \"Geschwindigkeit\" is the appropriate form.",
+              "de": "Geschwindigkeit bedeutet hier: Geschwindigkeit als Tempo. Die Form „Geschwindigkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Regen sollte man die Geschwindigkeit deutlich reduzieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bei Regen sollte man die Geschwindigkeit deutlich reduzieren.\" checked. All four options evaluated: Geschwindigkeit: correct for noun form and contextual meaning; Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Geselligkeit: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L970-v2",
+          "contextKey": "legacy-0107-L970-context-2",
+          "transferKey": "legacy-0107-L970-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010705",
+            "type": "choice",
+            "prompt": "Die ___ des Zuges wurde auf 160 km/h erhöht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The train's speed was increased.",
+              "de": "Der Zug fährt nun schneller."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "1",
+                "text": "Gewährleistung"
+              },
+              {
+                "id": "2",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "3",
+                "text": "Geschwindigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Geschwindigkeit means speed here; \"Geschwindigkeit\" is the appropriate form.",
+              "de": "Geschwindigkeit bedeutet hier: Geschwindigkeit als Tempo. Die Form „Geschwindigkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Geschwindigkeit des Zuges wurde auf 160 km/h erhöht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Geschwindigkeit des Zuges wurde auf 160 km/h erhöht.\" checked. All four options evaluated: Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gewährleistung: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeit: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010706",
+      "title": {
+        "en": "Using Geschwindigkeitsbeschränkung in context",
+        "de": "Geschwindigkeitsbeschränkung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geschwindigkeitsbeschränkung: speed limit, in two different situations.",
+        "de": "Geschwindigkeitsbeschränkung erkennen und verwenden: Geschwindigkeitsbeschränkung als Tempolimit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geschwindigkeitsbeschränkung meaning speed limit, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L971 (4b0f5eb414288f714315d23c0ba95c19c585c6a209c346b7ddc9ac15df1d6c3f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L971-v1",
+          "contextKey": "legacy-0107-L971-context-1",
+          "transferKey": "legacy-0107-L971-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010706",
+            "type": "gap_choice",
+            "prompt": "Auf dieser Straße gilt eine ___ von 30 km/h.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The maximum allowed speed is 30 km/h.",
+              "de": "Die erlaubte Höchstgeschwindigkeit beträgt 30 km/h."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschäftsverbindung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschwindigkeitsbeschränkung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gesundheitsbelastung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesellschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geschwindigkeitsbeschränkung means speed limit here; \"Geschwindigkeitsbeschränkung\" is the appropriate form.",
+              "de": "Geschwindigkeitsbeschränkung bedeutet hier: Geschwindigkeitsbeschränkung als Tempolimit. Die Form „Geschwindigkeitsbeschränkung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dieser Straße gilt eine Geschwindigkeitsbeschränkung von 30 km/h.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf dieser Straße gilt eine Geschwindigkeitsbeschränkung von 30 km/h.\" checked. All four options evaluated: Geschäftsverbindung: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeitsbeschränkung: correct for noun form and contextual meaning; Gesundheitsbelastung: rejected; wrong referent, grammatical form or contextual meaning; Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L971-v2",
+          "contextKey": "legacy-0107-L971-context-2",
+          "transferKey": "legacy-0107-L971-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010706",
+            "type": "choice",
+            "prompt": "Wegen der Baustelle wurde eine vorübergehende ___ angeordnet.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Roadworks require a temporary speed restriction.",
+              "de": "Wegen der Baustelle gilt vorübergehend ein Tempolimit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "1",
+                "text": "Gewerkschaft"
+              },
+              {
+                "id": "2",
+                "text": "Geschwindigkeitsbeschränkung"
+              },
+              {
+                "id": "3",
+                "text": "Gewalt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Geschwindigkeitsbeschränkung means speed limit here; \"Geschwindigkeitsbeschränkung\" is the appropriate form.",
+              "de": "Geschwindigkeitsbeschränkung bedeutet hier: Geschwindigkeitsbeschränkung als Tempolimit. Die Form „Geschwindigkeitsbeschränkung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Baustelle wurde eine vorübergehende Geschwindigkeitsbeschränkung angeordnet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wegen der Baustelle wurde eine vorübergehende Geschwindigkeitsbeschränkung angeordnet.\" checked. All four options evaluated: Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeitsbeschränkung: correct for noun form and contextual meaning; Gewalt: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010707",
+      "title": {
+        "en": "Using Geselligkeit in context",
+        "de": "Geselligkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geselligkeit: sociability and enjoyment of company, in two different situations.",
+        "de": "Geselligkeit erkennen und verwenden: Geselligkeit als Freude am Zusammensein, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geselligkeit meaning sociability and enjoyment of company, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L973 (f6ae374ff7562eeff62358b4f780e3b69f4302719d38408d6306a2655cc09359), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L973-v1",
+          "contextKey": "legacy-0107-L973-context-1",
+          "transferKey": "legacy-0107-L973-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010707",
+            "type": "gap_choice",
+            "prompt": "Er genießt die ___ und trifft sich gern mit Freunden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He enjoys being with other people.",
+              "de": "Er verbringt gern Zeit in Gesellschaft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geselligkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftsführung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geselligkeit means sociability and enjoyment of company here; \"Geselligkeit\" is the appropriate form.",
+              "de": "Geselligkeit bedeutet hier: Geselligkeit als Freude am Zusammensein. Die Form „Geselligkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er genießt die Geselligkeit und trifft sich gern mit Freunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Er genießt die Geselligkeit und trifft sich gern mit Freunden.\" checked. All four options evaluated: Geselligkeit: correct for noun form and contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsführung: rejected; wrong referent, grammatical form or contextual meaning; Gewalt: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L973-v2",
+          "contextKey": "legacy-0107-L973-context-2",
+          "transferKey": "legacy-0107-L973-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010707",
+            "type": "choice",
+            "prompt": "Das Fest bot viel Raum für Gespräche und ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The event encouraged friendly social interaction.",
+              "de": "Das Fest bot Gelegenheit zum geselligen Zusammensein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "1",
+                "text": "Gesetz"
+              },
+              {
+                "id": "2",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "3",
+                "text": "Geselligkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Geselligkeit means sociability and enjoyment of company here; \"Geselligkeit\" is the appropriate form.",
+              "de": "Geselligkeit bedeutet hier: Geselligkeit als Freude am Zusammensein. Die Form „Geselligkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Fest bot viel Raum für Gespräche und Geselligkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das Fest bot viel Raum für Gespräche und Geselligkeit.\" checked. All four options evaluated: Gesundheitswesen: rejected; wrong referent, grammatical form or contextual meaning; Gesetz: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Geselligkeit: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010708",
+      "title": {
+        "en": "Using Gesellschaft in context",
+        "de": "Gesellschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesellschaft: company or companionship of other people, in two different situations.",
+        "de": "Gesellschaft erkennen und verwenden: Gesellschaft als Anwesenheit anderer Menschen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesellschaft meaning company or companionship of other people, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L974 (fabf8f46b68e802258c5d92a948c3d9eedc81a76596d8a1e2abe8969b80690e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L974-v1",
+          "contextKey": "legacy-0107-L974-context-1",
+          "transferKey": "legacy-0107-L974-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010708",
+            "type": "gap_choice",
+            "prompt": "Nach Wochen allein freute sie sich über die ___ ihrer Freunde.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She was happy not to be alone.",
+              "de": "Sie freute sich über die Anwesenheit ihrer Freunde."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschäftszeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesellschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewalt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geschwindigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesellschaft means company or companionship of other people here; \"Gesellschaft\" is the appropriate form.",
+              "de": "Gesellschaft bedeutet hier: Gesellschaft als Anwesenheit anderer Menschen. Die Form „Gesellschaft“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Wochen allein freute sie sich über die Gesellschaft ihrer Freunde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach Wochen allein freute sie sich über die Gesellschaft ihrer Freunde.\" checked. All four options evaluated: Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gesellschaft: correct for noun form and contextual meaning; Gewalt: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L974-v2",
+          "contextKey": "legacy-0107-L974-context-2",
+          "transferKey": "legacy-0107-L974-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010708",
+            "type": "choice",
+            "prompt": "Er wollte nicht allein essen und suchte ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He wanted someone to join him.",
+              "de": "Er wollte mit anderen Menschen zusammen sein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "1",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "2",
+                "text": "Gesellschaft"
+              },
+              {
+                "id": "3",
+                "text": "Gesetz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gesellschaft means company or companionship of other people here; \"Gesellschaft\" is the appropriate form.",
+              "de": "Gesellschaft bedeutet hier: Gesellschaft als Anwesenheit anderer Menschen. Die Form „Gesellschaft“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er wollte nicht allein essen und suchte Gesellschaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Er wollte nicht allein essen und suchte Gesellschaft.\" checked. All four options evaluated: Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: rejected; wrong referent, grammatical form or contextual meaning; Gesellschaft: correct for noun form and contextual meaning; Gesetz: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010709",
+      "title": {
+        "en": "Using Gesetz in context",
+        "de": "Gesetz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesetz: law or statute, in two different situations.",
+        "de": "Gesetz erkennen und verwenden: Gesetz als verbindliche Rechtsvorschrift, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesetz meaning law or statute, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L975 (2debbb540b279c6f31d83f2bef75188ff27c2965df5d6a428664995b92aa817e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L975-v1",
+          "contextKey": "legacy-0107-L975-context-1",
+          "transferKey": "legacy-0107-L975-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010709",
+            "type": "gap_choice",
+            "prompt": "Das neue ___ regelt den Schutz persönlicher Daten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A binding legal rule governs data protection.",
+              "de": "Eine verbindliche Rechtsnorm regelt den Datenschutz."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesetz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschmack"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gelände"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesprächspartner"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesetz means law or statute here; \"Gesetz\" is the appropriate form.",
+              "de": "Gesetz bedeutet hier: Gesetz als verbindliche Rechtsvorschrift. Die Form „Gesetz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das neue Gesetz regelt den Schutz persönlicher Daten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das neue Gesetz regelt den Schutz persönlicher Daten.\" checked. All four options evaluated: Gesetz: correct for noun form and contextual meaning; Geschmack: rejected; wrong referent, grammatical form or contextual meaning; Gelände: rejected; wrong referent, grammatical form or contextual meaning; Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L975-v2",
+          "contextKey": "legacy-0107-L975-context-2",
+          "transferKey": "legacy-0107-L975-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010709",
+            "type": "choice",
+            "prompt": "Das Parlament hat ein ___ zum Klimaschutz beschlossen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The legislature passed a legal act.",
+              "de": "Das Parlament beschloss eine Rechtsvorschrift."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "1",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "2",
+                "text": "Gewerkschaft"
+              },
+              {
+                "id": "3",
+                "text": "Gesetz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gesetz means law or statute here; \"Gesetz\" is the appropriate form.",
+              "de": "Gesetz bedeutet hier: Gesetz als verbindliche Rechtsvorschrift. Die Form „Gesetz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Parlament hat ein Gesetz zum Klimaschutz beschlossen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das Parlament hat ein Gesetz zum Klimaschutz beschlossen.\" checked. All four options evaluated: Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning; Gesetz: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010710",
+      "title": {
+        "en": "Using Gesetzgeber in context",
+        "de": "Gesetzgeber im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesetzgeber: legislator or lawmaking authority, in two different situations.",
+        "de": "Gesetzgeber erkennen und verwenden: Gesetzgeber als gesetzgebende Instanz, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesetzgeber meaning legislator or lawmaking authority, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L976 (71ba33bb88d014e9727bd44e55f140e2ea63c4c23529ffd227ea73222a782faa), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L976-v1",
+          "contextKey": "legacy-0107-L976-context-1",
+          "transferKey": "legacy-0107-L976-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010710",
+            "type": "gap_choice",
+            "prompt": "Der ___ legt durch neue Vorschriften verbindliche Regeln fest.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The lawmaking authority establishes rules.",
+              "de": "Die gesetzgebende Instanz legt Regeln fest."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesprächspartner"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesetzgeber"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewerkschaft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geschäftsführung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesetzgeber means legislator or lawmaking authority here; \"Gesetzgeber\" is the appropriate form.",
+              "de": "Gesetzgeber bedeutet hier: Gesetzgeber als gesetzgebende Instanz. Die Form „Gesetzgeber“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gesetzgeber legt durch neue Vorschriften verbindliche Regeln fest.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gesetzgeber legt durch neue Vorschriften verbindliche Regeln fest.\" checked. All four options evaluated: Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning; Gesetzgeber: correct for noun form and contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsführung: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L976-v2",
+          "contextKey": "legacy-0107-L976-context-2",
+          "transferKey": "legacy-0107-L976-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010710",
+            "type": "choice",
+            "prompt": "Der ___ hat die Anforderungen für Unternehmen verschärft.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The legislative authority made the rules stricter.",
+              "de": "Die gesetzgebende Instanz verschärfte die Vorgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "1",
+                "text": "Gesellschaft"
+              },
+              {
+                "id": "2",
+                "text": "Gesetzgeber"
+              },
+              {
+                "id": "3",
+                "text": "Geschmack"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gesetzgeber means legislator or lawmaking authority here; \"Gesetzgeber\" is the appropriate form.",
+              "de": "Gesetzgeber bedeutet hier: Gesetzgeber als gesetzgebende Instanz. Die Form „Gesetzgeber“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gesetzgeber hat die Anforderungen für Unternehmen verschärft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gesetzgeber hat die Anforderungen für Unternehmen verschärft.\" checked. All four options evaluated: Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Gesetzgeber: correct for noun form and contextual meaning; Geschmack: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010711",
+      "title": {
+        "en": "Using Gesprächspartner in context",
+        "de": "Gesprächspartner im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesprächspartner: conversation partner, in two different situations.",
+        "de": "Gesprächspartner erkennen und verwenden: Gesprächspartner in einer Unterhaltung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesprächspartner meaning conversation partner, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L978 (efd02b93033e1323bc57269151bb06cc3827725f887ab51a4d98b01665ba1202), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L978-v1",
+          "contextKey": "legacy-0107-L978-context-1",
+          "transferKey": "legacy-0107-L978-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010711",
+            "type": "gap_choice",
+            "prompt": "Mein ___ hörte aufmerksam zu und stellte Rückfragen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person on the other side of the conversation listened.",
+              "de": "Die andere Person im Gespräch hörte zu."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesprächspartner"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesetzgeber"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftsjahr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesundheitsschutz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesprächspartner means conversation partner here; \"Gesprächspartner\" is the appropriate form.",
+              "de": "Gesprächspartner bedeutet hier: Gesprächspartner in einer Unterhaltung. Die Form „Gesprächspartner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mein Gesprächspartner hörte aufmerksam zu und stellte Rückfragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Mein Gesprächspartner hörte aufmerksam zu und stellte Rückfragen.\" checked. All four options evaluated: Gesprächspartner: correct for noun form and contextual meaning; Gesetzgeber: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsjahr: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitsschutz: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L978-v2",
+          "contextKey": "legacy-0107-L978-context-2",
+          "transferKey": "legacy-0107-L978-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010711",
+            "type": "choice",
+            "prompt": "Im Interview wechselte der ___ plötzlich das Thema.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person being interviewed changed topics.",
+              "de": "Die andere Person im Gespräch änderte das Thema."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "1",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "2",
+                "text": "Geschwindigkeit"
+              },
+              {
+                "id": "3",
+                "text": "Gesprächspartner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gesprächspartner means conversation partner here; \"Gesprächspartner\" is the appropriate form.",
+              "de": "Gesprächspartner bedeutet hier: Gesprächspartner in einer Unterhaltung. Die Form „Gesprächspartner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Interview wechselte der Gesprächspartner plötzlich das Thema.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Interview wechselte der Gesprächspartner plötzlich das Thema.\" checked. All four options evaluated: Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning; Gesprächspartner: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010712",
+      "title": {
+        "en": "Using Gesundheitsbelastung in context",
+        "de": "Gesundheitsbelastung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesundheitsbelastung: health burden or harmful exposure, in two different situations.",
+        "de": "Gesundheitsbelastung erkennen und verwenden: Gesundheitsbelastung durch schädliche Einflüsse, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesundheitsbelastung meaning health burden or harmful exposure, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L980 (92fb9455dc56349f9b3168e2ab18fd9e3eef2c31fbe14d420099ff63a19c3409), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L980-v1",
+          "contextKey": "legacy-0107-L980-context-1",
+          "transferKey": "legacy-0107-L980-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010712",
+            "type": "gap_choice",
+            "prompt": "Dauerhafter Lärm am Arbeitsplatz kann eine erhebliche ___ sein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Long-term noise can harm health.",
+              "de": "Längerer Lärm kann die Gesundheit beeinträchtigen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschwindigkeitsbeschränkung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesundheitsbelastung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftsverbindung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewerkschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitsbelastung means health burden or harmful exposure here; \"Gesundheitsbelastung\" is the appropriate form.",
+              "de": "Gesundheitsbelastung bedeutet hier: Gesundheitsbelastung durch schädliche Einflüsse. Die Form „Gesundheitsbelastung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dauerhafter Lärm am Arbeitsplatz kann eine erhebliche Gesundheitsbelastung sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Dauerhafter Lärm am Arbeitsplatz kann eine erhebliche Gesundheitsbelastung sein.\" checked. All four options evaluated: Geschwindigkeitsbeschränkung: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitsbelastung: correct for noun form and contextual meaning; Geschäftsverbindung: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L980-v2",
+          "contextKey": "legacy-0107-L980-context-2",
+          "transferKey": "legacy-0107-L980-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010712",
+            "type": "choice",
+            "prompt": "Die schlechte Luftqualität stellt für Anwohner eine ___ dar.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Air pollution can negatively affect residents' health.",
+              "de": "Schlechte Luft kann die Gesundheit der Anwohner belasten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesellschaft"
+              },
+              {
+                "id": "1",
+                "text": "Geselligkeit"
+              },
+              {
+                "id": "2",
+                "text": "Gesundheitsbelastung"
+              },
+              {
+                "id": "3",
+                "text": "Gewerbe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitsbelastung means health burden or harmful exposure here; \"Gesundheitsbelastung\" is the appropriate form.",
+              "de": "Gesundheitsbelastung bedeutet hier: Gesundheitsbelastung durch schädliche Einflüsse. Die Form „Gesundheitsbelastung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die schlechte Luftqualität stellt für Anwohner eine Gesundheitsbelastung dar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die schlechte Luftqualität stellt für Anwohner eine Gesundheitsbelastung dar.\" checked. All four options evaluated: Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Geselligkeit: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitsbelastung: correct for noun form and contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010713",
+      "title": {
+        "en": "Using Gesundheitsschutz in context",
+        "de": "Gesundheitsschutz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesundheitsschutz: protection of people's health, in two different situations.",
+        "de": "Gesundheitsschutz erkennen und verwenden: Gesundheitsschutz als vorbeugende Maßnahmen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesundheitsschutz meaning protection of people's health, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L981 (feb40006707d05fb3720a2ea13a3014df23233735a4f8095b4757ac12819e2aa), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L981-v1",
+          "contextKey": "legacy-0107-L981-context-1",
+          "transferKey": "legacy-0107-L981-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010713",
+            "type": "gap_choice",
+            "prompt": "Der ___ am Arbeitsplatz umfasst Maßnahmen gegen Lärm und Schadstoffe.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The measures protect workers' health.",
+              "de": "Die Maßnahmen sollen Beschäftigte gesund halten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesundheitsschutz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschwindigkeitsbeschränkung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gesetzgeber"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geschmack"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitsschutz means protection of people's health here; \"Gesundheitsschutz\" is the appropriate form.",
+              "de": "Gesundheitsschutz bedeutet hier: Gesundheitsschutz als vorbeugende Maßnahmen. Die Form „Gesundheitsschutz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gesundheitsschutz am Arbeitsplatz umfasst Maßnahmen gegen Lärm und Schadstoffe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gesundheitsschutz am Arbeitsplatz umfasst Maßnahmen gegen Lärm und Schadstoffe.\" checked. All four options evaluated: Gesundheitsschutz: correct for noun form and contextual meaning; Geschwindigkeitsbeschränkung: rejected; wrong referent, grammatical form or contextual meaning; Gesetzgeber: rejected; wrong referent, grammatical form or contextual meaning; Geschmack: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L981-v2",
+          "contextKey": "legacy-0107-L981-context-2",
+          "transferKey": "legacy-0107-L981-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010713",
+            "type": "choice",
+            "prompt": "Regelmäßige Sicherheitskontrollen dienen dem ___ der Beschäftigten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The checks help prevent harm to employees.",
+              "de": "Die Kontrollen schützen die Gesundheit der Beschäftigten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "1",
+                "text": "Gesprächspartner"
+              },
+              {
+                "id": "2",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "3",
+                "text": "Gesundheitsschutz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitsschutz means protection of people's health here; \"Gesundheitsschutz\" is the appropriate form.",
+              "de": "Gesundheitsschutz bedeutet hier: Gesundheitsschutz als vorbeugende Maßnahmen. Die Form „Gesundheitsschutz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Regelmäßige Sicherheitskontrollen dienen dem Gesundheitsschutz der Beschäftigten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Regelmäßige Sicherheitskontrollen dienen dem Gesundheitsschutz der Beschäftigten.\" checked. All four options evaluated: Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitsschutz: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010714",
+      "title": {
+        "en": "Using Gesundheitswesen in context",
+        "de": "Gesundheitswesen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gesundheitswesen: healthcare system and sector, in two different situations.",
+        "de": "Gesundheitswesen erkennen und verwenden: Gesundheitswesen als Gesundheitssektor, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gesundheitswesen meaning healthcare system and sector, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L982 (02bd0a6454e64351b6839b505c757c637f7f144508b1fd4365993ad808d40d13), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L982-v1",
+          "contextKey": "legacy-0107-L982-context-1",
+          "transferKey": "legacy-0107-L982-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010714",
+            "type": "gap_choice",
+            "prompt": "Krankenhäuser und Arztpraxen gehören zum ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "These institutions are part of healthcare.",
+              "de": "Diese Einrichtungen gehören zur medizinischen Versorgung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewerbe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesundheitswesen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gesetz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesellschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitswesen means healthcare system and sector here; \"Gesundheitswesen\" is the appropriate form.",
+              "de": "Gesundheitswesen bedeutet hier: Gesundheitswesen als Gesundheitssektor. Die Form „Gesundheitswesen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Krankenhäuser und Arztpraxen gehören zum Gesundheitswesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Krankenhäuser und Arztpraxen gehören zum Gesundheitswesen.\" checked. All four options evaluated: Gewerbe: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: correct for noun form and contextual meaning; Gesetz: rejected; wrong referent, grammatical form or contextual meaning; Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L982-v2",
+          "contextKey": "legacy-0107-L982-context-2",
+          "transferKey": "legacy-0107-L982-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010714",
+            "type": "choice",
+            "prompt": "Im ___ arbeiten viele Pflegekräfte, Ärztinnen und Therapeuten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "These professions work in the health sector.",
+              "de": "Diese Berufe gehören zum Gesundheitsbereich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewerkschaft"
+              },
+              {
+                "id": "1",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "2",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "3",
+                "text": "Geschwindigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gesundheitswesen means healthcare system and sector here; \"Gesundheitswesen\" is the appropriate form.",
+              "de": "Gesundheitswesen bedeutet hier: Gesundheitswesen als Gesundheitssektor. Die Form „Gesundheitswesen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Gesundheitswesen arbeiten viele Pflegekräfte, Ärztinnen und Therapeuten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Gesundheitswesen arbeiten viele Pflegekräfte, Ärztinnen und Therapeuten.\" checked. All four options evaluated: Gewerkschaft: rejected; wrong referent, grammatical form or contextual meaning; Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: correct for noun form and contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010717",
+      "title": {
+        "en": "Using Gewalt in context",
+        "de": "Gewalt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gewalt: violence or physical force, in two different situations.",
+        "de": "Gewalt erkennen und verwenden: Gewalt als gewaltsames Handeln, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gewalt meaning violence or physical force, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L986 (4ba503be4e238440b9148e9625dfd7b537bbea8caa609c2f50f14aed94cc07a6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L986-v1",
+          "contextKey": "legacy-0107-L986-context-1",
+          "transferKey": "legacy-0107-L986-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010717",
+            "type": "gap_choice",
+            "prompt": "Die Schule setzt sich entschieden gegen ___ ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The school opposes violent behaviour.",
+              "de": "Die Schule lehnt gewaltsames Verhalten ab."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewalt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geschmack"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gesetz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewerbe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gewalt means violence or physical force here; \"Gewalt\" is the appropriate form.",
+              "de": "Gewalt bedeutet hier: Gewalt als gewaltsames Handeln. Die Form „Gewalt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule setzt sich entschieden gegen Gewalt ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Schule setzt sich entschieden gegen Gewalt ein.\" checked. All four options evaluated: Gewalt: correct for noun form and contextual meaning; Geschmack: rejected; wrong referent, grammatical form or contextual meaning; Gesetz: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L986-v2",
+          "contextKey": "legacy-0107-L986-context-2",
+          "transferKey": "legacy-0107-L986-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010717",
+            "type": "choice",
+            "prompt": "Das Projekt unterstützt Menschen, die häusliche ___ erlebt haben.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The project helps people affected by violence at home.",
+              "de": "Das Projekt hilft Betroffenen von Gewalt im häuslichen Umfeld."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesellschaft"
+              },
+              {
+                "id": "1",
+                "text": "Geselligkeit"
+              },
+              {
+                "id": "2",
+                "text": "Geschäftszeit"
+              },
+              {
+                "id": "3",
+                "text": "Gewalt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gewalt means violence or physical force here; \"Gewalt\" is the appropriate form.",
+              "de": "Gewalt bedeutet hier: Gewalt als gewaltsames Handeln. Die Form „Gewalt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Projekt unterstützt Menschen, die häusliche Gewalt erlebt haben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das Projekt unterstützt Menschen, die häusliche Gewalt erlebt haben.\" checked. All four options evaluated: Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Geselligkeit: rejected; wrong referent, grammatical form or contextual meaning; Geschäftszeit: rejected; wrong referent, grammatical form or contextual meaning; Gewalt: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010718",
+      "title": {
+        "en": "Using Gewerbe in context",
+        "de": "Gewerbe im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gewerbe: registered trade or commercial business, in two different situations.",
+        "de": "Gewerbe erkennen und verwenden: Gewerbe als wirtschaftliche Tätigkeit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gewerbe meaning registered trade or commercial business, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L987 (c7ce309adc7e1bbb8a7499e05f89a4b034f2cde10d37a3c8999fa7e5334b0bed), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L987-v1",
+          "contextKey": "legacy-0107-L987-context-1",
+          "transferKey": "legacy-0107-L987-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010718",
+            "type": "gap_choice",
+            "prompt": "Für seinen kleinen Reparaturservice hat er ein ___ angemeldet.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He registered a commercial activity.",
+              "de": "Er meldete eine gewerbliche Tätigkeit an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gesetz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gewerbe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschmack"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesundheitsschutz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gewerbe means registered trade or commercial business here; \"Gewerbe\" is the appropriate form.",
+              "de": "Gewerbe bedeutet hier: Gewerbe als wirtschaftliche Tätigkeit. Die Form „Gewerbe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für seinen kleinen Reparaturservice hat er ein Gewerbe angemeldet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für seinen kleinen Reparaturservice hat er ein Gewerbe angemeldet.\" checked. All four options evaluated: Gesetz: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: correct for noun form and contextual meaning; Geschmack: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitsschutz: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L987-v2",
+          "contextKey": "legacy-0107-L987-context-2",
+          "transferKey": "legacy-0107-L987-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010718",
+            "type": "choice",
+            "prompt": "Sie betreibt ein eigenes ___ und verkauft handgemachte Möbel.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She runs her own small business.",
+              "de": "Sie führt einen eigenen Gewerbebetrieb."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesellschaft"
+              },
+              {
+                "id": "1",
+                "text": "Geselligkeit"
+              },
+              {
+                "id": "2",
+                "text": "Gewerbe"
+              },
+              {
+                "id": "3",
+                "text": "Gesprächspartner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gewerbe means registered trade or commercial business here; \"Gewerbe\" is the appropriate form.",
+              "de": "Gewerbe bedeutet hier: Gewerbe als wirtschaftliche Tätigkeit. Die Form „Gewerbe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie betreibt ein eigenes Gewerbe und verkauft handgemachte Möbel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Sie betreibt ein eigenes Gewerbe und verkauft handgemachte Möbel.\" checked. All four options evaluated: Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Geselligkeit: rejected; wrong referent, grammatical form or contextual meaning; Gewerbe: correct for noun form and contextual meaning; Gesprächspartner: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010719",
+      "title": {
+        "en": "Using Gewerkschaft in context",
+        "de": "Gewerkschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gewerkschaft: trade union representing workers, in two different situations.",
+        "de": "Gewerkschaft erkennen und verwenden: Gewerkschaft als Arbeitnehmervertretung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gewerkschaft meaning trade union representing workers, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L988 (faa0d872f7e59767d5a7c45d9ba15944d3b277d134a273abb1a8f21f40372d0a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0107-L988-v1",
+          "contextKey": "legacy-0107-L988-context-1",
+          "transferKey": "legacy-0107-L988-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010719",
+            "type": "gap_choice",
+            "prompt": "Die ___ verhandelt mit dem Arbeitgeber über bessere Arbeitsbedingungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Workers' representatives negotiate employment conditions.",
+              "de": "Die Arbeitnehmervertretung verhandelt über Arbeitsbedingungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewerkschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gesellschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftsführung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gesundheitswesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gewerkschaft means trade union representing workers here; \"Gewerkschaft\" is the appropriate form.",
+              "de": "Gewerkschaft bedeutet hier: Gewerkschaft als Arbeitnehmervertretung. Die Form „Gewerkschaft“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gewerkschaft verhandelt mit dem Arbeitgeber über bessere Arbeitsbedingungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Gewerkschaft verhandelt mit dem Arbeitgeber über bessere Arbeitsbedingungen.\" checked. All four options evaluated: Gewerkschaft: correct for noun form and contextual meaning; Gesellschaft: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsführung: rejected; wrong referent, grammatical form or contextual meaning; Gesundheitswesen: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0107-L988-v2",
+          "contextKey": "legacy-0107-L988-context-2",
+          "transferKey": "legacy-0107-L988-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001070191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010719",
+            "type": "choice",
+            "prompt": "Viele Beschäftigte traten der ___ bei, um gemeinsam ihre Interessen zu vertreten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Employees joined an organization representing workers.",
+              "de": "Beschäftigte traten einer Arbeitnehmerorganisation bei."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gesetzgeber"
+              },
+              {
+                "id": "1",
+                "text": "Geschäftsidee"
+              },
+              {
+                "id": "2",
+                "text": "Geschwindigkeit"
+              },
+              {
+                "id": "3",
+                "text": "Gewerkschaft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gewerkschaft means trade union representing workers here; \"Gewerkschaft\" is the appropriate form.",
+              "de": "Gewerkschaft bedeutet hier: Gewerkschaft als Arbeitnehmervertretung. Die Form „Gewerkschaft“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Beschäftigte traten der Gewerkschaft bei, um gemeinsam ihre Interessen zu vertreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Viele Beschäftigte traten der Gewerkschaft bei, um gemeinsam ihre Interessen zu vertreten.\" checked. All four options evaluated: Gesetzgeber: rejected; wrong referent, grammatical form or contextual meaning; Geschäftsidee: rejected; wrong referent, grammatical form or contextual meaning; Geschwindigkeit: rejected; wrong referent, grammatical form or contextual meaning; Gewerkschaft: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    }
+  ]
+}
