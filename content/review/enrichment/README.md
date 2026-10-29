@@ -1,5 +1,18 @@
 # Frozen enrichment review checkpoint
 
+Owner requests takeover by the original German Master Enrichment ChatGPT chat.
+Read [CHATGPT-TAKEOVER.md](CHATGPT-TAKEOVER.md): 676 reviewed through 0022, with
+85 inactive proposals and 61 exact-hash-bound rechecks. The full finished corpus
+has 5,682 questions at b7a6507; 5,006 remain to review overall. Finish the existing
+frozen queue, then use a separately pinned strictly validated extension. The
+49-batch queue is only the initial slice. Local reviewer is stopped.
+
+The Enrichment review verification GitHub workflow checks source, artifacts and
+in-memory proposals on this branch; it does not publish or deploy. The snapshot
+export helper supports Windows junctions and Linux symlinks for CI. Confirm
+actual hosted workflow success rather than claiming a local command was run in
+a GitHub-only ChatGPT environment.
+
 Owner-authorized AI-assisted review and preparatory integration only. Snapshot:
 `671e9d19f4f5a61d7916ed96b3b41433b768fd39`. Review branch starts at current
 main `27fdd13f858503ddf24f7f1b393d7a70b0da5de4`, preserving Android fixes.

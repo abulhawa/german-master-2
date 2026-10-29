@@ -1,5 +1,28 @@
 # German Master 2.0 current checkpoint
 
+## Original ChatGPT authoring-chat takeover — 29 October 2026
+
+Owner clarifies that the original German Master Enrichment ChatGPT chat should
+take over the review, not the separately created Codex/cloud review chat. Local
+reviewer is stopped. The durable handoff is
+`content/review/enrichment/CHATGPT-TAKEOVER.md`.
+
+Completed review: 676 questions through 0022; next 0023. There are 85 inactive
+correction proposals, with 61 exact-hash-bound coordinator rechecks. The whole
+authoring corpus is now finished at `b7a6507e135895b1ebb671b73538a9a6d3742304`:
+175 ready batches / 5,682 questions. Unchanged canonical validation independently
+passes for the full corpus. First 49 catalog/report hashes are unchanged.
+
+Remaining overall review is 5,006 questions: 860 in the original 49-batch queue,
+then 4,146 in a separately pinned extension covering 0050–0175. The existing
+queue's 44% completion is not the whole-corpus completion percentage. Preserve
+review/proof history and add equivalent strict verification for the extension.
+The Enrichment review verification workflow supplies source/artifact/overlay
+checks on the review branch without relying on the owner's PC. Its first hosted
+result must be confirmed before claiming hosted acceptance. All reserve/headroom
+thresholds are waived for this session; no reset credits or paid fallback.
+No original authoring edits, app changes, merge, deployment or publication.
+
 ## Owner-directed uninterrupted review — 29 October 2026
 
 Owner explicitly says to ignore allowance limits and continue. For this session,

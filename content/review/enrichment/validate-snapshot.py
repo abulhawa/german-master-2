@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import io
 import json
+import os
 import shutil
 import subprocess
 import zipfile
@@ -54,9 +55,12 @@ def audit(snapshot, dependency_root, node):
     if not modules.exists():
         if not dependency_modules.is_dir():
             raise RuntimeError('Existing root dependencies required; no network install performed')
-        # Junction creation needs no developer-mode symlink privilege on Windows.
-        script = "New-Item -ItemType Junction -Path '" + str(modules).replace("'", "''") + "' -Value '" + str(dependency_modules).replace("'", "''") + "' | Out-Null"
-        subprocess.run(['powershell', '-NoProfile', '-Command', script], check=True, capture_output=True)
+        if os.name == 'nt':
+            # A junction needs no developer-mode symlink privilege on Windows.
+            script = "New-Item -ItemType Junction -Path '" + str(modules).replace("'", "''") + "' -Value '" + str(dependency_modules).replace("'", "''") + "' | Out-Null"
+            subprocess.run(['powershell', '-NoProfile', '-Command', script], check=True, capture_output=True)
+        else:
+            modules.symlink_to(dependency_modules, target_is_directory=True)
     cli = dependency_modules / 'tsx' / 'dist' / 'cli.mjs'
     run = subprocess.run([node, str(cli), 'services/api/scripts/validate-enrichment.ts'],
                          cwd=export, capture_output=True, text=True, encoding='utf-8')

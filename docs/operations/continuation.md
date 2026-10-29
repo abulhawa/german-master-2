@@ -1,5 +1,13 @@
 # Continuing German Master recovery
 
+Latest: owner requests takeover by the original German Master Enrichment ChatGPT
+chat. Local reviewer has stopped. See CHATGPT-TAKEOVER.md under the review folder.
+676 reviewed through 0022; next 0023; 85 inactive fixes, 61 rechecks. The finished
+175-batch / 5,682-question corpus at b7a6507 passes canonical validation. There
+are 5,006 questions still to review overall, including the existing 860-question
+remainder and a separate strictly validated extension for 0050–0175. Keep one
+review writer, source immutable, all candidate/publication flags inactive.
+
 Latest owner direction, 29 October: ignore the allowance operating thresholds and
 continue this session. Both weekly reserve and five-hour headroom are waived.
 Resume the fixed queue at 0012, one worker and durable validated slices. Preserve
