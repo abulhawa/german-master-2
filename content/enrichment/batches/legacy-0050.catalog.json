@@ -2,5 +2,1914 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000005000",
+      "title": {
+        "de": "Bestätigung im Kontext",
+        "en": "Using Bestätigung in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Bestätigung oder Nachweis“ in zwei Situationen erkennen.",
+        "en": "Recognize 'confirmation' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Bestätigung' (confirmation) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L333 (f4c5c5698a378958a218483e75731df522c6db183e6ca024d85f2643b0768e57), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L333-v1",
+          "contextKey": "legacy-0050-L333-context-1",
+          "transferKey": "legacy-0050-L333-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005000",
+            "type": "choice",
+            "prompt": "Nach der Online-Buchung erhielt sie per E-Mail eine ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The message confirms the booking.",
+              "de": "Die Nachricht bestätigt die Buchung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bestätigung"
+              },
+              {
+                "id": "1",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "2",
+                "text": "Mahnung"
+              },
+              {
+                "id": "3",
+                "text": "Absage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestätigung' means confirmation. The message confirms the booking.",
+              "de": "Hier bedeutet „Bestätigung“: Bestätigung oder Nachweis. Die Nachricht bestätigt die Buchung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Online-Buchung erhielt sie per E-Mail eine Bestätigung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Nach der Online-Buchung erhielt sie per E-Mail eine Bestätigung.', inflection, all offered options (Bestätigung / Beschwerde / Mahnung / Absage), intended answer 'Bestätigung', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L333-v2",
+          "contextKey": "legacy-0050-L333-context-2",
+          "transferKey": "legacy-0050-L333-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005000",
+            "type": "gap_choice",
+            "prompt": "Die Behörde verlangt eine schriftliche ___, dass die Unterlagen angekommen sind.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The authority needs proof of receipt.",
+              "de": "Die Behörde braucht einen Empfangsnachweis."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestätigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Entschuldigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestätigung' means confirmation. The authority needs proof of receipt.",
+              "de": "Hier bedeutet „Bestätigung“: Bestätigung oder Nachweis. Die Behörde braucht einen Empfangsnachweis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Behörde verlangt eine schriftliche Bestätigung, dass die Unterlagen angekommen sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Die Behörde verlangt eine schriftliche Bestätigung, dass die Unterlagen angekommen sind.', inflection, all offered options (Bewerbung / Bestellung / Bestätigung / Entschuldigung), intended answer 'Bestätigung', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005002",
+      "title": {
+        "de": "Bestelldatum im Kontext",
+        "en": "Using Bestelldatum in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Datum der Bestellung“ in zwei Situationen erkennen.",
+        "en": "Recognize 'date of order' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Bestelldatum' (date of order) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L335 (925dfa8929c63a07d2b0d3e271aad0c9deeaf00774e08617df59aa3bd304ea9a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L335-v1",
+          "contextKey": "legacy-0050-L335-context-1",
+          "transferKey": "legacy-0050-L335-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005002",
+            "type": "choice",
+            "prompt": "Auf der Rechnung steht, an welchem Tag die Ware bestellt wurde. Dieses Datum heißt ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It records when the order was made.",
+              "de": "Es nennt den Tag der Bestellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferdatum"
+              },
+              {
+                "id": "1",
+                "text": "Bestelldatum"
+              },
+              {
+                "id": "2",
+                "text": "Ablaufdatum"
+              },
+              {
+                "id": "3",
+                "text": "Geburtsdatum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestelldatum' means date of order. It records when the order was made.",
+              "de": "Hier bedeutet „Bestelldatum“: Datum der Bestellung. Es nennt den Tag der Bestellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Rechnung steht, an welchem Tag die Ware bestellt wurde. Dieses Datum heißt Bestelldatum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Auf der Rechnung steht, an welchem Tag die Ware bestellt wurde. Dieses Datum heißt Bestelldatum.', inflection, all offered options (Lieferdatum / Bestelldatum / Ablaufdatum / Geburtsdatum), intended answer 'Bestelldatum', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L335-v2",
+          "contextKey": "legacy-0050-L335-context-2",
+          "transferKey": "legacy-0050-L335-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005002",
+            "type": "gap_choice",
+            "prompt": "Die Ware wurde am zwölften Mai bestellt und am sechzehnten Mai geliefert. Das ___ ist der zwölfte Mai.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Use the day the order was placed.",
+              "de": "Gesucht ist der Tag der Bestellung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferdatum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnungsdatum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prüfdatum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestelldatum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestelldatum' means date of order. Use the day the order was placed.",
+              "de": "Hier bedeutet „Bestelldatum“: Datum der Bestellung. Gesucht ist der Tag der Bestellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ware wurde am zwölften Mai bestellt und am sechzehnten Mai geliefert. Das Bestelldatum ist der zwölfte Mai.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Die Ware wurde am zwölften Mai bestellt und am sechzehnten Mai geliefert. Das Bestelldatum ist der zwölfte Mai.', inflection, all offered options (Lieferdatum / Rechnungsdatum / Prüfdatum / Bestelldatum), intended answer 'Bestelldatum', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005004",
+      "title": {
+        "de": "Bestseller im Kontext",
+        "en": "Using Bestseller in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „besonders erfolgreich verkauftes Produkt“ in zwei Situationen erkennen.",
+        "en": "Recognize 'top-selling product' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Bestseller' (top-selling product) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L337 (75d093b979cd4d154f24335067900a998e2946cd9702fefefbf659eafb752e5a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L337-v1",
+          "contextKey": "legacy-0050-L337-context-1",
+          "transferKey": "legacy-0050-L337-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005004",
+            "type": "choice",
+            "prompt": "Der Roman wurde millionenfach verkauft und steht auf Platz eins der Verkaufslisten; er ist ein ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It sells extremely well.",
+              "de": "Das Buch verkauft sich besonders gut."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bestseller"
+              },
+              {
+                "id": "1",
+                "text": "Ladenhüter"
+              },
+              {
+                "id": "2",
+                "text": "Manuskript"
+              },
+              {
+                "id": "3",
+                "text": "Prospekt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestseller' means top-selling product. It sells extremely well.",
+              "de": "Hier bedeutet „Bestseller“: besonders erfolgreich verkauftes Produkt. Das Buch verkauft sich besonders gut."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Roman wurde millionenfach verkauft und steht auf Platz eins der Verkaufslisten; er ist ein Bestseller.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Der Roman wurde millionenfach verkauft und steht auf Platz eins der Verkaufslisten; er ist ein Bestseller.', inflection, all offered options (Bestseller / Ladenhüter / Manuskript / Prospekt), intended answer 'Bestseller', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L337-v2",
+          "contextKey": "legacy-0050-L337-context-2",
+          "transferKey": "legacy-0050-L337-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005004",
+            "type": "gap_choice",
+            "prompt": "Das Produkt verkauft sich besser als alle anderen im Sortiment. Es ist unser ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It leads the sales figures.",
+              "de": "Es führt die Verkaufszahlen an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rückläufer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Prototyp"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestseller"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Restposten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Bestseller' means top-selling product. It leads the sales figures.",
+              "de": "Hier bedeutet „Bestseller“: besonders erfolgreich verkauftes Produkt. Es führt die Verkaufszahlen an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Produkt verkauft sich besser als alle anderen im Sortiment. Es ist unser Bestseller.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Das Produkt verkauft sich besser als alle anderen im Sortiment. Es ist unser Bestseller.', inflection, all offered options (Rückläufer / Prototyp / Bestseller / Restposten), intended answer 'Bestseller', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005005",
+      "title": {
+        "de": "Beteiligung im Kontext",
+        "en": "Using Beteiligung in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Mitwirkung oder Anteil“ in zwei Situationen erkennen.",
+        "en": "Recognize 'participation or ownership stake' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Beteiligung' (participation or ownership stake) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L339 (cbbe38378fd724927025b9dd4c6053b154ab114913df03b98fd2ee6281256f26), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L339-v1",
+          "contextKey": "legacy-0050-L339-context-1",
+          "transferKey": "legacy-0050-L339-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005005",
+            "type": "choice",
+            "prompt": "Ohne die aktive ___ der Mitarbeitenden wäre das Projekt nicht gelungen.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Employees actively contribute.",
+              "de": "Die Mitarbeitenden wirken aktiv mit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ablehnung"
+              },
+              {
+                "id": "1",
+                "text": "Beteiligung"
+              },
+              {
+                "id": "2",
+                "text": "Abwesenheit"
+              },
+              {
+                "id": "3",
+                "text": "Verspätung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Beteiligung' means participation or ownership stake. Employees actively contribute.",
+              "de": "Hier bedeutet „Beteiligung“: Mitwirkung oder Anteil. Die Mitarbeitenden wirken aktiv mit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne die aktive Beteiligung der Mitarbeitenden wäre das Projekt nicht gelungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Ohne die aktive Beteiligung der Mitarbeitenden wäre das Projekt nicht gelungen.', inflection, all offered options (Ablehnung / Beteiligung / Abwesenheit / Verspätung), intended answer 'Beteiligung', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L339-v2",
+          "contextKey": "legacy-0050-L339-context-2",
+          "transferKey": "legacy-0050-L339-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005005",
+            "type": "gap_choice",
+            "prompt": "Die Firma hält dreißig Prozent der Anteile an einem anderen Unternehmen; sie besitzt eine ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company owns a stake.",
+              "de": "Die Firma besitzt Unternehmensanteile."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Beschwerde"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bescheinigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beteiligung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Beteiligung' means participation or ownership stake. The company owns a stake.",
+              "de": "Hier bedeutet „Beteiligung“: Mitwirkung oder Anteil. Die Firma besitzt Unternehmensanteile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hält dreißig Prozent der Anteile an einem anderen Unternehmen; sie besitzt eine Beteiligung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Die Firma hält dreißig Prozent der Anteile an einem anderen Unternehmen; sie besitzt eine Beteiligung.', inflection, all offered options (Beschwerde / Bescheinigung / Rechnung / Beteiligung), intended answer 'Beteiligung', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005006",
+      "title": {
+        "de": "Betrag im Kontext",
+        "en": "Using Betrag in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Geldsumme“ in zwei Situationen erkennen.",
+        "en": "Recognize 'amount of money' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betrag' (amount of money) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L340 (71a22b733f5a11ae7f11db88741a9201daba1b64bdedc8e279a531a2be074c19), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L340-v1",
+          "contextKey": "legacy-0050-L340-context-1",
+          "transferKey": "legacy-0050-L340-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005006",
+            "type": "choice",
+            "prompt": "Auf der Rechnung steht ein ___ von 125 Euro.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The number denotes money owed.",
+              "de": "Die Zahl bezeichnet eine Geldsumme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betrag"
+              },
+              {
+                "id": "1",
+                "text": "Termin"
+              },
+              {
+                "id": "2",
+                "text": "Gewicht"
+              },
+              {
+                "id": "3",
+                "text": "Datum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betrag' means amount of money. The number denotes money owed.",
+              "de": "Hier bedeutet „Betrag“: Geldsumme. Die Zahl bezeichnet eine Geldsumme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Rechnung steht ein Betrag von 125 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Auf der Rechnung steht ein Betrag von 125 Euro.', inflection, all offered options (Betrag / Termin / Gewicht / Datum), intended answer 'Betrag', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L340-v2",
+          "contextKey": "legacy-0050-L340-context-2",
+          "transferKey": "legacy-0050-L340-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005006",
+            "type": "gap_choice",
+            "prompt": "Bitte überweisen Sie den offenen ___ bis Freitag.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The payment is still outstanding.",
+              "de": "Die Zahlung ist noch offen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bericht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Betrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Termin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betrag' means amount of money. The payment is still outstanding.",
+              "de": "Hier bedeutet „Betrag“: Geldsumme. Die Zahlung ist noch offen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte überweisen Sie den offenen Betrag bis Freitag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Bitte überweisen Sie den offenen Betrag bis Freitag.', inflection, all offered options (Vertrag / Bericht / Betrag / Termin), intended answer 'Betrag', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005007",
+      "title": {
+        "de": "Betreff im Kontext",
+        "en": "Using Betreff in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Thema einer Nachricht“ in zwei Situationen erkennen.",
+        "en": "Recognize 'message subject' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betreff' (message subject) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L341 (a603f0fcb7d9f02456968b9d562cce8ee2f2132de98850e2532a8890b380310b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L341-v1",
+          "contextKey": "legacy-0050-L341-context-1",
+          "transferKey": "legacy-0050-L341-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005007",
+            "type": "choice",
+            "prompt": "Im Feld ___ der E-Mail steht 'Terminverschiebung'.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This field summarizes the message topic.",
+              "de": "Dieses Feld nennt das Thema der Nachricht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anhang"
+              },
+              {
+                "id": "1",
+                "text": "Betreff"
+              },
+              {
+                "id": "2",
+                "text": "Empfänger"
+              },
+              {
+                "id": "3",
+                "text": "Passwort"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreff' means message subject. This field summarizes the message topic.",
+              "de": "Hier bedeutet „Betreff“: Thema einer Nachricht. Dieses Feld nennt das Thema der Nachricht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Feld Betreff der E-Mail steht 'Terminverschiebung'.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Im Feld Betreff der E-Mail steht 'Terminverschiebung'.', inflection, all offered options (Anhang / Betreff / Empfänger / Passwort), intended answer 'Betreff', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L341-v2",
+          "contextKey": "legacy-0050-L341-context-2",
+          "transferKey": "legacy-0050-L341-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005007",
+            "type": "gap_choice",
+            "prompt": "Damit die Nachricht schnell zugeordnet werden kann, schreibe einen kurzen ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The reader should see the topic immediately.",
+              "de": "Das Thema soll sofort erkennbar sein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Absender"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Empfänger"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anhang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betreff"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreff' means message subject. The reader should see the topic immediately.",
+              "de": "Hier bedeutet „Betreff“: Thema einer Nachricht. Das Thema soll sofort erkennbar sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Damit die Nachricht schnell zugeordnet werden kann, schreibe einen kurzen Betreff.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Damit die Nachricht schnell zugeordnet werden kann, schreibe einen kurzen Betreff.', inflection, all offered options (Absender / Empfänger / Anhang / Betreff), intended answer 'Betreff', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005009",
+      "title": {
+        "de": "Betreuer im Kontext",
+        "en": "Using Betreuer in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „betreuende Person“ in zwei Situationen erkennen.",
+        "en": "Recognize 'supervisor or caregiver' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betreuer' (supervisor or caregiver) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L343 (49b89fe5931242aa6b91851cbc30e72ae0e8515d83a02f075a54482a7bc0c3d2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L343-v1",
+          "contextKey": "legacy-0050-L343-context-1",
+          "transferKey": "legacy-0050-L343-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005009",
+            "type": "choice",
+            "prompt": "Der Student bespricht seine Abschlussarbeit regelmäßig mit seinem ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This person supervises the thesis.",
+              "de": "Diese Person begleitet die Abschlussarbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betreuer"
+              },
+              {
+                "id": "1",
+                "text": "Nachbarn"
+              },
+              {
+                "id": "2",
+                "text": "Fahrer"
+              },
+              {
+                "id": "3",
+                "text": "Kunden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreuer' means supervisor or caregiver. This person supervises the thesis.",
+              "de": "Hier bedeutet „Betreuer“: betreuende Person. Diese Person begleitet die Abschlussarbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Student bespricht seine Abschlussarbeit regelmäßig mit seinem Betreuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Der Student bespricht seine Abschlussarbeit regelmäßig mit seinem Betreuer.', inflection, all offered options (Betreuer / Nachbarn / Fahrer / Kunden), intended answer 'Betreuer', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L343-v2",
+          "contextKey": "legacy-0050-L343-context-2",
+          "transferKey": "legacy-0050-L343-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005009",
+            "type": "gap_choice",
+            "prompt": "Im Ferienlager sorgt ein ___ dafür, dass die Kinder sicher spielen.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person is responsible for the children.",
+              "de": "Die Person beaufsichtigt die Kinder."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Käufer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferant"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Betreuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prüfer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreuer' means supervisor or caregiver. The person is responsible for the children.",
+              "de": "Hier bedeutet „Betreuer“: betreuende Person. Die Person beaufsichtigt die Kinder."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Ferienlager sorgt ein Betreuer dafür, dass die Kinder sicher spielen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Im Ferienlager sorgt ein Betreuer dafür, dass die Kinder sicher spielen.', inflection, all offered options (Käufer / Lieferant / Betreuer / Prüfer), intended answer 'Betreuer', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005011",
+      "title": {
+        "de": "Betreuung im Kontext",
+        "en": "Using Betreuung in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Fürsorge oder Begleitung“ in zwei Situationen erkennen.",
+        "en": "Recognize 'care or supervision' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betreuung' (care or supervision) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L345 (8dbc7719c56a8aae17d12c71be96b24a75002436c027fcdbfba2dd4b135b194c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L345-v1",
+          "contextKey": "legacy-0050-L345-context-1",
+          "transferKey": "legacy-0050-L345-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005011",
+            "type": "choice",
+            "prompt": "Während die Eltern arbeiten, übernimmt die Kita die ___ der Kinder.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The children are looked after.",
+              "de": "Die Kinder werden beaufsichtigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bestellung"
+              },
+              {
+                "id": "1",
+                "text": "Betreuung"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Berechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreuung' means care or supervision. The children are looked after.",
+              "de": "Hier bedeutet „Betreuung“: Fürsorge oder Begleitung. Die Kinder werden beaufsichtigt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während die Eltern arbeiten, übernimmt die Kita die Betreuung der Kinder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Während die Eltern arbeiten, übernimmt die Kita die Betreuung der Kinder.', inflection, all offered options (Bestellung / Betreuung / Bewerbung / Berechnung), intended answer 'Betreuung', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L345-v2",
+          "contextKey": "legacy-0050-L345-context-2",
+          "transferKey": "legacy-0050-L345-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005011",
+            "type": "gap_choice",
+            "prompt": "Nach der Operation braucht sie zu Hause Unterstützung; die ambulante ___ hilft ihr.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She receives ongoing assistance.",
+              "de": "Sie erhält Hilfe und Fürsorge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Besichtigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bezahlung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beschwerde"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betreuung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betreuung' means care or supervision. She receives ongoing assistance.",
+              "de": "Hier bedeutet „Betreuung“: Fürsorge oder Begleitung. Sie erhält Hilfe und Fürsorge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Operation braucht sie zu Hause Unterstützung; die ambulante Betreuung hilft ihr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Nach der Operation braucht sie zu Hause Unterstützung; die ambulante Betreuung hilft ihr.', inflection, all offered options (Besichtigung / Bezahlung / Beschwerde / Betreuung), intended answer 'Betreuung', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005014",
+      "title": {
+        "de": "Betrieb im Kontext",
+        "en": "Using Betrieb in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „laufender Betrieb oder Unternehmen“ in zwei Situationen erkennen.",
+        "en": "Recognize 'operation or business' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betrieb' (operation or business) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L348 (7ff9c8b49605f7b6da4f2950df2f230742720dc2c0a1054fed85d7f28fcf41f1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L348-v1",
+          "contextKey": "legacy-0050-L348-context-1",
+          "transferKey": "legacy-0050-L348-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005014",
+            "type": "choice",
+            "prompt": "Wegen eines Stromausfalls musste der ___ der Maschinen unterbrochen werden.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The machines stop operating.",
+              "de": "Die Maschinen können nicht weiterlaufen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betrieb"
+              },
+              {
+                "id": "1",
+                "text": "Besitz"
+              },
+              {
+                "id": "2",
+                "text": "Betrag"
+              },
+              {
+                "id": "3",
+                "text": "Besuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betrieb' means operation or business. The machines stop operating.",
+              "de": "Hier bedeutet „Betrieb“: laufender Betrieb oder Unternehmen. Die Maschinen können nicht weiterlaufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen eines Stromausfalls musste der Betrieb der Maschinen unterbrochen werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Wegen eines Stromausfalls musste der Betrieb der Maschinen unterbrochen werden.', inflection, all offered options (Betrieb / Besitz / Betrag / Besuch), intended answer 'Betrieb', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L348-v2",
+          "contextKey": "legacy-0050-L348-context-2",
+          "transferKey": "legacy-0050-L348-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005014",
+            "type": "gap_choice",
+            "prompt": "Das kleine Unternehmen beschäftigt 25 Personen; der ___ produziert Möbel.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sentence refers to a business.",
+              "de": "Der Satz beschreibt ein Unternehmen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Betrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Betrieb"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beruf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betrieb' means operation or business. The sentence refers to a business.",
+              "de": "Hier bedeutet „Betrieb“: laufender Betrieb oder Unternehmen. Der Satz beschreibt ein Unternehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das kleine Unternehmen beschäftigt 25 Personen; der Betrieb produziert Möbel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Das kleine Unternehmen beschäftigt 25 Personen; der Betrieb produziert Möbel.', inflection, all offered options (Vertrag / Betrag / Betrieb / Beruf), intended answer 'Betrieb', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005016",
+      "title": {
+        "de": "Betriebsferien im Kontext",
+        "en": "Using Betriebsferien in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Betriebsschließung wegen Urlaubs“ in zwei Situationen erkennen.",
+        "en": "Recognize 'company-wide vacation closure' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betriebsferien' (company-wide vacation closure) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L350 (1288532eae7886f40d6f154aa0856a598f5c0ad0c54defd4b89cf4ae493123f3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L350-v1",
+          "contextKey": "legacy-0050-L350-context-1",
+          "transferKey": "legacy-0050-L350-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005016",
+            "type": "choice",
+            "prompt": "Die Werkstatt bleibt im August zwei Wochen geschlossen, weil alle Mitarbeitenden gleichzeitig Urlaub haben. Das sind ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The whole company closes for vacation.",
+              "de": "Der ganze Betrieb macht gleichzeitig Urlaub."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Überstunden"
+              },
+              {
+                "id": "1",
+                "text": "Betriebsferien"
+              },
+              {
+                "id": "2",
+                "text": "Nachtschichten"
+              },
+              {
+                "id": "3",
+                "text": "Feiertage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebsferien' means company-wide vacation closure. The whole company closes for vacation.",
+              "de": "Hier bedeutet „Betriebsferien“: Betriebsschließung wegen Urlaubs. Der ganze Betrieb macht gleichzeitig Urlaub."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Werkstatt bleibt im August zwei Wochen geschlossen, weil alle Mitarbeitenden gleichzeitig Urlaub haben. Das sind Betriebsferien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Die Werkstatt bleibt im August zwei Wochen geschlossen, weil alle Mitarbeitenden gleichzeitig Urlaub haben. Das sind Betriebsferien.', inflection, all offered options (Überstunden / Betriebsferien / Nachtschichten / Feiertage), intended answer 'Betriebsferien', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L350-v2",
+          "contextKey": "legacy-0050-L350-context-2",
+          "transferKey": "legacy-0050-L350-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005016",
+            "type": "gap_choice",
+            "prompt": "Während der ___ nimmt die Firma keine Aufträge an; die gesamte Produktion ruht.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Work stops during the vacation closure.",
+              "de": "Die Arbeit ruht während der Urlaubsschließung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Öffnungszeiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schulungen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dienstreisen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betriebsferien"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebsferien' means company-wide vacation closure. Work stops during the vacation closure.",
+              "de": "Hier bedeutet „Betriebsferien“: Betriebsschließung wegen Urlaubs. Die Arbeit ruht während der Urlaubsschließung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Betriebsferien nimmt die Firma keine Aufträge an; die gesamte Produktion ruht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Während der Betriebsferien nimmt die Firma keine Aufträge an; die gesamte Produktion ruht.', inflection, all offered options (Öffnungszeiten / Schulungen / Dienstreisen / Betriebsferien), intended answer 'Betriebsferien', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005017",
+      "title": {
+        "de": "Betriebsgelände im Kontext",
+        "en": "Using Betriebsgelände in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Gelände eines Unternehmens“ in zwei Situationen erkennen.",
+        "en": "Recognize 'company premises' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betriebsgelände' (company premises) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L351 (924d0b5f25ec83f2e0c1cb19933499e191da6a73945d764fea4ef010a75bbc1e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L351-v1",
+          "contextKey": "legacy-0050-L351-context-1",
+          "transferKey": "legacy-0050-L351-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005017",
+            "type": "choice",
+            "prompt": "Ohne Ausweis darf niemand das ___ der Fabrik betreten.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Entry to the company's site is controlled.",
+              "de": "Der Zutritt zum Firmengelände wird kontrolliert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betriebsgelände"
+              },
+              {
+                "id": "1",
+                "text": "Wohnzimmer"
+              },
+              {
+                "id": "2",
+                "text": "Stadtzentrum"
+              },
+              {
+                "id": "3",
+                "text": "Einkaufszentrum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebsgelände' means company premises. Entry to the company's site is controlled.",
+              "de": "Hier bedeutet „Betriebsgelände“: Gelände eines Unternehmens. Der Zutritt zum Firmengelände wird kontrolliert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Ausweis darf niemand das Betriebsgelände der Fabrik betreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Ohne Ausweis darf niemand das Betriebsgelände der Fabrik betreten.', inflection, all offered options (Betriebsgelände / Wohnzimmer / Stadtzentrum / Einkaufszentrum), intended answer 'Betriebsgelände', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L351-v2",
+          "contextKey": "legacy-0050-L351-context-2",
+          "transferKey": "legacy-0050-L351-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005017",
+            "type": "gap_choice",
+            "prompt": "Die Lkw warten vor dem Werkstor, bis sie auf das ___ fahren dürfen.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The trucks are entering the factory site.",
+              "de": "Die Lkw fahren auf das Gelände der Fabrik."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schulgelände"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wohngebiet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Betriebsgelände"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Parkhaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebsgelände' means company premises. The trucks are entering the factory site.",
+              "de": "Hier bedeutet „Betriebsgelände“: Gelände eines Unternehmens. Die Lkw fahren auf das Gelände der Fabrik."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lkw warten vor dem Werkstor, bis sie auf das Betriebsgelände fahren dürfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Die Lkw warten vor dem Werkstor, bis sie auf das Betriebsgelände fahren dürfen.', inflection, all offered options (Schulgelände / Wohngebiet / Betriebsgelände / Parkhaus), intended answer 'Betriebsgelände', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005018",
+      "title": {
+        "de": "Betriebskantine im Kontext",
+        "en": "Using Betriebskantine in context"
+      },
+      "description": {
+        "de": "Die Bedeutung „Kantine für Mitarbeitende“ in zwei Situationen erkennen.",
+        "en": "Recognize 'staff canteen' in two distinct situations."
+      },
+      "objective": "Recognize and apply 'Betriebskantine' (staff canteen) in two distinct German contexts.",
+      "category": "work_vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L352 (bbcee2494a58f397e905b767fcfd744c31502687234d0eed1ec4c79635541515), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0050-L352-v1",
+          "contextKey": "legacy-0050-L352-context-1",
+          "transferKey": "legacy-0050-L352-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005018",
+            "type": "choice",
+            "prompt": "In der Mittagspause essen die Mitarbeitenden in der ___.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Employees eat lunch there.",
+              "de": "Dort essen die Beschäftigten zu Mittag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bibliothek"
+              },
+              {
+                "id": "1",
+                "text": "Betriebskantine"
+              },
+              {
+                "id": "2",
+                "text": "Werkstatt"
+              },
+              {
+                "id": "3",
+                "text": "Tiefgarage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebskantine' means staff canteen. Employees eat lunch there.",
+              "de": "Hier bedeutet „Betriebskantine“: Kantine für Mitarbeitende. Dort essen die Beschäftigten zu Mittag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Mittagspause essen die Mitarbeitenden in der Betriebskantine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'In der Mittagspause essen die Mitarbeitenden in der Betriebskantine.', inflection, all offered options (Bibliothek / Betriebskantine / Werkstatt / Tiefgarage), intended answer 'Betriebskantine', bilingual feedback and distinct context. Human approval pending."
+        },
+        {
+          "variantKey": "legacy-0050-L352-v2",
+          "contextKey": "legacy-0050-L352-context-2",
+          "transferKey": "legacy-0050-L352-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000500181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005018",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen bietet günstige warme Mahlzeiten direkt am Arbeitsplatz in seiner ___ an.",
+            "instruction": {
+              "en": "Choose the word or form that best completes the sentence.",
+              "de": "Wähle das Wort oder die Form, die den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This is a dining facility for staff.",
+              "de": "Das ist eine Essensausgabe für Mitarbeitende."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerhalle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Personalakte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betriebskantine"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here 'Betriebskantine' means staff canteen. This is a dining facility for staff.",
+              "de": "Hier bedeutet „Betriebskantine“: Kantine für Mitarbeitende. Das ist eine Essensausgabe für Mitarbeitende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen bietet günstige warme Mahlzeiten direkt am Arbeitsplatz in seiner Betriebskantine an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: checked full German sentence 'Das Unternehmen bietet günstige warme Mahlzeiten direkt am Arbeitsplatz in seiner Betriebskantine an.', inflection, all offered options (Buchhaltung / Lagerhalle / Personalakte / Betriebskantine), intended answer 'Betriebskantine', bilingual feedback and distinct context. Human approval pending."
+        }
+      ]
+    }
+  ]
 }
