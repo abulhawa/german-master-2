@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011702",
+      "title": {
+        "en": "Using Kennzeichen in context",
+        "de": "Kennzeichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kennzeichen: an identifying feature or vehicle registration plate.",
+        "de": "Kennzeichen erkennen und verwenden: ein Erkennungsmerkmal oder amtliches Fahrzeugkennzeichen."
+      },
+      "objective": "Recognize the German noun Kennzeichen (an identifying feature or vehicle registration plate) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1248 (9a919dd91ba95b6801958baf0213bb95d429af4715d746dbbdb5a0aaa26db5c3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1248-v1",
+          "contextKey": "legacy-0117-L1248-context-1",
+          "transferKey": "legacy-0117-L1248-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011702",
+            "type": "gap_choice",
+            "prompt": "Ein typisches ___ dieses Vogels ist sein langer roter Schnabel.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Look for a characteristic by which a species can be recognized.",
+              "de": "Gesucht ist ein Merkmal, an dem man eine Vogelart erkennt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebäude"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Getränk"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kennzeichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kennzeichen names a characteristic that identifies the bird.",
+              "de": "Kennzeichen bezeichnet hier ein Erkennungsmerkmal des Vogels."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein typisches Kennzeichen dieses Vogels ist sein langer roter Schnabel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Ein typisches Kennzeichen dieses Vogels ist sein langer roter Schnabel.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Werkzeug: A bird species does not use a tool as its defining anatomical feature.; Gebäude: A building is not an anatomical feature.; Getränk: A drink is not an identifying feature of a bird.; Kennzeichen: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1248-v2",
+          "contextKey": "legacy-0117-L1248-context-2",
+          "transferKey": "legacy-0117-L1248-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011702",
+            "type": "choice",
+            "prompt": "Die Polizei notierte das ___ des Autos, bevor es wegfuhr.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Officers need the vehicle's identifying registration mark.",
+              "de": "Die Polizei braucht die amtliche Kennung des Fahrzeugs."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fahrwerk"
+              },
+              {
+                "id": "1",
+                "text": "Kennzeichen"
+              },
+              {
+                "id": "2",
+                "text": "Lenkrad"
+              },
+              {
+                "id": "3",
+                "text": "Gaspedal"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Kennzeichen here refers to the vehicle registration plate.",
+              "de": "Kennzeichen bezeichnet hier das amtliche Fahrzeugkennzeichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei notierte das Kennzeichen des Autos, bevor es wegfuhr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Die Polizei notierte das Kennzeichen des Autos, bevor es wegfuhr.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Fahrwerk: A chassis is not the registration identifier that officers write down.; Kennzeichen: correct in this context, including required case and meaning; Lenkrad: A steering wheel is not the vehicle's registration identifier.; Gaspedal: A pedal does not identify a vehicle in a police note.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011703",
+      "title": {
+        "en": "Using Kernarbeitszeit in context",
+        "de": "Kernarbeitszeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kernarbeitszeit: the fixed hours when staff must be present or reachable within a flexible schedule.",
+        "de": "Kernarbeitszeit erkennen und verwenden: die verbindliche Anwesenheits- oder Erreichbarkeitszeit bei Gleitzeit."
+      },
+      "objective": "Recognize the German noun Kernarbeitszeit (the fixed hours when staff must be present or reachable within a flexible schedule) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1249 (a0d9c32a2fb39eab9d0d98308e1f84f599103a81ed59d771cabdd3ba6ed535db), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1249-v1",
+          "contextKey": "legacy-0117-L1249-context-1",
+          "transferKey": "legacy-0117-L1249-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011703",
+            "type": "gap_choice",
+            "prompt": "Zwischen zehn und fünfzehn Uhr gilt bei uns die ___; in dieser Zeit müssen alle erreichbar sein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A flexible schedule can still require common availability hours.",
+              "de": "Auch bei Gleitzeit kann es feste Zeiten der Erreichbarkeit geben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mittagspause"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Freizeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kernarbeitszeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urlaubszeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kernarbeitszeit is the period of mandatory availability.",
+              "de": "Kernarbeitszeit bezeichnet die verbindliche Zeit der Erreichbarkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen zehn und fünfzehn Uhr gilt bei uns die Kernarbeitszeit; in dieser Zeit müssen alle erreichbar sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Zwischen zehn und fünfzehn Uhr gilt bei uns die Kernarbeitszeit; in dieser Zeit müssen alle erreichbar sein.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Mittagspause: A lunch break is not a five-hour required availability period.; Freizeit: Free time does not require staff availability.; Kernarbeitszeit: correct in this context, including required case and meaning; Urlaubszeit: Vacation time does not impose daily availability.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1249-v2",
+          "contextKey": "legacy-0117-L1249-context-2",
+          "transferKey": "legacy-0117-L1249-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011703",
+            "type": "choice",
+            "prompt": "Dank Gleitzeit kann Tom früh beginnen, muss aber während der ___ an Teamgesprächen teilnehmen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Think of the overlap when everyone on flexitime works together.",
+              "de": "Gemeint ist die gemeinsame Zeit trotz flexibler Arbeitsbeginne."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kernarbeitszeit"
+              },
+              {
+                "id": "1",
+                "text": "Probezeit"
+              },
+              {
+                "id": "2",
+                "text": "Nachtschicht"
+              },
+              {
+                "id": "3",
+                "text": "Elternzeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The common hours of a flexitime arrangement are its Kernarbeitszeit.",
+              "de": "Die gemeinsame verbindliche Zeit bei Gleitzeit heißt Kernarbeitszeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dank Gleitzeit kann Tom früh beginnen, muss aber während der Kernarbeitszeit an Teamgesprächen teilnehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Dank Gleitzeit kann Tom früh beginnen, muss aber während der Kernarbeitszeit an Teamgesprächen teilnehmen.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Kernarbeitszeit: correct in this context, including required case and meaning; Probezeit: Probation is a period of employment, not daily common working hours.; Nachtschicht: A night shift is not the common-hours rule in the described flexitime schedule.; Elternzeit: Parental leave does not require regular team attendance.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011705",
+      "title": {
+        "en": "Using Kfz-Steuer in context",
+        "de": "Kfz-Steuer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kfz-Steuer: the German tax levied on registered motor vehicles.",
+        "de": "Kfz-Steuer erkennen und verwenden: die Steuer auf zugelassene Kraftfahrzeuge."
+      },
+      "objective": "Recognize the German noun Kfz-Steuer (the German tax levied on registered motor vehicles) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1252 (7980f2a982c6ca7ba9cc4b59ca0c510bd24095f514268ac9915407a092d9b4e8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1252-v1",
+          "contextKey": "legacy-0117-L1252-context-1",
+          "transferKey": "legacy-0117-L1252-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011705",
+            "type": "gap_choice",
+            "prompt": "Im Bescheid steht, wie viel ___ für das zugelassene Auto fällig ist.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The notice concerns a registered motor vehicle.",
+              "de": "Der Bescheid betrifft die Besteuerung eines zugelassenen Autos."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kfz-Steuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Grundsteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kirchensteuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hundesteuer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kfz-Steuer is the motor-vehicle tax shown in the notice.",
+              "de": "Kfz-Steuer ist die im Bescheid genannte Kraftfahrzeugsteuer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bescheid steht, wie viel Kfz-Steuer für das zugelassene Auto fällig ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Im Bescheid steht, wie viel Kfz-Steuer für das zugelassene Auto fällig ist.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Kfz-Steuer: correct in this context, including required case and meaning; Grundsteuer: Property tax is not the tax on a registered car.; Kirchensteuer: Church tax is not assessed on the car itself.; Hundesteuer: Dog tax concerns dogs rather than vehicles.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1252-v2",
+          "contextKey": "legacy-0117-L1252-context-2",
+          "transferKey": "legacy-0117-L1252-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011705",
+            "type": "choice",
+            "prompt": "Die Bank meldete eine Abbuchung für die jährliche ___ des Fahrzeugs.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The recurring charge is linked to the vehicle's registration.",
+              "de": "Die wiederkehrende Abgabe bezieht sich auf das Fahrzeug."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einkommensteuer"
+              },
+              {
+                "id": "1",
+                "text": "Umsatzsteuer"
+              },
+              {
+                "id": "2",
+                "text": "Kfz-Steuer"
+              },
+              {
+                "id": "3",
+                "text": "Gewerbesteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Kfz-Steuer is the tax associated with the vehicle.",
+              "de": "Kfz-Steuer bezeichnet die Abgabe für das Kraftfahrzeug."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bank meldete eine Abbuchung für die jährliche Kfz-Steuer des Fahrzeugs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Die Bank meldete eine Abbuchung für die jährliche Kfz-Steuer des Fahrzeugs.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Einkommensteuer: Income tax is based on income, not a vehicle as such.; Umsatzsteuer: VAT is not the recurring tax tied to owning a registered vehicle.; Kfz-Steuer: correct in this context, including required case and meaning; Gewerbesteuer: Trade tax is not a vehicle registration tax.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011706",
+      "title": {
+        "en": "Using Kindergeld in context",
+        "de": "Kindergeld im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kindergeld: German child benefit paid via the family benefits office.",
+        "de": "Kindergeld erkennen und verwenden: die Familienleistung Kindergeld."
+      },
+      "objective": "Recognize the German noun Kindergeld (German child benefit paid via the family benefits office) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1258 (2ddde1965b72fd085e2398b828f501f58c4bd5a5249a9c8741fbd4617621f884), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1258-v1",
+          "contextKey": "legacy-0117-L1258-context-1",
+          "transferKey": "legacy-0117-L1258-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011706",
+            "type": "gap_choice",
+            "prompt": "Für ihr Kind beantragte sie bei der Familienkasse ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Which payment is handled by the Familienkasse for children?",
+              "de": "Welche Leistung für Kinder wird bei der Familienkasse beantragt?"
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Krankengeld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kurzarbeitergeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitslosengeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kindergeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kindergeld is the family benefit applied for in this context.",
+              "de": "Kindergeld ist hier die bei der Familienkasse beantragte Leistung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für ihr Kind beantragte sie bei der Familienkasse Kindergeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Für ihr Kind beantragte sie bei der Familienkasse Kindergeld.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Krankengeld: Sickness benefit is not the child benefit handled by Familienkasse.; Kurzarbeitergeld: Short-time work benefit is not a family-office child payment.; Arbeitslosengeld: Unemployment benefit is not the benefit applied for here.; Kindergeld: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1258-v2",
+          "contextKey": "legacy-0117-L1258-context-2",
+          "transferKey": "legacy-0117-L1258-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011706",
+            "type": "choice",
+            "prompt": "Die Zahlung der Familienkasse für die Kinder steht als ___ auf dem Kontoauszug.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The transfer comes from the office responsible for child benefits.",
+              "de": "Die Überweisung stammt von der zuständigen Familienkasse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urlaubsgeld"
+              },
+              {
+                "id": "1",
+                "text": "Kindergeld"
+              },
+              {
+                "id": "2",
+                "text": "Weihnachtsgeld"
+              },
+              {
+                "id": "3",
+                "text": "Pflegegeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Kindergeld identifies this payment from the Familienkasse.",
+              "de": "Kindergeld bezeichnet hier die Überweisung der Familienkasse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zahlung der Familienkasse für die Kinder steht als Kindergeld auf dem Kontoauszug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Die Zahlung der Familienkasse für die Kinder steht als Kindergeld auf dem Kontoauszug.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Urlaubsgeld: Holiday bonus is an employment payment, not this family-office transfer.; Kindergeld: correct in this context, including required case and meaning; Weihnachtsgeld: A Christmas bonus is not the recurring family-office benefit.; Pflegegeld: Care allowance is a different benefit, not the Familienkasse payment described.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011707",
+      "title": {
+        "en": "Using Kindheit in context",
+        "de": "Kindheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kindheit: the period of life when someone was a child.",
+        "de": "Kindheit erkennen und verwenden: die Lebensphase als Kind."
+      },
+      "objective": "Recognize the German noun Kindheit (the period of life when someone was a child) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1259 (ab9601e7cc7ea63ab84ef1da86fbfc1d62d9bb454470f0fee130869b7ebed368), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1259-v1",
+          "contextKey": "legacy-0117-L1259-context-1",
+          "transferKey": "legacy-0117-L1259-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011707",
+            "type": "gap_choice",
+            "prompt": "Sie erinnert sich gern an ihre ___, als sie täglich auf dem Bauernhof spielte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The memory comes from her early years.",
+              "de": "Die Erinnerung stammt aus ihren frühen Lebensjahren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rente"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beförderung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kindheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kindheit names the time when she was a child.",
+              "de": "Kindheit bezeichnet die Zeit, in der sie ein Kind war."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie erinnert sich gern an ihre Kindheit, als sie täglich auf dem Bauernhof spielte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Sie erinnert sich gern an ihre Kindheit, als sie täglich auf dem Bauernhof spielte.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Rente: Retirement occurs much later than the childhood described.; Beförderung: A promotion is not a childhood period.; Kindheit: correct in this context, including required case and meaning; Bewerbung: An application is not a phase of life as a child.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1259-v2",
+          "contextKey": "legacy-0117-L1259-context-2",
+          "transferKey": "legacy-0117-L1259-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011707",
+            "type": "choice",
+            "prompt": "Alte Fotos aus der Grundschulzeit weckten Erinnerungen an seine ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The pictures show him during his early school years.",
+              "de": "Die Bilder zeigen ihn im Grundschulalter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kindheit"
+              },
+              {
+                "id": "1",
+                "text": "Karriere"
+              },
+              {
+                "id": "2",
+                "text": "Ausbildung"
+              },
+              {
+                "id": "3",
+                "text": "Pension"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kindheit is the life period recalled by primary-school photos.",
+              "de": "Kindheit ist die Lebensphase, an die die Grundschulfotos erinnern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alte Fotos aus der Grundschulzeit weckten Erinnerungen an seine Kindheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Alte Fotos aus der Grundschulzeit weckten Erinnerungen an seine Kindheit.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Kindheit: correct in this context, including required case and meaning; Karriere: A career is not the primary-school stage of life.; Ausbildung: Vocational training is not the primary-school childhood period.; Pension: Retirement is not the age shown in primary-school photographs.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011708",
+      "title": {
+        "en": "Using Kirchensteuer in context",
+        "de": "Kirchensteuer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kirchensteuer: a tax associated with membership in certain tax-levying religious communities in Germany.",
+        "de": "Kirchensteuer erkennen und verwenden: die Steuer für Mitglieder bestimmter steuererhebender Religionsgemeinschaften."
+      },
+      "objective": "Recognize the German noun Kirchensteuer (a tax associated with membership in certain tax-levying religious communities in Germany) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1263 (0d432e15df6cff051961034fa2a944b397b9f542945313f6350098590264700e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1263-v1",
+          "contextKey": "legacy-0117-L1263-context-1",
+          "transferKey": "legacy-0117-L1263-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011708",
+            "type": "gap_choice",
+            "prompt": "Auf seiner Gehaltsabrechnung wird neben der Lohnsteuer auch ___ ausgewiesen, weil er einer steuererhebenden Religionsgemeinschaft angehört.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The deduction is connected to a tax-levying religious community.",
+              "de": "Der Abzug hängt mit einer steuererhebenden Religionsgemeinschaft zusammen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mehrwertsteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kirchensteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hundesteuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kfz-Steuer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kirchensteuer is the religion-related tax item in this payslip.",
+              "de": "Kirchensteuer ist der hier genannte religionsbezogene Steuerabzug."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf seiner Gehaltsabrechnung wird neben der Lohnsteuer auch Kirchensteuer ausgewiesen, weil er einer steuererhebenden Religionsgemeinschaft angehört.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Auf seiner Gehaltsabrechnung wird neben der Lohnsteuer auch Kirchensteuer ausgewiesen, weil er einer steuererhebenden Religionsgemeinschaft angehört.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Mehrwertsteuer: VAT is not deducted as this religion-related payroll item.; Kirchensteuer: correct in this context, including required case and meaning; Hundesteuer: Dog tax is not a religion-related payroll deduction.; Kfz-Steuer: Vehicle tax is not the religion-related payroll item.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1263-v2",
+          "contextKey": "legacy-0117-L1263-context-2",
+          "transferKey": "legacy-0117-L1263-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011708",
+            "type": "choice",
+            "prompt": "Sie fragte beim Finanzamt nach dem Eintrag zur ___ auf ihrem Einkommensteuerbescheid.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The entry concerns a tax connected to religious affiliation.",
+              "de": "Es geht um eine Steuer im Zusammenhang mit der Religionszugehörigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Parkgebühr"
+              },
+              {
+                "id": "1",
+                "text": "Maut"
+              },
+              {
+                "id": "2",
+                "text": "Hundesteuer"
+              },
+              {
+                "id": "3",
+                "text": "Kirchensteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Kirchensteuer can appear as a tax item in the income-tax assessment.",
+              "de": "Kirchensteuer kann als Position im Einkommensteuerbescheid erscheinen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie fragte beim Finanzamt nach dem Eintrag zur Kirchensteuer auf ihrem Einkommensteuerbescheid.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Sie fragte beim Finanzamt nach dem Eintrag zur Kirchensteuer auf ihrem Einkommensteuerbescheid.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Parkgebühr: A parking fee is not an income-tax-assessment item.; Maut: Road toll is not a church-related tax entry.; Hundesteuer: Municipal dog tax is not the entry on this income-tax assessment.; Kirchensteuer: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011711",
+      "title": {
+        "en": "Using Klage in context",
+        "de": "Klage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klage: a lawsuit filed with a court.",
+        "de": "Klage erkennen und verwenden: eine beim Gericht eingereichte Klage."
+      },
+      "objective": "Recognize the German noun Klage (a lawsuit filed with a court) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1266 (a0ae745da3e78f61995c37757578145ddf965d7f32b4dfe2e5c31c308997377e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1266-v1",
+          "contextKey": "legacy-0117-L1266-context-1",
+          "transferKey": "legacy-0117-L1266-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011711",
+            "type": "gap_choice",
+            "prompt": "Die Anwältin reichte beim Gericht eine ___ gegen den Hersteller ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A legal action is formally filed with a court.",
+              "de": "Eine rechtliche Forderung wird beim Gericht eingereicht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Klage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klage denotes a lawsuit brought before a court.",
+              "de": "Klage bezeichnet ein beim Gericht eingereichtes Verfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anwältin reichte beim Gericht eine Klage gegen den Hersteller ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Die Anwältin reichte beim Gericht eine Klage gegen den Hersteller ein.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Rechnung: An invoice is not the legal action filed against a manufacturer.; Bestellung: An order is not a court action.; Klage: correct in this context, including required case and meaning; Bewerbung: A job application is not filed as a lawsuit.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1266-v2",
+          "contextKey": "legacy-0117-L1266-context-2",
+          "transferKey": "legacy-0117-L1266-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011711",
+            "type": "choice",
+            "prompt": "Das Gericht prüft die ___ eines Kunden gegen das Unternehmen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A customer has brought a legal case against the company.",
+              "de": "Ein Kunde geht rechtlich gegen das Unternehmen vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klage"
+              },
+              {
+                "id": "1",
+                "text": "Mahnung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferung"
+              },
+              {
+                "id": "3",
+                "text": "Reparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Klage is the customer's lawsuit that the court examines.",
+              "de": "Klage ist die gerichtliche Forderung des Kunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gericht prüft die Klage eines Kunden gegen das Unternehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Das Gericht prüft die Klage eines Kunden gegen das Unternehmen.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klage: correct in this context, including required case and meaning; Mahnung: A payment reminder is not the court case described.; Lieferung: A delivery is not the legal action under examination.; Reparatur: A repair is not the lawsuit examined by a court.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011712",
+      "title": {
+        "en": "Using Klarheit in context",
+        "de": "Klarheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klarheit: clarity or a clear understanding of a situation.",
+        "de": "Klarheit erkennen und verwenden: ein klares Verständnis einer Situation."
+      },
+      "objective": "Recognize the German noun Klarheit (clarity or a clear understanding of a situation) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1267 (308e0b7411f439e321f055b15d373f40a97a4cda5193242b56c809f8f9dfe9e8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1267-v1",
+          "contextKey": "legacy-0117-L1267-context-1",
+          "transferKey": "legacy-0117-L1267-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011712",
+            "type": "gap_choice",
+            "prompt": "Nach dem Gespräch herrschte endlich ___ über die Aufgabenverteilung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The team now knows who is responsible for what.",
+              "de": "Nun weiß das Team, wer welche Aufgaben übernimmt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verwirrung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Klarheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Unsicherheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unruhe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klarheit expresses the newly clear division of responsibilities.",
+              "de": "Klarheit bezeichnet die nun eindeutige Aufgabenverteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Gespräch herrschte endlich Klarheit über die Aufgabenverteilung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Nach dem Gespräch herrschte endlich Klarheit über die Aufgabenverteilung.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Verwirrung: Confusion is the opposite of the resolved understanding implied by 'endlich'.; Klarheit: correct in this context, including required case and meaning; Unsicherheit: Uncertainty conflicts with the resolved task allocation.; Unruhe: Unrest does not describe understanding of responsibilities.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1267-v2",
+          "contextKey": "legacy-0117-L1267-context-2",
+          "transferKey": "legacy-0117-L1267-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011712",
+            "type": "choice",
+            "prompt": "Die schriftliche Zusammenfassung beseitigt Missverständnisse und sorgt für ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Misunderstandings have been removed.",
+              "de": "Missverständnisse wurden ausgeräumt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Chaos"
+              },
+              {
+                "id": "1",
+                "text": "Lärm"
+              },
+              {
+                "id": "2",
+                "text": "Verzögerung"
+              },
+              {
+                "id": "3",
+                "text": "Klarheit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Klarheit is the clear understanding produced by the summary.",
+              "de": "Klarheit ist das eindeutige Verständnis nach der Zusammenfassung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die schriftliche Zusammenfassung beseitigt Missverständnisse und sorgt für Klarheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Die schriftliche Zusammenfassung beseitigt Missverständnisse und sorgt für Klarheit.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Chaos: Chaos is the opposite of the intended clarification.; Lärm: Noise is not the result of removing misunderstandings.; Verzögerung: A delay is not the clear understanding established here.; Klarheit: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011713",
+      "title": {
+        "en": "Using Klassenarbeit in context",
+        "de": "Klassenarbeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klassenarbeit: a written school test.",
+        "de": "Klassenarbeit erkennen und verwenden: eine schriftliche Leistungskontrolle in der Schule."
+      },
+      "objective": "Recognize the German noun Klassenarbeit (a written school test) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1269 (596bb79571af971b1cebc796ac258c6505ba6476fdcf11373f302c0296e0181d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1269-v1",
+          "contextKey": "legacy-0117-L1269-context-1",
+          "transferKey": "legacy-0117-L1269-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011713",
+            "type": "gap_choice",
+            "prompt": "Am Freitag schreiben die Schülerinnen und Schüler in Mathematik eine ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A written test is scheduled in a school subject.",
+              "de": "Im Schulfach ist eine schriftliche Prüfung geplant."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Klassenarbeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Klassenfahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schulpause"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schulhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klassenarbeit is the written school test.",
+              "de": "Klassenarbeit bezeichnet die schriftliche Prüfung in der Schule."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Freitag schreiben die Schülerinnen und Schüler in Mathematik eine Klassenarbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Am Freitag schreiben die Schülerinnen und Schüler in Mathematik eine Klassenarbeit.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klassenarbeit: correct in this context, including required case and meaning; Klassenfahrt: A class trip is not a written mathematics test.; Schulpause: A school break is not written in mathematics.; Schulhof: A schoolyard is not a test.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1269-v2",
+          "contextKey": "legacy-0117-L1269-context-2",
+          "transferKey": "legacy-0117-L1269-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011713",
+            "type": "choice",
+            "prompt": "Nach 45 Minuten sammelte die Lehrerin alle Blätter der ___ ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The students completed a timed written assessment.",
+              "de": "Die Lernenden haben eine schriftliche Prüfung unter Zeitdruck bearbeitet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klassenfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Ferien"
+              },
+              {
+                "id": "2",
+                "text": "Klassenarbeit"
+              },
+              {
+                "id": "3",
+                "text": "Pause"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Klassenarbeit is the assessment whose sheets were collected.",
+              "de": "Klassenarbeit ist die schriftliche Prüfung, deren Blätter eingesammelt wurden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach 45 Minuten sammelte die Lehrerin alle Blätter der Klassenarbeit ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Nach 45 Minuten sammelte die Lehrerin alle Blätter der Klassenarbeit ein.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klassenfahrt: A class trip does not produce timed test sheets.; Ferien: Holidays do not have test sheets collected after 45 minutes.; Klassenarbeit: correct in this context, including required case and meaning; Pause: A break is not a timed written examination.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011714",
+      "title": {
+        "en": "Using Kleinigkeit in context",
+        "de": "Kleinigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Kleinigkeit: a minor matter or a small token gift.",
+        "de": "Kleinigkeit erkennen und verwenden: eine unbedeutende Sache oder eine kleine Aufmerksamkeit."
+      },
+      "objective": "Recognize the German noun Kleinigkeit (a minor matter or a small token gift) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1273 (fbea610d20231e915f30573670e33997be8461f30e34ba17d17d6a2faeb4dc2c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1273-v1",
+          "contextKey": "legacy-0117-L1273-context-1",
+          "transferKey": "legacy-0117-L1273-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011714",
+            "type": "gap_choice",
+            "prompt": "Der Kratzer ist nur eine ___; das Gerät funktioniert weiterhin.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The defect is small and does not affect function.",
+              "de": "Der kleine Schaden beeinträchtigt die Funktion nicht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Katastrophe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gefahr"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Großinvestition"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kleinigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kleinigkeit describes a minor issue.",
+              "de": "Kleinigkeit bezeichnet hier eine unbedeutende Sache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kratzer ist nur eine Kleinigkeit; das Gerät funktioniert weiterhin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Der Kratzer ist nur eine Kleinigkeit; das Gerät funktioniert weiterhin.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Katastrophe: A harmless scratch is not a catastrophe.; Gefahr: The described minor cosmetic defect is not a danger.; Großinvestition: A scratch is not a major investment.; Kleinigkeit: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1273-v2",
+          "contextKey": "legacy-0117-L1273-context-2",
+          "transferKey": "legacy-0117-L1273-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011714",
+            "type": "choice",
+            "prompt": "Als Dankeschön brachte sie eine ___ mit, zum Beispiel eine kleine Schachtel Pralinen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The visitor brought a modest token of appreciation.",
+              "de": "Es handelt sich um eine kleine Aufmerksamkeit als Dank."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mahnung"
+              },
+              {
+                "id": "1",
+                "text": "Kleinigkeit"
+              },
+              {
+                "id": "2",
+                "text": "Strafe"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Kleinigkeit can mean a modest present.",
+              "de": "Kleinigkeit kann eine kleine Aufmerksamkeit bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als Dankeschön brachte sie eine Kleinigkeit mit, zum Beispiel eine kleine Schachtel Pralinen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Als Dankeschön brachte sie eine Kleinigkeit mit, zum Beispiel eine kleine Schachtel Pralinen.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Mahnung: A payment reminder is not a thank-you gift.; Kleinigkeit: correct in this context, including required case and meaning; Strafe: A penalty is not a token of gratitude.; Rechnung: An invoice is not a small present.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011715",
+      "title": {
+        "en": "Using Klick in context",
+        "de": "Klick im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klick: a mouse or button click.",
+        "de": "Klick erkennen und verwenden: ein Mausklick oder das Betätigen einer Schaltfläche."
+      },
+      "objective": "Recognize the German noun Klick (a mouse or button click) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1274 (464271d420eeff616749b8d59eb3a0e36d406b4190b0b3fc061009ccafc3d65a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1274-v1",
+          "contextKey": "legacy-0117-L1274-context-1",
+          "transferKey": "legacy-0117-L1274-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011715",
+            "type": "gap_choice",
+            "prompt": "Mit einem ___ auf den Link öffnest du die Webseite.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A short mouse action activates a hyperlink.",
+              "de": "Eine kurze Mausaktion aktiviert den Link."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Blick"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Brief"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Klick"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klick is the action used to open the link.",
+              "de": "Klick ist die Aktion, mit der der Link geöffnet wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einem Klick auf den Link öffnest du die Webseite.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Mit einem Klick auf den Link öffnest du die Webseite.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Blick: Looking at a link does not activate it.; Brief: A letter does not activate a web link.; Klick: correct in this context, including required case and meaning; Stift: A pen is not the button action.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1274-v2",
+          "contextKey": "legacy-0117-L1274-context-2",
+          "transferKey": "legacy-0117-L1274-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011715",
+            "type": "choice",
+            "prompt": "Der ___ auf die Schaltfläche „Speichern“ löste das Sichern der Änderungen aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The user activated a button.",
+              "de": "Eine Schaltfläche wurde betätigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klick"
+              },
+              {
+                "id": "1",
+                "text": "Blick"
+              },
+              {
+                "id": "2",
+                "text": "Ton"
+              },
+              {
+                "id": "3",
+                "text": "Ausdruck"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Klick is the button activation that triggered saving.",
+              "de": "Klick ist die Betätigung der Schaltfläche zum Speichern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Klick auf die Schaltfläche „Speichern“ löste das Sichern der Änderungen aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Der Klick auf die Schaltfläche „Speichern“ löste das Sichern der Änderungen aus.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klick: correct in this context, including required case and meaning; Blick: Looking at a button does not submit the save action.; Ton: A sound is not the button activation.; Ausdruck: A printout does not activate the save button.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011716",
+      "title": {
+        "en": "Using Klima in context",
+        "de": "Klima im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klima: the long-term typical weather conditions of a region.",
+        "de": "Klima erkennen und verwenden: die langfristigen typischen Wetterverhältnisse einer Region."
+      },
+      "objective": "Recognize the German noun Klima (the long-term typical weather conditions of a region) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1275 (075577925ac4c80721530e05f3ca187dc385920980628b606fa84555e0a91ffb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1275-v1",
+          "contextKey": "legacy-0117-L1275-context-1",
+          "transferKey": "legacy-0117-L1275-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011716",
+            "type": "gap_choice",
+            "prompt": "Milde Winter und trockene Sommer prägen das ___ dieser Küstenregion.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes recurring seasonal conditions.",
+              "de": "Der Satz beschreibt typische Wetterverhältnisse über viele Jahre."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewitter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Klima"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebäude"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rezept"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klima is the long-term pattern of weather in a region.",
+              "de": "Klima bezeichnet die langfristigen Wetterverhältnisse einer Region."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Milde Winter und trockene Sommer prägen das Klima dieser Küstenregion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Milde Winter und trockene Sommer prägen das Klima dieser Küstenregion.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Gewitter: A thunderstorm is an event, not a region's long-term conditions.; Klima: correct in this context, including required case and meaning; Gebäude: A building is not the long-term pattern of weather.; Rezept: A recipe is not a region's climate.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1275-v2",
+          "contextKey": "legacy-0117-L1275-context-2",
+          "transferKey": "legacy-0117-L1275-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011716",
+            "type": "choice",
+            "prompt": "Das mediterrane ___ ist durch heiße, trockene Sommer gekennzeichnet.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Think of a regional pattern rather than today's forecast.",
+              "de": "Gemeint ist eine langfristige Eigenschaft einer Region."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Fenster"
+              },
+              {
+                "id": "2",
+                "text": "Gewässer"
+              },
+              {
+                "id": "3",
+                "text": "Klima"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Klima describes typical Mediterranean weather over time.",
+              "de": "Klima beschreibt typische mediterrane Wetterverhältnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das mediterrane Klima ist durch heiße, trockene Sommer gekennzeichnet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Das mediterrane Klima ist durch heiße, trockene Sommer gekennzeichnet.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Gebirge: A mountain range is not defined by typical summer weather in this expression.; Fenster: A window is not a regional weather pattern.; Gewässer: A body of water is not the long-term weather pattern.; Klima: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011717",
+      "title": {
+        "en": "Using Klimaanlage in context",
+        "de": "Klimaanlage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klimaanlage: an air-conditioning system that cools indoor air.",
+        "de": "Klimaanlage erkennen und verwenden: eine Anlage zur Kühlung von Innenräumen."
+      },
+      "objective": "Recognize the German noun Klimaanlage (an air-conditioning system that cools indoor air) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1276 (4286efb9c7fb441982d922b7cb9fe56f18c2dc6896c1ae43d55ec8439ed85691), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1276-v1",
+          "contextKey": "legacy-0117-L1276-context-1",
+          "transferKey": "legacy-0117-L1276-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011717",
+            "type": "gap_choice",
+            "prompt": "Im heißen Büro schaltete sie die ___ ein, um den Raum abzukühlen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A device is used to lower the room temperature.",
+              "de": "Ein Gerät soll die Raumtemperatur senken."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Klimaanlage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Heizung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spülmaschine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Drucker"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klimaanlage is the device used to cool the office.",
+              "de": "Klimaanlage ist die Anlage zur Kühlung des Büros."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im heißen Büro schaltete sie die Klimaanlage ein, um den Raum abzukühlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Im heißen Büro schaltete sie die Klimaanlage ein, um den Raum abzukühlen.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klimaanlage: correct in this context, including required case and meaning; Heizung: Heating normally warms rather than cools the room.; Spülmaschine: A dishwasher does not cool the office.; Drucker: A printer does not cool indoor air.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1276-v2",
+          "contextKey": "legacy-0117-L1276-context-2",
+          "transferKey": "legacy-0117-L1276-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011717",
+            "type": "choice",
+            "prompt": "Der Techniker reinigte den Filter der ___, damit sie wieder effizient kühlen konnte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The technician maintains equipment that cools air.",
+              "de": "Der Techniker wartet eine Anlage, die Luft kühlt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Waschmaschine"
+              },
+              {
+                "id": "1",
+                "text": "Kaffeemaschine"
+              },
+              {
+                "id": "2",
+                "text": "Klimaanlage"
+              },
+              {
+                "id": "3",
+                "text": "Alarmanlage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Klimaanlage is the system whose filter was cleaned.",
+              "de": "Klimaanlage bezeichnet die gewartete Kühlanlage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Techniker reinigte den Filter der Klimaanlage, damit sie wieder effizient kühlen konnte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Der Techniker reinigte den Filter der Klimaanlage, damit sie wieder effizient kühlen konnte.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Waschmaschine: A washing machine is not the system cooling this room.; Kaffeemaschine: A coffee machine is not the cooling system described.; Klimaanlage: correct in this context, including required case and meaning; Alarmanlage: An alarm system does not cool indoor air.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011718",
+      "title": {
+        "en": "Using Klimawandel in context",
+        "de": "Klimawandel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Klimawandel: long-term changes in the Earth's climate.",
+        "de": "Klimawandel erkennen und verwenden: langfristige Veränderungen des Erdklimas."
+      },
+      "objective": "Recognize the German noun Klimawandel (long-term changes in the Earth's climate) and select the contextually appropriate noun or form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1277 (37911fc51b873b3e5338d1cac1fa77d6a28d4169dc7423e02c8061909c20f7f1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0117-L1277-v1",
+          "contextKey": "legacy-0117-L1277-context-1",
+          "transferKey": "legacy-0117-L1277-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011718",
+            "type": "gap_choice",
+            "prompt": "Der langfristige Anstieg der globalen Durchschnittstemperatur ist ein Zeichen für den ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns a global trend over decades.",
+              "de": "Es geht um eine weltweite Entwicklung über Jahrzehnte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wahlkampf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Klimawandel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Klimawandel denotes long-term climate change.",
+              "de": "Klimawandel bezeichnet langfristige Veränderungen des Klimas."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der langfristige Anstieg der globalen Durchschnittstemperatur ist ein Zeichen für den Klimawandel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Der langfristige Anstieg der globalen Durchschnittstemperatur ist ein Zeichen für den Klimawandel.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Fahrplan: A timetable does not explain global temperature trends.; Wahlkampf: An election campaign is not a climate trend.; Umzug: Moving house is not a global climate process.; Klimawandel: correct in this context, including required case and meaning. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0117-L1277-v2",
+          "contextKey": "legacy-0117-L1277-context-2",
+          "transferKey": "legacy-0117-L1277-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001170181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011718",
+            "type": "choice",
+            "prompt": "Städte pflanzen mehr Bäume, um sich besser an die Folgen des ___ anzupassen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "After 'des', check the genitive singular form.",
+              "de": "Nach „des“ steht hier der Genitiv Singular."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klimawandel"
+              },
+              {
+                "id": "1",
+                "text": "Klimawandels"
+              },
+              {
+                "id": "2",
+                "text": "Klimawandelns"
+              },
+              {
+                "id": "3",
+                "text": "Klimawandeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Klimawandels is the genitive singular after 'des'.",
+              "de": "Klimawandels ist der Genitiv Singular nach „des“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Städte pflanzen mehr Bäume, um sich besser an die Folgen des Klimawandels anzupassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: read complete sentence \"Städte pflanzen mehr Bäume, um sich besser an die Folgen des Klimawandels anzupassen.\" for natural German, grammar, contextual meaning and one defensible key. Every offered option reviewed: Klimawandel: The noun needs a genitive ending after 'des'.; Klimawandels: correct in this context, including required case and meaning; Klimawandelns: This is not the standard genitive of the noun Klimawandel.; Klimawandeln: This is not the required genitive singular noun form.. Bilingual instruction, hint and explanation checked; sibling scenario distinct. Human review pending."
+        }
+      ]
+    }
+  ]
+}
