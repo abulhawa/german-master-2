@@ -1,0 +1,1915 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012700",
+      "title": {
+        "en": "Using Maßnahme in context",
+        "de": "Maßnahme im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Maßnahme: measure, action taken for a purpose.",
+        "de": "Maßnahme erkennen und verstehen: gezielte Handlung zur Erreichung eines Ziels."
+      },
+      "objective": "Recognize the German noun Maßnahme (measure, action taken for a purpose) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1516 (34a5c3fb74d1855225f24a776e8377f81d3c6cc2e891a73adcdbbf2500bce070), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1516-v1",
+          "contextKey": "legacy-0127-L1516-context-1",
+          "transferKey": "legacy-0127-L1516-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012700",
+            "type": "gap_choice",
+            "prompt": "Um die Unfallzahlen zu senken, beschließt der Betrieb eine zusätzliche ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company takes a concrete step to improve safety.",
+              "de": "Der Betrieb unternimmt etwas, um die Sicherheit zu erhöhen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Maßnahme"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Maßnahme is a purposeful action.",
+              "de": "Eine Maßnahme ist eine gezielte Handlung zur Erreichung eines Ziels."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um die Unfallzahlen zu senken, beschließt der Betrieb eine zusätzliche Maßnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Maßnahme). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: An invoice, delivery or department is not a new action to reduce accidents. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1516-v2",
+          "contextKey": "legacy-0127-L1516-context-2",
+          "transferKey": "legacy-0127-L1516-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012700",
+            "type": "choice",
+            "prompt": "Die Maßnahme sieht vor, dass alle Beschäftigten eine Sicherheitsschulung besuchen. Was bedeutet „Maßnahme“ hier?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The training is intended to achieve a safety goal.",
+              "de": "Die Schulung soll ein konkretes Ziel erreichen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine gezielte Handlung zur Verbesserung der Sicherheit"
+              },
+              {
+                "id": "1",
+                "text": "Eine regelmäßige Auszahlung des Gehalts"
+              },
+              {
+                "id": "2",
+                "text": "Eine Liste der bestellten Waren"
+              },
+              {
+                "id": "3",
+                "text": "Eine Änderung der Firmenadresse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a targeted safety intervention.",
+              "de": "Es handelt sich um eine gezielte Sicherheitsmaßnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb führt als Maßnahme eine Sicherheitsschulung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine gezielte Handlung zur Verbesserung der Sicherheit). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Salary payments, ordered-goods lists and address changes are not the specified safety action. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012701",
+      "title": {
+        "en": "Using Material in context",
+        "de": "Material im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Material: material or substance used to make something.",
+        "de": "Material erkennen und verstehen: Stoff oder Werkstoff für die Herstellung."
+      },
+      "objective": "Recognize the German noun Material (material or substance used to make something) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1517 (105e94c2ba6ff035e20287626e0607b24f31d492da4e351f732ce06d4058ade2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1517-v1",
+          "contextKey": "legacy-0127-L1517-context-1",
+          "transferKey": "legacy-0127-L1517-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012701",
+            "type": "gap_choice",
+            "prompt": "Für den Prototyp brauchen wir ein besonders leichtes ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The prototype is made from a substance.",
+              "de": "Der Prototyp wird aus einem Werkstoff hergestellt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Material"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Konto"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gehalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Material is the substance used in production.",
+              "de": "Material bezeichnet einen Stoff oder Werkstoff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Prototyp brauchen wir ein besonders leichtes Material.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Material). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A report, account or salary cannot be the lightweight substance used to build a prototype. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1517-v2",
+          "contextKey": "legacy-0127-L1517-context-2",
+          "transferKey": "legacy-0127-L1517-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012701",
+            "type": "choice",
+            "prompt": "Die Tischplatte besteht aus einem recycelten Material. Was bezeichnet „Material“ hier?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The table top is made of something.",
+              "de": "Die Tischplatte wird aus einem bestimmten Stoff gefertigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Den Stoff, aus dem die Platte hergestellt ist"
+              },
+              {
+                "id": "1",
+                "text": "Den Preis für den Transport"
+              },
+              {
+                "id": "2",
+                "text": "Den Vertrag mit dem Händler"
+              },
+              {
+                "id": "3",
+                "text": "Die Lieferadresse der Möbel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Material refers to the substance of the table top.",
+              "de": "Gemeint ist der Werkstoff der Tischplatte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tischplatte wurde aus einem recycelten Werkstoff hergestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Den Stoff, aus dem die Platte hergestellt ist). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Transport price, contract and delivery address are not what the tabletop consists of. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012704",
+      "title": {
+        "en": "Using Mechanik in context",
+        "de": "Mechanik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mechanik: mechanics of a system.",
+        "de": "Mechanik erkennen und verstehen: Zusammenwirken von Kräften und Bewegungen."
+      },
+      "objective": "Recognize the German noun Mechanik (mechanics of a system) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1520 (13fdff58d849383acdf4894a3d114e21ab855140d9f6de54b3be0df55aa95957), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1520-v1",
+          "contextKey": "legacy-0127-L1520-context-1",
+          "transferKey": "legacy-0127-L1520-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012704",
+            "type": "gap_choice",
+            "prompt": "Die Ingenieurin untersucht die ___ des Getriebes, bevor sie den Antrieb verändert.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The gearbox has moving components.",
+              "de": "Im Getriebe wirken bewegliche Bauteile zusammen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mechanik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verpackung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mechanik concerns forces and movement.",
+              "de": "Mechanik beschreibt das Zusammenwirken von Kräften und Bewegungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ingenieurin untersucht die Mechanik des Getriebes, bevor sie den Antrieb verändert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Mechanik). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Packaging, invoice and advertising do not describe the moving mechanism of a gearbox. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1520-v2",
+          "contextKey": "legacy-0127-L1520-context-2",
+          "transferKey": "legacy-0127-L1520-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012704",
+            "type": "choice",
+            "prompt": "Bei der Mechanik des Geräts geht es um die Bewegung seiner Zahnräder. Was wird untersucht?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Focus on the moving gears.",
+              "de": "Achte auf die Bewegung der Zahnräder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Das Zusammenwirken beweglicher Bauteile"
+              },
+              {
+                "id": "1",
+                "text": "Die Farbe der Verpackung"
+              },
+              {
+                "id": "2",
+                "text": "Die Zahl der Kundenanfragen"
+              },
+              {
+                "id": "3",
+                "text": "Der Inhalt des Kaufvertrags"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The mechanical operation of parts is examined.",
+              "de": "Untersucht wird die Funktionsweise der beweglichen Teile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Untersuchung betrifft die mechanischen Bewegungen im Gerät.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Das Zusammenwirken beweglicher Bauteile). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Packaging colour, customer requests and contract contents do not describe gear mechanics. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012707",
+      "title": {
+        "en": "Using Meckerei in context",
+        "de": "Meckerei im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Meckerei: repeated petty complaining or grumbling.",
+        "de": "Meckerei erkennen und verstehen: wiederholtes, oft kleinliches Beschweren."
+      },
+      "objective": "Recognize the German noun Meckerei (repeated petty complaining or grumbling) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1523 (204bace4571caabdb0500fb240253ea75a4b8543b2eef16d26e877a9b0f6c517), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1523-v1",
+          "contextKey": "legacy-0127-L1523-context-1",
+          "transferKey": "legacy-0127-L1523-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012707",
+            "type": "gap_choice",
+            "prompt": "Die ständige ___ über Kleinigkeiten belastet das Teamklima.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "People repeatedly complain about minor things.",
+              "de": "Jemand beschwert sich immer wieder über Kleinigkeiten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Meckerei"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abrechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Meckerei is habitual grumbling.",
+              "de": "Meckerei bedeutet wiederholtes, oft kleinliches Beschweren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die ständige Meckerei über Kleinigkeiten belastet das Teamklima.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Meckerei). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A delivery, invitation or accounting statement is not repetitive grumbling about trifles. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1523-v2",
+          "contextKey": "legacy-0127-L1523-context-2",
+          "transferKey": "legacy-0127-L1523-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012707",
+            "type": "choice",
+            "prompt": "Seine Meckerei über jeden kleinen Fehler nervt die Kolleginnen. Wie ist „Meckerei“ hier gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The tone is negative and repetitive.",
+              "de": "Das Wort beschreibt ein wiederholtes, negatives Verhalten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Als ständiges, kleinliches Beschweren"
+              },
+              {
+                "id": "1",
+                "text": "Als sachliche schriftliche Fehleranalyse"
+              },
+              {
+                "id": "2",
+                "text": "Als freundliches Lob für die Arbeit"
+              },
+              {
+                "id": "3",
+                "text": "Als verbindliche Arbeitsanweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The term criticizes persistent petty complaints.",
+              "de": "Gemeint ist ständiges, oft kleinliches Nörgeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kolleginnen ärgern sich über sein ständiges Nörgeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Als ständiges, kleinliches Beschweren). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A factual analysis, praise or instruction is not the pejorative repeated grumbling described. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012708",
+      "title": {
+        "en": "Using Medikamentenversorgung in context",
+        "de": "Medikamentenversorgung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Medikamentenversorgung: supply of medicines.",
+        "de": "Medikamentenversorgung erkennen und verstehen: Bereitstellung benötigter Arzneimittel."
+      },
+      "objective": "Recognize the German noun Medikamentenversorgung (supply of medicines) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1525 (8625bb47f7bc7ac32045083a23cf81e303b313df54d8c6ed1f0867cfedcaba7c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1525-v1",
+          "contextKey": "legacy-0127-L1525-context-1",
+          "transferKey": "legacy-0127-L1525-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012708",
+            "type": "gap_choice",
+            "prompt": "Das Krankenhaus organisiert die ___ neu, damit wichtige Arzneimittel nicht ausgehen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The hospital must keep necessary drugs available.",
+              "de": "Benötigte Arzneimittel sollen immer vorhanden sein."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Medikamentenversorgung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Personalabrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mülltrennung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäudereinigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Medikamentenversorgung means providing medicines.",
+              "de": "Medikamentenversorgung ist die Bereitstellung benötigter Arzneimittel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Krankenhaus organisiert die Medikamentenversorgung neu, damit wichtige Arzneimittel nicht ausgehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Medikamentenversorgung). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Payroll, waste separation and building cleaning do not ensure availability of medicines. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1525-v2",
+          "contextKey": "legacy-0127-L1525-context-2",
+          "transferKey": "legacy-0127-L1525-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012708",
+            "type": "choice",
+            "prompt": "Trotz Lieferengpässen ist die Medikamentenversorgung der Station gesichert. Was bedeutet das?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Supply problems have not stopped access to medicines.",
+              "de": "Trotz Problemen bei Lieferungen sind Arzneimittel vorhanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die benötigten Arzneimittel sind verfügbar."
+              },
+              {
+                "id": "1",
+                "text": "Die Station hat keine Patientinnen und Patienten."
+              },
+              {
+                "id": "2",
+                "text": "Alle Operationen wurden verschoben."
+              },
+              {
+                "id": "3",
+                "text": "Das Personal wurde neu eingeteilt."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The ward can obtain the medicines it needs.",
+              "de": "Die Versorgung mit den benötigten Medikamenten funktioniert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Station sind die nötigen Arzneimittel verfügbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die benötigten Arzneimittel sind verfügbar.). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Patient numbers, cancelled surgery and staff rosters are not the medicine supply. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012709",
+      "title": {
+        "en": "Using Medium in context",
+        "de": "Medium im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Medium: medium or channel for communication.",
+        "de": "Medium erkennen und verstehen: Mittel zur Verbreitung von Informationen."
+      },
+      "objective": "Recognize the German noun Medium (medium or channel for communication) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1526 (d19a25242180785f07d3cbf632a37905a3328363964b967fc38be6f3d351dca9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1526-v1",
+          "contextKey": "legacy-0127-L1526-context-1",
+          "transferKey": "legacy-0127-L1526-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012709",
+            "type": "gap_choice",
+            "prompt": "Ein Podcast ist ein digitales ___, über das Informationen verbreitet werden.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The podcast conveys information to listeners.",
+              "de": "Über einen Podcast werden Inhalte vermittelt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Medium"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gericht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gehalt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäude"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Medium is a communication channel.",
+              "de": "Ein Medium dient zur Vermittlung von Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Podcast ist ein digitales Medium, über das Informationen verbreitet werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Medium). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A meal, salary or building is not the digital information channel described. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1526-v2",
+          "contextKey": "legacy-0127-L1526-context-2",
+          "transferKey": "legacy-0127-L1526-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012709",
+            "type": "choice",
+            "prompt": "Die Zeitung ist ein Medium zur Verbreitung von Nachrichten. Welche Rolle hat sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "A newspaper communicates news.",
+              "de": "Eine Zeitung veröffentlicht Nachrichten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sie vermittelt Informationen an Leserinnen und Leser."
+              },
+              {
+                "id": "1",
+                "text": "Sie berechnet die Einkommensteuer."
+              },
+              {
+                "id": "2",
+                "text": "Sie kontrolliert den Verkehr."
+              },
+              {
+                "id": "3",
+                "text": "Sie lagert Ersatzteile."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It serves as a channel of information.",
+              "de": "Die Zeitung verbreitet Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Zeitung vermittelt ihren Leserinnen und Lesern Nachrichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Sie vermittelt Informationen an Leserinnen und Leser.). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Tax calculation, traffic control and storing parts are unrelated to communicating news. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012713",
+      "title": {
+        "en": "Using Mehrheit in context",
+        "de": "Mehrheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mehrheit: majority, more than half.",
+        "de": "Mehrheit erkennen und verstehen: größerer Teil einer Gruppe, mehr als die Hälfte."
+      },
+      "objective": "Recognize the German noun Mehrheit (majority, more than half) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1531 (aca2ee11294f0ee34b3c7d67f67618a2df16c68f3aa58cdb7a61582414996df6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1531-v1",
+          "contextKey": "legacy-0127-L1531-context-1",
+          "transferKey": "legacy-0127-L1531-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012713",
+            "type": "gap_choice",
+            "prompt": "Von 40 Mitgliedern stimmten 31 dafür; damit unterstützte die ___ den Vorschlag.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Thirty-one of forty is more than half.",
+              "de": "31 von 40 sind mehr als die Hälfte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mehrheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Minderheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschäftsführung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mehrheit means more than half in this vote.",
+              "de": "Die Mehrheit ist der größere Teil einer Gruppe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Von 40 Mitgliedern stimmten 31 dafür; damit unterstützte die Mehrheit den Vorschlag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Mehrheit). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Minderheit is fewer than half; management and department are not identified by the 31-of-40 voting count. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1531-v2",
+          "contextKey": "legacy-0127-L1531-context-2",
+          "transferKey": "legacy-0127-L1531-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012713",
+            "type": "choice",
+            "prompt": "Eine Mehrheit von 60 Prozent der Befragten unterstützt den Plan. Was bedeutet das?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Compare sixty percent with fifty percent.",
+              "de": "Vergleiche 60 Prozent mit der Hälfte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mehr als die Hälfte ist dafür."
+              },
+              {
+                "id": "1",
+                "text": "Genau die Hälfte ist dagegen."
+              },
+              {
+                "id": "2",
+                "text": "Weniger als ein Drittel ist dafür."
+              },
+              {
+                "id": "3",
+                "text": "Niemand hat abgestimmt."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Sixty percent is a majority.",
+              "de": "60 Prozent sind mehr als die Hälfte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mehr als die Hälfte der Befragten unterstützt den Plan.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Mehr als die Hälfte ist dafür.). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Exactly half, less than one third and no votes contradict the stated 60 percent support. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012714",
+      "title": {
+        "en": "Using Mehrwertsteuer in context",
+        "de": "Mehrwertsteuer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mehrwertsteuer: value-added tax.",
+        "de": "Mehrwertsteuer erkennen und verstehen: Umsatzsteuer auf Waren und Dienstleistungen."
+      },
+      "objective": "Recognize the German noun Mehrwertsteuer (value-added tax) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1532 (7118b6f81d9dfb66876f55fc2ae013e82da7ff565ef2cb28b5a9217a3f727700), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1532-v1",
+          "contextKey": "legacy-0127-L1532-context-1",
+          "transferKey": "legacy-0127-L1532-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012714",
+            "type": "gap_choice",
+            "prompt": "Die ___ wird auf den Nettopreis aufgeschlagen und im Bruttopreis berücksichtigt.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The gross price includes a consumption tax.",
+              "de": "Der Bruttopreis enthält eine Steuer auf Waren und Dienstleistungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mehrwertsteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garantie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferzeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rabatt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mehrwertsteuer is VAT.",
+              "de": "Mehrwertsteuer ist eine Steuer auf Waren und Dienstleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mehrwertsteuer wird auf den Nettopreis aufgeschlagen und im Bruttopreis berücksichtigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Mehrwertsteuer). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A guarantee or delivery time is not a tax; a discount reduces rather than increases the net price. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1532-v2",
+          "contextKey": "legacy-0127-L1532-context-2",
+          "transferKey": "legacy-0127-L1532-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012714",
+            "type": "choice",
+            "prompt": "Auf der Rechnung steht die Mehrwertsteuer getrennt vom Nettobetrag. Welche Art von Betrag ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It is charged as part of a sale.",
+              "de": "Die Steuer fällt beim Verkauf an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Steuer auf den Verkauf von Waren oder Leistungen"
+              },
+              {
+                "id": "1",
+                "text": "Eine monatliche Lohnzahlung"
+              },
+              {
+                "id": "2",
+                "text": "Eine Gebühr für verspätete Rückgabe"
+              },
+              {
+                "id": "3",
+                "text": "Ein freiwilliges Trinkgeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is VAT on goods or services.",
+              "de": "Gemeint ist die Mehrwertsteuer auf Waren oder Dienstleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Rechnung weist die Umsatzsteuer zusätzlich zum Nettobetrag aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Steuer auf den Verkauf von Waren oder Leistungen). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Wages, late fees and tips are not value-added tax. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012715",
+      "title": {
+        "en": "Using Meinungsverschiedenheit in context",
+        "de": "Meinungsverschiedenheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Meinungsverschiedenheit: difference of opinion.",
+        "de": "Meinungsverschiedenheit erkennen und verstehen: unterschiedliche Auffassungen zu einer Frage."
+      },
+      "objective": "Recognize the German noun Meinungsverschiedenheit (difference of opinion) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1534 (81ecb2f8fd7881a9da7d685bbf91dc160d92b4365a4d472351fd1734ce5e8f65), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1534-v1",
+          "contextKey": "legacy-0127-L1534-context-1",
+          "transferKey": "legacy-0127-L1534-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012715",
+            "type": "gap_choice",
+            "prompt": "Zwischen den Projektleitern entstand eine ___ über den Zeitplan.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They disagree about the schedule.",
+              "de": "Die beiden sind sich über den Zeitplan nicht einig."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Meinungsverschiedenheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gehaltsabrechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Meinungsverschiedenheit means disagreement.",
+              "de": "Eine Meinungsverschiedenheit ist ein Unterschied in den Auffassungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den Projektleitern entstand eine Meinungsverschiedenheit über den Zeitplan.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Meinungsverschiedenheit). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Delivery, order and payroll statement are not disagreements about a schedule. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1534-v2",
+          "contextKey": "legacy-0127-L1534-context-2",
+          "transferKey": "legacy-0127-L1534-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012715",
+            "type": "choice",
+            "prompt": "Trotz ihrer Meinungsverschiedenheit arbeiteten beide weiter zusammen. Was war zwischen ihnen passiert?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "They disagreed but continued collaborating.",
+              "de": "Sie waren nicht einer Meinung, arbeiteten aber weiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sie waren in einer Frage unterschiedlicher Ansicht."
+              },
+              {
+                "id": "1",
+                "text": "Sie hatten in allen Punkten dieselbe Meinung."
+              },
+              {
+                "id": "2",
+                "text": "Sie hatten den Vertrag bereits unterschrieben."
+              },
+              {
+                "id": "3",
+                "text": "Sie hatten ihre Arbeitsplätze getauscht."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "They held different opinions.",
+              "de": "Die beiden waren in einer Frage uneinig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Obwohl sie unterschiedlicher Meinung waren, arbeiteten sie zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Sie waren in einer Frage unterschiedlicher Ansicht.). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Full agreement, signing a contract and swapping jobs do not explain a difference of opinion. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012717",
+      "title": {
+        "en": "Using Meldung in context",
+        "de": "Meldung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Meldung: notification, report or news item.",
+        "de": "Meldung erkennen und verstehen: Mitteilung oder kurze Nachricht."
+      },
+      "objective": "Recognize the German noun Meldung (notification, report or news item) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1536 (30601b4260a5ae8ea793b5fc343e2e2d6a396e478777e1f7e4eb946b4dce810d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1536-v1",
+          "contextKey": "legacy-0127-L1536-context-1",
+          "transferKey": "legacy-0127-L1536-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012717",
+            "type": "gap_choice",
+            "prompt": "Die Polizei erhielt eine ___ über einen vermissten Hund.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Someone notified the authorities.",
+              "de": "Jemand hat die Polizei informiert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Meldung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Meldung is a report or notification.",
+              "de": "Eine Meldung ist eine Mitteilung über ein Ereignis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei erhielt eine Meldung über einen vermissten Hund.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Meldung). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A payment reminder, application and invoice are not a report about a missing dog. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1536-v2",
+          "contextKey": "legacy-0127-L1536-context-2",
+          "transferKey": "legacy-0127-L1536-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012717",
+            "type": "choice",
+            "prompt": "Die Nachrichtenseite veröffentlichte eine kurze Meldung über die Sperrung der Brücke. Was ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It was published by a news outlet.",
+              "de": "Die Information steht auf einer Nachrichtenseite."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine kurze Nachricht über ein Ereignis"
+              },
+              {
+                "id": "1",
+                "text": "Eine vollständige Steuererklärung"
+              },
+              {
+                "id": "2",
+                "text": "Eine Einladung zur Hochzeit"
+              },
+              {
+                "id": "3",
+                "text": "Eine Rechnung für Reparaturen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here Meldung means a short news report.",
+              "de": "Hier ist eine kurze Nachricht über ein Ereignis gemeint."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nachrichtenseite veröffentlichte eine kurze Nachricht über die Brückensperrung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine kurze Nachricht über ein Ereignis). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Tax returns, wedding invitations and repair invoices are not short news reports about a bridge closure. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012718",
+      "title": {
+        "en": "Using Mensa in context",
+        "de": "Mensa im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mensa: university canteen.",
+        "de": "Mensa erkennen und verstehen: Speisesaal einer Hochschule."
+      },
+      "objective": "Recognize the German noun Mensa (university canteen) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1538 (f7080228fdbc8989003243c27b48be32df0d13ddb85896471be57eb7e9ac3b38), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1538-v1",
+          "contextKey": "legacy-0127-L1538-context-1",
+          "transferKey": "legacy-0127-L1538-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012718",
+            "type": "gap_choice",
+            "prompt": "Zwischen den Vorlesungen essen viele Studierende in der ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Students have lunch at their university.",
+              "de": "Studierende essen in der Hochschule zu Mittag."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mensa"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Turnhalle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mensa is a university canteen.",
+              "de": "Eine Mensa ist ein Speisesaal an einer Hochschule."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den Vorlesungen essen viele Studierende in der Mensa.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Mensa). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A library, workshop or gymnasium is not the designated university dining hall. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1538-v2",
+          "contextKey": "legacy-0127-L1538-context-2",
+          "transferKey": "legacy-0127-L1538-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012718",
+            "type": "choice",
+            "prompt": "Die Mensa der Hochschule bietet heute auch vegetarische Gerichte an. Was ist eine Mensa?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Meals are served there on campus.",
+              "de": "Dort bekommt man auf dem Campus Essen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein Speisesaal für Studierende und Beschäftigte"
+              },
+              {
+                "id": "1",
+                "text": "Ein Labor für chemische Experimente"
+              },
+              {
+                "id": "2",
+                "text": "Ein Büro für Prüfungsanmeldungen"
+              },
+              {
+                "id": "3",
+                "text": "Ein Raum für Sportveranstaltungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Mensa refers to the university dining hall.",
+              "de": "Eine Mensa bietet Essen an einer Hochschule an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Hochschulmensa können Studierende und Beschäftigte essen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein Speisesaal für Studierende und Beschäftigte). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A laboratory, examination office and sports hall do not serve campus meals. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012719",
+      "title": {
+        "en": "Using Menü in context",
+        "de": "Menü im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Menü: set menu or sequence of dishes.",
+        "de": "Menü erkennen und verstehen: Zusammenstellung mehrerer Speisen."
+      },
+      "objective": "Recognize the German noun Menü (set menu or sequence of dishes) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1540 (6ab43a5e490ed6e24c45efa691b43ab7f6c8c362647b594577e176a98a7f3264), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0127-L1540-v1",
+          "contextKey": "legacy-0127-L1540-context-1",
+          "transferKey": "legacy-0127-L1540-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012719",
+            "type": "gap_choice",
+            "prompt": "Im Restaurant bestellen wir ein dreigängiges ___ mit Suppe, Hauptgericht und Dessert.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The order consists of three courses.",
+              "de": "Das Essen besteht aus drei Gängen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Menü"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ticket"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Menü means a set of dishes.",
+              "de": "Ein Menü ist eine Zusammenstellung von Speisen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Restaurant bestellen wir ein dreigängiges Menü mit Suppe, Hauptgericht und Dessert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Menü). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: Minutes, tools and tickets are not a three-course restaurant meal. No human approval."
+        },
+        {
+          "variantKey": "legacy-0127-L1540-v2",
+          "contextKey": "legacy-0127-L1540-context-2",
+          "transferKey": "legacy-0127-L1540-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001270191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012719",
+            "type": "choice",
+            "prompt": "Das vegetarische Menü besteht aus drei aufeinander abgestimmten Gängen. Was ist damit gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The restaurant serves a sequence of courses.",
+              "de": "Im Restaurant werden mehrere Gänge nacheinander serviert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine festgelegte Folge mehrerer Speisen"
+              },
+              {
+                "id": "1",
+                "text": "Ein einzelnes Getränk ohne Essen"
+              },
+              {
+                "id": "2",
+                "text": "Eine Liste der Mitarbeitenden"
+              },
+              {
+                "id": "3",
+                "text": "Eine Rechnung für den Einkauf"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a set meal with several courses.",
+              "de": "Ein Menü kann aus mehreren aufeinanderfolgenden Gängen bestehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das vegetarische Menü umfasst drei Gänge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine festgelegte Folge mehrerer Speisen). Checked entire German context and completed answer for naturalness, grammar, unique answer, bilingual instruction/hint/explanation. Every competing option evaluated: A single drink, staff list or shopping invoice is not a sequence of dishes. No human approval."
+        }
+      ]
+    }
+  ]
+}
