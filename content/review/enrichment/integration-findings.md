@@ -112,3 +112,15 @@ actual judgments. Resume the first pending batch in the frozen 49-batch queue.
 Save a meaningful bounded review slice, validate the queue and inactive overlays,
 and push only the review branch. Keep candidate-ready/publication flags false
 until the unresolved language and integration issues have been addressed.
+
+## Seed metadata defect found in batch 0032
+
+The immutable source record `apps/web/data/pos/nouns.jsonl:L184` labels
+**Augenblick** as neuter (`das`), which is wrong: the noun is masculine
+(**der Augenblick**). Source row SHA-256:
+`56ac4f4ae625b7e62b43624037d9e3fad7c13e3d9dcd959ebff22b80bc51d95b`.
+Both reviewed variants `legacy-0032-L184-v1` and `legacy-0032-L184-v2` already
+use correct masculine accusative forms (`einen Augenblick`, `einen kurzen
+Augenblick`). No exercise correction or immutable-source edit is needed. A
+future mapped lexical record must use the verified gender rather than blindly
+copying this source field. This finding does not clear other source metadata.
