@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007900",
+      "title": {
+        "en": "Using Einkommensteuer in context",
+        "de": "Einkommensteuer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einkommensteuer (income tax) in two distinct situations.",
+        "de": "Einkommensteuer (Steuer auf steuerpflichtige Einkünfte) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einkommensteuer meaning income tax, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L600 (c423c0708bcc48c8b81d341002c18f4fff9398056819aa70b5ec09f6fc2ef696), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L600-v1",
+          "contextKey": "legacy-0079-L600-context-1",
+          "transferKey": "legacy-0079-L600-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007900",
+            "type": "gap_choice",
+            "prompt": "Auf den steuerpflichtigen Arbeitslohn wird ___ erhoben.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This tax concerns a person's taxable earnings.",
+              "de": "Diese Steuer bezieht sich auf steuerpflichtige persönliche Einkünfte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umsatzsteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gewerbesteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einkommensteuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Grundsteuer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einkommensteuer means income tax. This tax concerns a person's taxable earnings.",
+              "de": "Einkommensteuer bedeutet Steuer auf steuerpflichtige Einkünfte. Diese Steuer bezieht sich auf steuerpflichtige persönliche Einkünfte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf den steuerpflichtigen Arbeitslohn wird Einkommensteuer erhoben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf den steuerpflichtigen Arbeitslohn wird Einkommensteuer erhoben.\", noun form and case, all offered choices (Umsatzsteuer / Gewerbesteuer / Einkommensteuer / Grundsteuer), unique accepted answer \"Einkommensteuer\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L600-v2",
+          "contextKey": "legacy-0079-L600-context-2",
+          "transferKey": "legacy-0079-L600-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007900",
+            "type": "choice",
+            "prompt": "Nach der Steuererklärung erhielt sie den Bescheid über die ___ auf ihr Gehalt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The assessment is about tax on employment income.",
+              "de": "Der Bescheid betrifft die Steuer auf Arbeitslohn."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umsatzsteuer"
+              },
+              {
+                "id": "1",
+                "text": "Kfz-Steuer"
+              },
+              {
+                "id": "2",
+                "text": "Hundesteuer"
+              },
+              {
+                "id": "3",
+                "text": "Einkommensteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einkommensteuer means income tax. The assessment is about tax on employment income.",
+              "de": "Einkommensteuer bedeutet Steuer auf steuerpflichtige Einkünfte. Der Bescheid betrifft die Steuer auf Arbeitslohn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Steuererklärung erhielt sie den Bescheid über die Einkommensteuer auf ihr Gehalt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Steuererklärung erhielt sie den Bescheid über die Einkommensteuer auf ihr Gehalt.\", noun form and case, all offered choices (Umsatzsteuer / Kfz-Steuer / Hundesteuer / Einkommensteuer), unique accepted answer \"Einkommensteuer\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007901",
+      "title": {
+        "en": "Using Einkunft in context",
+        "de": "Einkunft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einkunft (income from a particular source) in two distinct situations.",
+        "de": "Einkunft (Einnahme aus einer bestimmten Quelle) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einkunft meaning income from a particular source, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L601 (5d3a1edf5e271b4deadd419623e1d113094a6a4003cdb6d67d80aaa836fc5f48), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L601-v1",
+          "contextKey": "legacy-0079-L601-context-1",
+          "transferKey": "legacy-0079-L601-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007901",
+            "type": "gap_choice",
+            "prompt": "Für die Steuererklärung müssen alle ___ aus Vermietung angegeben werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Rent can generate taxable income.",
+              "de": "Vermietung kann steuerpflichtige Einnahmen bringen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausgaben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einkünfte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schulden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebühren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einkunft means income from a particular source. Rent can generate taxable income.",
+              "de": "Einkunft bedeutet Einnahme aus einer bestimmten Quelle. Vermietung kann steuerpflichtige Einnahmen bringen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Steuererklärung müssen alle Einkünfte aus Vermietung angegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Steuererklärung müssen alle Einkünfte aus Vermietung angegeben werden.\", noun form and case, all offered choices (Ausgaben / Einkünfte / Schulden / Gebühren), unique accepted answer \"Einkünfte\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L601-v2",
+          "contextKey": "legacy-0079-L601-context-2",
+          "transferKey": "legacy-0079-L601-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007901",
+            "type": "choice",
+            "prompt": "Neben ihrem Gehalt erzielt sie weitere ___ durch freiberufliche Aufträge.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Freelance work brings in additional money.",
+              "de": "Freiberufliche Aufträge bringen zusätzliche Einnahmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verluste"
+              },
+              {
+                "id": "1",
+                "text": "Kosten"
+              },
+              {
+                "id": "2",
+                "text": "Einkünfte"
+              },
+              {
+                "id": "3",
+                "text": "Schulden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einkunft means income from a particular source. Freelance work brings in additional money.",
+              "de": "Einkunft bedeutet Einnahme aus einer bestimmten Quelle. Freiberufliche Aufträge bringen zusätzliche Einnahmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Neben ihrem Gehalt erzielt sie weitere Einkünfte durch freiberufliche Aufträge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Neben ihrem Gehalt erzielt sie weitere Einkünfte durch freiberufliche Aufträge.\", noun form and case, all offered choices (Verluste / Kosten / Einkünfte / Schulden), unique accepted answer \"Einkünfte\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007902",
+      "title": {
+        "en": "Using Einmalhandschuh in context",
+        "de": "Einmalhandschuh im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einmalhandschuh (single-use protective glove) in two distinct situations.",
+        "de": "Einmalhandschuh (Handschuh zum einmaligen Gebrauch) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einmalhandschuh meaning single-use protective glove, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L603 (ce2f099d513bf1383d250162ebac04e488828146664a97456bb909b63a65095a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L603-v1",
+          "contextKey": "legacy-0079-L603-context-1",
+          "transferKey": "legacy-0079-L603-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007902",
+            "type": "gap_choice",
+            "prompt": "Vor der Blutentnahme zog die Pflegekraft ___ an.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Medical hygiene requires a glove that is discarded after use.",
+              "de": "Für die Hygiene wird ein Handschuh nach der Verwendung entsorgt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einmalhandschuhe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wollhandschuhe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gartenhandschuhe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Winterhandschuhe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einmalhandschuh means single-use protective glove. Medical hygiene requires a glove that is discarded after use.",
+              "de": "Einmalhandschuh bedeutet Handschuh zum einmaligen Gebrauch. Für die Hygiene wird ein Handschuh nach der Verwendung entsorgt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Blutentnahme zog die Pflegekraft Einmalhandschuhe an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 second editorial pass 2026-10-29: checked complete sentence \"Vor der Blutentnahme zog die Pflegekraft Einmalhandschuhe an.\", noun form and case, all four offered options (Einmalhandschuhe / Wollhandschuhe / Gartenhandschuhe / Winterhandschuhe), unique accepted answer \"Einmalhandschuhe\", bilingual hint/explanation and sibling-context distinction. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L603-v2",
+          "contextKey": "legacy-0079-L603-context-2",
+          "transferKey": "legacy-0079-L603-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007902",
+            "type": "choice",
+            "prompt": "Nach der Untersuchung wurde jeder ___ sofort entsorgt, um keine Keime zu übertragen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The glove is designed for one procedure only.",
+              "de": "Dieser Handschuh wird nur einmal verwendet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lederhandschuh"
+              },
+              {
+                "id": "1",
+                "text": "Einmalhandschuh"
+              },
+              {
+                "id": "2",
+                "text": "Skihandschuh"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitshandschuh"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einmalhandschuh means single-use protective glove. The glove is designed for one procedure only.",
+              "de": "Einmalhandschuh bedeutet Handschuh zum einmaligen Gebrauch. Dieser Handschuh wird nur einmal verwendet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Untersuchung wurde jeder Einmalhandschuh sofort entsorgt, um keine Keime zu übertragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Untersuchung wurde jeder Einmalhandschuh sofort entsorgt, um keine Keime zu übertragen.\", noun form and case, all offered choices (Lederhandschuh / Einmalhandschuh / Skihandschuh / Arbeitshandschuh), unique accepted answer \"Einmalhandschuh\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007903",
+      "title": {
+        "en": "Using Einnahme in context",
+        "de": "Einnahme im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einnahme (revenue or money received) in two distinct situations.",
+        "de": "Einnahme (eingehender Geldbetrag oder Erlös) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einnahme meaning revenue or money received, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L604 (772513b3ea85ff2f76bd05851e9207c06186447dcdad9228ccac204faf828cdf), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L604-v1",
+          "contextKey": "legacy-0079-L604-context-1",
+          "transferKey": "legacy-0079-L604-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007903",
+            "type": "gap_choice",
+            "prompt": "Die ___ aus dem Ticketverkauf stiegen im Sommer deutlich.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Ticket sales brought money into the organization.",
+              "de": "Der Ticketverkauf brachte der Organisation Geld ein."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausgaben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schulden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kosten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einnahmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einnahme means revenue or money received. Ticket sales brought money into the organization.",
+              "de": "Einnahme bedeutet eingehender Geldbetrag oder Erlös. Der Ticketverkauf brachte der Organisation Geld ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einnahmen aus dem Ticketverkauf stiegen im Sommer deutlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Einnahmen aus dem Ticketverkauf stiegen im Sommer deutlich.\", noun form and case, all offered choices (Ausgaben / Schulden / Kosten / Einnahmen), unique accepted answer \"Einnahmen\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L604-v2",
+          "contextKey": "legacy-0079-L604-context-2",
+          "transferKey": "legacy-0079-L604-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007903",
+            "type": "choice",
+            "prompt": "Im Kassenbericht werden die täglichen ___ und Ausgaben getrennt erfasst.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The report distinguishes money received from money spent.",
+              "de": "Der Bericht trennt Geldzuflüsse von Ausgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einnahmen"
+              },
+              {
+                "id": "1",
+                "text": "Schulden"
+              },
+              {
+                "id": "2",
+                "text": "Gebühren"
+              },
+              {
+                "id": "3",
+                "text": "Verluste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einnahme means revenue or money received. The report distinguishes money received from money spent.",
+              "de": "Einnahme bedeutet eingehender Geldbetrag oder Erlös. Der Bericht trennt Geldzuflüsse von Ausgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Kassenbericht werden die täglichen Einnahmen und Ausgaben getrennt erfasst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Kassenbericht werden die täglichen Einnahmen und Ausgaben getrennt erfasst.\", noun form and case, all offered choices (Einnahmen / Schulden / Gebühren / Verluste), unique accepted answer \"Einnahmen\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007904",
+      "title": {
+        "en": "Using Einrichtung in context",
+        "de": "Einrichtung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einrichtung (institution or facility) in two distinct situations.",
+        "de": "Einrichtung (Institution oder Einrichtung für einen bestimmten Zweck) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einrichtung meaning institution or facility, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L605 (347a27de493bddd9ec207b40e7c71f6e7dcefc0b869d7330d06739193318a704), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L605-v1",
+          "contextKey": "legacy-0079-L605-context-1",
+          "transferKey": "legacy-0079-L605-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007904",
+            "type": "gap_choice",
+            "prompt": "Die soziale ___ bietet kostenlose Sprachkurse an.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "An organization provides services to the public.",
+              "de": "Eine Organisation bietet der Öffentlichkeit Leistungen an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entscheidung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einrichtung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorschrift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einrichtung means institution or facility. An organization provides services to the public.",
+              "de": "Einrichtung bedeutet Institution oder Einrichtung für einen bestimmten Zweck. Eine Organisation bietet der Öffentlichkeit Leistungen an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die soziale Einrichtung bietet kostenlose Sprachkurse an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die soziale Einrichtung bietet kostenlose Sprachkurse an.\", noun form and case, all offered choices (Rechnung / Entscheidung / Einrichtung / Vorschrift), unique accepted answer \"Einrichtung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L605-v2",
+          "contextKey": "legacy-0079-L605-context-2",
+          "transferKey": "legacy-0079-L605-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007904",
+            "type": "choice",
+            "prompt": "Das Pflegeheim ist eine ___ für Menschen, die Unterstützung benötigen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A care home is an institution with a defined purpose.",
+              "de": "Ein Pflegeheim ist eine Institution mit einer bestimmten Aufgabe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Einschätzung"
+              },
+              {
+                "id": "2",
+                "text": "Einschränkung"
+              },
+              {
+                "id": "3",
+                "text": "Einrichtung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einrichtung means institution or facility. A care home is an institution with a defined purpose.",
+              "de": "Einrichtung bedeutet Institution oder Einrichtung für einen bestimmten Zweck. Ein Pflegeheim ist eine Institution mit einer bestimmten Aufgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Pflegeheim ist eine Einrichtung für Menschen, die Unterstützung benötigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Pflegeheim ist eine Einrichtung für Menschen, die Unterstützung benötigen.\", noun form and case, all offered choices (Einfahrt / Einschätzung / Einschränkung / Einrichtung), unique accepted answer \"Einrichtung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007905",
+      "title": {
+        "en": "Using Einschätzung in context",
+        "de": "Einschätzung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einschätzung (assessment or informed opinion) in two distinct situations.",
+        "de": "Einschätzung (begründete Beurteilung oder Meinung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einschätzung meaning assessment or informed opinion, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L606 (b4d62458ac0341c43e449a950b43f352bee053cc473ea2ec5562d22850736612), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L606-v1",
+          "contextKey": "legacy-0079-L606-context-1",
+          "transferKey": "legacy-0079-L606-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007905",
+            "type": "gap_choice",
+            "prompt": "Nach meiner ___ ist der Zeitplan zu knapp.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker is expressing a personal assessment.",
+              "de": "Die Person äußert ihre eigene Beurteilung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einrichtung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einschätzung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einweisung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einzahlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einschätzung means assessment or informed opinion. The speaker is expressing a personal assessment.",
+              "de": "Einschätzung bedeutet begründete Beurteilung oder Meinung. Die Person äußert ihre eigene Beurteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach meiner Einschätzung ist der Zeitplan zu knapp.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach meiner Einschätzung ist der Zeitplan zu knapp.\", noun form and case, all offered choices (Einrichtung / Einschätzung / Einweisung / Einzahlung), unique accepted answer \"Einschätzung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L606-v2",
+          "contextKey": "legacy-0079-L606-context-2",
+          "transferKey": "legacy-0079-L606-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007905",
+            "type": "choice",
+            "prompt": "Die Expertin gab eine vorsichtige ___ der Risiken ab.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The expert evaluates possible risks.",
+              "de": "Die Expertin bewertet mögliche Risiken."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einsparung"
+              },
+              {
+                "id": "1",
+                "text": "Einschränkung"
+              },
+              {
+                "id": "2",
+                "text": "Einschätzung"
+              },
+              {
+                "id": "3",
+                "text": "Einwilligung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einschätzung means assessment or informed opinion. The expert evaluates possible risks.",
+              "de": "Einschätzung bedeutet begründete Beurteilung oder Meinung. Die Expertin bewertet mögliche Risiken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Expertin gab eine vorsichtige Einschätzung der Risiken ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Expertin gab eine vorsichtige Einschätzung der Risiken ab.\", noun form and case, all offered choices (Einsparung / Einschränkung / Einschätzung / Einwilligung), unique accepted answer \"Einschätzung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007906",
+      "title": {
+        "en": "Using Einschränkung in context",
+        "de": "Einschränkung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einschränkung (restriction or limitation) in two distinct situations.",
+        "de": "Einschränkung (Begrenzung von Möglichkeiten oder Funktionen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einschränkung meaning restriction or limitation, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L607 (9135b121335e6084c11dfede46c53cd9c30db7a77c63952e8ad381421d9f448d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L607-v1",
+          "contextKey": "legacy-0079-L607-context-1",
+          "transferKey": "legacy-0079-L607-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007906",
+            "type": "gap_choice",
+            "prompt": "Wegen der Baustelle gibt es eine ___ des Zugverkehrs.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The construction work limits the normal service.",
+              "de": "Die Bauarbeiten begrenzen den regulären Verkehr."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einschränkung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erweiterung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbesserung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erhöhung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einschränkung means restriction or limitation. The construction work limits the normal service.",
+              "de": "Einschränkung bedeutet Begrenzung von Möglichkeiten oder Funktionen. Die Bauarbeiten begrenzen den regulären Verkehr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Baustelle gibt es eine Einschränkung des Zugverkehrs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wegen der Baustelle gibt es eine Einschränkung des Zugverkehrs.\", noun form and case, all offered choices (Einschränkung / Erweiterung / Verbesserung / Erhöhung), unique accepted answer \"Einschränkung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L607-v2",
+          "contextKey": "legacy-0079-L607-context-2",
+          "transferKey": "legacy-0079-L607-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007906",
+            "type": "choice",
+            "prompt": "Nach der Verletzung konnte er den Arm nur mit ___ bewegen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "His movement is limited by the injury.",
+              "de": "Die Verletzung schränkt die Beweglichkeit ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fortschritten"
+              },
+              {
+                "id": "1",
+                "text": "Einschränkungen"
+              },
+              {
+                "id": "2",
+                "text": "Erleichterungen"
+              },
+              {
+                "id": "3",
+                "text": "Vorteilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einschränkung means restriction or limitation. His movement is limited by the injury.",
+              "de": "Einschränkung bedeutet Begrenzung von Möglichkeiten oder Funktionen. Die Verletzung schränkt die Beweglichkeit ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Verletzung konnte er den Arm nur mit Einschränkungen bewegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Verletzung konnte er den Arm nur mit Einschränkungen bewegen.\", noun form and case, all offered choices (Fortschritten / Einschränkungen / Erleichterungen / Vorteilen), unique accepted answer \"Einschränkungen\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007907",
+      "title": {
+        "en": "Using Einschreiben in context",
+        "de": "Einschreiben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einschreiben (registered mail) in two distinct situations.",
+        "de": "Einschreiben (Postsendung mit dokumentierter Zustellung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einschreiben meaning registered mail, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L608 (71ff9984748fc9b27b065cd6d0a49118e40ae095fb3b6a4d55ab3c78bc7f7117), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L608-v1",
+          "contextKey": "legacy-0079-L608-context-1",
+          "transferKey": "legacy-0079-L608-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007907",
+            "type": "gap_choice",
+            "prompt": "Den unterschriebenen Originalvertrag schickte sie per ___, damit die postalische Zustellung nachweisbar war.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The postal service provides documented delivery.",
+              "de": "Die Post dokumentiert die Zustellung der Sendung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fax"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Telefon"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Boten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einschreiben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einschreiben means registered mail. The postal service provides documented delivery.",
+              "de": "Einschreiben bedeutet Postsendung mit dokumentierter Zustellung. Die Post dokumentiert die Zustellung der Sendung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Den unterschriebenen Originalvertrag schickte sie per Einschreiben, damit die postalische Zustellung nachweisbar war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 second editorial pass 2026-10-29: checked complete sentence \"Den unterschriebenen Originalvertrag schickte sie per Einschreiben, damit die postalische Zustellung nachweisbar war.\", noun form and case, all four offered options (Fax / Telefon / Boten / Einschreiben), unique accepted answer \"Einschreiben\", bilingual hint/explanation and sibling-context distinction. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L608-v2",
+          "contextKey": "legacy-0079-L608-context-2",
+          "transferKey": "legacy-0079-L608-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007907",
+            "type": "choice",
+            "prompt": "Für den Briefversand mit Zustellnachweis wählte er ein ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sender needs proof that the letter was delivered.",
+              "de": "Der Absender benötigt einen Nachweis über die Zustellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einschreiben"
+              },
+              {
+                "id": "1",
+                "text": "Formular"
+              },
+              {
+                "id": "2",
+                "text": "Geschenk"
+              },
+              {
+                "id": "3",
+                "text": "Prospekt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einschreiben means registered mail. The sender needs proof that the letter was delivered.",
+              "de": "Einschreiben bedeutet Postsendung mit dokumentierter Zustellung. Der Absender benötigt einen Nachweis über die Zustellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Briefversand mit Zustellnachweis wählte er ein Einschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 second editorial pass 2026-10-29: checked complete sentence \"Für den Briefversand mit Zustellnachweis wählte er ein Einschreiben.\", noun form and case, all four offered options (Einschreiben / Formular / Geschenk / Prospekt), unique accepted answer \"Einschreiben\", bilingual hint/explanation and sibling-context distinction. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007908",
+      "title": {
+        "en": "Using Einsparung in context",
+        "de": "Einsparung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einsparung (saving or reduction in expenditure) in two distinct situations.",
+        "de": "Einsparung (Verringerung von Kosten oder Verbrauch) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einsparung meaning saving or reduction in expenditure, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L609 (c04ae98871921a95a34e1f1dbf34dd1350eb8db0d59f402564220003a6386794), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L609-v1",
+          "contextKey": "legacy-0079-L609-context-1",
+          "transferKey": "legacy-0079-L609-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007908",
+            "type": "gap_choice",
+            "prompt": "Die neue Beleuchtung brachte eine deutliche ___ bei den Stromkosten.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Electricity costs decreased after the change.",
+              "de": "Die Stromkosten wurden durch die Änderung niedriger."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erhöhung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Belastung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einsparung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verteuerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einsparung means saving or reduction in expenditure. Electricity costs decreased after the change.",
+              "de": "Einsparung bedeutet Verringerung von Kosten oder Verbrauch. Die Stromkosten wurden durch die Änderung niedriger."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Beleuchtung brachte eine deutliche Einsparung bei den Stromkosten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die neue Beleuchtung brachte eine deutliche Einsparung bei den Stromkosten.\", noun form and case, all offered choices (Erhöhung / Belastung / Einsparung / Verteuerung), unique accepted answer \"Einsparung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L609-v2",
+          "contextKey": "legacy-0079-L609-context-2",
+          "transferKey": "legacy-0079-L609-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007908",
+            "type": "choice",
+            "prompt": "Durch die Zusammenlegung der Büros wurden erhebliche ___ erzielt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Combining offices reduced expenses.",
+              "de": "Die Zusammenlegung verringerte die Kosten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausgaben"
+              },
+              {
+                "id": "1",
+                "text": "Verluste"
+              },
+              {
+                "id": "2",
+                "text": "Gebühren"
+              },
+              {
+                "id": "3",
+                "text": "Einsparungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einsparung means saving or reduction in expenditure. Combining offices reduced expenses.",
+              "de": "Einsparung bedeutet Verringerung von Kosten oder Verbrauch. Die Zusammenlegung verringerte die Kosten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die Zusammenlegung der Büros wurden erhebliche Einsparungen erzielt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Durch die Zusammenlegung der Büros wurden erhebliche Einsparungen erzielt.\", noun form and case, all offered choices (Ausgaben / Verluste / Gebühren / Einsparungen), unique accepted answer \"Einsparungen\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007909",
+      "title": {
+        "en": "Using Einstand in context",
+        "de": "Einstand im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstand (debut or start in a new role, often marked socially) in two distinct situations.",
+        "de": "Einstand (Beginn in einer neuen Position, oft mit kleinem Umtrunk) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstand meaning debut or start in a new role, often marked socially, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L610 (0b1d1e61477079bbba8c9a5bb5cd899c0a524c9234deafe288b5f33430ed561f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L610-v1",
+          "contextKey": "legacy-0079-L610-context-1",
+          "transferKey": "legacy-0079-L610-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007909",
+            "type": "gap_choice",
+            "prompt": "Am ersten Arbeitstag brachte die neue Kollegin Kuchen zu ihrem ___ mit.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She is marking the beginning of her time in the team.",
+              "de": "Sie feiert ihren Beginn im neuen Team."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausstand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einstand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ruhestand"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stillstand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstand means debut or start in a new role, often marked socially. She is marking the beginning of her time in the team.",
+              "de": "Einstand bedeutet Beginn in einer neuen Position, oft mit kleinem Umtrunk. Sie feiert ihren Beginn im neuen Team."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am ersten Arbeitstag brachte die neue Kollegin Kuchen zu ihrem Einstand mit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Am ersten Arbeitstag brachte die neue Kollegin Kuchen zu ihrem Einstand mit.\", noun form and case, all offered choices (Ausstand / Einstand / Ruhestand / Stillstand), unique accepted answer \"Einstand\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L610-v2",
+          "contextKey": "legacy-0079-L610-context-2",
+          "transferKey": "legacy-0079-L610-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007909",
+            "type": "choice",
+            "prompt": "Mit einer kurzen Rede feierte er seinen ___ im neuen Team.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The celebration marks joining, not leaving.",
+              "de": "Die Feier markiert den Anfang und nicht den Abschied."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschied"
+              },
+              {
+                "id": "1",
+                "text": "Ruhestand"
+              },
+              {
+                "id": "2",
+                "text": "Einstand"
+              },
+              {
+                "id": "3",
+                "text": "Ausstieg"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einstand means debut or start in a new role, often marked socially. The celebration marks joining, not leaving.",
+              "de": "Einstand bedeutet Beginn in einer neuen Position, oft mit kleinem Umtrunk. Die Feier markiert den Anfang und nicht den Abschied."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einer kurzen Rede feierte er seinen Einstand im neuen Team.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit einer kurzen Rede feierte er seinen Einstand im neuen Team.\", noun form and case, all offered choices (Abschied / Ruhestand / Einstand / Ausstieg), unique accepted answer \"Einstand\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007910",
+      "title": {
+        "en": "Using Einstandsfeier in context",
+        "de": "Einstandsfeier im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstandsfeier (welcome celebration on joining a group) in two distinct situations.",
+        "de": "Einstandsfeier (Feier zum Beginn in einem neuen Team) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstandsfeier meaning welcome celebration on joining a group, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L611 (54c2e7d4198bb523b30f76a11c0734aa3960891bbddfecd210b2a3bb2bd6e17e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L611-v1",
+          "contextKey": "legacy-0079-L611-context-1",
+          "transferKey": "legacy-0079-L611-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007910",
+            "type": "gap_choice",
+            "prompt": "Zum Start im neuen Team lud sie alle zu einer kleinen ___ ein.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The celebration welcomes a new colleague.",
+              "de": "Die Feier findet zum Beginn im neuen Team statt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einstandsfeier"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abschiedsfeier"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Weihnachtsfeier"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geburtstagsfeier"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstandsfeier means welcome celebration on joining a group. The celebration welcomes a new colleague.",
+              "de": "Einstandsfeier bedeutet Feier zum Beginn in einem neuen Team. Die Feier findet zum Beginn im neuen Team statt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Start im neuen Team lud sie alle zu einer kleinen Einstandsfeier ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Zum Start im neuen Team lud sie alle zu einer kleinen Einstandsfeier ein.\", noun form and case, all offered choices (Einstandsfeier / Abschiedsfeier / Weihnachtsfeier / Geburtstagsfeier), unique accepted answer \"Einstandsfeier\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L611-v2",
+          "contextKey": "legacy-0079-L611-context-2",
+          "transferKey": "legacy-0079-L611-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007910",
+            "type": "choice",
+            "prompt": "Die neuen Azubis organisierten eine ___, um ihre Kolleginnen und Kollegen kennenzulernen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "New trainees are celebrating their arrival.",
+              "de": "Neue Auszubildende feiern ihren Einstieg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschlussfeier"
+              },
+              {
+                "id": "1",
+                "text": "Einstandsfeier"
+              },
+              {
+                "id": "2",
+                "text": "Trauerfeier"
+              },
+              {
+                "id": "3",
+                "text": "Jubiläumsfeier"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einstandsfeier means welcome celebration on joining a group. New trainees are celebrating their arrival.",
+              "de": "Einstandsfeier bedeutet Feier zum Beginn in einem neuen Team. Neue Auszubildende feiern ihren Einstieg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neuen Azubis organisierten eine Einstandsfeier, um ihre Kolleginnen und Kollegen kennenzulernen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die neuen Azubis organisierten eine Einstandsfeier, um ihre Kolleginnen und Kollegen kennenzulernen.\", noun form and case, all offered choices (Abschlussfeier / Einstandsfeier / Trauerfeier / Jubiläumsfeier), unique accepted answer \"Einstandsfeier\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007911",
+      "title": {
+        "en": "Using Einstellung in context",
+        "de": "Einstellung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstellung (attitude or personal outlook) in two distinct situations.",
+        "de": "Einstellung (innere Haltung oder persönliche Auffassung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstellung meaning attitude or personal outlook, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L612 (8d9daf61ab6c5138e5355824a12cf54523db53eb4efbdfae3849682bb192f52f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L612-v1",
+          "contextKey": "legacy-0079-L612-context-1",
+          "transferKey": "legacy-0079-L612-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007911",
+            "type": "gap_choice",
+            "prompt": "Seine positive ___ gegenüber Veränderungen hilft dem Team.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns an open-minded attitude.",
+              "de": "Es geht um eine aufgeschlossene Haltung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einschränkung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einrichtung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einzahlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einstellung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstellung means attitude or personal outlook. The sentence concerns an open-minded attitude.",
+              "de": "Einstellung bedeutet innere Haltung oder persönliche Auffassung. Es geht um eine aufgeschlossene Haltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seine positive Einstellung gegenüber Veränderungen hilft dem Team.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Seine positive Einstellung gegenüber Veränderungen hilft dem Team.\", noun form and case, all offered choices (Einschränkung / Einrichtung / Einzahlung / Einstellung), unique accepted answer \"Einstellung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L612-v2",
+          "contextKey": "legacy-0079-L612-context-2",
+          "transferKey": "legacy-0079-L612-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007911",
+            "type": "choice",
+            "prompt": "Trotz der Kritik blieb ihre ___ zum Projekt optimistisch.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She retains a favorable personal view.",
+              "de": "Sie behält eine positive persönliche Haltung bei."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einstellung"
+              },
+              {
+                "id": "1",
+                "text": "Einweisung"
+              },
+              {
+                "id": "2",
+                "text": "Einsparung"
+              },
+              {
+                "id": "3",
+                "text": "Einzahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einstellung means attitude or personal outlook. She retains a favorable personal view.",
+              "de": "Einstellung bedeutet innere Haltung oder persönliche Auffassung. Sie behält eine positive persönliche Haltung bei."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trotz der Kritik blieb ihre Einstellung zum Projekt optimistisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Trotz der Kritik blieb ihre Einstellung zum Projekt optimistisch.\", noun form and case, all offered choices (Einstellung / Einweisung / Einsparung / Einzahlung), unique accepted answer \"Einstellung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007912",
+      "title": {
+        "en": "Using Einstellungsgespräch in context",
+        "de": "Einstellungsgespräch im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstellungsgespräch (job interview) in two distinct situations.",
+        "de": "Einstellungsgespräch (Gespräch zur Auswahl einer Person für eine Stelle) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstellungsgespräch meaning job interview, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L613 (2b03c16c21af70f4a254740da238c0285c90990acd01cf94b1a62120dffa765b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L613-v1",
+          "contextKey": "legacy-0079-L613-context-1",
+          "transferKey": "legacy-0079-L613-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007912",
+            "type": "gap_choice",
+            "prompt": "Nach der Bewerbung um die offene Stelle wurde sie zu einem ___ eingeladen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The employer is evaluating an applicant for a vacancy.",
+              "de": "Ein Arbeitgeber prüft eine Bewerbung auf eine offene Stelle."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mitarbeitergespräch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkaufsgespräch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einstellungsgespräch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Konfliktgespräch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstellungsgespräch means job interview. The employer is evaluating an applicant for a vacancy.",
+              "de": "Einstellungsgespräch bedeutet Gespräch zur Auswahl einer Person für eine Stelle. Ein Arbeitgeber prüft eine Bewerbung auf eine offene Stelle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Bewerbung um die offene Stelle wurde sie zu einem Einstellungsgespräch eingeladen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Bewerbung um die offene Stelle wurde sie zu einem Einstellungsgespräch eingeladen.\", noun form and case, all offered choices (Mitarbeitergespräch / Verkaufsgespräch / Einstellungsgespräch / Konfliktgespräch), unique accepted answer \"Einstellungsgespräch\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L613-v2",
+          "contextKey": "legacy-0079-L613-context-2",
+          "transferKey": "legacy-0079-L613-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007912",
+            "type": "choice",
+            "prompt": "Im ___ fragte die Personalchefin nach Berufserfahrung und Gehaltsvorstellungen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "These questions are typical when selecting an employee.",
+              "de": "Solche Fragen gehören zur Auswahl neuer Mitarbeitender."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kundengespräch"
+              },
+              {
+                "id": "1",
+                "text": "Konfliktgespräch"
+              },
+              {
+                "id": "2",
+                "text": "Abschlussgespräch"
+              },
+              {
+                "id": "3",
+                "text": "Einstellungsgespräch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einstellungsgespräch means job interview. These questions are typical when selecting an employee.",
+              "de": "Einstellungsgespräch bedeutet Gespräch zur Auswahl einer Person für eine Stelle. Solche Fragen gehören zur Auswahl neuer Mitarbeitender."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Einstellungsgespräch fragte die Personalchefin nach Berufserfahrung und Gehaltsvorstellungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Einstellungsgespräch fragte die Personalchefin nach Berufserfahrung und Gehaltsvorstellungen.\", noun form and case, all offered choices (Kundengespräch / Konfliktgespräch / Abschlussgespräch / Einstellungsgespräch), unique accepted answer \"Einstellungsgespräch\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007913",
+      "title": {
+        "en": "Using Einstieg in context",
+        "de": "Einstieg im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstieg (entry or first step into a field) in two distinct situations.",
+        "de": "Einstieg (Beginn in einem neuen Bereich) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstieg meaning entry or first step into a field, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L614 (b076b50141668a7254fa9b50b15566054fbd547419377bdb28efa286fcc1b24a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L614-v1",
+          "contextKey": "legacy-0079-L614-context-1",
+          "transferKey": "legacy-0079-L614-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007913",
+            "type": "gap_choice",
+            "prompt": "Das Praktikum erleichterte ihm den ___ ins Berufsleben.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The internship helped him begin his career.",
+              "de": "Das Praktikum half beim Beginn des Berufslebens."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausstieg"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einstieg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rückzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stillstand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstieg means entry or first step into a field. The internship helped him begin his career.",
+              "de": "Einstieg bedeutet Beginn in einem neuen Bereich. Das Praktikum half beim Beginn des Berufslebens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Praktikum erleichterte ihm den Einstieg ins Berufsleben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Praktikum erleichterte ihm den Einstieg ins Berufsleben.\", noun form and case, all offered choices (Ausstieg / Einstieg / Rückzug / Stillstand), unique accepted answer \"Einstieg\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L614-v2",
+          "contextKey": "legacy-0079-L614-context-2",
+          "transferKey": "legacy-0079-L614-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007913",
+            "type": "choice",
+            "prompt": "Der Kurs bietet einen einfachen ___ in die Programmierung.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The course is intended for beginners.",
+              "de": "Der Kurs richtet sich an Menschen ohne Vorkenntnisse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschluss"
+              },
+              {
+                "id": "1",
+                "text": "Abbruch"
+              },
+              {
+                "id": "2",
+                "text": "Einstieg"
+              },
+              {
+                "id": "3",
+                "text": "Rückzug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einstieg means entry or first step into a field. The course is intended for beginners.",
+              "de": "Einstieg bedeutet Beginn in einem neuen Bereich. Der Kurs richtet sich an Menschen ohne Vorkenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kurs bietet einen einfachen Einstieg in die Programmierung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Kurs bietet einen einfachen Einstieg in die Programmierung.\", noun form and case, all offered choices (Abschluss / Abbruch / Einstieg / Rückzug), unique accepted answer \"Einstieg\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007914",
+      "title": {
+        "en": "Using Einstiegsgehalt in context",
+        "de": "Einstiegsgehalt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einstiegsgehalt (starting salary) in two distinct situations.",
+        "de": "Einstiegsgehalt (Gehalt beim Beginn einer neuen Stelle oder Laufbahn) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einstiegsgehalt meaning starting salary, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L615 (ae4a2785e8258ad32f5458a7407d6b6a2730f3c1a313dee4bfc4c2d150bee2e7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L615-v1",
+          "contextKey": "legacy-0079-L615-context-1",
+          "transferKey": "legacy-0079-L615-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007914",
+            "type": "gap_choice",
+            "prompt": "Beim ersten Job nach dem Studium lag ihr ___ bei 3.000 Euro brutto.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The amount is the salary at the start of a career.",
+              "de": "Es geht um das Gehalt zu Beginn der Berufslaufbahn."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einstiegsgehalt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kindergeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaubsgeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Taschengeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einstiegsgehalt means starting salary. The amount is the salary at the start of a career.",
+              "de": "Einstiegsgehalt bedeutet Gehalt beim Beginn einer neuen Stelle oder Laufbahn. Es geht um das Gehalt zu Beginn der Berufslaufbahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim ersten Job nach dem Studium lag ihr Einstiegsgehalt bei 3.000 Euro brutto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Beim ersten Job nach dem Studium lag ihr Einstiegsgehalt bei 3.000 Euro brutto.\", noun form and case, all offered choices (Einstiegsgehalt / Kindergeld / Urlaubsgeld / Taschengeld), unique accepted answer \"Einstiegsgehalt\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L615-v2",
+          "contextKey": "legacy-0079-L615-context-2",
+          "transferKey": "legacy-0079-L615-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007914",
+            "type": "choice",
+            "prompt": "Im Bewerbungsgespräch fragte er nach dem ___ für Berufseinsteiger.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question concerns the initial pay for a new hire.",
+              "de": "Gefragt wird nach dem Anfangsgehalt einer neuen Arbeitskraft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Krankengeld"
+              },
+              {
+                "id": "1",
+                "text": "Einstiegsgehalt"
+              },
+              {
+                "id": "2",
+                "text": "Weihnachtsgeld"
+              },
+              {
+                "id": "3",
+                "text": "Elterngeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einstiegsgehalt means starting salary. The question concerns the initial pay for a new hire.",
+              "de": "Einstiegsgehalt bedeutet Gehalt beim Beginn einer neuen Stelle oder Laufbahn. Gefragt wird nach dem Anfangsgehalt einer neuen Arbeitskraft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bewerbungsgespräch fragte er nach dem Einstiegsgehalt für Berufseinsteiger.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Bewerbungsgespräch fragte er nach dem Einstiegsgehalt für Berufseinsteiger.\", noun form and case, all offered choices (Krankengeld / Einstiegsgehalt / Weihnachtsgeld / Elterngeld), unique accepted answer \"Einstiegsgehalt\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007915",
+      "title": {
+        "en": "Using Einweisung in context",
+        "de": "Einweisung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einweisung (practical instruction or briefing) in two distinct situations.",
+        "de": "Einweisung (Anleitung für eine Tätigkeit oder ein Gerät) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einweisung meaning practical instruction or briefing, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L617 (5beef011cd67e89014c50758dc49e9d21965278b2e55d0c91a23394cd09267fd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L617-v1",
+          "contextKey": "legacy-0079-L617-context-1",
+          "transferKey": "legacy-0079-L617-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007915",
+            "type": "gap_choice",
+            "prompt": "Vor der Bedienung der Maschine bekam sie eine gründliche ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She must learn how to use the machine safely.",
+              "de": "Sie muss lernen, die Maschine sicher zu bedienen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einweisung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einweisung means practical instruction or briefing. She must learn how to use the machine safely.",
+              "de": "Einweisung bedeutet Anleitung für eine Tätigkeit oder ein Gerät. Sie muss lernen, die Maschine sicher zu bedienen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Bedienung der Maschine bekam sie eine gründliche Einweisung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Vor der Bedienung der Maschine bekam sie eine gründliche Einweisung.\", noun form and case, all offered choices (Entlassung / Bewerbung / Kündigung / Einweisung), unique accepted answer \"Einweisung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L617-v2",
+          "contextKey": "legacy-0079-L617-context-2",
+          "transferKey": "legacy-0079-L617-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007915",
+            "type": "choice",
+            "prompt": "Der neue Mitarbeiter durfte den Stapler erst nach einer praktischen ___ bedienen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Hands-on instruction is required before using equipment.",
+              "de": "Vor der Nutzung des Geräts ist eine praktische Anleitung nötig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einweisung"
+              },
+              {
+                "id": "1",
+                "text": "Einstellung"
+              },
+              {
+                "id": "2",
+                "text": "Einladung"
+              },
+              {
+                "id": "3",
+                "text": "Einschränkung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einweisung means practical instruction or briefing. Hands-on instruction is required before using equipment.",
+              "de": "Einweisung bedeutet Anleitung für eine Tätigkeit oder ein Gerät. Vor der Nutzung des Geräts ist eine praktische Anleitung nötig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Mitarbeiter durfte den Stapler erst nach einer praktischen Einweisung bedienen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der neue Mitarbeiter durfte den Stapler erst nach einer praktischen Einweisung bedienen.\", noun form and case, all offered choices (Einweisung / Einstellung / Einladung / Einschränkung), unique accepted answer \"Einweisung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007916",
+      "title": {
+        "en": "Using Einwilligung in context",
+        "de": "Einwilligung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einwilligung (consent or permission) in two distinct situations.",
+        "de": "Einwilligung (ausdrückliche Zustimmung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einwilligung meaning consent or permission, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L618 (afc24c86e946f6b420b9321293b2914a11da657f2b3aeeebe8526188911bbc82), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L618-v1",
+          "contextKey": "legacy-0079-L618-context-1",
+          "transferKey": "legacy-0079-L618-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007916",
+            "type": "gap_choice",
+            "prompt": "Ohne schriftliche ___ dürfen die Fotos nicht veröffentlicht werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Publishing the pictures requires permission.",
+              "de": "Für die Veröffentlichung braucht man eine Zustimmung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einrichtung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einsparung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einwilligung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einschätzung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einwilligung means consent or permission. Publishing the pictures requires permission.",
+              "de": "Einwilligung bedeutet ausdrückliche Zustimmung. Für die Veröffentlichung braucht man eine Zustimmung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne schriftliche Einwilligung dürfen die Fotos nicht veröffentlicht werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ohne schriftliche Einwilligung dürfen die Fotos nicht veröffentlicht werden.\", noun form and case, all offered choices (Einrichtung / Einsparung / Einwilligung / Einschätzung), unique accepted answer \"Einwilligung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L618-v2",
+          "contextKey": "legacy-0079-L618-context-2",
+          "transferKey": "legacy-0079-L618-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007916",
+            "type": "choice",
+            "prompt": "Vor der Datenweitergabe muss die ausdrückliche ___ der betroffenen Person vorliegen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Personal data cannot be shared without authorization.",
+              "de": "Die Weitergabe persönlicher Daten erfordert eine Zustimmung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einschränkung"
+              },
+              {
+                "id": "1",
+                "text": "Einladung"
+              },
+              {
+                "id": "2",
+                "text": "Einweisung"
+              },
+              {
+                "id": "3",
+                "text": "Einwilligung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einwilligung means consent or permission. Personal data cannot be shared without authorization.",
+              "de": "Einwilligung bedeutet ausdrückliche Zustimmung. Die Weitergabe persönlicher Daten erfordert eine Zustimmung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Datenweitergabe muss die ausdrückliche Einwilligung der betroffenen Person vorliegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Vor der Datenweitergabe muss die ausdrückliche Einwilligung der betroffenen Person vorliegen.\", noun form and case, all offered choices (Einschränkung / Einladung / Einweisung / Einwilligung), unique accepted answer \"Einwilligung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007917",
+      "title": {
+        "en": "Using Einwohner in context",
+        "de": "Einwohner im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einwohner (resident or inhabitant (masculine/generic form)) in two distinct situations.",
+        "de": "Einwohner (Person, die dauerhaft an einem Ort lebt (maskuline Form)) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einwohner meaning resident or inhabitant (masculine/generic form), using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L619 (fd520114d750a4ab26fd5014a8c05bba4fd182c3f517c1cc3ec26dd5b177b0bc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L619-v1",
+          "contextKey": "legacy-0079-L619-context-1",
+          "transferKey": "legacy-0079-L619-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007917",
+            "type": "gap_choice",
+            "prompt": "Die Gemeinde zählt rund 12.000 ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This is a count of the people who live there.",
+              "de": "Gezählt werden die Menschen, die dort wohnen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Besucher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einwohner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pendler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Touristen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einwohner means resident or inhabitant (masculine/generic form). This is a count of the people who live there.",
+              "de": "Einwohner bedeutet Person, die dauerhaft an einem Ort lebt (maskuline Form). Gezählt werden die Menschen, die dort wohnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gemeinde zählt rund 12.000 Einwohner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Gemeinde zählt rund 12.000 Einwohner.\", noun form and case, all offered choices (Besucher / Einwohner / Pendler / Touristen), unique accepted answer \"Einwohner\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L619-v2",
+          "contextKey": "legacy-0079-L619-context-2",
+          "transferKey": "legacy-0079-L619-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007917",
+            "type": "choice",
+            "prompt": "Als langjähriger ___ kennt er fast jede Straße im Ort.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He lives there and knows the area well.",
+              "de": "Er lebt schon lange an diesem Ort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urlauber"
+              },
+              {
+                "id": "1",
+                "text": "Besucher"
+              },
+              {
+                "id": "2",
+                "text": "Einwohner"
+              },
+              {
+                "id": "3",
+                "text": "Lieferant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einwohner means resident or inhabitant (masculine/generic form). He lives there and knows the area well.",
+              "de": "Einwohner bedeutet Person, die dauerhaft an einem Ort lebt (maskuline Form). Er lebt schon lange an diesem Ort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als langjähriger Einwohner kennt er fast jede Straße im Ort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Als langjähriger Einwohner kennt er fast jede Straße im Ort.\", noun form and case, all offered choices (Urlauber / Besucher / Einwohner / Lieferant), unique accepted answer \"Einwohner\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007918",
+      "title": {
+        "en": "Using Einwohnerin in context",
+        "de": "Einwohnerin im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einwohnerin (female resident or inhabitant) in two distinct situations.",
+        "de": "Einwohnerin (Bewohnerin eines Ortes) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einwohnerin meaning female resident or inhabitant, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L620 (87d1ae7c1c99f0ab0cd4d1ed699d2f5d6f79121c446a2006cd1b1a3293f8b434), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L620-v1",
+          "contextKey": "legacy-0079-L620-context-1",
+          "transferKey": "legacy-0079-L620-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007918",
+            "type": "gap_choice",
+            "prompt": "Sie wohnt seit zwanzig Jahren hier. Als ___ kennt sie die Stadt gut.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She has lived in the city for many years.",
+              "de": "Sie wohnt seit vielen Jahren in der Stadt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einwohnerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Touristin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Besucherin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pendlerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einwohnerin means female resident or inhabitant. She has lived in the city for many years.",
+              "de": "Einwohnerin bedeutet Bewohnerin eines Ortes. Sie wohnt seit vielen Jahren in der Stadt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wohnt seit zwanzig Jahren hier. Als Einwohnerin kennt sie die Stadt gut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie wohnt seit zwanzig Jahren hier. Als Einwohnerin kennt sie die Stadt gut.\", noun form and case, all offered choices (Einwohnerin / Touristin / Besucherin / Pendlerin), unique accepted answer \"Einwohnerin\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L620-v2",
+          "contextKey": "legacy-0079-L620-context-2",
+          "transferKey": "legacy-0079-L620-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007918",
+            "type": "choice",
+            "prompt": "Die älteste ___ des Dorfes feierte ihren 100. Geburtstag.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person is a longstanding female resident.",
+              "de": "Die Frau gehört dauerhaft zur Dorfgemeinschaft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Touristin"
+              },
+              {
+                "id": "1",
+                "text": "Einwohnerin"
+              },
+              {
+                "id": "2",
+                "text": "Besucherin"
+              },
+              {
+                "id": "3",
+                "text": "Kundin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einwohnerin means female resident or inhabitant. The person is a longstanding female resident.",
+              "de": "Einwohnerin bedeutet Bewohnerin eines Ortes. Die Frau gehört dauerhaft zur Dorfgemeinschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die älteste Einwohnerin des Dorfes feierte ihren 100. Geburtstag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die älteste Einwohnerin des Dorfes feierte ihren 100. Geburtstag.\", noun form and case, all offered choices (Touristin / Einwohnerin / Besucherin / Kundin), unique accepted answer \"Einwohnerin\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007919",
+      "title": {
+        "en": "Using Einzahlung in context",
+        "de": "Einzahlung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einzahlung (deposit of money into an account) in two distinct situations.",
+        "de": "Einzahlung (Geldbetrag, der auf ein Konto eingezahlt wird) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einzahlung meaning deposit of money into an account, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L621 (4dafb1e47dd21d494028537c444d2681e6ea0a683dd7be214729884d6e3d4c1d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0079-L621-v1",
+          "contextKey": "legacy-0079-L621-context-1",
+          "transferKey": "legacy-0079-L621-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007919",
+            "type": "gap_choice",
+            "prompt": "Am Bankschalter machte er eine ___ auf sein Sparkonto.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Money is being put into the account.",
+              "de": "Geld wird dem Konto gutgeschrieben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auszahlung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abbuchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einzahlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einzahlung means deposit of money into an account. Money is being put into the account.",
+              "de": "Einzahlung bedeutet Geldbetrag, der auf ein Konto eingezahlt wird. Geld wird dem Konto gutgeschrieben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Bankschalter machte er eine Einzahlung auf sein Sparkonto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Am Bankschalter machte er eine Einzahlung auf sein Sparkonto.\", noun form and case, all offered choices (Auszahlung / Abbuchung / Gebühr / Einzahlung), unique accepted answer \"Einzahlung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0079-L621-v2",
+          "contextKey": "legacy-0079-L621-context-2",
+          "transferKey": "legacy-0079-L621-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000790191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007919",
+            "type": "choice",
+            "prompt": "Die ___ von 200 Euro erhöhte den Kontostand sofort.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The balance increased because money came in.",
+              "de": "Der Kontostand stieg durch einen Geldzufluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einzahlung"
+              },
+              {
+                "id": "1",
+                "text": "Auszahlung"
+              },
+              {
+                "id": "2",
+                "text": "Abbuchung"
+              },
+              {
+                "id": "3",
+                "text": "Gebühr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einzahlung means deposit of money into an account. The balance increased because money came in.",
+              "de": "Einzahlung bedeutet Geldbetrag, der auf ein Konto eingezahlt wird. Der Kontostand stieg durch einen Geldzufluss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einzahlung von 200 Euro erhöhte den Kontostand sofort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Einzahlung von 200 Euro erhöhte den Kontostand sofort.\", noun form and case, all offered choices (Einzahlung / Auszahlung / Abbuchung / Gebühr), unique accepted answer \"Einzahlung\", bilingual hint/explanation and distinct sibling context. Independent human review pending."
+        }
+      ]
+    }
+  ]
+}
