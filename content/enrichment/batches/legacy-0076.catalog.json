@@ -1,0 +1,1438 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007600",
+      "title": {
+        "en": "Using zufällig in context",
+        "de": "zufällig im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zufällig (by chance or randomly selected) in two distinct contexts.",
+        "de": "zufällig (ungeplant oder nach dem Zufallsprinzip) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zufällig meaning by chance or randomly selected, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L605 (44653740eeec8b1aa07114b8de36f107239e2f4dfd145669c386d1bb4edf7388), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L605-v1",
+          "contextKey": "legacy-0076-L605-context-1",
+          "transferKey": "legacy-0076-L605-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007600",
+            "type": "choice",
+            "prompt": "Wir trafen uns ___ am Bahnhof, ohne etwas verabredet zu haben.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The meeting was not arranged.",
+              "de": "Das Treffen war nicht verabredet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "absichtlich"
+              },
+              {
+                "id": "1",
+                "text": "zufällig"
+              },
+              {
+                "id": "2",
+                "text": "regelmäßig"
+              },
+              {
+                "id": "3",
+                "text": "geplant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zufällig means by chance rather than planned.",
+              "de": "Zufällig bedeutet hier ohne vorherige Planung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir trafen uns zufällig am Bahnhof, ohne etwas verabredet zu haben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Wir trafen uns zufällig am Bahnhof, ohne etwas verabredet zu haben.\", adjective/adverb form, all choices (absichtlich / zufällig / regelmäßig / geplant), contextual clue and single accepted answer \"zufällig\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L605-v2",
+          "contextKey": "legacy-0076-L605-context-2",
+          "transferKey": "legacy-0076-L605-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007600",
+            "type": "gap_choice",
+            "prompt": "Die Namen wurden in einer ___ Reihenfolge aufgerufen, die per Los bestimmt worden war.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The order was determined by drawing lots.",
+              "de": "Die Reihenfolge wurde durch ein Los bestimmt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gezielten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "strengen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zufälligen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geplanten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zufälligen describes a random order rather than a planned one.",
+              "de": "Zufälligen beschreibt eine zufällige statt einer geplanten Reihenfolge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Namen wurden in einer zufälligen Reihenfolge aufgerufen, die per Los bestimmt worden war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked complete sentence \"Die Namen wurden in einer zufälligen Reihenfolge aufgerufen, die per Los bestimmt worden war.\", adjective ending and all options (gezielten / strengen / zufälligen / geplanten). Only \"zufälligen\" matches the random order explicitly established by the lottery. The other variant assesses an unplanned meeting. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007601",
+      "title": {
+        "en": "Using zufriedenstellend in context",
+        "de": "zufriedenstellend im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zufriedenstellend (satisfactory though not perfect) in two distinct contexts.",
+        "de": "zufriedenstellend (ausreichend gut, auch wenn nicht perfekt) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zufriedenstellend meaning satisfactory though not perfect, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L607 (ee81bd55a9d72a04f36b6a04d018741e54f23b5f26a6c3bf58f40917163d1ed4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L607-v1",
+          "contextKey": "legacy-0076-L607-context-1",
+          "transferKey": "legacy-0076-L607-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007601",
+            "type": "choice",
+            "prompt": "Die Ergebnisse sind nicht perfekt, aber insgesamt ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The outcome meets the basic expectations.",
+              "de": "Das Ergebnis erfüllt die grundlegenden Erwartungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ungenügend"
+              },
+              {
+                "id": "1",
+                "text": "zufriedenstellend"
+              },
+              {
+                "id": "2",
+                "text": "katastrophal"
+              },
+              {
+                "id": "3",
+                "text": "unbrauchbar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zufriedenstellend means sufficiently good or satisfactory.",
+              "de": "Zufriedenstellend bedeutet ausreichend gut."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ergebnisse sind nicht perfekt, aber insgesamt zufriedenstellend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Die Ergebnisse sind nicht perfekt, aber insgesamt zufriedenstellend.\", adjective/adverb form, all choices (ungenügend / zufriedenstellend / katastrophal / unbrauchbar), contextual clue and single accepted answer \"zufriedenstellend\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L607-v2",
+          "contextKey": "legacy-0076-L607-context-2",
+          "transferKey": "legacy-0076-L607-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007601",
+            "type": "gap_choice",
+            "prompt": "Die Reparatur verlief ___; das Gerät funktioniert wieder wie erwartet.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The repair met the expected standard.",
+              "de": "Die Reparatur entsprach den Erwartungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erfolglos"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gefährlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zufriedenstellend"
+                  },
+                  {
+                    "id": "3",
+                    "text": "fehlerhaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zufriedenstellend describes an acceptable result.",
+              "de": "Zufriedenstellend bezeichnet ein akzeptables Ergebnis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur verlief zufriedenstellend; das Gerät funktioniert wieder wie erwartet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Die Reparatur verlief zufriedenstellend; das Gerät funktioniert wieder wie erwartet.\", adjective/adverb form, all choices (erfolglos / gefährlich / zufriedenstellend / fehlerhaft), contextual clue and single accepted answer \"zufriedenstellend\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007602",
+      "title": {
+        "en": "Using zugänglich in context",
+        "de": "zugänglich im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zugänglich (accessible or available to use) in two distinct contexts.",
+        "de": "zugänglich (erreichbar oder nutzbar) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zugänglich meaning accessible or available to use, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L608 (668158c81e8de8e20f1e54b06f29af0fd7f1e5cb3a6bc0999e2946d32ab61a9b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L608-v1",
+          "contextKey": "legacy-0076-L608-context-1",
+          "transferKey": "legacy-0076-L608-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007602",
+            "type": "choice",
+            "prompt": "Die Bibliothek ist auch für Menschen mit Rollstuhl ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "People using wheelchairs can enter.",
+              "de": "Menschen im Rollstuhl können hineingelangen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gesperrt"
+              },
+              {
+                "id": "1",
+                "text": "zugänglich"
+              },
+              {
+                "id": "2",
+                "text": "verschlossen"
+              },
+              {
+                "id": "3",
+                "text": "unerreichbar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zugänglich means accessible, including physical access.",
+              "de": "Zugänglich bedeutet, dass ein Ort erreichbar und nutzbar ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bibliothek ist auch für Menschen mit Rollstuhl zugänglich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Die Bibliothek ist auch für Menschen mit Rollstuhl zugänglich.\", adjective/adverb form, all choices (gesperrt / zugänglich / verschlossen / unerreichbar), contextual clue and single accepted answer \"zugänglich\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L608-v2",
+          "contextKey": "legacy-0076-L608-context-2",
+          "transferKey": "legacy-0076-L608-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007602",
+            "type": "gap_choice",
+            "prompt": "Die Unterlagen sind allen Mitarbeitenden online ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Every employee can open the documents.",
+              "de": "Alle Beschäftigten können die Dokumente abrufen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geheim"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelöscht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zugänglich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschollen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zugänglich also describes information available for access.",
+              "de": "Zugänglich kann auch abrufbare Informationen bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Unterlagen sind allen Mitarbeitenden online zugänglich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Die Unterlagen sind allen Mitarbeitenden online zugänglich.\", adjective/adverb form, all choices (geheim / gelöscht / zugänglich / verschollen), contextual clue and single accepted answer \"zugänglich\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007603",
+      "title": {
+        "en": "Using zukünftig in context",
+        "de": "zukünftig im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zukünftig (relating to the future) in two distinct contexts.",
+        "de": "zukünftig (in der Zukunft liegend) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zukünftig meaning relating to the future, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L609 (411f21a06a852091bbacf32633689808a8aff577cc8ac09ec2a7d90689a8f2db), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L609-v1",
+          "contextKey": "legacy-0076-L609-context-1",
+          "transferKey": "legacy-0076-L609-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007603",
+            "type": "choice",
+            "prompt": "Wir möchten die ___ Zusammenarbeit langfristig planen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The cooperation is planned for the coming years.",
+              "de": "Die Zusammenarbeit ist für die kommenden Jahre geplant."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vergangene"
+              },
+              {
+                "id": "1",
+                "text": "zukünftige"
+              },
+              {
+                "id": "2",
+                "text": "gescheiterte"
+              },
+              {
+                "id": "3",
+                "text": "abgeschlossene"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zukünftige refers to something in the future.",
+              "de": "Zukünftige bezeichnet etwas, das erst noch stattfinden wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir möchten die zukünftige Zusammenarbeit langfristig planen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Wir möchten die zukünftige Zusammenarbeit langfristig planen.\", adjective/adverb form, all choices (vergangene / zukünftige / gescheiterte / abgeschlossene), contextual clue and single accepted answer \"zukünftige\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L609-v2",
+          "contextKey": "legacy-0076-L609-context-2",
+          "transferKey": "legacy-0076-L609-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007603",
+            "type": "gap_choice",
+            "prompt": "Der ___ Standort der Firma wird näher am Bahnhof liegen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The location is planned but not yet in use.",
+              "de": "Der Standort ist geplant, aber noch nicht bezogen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "frühere"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgegebene"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zukünftige"
+                  },
+                  {
+                    "id": "3",
+                    "text": "alte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zukünftige describes the planned future location.",
+              "de": "Zukünftige beschreibt den geplanten Standort der Zukunft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der zukünftige Standort der Firma wird näher am Bahnhof liegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Der zukünftige Standort der Firma wird näher am Bahnhof liegen.\", adjective/adverb form, all choices (frühere / aufgegebene / zukünftige / alte), contextual clue and single accepted answer \"zukünftige\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007604",
+      "title": {
+        "en": "Using zumutbar in context",
+        "de": "zumutbar im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zumutbar (reasonable to expect someone to endure) in two distinct contexts.",
+        "de": "zumutbar (jemandem unter den Umständen vernünftigerweise zuzumuten) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zumutbar meaning reasonable to expect someone to endure, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L610 (ea832e8a86860c0dd0897600f46e2714f75b2e8350364534a0319401da716e29), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L610-v1",
+          "contextKey": "legacy-0076-L610-context-1",
+          "transferKey": "legacy-0076-L610-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007604",
+            "type": "choice",
+            "prompt": "Vier Stunden ohne Pause bei großer Hitze zu arbeiten ist unter diesen Bedingungen kaum ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The burden may be unreasonable for the workers.",
+              "de": "Die Belastung könnte für Beschäftigte unvertretbar sein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bezahlt"
+              },
+              {
+                "id": "1",
+                "text": "zumutbar"
+              },
+              {
+                "id": "2",
+                "text": "bekannt"
+              },
+              {
+                "id": "3",
+                "text": "geplant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zumutbar means reasonable to demand under the circumstances.",
+              "de": "Zumutbar bedeutet, dass eine Belastung unter den Umständen vertretbar ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vier Stunden ohne Pause bei großer Hitze zu arbeiten ist unter diesen Bedingungen kaum zumutbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Vier Stunden ohne Pause bei großer Hitze zu arbeiten ist unter diesen Bedingungen kaum zumutbar.\", adjective/adverb form, all choices (bezahlt / zumutbar / bekannt / geplant), contextual clue and single accepted answer \"zumutbar\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L610-v2",
+          "contextKey": "legacy-0076-L610-context-2",
+          "transferKey": "legacy-0076-L610-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007604",
+            "type": "gap_choice",
+            "prompt": "Die Behörde prüft, ob der sehr lange Arbeitsweg für die Betroffene noch ___ ist.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question is whether the burden can fairly be expected.",
+              "de": "Es geht darum, ob die Belastung vernünftigerweise erwartet werden kann."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bezahlt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bekannt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zumutbar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geöffnet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zumutbar concerns what can reasonably be expected of someone.",
+              "de": "Zumutbar bezieht sich darauf, was man jemandem vernünftigerweise abverlangen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Behörde prüft, ob der sehr lange Arbeitsweg für die Betroffene noch zumutbar ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Die Behörde prüft, ob der sehr lange Arbeitsweg für die Betroffene noch zumutbar ist.\", adjective/adverb form, all choices (bezahlt / bekannt / zumutbar / geöffnet), contextual clue and single accepted answer \"zumutbar\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007605",
+      "title": {
+        "en": "Using zusammenfassend in context",
+        "de": "zusammenfassend im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zusammenfassend (in summary or summarizing) in two distinct contexts.",
+        "de": "zusammenfassend (das Wichtigste kurz zusammenfassend) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zusammenfassend meaning in summary or summarizing, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L611 (d52ce707a0a2e80fbcbda30e8d85af939abbb55c3252bc0d5b8ce69aa4e54673), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L611-v1",
+          "contextKey": "legacy-0076-L611-context-1",
+          "transferKey": "legacy-0076-L611-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007605",
+            "type": "choice",
+            "prompt": "___ lässt sich am Ende des Berichts sagen, dass die Kosten gesunken sind.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The report is drawing its overall conclusion.",
+              "de": "Der Bericht zieht sein abschließendes Fazit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Beispielsweise"
+              },
+              {
+                "id": "1",
+                "text": "Zusammenfassend"
+              },
+              {
+                "id": "2",
+                "text": "Trotzdem"
+              },
+              {
+                "id": "3",
+                "text": "Außerdem"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenfassend introduces a summary or conclusion.",
+              "de": "Zusammenfassend leitet eine Zusammenfassung oder ein Fazit ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zusammenfassend lässt sich am Ende des Berichts sagen, dass die Kosten gesunken sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Zusammenfassend lässt sich am Ende des Berichts sagen, dass die Kosten gesunken sind.\", adjective/adverb form, all choices (Beispielsweise / Zusammenfassend / Trotzdem / Außerdem), contextual clue and single accepted answer \"Zusammenfassend\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L611-v2",
+          "contextKey": "legacy-0076-L611-context-2",
+          "transferKey": "legacy-0076-L611-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007605",
+            "type": "gap_choice",
+            "prompt": "In einem ___ Abschnitt werden die wichtigsten Ergebnisse kurz wiederholt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The section briefly recaps the main findings.",
+              "de": "Der Abschnitt wiederholt die wichtigsten Ergebnisse kurz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "historischen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "technischen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusammenfassenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ausführlichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenfassenden is the inflected adjective describing a summary section.",
+              "de": "Zusammenfassenden ist die gebeugte Form für einen Abschnitt mit einem kurzen Überblick."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In einem zusammenfassenden Abschnitt werden die wichtigsten Ergebnisse kurz wiederholt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"In einem zusammenfassenden Abschnitt werden die wichtigsten Ergebnisse kurz wiederholt.\", adjective/adverb form, all choices (historischen / technischen / zusammenfassenden / ausführlichen), contextual clue and single accepted answer \"zusammenfassenden\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007606",
+      "title": {
+        "en": "Using zusätzlich in context",
+        "de": "zusätzlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zusätzlich (additional or extra) in two distinct contexts.",
+        "de": "zusätzlich (über das Bisherige hinausgehend) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zusätzlich meaning additional or extra, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L612 (0f38d9424e5038a796cdc06d418ffc571e0decfeee5201bb6ad7054a4a25b487), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L612-v1",
+          "contextKey": "legacy-0076-L612-context-1",
+          "transferKey": "legacy-0076-L612-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007606",
+            "type": "choice",
+            "prompt": "Für die Veranstaltung brauchen wir ___ Stühle, weil mehr Gäste kommen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "More chairs are needed beyond those already available.",
+              "de": "Es werden mehr Stühle als bisher benötigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "kaputte"
+              },
+              {
+                "id": "1",
+                "text": "zusätzliche"
+              },
+              {
+                "id": "2",
+                "text": "alte"
+              },
+              {
+                "id": "3",
+                "text": "fehlende"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zusätzliche means extra, on top of what is already there.",
+              "de": "Zusätzliche bedeutet über die vorhandene Anzahl hinaus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Veranstaltung brauchen wir zusätzliche Stühle, weil mehr Gäste kommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Für die Veranstaltung brauchen wir zusätzliche Stühle, weil mehr Gäste kommen.\", adjective/adverb form, all choices (kaputte / zusätzliche / alte / fehlende), contextual clue and single accepted answer \"zusätzliche\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L612-v2",
+          "contextKey": "legacy-0076-L612-context-2",
+          "transferKey": "legacy-0076-L612-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007606",
+            "type": "gap_choice",
+            "prompt": "Zu den Reisekosten fallen ___ Gebühren für das Gepäck an.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The baggage charges are on top of the travel price.",
+              "de": "Die Gepäckgebühren kommen zum Reisepreis hinzu."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geringe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "feste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusätzliche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "hohe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusätzliche Gebühren are extra charges beyond the base price.",
+              "de": "Zusätzliche Gebühren kommen zu den bisherigen Kosten hinzu."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zu den Reisekosten fallen zusätzliche Gebühren für das Gepäck an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Zu den Reisekosten fallen zusätzliche Gebühren für das Gepäck an.\", adjective/adverb form, all choices (geringe / feste / zusätzliche / hohe), contextual clue and single accepted answer \"zusätzliche\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007607",
+      "title": {
+        "en": "Using zuständig in context",
+        "de": "zuständig im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zuständig (responsible for a particular task) in two distinct contexts.",
+        "de": "zuständig (für eine Aufgabe verantwortlich) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zuständig meaning responsible for a particular task, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L613 (712d9c775fca540b6775a0a917008342d414c2e886a6006e84f9d64c2b6d407b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L613-v1",
+          "contextKey": "legacy-0076-L613-context-1",
+          "transferKey": "legacy-0076-L613-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007607",
+            "type": "choice",
+            "prompt": "Für die Bearbeitung des Antrags ist das Bürgeramt ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The office has responsibility for processing the request.",
+              "de": "Das Amt trägt die Verantwortung für die Bearbeitung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "geschlossen"
+              },
+              {
+                "id": "1",
+                "text": "zuständig"
+              },
+              {
+                "id": "2",
+                "text": "überfüllt"
+              },
+              {
+                "id": "3",
+                "text": "unbekannt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zuständig means responsible or having authority for a task.",
+              "de": "Zuständig bedeutet, für eine Aufgabe verantwortlich zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Bearbeitung des Antrags ist das Bürgeramt zuständig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Für die Bearbeitung des Antrags ist das Bürgeramt zuständig.\", adjective/adverb form, all choices (geschlossen / zuständig / überfüllt / unbekannt), contextual clue and single accepted answer \"zuständig\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L613-v2",
+          "contextKey": "legacy-0076-L613-context-2",
+          "transferKey": "legacy-0076-L613-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007607",
+            "type": "gap_choice",
+            "prompt": "An wen muss ich mich wenden? Welche Abteilung ist dafür ___?",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question asks who has responsibility.",
+              "de": "Gefragt ist, wer die Aufgabe übernehmen muss."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geöffnet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "besetzt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zuständig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erreichbar"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuständig identifies the responsible department.",
+              "de": "Zuständig bezeichnet die verantwortliche Abteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An wen muss ich mich wenden? Welche Abteilung ist dafür zuständig?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"An wen muss ich mich wenden? Welche Abteilung ist dafür zuständig?\", adjective/adverb form, all choices (geöffnet / besetzt / zuständig / erreichbar), contextual clue and single accepted answer \"zuständig\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007608",
+      "title": {
+        "en": "Using zuverlässig in context",
+        "de": "zuverlässig im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zuverlässig (dependable and trustworthy) in two distinct contexts.",
+        "de": "zuverlässig (verlässlich und vertrauenswürdig) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use zuverlässig meaning dependable and trustworthy, with appropriate contextual forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/adjectives.jsonl:L614 (7e3cdb667f03d0d4b5cdb0f8a86a2db8d8798476f14ae521250c01ba7cb5a281), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0076-L614-v1",
+          "contextKey": "legacy-0076-L614-context-1",
+          "transferKey": "legacy-0076-L614-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007608",
+            "type": "choice",
+            "prompt": "Der Wecker klingelt jeden Morgen pünktlich und ist sehr ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The alarm works dependably every day.",
+              "de": "Der Wecker funktioniert jeden Tag verlässlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "laut"
+              },
+              {
+                "id": "1",
+                "text": "zuverlässig"
+              },
+              {
+                "id": "2",
+                "text": "teuer"
+              },
+              {
+                "id": "3",
+                "text": "modern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zuverlässig describes something that can be depended on.",
+              "de": "Zuverlässig bezeichnet etwas, auf das man sich verlassen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wecker klingelt jeden Morgen pünktlich und ist sehr zuverlässig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Der Wecker klingelt jeden Morgen pünktlich und ist sehr zuverlässig.\", adjective/adverb form, all choices (laut / zuverlässig / teuer / modern), contextual clue and single accepted answer \"zuverlässig\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0076-L614-v2",
+          "contextKey": "legacy-0076-L614-context-2",
+          "transferKey": "legacy-0076-L614-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000760081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007608",
+            "type": "gap_choice",
+            "prompt": "Für den Bericht brauchen wir ___ Quellen, deren Angaben überprüft wurden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The information sources have been checked for accuracy.",
+              "de": "Die Quellen wurden auf ihre Richtigkeit geprüft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zahlreiche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "neue"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zuverlässige"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kurze"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuverlässige Quellen provide dependable information.",
+              "de": "Zuverlässige Quellen liefern verlässliche Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Bericht brauchen wir zuverlässige Quellen, deren Angaben überprüft wurden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence \"Für den Bericht brauchen wir zuverlässige Quellen, deren Angaben überprüft wurden.\", adjective/adverb form, all choices (zahlreiche / neue / zuverlässige / kurze), contextual clue and single accepted answer \"zuverlässige\". Other variant uses a different situation or grammatical form. Independent human review pending."
+        }
+      ]
+    }
+  ]
+}
