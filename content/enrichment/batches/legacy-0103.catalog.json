@@ -1,0 +1,3028 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010301",
+      "title": {
+        "en": "Using Gebrauchtwagen in context",
+        "de": "Gebrauchtwagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebrauchtwagen: used car, in two different situations.",
+        "de": "Gebrauchtwagen erkennen und verwenden: gebrauchtes Auto, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebrauchtwagen meaning used car, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L911 (b029a4722b11d14bca37623ca729466b6885d73ef9bc4d80734dd59c26c925c6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L911-v1",
+          "contextKey": "legacy-0103-L911-context-1",
+          "transferKey": "legacy-0103-L911-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010301",
+            "type": "gap_choice",
+            "prompt": "Statt eines neuen Autos kaufte er einen günstigen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The car had already had a previous owner.",
+              "de": "Das Auto war bereits gebraucht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltsnachweis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebrauchtwagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegenvorschlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gegenstand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauchtwagen means used car here; \"Gebrauchtwagen\" is the appropriate form.",
+              "de": "Gebrauchtwagen bedeutet hier: gebrauchtes Auto. Die Form „Gebrauchtwagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt eines neuen Autos kaufte er einen günstigen Gebrauchtwagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Statt eines neuen Autos kaufte er einen günstigen Gebrauchtwagen.\" checked. All four options evaluated: Gehaltsnachweis: rejected; does not fit the intended referent, form or grammatical construction; Gebrauchtwagen: correct for noun form and contextual meaning; Gegenvorschlag: rejected; does not fit the intended referent, form or grammatical construction; Gegenstand: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L911-v2",
+          "contextKey": "legacy-0103-L911-context-2",
+          "transferKey": "legacy-0103-L911-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010301",
+            "type": "choice",
+            "prompt": "Vor dem Kauf eines ___ sollte man den Kilometerstand prüfen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Mileage is important when buying a second-hand car.",
+              "de": "Bei einem gebrauchten Auto ist der Kilometerstand wichtig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gedichts"
+              },
+              {
+                "id": "1",
+                "text": "Geheimnisses"
+              },
+              {
+                "id": "2",
+                "text": "Gebrauchtwagens"
+              },
+              {
+                "id": "3",
+                "text": "Gefängnisses"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauchtwagen means used car here; \"Gebrauchtwagens\" is the appropriate form.",
+              "de": "Gebrauchtwagen bedeutet hier: gebrauchtes Auto. Die Form „Gebrauchtwagens“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Kauf eines Gebrauchtwagens sollte man den Kilometerstand prüfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Vor dem Kauf eines Gebrauchtwagens sollte man den Kilometerstand prüfen.\" checked. All four options evaluated: Gedichts: rejected; does not fit the intended referent, form or grammatical construction; Geheimnisses: rejected; does not fit the intended referent, form or grammatical construction; Gebrauchtwagens: correct for noun form and contextual meaning; Gefängnisses: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010302",
+      "title": {
+        "en": "Using Gebühr in context",
+        "de": "Gebühr im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebühr: fee charged for a service, in two different situations.",
+        "de": "Gebühr erkennen und verwenden: Gebühr für eine Dienstleistung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebühr meaning fee charged for a service, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L912 (096d29fe121a5f2190d6b1ba6ba4bc3eb03a6ac3e0e7041cf60087d9e34498f4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L912-v1",
+          "contextKey": "legacy-0103-L912-context-1",
+          "transferKey": "legacy-0103-L912-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010302",
+            "type": "gap_choice",
+            "prompt": "Für die Ausstellung des Ausweises fällt eine ___ an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A payment is required for issuing the document.",
+              "de": "Für die Ausstellung ist ein Entgelt fällig."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gefahr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gegend"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebühr means fee charged for a service here; \"Gebühr\" is the appropriate form.",
+              "de": "Gebühr bedeutet hier: Gebühr für eine Dienstleistung. Die Form „Gebühr“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Ausstellung des Ausweises fällt eine Gebühr an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für die Ausstellung des Ausweises fällt eine Gebühr an.\" checked. All four options evaluated: Gebühr: correct for noun form and contextual meaning; Geduld: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: rejected; does not fit the intended referent, form or grammatical construction; Gegend: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L912-v2",
+          "contextKey": "legacy-0103-L912-context-2",
+          "transferKey": "legacy-0103-L912-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010302",
+            "type": "choice",
+            "prompt": "Die Bank verlangt keine ___ für die Kontoführung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Account management is free of charge.",
+              "de": "Für die Kontoführung wird kein Entgelt berechnet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geburt"
+              },
+              {
+                "id": "1",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Gehaltserhöhung"
+              },
+              {
+                "id": "3",
+                "text": "Gebühr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gebühr means fee charged for a service here; \"Gebühr\" is the appropriate form.",
+              "de": "Gebühr bedeutet hier: Gebühr für eine Dienstleistung. Die Form „Gebühr“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bank verlangt keine Gebühr für die Kontoführung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Bank verlangt keine Gebühr für die Kontoführung.\" checked. All four options evaluated: Geburt: rejected; does not fit the intended referent, form or grammatical construction; Gehaltsabrechnung: rejected; does not fit the intended referent, form or grammatical construction; Gehaltserhöhung: rejected; does not fit the intended referent, form or grammatical construction; Gebühr: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010303",
+      "title": {
+        "en": "Using Geburt in context",
+        "de": "Geburt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geburt: birth of a child, in two different situations.",
+        "de": "Geburt erkennen und verwenden: Geburt eines Kindes, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geburt meaning birth of a child, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L913 (0d33743d339f677aa966a2fbeaeb051ef12d2d26b64e23743bc1eb96e579a03f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L913-v1",
+          "contextKey": "legacy-0103-L913-context-1",
+          "transferKey": "legacy-0103-L913-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010303",
+            "type": "gap_choice",
+            "prompt": "Nach der ___ blieb die Mutter einige Tage im Krankenhaus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The event was the delivery of a baby.",
+              "de": "Es geht um die Entbindung eines Kindes."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geburt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gefahr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gedicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geburt means birth of a child here; \"Geburt\" is the appropriate form.",
+              "de": "Geburt bedeutet hier: Geburt eines Kindes. Die Form „Geburt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Geburt blieb die Mutter einige Tage im Krankenhaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach der Geburt blieb die Mutter einige Tage im Krankenhaus.\" checked. All four options evaluated: Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Geburt: correct for noun form and contextual meaning; Gefahr: rejected; does not fit the intended referent, form or grammatical construction; Gedicht: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L913-v2",
+          "contextKey": "legacy-0103-L913-context-2",
+          "transferKey": "legacy-0103-L913-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010303",
+            "type": "choice",
+            "prompt": "Die Familie feierte die ___ ihres ersten Kindes.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The family celebrated the arrival of their baby.",
+              "de": "Die Familie feierte, dass ihr Kind zur Welt kam."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gehaltserhöhung"
+              },
+              {
+                "id": "1",
+                "text": "Gegend"
+              },
+              {
+                "id": "2",
+                "text": "Geburt"
+              },
+              {
+                "id": "3",
+                "text": "Geduld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Geburt means birth of a child here; \"Geburt\" is the appropriate form.",
+              "de": "Geburt bedeutet hier: Geburt eines Kindes. Die Form „Geburt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie feierte die Geburt ihres ersten Kindes.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Familie feierte die Geburt ihres ersten Kindes.\" checked. All four options evaluated: Gehaltserhöhung: rejected; does not fit the intended referent, form or grammatical construction; Gegend: rejected; does not fit the intended referent, form or grammatical construction; Geburt: correct for noun form and contextual meaning; Geduld: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010304",
+      "title": {
+        "en": "Using Gedanke in context",
+        "de": "Gedanke im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gedanke: thought or idea, in two different situations.",
+        "de": "Gedanke erkennen und verwenden: Gedanke oder Idee, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gedanke meaning thought or idea, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L917 (27e814a8c89ce4b35a362a7c1171903c6209bf878b36aeaf3a4729004c306f64), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L917-v1",
+          "contextKey": "legacy-0103-L917-context-1",
+          "transferKey": "legacy-0103-L917-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010304",
+            "type": "gap_choice",
+            "prompt": "Mir kam plötzlich ein interessanter ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "An idea occurred to the speaker.",
+              "de": "Der Person fiel eine Idee ein."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gedanke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegenstand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gehaltsnachweis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gedanke means thought or idea here; \"Gedanke\" is the appropriate form.",
+              "de": "Gedanke bedeutet hier: Gedanke oder Idee. Die Form „Gedanke“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mir kam plötzlich ein interessanter Gedanke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Mir kam plötzlich ein interessanter Gedanke.\" checked. All four options evaluated: Gedanke: correct for noun form and contextual meaning; Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gegner: rejected; does not fit the intended referent, form or grammatical construction; Gehaltsnachweis: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L917-v2",
+          "contextKey": "legacy-0103-L917-context-2",
+          "transferKey": "legacy-0103-L917-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010304",
+            "type": "choice",
+            "prompt": "Diesen ___ möchte ich in der Diskussion noch einmal aufgreifen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants to return to an idea.",
+              "de": "Die Person möchte eine Idee erneut ansprechen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gefahren"
+              },
+              {
+                "id": "1",
+                "text": "Gebrauchtwagen"
+              },
+              {
+                "id": "2",
+                "text": "Gebühren"
+              },
+              {
+                "id": "3",
+                "text": "Gedanken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gedanke means thought or idea here; \"Gedanken\" is the appropriate form.",
+              "de": "Gedanke bedeutet hier: Gedanke oder Idee. Die Form „Gedanken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Diesen Gedanken möchte ich in der Diskussion noch einmal aufgreifen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Diesen Gedanken möchte ich in der Diskussion noch einmal aufgreifen.\" checked. All four options evaluated: Gefahren: rejected; does not fit the intended referent, form or grammatical construction; Gebrauchtwagen: rejected; does not fit the intended referent, form or grammatical construction; Gebühren: rejected; does not fit the intended referent, form or grammatical construction; Gedanken: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010305",
+      "title": {
+        "en": "Using Gedicht in context",
+        "de": "Gedicht im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gedicht: poem, in two different situations.",
+        "de": "Gedicht erkennen und verwenden: Gedicht als lyrischer Text, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gedicht meaning poem, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L918 (b295b60300179c46bb35e081ec09aee6ef078dbcac18141573208f0cf6ca1323), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L918-v1",
+          "contextKey": "legacy-0103-L918-context-1",
+          "transferKey": "legacy-0103-L918-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010305",
+            "type": "gap_choice",
+            "prompt": "Die Schülerin schrieb ein kurzes ___ über den Frühling.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She wrote a short literary text in verse.",
+              "de": "Sie schrieb einen kurzen lyrischen Text."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geheimnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gedicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gefängnis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebirge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gedicht means poem here; \"Gedicht\" is the appropriate form.",
+              "de": "Gedicht bedeutet hier: Gedicht als lyrischer Text. Die Form „Gedicht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schülerin schrieb ein kurzes Gedicht über den Frühling.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Schülerin schrieb ein kurzes Gedicht über den Frühling.\" checked. All four options evaluated: Geheimnis: rejected; does not fit the intended referent, form or grammatical construction; Gedicht: correct for noun form and contextual meaning; Gefängnis: rejected; does not fit the intended referent, form or grammatical construction; Gebirge: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L918-v2",
+          "contextKey": "legacy-0103-L918-context-2",
+          "transferKey": "legacy-0103-L918-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010305",
+            "type": "choice",
+            "prompt": "Bei der Feier trug er ein selbst verfasstes ___ vor.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He recited a text he had written in verse.",
+              "de": "Er trug einen selbst geschriebenen lyrischen Text vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenstand"
+              },
+              {
+                "id": "1",
+                "text": "Gehalt"
+              },
+              {
+                "id": "2",
+                "text": "Gedicht"
+              },
+              {
+                "id": "3",
+                "text": "Gebiet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gedicht means poem here; \"Gedicht\" is the appropriate form.",
+              "de": "Gedicht bedeutet hier: Gedicht als lyrischer Text. Die Form „Gedicht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Feier trug er ein selbst verfasstes Gedicht vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bei der Feier trug er ein selbst verfasstes Gedicht vor.\" checked. All four options evaluated: Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gehalt: rejected; does not fit the intended referent, form or grammatical construction; Gedicht: correct for noun form and contextual meaning; Gebiet: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010306",
+      "title": {
+        "en": "Using Geduld in context",
+        "de": "Geduld im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geduld: patience, in two different situations.",
+        "de": "Geduld erkennen und verwenden: Geduld beim Warten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geduld meaning patience, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L919 (3707635abbd28c2fa624531952d7ec461937f614408def31c112b3195e2a5b40), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L919-v1",
+          "contextKey": "legacy-0103-L919-context-1",
+          "transferKey": "legacy-0103-L919-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010306",
+            "type": "gap_choice",
+            "prompt": "Beim Lernen einer Sprache braucht man viel ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Progress requires waiting and persistence.",
+              "de": "Lernfortschritte brauchen Ausdauer und Ruhe."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geburt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gefahr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geduld means patience here; \"Geduld\" is the appropriate form.",
+              "de": "Geduld bedeutet hier: Geduld beim Warten. Die Form „Geduld“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Lernen einer Sprache braucht man viel Geduld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Beim Lernen einer Sprache braucht man viel Geduld.\" checked. All four options evaluated: Geduld: correct for noun form and contextual meaning; Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Geburt: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L919-v2",
+          "contextKey": "legacy-0103-L919-context-2",
+          "transferKey": "legacy-0103-L919-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010306",
+            "type": "choice",
+            "prompt": "Die Reparatur dauert länger; bitte haben Sie noch etwas ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person is asked to wait calmly.",
+              "de": "Die Person soll noch ruhig warten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegend"
+              },
+              {
+                "id": "1",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Geheimnis"
+              },
+              {
+                "id": "3",
+                "text": "Geduld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Geduld means patience here; \"Geduld\" is the appropriate form.",
+              "de": "Geduld bedeutet hier: Geduld beim Warten. Die Form „Geduld“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur dauert länger; bitte haben Sie noch etwas Geduld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Reparatur dauert länger; bitte haben Sie noch etwas Geduld.\" checked. All four options evaluated: Gegend: rejected; does not fit the intended referent, form or grammatical construction; Gehaltsabrechnung: rejected; does not fit the intended referent, form or grammatical construction; Geheimnis: rejected; does not fit the intended referent, form or grammatical construction; Geduld: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010307",
+      "title": {
+        "en": "Using Gefahr in context",
+        "de": "Gefahr im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gefahr: danger or hazard, in two different situations.",
+        "de": "Gefahr erkennen und verwenden: Gefahr oder Bedrohung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gefahr meaning danger or hazard, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L920 (5445ac50bafecb8539fbe69718d3fe55423cc4993fd7d7d0dbd2a278678d2b67), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L920-v1",
+          "contextKey": "legacy-0103-L920-context-1",
+          "transferKey": "legacy-0103-L920-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010307",
+            "type": "gap_choice",
+            "prompt": "Bei Gewitter besteht auf dem Berg große ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A thunderstorm can be hazardous on a mountain.",
+              "de": "Ein Gewitter auf dem Berg kann gefährlich sein."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gefahr"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geburt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gefahr means danger or hazard here; \"Gefahr\" is the appropriate form.",
+              "de": "Gefahr bedeutet hier: Gefahr oder Bedrohung. Die Form „Gefahr“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Gewitter besteht auf dem Berg große Gefahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bei Gewitter besteht auf dem Berg große Gefahr.\" checked. All four options evaluated: Geduld: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: correct for noun form and contextual meaning; Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Geburt: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L920-v2",
+          "contextKey": "legacy-0103-L920-context-2",
+          "transferKey": "legacy-0103-L920-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010307",
+            "type": "choice",
+            "prompt": "Die Warnung machte alle auf die ___ eines Erdrutsches aufmerksam.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "People were alerted to a possible landslide.",
+              "de": "Die Menschen wurden vor einem möglichen Erdrutsch gewarnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gehaltserhöhung"
+              },
+              {
+                "id": "1",
+                "text": "Gebäck"
+              },
+              {
+                "id": "2",
+                "text": "Gefahr"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gefahr means danger or hazard here; \"Gefahr\" is the appropriate form.",
+              "de": "Gefahr bedeutet hier: Gefahr oder Bedrohung. Die Form „Gefahr“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Warnung machte alle auf die Gefahr eines Erdrutsches aufmerksam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Warnung machte alle auf die Gefahr eines Erdrutsches aufmerksam.\" checked. All four options evaluated: Gehaltserhöhung: rejected; does not fit the intended referent, form or grammatical construction; Gebäck: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: correct for noun form and contextual meaning; Gebrauch: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010308",
+      "title": {
+        "en": "Using Gefängnis in context",
+        "de": "Gefängnis im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gefängnis: prison building, in two different situations.",
+        "de": "Gefängnis erkennen und verwenden: Gefängnis als Haftanstalt, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gefängnis meaning prison building, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L921 (fdbeda3f99a1afcb2b6f846ad0ee9b40b56dce77c4b4d4b9938d5ad4fdcc946f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L921-v1",
+          "contextKey": "legacy-0103-L921-context-1",
+          "transferKey": "legacy-0103-L921-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010308",
+            "type": "gap_choice",
+            "prompt": "Nach der Verurteilung musste der Täter ins ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence required confinement in a prison.",
+              "de": "Die Strafe führte zu einer Haftanstalt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gefängnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fundbüro"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gasthaus"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Museum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gefängnis means prison building here; \"Gefängnis\" is the appropriate form.",
+              "de": "Gefängnis bedeutet hier: Gefängnis als Haftanstalt. Die Form „Gefängnis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Verurteilung musste der Täter ins Gefängnis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach der Verurteilung musste der Täter ins Gefängnis.\" checked. All four options evaluated: Gefängnis: correct for noun form and contextual meaning; Fundbüro: rejected; does not fit the intended referent, form or grammatical construction; Gasthaus: rejected; does not fit the intended referent, form or grammatical construction; Museum: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L921-v2",
+          "contextKey": "legacy-0103-L921-context-2",
+          "transferKey": "legacy-0103-L921-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010308",
+            "type": "choice",
+            "prompt": "Das alte ___ wurde geschlossen; die Häftlinge wurden verlegt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The inmates were moved from the closed prison.",
+              "de": "Die Gefangenen wurden aus der geschlossenen Haftanstalt verlegt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geheimnis"
+              },
+              {
+                "id": "1",
+                "text": "Gedicht"
+              },
+              {
+                "id": "2",
+                "text": "Gebiet"
+              },
+              {
+                "id": "3",
+                "text": "Gefängnis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gefängnis means prison building here; \"Gefängnis\" is the appropriate form.",
+              "de": "Gefängnis bedeutet hier: Gefängnis als Haftanstalt. Die Form „Gefängnis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das alte Gefängnis wurde geschlossen; die Häftlinge wurden verlegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das alte Gefängnis wurde geschlossen; die Häftlinge wurden verlegt.\" checked. All four options evaluated: Geheimnis: rejected; does not fit the intended referent, form or grammatical construction; Gedicht: rejected; does not fit the intended referent, form or grammatical construction; Gebiet: rejected; does not fit the intended referent, form or grammatical construction; Gefängnis: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010309",
+      "title": {
+        "en": "Using Gefühl in context",
+        "de": "Gefühl im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gefühl: feeling or emotion, in two different situations.",
+        "de": "Gefühl erkennen und verwenden: Gefühl oder Empfindung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gefühl meaning feeling or emotion, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L922 (6b643bc3d1d454d4dd8ff218c28c57af9b9151d91c8dd2f6971587ef236f5711), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L922-v1",
+          "contextKey": "legacy-0103-L922-context-1",
+          "transferKey": "legacy-0103-L922-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010309",
+            "type": "gap_choice",
+            "prompt": "Nach der Prüfung hatte sie ein gutes ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She felt positive about how the exam went.",
+              "de": "Sie hatte eine positive Empfindung nach der Prüfung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gefängnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gefühl"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gedicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gehalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gefühl means feeling or emotion here; \"Gefühl\" is the appropriate form.",
+              "de": "Gefühl bedeutet hier: Gefühl oder Empfindung. Die Form „Gefühl“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Prüfung hatte sie ein gutes Gefühl.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach der Prüfung hatte sie ein gutes Gefühl.\" checked. All four options evaluated: Gefängnis: rejected; does not fit the intended referent, form or grammatical construction; Gefühl: correct for noun form and contextual meaning; Gedicht: rejected; does not fit the intended referent, form or grammatical construction; Gehalt: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L922-v2",
+          "contextKey": "legacy-0103-L922-context-2",
+          "transferKey": "legacy-0103-L922-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010309",
+            "type": "choice",
+            "prompt": "Ein ___ der Erleichterung überkam ihn, als er die Nachricht hörte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He experienced relief.",
+              "de": "Er empfand Erleichterung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenstand"
+              },
+              {
+                "id": "1",
+                "text": "Gebrauchtwagen"
+              },
+              {
+                "id": "2",
+                "text": "Gefühl"
+              },
+              {
+                "id": "3",
+                "text": "Geheimnis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gefühl means feeling or emotion here; \"Gefühl\" is the appropriate form.",
+              "de": "Gefühl bedeutet hier: Gefühl oder Empfindung. Die Form „Gefühl“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Gefühl der Erleichterung überkam ihn, als er die Nachricht hörte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ein Gefühl der Erleichterung überkam ihn, als er die Nachricht hörte.\" checked. All four options evaluated: Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gebrauchtwagen: rejected; does not fit the intended referent, form or grammatical construction; Gefühl: correct for noun form and contextual meaning; Geheimnis: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010310",
+      "title": {
+        "en": "Using Gegend in context",
+        "de": "Gegend im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegend: local area or region, in two different situations.",
+        "de": "Gegend erkennen und verwenden: Gegend als örtliche Umgebung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegend meaning local area or region, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L923 (9884a68ef5acd31e12c469e148836e00424a710b5463e4c59e2e68346bfad392), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L923-v1",
+          "contextKey": "legacy-0103-L923-context-1",
+          "transferKey": "legacy-0103-L923-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010310",
+            "type": "gap_choice",
+            "prompt": "In dieser ländlichen ___ gibt es nur wenige Busverbindungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The area is rural and has little public transport.",
+              "de": "Die Umgebung ist ländlich und schlecht angebunden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gegend"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geburt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geduld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegend means local area or region here; \"Gegend\" is the appropriate form.",
+              "de": "Gegend bedeutet hier: Gegend als örtliche Umgebung. Die Form „Gegend“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In dieser ländlichen Gegend gibt es nur wenige Busverbindungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In dieser ländlichen Gegend gibt es nur wenige Busverbindungen.\" checked. All four options evaluated: Gegend: correct for noun form and contextual meaning; Geburt: rejected; does not fit the intended referent, form or grammatical construction; Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Geduld: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L923-v2",
+          "contextKey": "legacy-0103-L923-context-2",
+          "transferKey": "legacy-0103-L923-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010310",
+            "type": "choice",
+            "prompt": "Die ___ um den See ist besonders bei Wanderern beliebt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Hikers enjoy the surrounding region.",
+              "de": "Wandernde mögen die Umgebung des Sees."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenwart"
+              },
+              {
+                "id": "1",
+                "text": "Gefängnis"
+              },
+              {
+                "id": "2",
+                "text": "Geheimnis"
+              },
+              {
+                "id": "3",
+                "text": "Gegend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gegend means local area or region here; \"Gegend\" is the appropriate form.",
+              "de": "Gegend bedeutet hier: Gegend als örtliche Umgebung. Die Form „Gegend“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gegend um den See ist besonders bei Wanderern beliebt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Gegend um den See ist besonders bei Wanderern beliebt.\" checked. All four options evaluated: Gegenwart: rejected; does not fit the intended referent, form or grammatical construction; Gefängnis: rejected; does not fit the intended referent, form or grammatical construction; Geheimnis: rejected; does not fit the intended referent, form or grammatical construction; Gegend: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010311",
+      "title": {
+        "en": "Using Gegensatz in context",
+        "de": "Gegensatz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegensatz: contrast or opposition, in two different situations.",
+        "de": "Gegensatz erkennen und verwenden: Gegensatz oder Unterschied, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegensatz meaning contrast or opposition, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L924 (b0c758f233d76fd1820e6917744c7126872c9982ab18882de0d7ed62c8956ef7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L924-v1",
+          "contextKey": "legacy-0103-L924-context-1",
+          "transferKey": "legacy-0103-L924-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010311",
+            "type": "gap_choice",
+            "prompt": "Im ___ zu seinem Bruder arbeitet er lieber allein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He differs from his brother in work preference.",
+              "de": "Seine Vorliebe unterscheidet sich von der seines Bruders."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gegenstand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegensatz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegenvorschlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebrauchtwagen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegensatz means contrast or opposition here; \"Gegensatz\" is the appropriate form.",
+              "de": "Gegensatz bedeutet hier: Gegensatz oder Unterschied. Die Form „Gegensatz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Gegensatz zu seinem Bruder arbeitet er lieber allein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Gegensatz zu seinem Bruder arbeitet er lieber allein.\" checked. All four options evaluated: Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gegensatz: correct for noun form and contextual meaning; Gegenvorschlag: rejected; does not fit the intended referent, form or grammatical construction; Gebrauchtwagen: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L924-v2",
+          "contextKey": "legacy-0103-L924-context-2",
+          "transferKey": "legacy-0103-L924-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010311",
+            "type": "choice",
+            "prompt": "Zwischen Theorie und Praxis besteht oft ein großer ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "There can be a large difference between theory and practice.",
+              "de": "Theorie und Praxis können stark voneinander abweichen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenwart"
+              },
+              {
+                "id": "1",
+                "text": "Gegner"
+              },
+              {
+                "id": "2",
+                "text": "Gegensatz"
+              },
+              {
+                "id": "3",
+                "text": "Gedanke"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gegensatz means contrast or opposition here; \"Gegensatz\" is the appropriate form.",
+              "de": "Gegensatz bedeutet hier: Gegensatz oder Unterschied. Die Form „Gegensatz“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen Theorie und Praxis besteht oft ein großer Gegensatz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Zwischen Theorie und Praxis besteht oft ein großer Gegensatz.\" checked. All four options evaluated: Gegenwart: rejected; does not fit the intended referent, form or grammatical construction; Gegner: rejected; does not fit the intended referent, form or grammatical construction; Gegensatz: correct for noun form and contextual meaning; Gedanke: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010312",
+      "title": {
+        "en": "Using Gegenstand in context",
+        "de": "Gegenstand im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegenstand: physical object or item, in two different situations.",
+        "de": "Gegenstand erkennen und verwenden: Gegenstand als Sache, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegenstand meaning physical object or item, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L925 (7c5bd0f77b555208c6531f115882d1151c7a4bf8bdf8f67bb199d7c87ca28cc9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L925-v1",
+          "contextKey": "legacy-0103-L925-context-1",
+          "transferKey": "legacy-0103-L925-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010312",
+            "type": "gap_choice",
+            "prompt": "Bitte lassen Sie keine persönlichen ___ im Zug liegen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The announcement refers to belongings.",
+              "de": "Die Durchsage meint persönliche Sachen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gegenstände"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gedanken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gedichte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegenstand means physical object or item here; \"Gegenstände\" is the appropriate form.",
+              "de": "Gegenstand bedeutet hier: Gegenstand als Sache. Die Form „Gegenstände“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte lassen Sie keine persönlichen Gegenstände im Zug liegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte lassen Sie keine persönlichen Gegenstände im Zug liegen.\" checked. All four options evaluated: Gegenstände: correct for noun form and contextual meaning; Gedanken: rejected; does not fit the intended referent, form or grammatical construction; Gegner: rejected; does not fit the intended referent, form or grammatical construction; Gedichte: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L925-v2",
+          "contextKey": "legacy-0103-L925-context-2",
+          "transferKey": "legacy-0103-L925-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010312",
+            "type": "choice",
+            "prompt": "Der verlorene ___ wurde beim Fundbüro abgegeben.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A physical item was handed in.",
+              "de": "Eine verlorene Sache wurde abgegeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegensatz"
+              },
+              {
+                "id": "1",
+                "text": "Gedanke"
+              },
+              {
+                "id": "2",
+                "text": "Gegner"
+              },
+              {
+                "id": "3",
+                "text": "Gegenstand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gegenstand means physical object or item here; \"Gegenstand\" is the appropriate form.",
+              "de": "Gegenstand bedeutet hier: Gegenstand als Sache. Die Form „Gegenstand“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der verlorene Gegenstand wurde beim Fundbüro abgegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der verlorene Gegenstand wurde beim Fundbüro abgegeben.\" checked. All four options evaluated: Gegensatz: rejected; does not fit the intended referent, form or grammatical construction; Gedanke: rejected; does not fit the intended referent, form or grammatical construction; Gegner: rejected; does not fit the intended referent, form or grammatical construction; Gegenstand: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010313",
+      "title": {
+        "en": "Using Gegenvorschlag in context",
+        "de": "Gegenvorschlag im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegenvorschlag: counterproposal, in two different situations.",
+        "de": "Gegenvorschlag erkennen und verwenden: Gegenvorschlag als alternative Idee, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegenvorschlag meaning counterproposal, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L927 (a3950112844f36727a47b9f444a80825c9a46f4f9f7e90f63eaae4b101cd2896), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L927-v1",
+          "contextKey": "legacy-0103-L927-context-1",
+          "transferKey": "legacy-0103-L927-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010313",
+            "type": "gap_choice",
+            "prompt": "Der erste Termin passt nicht; darf ich einen ___ machen?",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker offers an alternative to the first proposal.",
+              "de": "Die Person möchte eine Alternative zum ersten Vorschlag anbieten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gegenstand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegenvorschlag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gedanke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gegner"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegenvorschlag means counterproposal here; \"Gegenvorschlag\" is the appropriate form.",
+              "de": "Gegenvorschlag bedeutet hier: Gegenvorschlag als alternative Idee. Die Form „Gegenvorschlag“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der erste Termin passt nicht; darf ich einen Gegenvorschlag machen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der erste Termin passt nicht; darf ich einen Gegenvorschlag machen?\" checked. All four options evaluated: Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gegenvorschlag: correct for noun form and contextual meaning; Gedanke: rejected; does not fit the intended referent, form or grammatical construction; Gegner: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L927-v2",
+          "contextKey": "legacy-0103-L927-context-2",
+          "transferKey": "legacy-0103-L927-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010313",
+            "type": "choice",
+            "prompt": "Auf das Angebot des Vermieters antwortete die Mieterin mit einem ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She responds with a different proposal.",
+              "de": "Sie macht einen alternativen Vorschlag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gehaltsnachweis"
+              },
+              {
+                "id": "1",
+                "text": "Gedicht"
+              },
+              {
+                "id": "2",
+                "text": "Gegenvorschlag"
+              },
+              {
+                "id": "3",
+                "text": "Gefühl"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gegenvorschlag means counterproposal here; \"Gegenvorschlag\" is the appropriate form.",
+              "de": "Gegenvorschlag bedeutet hier: Gegenvorschlag als alternative Idee. Die Form „Gegenvorschlag“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf das Angebot des Vermieters antwortete die Mieterin mit einem Gegenvorschlag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf das Angebot des Vermieters antwortete die Mieterin mit einem Gegenvorschlag.\" checked. All four options evaluated: Gehaltsnachweis: rejected; does not fit the intended referent, form or grammatical construction; Gedicht: rejected; does not fit the intended referent, form or grammatical construction; Gegenvorschlag: correct for noun form and contextual meaning; Gefühl: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010314",
+      "title": {
+        "en": "Using Gegenwart in context",
+        "de": "Gegenwart im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegenwart: the present time, in two different situations.",
+        "de": "Gegenwart erkennen und verwenden: Gegenwart als heutige Zeit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegenwart meaning the present time, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L928 (ec44d19987142a3e3bbea0069b8379f931e2a2e169794889ee6ca82b80d8962b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L928-v1",
+          "contextKey": "legacy-0103-L928-context-1",
+          "transferKey": "legacy-0103-L928-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010314",
+            "type": "gap_choice",
+            "prompt": "Wir sollten uns auf die ___ konzentrieren, statt nur über die Vergangenheit zu sprechen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The focus should be on the present, not the past.",
+              "de": "Der Fokus soll auf der heutigen Zeit liegen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gegenwart"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegend"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geduld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegenwart means the present time here; \"Gegenwart\" is the appropriate form.",
+              "de": "Gegenwart bedeutet hier: Gegenwart als heutige Zeit. Die Form „Gegenwart“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sollten uns auf die Gegenwart konzentrieren, statt nur über die Vergangenheit zu sprechen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wir sollten uns auf die Gegenwart konzentrieren, statt nur über die Vergangenheit zu sprechen.\" checked. All four options evaluated: Gegenwart: correct for noun form and contextual meaning; Gegend: rejected; does not fit the intended referent, form or grammatical construction; Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Geduld: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L928-v2",
+          "contextKey": "legacy-0103-L928-context-2",
+          "transferKey": "legacy-0103-L928-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010314",
+            "type": "choice",
+            "prompt": "Die Ausstellung zeigt, wie sich das Stadtleben von 1900 bis in die ___ verändert hat.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The exhibition follows developments up to today.",
+              "de": "Die Ausstellung zeigt die Entwicklung bis heute."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "1",
+                "text": "Geburt"
+              },
+              {
+                "id": "2",
+                "text": "Gefahr"
+              },
+              {
+                "id": "3",
+                "text": "Gegenwart"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gegenwart means the present time here; \"Gegenwart\" is the appropriate form.",
+              "de": "Gegenwart bedeutet hier: Gegenwart als heutige Zeit. Die Form „Gegenwart“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ausstellung zeigt, wie sich das Stadtleben von 1900 bis in die Gegenwart verändert hat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Ausstellung zeigt, wie sich das Stadtleben von 1900 bis in die Gegenwart verändert hat.\" checked. All four options evaluated: Gehaltsabrechnung: rejected; does not fit the intended referent, form or grammatical construction; Geburt: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: rejected; does not fit the intended referent, form or grammatical construction; Gegenwart: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010315",
+      "title": {
+        "en": "Using Gegner in context",
+        "de": "Gegner im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gegner: opponent or adversary, in two different situations.",
+        "de": "Gegner erkennen und verwenden: Gegner in einem Wettkampf oder Streit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gegner meaning opponent or adversary, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L929 (767ce76dbb539576572a36752d24f2b61cda92dd3412e0b9f009c6335727e6b4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L929-v1",
+          "contextKey": "legacy-0103-L929-context-1",
+          "transferKey": "legacy-0103-L929-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010315",
+            "type": "gap_choice",
+            "prompt": "Im Finale traf die Mannschaft auf einen starken ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The other team is the opponent.",
+              "de": "Die andere Mannschaft ist der Kontrahent."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gastgeber"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegenstand"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gedanke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gegner means opponent or adversary here; \"Gegner\" is the appropriate form.",
+              "de": "Gegner bedeutet hier: Gegner in einem Wettkampf oder Streit. Die Form „Gegner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Finale traf die Mannschaft auf einen starken Gegner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Finale traf die Mannschaft auf einen starken Gegner.\" checked. All four options evaluated: Gastgeber: rejected; does not fit the intended referent, form or grammatical construction; Gegner: correct for noun form and contextual meaning; Gegenstand: rejected; does not fit the intended referent, form or grammatical construction; Gedanke: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L929-v2",
+          "contextKey": "legacy-0103-L929-context-2",
+          "transferKey": "legacy-0103-L929-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010315",
+            "type": "choice",
+            "prompt": "Die beiden ___ diskutierten ihre unterschiedlichen Positionen sachlich.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Two people with opposing views discuss calmly.",
+              "de": "Zwei Personen mit gegensätzlichen Positionen diskutieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenstände"
+              },
+              {
+                "id": "1",
+                "text": "Geheimnisse"
+              },
+              {
+                "id": "2",
+                "text": "Gegner"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauchtwagen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gegner means opponent or adversary here; \"Gegner\" is the appropriate form.",
+              "de": "Gegner bedeutet hier: Gegner in einem Wettkampf oder Streit. Die Form „Gegner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Gegner diskutierten ihre unterschiedlichen Positionen sachlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die beiden Gegner diskutierten ihre unterschiedlichen Positionen sachlich.\" checked. All four options evaluated: Gegenstände: rejected; does not fit the intended referent, form or grammatical construction; Geheimnisse: rejected; does not fit the intended referent, form or grammatical construction; Gegner: correct for noun form and contextual meaning; Gebrauchtwagen: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010316",
+      "title": {
+        "en": "Using Gehaltsabrechnung in context",
+        "de": "Gehaltsabrechnung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gehaltsabrechnung: payslip with salary and deductions, in two different situations.",
+        "de": "Gehaltsabrechnung erkennen und verwenden: Gehaltsabrechnung mit Brutto- und Nettobetrag, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gehaltsabrechnung meaning payslip with salary and deductions, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L931 (65e1b1ddadceb134a2d87027d180ebbc71b2a4a8b1696d55d9594539ed667412), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L931-v1",
+          "contextKey": "legacy-0103-L931-context-1",
+          "transferKey": "legacy-0103-L931-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010316",
+            "type": "gap_choice",
+            "prompt": "Auf der ___ stehen Bruttolohn, Abzüge und Nettobetrag.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The document itemizes salary and deductions.",
+              "de": "Das Dokument zeigt Lohn und Abzüge."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltsabrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehaltserhöhung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geheimnis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebühr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltsabrechnung means payslip with salary and deductions here; \"Gehaltsabrechnung\" is the appropriate form.",
+              "de": "Gehaltsabrechnung bedeutet hier: Gehaltsabrechnung mit Brutto- und Nettobetrag. Die Form „Gehaltsabrechnung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Gehaltsabrechnung stehen Bruttolohn, Abzüge und Nettobetrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf der Gehaltsabrechnung stehen Bruttolohn, Abzüge und Nettobetrag.\" checked. All four options evaluated: Gehaltsabrechnung: correct for noun form and contextual meaning; Gehaltserhöhung: rejected; does not fit the intended referent, form or grammatical construction; Geheimnis: rejected; does not fit the intended referent, form or grammatical construction; Gebühr: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L931-v2",
+          "contextKey": "legacy-0103-L931-context-2",
+          "transferKey": "legacy-0103-L931-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010316",
+            "type": "choice",
+            "prompt": "Nach dem Monatsende prüfte sie ihre ___ auf einen falschen Steuerabzug.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She checks the salary statement for errors.",
+              "de": "Sie prüft ihre Lohnabrechnung auf Fehler."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenwart"
+              },
+              {
+                "id": "1",
+                "text": "Gefahr"
+              },
+              {
+                "id": "2",
+                "text": "Gebäck"
+              },
+              {
+                "id": "3",
+                "text": "Gehaltsabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltsabrechnung means payslip with salary and deductions here; \"Gehaltsabrechnung\" is the appropriate form.",
+              "de": "Gehaltsabrechnung bedeutet hier: Gehaltsabrechnung mit Brutto- und Nettobetrag. Die Form „Gehaltsabrechnung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Monatsende prüfte sie ihre Gehaltsabrechnung auf einen falschen Steuerabzug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach dem Monatsende prüfte sie ihre Gehaltsabrechnung auf einen falschen Steuerabzug.\" checked. All four options evaluated: Gegenwart: rejected; does not fit the intended referent, form or grammatical construction; Gefahr: rejected; does not fit the intended referent, form or grammatical construction; Gebäck: rejected; does not fit the intended referent, form or grammatical construction; Gehaltsabrechnung: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010317",
+      "title": {
+        "en": "Using Gehaltserhöhung in context",
+        "de": "Gehaltserhöhung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gehaltserhöhung: salary increase, in two different situations.",
+        "de": "Gehaltserhöhung erkennen und verwenden: Gehaltserhöhung als höherer Lohn, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gehaltserhöhung meaning salary increase, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L932 (dec60386b3639f2d335d591e4c919cd0aba3d35f461b782c5dc2459e704ac8e3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L932-v1",
+          "contextKey": "legacy-0103-L932-context-1",
+          "transferKey": "legacy-0103-L932-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010317",
+            "type": "gap_choice",
+            "prompt": "Nach einer erfolgreichen Leistungsbeurteilung bat er um eine ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He asked to be paid more.",
+              "de": "Er bat um mehr Gehalt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltsabrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehaltserhöhung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebühr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Garantie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltserhöhung means salary increase here; \"Gehaltserhöhung\" is the appropriate form.",
+              "de": "Gehaltserhöhung bedeutet hier: Gehaltserhöhung als höherer Lohn. Die Form „Gehaltserhöhung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach einer erfolgreichen Leistungsbeurteilung bat er um eine Gehaltserhöhung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach einer erfolgreichen Leistungsbeurteilung bat er um eine Gehaltserhöhung.\" checked. All four options evaluated: Gehaltsabrechnung: rejected; does not fit the intended referent, form or grammatical construction; Gehaltserhöhung: correct for noun form and contextual meaning; Gebühr: rejected; does not fit the intended referent, form or grammatical construction; Garantie: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L932-v2",
+          "contextKey": "legacy-0103-L932-context-2",
+          "transferKey": "legacy-0103-L932-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010317",
+            "type": "choice",
+            "prompt": "Durch die ___ verdient sie jetzt jeden Monat 200 Euro mehr.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Her monthly salary increased.",
+              "de": "Ihr monatliches Gehalt ist gestiegen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gehaltsnachweis"
+              },
+              {
+                "id": "1",
+                "text": "Gastgewerbe"
+              },
+              {
+                "id": "2",
+                "text": "Gehaltserhöhung"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltserhöhung means salary increase here; \"Gehaltserhöhung\" is the appropriate form.",
+              "de": "Gehaltserhöhung bedeutet hier: Gehaltserhöhung als höherer Lohn. Die Form „Gehaltserhöhung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die Gehaltserhöhung verdient sie jetzt jeden Monat 200 Euro mehr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Durch die Gehaltserhöhung verdient sie jetzt jeden Monat 200 Euro mehr.\" checked. All four options evaluated: Gehaltsnachweis: rejected; does not fit the intended referent, form or grammatical construction; Gastgewerbe: rejected; does not fit the intended referent, form or grammatical construction; Gehaltserhöhung: correct for noun form and contextual meaning; Gebrauch: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010318",
+      "title": {
+        "en": "Using Gehaltsnachweis in context",
+        "de": "Gehaltsnachweis im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gehaltsnachweis: proof of salary or earnings, in two different situations.",
+        "de": "Gehaltsnachweis erkennen und verwenden: Gehaltsnachweis als Einkommensbeleg, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gehaltsnachweis meaning proof of salary or earnings, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L933 (403a55bfe1d848330b7827f0a22d7074ee676b42529523762a0a9b34bd6042bd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L933-v1",
+          "contextKey": "legacy-0103-L933-context-1",
+          "transferKey": "legacy-0103-L933-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010318",
+            "type": "gap_choice",
+            "prompt": "Für den Mietantrag musste er einen aktuellen ___ einreichen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The landlord needs proof of income.",
+              "de": "Der Vermieter braucht einen Beleg über das Einkommen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltsnachweis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehaltserhöhung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegenvorschlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gegenstand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltsnachweis means proof of salary or earnings here; \"Gehaltsnachweis\" is the appropriate form.",
+              "de": "Gehaltsnachweis bedeutet hier: Gehaltsnachweis als Einkommensbeleg. Die Form „Gehaltsnachweis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Mietantrag musste er einen aktuellen Gehaltsnachweis einreichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für den Mietantrag musste er einen aktuellen Gehaltsnachweis einreichen.\" checked. All four options evaluated: Gehaltsnachweis: correct for noun form and contextual meaning; Gehaltserhöhung: rejected; does not fit the intended referent, form or grammatical construction; Gegenvorschlag: rejected; does not fit the intended referent, form or grammatical construction; Gegenstand: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L933-v2",
+          "contextKey": "legacy-0103-L933-context-2",
+          "transferKey": "legacy-0103-L933-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010318",
+            "type": "choice",
+            "prompt": "Die Bank verlangt einen ___, bevor sie über den Kredit entscheidet.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The bank needs evidence of earnings.",
+              "de": "Die Bank verlangt einen Einkommensbeleg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gedicht"
+              },
+              {
+                "id": "1",
+                "text": "Gaststätte"
+              },
+              {
+                "id": "2",
+                "text": "Gasaustritt"
+              },
+              {
+                "id": "3",
+                "text": "Gehaltsnachweis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gehaltsnachweis means proof of salary or earnings here; \"Gehaltsnachweis\" is the appropriate form.",
+              "de": "Gehaltsnachweis bedeutet hier: Gehaltsnachweis als Einkommensbeleg. Die Form „Gehaltsnachweis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bank verlangt einen Gehaltsnachweis, bevor sie über den Kredit entscheidet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Bank verlangt einen Gehaltsnachweis, bevor sie über den Kredit entscheidet.\" checked. All four options evaluated: Gedicht: rejected; does not fit the intended referent, form or grammatical construction; Gaststätte: rejected; does not fit the intended referent, form or grammatical construction; Gasaustritt: rejected; does not fit the intended referent, form or grammatical construction; Gehaltsnachweis: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010319",
+      "title": {
+        "en": "Using Geheimnis in context",
+        "de": "Geheimnis im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Geheimnis: secret, in two different situations.",
+        "de": "Geheimnis erkennen und verwenden: Geheimnis als vertrauliche Information, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Geheimnis meaning secret, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L934 (b5f33724e85f69d9942ff539defeba0311a53d59ef26e5362615a8af2fad272c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0103-L934-v1",
+          "contextKey": "legacy-0103-L934-context-1",
+          "transferKey": "legacy-0103-L934-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010319",
+            "type": "gap_choice",
+            "prompt": "Sie wollte das ___ niemandem verraten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She wanted to keep the information confidential.",
+              "de": "Sie wollte die Information für sich behalten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gefängnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geheimnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gedicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebirge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Geheimnis means secret here; \"Geheimnis\" is the appropriate form.",
+              "de": "Geheimnis bedeutet hier: Geheimnis als vertrauliche Information. Die Form „Geheimnis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wollte das Geheimnis niemandem verraten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Sie wollte das Geheimnis niemandem verraten.\" checked. All four options evaluated: Gefängnis: rejected; does not fit the intended referent, form or grammatical construction; Geheimnis: correct for noun form and contextual meaning; Gedicht: rejected; does not fit the intended referent, form or grammatical construction; Gebirge: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0103-L934-v2",
+          "contextKey": "legacy-0103-L934-context-2",
+          "transferKey": "legacy-0103-L934-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001030191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010319",
+            "type": "choice",
+            "prompt": "Das Rezept blieb lange ein gut gehütetes ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The recipe was kept confidential.",
+              "de": "Das Rezept wurde lange geheim gehalten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebäck"
+              },
+              {
+                "id": "1",
+                "text": "Gebiet"
+              },
+              {
+                "id": "2",
+                "text": "Geheimnis"
+              },
+              {
+                "id": "3",
+                "text": "Gebot"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Geheimnis means secret here; \"Geheimnis\" is the appropriate form.",
+              "de": "Geheimnis bedeutet hier: Geheimnis als vertrauliche Information. Die Form „Geheimnis“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Rezept blieb lange ein gut gehütetes Geheimnis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das Rezept blieb lange ein gut gehütetes Geheimnis.\" checked. All four options evaluated: Gebäck: rejected; does not fit the intended referent, form or grammatical construction; Gebiet: rejected; does not fit the intended referent, form or grammatical construction; Geheimnis: correct for noun form and contextual meaning; Gebot: rejected; does not fit the intended referent, form or grammatical construction. Bilingual hint and explanation checked; no other offered answer fits the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    }
+  ]
+}
