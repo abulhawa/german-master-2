@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011000",
+      "title": {
+        "en": "Using Hälfte in context",
+        "de": "Hälfte im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hälfte: one half of a whole, in two different situations.",
+        "de": "Hälfte erkennen und verwenden: Hälfte als einer von zwei gleichen Teilen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hälfte meaning one half of a whole, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1048 (c772a150ffee608fa9ecf44ebf0e96cc98048e376a54a313736fae18c326ccb2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1048-v1",
+          "contextKey": "legacy-0110-L1048-context-1",
+          "transferKey": "legacy-0110-L1048-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011000",
+            "type": "gap_choice",
+            "prompt": "Bitte schneide den Kuchen in zwei gleiche Teile; ich nehme die ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "One of two equal portions is requested.",
+              "de": "Es geht um einen von zwei gleichen Teilen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hammer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hälfte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Haltbarkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hälfte means one half of a whole here; \"Hälfte\" is the appropriate form.",
+              "de": "Hälfte bedeutet hier: Hälfte als einer von zwei gleichen Teilen. Die Form „Hälfte“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte schneide den Kuchen in zwei gleiche Teile; ich nehme die Hälfte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte schneide den Kuchen in zwei gleiche Teile; ich nehme die Hälfte.\" checked. All four options evaluated: Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hälfte: correct for noun form and contextual meaning; Handlung: rejected; wrong referent, grammatical form or contextual meaning; Haltbarkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1048-v2",
+          "contextKey": "legacy-0110-L1048-context-2",
+          "transferKey": "legacy-0110-L1048-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011000",
+            "type": "choice",
+            "prompt": "Die ___ der Teilnehmenden kam mit dem Zug.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Fifty percent of the participants arrived by train.",
+              "de": "Fünfzig Prozent der Teilnehmenden kamen mit dem Zug."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Händler"
+              },
+              {
+                "id": "1",
+                "text": "Handwerker"
+              },
+              {
+                "id": "2",
+                "text": "Hälfte"
+              },
+              {
+                "id": "3",
+                "text": "Hausbewohner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hälfte means one half of a whole here; \"Hälfte\" is the appropriate form.",
+              "de": "Hälfte bedeutet hier: Hälfte als einer von zwei gleichen Teilen. Die Form „Hälfte“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hälfte der Teilnehmenden kam mit dem Zug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Hälfte der Teilnehmenden kam mit dem Zug.\" checked. All four options evaluated: Händler: rejected; wrong referent, grammatical form or contextual meaning; Handwerker: rejected; wrong referent, grammatical form or contextual meaning; Hälfte: correct for noun form and contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011001",
+      "title": {
+        "en": "Using Hallenbad in context",
+        "de": "Hallenbad im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hallenbad: indoor swimming pool, in two different situations.",
+        "de": "Hallenbad erkennen und verwenden: Hallenbad als überdachtes Schwimmbad, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hallenbad meaning indoor swimming pool, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1050 (1cb4b2036c65aea2bd0b0519fefa961fb42c90f5524118e987b05d5dda0e9a8d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1050-v1",
+          "contextKey": "legacy-0110-L1050-context-1",
+          "transferKey": "legacy-0110-L1050-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011001",
+            "type": "gap_choice",
+            "prompt": "Im Winter schwimmen wir im beheizten ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The swimming pool is inside a building.",
+              "de": "Das Schwimmbecken liegt in einem Gebäude."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hallenbad"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hauptbahnhof"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handwerk"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handbuch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hallenbad means indoor swimming pool here; \"Hallenbad\" is the appropriate form.",
+              "de": "Hallenbad bedeutet hier: Hallenbad als überdachtes Schwimmbad. Die Form „Hallenbad“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Winter schwimmen wir im beheizten Hallenbad.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Winter schwimmen wir im beheizten Hallenbad.\" checked. All four options evaluated: Hallenbad: correct for noun form and contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning; Handbuch: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1050-v2",
+          "contextKey": "legacy-0110-L1050-context-2",
+          "transferKey": "legacy-0110-L1050-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011001",
+            "type": "choice",
+            "prompt": "Das ___ bleibt wegen der Wartung des Schwimmbeckens geschlossen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The indoor pool is closed for maintenance.",
+              "de": "Das überdachte Schwimmbad ist wegen Wartung geschlossen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handel"
+              },
+              {
+                "id": "1",
+                "text": "Hammer"
+              },
+              {
+                "id": "2",
+                "text": "Hauptaussage"
+              },
+              {
+                "id": "3",
+                "text": "Hallenbad"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hallenbad means indoor swimming pool here; \"Hallenbad\" is the appropriate form.",
+              "de": "Hallenbad bedeutet hier: Hallenbad als überdachtes Schwimmbad. Die Form „Hallenbad“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Hallenbad bleibt wegen der Wartung des Schwimmbeckens geschlossen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das Hallenbad bleibt wegen der Wartung des Schwimmbeckens geschlossen.\" checked. All four options evaluated: Handel: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hauptaussage: rejected; wrong referent, grammatical form or contextual meaning; Hallenbad: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011002",
+      "title": {
+        "en": "Using Halt in context",
+        "de": "Halt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Halt: grip or support, in two different situations.",
+        "de": "Halt erkennen und verwenden: Halt als sicherer Griff oder Stand, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Halt meaning grip or support, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1052 (844d02e3ba693ce40769c9a908892438710f46d68544ac18bfd801b8722e037b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1052-v1",
+          "contextKey": "legacy-0110-L1052-context-1",
+          "transferKey": "legacy-0110-L1052-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011002",
+            "type": "gap_choice",
+            "prompt": "Die rutschfesten Schuhe geben auf dem nassen Boden guten ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The shoes help prevent slipping.",
+              "de": "Die Schuhe geben sicheren Stand."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Halt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hammer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbereich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Halt means grip or support here; \"Halt\" is the appropriate form.",
+              "de": "Halt bedeutet hier: Halt als sicherer Griff oder Stand. Die Form „Halt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die rutschfesten Schuhe geben auf dem nassen Boden guten Halt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die rutschfesten Schuhe geben auf dem nassen Boden guten Halt.\" checked. All four options evaluated: Handel: rejected; wrong referent, grammatical form or contextual meaning; Halt: correct for noun form and contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hauptbereich: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1052-v2",
+          "contextKey": "legacy-0110-L1052-context-2",
+          "transferKey": "legacy-0110-L1052-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011002",
+            "type": "choice",
+            "prompt": "Beim Klettern fand er an dem Felsen keinen sicheren ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He could not find a secure grip.",
+              "de": "Er fand keinen sicheren Griff."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handlung"
+              },
+              {
+                "id": "1",
+                "text": "Hälfte"
+              },
+              {
+                "id": "2",
+                "text": "Halt"
+              },
+              {
+                "id": "3",
+                "text": "Händler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Halt means grip or support here; \"Halt\" is the appropriate form.",
+              "de": "Halt bedeutet hier: Halt als sicherer Griff oder Stand. Die Form „Halt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Klettern fand er an dem Felsen keinen sicheren Halt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Beim Klettern fand er an dem Felsen keinen sicheren Halt.\" checked. All four options evaluated: Handlung: rejected; wrong referent, grammatical form or contextual meaning; Hälfte: rejected; wrong referent, grammatical form or contextual meaning; Halt: correct for noun form and contextual meaning; Händler: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011003",
+      "title": {
+        "en": "Using Haltbarkeit in context",
+        "de": "Haltbarkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Haltbarkeit: durability or usable shelf life, in two different situations.",
+        "de": "Haltbarkeit erkennen und verwenden: Haltbarkeit als Dauer der Nutzbarkeit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Haltbarkeit meaning durability or usable shelf life, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1053 (c56c5d12bed22d5b02b3ccec3918ee429774ba1c02b6d9d1c62e63bf51c2c5ec), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1053-v1",
+          "contextKey": "legacy-0110-L1053-context-1",
+          "transferKey": "legacy-0110-L1053-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011003",
+            "type": "gap_choice",
+            "prompt": "Kühle Lagerung kann die ___ mancher Lebensmittel verlängern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Storage conditions can affect how long food remains usable.",
+              "de": "Die Lagerung kann die Nutzungsdauer beeinflussen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Haltbarkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hauptaussage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handgepäck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Haltbarkeit means durability or usable shelf life here; \"Haltbarkeit\" is the appropriate form.",
+              "de": "Haltbarkeit bedeutet hier: Haltbarkeit als Dauer der Nutzbarkeit. Die Form „Haltbarkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kühle Lagerung kann die Haltbarkeit mancher Lebensmittel verlängern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Kühle Lagerung kann die Haltbarkeit mancher Lebensmittel verlängern.\" checked. All four options evaluated: Haltbarkeit: correct for noun form and contextual meaning; Hauptaussage: rejected; wrong referent, grammatical form or contextual meaning; Handlung: rejected; wrong referent, grammatical form or contextual meaning; Handgepäck: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1053-v2",
+          "contextKey": "legacy-0110-L1053-context-2",
+          "transferKey": "legacy-0110-L1053-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011003",
+            "type": "choice",
+            "prompt": "Der Hersteller testet die ___ des Materials bei hoher Belastung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The test measures how long the material withstands stress.",
+              "de": "Der Test prüft die Widerstandsfähigkeit über Zeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hälfte"
+              },
+              {
+                "id": "1",
+                "text": "Händler"
+              },
+              {
+                "id": "2",
+                "text": "Hauptbahnhof"
+              },
+              {
+                "id": "3",
+                "text": "Haltbarkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Haltbarkeit means durability or usable shelf life here; \"Haltbarkeit\" is the appropriate form.",
+              "de": "Haltbarkeit bedeutet hier: Haltbarkeit als Dauer der Nutzbarkeit. Die Form „Haltbarkeit“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hersteller testet die Haltbarkeit des Materials bei hoher Belastung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Hersteller testet die Haltbarkeit des Materials bei hoher Belastung.\" checked. All four options evaluated: Hälfte: rejected; wrong referent, grammatical form or contextual meaning; Händler: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning; Haltbarkeit: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011004",
+      "title": {
+        "en": "Using Hammer in context",
+        "de": "Hammer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hammer: hammer tool, in two different situations.",
+        "de": "Hammer erkennen und verwenden: Hammer als Schlagwerkzeug, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hammer meaning hammer tool, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1056 (e75b17be1ccb62ecc342139cf355795854ca6aa4b55453c5a2ddf323426f337e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1056-v1",
+          "contextKey": "legacy-0110-L1056-context-1",
+          "transferKey": "legacy-0110-L1056-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011004",
+            "type": "gap_choice",
+            "prompt": "Mit dem ___ schlägt er den Nagel in das Holz.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The tool is used to drive a nail.",
+              "de": "Mit dem Werkzeug wird ein Nagel eingeschlagen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handbuch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hammer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Halt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hammer means hammer tool here; \"Hammer\" is the appropriate form.",
+              "de": "Hammer bedeutet hier: Hammer als Schlagwerkzeug. Die Form „Hammer“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit dem Hammer schlägt er den Nagel in das Holz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Mit dem Hammer schlägt er den Nagel in das Holz.\" checked. All four options evaluated: Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Hammer: correct for noun form and contextual meaning; Handel: rejected; wrong referent, grammatical form or contextual meaning; Halt: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1056-v2",
+          "contextKey": "legacy-0110-L1056-context-2",
+          "transferKey": "legacy-0110-L1056-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011004",
+            "type": "choice",
+            "prompt": "Der ___ liegt neben den Nägeln auf der Werkbank.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A striking tool lies beside the nails.",
+              "de": "Das Schlagwerkzeug liegt bei den Nägeln."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handgepäck"
+              },
+              {
+                "id": "1",
+                "text": "Hallenbad"
+              },
+              {
+                "id": "2",
+                "text": "Hammer"
+              },
+              {
+                "id": "3",
+                "text": "Hausbewohner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hammer means hammer tool here; \"Hammer\" is the appropriate form.",
+              "de": "Hammer bedeutet hier: Hammer als Schlagwerkzeug. Die Form „Hammer“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hammer liegt neben den Nägeln auf der Werkbank.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Hammer liegt neben den Nägeln auf der Werkbank.\" checked. All four options evaluated: Handgepäck: rejected; wrong referent, grammatical form or contextual meaning; Hallenbad: rejected; wrong referent, grammatical form or contextual meaning; Hammer: correct for noun form and contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011005",
+      "title": {
+        "en": "Using Handbuch in context",
+        "de": "Handbuch im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handbuch: manual or handbook, in two different situations.",
+        "de": "Handbuch erkennen und verwenden: Handbuch mit Anleitungen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handbuch meaning manual or handbook, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1058 (f60ba13a4e50058a435cfe81acdb36152a5bb7b8140326590768f536b4567cad), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1058-v1",
+          "contextKey": "legacy-0110-L1058-context-1",
+          "transferKey": "legacy-0110-L1058-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011005",
+            "type": "gap_choice",
+            "prompt": "Im ___ steht, wie die Software installiert wird.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The document explains installation.",
+              "de": "Das Dokument erklärt die Installation."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handbuch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handwerk"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handbuch means manual or handbook here; \"Handbuch\" is the appropriate form.",
+              "de": "Handbuch bedeutet hier: Handbuch mit Anleitungen. Die Form „Handbuch“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Handbuch steht, wie die Software installiert wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Handbuch steht, wie die Software installiert wird.\" checked. All four options evaluated: Handbuch: correct for noun form and contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning; Handel: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1058-v2",
+          "contextKey": "legacy-0110-L1058-context-2",
+          "transferKey": "legacy-0110-L1058-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011005",
+            "type": "choice",
+            "prompt": "Bevor sie das Gerät einrichtete, las sie das ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She read the operating manual first.",
+              "de": "Sie las zuerst die Anleitung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handgepäck"
+              },
+              {
+                "id": "1",
+                "text": "Hammer"
+              },
+              {
+                "id": "2",
+                "text": "Hallenbad"
+              },
+              {
+                "id": "3",
+                "text": "Handbuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Handbuch means manual or handbook here; \"Handbuch\" is the appropriate form.",
+              "de": "Handbuch bedeutet hier: Handbuch mit Anleitungen. Die Form „Handbuch“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor sie das Gerät einrichtete, las sie das Handbuch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bevor sie das Gerät einrichtete, las sie das Handbuch.\" checked. All four options evaluated: Handgepäck: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hallenbad: rejected; wrong referent, grammatical form or contextual meaning; Handbuch: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011006",
+      "title": {
+        "en": "Using Handel in context",
+        "de": "Handel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handel: trade or commerce, in two different situations.",
+        "de": "Handel erkennen und verwenden: Handel als Kauf und Verkauf, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handel meaning trade or commerce, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1059 (076236ea1cefe5cd6f2f7d12681282b155af30cf53dbde557109d09013c8cc2c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1059-v1",
+          "contextKey": "legacy-0110-L1059-context-1",
+          "transferKey": "legacy-0110-L1059-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011006",
+            "type": "gap_choice",
+            "prompt": "Der internationale ___ mit Waren ist für die Region wichtig.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns buying and selling goods across borders.",
+              "de": "Es geht um grenzüberschreitenden Warenverkehr."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hammer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Halt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handel means trade or commerce here; \"Handel\" is the appropriate form.",
+              "de": "Handel bedeutet hier: Handel als Kauf und Verkauf. Die Form „Handel“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der internationale Handel mit Waren ist für die Region wichtig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der internationale Handel mit Waren ist für die Region wichtig.\" checked. All four options evaluated: Hammer: rejected; wrong referent, grammatical form or contextual meaning; Handel: correct for noun form and contextual meaning; Halt: rejected; wrong referent, grammatical form or contextual meaning; Handlung: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1059-v2",
+          "contextKey": "legacy-0110-L1059-context-2",
+          "transferKey": "legacy-0110-L1059-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011006",
+            "type": "choice",
+            "prompt": "Die Stadt fördert den lokalen ___ und die kleinen Geschäfte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Local buying and selling is being supported.",
+              "de": "Die Stadt unterstützt örtliche Geschäfte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hauptaussage"
+              },
+              {
+                "id": "1",
+                "text": "Handbuch"
+              },
+              {
+                "id": "2",
+                "text": "Handel"
+              },
+              {
+                "id": "3",
+                "text": "Handrücken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Handel means trade or commerce here; \"Handel\" is the appropriate form.",
+              "de": "Handel bedeutet hier: Handel als Kauf und Verkauf. Die Form „Handel“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt fördert den lokalen Handel und die kleinen Geschäfte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Stadt fördert den lokalen Handel und die kleinen Geschäfte.\" checked. All four options evaluated: Hauptaussage: rejected; wrong referent, grammatical form or contextual meaning; Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Handel: correct for noun form and contextual meaning; Handrücken: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011007",
+      "title": {
+        "en": "Using Handgepäck in context",
+        "de": "Handgepäck im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handgepäck: carry-on luggage, in two different situations.",
+        "de": "Handgepäck erkennen und verwenden: Handgepäck für die Flugzeugkabine, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handgepäck meaning carry-on luggage, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1061 (f905f5139e3081de54d56920bcbb6d19d94ca0e6b3658e8c8f1009895eec3cdc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1061-v1",
+          "contextKey": "legacy-0110-L1061-context-1",
+          "transferKey": "legacy-0110-L1061-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011007",
+            "type": "gap_choice",
+            "prompt": "Die kleine Tasche darf als ___ mit in die Flugzeugkabine.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The bag travels with the passenger in the cabin.",
+              "de": "Die Tasche darf in die Kabine mitgenommen werden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handgepäck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handbuch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handwerk"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handgepäck means carry-on luggage here; \"Handgepäck\" is the appropriate form.",
+              "de": "Handgepäck bedeutet hier: Handgepäck für die Flugzeugkabine. Die Form „Handgepäck“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die kleine Tasche darf als Handgepäck mit in die Flugzeugkabine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die kleine Tasche darf als Handgepäck mit in die Flugzeugkabine.\" checked. All four options evaluated: Handgepäck: correct for noun form and contextual meaning; Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1061-v2",
+          "contextKey": "legacy-0110-L1061-context-2",
+          "transferKey": "legacy-0110-L1061-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011007",
+            "type": "choice",
+            "prompt": "Vor dem Einsteigen kontrollierte die Fluggesellschaft das ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The airline checked the passengers' cabin bags.",
+              "de": "Die Fluggesellschaft kontrollierte das Gepäck für die Kabine."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hallenbad"
+              },
+              {
+                "id": "1",
+                "text": "Hauptaussage"
+              },
+              {
+                "id": "2",
+                "text": "Hammer"
+              },
+              {
+                "id": "3",
+                "text": "Handgepäck"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Handgepäck means carry-on luggage here; \"Handgepäck\" is the appropriate form.",
+              "de": "Handgepäck bedeutet hier: Handgepäck für die Flugzeugkabine. Die Form „Handgepäck“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Einsteigen kontrollierte die Fluggesellschaft das Handgepäck.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Vor dem Einsteigen kontrollierte die Fluggesellschaft das Handgepäck.\" checked. All four options evaluated: Hallenbad: rejected; wrong referent, grammatical form or contextual meaning; Hauptaussage: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Handgepäck: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011008",
+      "title": {
+        "en": "Using Handinnenfläche in context",
+        "de": "Handinnenfläche im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handinnenfläche: palm of the hand, in two different situations.",
+        "de": "Handinnenfläche erkennen und verwenden: Handinnenfläche als innere Handseite, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handinnenfläche meaning palm of the hand, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1062 (7b2bdce761ef708ab231708e646387ea1a0d47782d429bad9f2053960c11798a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1062-v1",
+          "contextKey": "legacy-0110-L1062-context-1",
+          "transferKey": "legacy-0110-L1062-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011008",
+            "type": "gap_choice",
+            "prompt": "Die ___ liegt auf der Seite der Hand, mit der man Gegenstände greift.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This is the inner side of the hand.",
+              "de": "Es ist die innere Seite der Hand."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handrücken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handinnenfläche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handgelenk"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fingerkuppe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handinnenfläche means palm of the hand here; \"Handinnenfläche\" is the appropriate form.",
+              "de": "Handinnenfläche bedeutet hier: Handinnenfläche als innere Handseite. Die Form „Handinnenfläche“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Handinnenfläche liegt auf der Seite der Hand, mit der man Gegenstände greift.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Handinnenfläche liegt auf der Seite der Hand, mit der man Gegenstände greift.\" checked. All four options evaluated: Handrücken: rejected; wrong referent, grammatical form or contextual meaning; Handinnenfläche: correct for noun form and contextual meaning; Handgelenk: rejected; wrong referent, grammatical form or contextual meaning; Fingerkuppe: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1062-v2",
+          "contextKey": "legacy-0110-L1062-context-2",
+          "transferKey": "legacy-0110-L1062-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011008",
+            "type": "choice",
+            "prompt": "Er hielt die Münze auf der offenen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The coin rested in the open palm.",
+              "de": "Die Münze lag auf der geöffneten Handfläche."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handrücken"
+              },
+              {
+                "id": "1",
+                "text": "Handgelenk"
+              },
+              {
+                "id": "2",
+                "text": "Handinnenfläche"
+              },
+              {
+                "id": "3",
+                "text": "Hauptaussage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Handinnenfläche means palm of the hand here; \"Handinnenfläche\" is the appropriate form.",
+              "de": "Handinnenfläche bedeutet hier: Handinnenfläche als innere Handseite. Die Form „Handinnenfläche“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hielt die Münze auf der offenen Handinnenfläche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Er hielt die Münze auf der offenen Handinnenfläche.\" checked. All four options evaluated: Handrücken: rejected; wrong referent, grammatical form or contextual meaning; Handgelenk: rejected; wrong referent, grammatical form or contextual meaning; Handinnenfläche: correct for noun form and contextual meaning; Hauptaussage: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011009",
+      "title": {
+        "en": "Using Händler in context",
+        "de": "Händler im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Händler: male merchant or trader, in two different situations.",
+        "de": "Händler erkennen und verwenden: Händler als Verkäufer von Waren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Händler meaning male merchant or trader, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1063 (7447c86f7c6927f216beb3f06b9033ba5c3c825f24c758a58d528dd75c796891), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1063-v1",
+          "contextKey": "legacy-0110-L1063-context-1",
+          "transferKey": "legacy-0110-L1063-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011009",
+            "type": "gap_choice",
+            "prompt": "Der ___ verkauft frisches Gemüse auf dem Markt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "His occupation is trading goods.",
+              "de": "Er handelt beruflich mit Waren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Händler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handwerker"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausbewohner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Händler means male merchant or trader here; \"Händler\" is the appropriate form.",
+              "de": "Händler bedeutet hier: Händler als Verkäufer von Waren. Die Form „Händler“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Händler verkauft frisches Gemüse auf dem Markt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Händler verkauft frisches Gemüse auf dem Markt.\" checked. All four options evaluated: Händler: correct for noun form and contextual meaning; Handwerker: rejected; wrong referent, grammatical form or contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1063-v2",
+          "contextKey": "legacy-0110-L1063-context-2",
+          "transferKey": "legacy-0110-L1063-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011009",
+            "type": "choice",
+            "prompt": "Der ___ handelte mit gebrauchten Fahrrädern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He bought and sold second-hand bicycles.",
+              "de": "Er kaufte und verkaufte gebrauchte Fahrräder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handwerker"
+              },
+              {
+                "id": "1",
+                "text": "Hausbewohner"
+              },
+              {
+                "id": "2",
+                "text": "Hammer"
+              },
+              {
+                "id": "3",
+                "text": "Händler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Händler means male merchant or trader here; \"Händler\" is the appropriate form.",
+              "de": "Händler bedeutet hier: Händler als Verkäufer von Waren. Die Form „Händler“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Händler handelte mit gebrauchten Fahrrädern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Händler handelte mit gebrauchten Fahrrädern.\" checked. All four options evaluated: Handwerker: rejected; wrong referent, grammatical form or contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Händler: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011010",
+      "title": {
+        "en": "Using Händlerin in context",
+        "de": "Händlerin im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Händlerin: female merchant or trader, in two different situations.",
+        "de": "Händlerin erkennen und verwenden: Händlerin als Verkäuferin von Waren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Händlerin meaning female merchant or trader, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1064 (e86950d855e22e9ded0b22bafd181874e1212c08c1f6fa0f55b4ff16323f3c25), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1064-v1",
+          "contextKey": "legacy-0110-L1064-context-1",
+          "transferKey": "legacy-0110-L1064-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011010",
+            "type": "gap_choice",
+            "prompt": "Die ___ kauft Waren ein und verkauft sie weiter.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Her business is buying and reselling goods.",
+              "de": "Sie handelt beruflich mit Waren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handwerkerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Händlerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausbewohnerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lehrerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Händlerin means female merchant or trader here; \"Händlerin\" is the appropriate form.",
+              "de": "Händlerin bedeutet hier: Händlerin als Verkäuferin von Waren. Die Form „Händlerin“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Händlerin kauft Waren ein und verkauft sie weiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Händlerin kauft Waren ein und verkauft sie weiter.\" checked. All four options evaluated: Handwerkerin: rejected; wrong referent, grammatical form or contextual meaning; Händlerin: correct for noun form and contextual meaning; Hausbewohnerin: rejected; wrong referent, grammatical form or contextual meaning; Lehrerin: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1064-v2",
+          "contextKey": "legacy-0110-L1064-context-2",
+          "transferKey": "legacy-0110-L1064-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011010",
+            "type": "choice",
+            "prompt": "Auf dem Wochenmarkt erklärte die ___ den Preis ihrer Produkte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The seller explained her prices.",
+              "de": "Die Verkäuferin erläuterte ihre Preise."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hälfte"
+              },
+              {
+                "id": "1",
+                "text": "Handlung"
+              },
+              {
+                "id": "2",
+                "text": "Händlerin"
+              },
+              {
+                "id": "3",
+                "text": "Haltbarkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Händlerin means female merchant or trader here; \"Händlerin\" is the appropriate form.",
+              "de": "Händlerin bedeutet hier: Händlerin als Verkäuferin von Waren. Die Form „Händlerin“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Wochenmarkt erklärte die Händlerin den Preis ihrer Produkte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf dem Wochenmarkt erklärte die Händlerin den Preis ihrer Produkte.\" checked. All four options evaluated: Hälfte: rejected; wrong referent, grammatical form or contextual meaning; Handlung: rejected; wrong referent, grammatical form or contextual meaning; Händlerin: correct for noun form and contextual meaning; Haltbarkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011011",
+      "title": {
+        "en": "Using Handlung in context",
+        "de": "Handlung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handlung: plot of a story or film, in two different situations.",
+        "de": "Handlung erkennen und verwenden: Handlung als Geschehen einer Geschichte, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handlung meaning plot of a story or film, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1065 (227e6b71623362bcf1efd4a720dc16064cdb7ddc0bb97f0b311599d0b7a049e9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1065-v1",
+          "contextKey": "legacy-0110-L1065-context-1",
+          "transferKey": "legacy-0110-L1065-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011011",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Romans spielt in einer kleinen Küstenstadt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes the story's plot.",
+              "de": "Es geht um das Geschehen im Roman."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handlung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hälfte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Haltbarkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handgepäck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handlung means plot of a story or film here; \"Handlung\" is the appropriate form.",
+              "de": "Handlung bedeutet hier: Handlung als Geschehen einer Geschichte. Die Form „Handlung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Handlung des Romans spielt in einer kleinen Küstenstadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Handlung des Romans spielt in einer kleinen Küstenstadt.\" checked. All four options evaluated: Handlung: correct for noun form and contextual meaning; Hälfte: rejected; wrong referent, grammatical form or contextual meaning; Haltbarkeit: rejected; wrong referent, grammatical form or contextual meaning; Handgepäck: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1065-v2",
+          "contextKey": "legacy-0110-L1065-context-2",
+          "transferKey": "legacy-0110-L1065-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011011",
+            "type": "choice",
+            "prompt": "Der Film hat eine spannende ___ mit vielen überraschenden Wendungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The film has an engaging plot.",
+              "de": "Der Film hat einen spannenden Handlungsverlauf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Händler"
+              },
+              {
+                "id": "1",
+                "text": "Hammer"
+              },
+              {
+                "id": "2",
+                "text": "Handwerk"
+              },
+              {
+                "id": "3",
+                "text": "Handlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Handlung means plot of a story or film here; \"Handlung\" is the appropriate form.",
+              "de": "Handlung bedeutet hier: Handlung als Geschehen einer Geschichte. Die Form „Handlung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Film hat eine spannende Handlung mit vielen überraschenden Wendungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Film hat eine spannende Handlung mit vielen überraschenden Wendungen.\" checked. All four options evaluated: Händler: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning; Handlung: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011012",
+      "title": {
+        "en": "Using Handrücken in context",
+        "de": "Handrücken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handrücken: back of the hand, in two different situations.",
+        "de": "Handrücken erkennen und verwenden: Handrücken als äußere Handseite, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handrücken meaning back of the hand, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1066 (5617e5aa9fb26941211779351d9236a343d3f0e7089793f2d3fde87bd79256c2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1066-v1",
+          "contextKey": "legacy-0110-L1066-context-1",
+          "transferKey": "legacy-0110-L1066-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011012",
+            "type": "gap_choice",
+            "prompt": "Auf dem ___ trägt er eine kleine Narbe.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The scar is on the outer side of the hand.",
+              "de": "Die Narbe liegt auf der äußeren Handseite."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handinnenfläche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handrücken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handbuch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handwerk"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handrücken means back of the hand here; \"Handrücken\" is the appropriate form.",
+              "de": "Handrücken bedeutet hier: Handrücken als äußere Handseite. Die Form „Handrücken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Handrücken trägt er eine kleine Narbe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf dem Handrücken trägt er eine kleine Narbe.\" checked. All four options evaluated: Handinnenfläche: rejected; wrong referent, grammatical form or contextual meaning; Handrücken: correct for noun form and contextual meaning; Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1066-v2",
+          "contextKey": "legacy-0110-L1066-context-2",
+          "transferKey": "legacy-0110-L1066-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011012",
+            "type": "choice",
+            "prompt": "Sie drehte die Hand um und betrachtete den ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She looked at the outer side of her hand.",
+              "de": "Sie betrachtete die äußere Seite der Hand."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hammer"
+              },
+              {
+                "id": "1",
+                "text": "Handel"
+              },
+              {
+                "id": "2",
+                "text": "Handrücken"
+              },
+              {
+                "id": "3",
+                "text": "Hauptbahnhof"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Handrücken means back of the hand here; \"Handrücken\" is the appropriate form.",
+              "de": "Handrücken bedeutet hier: Handrücken als äußere Handseite. Die Form „Handrücken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie drehte die Hand um und betrachtete den Handrücken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Sie drehte die Hand um und betrachtete den Handrücken.\" checked. All four options evaluated: Hammer: rejected; wrong referent, grammatical form or contextual meaning; Handel: rejected; wrong referent, grammatical form or contextual meaning; Handrücken: correct for noun form and contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011013",
+      "title": {
+        "en": "Using Handwerk in context",
+        "de": "Handwerk im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handwerk: skilled manual trade or craft, in two different situations.",
+        "de": "Handwerk erkennen und verwenden: Handwerk als handwerklicher Berufszweig, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handwerk meaning skilled manual trade or craft, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1068 (d191b11b9678be515fbb81be2626a8b044e2b17387613db18406ca1762736194), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1068-v1",
+          "contextKey": "legacy-0110-L1068-context-1",
+          "transferKey": "legacy-0110-L1068-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011013",
+            "type": "gap_choice",
+            "prompt": "Tischlerei und Metallbau gehören zum ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "These are skilled manual trades.",
+              "de": "Diese Berufe gehören zu handwerklichen Tätigkeiten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Handwerk"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handgepäck"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handwerk means skilled manual trade or craft here; \"Handwerk\" is the appropriate form.",
+              "de": "Handwerk bedeutet hier: Handwerk als handwerklicher Berufszweig. Die Form „Handwerk“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Tischlerei und Metallbau gehören zum Handwerk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Tischlerei und Metallbau gehören zum Handwerk.\" checked. All four options evaluated: Handwerk: correct for noun form and contextual meaning; Handel: rejected; wrong referent, grammatical form or contextual meaning; Handgepäck: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1068-v2",
+          "contextKey": "legacy-0110-L1068-context-2",
+          "transferKey": "legacy-0110-L1068-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011013",
+            "type": "choice",
+            "prompt": "In seiner Ausbildung lernte er ein traditionelles ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He learned a skilled craft.",
+              "de": "Er erlernte einen handwerklichen Beruf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handbuch"
+              },
+              {
+                "id": "1",
+                "text": "Hammer"
+              },
+              {
+                "id": "2",
+                "text": "Halt"
+              },
+              {
+                "id": "3",
+                "text": "Handwerk"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Handwerk means skilled manual trade or craft here; \"Handwerk\" is the appropriate form.",
+              "de": "Handwerk bedeutet hier: Handwerk als handwerklicher Berufszweig. Die Form „Handwerk“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In seiner Ausbildung lernte er ein traditionelles Handwerk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In seiner Ausbildung lernte er ein traditionelles Handwerk.\" checked. All four options evaluated: Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Halt: rejected; wrong referent, grammatical form or contextual meaning; Handwerk: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011014",
+      "title": {
+        "en": "Using Handwerker in context",
+        "de": "Handwerker im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Handwerker: male craftsperson, in two different situations.",
+        "de": "Handwerker erkennen und verwenden: Handwerker als Fachkraft für Reparatur oder Bau, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Handwerker meaning male craftsperson, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1069 (8b9cab5ebd7518c6c4cc2c8899c3b8cc9da6a14b82843e06402a9408b8bb4111), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1069-v1",
+          "contextKey": "legacy-0110-L1069-context-1",
+          "transferKey": "legacy-0110-L1069-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011014",
+            "type": "gap_choice",
+            "prompt": "Der beauftragte ___ repariert das undichte Fenster.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A skilled worker was hired for the repair.",
+              "de": "Eine Fachkraft wurde für die Reparatur beauftragt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Händler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handwerker"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausbewohner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhof"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Handwerker means male craftsperson here; \"Handwerker\" is the appropriate form.",
+              "de": "Handwerker bedeutet hier: Handwerker als Fachkraft für Reparatur oder Bau. Die Form „Handwerker“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der beauftragte Handwerker repariert das undichte Fenster.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der beauftragte Handwerker repariert das undichte Fenster.\" checked. All four options evaluated: Händler: rejected; wrong referent, grammatical form or contextual meaning; Handwerker: correct for noun form and contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1069-v2",
+          "contextKey": "legacy-0110-L1069-context-2",
+          "transferKey": "legacy-0110-L1069-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011014",
+            "type": "choice",
+            "prompt": "Für die Renovierung bestellte sie einen erfahrenen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She hired a skilled tradesperson.",
+              "de": "Sie beauftragte eine erfahrene Fachkraft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Händler"
+              },
+              {
+                "id": "1",
+                "text": "Hausbewohner"
+              },
+              {
+                "id": "2",
+                "text": "Handwerker"
+              },
+              {
+                "id": "3",
+                "text": "Hammer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Handwerker means male craftsperson here; \"Handwerker\" is the appropriate form.",
+              "de": "Handwerker bedeutet hier: Handwerker als Fachkraft für Reparatur oder Bau. Die Form „Handwerker“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Renovierung bestellte sie einen erfahrenen Handwerker.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für die Renovierung bestellte sie einen erfahrenen Handwerker.\" checked. All four options evaluated: Händler: rejected; wrong referent, grammatical form or contextual meaning; Hausbewohner: rejected; wrong referent, grammatical form or contextual meaning; Handwerker: correct for noun form and contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011015",
+      "title": {
+        "en": "Using Hauptaussage in context",
+        "de": "Hauptaussage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hauptaussage: main point or central message, in two different situations.",
+        "de": "Hauptaussage erkennen und verwenden: Hauptaussage als zentrale Botschaft, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hauptaussage meaning main point or central message, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1071 (d6f82a67eb0dae4130b7e0b515f80bf2451f72369c02c37dbf0570a38db3cd02), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1071-v1",
+          "contextKey": "legacy-0110-L1071-context-1",
+          "transferKey": "legacy-0110-L1071-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011015",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Artikels steht schon in der Einleitung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The article's central message is in the introduction.",
+              "de": "Die zentrale Botschaft steht am Anfang."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hauptaussage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Handlung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hälfte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Haltbarkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hauptaussage means main point or central message here; \"Hauptaussage\" is the appropriate form.",
+              "de": "Hauptaussage bedeutet hier: Hauptaussage als zentrale Botschaft. Die Form „Hauptaussage“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hauptaussage des Artikels steht schon in der Einleitung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Hauptaussage des Artikels steht schon in der Einleitung.\" checked. All four options evaluated: Hauptaussage: correct for noun form and contextual meaning; Handlung: rejected; wrong referent, grammatical form or contextual meaning; Hälfte: rejected; wrong referent, grammatical form or contextual meaning; Haltbarkeit: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1071-v2",
+          "contextKey": "legacy-0110-L1071-context-2",
+          "transferKey": "legacy-0110-L1071-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011015",
+            "type": "choice",
+            "prompt": "Kannst du die ___ des Vortrags in einem Satz zusammenfassen?",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants the key message.",
+              "de": "Die Person möchte die zentrale Aussage hören."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handbuch"
+              },
+              {
+                "id": "1",
+                "text": "Handel"
+              },
+              {
+                "id": "2",
+                "text": "Hammer"
+              },
+              {
+                "id": "3",
+                "text": "Hauptaussage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hauptaussage means main point or central message here; \"Hauptaussage\" is the appropriate form.",
+              "de": "Hauptaussage bedeutet hier: Hauptaussage als zentrale Botschaft. Die Form „Hauptaussage“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du die Hauptaussage des Vortrags in einem Satz zusammenfassen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Kannst du die Hauptaussage des Vortrags in einem Satz zusammenfassen?\" checked. All four options evaluated: Handbuch: rejected; wrong referent, grammatical form or contextual meaning; Handel: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hauptaussage: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011016",
+      "title": {
+        "en": "Using Hauptbahnhof in context",
+        "de": "Hauptbahnhof im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hauptbahnhof: main railway station, in two different situations.",
+        "de": "Hauptbahnhof erkennen und verwenden: Hauptbahnhof als zentraler Bahnhof, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hauptbahnhof meaning main railway station, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1072 (ef828a9573cc83270ebc0d916df224c094b1520325876baf44bfadece8945176), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1072-v1",
+          "contextKey": "legacy-0110-L1072-context-1",
+          "transferKey": "legacy-0110-L1072-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011016",
+            "type": "gap_choice",
+            "prompt": "Der Fernzug fährt um neun Uhr am ___ ab.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The long-distance train departs from the main station.",
+              "de": "Der Fernzug startet am zentralen Bahnhof."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hallenbad"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hauptbahnhof"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handwerk"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handbuch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hauptbahnhof means main railway station here; \"Hauptbahnhof\" is the appropriate form.",
+              "de": "Hauptbahnhof bedeutet hier: Hauptbahnhof als zentraler Bahnhof. Die Form „Hauptbahnhof“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fernzug fährt um neun Uhr am Hauptbahnhof ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Fernzug fährt um neun Uhr am Hauptbahnhof ab.\" checked. All four options evaluated: Hallenbad: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: correct for noun form and contextual meaning; Handwerk: rejected; wrong referent, grammatical form or contextual meaning; Handbuch: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1072-v2",
+          "contextKey": "legacy-0110-L1072-context-2",
+          "transferKey": "legacy-0110-L1072-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011016",
+            "type": "choice",
+            "prompt": "Wir treffen uns am ___, direkt vor dem Haupteingang.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The meeting place is the main railway station.",
+              "de": "Treffpunkt ist der zentrale Bahnhof."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Handgepäck"
+              },
+              {
+                "id": "1",
+                "text": "Hammer"
+              },
+              {
+                "id": "2",
+                "text": "Hauptbahnhof"
+              },
+              {
+                "id": "3",
+                "text": "Händler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hauptbahnhof means main railway station here; \"Hauptbahnhof\" is the appropriate form.",
+              "de": "Hauptbahnhof bedeutet hier: Hauptbahnhof als zentraler Bahnhof. Die Form „Hauptbahnhof“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir treffen uns am Hauptbahnhof, direkt vor dem Haupteingang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wir treffen uns am Hauptbahnhof, direkt vor dem Haupteingang.\" checked. All four options evaluated: Handgepäck: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhof: correct for noun form and contextual meaning; Händler: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011019",
+      "title": {
+        "en": "Using Hausbewohner in context",
+        "de": "Hausbewohner im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Hausbewohner: resident of a building, in two different situations.",
+        "de": "Hausbewohner erkennen und verwenden: Hausbewohner als im Haus lebende Person, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Hausbewohner meaning resident of a building, including appropriate form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L1078 (9ecb0d119582e75287d8390645c858a03a04b3fb32a0854ce6273e6cb4174d05), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0110-L1078-v1",
+          "contextKey": "legacy-0110-L1078-context-1",
+          "transferKey": "legacy-0110-L1078-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011019",
+            "type": "gap_choice",
+            "prompt": "Alle ___ wurden über die geplante Wasserabschaltung informiert.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Everyone living in the building received notice.",
+              "de": "Alle Menschen, die im Haus wohnen, wurden informiert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausbewohner"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Händler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Handwerker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hauptbahnhöfe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hausbewohner means resident of a building here; \"Hausbewohner\" is the appropriate form.",
+              "de": "Hausbewohner bedeutet hier: Hausbewohner als im Haus lebende Person. Die Form „Hausbewohner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle Hausbewohner wurden über die geplante Wasserabschaltung informiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Alle Hausbewohner wurden über die geplante Wasserabschaltung informiert.\" checked. All four options evaluated: Hausbewohner: correct for noun form and contextual meaning; Händler: rejected; wrong referent, grammatical form or contextual meaning; Handwerker: rejected; wrong referent, grammatical form or contextual meaning; Hauptbahnhöfe: rejected; wrong referent, grammatical form or contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0110-L1078-v2",
+          "contextKey": "legacy-0110-L1078-context-2",
+          "transferKey": "legacy-0110-L1078-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001100191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011019",
+            "type": "choice",
+            "prompt": "Der ___ aus dem dritten Stock meldete den defekten Aufzug der Hausverwaltung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A resident reported the broken lift.",
+              "de": "Ein Bewohner des Hauses meldete den Defekt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Händler"
+              },
+              {
+                "id": "1",
+                "text": "Handwerker"
+              },
+              {
+                "id": "2",
+                "text": "Hammer"
+              },
+              {
+                "id": "3",
+                "text": "Hausbewohner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hausbewohner means resident of a building here; \"Hausbewohner\" is the appropriate form.",
+              "de": "Hausbewohner bedeutet hier: Hausbewohner als im Haus lebende Person. Die Form „Hausbewohner“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hausbewohner aus dem dritten Stock meldete den defekten Aufzug der Hausverwaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Hausbewohner aus dem dritten Stock meldete den defekten Aufzug der Hausverwaltung.\" checked. All four options evaluated: Händler: rejected; wrong referent, grammatical form or contextual meaning; Handwerker: rejected; wrong referent, grammatical form or contextual meaning; Hammer: rejected; wrong referent, grammatical form or contextual meaning; Hausbewohner: correct for noun form and contextual meaning. Bilingual hint and explanation checked; no second defensible offered answer in intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    }
+  ]
+}
