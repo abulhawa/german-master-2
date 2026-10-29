@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "batchId": "legacy-0138",
+  "state": "ready-for-review",
+  "catalogSha256": "88b19368b5879a08edd2ebcbb6567f2929c044b1cf310a5b72ae2f0f34ec7836",
+  "aiReviewer": "GPT-6 (AI editorial review; not independent human approval)",
+  "reviewedAt": "2026-10-29",
+  "reviewNotes": "Separate question-by-question AI editorial review of all 34 questions and 136 offered options. Independently selected each answer, checked each distractor, complete German sentence, grammatical agreement, B1/B2 level, bilingual feedback, distinct use cases, source and rights notes. Three uncertain or duplicative sources deferred. Structural CI still required; human linguistic, CEFR and rights approval pending.",
+  "rows": [
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1815",
+      "sourceHash": "db78d510882d339961e66181ee31182372c0c32aa0f29c80ae104f4b8c9b3285",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Inherited Polizist entry incorrectly labels grammatical gender as die; standard masculine form is der Polizist. The English gloss also falsely calls this form female-inclusive. Defer gender/role mapping and correction until reviewed.",
+      "corrections": "Inherited noun gender die is wrong for Polizist; do not publish misleading gender or form.",
+      "rightsBasis": "No question text reused or authored for this unresolved source; inherited lexical facts require linguistic/provenance review before publication."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1816",
+      "sourceHash": "fad4f05e306542c4cd9c200755043be3abbf07477d9e46d4f10b4bc0c7b104ee",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013801"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Polizistin; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Feminine role and article die verified; no gender-neutral implication.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1817",
+      "sourceHash": "d70435ec96de9128ca73bbc7fbb3072459dff1785a744a45c215959eb0c3d922",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013802"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Portal; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Noun das Portal, plural Portale; focus on digital access, not architectural meaning.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1818",
+      "sourceHash": "4207b7743b04ba86208dd86013e5add50fe212018e7a4456209577a4a1c2954b",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013803"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Portemonnaie; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Das Portemonnaie and plural Portemonnaies verified; separate spelling variant deferred.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1820",
+      "sourceHash": "c06895038bb6b62f80b7c3af368934dabf6762d53a6c7c71bda8ea47da55f9ce",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Portmonee is an alternative spelling of Portemonnaie (source line 1818); same lexical meaning. Defer duplicate target mapping because intra-batch references cannot be treated as prior validated targets.",
+      "corrections": "Alternative orthography overlaps Portemonnaie; do not invent a second learning objective.",
+      "rightsBasis": "No question text reused or authored for this unresolved source; inherited lexical facts require linguistic/provenance review before publication."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1821",
+      "sourceHash": "33cfef6e2b4f1a9b04ffddd8303f2befaae2a421a21846387ae0a76ad1ad4e61",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013805"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Position; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Position is polysemous; narrow objective to employment role; die Position, plural Positionen.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1826",
+      "sourceHash": "e27323ea8ed6862daa02e0a50bfbdeb4452dc3f5570f002942e18901cd5130ae",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Poulet for chicken meat is chiefly Swiss regional usage; the source's plural and intended B1 geographic scope require human regional-language review.",
+      "corrections": "Regional German and uncertain plural; no standard-Germany default assumed.",
+      "rightsBasis": "No question text reused or authored for this unresolved source; inherited lexical facts require linguistic/provenance review before publication."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1827",
+      "sourceHash": "6ddccf18e61c8bb91db04dadcfcafe234c1354203e53c38161263aec095041f7",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013807"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Praktikant; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Der Praktikant is a weak masculine noun, plural Praktikanten; distinguish from female role.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1828",
+      "sourceHash": "0c5e9560178591a0220fd1d1aa679ed5006b79d43307fec346ca8b8772e67065",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013808"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Praktikantin; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Praktikantin, plural Praktikantinnen; gendered form is a separate lexical recognition objective.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1830",
+      "sourceHash": "8d685e8abf1bacdba3cec50444f7b51880b678536e7f79edf93776097bbaf155",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013809"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Präsentation; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Präsentation, plural Präsentationen; distinguish from application and survey.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1831",
+      "sourceHash": "05c3bf588e2744bd75911808e46e0ff50baf1e148531e5243c1b7d4c63db9065",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013810"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Präsenz; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Präsenz has several senses; use physical attendance only; inherited plural -en not generally suitable for this sense.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1832",
+      "sourceHash": "cbe8e4d8ea3b7a72df5316cb2a9a4f6ceee57b50ef37199bd505e8bc0fd2b71c",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013811"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Präsenzseminar; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Das Präsenzseminar, plural Präsenzseminare; distinguish from synchronous online events.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1834",
+      "sourceHash": "0ac4cf47d61bb734b13bae7f94a43a54047ee1f682831f4250750ffb3d1919ae",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013812"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Praxismodul; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Praxismodul is context-dependent institutional terminology; limit to course module with practical activities.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1836",
+      "sourceHash": "c57475fc0215358822d18556c7b56419e0dd351bf59e295bc83e853f8d831502",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013813"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Preis-Leistungs-Verhältnis; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Das Preis-Leistungs-Verhältnis, plural Preis-Leistungs-Verhältnisse; use value comparison, not absolute low price.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1837",
+      "sourceHash": "b88f0860bffdf623fa85fa0ede0f2eac2e95b6d0ebe0e21be86e9fab1761a24c",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013814"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Pressesprecher; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Der Pressesprecher, plural Pressesprecher; official communications role, not any journalist.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1838",
+      "sourceHash": "0fa0e3bea72cc83ac181254fed2ab62322a8869ce5a62f9c7337c7d9791a7562",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013815"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Pressesprecherin; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Pressesprecherin, plural Pressesprecherinnen; female designation reviewed separately.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1839",
+      "sourceHash": "d50da8189339ddabd679231d0793e649622fa1c880a3c1b099ac0a86628a0adc",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013816"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Prinzip; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Das Prinzip, plural Prinzipien; focus on guiding rule rather than scientific principle.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1840",
+      "sourceHash": "9752daa98fc6e5bce6c7e7857a69901a6ff787472de02afa905c16825dab0111",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013817"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Priorität; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Priorität, plural Prioritäten; rank urgent tasks, not vague importance alone.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1841",
+      "sourceHash": "9b91cf4bcf919398e99f8efb5b5537f4684c8ade92200bf0a8b6d903a9923985",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013818"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Probefahrt; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Probefahrt, plural Probefahrten; distinguish from driving test and commute.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L1842",
+      "sourceHash": "b2fb880b0984f32fb299d4d14c90e972154fb7bced25b97da18e77b656c6d08b",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000013819"
+      ],
+      "notes": "Two original variants: contextual selection and independent situation interpretation of Probezeit; AI reviewed all eight offered options and both complete German answers.",
+      "corrections": "Die Probezeit, plural Probezeiten; do not teach unverified dismissal rules from inherited example.",
+      "rightsBasis": "Only lexical facts and common grammatical knowledge used from pinned inherited record. Original prompts, options, hints and explanations authored here, no inherited example copied. Human source-rights review pending."
+    }
+  ]
+}
