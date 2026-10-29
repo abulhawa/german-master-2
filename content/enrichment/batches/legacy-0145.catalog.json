@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000014500",
+      "title": {
+        "en": "Understanding Rückflug in context",
+        "de": "Rückflug im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rückflug in its return flight sense.",
+        "de": "Rückflug in der Bedeutung Rückflug erkennen."
+      },
+      "objective": "Recognize the noun Rückflug in the specified return flight sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2001 (88e35a33e6d077e41bc6801f49c960098e18d98d45da63471bf1cfe7b7cef424), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2001-v1",
+          "contextKey": "legacy-0145-L2001-context-1",
+          "transferKey": "legacy-0145-L2001-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014500",
+            "type": "gap_choice",
+            "prompt": "Für die Reise nach Madrid ist der Hinflug gebucht, aber der ___ fehlt noch.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The missing booking is for travelling home.",
+              "de": "Die fehlende Buchung betrifft die Heimreise."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abflug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rückflug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zwischenstopp"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Check-in"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rückflug means the flight back.",
+              "de": "Rückflug bezeichnet den Flug zurück."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reise nach Madrid ist der Hinflug gebucht, aber der Rückflug fehlt noch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rückflug\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Abflug\": Abflug is departure, not necessarily the return booking. \"Zwischenstopp\": A stopover is a connection. \"Check-in\": Check-in is the registration before flying. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2001-v2",
+          "contextKey": "legacy-0145-L2001-context-2",
+          "transferKey": "legacy-0145-L2001-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014500",
+            "type": "choice",
+            "prompt": "Nach dem Urlaub fliegt die Familie von Rom wieder nach Berlin. Wie nennt man diesen Flug?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are returning to their starting city.",
+              "de": "Sie fliegen in ihre Ausgangsstadt zurück."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hinflug"
+              },
+              {
+                "id": "1",
+                "text": "Rundflug"
+              },
+              {
+                "id": "2",
+                "text": "Probeflug"
+              },
+              {
+                "id": "3",
+                "text": "Rückflug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The journey is the Rückflug.",
+              "de": "Die Reise ist der Rückflug."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie nimmt den Rückflug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rückflug\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Hinflug\": Hinflug is the outward flight. \"Rundflug\": Rundflug is a circular sightseeing flight. \"Probeflug\": Probeflug is a test flight. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014501",
+      "title": {
+        "en": "Understanding Rückfrage in context",
+        "de": "Rückfrage im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rückfrage in its follow-up question to clarify something sense.",
+        "de": "Rückfrage in der Bedeutung Rückfrage erkennen."
+      },
+      "objective": "Recognize the noun Rückfrage in the specified follow-up question to clarify something sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2002 (f29d4f7f6039fbcb37d7e176469ab80a5e0279a817aaa24999e92b22fd69309f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2002-v1",
+          "contextKey": "legacy-0145-L2002-context-1",
+          "transferKey": "legacy-0145-L2002-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014501",
+            "type": "gap_choice",
+            "prompt": "Weil die Rechnung unklar war, stellte die Kundin eine kurze ___ per E-Mail.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She asks for clarification.",
+              "de": "Sie bittet um eine Klärung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rückfrage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reklame"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rückfrage is a question asked to clarify something.",
+              "de": "Eine Rückfrage dient der Klärung einer Unklarheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil die Rechnung unklar war, stellte die Kundin eine kurze Rückfrage per E-Mail.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rückfrage\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Bestellung\": An order requests goods. \"Reklame\": Advertising promotes products. \"Lieferung\": Delivery transports goods. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2002-v2",
+          "contextKey": "legacy-0145-L2002-context-2",
+          "transferKey": "legacy-0145-L2002-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014501",
+            "type": "choice",
+            "prompt": "Ein Kollege versteht einen Punkt im Bericht nicht und fragt gezielt noch einmal nach. Was stellt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is asking an additional clarifying question.",
+              "de": "Er stellt eine zusätzliche klärende Frage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Reservierung"
+              },
+              {
+                "id": "2",
+                "text": "Rückfrage"
+              },
+              {
+                "id": "3",
+                "text": "Mahnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "He asks a Rückfrage.",
+              "de": "Er stellt eine Rückfrage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kollege stellt eine Rückfrage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rückfrage\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Rechnung\": An invoice requests payment. \"Reservierung\": A reservation books a service. \"Mahnung\": A payment reminder concerns an overdue bill. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014502",
+      "title": {
+        "en": "Understanding Rückkehr in context",
+        "de": "Rückkehr im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rückkehr in its return to a place sense.",
+        "de": "Rückkehr in der Bedeutung Rückkehr erkennen."
+      },
+      "objective": "Recognize the noun Rückkehr in the specified return to a place sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2003 (c789238bb6f16c0376cda3ec8d9f1259f3a94c169cd39d275396772090610241), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2003-v1",
+          "contextKey": "legacy-0145-L2003-context-1",
+          "transferKey": "legacy-0145-L2003-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014502",
+            "type": "gap_choice",
+            "prompt": "Nach zwei Jahren im Ausland freute sie sich auf ihre ___ in die Heimatstadt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She is going back to a place she knows.",
+              "de": "Sie geht an einen früheren Ort zurück."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abreise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rückkehr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rückkehr means coming back.",
+              "de": "Rückkehr bedeutet das Zurückkommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zwei Jahren im Ausland freute sie sich auf ihre Rückkehr in die Heimatstadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rückkehr\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Abreise\": Abreise means departure. \"Bewerbung\": A job application seeks work. \"Lieferung\": Delivery transports goods. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2003-v2",
+          "contextKey": "legacy-0145-L2003-context-2",
+          "transferKey": "legacy-0145-L2003-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014502",
+            "type": "choice",
+            "prompt": "Ein Forscher arbeitet lange im Ausland und kommt dann wieder an seine alte Universität. Wie heißt dieses Zurückkommen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He comes back rather than leaves.",
+              "de": "Er kommt zurück, statt wegzugehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aufbruch"
+              },
+              {
+                "id": "1",
+                "text": "Rückkehr"
+              },
+              {
+                "id": "2",
+                "text": "Umzug ins Ausland"
+              },
+              {
+                "id": "3",
+                "text": "Entlassung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The event is Rückkehr.",
+              "de": "Das Ereignis ist eine Rückkehr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist seine Rückkehr an die Universität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rückkehr\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Aufbruch\": Aufbruch is setting out. \"Umzug ins Ausland\": Moving abroad is the opposite direction. \"Entlassung\": Dismissal ends employment. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014503",
+      "title": {
+        "en": "Understanding Rückmeldung in context",
+        "de": "Rückmeldung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rückmeldung in its feedback or response sense.",
+        "de": "Rückmeldung in der Bedeutung Rückmeldung erkennen."
+      },
+      "objective": "Recognize the noun Rückmeldung in the specified feedback or response sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2004 (245636a40c02348336eff564d6601aec501d626817e5c3617ff3e4529afa409a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2004-v1",
+          "contextKey": "legacy-0145-L2004-context-1",
+          "transferKey": "legacy-0145-L2004-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014503",
+            "type": "gap_choice",
+            "prompt": "Die Projektleiterin bat bis Donnerstag um eine ___ zum neuen Entwurf.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She wants an answer or feedback.",
+              "de": "Sie möchte eine Antwort oder Einschätzung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anzahlung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rückmeldung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reservierung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rückmeldung means feedback or response.",
+              "de": "Rückmeldung bedeutet Antwort oder Feedback."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Projektleiterin bat bis Donnerstag um eine Rückmeldung zum neuen Entwurf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rückmeldung\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Lieferung\": Delivery concerns goods. \"Anzahlung\": A down payment is money. \"Reservierung\": A reservation books a service. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2004-v2",
+          "contextKey": "legacy-0145-L2004-context-2",
+          "transferKey": "legacy-0145-L2004-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014503",
+            "type": "choice",
+            "prompt": "Ein Team schickt einen Entwurf; die Kundin antwortet mit ihrer Einschätzung. Was gibt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She responds to the submitted work.",
+              "de": "Sie antwortet auf den vorgelegten Entwurf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückmeldung"
+              },
+              {
+                "id": "1",
+                "text": "Bestellung"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Mahnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The response is Rückmeldung.",
+              "de": "Die Antwort ist eine Rückmeldung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kundin gibt eine Rückmeldung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rückmeldung\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Bestellung\": An order requests goods. \"Rechnung\": An invoice requests payment. \"Mahnung\": A reminder requests overdue payment. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014504",
+      "title": {
+        "en": "Understanding Rufnummer in context",
+        "de": "Rufnummer im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rufnummer in its telephone number sense.",
+        "de": "Rufnummer in der Bedeutung Rufnummer erkennen."
+      },
+      "objective": "Recognize the noun Rufnummer in the specified telephone number sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2006 (b852226b2792b94c76615092c869771748998ff5db7dba40c5c0a430507c4d7b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2006-v1",
+          "contextKey": "legacy-0145-L2006-context-1",
+          "transferKey": "legacy-0145-L2006-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014504",
+            "type": "gap_choice",
+            "prompt": "Für den Rückruf hinterließ der Kunde seine ___ auf dem Formular.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company needs to call him.",
+              "de": "Die Firma muss ihn telefonisch erreichen können."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Postleitzahl"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rufnummer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausnummer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kundennummer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rufnummer is a telephone number.",
+              "de": "Rufnummer bedeutet Telefonnummer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Rückruf hinterließ der Kunde seine Rufnummer auf dem Formular.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rufnummer\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Postleitzahl\": A postal code locates an area. \"Hausnummer\": A house number identifies a building. \"Kundennummer\": A customer number identifies an account, not a phone line. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2006-v2",
+          "contextKey": "legacy-0145-L2006-context-2",
+          "transferKey": "legacy-0145-L2006-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014504",
+            "type": "choice",
+            "prompt": "Eine Mitarbeiterin möchte jemanden anrufen und bittet um die Ziffern seines Telefonanschlusses. Wonach fragt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She needs a number for making a call.",
+              "de": "Sie braucht die Nummer zum Telefonieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bankverbindung"
+              },
+              {
+                "id": "1",
+                "text": "Geburtsdatum"
+              },
+              {
+                "id": "2",
+                "text": "Lieferadresse"
+              },
+              {
+                "id": "3",
+                "text": "Rufnummer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "She asks for the Rufnummer.",
+              "de": "Sie fragt nach der Rufnummer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie fragt nach der Rufnummer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rufnummer\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Bankverbindung\": Bank details are for payments. \"Geburtsdatum\": Date of birth is personal information. \"Lieferadresse\": A delivery address is for shipping. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014507",
+      "title": {
+        "en": "Understanding Rundfahrt in context",
+        "de": "Rundfahrt im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rundfahrt in its circular sightseeing tour by vehicle sense.",
+        "de": "Rundfahrt in der Bedeutung Rundfahrt erkennen."
+      },
+      "objective": "Recognize the noun Rundfahrt in the specified circular sightseeing tour by vehicle sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2010 (18a126ad3767211303bea9684daca02a325d1e89039d95c88a1fd60f71d4eef5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2010-v1",
+          "contextKey": "legacy-0145-L2010-context-1",
+          "transferKey": "legacy-0145-L2010-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014507",
+            "type": "gap_choice",
+            "prompt": "Die Gäste machten eine ___ mit dem Bus durch die historische Altstadt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The bus takes them around to see sights.",
+              "de": "Der Bus fährt mit den Gästen zu Sehenswürdigkeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rückfahrt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Probefahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rundfahrt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dienstreise"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rundfahrt is a tour travelling around an area.",
+              "de": "Eine Rundfahrt ist eine Fahrt durch ein Gebiet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gäste machten eine Rundfahrt mit dem Bus durch die historische Altstadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rundfahrt\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Rückfahrt\": Rückfahrt returns to a starting point after a trip. \"Probefahrt\": Probefahrt tests a vehicle. \"Dienstreise\": Dienstreise is work travel, not necessarily sightseeing. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2010-v2",
+          "contextKey": "legacy-0145-L2010-context-2",
+          "transferKey": "legacy-0145-L2010-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014507",
+            "type": "choice",
+            "prompt": "Ein Bus fährt eine feste Strecke an mehreren Sehenswürdigkeiten vorbei und endet am Ausgangspunkt. Wie heißt diese Tour?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The tour uses a vehicle to visit sights.",
+              "de": "Die Besichtigung findet mit einem Fahrzeug statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rundfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Flugreise"
+              },
+              {
+                "id": "2",
+                "text": "Fußwanderung"
+              },
+              {
+                "id": "3",
+                "text": "Lieferfahrt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "This is a Rundfahrt.",
+              "de": "Das ist eine Rundfahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe macht eine Rundfahrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rundfahrt\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Flugreise\": A flight is air travel. \"Fußwanderung\": A hike is on foot. \"Lieferfahrt\": A delivery run transports goods. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014508",
+      "title": {
+        "en": "Understanding Rundgang in context",
+        "de": "Rundgang im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Rundgang in its walking tour or guided walk-through sense.",
+        "de": "Rundgang in der Bedeutung Rundgang erkennen."
+      },
+      "objective": "Recognize the noun Rundgang in the specified walking tour or guided walk-through sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2011 (e8c9c410a97124999e0f136cf35178e4ee20247959dd67f96b8bd728eefcfe72), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2011-v1",
+          "contextKey": "legacy-0145-L2011-context-1",
+          "transferKey": "legacy-0145-L2011-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014508",
+            "type": "gap_choice",
+            "prompt": "Beim ___ durch das Museum erklärte die Führerin die wichtigsten Exponate.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The group walks through an exhibition.",
+              "de": "Die Gruppe geht zu Fuß durch die Ausstellung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rückflug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rundgang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reifenwechsel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkauf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Rundgang is a walk through a place.",
+              "de": "Ein Rundgang ist ein Gang durch ein Gebäude oder Gebiet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Rundgang durch das Museum erklärte die Führerin die wichtigsten Exponate.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Rundgang\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Rückflug\": Rückflug is a flight back. \"Reifenwechsel\": Reifenwechsel replaces tyres. \"Verkauf\": Verkauf is a sale. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2011-v2",
+          "contextKey": "legacy-0145-L2011-context-2",
+          "transferKey": "legacy-0145-L2011-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014508",
+            "type": "choice",
+            "prompt": "Neue Beschäftigte gehen mit einer Kollegin durch alle Abteilungen des Gebäudes. Wie nennt man diese Besichtigung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They move through the building on foot.",
+              "de": "Sie gehen zu Fuß durch das Gebäude."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rundfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Fernreise"
+              },
+              {
+                "id": "2",
+                "text": "Videokonferenz"
+              },
+              {
+                "id": "3",
+                "text": "Rundgang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The visit is a Rundgang.",
+              "de": "Die Besichtigung ist ein Rundgang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beschäftigten machen einen Rundgang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Rundgang\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Rundfahrt\": Rundfahrt is a vehicle tour. \"Fernreise\": Fernreise is a long-distance trip. \"Videokonferenz\": Videokonferenz takes place remotely. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014510",
+      "title": {
+        "en": "Understanding Sachbearbeiter in context",
+        "de": "Sachbearbeiter im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sachbearbeiter in its male administrative caseworker sense.",
+        "de": "Sachbearbeiter in der Bedeutung männlicher Sachbearbeiter erkennen."
+      },
+      "objective": "Recognize the noun Sachbearbeiter in the specified male administrative caseworker sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2014 (3edabfa7388663cd775f467934d832720223fb9d9e38680a01743d5cea8535df), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2014-v1",
+          "contextKey": "legacy-0145-L2014-context-1",
+          "transferKey": "legacy-0145-L2014-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014510",
+            "type": "gap_choice",
+            "prompt": "Der zuständige ___ prüft die eingereichten Unterlagen und bearbeitet den Antrag.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The task is administrative case processing.",
+              "de": "Die Aufgabe ist die Bearbeitung eines Verwaltungsvorgangs."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kellner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sachbearbeiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Sachbearbeiter processes administrative cases.",
+              "de": "Ein Sachbearbeiter bearbeitet Verwaltungsvorgänge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der zuständige Sachbearbeiter prüft die eingereichten Unterlagen und bearbeitet den Antrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sachbearbeiter\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Hausmeister\": A caretaker maintains buildings. \"Kellner\": A waiter serves food. \"Mechaniker\": A mechanic repairs machines. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2014-v2",
+          "contextKey": "legacy-0145-L2014-context-2",
+          "transferKey": "legacy-0145-L2014-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014510",
+            "type": "choice",
+            "prompt": "Ein Mann bearbeitet in einer Behörde Anträge und führt die dazugehörigen Akten. Welche Funktion passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He handles documents and cases.",
+              "de": "Er bearbeitet Akten und Vorgänge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Busfahrer"
+              },
+              {
+                "id": "1",
+                "text": "Sachbearbeiter"
+              },
+              {
+                "id": "2",
+                "text": "Lagerist"
+              },
+              {
+                "id": "3",
+                "text": "Koch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The role is Sachbearbeiter.",
+              "de": "Die Funktion ist Sachbearbeiter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann arbeitet als Sachbearbeiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sachbearbeiter\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Busfahrer\": A bus driver transports passengers. \"Lagerist\": A warehouse worker manages goods. \"Koch\": A cook prepares meals. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014511",
+      "title": {
+        "en": "Understanding Sachkenntnis in context",
+        "de": "Sachkenntnis im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sachkenntnis in its specialist knowledge or expertise sense.",
+        "de": "Sachkenntnis in der Bedeutung Sachkenntnis erkennen."
+      },
+      "objective": "Recognize the noun Sachkenntnis in the specified specialist knowledge or expertise sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2016 (5711cded0e7b2c3e69d337b62887ec8971554ab158757bd9a215ac4c241ce0e9), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2016-v1",
+          "contextKey": "legacy-0145-L2016-context-1",
+          "transferKey": "legacy-0145-L2016-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014511",
+            "type": "gap_choice",
+            "prompt": "Mit großer ___ erklärte die Ingenieurin die Ursache des technischen Fehlers.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She demonstrates detailed subject knowledge.",
+              "de": "Sie zeigt genaue Fachkenntnisse."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ungeduld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unklarheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sachkenntnis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unordnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Sachkenntnis means expertise in a subject.",
+              "de": "Sachkenntnis bedeutet Fachwissen auf einem Gebiet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit großer Sachkenntnis erklärte die Ingenieurin die Ursache des technischen Fehlers.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sachkenntnis\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Ungeduld\": Impatience concerns waiting. \"Unklarheit\": Uncertainty means lack of clarity. \"Unordnung\": Disorder means lack of organisation. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2016-v2",
+          "contextKey": "legacy-0145-L2016-context-2",
+          "transferKey": "legacy-0145-L2016-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014511",
+            "type": "choice",
+            "prompt": "Ein Mitarbeiter kennt die technischen Regeln eines Fachgebiets sehr genau. Was besitzt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He has expertise, not merely experience of an event.",
+              "de": "Er verfügt über Fachwissen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sachkenntnis"
+              },
+              {
+                "id": "1",
+                "text": "Zufall"
+              },
+              {
+                "id": "2",
+                "text": "Langeweile"
+              },
+              {
+                "id": "3",
+                "text": "Verspätung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He has Sachkenntnis.",
+              "de": "Er besitzt Sachkenntnis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mitarbeiter besitzt Sachkenntnis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sachkenntnis\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Zufall\": Chance is randomness. \"Langeweile\": Boredom is a feeling. \"Verspätung\": Lateness is missing an agreed time. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014514",
+      "title": {
+        "en": "Understanding Säge in context",
+        "de": "Säge im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Säge in its hand saw for cutting material sense.",
+        "de": "Säge in der Bedeutung Säge erkennen."
+      },
+      "objective": "Recognize the noun Säge in the specified hand saw for cutting material sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2020 (9631a09e8c3f82f9cf671cc180b8d0d88ac9ff7d30e2fa11d0cac799330e0380), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2020-v1",
+          "contextKey": "legacy-0145-L2020-context-1",
+          "transferKey": "legacy-0145-L2020-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014514",
+            "type": "gap_choice",
+            "prompt": "Für den Zuschnitt des Holzbretts holte die Tischlerin eine scharfe ___ aus dem Werkzeugkasten.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The tool has teeth for cutting wood.",
+              "de": "Das Werkzeug hat Zähne zum Schneiden von Holz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zange"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Feile"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wasserwaage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Säge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Säge cuts material using teeth.",
+              "de": "Eine Säge trennt Material mit Zähnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Zuschnitt des Holzbretts holte die Tischlerin eine scharfe Säge aus dem Werkzeugkasten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Säge\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Zange\": Pliers grip objects. \"Feile\": A file smooths material. \"Wasserwaage\": A spirit level checks alignment. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2020-v2",
+          "contextKey": "legacy-0145-L2020-context-2",
+          "transferKey": "legacy-0145-L2020-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014514",
+            "type": "choice",
+            "prompt": "Ein Handwerkzeug hat ein gezahntes Blatt und wird zum Durchtrennen von Holz benutzt. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It cuts with a toothed blade.",
+              "de": "Es schneidet mit einem gezahnten Blatt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hammer"
+              },
+              {
+                "id": "1",
+                "text": "Säge"
+              },
+              {
+                "id": "2",
+                "text": "Schraubendreher"
+              },
+              {
+                "id": "3",
+                "text": "Pinsel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The tool is a Säge.",
+              "de": "Das Werkzeug ist eine Säge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Werkzeug ist eine Säge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Säge\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Hammer\": A hammer strikes objects. \"Schraubendreher\": A screwdriver turns screws. \"Pinsel\": A brush applies paint. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014515",
+      "title": {
+        "en": "Understanding Sägemaschine in context",
+        "de": "Sägemaschine im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sägemaschine in its powered sawing machine sense.",
+        "de": "Sägemaschine in der Bedeutung Sägemaschine erkennen."
+      },
+      "objective": "Recognize the noun Sägemaschine in the specified powered sawing machine sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2021 (fcb2f3a25f9d59a43be8e7d9af74dab5a583786b5c3be5c658c27ebad26ff1b7), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2021-v1",
+          "contextKey": "legacy-0145-L2021-context-1",
+          "transferKey": "legacy-0145-L2021-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014515",
+            "type": "gap_choice",
+            "prompt": "In der Werkstatt schneidet die automatische ___ Metallrohre auf gleiche Länge.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The machine cuts material to length.",
+              "de": "Die Maschine trennt Material auf eine bestimmte Länge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bohrmaschine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schweißanlage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sägemaschine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Druckerpresse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Sägemaschine cuts material mechanically.",
+              "de": "Eine Sägemaschine schneidet Material maschinell."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Werkstatt schneidet die automatische Sägemaschine Metallrohre auf gleiche Länge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sägemaschine\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Bohrmaschine\": A drill makes holes. \"Schweißanlage\": A welding system joins metal. \"Druckerpresse\": A printing press prints text or images. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2021-v2",
+          "contextKey": "legacy-0145-L2021-context-2",
+          "transferKey": "legacy-0145-L2021-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014515",
+            "type": "choice",
+            "prompt": "Ein motorisiertes Gerät führt ein Sägeblatt automatisch durch mehrere Werkstücke. Welche Maschine ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The machine uses a saw blade to cut.",
+              "de": "Die Maschine schneidet mit einem Sägeblatt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sägemaschine"
+              },
+              {
+                "id": "1",
+                "text": "Fräsmaschine"
+              },
+              {
+                "id": "2",
+                "text": "Waschmaschine"
+              },
+              {
+                "id": "3",
+                "text": "Hebebühne"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The machine is a Sägemaschine.",
+              "de": "Die Maschine ist eine Sägemaschine."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät ist eine Sägemaschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sägemaschine\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Fräsmaschine\": A milling machine removes material with a rotating cutter. \"Waschmaschine\": A washing machine cleans textiles. \"Hebebühne\": A lift raises loads or people. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014516",
+      "title": {
+        "en": "Understanding Sahne in context",
+        "de": "Sahne im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sahne in its cream from milk sense.",
+        "de": "Sahne in der Bedeutung Sahne erkennen."
+      },
+      "objective": "Recognize the noun Sahne in the specified cream from milk sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2022 (35c6ea7b22a83f7873b7326f0663ddb0e93879022a04e2f81997b5b1a1a3786a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2022-v1",
+          "contextKey": "legacy-0145-L2022-context-1",
+          "transferKey": "legacy-0145-L2022-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014516",
+            "type": "gap_choice",
+            "prompt": "Für die Erdbeertorte schlägt die Bäckerin frische ___ steif.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The dairy product becomes whipped cream.",
+              "de": "Das Milchprodukt lässt sich steif schlagen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Brühe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sahne"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Marmelade"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Essig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Sahne is cream from milk.",
+              "de": "Sahne ist ein fettreiches Milchprodukt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Erdbeertorte schlägt die Bäckerin frische Sahne steif.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sahne\" (option 1). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Brühe\": Broth is savoury liquid. \"Marmelade\": Jam is a fruit spread. \"Essig\": Vinegar is acidic liquid. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2022-v2",
+          "contextKey": "legacy-0145-L2022-context-2",
+          "transferKey": "legacy-0145-L2022-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014516",
+            "type": "choice",
+            "prompt": "Eine Person gibt einen weißen, fettreichen Milchbestandteil in den Kaffee. Wie heißt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a dairy ingredient.",
+              "de": "Es ist eine Zutat aus Milch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mehl"
+              },
+              {
+                "id": "1",
+                "text": "Salz"
+              },
+              {
+                "id": "2",
+                "text": "Honig"
+              },
+              {
+                "id": "3",
+                "text": "Sahne"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The ingredient is Sahne.",
+              "de": "Die Zutat ist Sahne."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person gibt Sahne in den Kaffee.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sahne\" (option 3). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Mehl\": Flour is ground grain. \"Salz\": Salt is a mineral seasoning. \"Honig\": Honey is sweet bee-produced syrup. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014517",
+      "title": {
+        "en": "Understanding Saison in context",
+        "de": "Saison im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Saison in its season for a recurring activity sense.",
+        "de": "Saison in der Bedeutung Saison erkennen."
+      },
+      "objective": "Recognize the noun Saison in the specified season for a recurring activity sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2023 (7275d1132da08a8e6152b36e9dc6b6eb0461de423e21bb044883b97ade2bbfb3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2023-v1",
+          "contextKey": "legacy-0145-L2023-context-1",
+          "transferKey": "legacy-0145-L2023-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014517",
+            "type": "gap_choice",
+            "prompt": "Die ___ für Freibäder beginnt gewöhnlich im späten Frühjahr.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity occurs during a particular part of the year.",
+              "de": "Die Tätigkeit findet in einem bestimmten Jahresabschnitt statt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Saison"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Saison is the period of the year for an activity.",
+              "de": "Saison bezeichnet einen bestimmten Jahresabschnitt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Saison für Freibäder beginnt gewöhnlich im späten Frühjahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Saison\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Rechnung\": An invoice concerns payment. \"Bewerbung\": An application seeks a role. \"Lieferung\": Delivery transports goods. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2023-v2",
+          "contextKey": "legacy-0145-L2023-context-2",
+          "transferKey": "legacy-0145-L2023-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014517",
+            "type": "choice",
+            "prompt": "Ein Skigebiet öffnet jedes Jahr im Winter für einige Monate. Wie nennt man diesen Zeitraum?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The period recurs annually.",
+              "de": "Der Zeitraum wiederholt sich jedes Jahr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pause"
+              },
+              {
+                "id": "1",
+                "text": "Stunde"
+              },
+              {
+                "id": "2",
+                "text": "Saison"
+              },
+              {
+                "id": "3",
+                "text": "Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The annual operating period is a Saison.",
+              "de": "Der jährlich wiederkehrende Zeitraum ist eine Saison."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Skisaison.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Saison\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Pause\": A break is an interruption. \"Stunde\": An hour is a fixed duration. \"Termin\": An appointment is a scheduled event. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014519",
+      "title": {
+        "en": "Understanding Salon in context",
+        "de": "Salon im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Salon in its hairdressing salon sense.",
+        "de": "Salon in der Bedeutung Friseursalon erkennen."
+      },
+      "objective": "Recognize the noun Salon in the specified hairdressing salon sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L2026 (3cc26b13071d55d2e25b971745b41997efb164d759a7eeadb22189bd16853198), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0145-L2026-v1",
+          "contextKey": "legacy-0145-L2026-context-1",
+          "transferKey": "legacy-0145-L2026-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014519",
+            "type": "gap_choice",
+            "prompt": "Der Friseur eröffnete einen neuen ___ mit sechs Bedienplätzen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The place is where customers get their hair cut.",
+              "de": "Dort lassen Kunden ihre Haare schneiden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bahnhof"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Supermarkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Salon"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hörsaal"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Salon can mean a hairdressing salon.",
+              "de": "Salon kann ein Friseurgeschäft bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Friseur eröffnete einen neuen Salon mit sechs Bedienplätzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Salon\" (option 2). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Bahnhof\": A station serves transport. \"Supermarkt\": A supermarket sells groceries. \"Hörsaal\": A lecture hall hosts teaching. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0145-L2026-v2",
+          "contextKey": "legacy-0145-L2026-context-2",
+          "transferKey": "legacy-0145-L2026-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001450191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014519",
+            "type": "choice",
+            "prompt": "Eine Kundin lässt sich in einem Geschäft die Haare schneiden und färben. Wie heißt dieser Ort?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The service is hairdressing.",
+              "de": "Die Dienstleistung ist das Frisieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Salon"
+              },
+              {
+                "id": "1",
+                "text": "Werkstatt"
+              },
+              {
+                "id": "2",
+                "text": "Apotheke"
+              },
+              {
+                "id": "3",
+                "text": "Bibliothek"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The place is a Salon.",
+              "de": "Der Ort ist ein Salon."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kundin besucht einen Salon.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Salon\" (option 0). Reviewed complete natural German sentence, grammar, B1/B2 source level, bilingual instruction/hint/explanation, single defensible answer and distinct context. Every rejected option: \"Werkstatt\": A workshop repairs or makes things. \"Apotheke\": A pharmacy supplies medicines. \"Bibliothek\": A library lends books. No human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
