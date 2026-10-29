@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013900",
+      "title": {
+        "en": "Understanding Produktion in context",
+        "de": "Produktion im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktion in its industrial production or manufacturing sense.",
+        "de": "Produktion in der Bedeutung industrielle Herstellung erkennen."
+      },
+      "objective": "Recognize the noun Produktion in the specified industrial production or manufacturing sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1845 (a13ea95c9d30ce1ed2da2538dba64677a627cec48dcf120341659d4fbc4a9c7f), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1845-v1",
+          "contextKey": "legacy-0139-L1845-context-1",
+          "transferKey": "legacy-0139-L1845-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013900",
+            "type": "gap_choice",
+            "prompt": "Wegen fehlender Bauteile musste die ___ der Fahrräder an der Montagelinie stoppen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The assembly line cannot manufacture bicycles without parts.",
+              "de": "Ohne Bauteile kann die Montagelinie keine Fahrräder herstellen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auslieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Produktion"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestellung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Produktion is the process of manufacturing goods.",
+              "de": "Produktion bezeichnet die Herstellung von Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen fehlender Bauteile musste die Produktion der Fahrräder an der Montagelinie stoppen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktion\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Auslieferung\" rejected: Delivery happens after manufacturing, not at the assembly line. \"Werbung\" rejected: Advertising promotes products rather than assembling them. \"Bestellung\" rejected: Ordering parts is not manufacturing bicycles. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1845-v2",
+          "contextKey": "legacy-0139-L1845-context-2",
+          "transferKey": "legacy-0139-L1845-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013900",
+            "type": "choice",
+            "prompt": "In einer Fabrik werden täglich fünfhundert Fahrräder hergestellt. Wie heißt dieser Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "Focus on making the bicycles, not moving or selling them.",
+              "de": "Es geht um das Herstellen, nicht um den Verkauf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Produktion"
+              },
+              {
+                "id": "1",
+                "text": "Verkauf"
+              },
+              {
+                "id": "2",
+                "text": "Transport"
+              },
+              {
+                "id": "3",
+                "text": "Reklamation"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The making of goods in a factory is Produktion.",
+              "de": "Die Herstellung von Waren in einer Fabrik heißt Produktion."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Herstellung der Fahrräder ist die Produktion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktion\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Verkauf\" rejected: Selling transfers goods to customers. \"Transport\" rejected: Transport moves finished goods. \"Reklamation\" rejected: A complaint concerns a problem with goods or services. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013901",
+      "title": {
+        "en": "Understanding Produktionsfehler in context",
+        "de": "Produktionsfehler im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionsfehler in its manufacturing defect sense.",
+        "de": "Produktionsfehler in der Bedeutung Fehler bei der Herstellung erkennen."
+      },
+      "objective": "Recognize the noun Produktionsfehler in the specified manufacturing defect sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1846 (c94af9bd9938978ea6c06c77afcf2f702d82349a22ee8ecbf2f6400e38ec836c), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1846-v1",
+          "contextKey": "legacy-0139-L1846-context-1",
+          "transferKey": "legacy-0139-L1846-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013901",
+            "type": "gap_choice",
+            "prompt": "Noch vor der Auslieferung entdeckte die Qualitätskontrolle einen ___ am Gehäuse.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The defect was present before anyone used the item.",
+              "de": "Der Mangel wurde vor der Nutzung entdeckt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bedienfehler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Produktionsfehler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferverzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Preisnachlass"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Produktionsfehler is a defect arising during manufacture.",
+              "de": "Ein Produktionsfehler entsteht bei der Herstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Noch vor der Auslieferung entdeckte die Qualitätskontrolle einen Produktionsfehler am Gehäuse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionsfehler\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Bedienfehler\" rejected: An operating error requires someone to use the product incorrectly. \"Lieferverzug\" rejected: A delivery delay concerns timing, not a physical defect. \"Preisnachlass\" rejected: A discount is a price reduction, not a defect. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1846-v2",
+          "contextKey": "legacy-0139-L1846-context-2",
+          "transferKey": "legacy-0139-L1846-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013901",
+            "type": "choice",
+            "prompt": "Eine Maschine bohrt bei zehn neuen Teilen das Loch an die falsche Stelle. Was liegt vor?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The same flaw occurs while the parts are being made.",
+              "de": "Der gleiche Mangel entsteht bei der Fertigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wartungsplan"
+              },
+              {
+                "id": "1",
+                "text": "Transportkosten"
+              },
+              {
+                "id": "2",
+                "text": "Kundenbestellung"
+              },
+              {
+                "id": "3",
+                "text": "Produktionsfehler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A repeated incorrect borehole during manufacture is a Produktionsfehler.",
+              "de": "Eine falsch gesetzte Bohrung bei der Herstellung ist ein Produktionsfehler."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei den Teilen liegt ein Produktionsfehler vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionsfehler\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Wartungsplan\" rejected: A maintenance plan schedules servicing. \"Transportkosten\" rejected: Transport costs concern shipping. \"Kundenbestellung\" rejected: A customer order specifies requested goods. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013902",
+      "title": {
+        "en": "Understanding Produktionshelfer in context",
+        "de": "Produktionshelfer im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionshelfer in its production assistant or shop-floor helper sense.",
+        "de": "Produktionshelfer in der Bedeutung Produktionshelfer in der Fertigung erkennen."
+      },
+      "objective": "Recognize the noun Produktionshelfer in the specified production assistant or shop-floor helper sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1847 (299731bdafdf9e3145f64edd2a6e1a6d5e80516b40b135cb625b860d6221282d), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1847-v1",
+          "contextKey": "legacy-0139-L1847-context-1",
+          "transferKey": "legacy-0139-L1847-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013902",
+            "type": "gap_choice",
+            "prompt": "Der ___ legt Bauteile bereit und unterstützt das Team am Fließband.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He helps with practical tasks on the production line.",
+              "de": "Er hilft bei einfachen Arbeiten in der Fertigung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Produktionshelfer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Pressesprecher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Produktionshelfer assists with manufacturing tasks.",
+              "de": "Ein Produktionshelfer unterstützt die Arbeit in der Fertigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Produktionshelfer legt Bauteile bereit und unterstützt das Team am Fließband.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionshelfer\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Pressesprecher\" rejected: A spokesperson communicates with the press. \"Buchhalter\" rejected: An accountant handles financial records. \"Fahrer\" rejected: A driver transports people or goods rather than preparing assembly parts. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1847-v2",
+          "contextKey": "legacy-0139-L1847-context-2",
+          "transferKey": "legacy-0139-L1847-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013902",
+            "type": "choice",
+            "prompt": "Ein Mitarbeiter unterstützt Fachkräfte in der Fertigung bei einfachen Arbeitsschritten. Welche Berufsbezeichnung passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The work takes place directly in manufacturing.",
+              "de": "Die Tätigkeit findet unmittelbar in der Produktion statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verkäufer"
+              },
+              {
+                "id": "1",
+                "text": "Sachbearbeiter"
+              },
+              {
+                "id": "2",
+                "text": "Produktionshelfer"
+              },
+              {
+                "id": "3",
+                "text": "Laborleiter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A production helper supports the manufacturing workforce.",
+              "de": "Ein Produktionshelfer unterstützt Fachkräfte bei Fertigungsarbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mitarbeiter arbeitet als Produktionshelfer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionshelfer\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Verkäufer\" rejected: A salesperson sells products. \"Sachbearbeiter\" rejected: A clerk handles administrative tasks. \"Laborleiter\" rejected: A laboratory manager supervises laboratory work, not general production-line assistance. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013903",
+      "title": {
+        "en": "Understanding Produktionskapazität in context",
+        "de": "Produktionskapazität im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionskapazität in its maximum manufacturing output capacity sense.",
+        "de": "Produktionskapazität in der Bedeutung maximale Produktionsmenge in einem Zeitraum erkennen."
+      },
+      "objective": "Recognize the noun Produktionskapazität in the specified maximum manufacturing output capacity sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1848 (6e320e44cd8b5f8d1557a078a4ab8d271d6457f8cde581b8a174044777c18fe0), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1848-v1",
+          "contextKey": "legacy-0139-L1848-context-1",
+          "transferKey": "legacy-0139-L1848-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013903",
+            "type": "gap_choice",
+            "prompt": "Die Fabrik kann pro Woche höchstens zweitausend Geräte herstellen; das ist ihre ___.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The number is a maximum possible manufacturing output.",
+              "de": "Die Zahl gibt die maximal mögliche Fertigungsmenge an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkaufsprovision"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferadresse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausfallquote"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Produktionskapazität"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Produktionskapazität is the maximum output a facility can achieve in a period.",
+              "de": "Produktionskapazität bezeichnet die mögliche Höchstmenge der Fertigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fabrik kann pro Woche höchstens zweitausend Geräte herstellen; das ist ihre Produktionskapazität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionskapazität\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Verkaufsprovision\" rejected: Sales commission is a payment based on sales. \"Lieferadresse\" rejected: A delivery address is a location. \"Ausfallquote\" rejected: A failure rate measures faults, not maximum output. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1848-v2",
+          "contextKey": "legacy-0139-L1848-context-2",
+          "transferKey": "legacy-0139-L1848-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013903",
+            "type": "choice",
+            "prompt": "Nach dem Einbau einer zweiten Maschine kann ein Betrieb täglich doppelt so viele Teile fertigen. Was ist gestiegen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "More items can now be made each day.",
+              "de": "Jetzt können täglich mehr Teile hergestellt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stückpreis"
+              },
+              {
+                "id": "1",
+                "text": "Produktionskapazität"
+              },
+              {
+                "id": "2",
+                "text": "Lagerdauer"
+              },
+              {
+                "id": "3",
+                "text": "Krankheitsquote"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The plant's Produktionskapazität has increased.",
+              "de": "Die Produktionskapazität des Betriebs ist gestiegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Produktionskapazität ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionskapazität\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Stückpreis\" rejected: The price per item is not stated. \"Lagerdauer\" rejected: Storage time is unrelated to the new machine. \"Krankheitsquote\" rejected: Employee sickness rates are unrelated to machine output. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013904",
+      "title": {
+        "en": "Understanding Produktionsstätte in context",
+        "de": "Produktionsstätte im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionsstätte in its manufacturing site or factory facility sense.",
+        "de": "Produktionsstätte in der Bedeutung Produktionsstätte als Herstellungsort erkennen."
+      },
+      "objective": "Recognize the noun Produktionsstätte in the specified manufacturing site or factory facility sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1849 (0bf3881e32ece6350ac871915d9fc02865c032931872c9d759001b5827ca6750), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1849-v1",
+          "contextKey": "legacy-0139-L1849-context-1",
+          "transferKey": "legacy-0139-L1849-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013904",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen errichtet eine neue ___ mit Montagehallen am Stadtrand.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The place will contain assembly halls.",
+              "de": "Der neue Ort umfasst Montagehallen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbekampagne"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Produktionsstätte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dienstreise"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Produktionsstätte is a place where goods are manufactured.",
+              "de": "Eine Produktionsstätte ist ein Ort der Herstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen errichtet eine neue Produktionsstätte mit Montagehallen am Stadtrand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionsstätte\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Buchhaltung\" rejected: Accounting is a department or activity, not an assembly-hall facility. \"Werbekampagne\" rejected: An advertising campaign is promotional activity. \"Dienstreise\" rejected: A business trip is travel, not a permanent manufacturing site. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1849-v2",
+          "contextKey": "legacy-0139-L1849-context-2",
+          "transferKey": "legacy-0139-L1849-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013904",
+            "type": "choice",
+            "prompt": "In einem Gebäude werden Möbel hergestellt, nicht nur ausgestellt oder verkauft. Wie nennt man diesen Ort?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The defining activity is making goods.",
+              "de": "Entscheidend ist, dass dort Waren hergestellt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Produktionsstätte"
+              },
+              {
+                "id": "1",
+                "text": "Verkaufsfiliale"
+              },
+              {
+                "id": "2",
+                "text": "Ausstellungsraum"
+              },
+              {
+                "id": "3",
+                "text": "Kundendienst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A site where furniture is made is a Produktionsstätte.",
+              "de": "Ein Ort, an dem Möbel hergestellt werden, ist eine Produktionsstätte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gebäude ist eine Produktionsstätte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionsstätte\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Verkaufsfiliale\" rejected: A sales branch sells goods. \"Ausstellungsraum\" rejected: A showroom displays goods. \"Kundendienst\" rejected: Customer service supports buyers rather than manufacturing furniture. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013905",
+      "title": {
+        "en": "Understanding Produktionsunterbrechung in context",
+        "de": "Produktionsunterbrechung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionsunterbrechung in its temporary stoppage of manufacturing sense.",
+        "de": "Produktionsunterbrechung in der Bedeutung zeitweilige Unterbrechung der Fertigung erkennen."
+      },
+      "objective": "Recognize the noun Produktionsunterbrechung in the specified temporary stoppage of manufacturing sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1850 (b9f2d83c5f9c3d6b4e0465665b9950601852d87f8cf248d1745ffdf982e7a330), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1850-v1",
+          "contextKey": "legacy-0139-L1850-context-1",
+          "transferKey": "legacy-0139-L1850-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013905",
+            "type": "gap_choice",
+            "prompt": "Ein Stromausfall führte zu einer zweistündigen ___ in der Fabrik.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Manufacturing stopped temporarily because power was unavailable.",
+              "de": "Ohne Strom stand die Fertigung vorübergehend still."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltserhöhung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Produktionsunterbrechung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Produktentwicklung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbekampagne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Produktionsunterbrechung is a temporary halt in manufacturing.",
+              "de": "Eine Produktionsunterbrechung ist ein vorübergehender Stillstand der Fertigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Stromausfall führte zu einer zweistündigen Produktionsunterbrechung in der Fabrik.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionsunterbrechung\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Gehaltserhöhung\" rejected: A pay rise is unrelated to an electricity outage. \"Produktentwicklung\" rejected: Product development creates or improves products, not a two-hour stoppage. \"Werbekampagne\" rejected: Advertising activity is not a manufacturing shutdown. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1850-v2",
+          "contextKey": "legacy-0139-L1850-context-2",
+          "transferKey": "legacy-0139-L1850-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013905",
+            "type": "choice",
+            "prompt": "Die Montagelinie steht still, bis die defekte Anlage repariert ist. Was ist passiert?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The line cannot continue manufacturing during the repair.",
+              "de": "Während der Reparatur kann die Linie nicht weiter produzieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kapazitätserweiterung"
+              },
+              {
+                "id": "1",
+                "text": "Preisänderung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferbestätigung"
+              },
+              {
+                "id": "3",
+                "text": "Produktionsunterbrechung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The standstill is a Produktionsunterbrechung.",
+              "de": "Der Stillstand ist eine Produktionsunterbrechung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es gab eine Produktionsunterbrechung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionsunterbrechung\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Kapazitätserweiterung\" rejected: Capacity expansion would allow more output, not a stoppage. \"Preisänderung\" rejected: A price change does not describe a halted line. \"Lieferbestätigung\" rejected: A delivery confirmation is a document or message. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013906",
+      "title": {
+        "en": "Understanding Produktionsverfahren in context",
+        "de": "Produktionsverfahren im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktionsverfahren in its method of manufacturing goods sense.",
+        "de": "Produktionsverfahren in der Bedeutung Verfahren zur Herstellung erkennen."
+      },
+      "objective": "Recognize the noun Produktionsverfahren in the specified method of manufacturing goods sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1851 (b331dd04bf837a4a0d0d936bb1fe9618cc4309dd5d4b9c3fb5c346613abad18f), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1851-v1",
+          "contextKey": "legacy-0139-L1851-context-1",
+          "transferKey": "legacy-0139-L1851-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013906",
+            "type": "gap_choice",
+            "prompt": "Durch ein neues ___ kann Metall mit weniger Energie bearbeitet werden.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The change concerns how metal is processed.",
+              "de": "Es geht darum, wie Metall bearbeitet wird."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Produktionsverfahren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbungsgespräch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Liefervertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitszeugnis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Produktionsverfahren is a method used to make goods.",
+              "de": "Ein Produktionsverfahren beschreibt eine Methode der Herstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch ein neues Produktionsverfahren kann Metall mit weniger Energie bearbeitet werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktionsverfahren\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Bewerbungsgespräch\" rejected: An interview is a recruitment conversation. \"Liefervertrag\" rejected: A delivery contract governs supplies. \"Arbeitszeugnis\" rejected: An employment reference is a document, not a manufacturing method. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1851-v2",
+          "contextKey": "legacy-0139-L1851-context-2",
+          "transferKey": "legacy-0139-L1851-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013906",
+            "type": "choice",
+            "prompt": "Ein Betrieb wechselt von Handmontage zu einem automatisierten Fertigungsablauf. Was ändert sich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The steps used to make the product are different.",
+              "de": "Die Schritte bei der Herstellung ändern sich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Firmenadresse"
+              },
+              {
+                "id": "1",
+                "text": "Produktname"
+              },
+              {
+                "id": "2",
+                "text": "Produktionsverfahren"
+              },
+              {
+                "id": "3",
+                "text": "Öffnungszeiten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Changing from manual to automated assembly changes the Produktionsverfahren.",
+              "de": "Der Wechsel zur automatisierten Montage verändert das Produktionsverfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Produktionsverfahren ändert sich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktionsverfahren\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Firmenadresse\" rejected: The company's address is not affected by the method alone. \"Produktname\" rejected: The product name need not change. \"Öffnungszeiten\" rejected: Opening hours do not define assembly methods. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013907",
+      "title": {
+        "en": "Understanding Produktpalette in context",
+        "de": "Produktpalette im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produktpalette in its range of products offered sense.",
+        "de": "Produktpalette in der Bedeutung Sortiment an Produkten erkennen."
+      },
+      "objective": "Recognize the noun Produktpalette in the specified range of products offered sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1852 (2787cfe6bd3d9ef46410e391932857fbc4239ef5c7b1cd70416cf50010716bfe), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1852-v1",
+          "contextKey": "legacy-0139-L1852-context-1",
+          "transferKey": "legacy-0139-L1852-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013907",
+            "type": "gap_choice",
+            "prompt": "Der Hersteller bietet nun auch E-Scooter an; seine ___ ist dadurch breiter geworden.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A new product category has been added.",
+              "de": "Eine neue Produktart wurde ins Angebot aufgenommen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalakte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garantiefrist"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnungsnummer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Produktpalette"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Produktpalette means the range of products offered.",
+              "de": "Produktpalette bezeichnet das angebotene Produktsortiment."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hersteller bietet nun auch E-Scooter an; seine Produktpalette ist dadurch breiter geworden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produktpalette\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Personalakte\" rejected: A personnel file records employee information. \"Garantiefrist\" rejected: A warranty period is a duration. \"Rechnungsnummer\" rejected: An invoice number identifies a bill. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1852-v2",
+          "contextKey": "legacy-0139-L1852-context-2",
+          "transferKey": "legacy-0139-L1852-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013907",
+            "type": "choice",
+            "prompt": "Ein Geschäft verkauft bisher nur Laptops und nimmt nun Tablets und Monitore ins Sortiment. Was erweitert es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The store now offers more types of goods.",
+              "de": "Das Geschäft bietet jetzt mehr Warenarten an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferfrist"
+              },
+              {
+                "id": "1",
+                "text": "Produktpalette"
+              },
+              {
+                "id": "2",
+                "text": "Öffnungszeit"
+              },
+              {
+                "id": "3",
+                "text": "Betriebsrat"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The broader assortment is an expanded Produktpalette.",
+              "de": "Das größere Sortiment ist eine erweiterte Produktpalette."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Geschäft erweitert seine Produktpalette.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produktpalette\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Lieferfrist\" rejected: A delivery deadline is unrelated to assortment size. \"Öffnungszeit\" rejected: Opening hours are not changed by adding product types. \"Betriebsrat\" rejected: A works council represents employees, not the product assortment. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013908",
+      "title": {
+        "en": "Understanding Produzent in context",
+        "de": "Produzent im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Produzent in its film producer responsible for a production sense.",
+        "de": "Produzent in der Bedeutung Filmproduzent erkennen."
+      },
+      "objective": "Recognize the noun Produzent in the specified film producer responsible for a production sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1853 (3e0ef3eadbcff1dfc3c314e95fd79b0e7b38644911566006a166c29affc2d20f), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1853-v1",
+          "contextKey": "legacy-0139-L1853-context-1",
+          "transferKey": "legacy-0139-L1853-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013908",
+            "type": "gap_choice",
+            "prompt": "Der ___ organisierte die Finanzierung und die Dreharbeiten des Kinofilms.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He manages the film project rather than watching it.",
+              "de": "Er organisiert das Filmprojekt, statt es nur anzusehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zuschauer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kritiker"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Produzent"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kinobesucher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A film Produzent oversees and organises the production.",
+              "de": "Ein Filmproduzent organisiert die Herstellung eines Films."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Produzent organisierte die Finanzierung und die Dreharbeiten des Kinofilms.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Produzent\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Zuschauer\" rejected: A spectator watches a film. \"Kritiker\" rejected: A critic evaluates films. \"Kinobesucher\" rejected: A cinema visitor is an audience member. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1853-v2",
+          "contextKey": "legacy-0139-L1853-context-2",
+          "transferKey": "legacy-0139-L1853-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013908",
+            "type": "choice",
+            "prompt": "Eine Person organisiert die Herstellung eines Films und trägt Verantwortung für das Projekt. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The role concerns the overall production project.",
+              "de": "Die Aufgabe betrifft die Gesamtorganisation der Filmherstellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Produzent"
+              },
+              {
+                "id": "1",
+                "text": "Kameramann"
+              },
+              {
+                "id": "2",
+                "text": "Kinobetreiber"
+              },
+              {
+                "id": "3",
+                "text": "Schauspieler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The person managing film production is a Produzent.",
+              "de": "Die Person, die die Filmproduktion organisiert, ist ein Produzent."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Diese Person ist Produzent des Films.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Produzent\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Kameramann\" rejected: A camera operator records footage, not necessarily the overall project. \"Kinobetreiber\" rejected: A cinema operator runs the venue showing films. \"Schauspieler\" rejected: An actor performs roles in the film. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013909",
+      "title": {
+        "en": "Understanding Professor in context",
+        "de": "Professor im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Professor in its male university professor sense.",
+        "de": "Professor in der Bedeutung männlicher Hochschulprofessor erkennen."
+      },
+      "objective": "Recognize the noun Professor in the specified male university professor sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1854 (e4d9d447c823de3f8de63926222febab7681b5c4670c19c322b49388b314e3ee), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1854-v1",
+          "contextKey": "legacy-0139-L1854-context-1",
+          "transferKey": "legacy-0139-L1854-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013909",
+            "type": "gap_choice",
+            "prompt": "Der ___ betreut an der Universität Doktorarbeiten und hält Vorlesungen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person has an academic teaching and research role.",
+              "de": "Die Person hat eine akademische Lehr- und Forschungsaufgabe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schüler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Professor"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Student"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Professor is a senior academic who teaches and researches.",
+              "de": "Ein Professor ist ein Hochschullehrer mit Forschungsaufgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Professor betreut an der Universität Doktorarbeiten und hält Vorlesungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Professor\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Schüler\" rejected: A school pupil is not a university professor. \"Hausmeister\" rejected: A caretaker maintains buildings. \"Student\" rejected: A student studies rather than holding the professor's role. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1854-v2",
+          "contextKey": "legacy-0139-L1854-context-2",
+          "transferKey": "legacy-0139-L1854-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013909",
+            "type": "choice",
+            "prompt": "Ein Mann leitet eine Forschungsgruppe und unterrichtet Studierende an einer Universität. Welche akademische Funktion passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "He combines university teaching and research leadership.",
+              "de": "Er verbindet Hochschullehre mit der Leitung einer Forschungsgruppe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Praktikant"
+              },
+              {
+                "id": "1",
+                "text": "Schulsprecher"
+              },
+              {
+                "id": "2",
+                "text": "Kassierer"
+              },
+              {
+                "id": "3",
+                "text": "Professor"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Among the choices, Professor is the university academic role.",
+              "de": "Unter den Antworten passt Professor zur Hochschullehre und Forschungsleitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann arbeitet als Professor an der Universität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Professor\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Praktikant\" rejected: An intern is in a learning placement. \"Schulsprecher\" rejected: A school representative speaks for pupils, not a university research group. \"Kassierer\" rejected: A cashier handles payments. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013912",
+      "title": {
+        "en": "Understanding Profil in context",
+        "de": "Profil im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Profil in its professional profile on an online platform sense.",
+        "de": "Profil in der Bedeutung berufliches Onlineprofil erkennen."
+      },
+      "objective": "Recognize the noun Profil in the specified professional profile on an online platform sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1857 (5806a1bc9fb23221cca557f30be3b065ce134157719c7a8c0ab9c49a4045dd05), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1857-v1",
+          "contextKey": "legacy-0139-L1857-context-1",
+          "transferKey": "legacy-0139-L1857-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013912",
+            "type": "gap_choice",
+            "prompt": "Im Bewerbungsportal aktualisierte sie ihr berufliches ___ mit ihren neuen Fähigkeiten.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This page summarises a person's skills and experience.",
+              "de": "Die Seite fasst Kenntnisse und Berufserfahrung zusammen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Profil"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kennzeichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A professional Profil presents information about a person's career.",
+              "de": "Ein berufliches Profil zeigt Angaben zur Laufbahn und zu Fähigkeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bewerbungsportal aktualisierte sie ihr berufliches Profil mit ihren neuen Fähigkeiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Profil\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Protokoll\" rejected: Meeting minutes record a discussion. \"Rezept\" rejected: A recipe gives cooking instructions. \"Kennzeichen\" rejected: A licence plate identifies a vehicle. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1857-v2",
+          "contextKey": "legacy-0139-L1857-context-2",
+          "transferKey": "legacy-0139-L1857-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013912",
+            "type": "choice",
+            "prompt": "Auf einer Karriereplattform stehen Ausbildung, Kenntnisse und Berufserfahrung einer Person. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "It is a summary of career-related personal information.",
+              "de": "Es ist eine Übersicht über berufliche Angaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ein berufliches Profil"
+              },
+              {
+                "id": "1",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "ein Stundenplan"
+              },
+              {
+                "id": "3",
+                "text": "ein Reisepass"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "This information constitutes a professional profile.",
+              "de": "Diese Angaben bilden ein berufliches Profil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein berufliches Profil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"ein berufliches Profil\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"eine Rechnung\" rejected: An invoice concerns payment. \"ein Stundenplan\" rejected: A timetable lists scheduled lessons or events. \"ein Reisepass\" rejected: A passport proves identity and nationality, not a career history. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013913",
+      "title": {
+        "en": "Understanding Profisportler in context",
+        "de": "Profisportler im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Profisportler in its male professional athlete sense.",
+        "de": "Profisportler in der Bedeutung männlicher Berufssportler erkennen."
+      },
+      "objective": "Recognize the noun Profisportler in the specified male professional athlete sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1858 (88eeff99560862b9827517b9bded82461c60d9d28bcacb5a8499266b6c90d80c), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1858-v1",
+          "contextKey": "legacy-0139-L1858-context-1",
+          "transferKey": "legacy-0139-L1858-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013913",
+            "type": "gap_choice",
+            "prompt": "Der ___ verdient seinen Lebensunterhalt mit Wettkämpfen und Training.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He competes professionally rather than as a hobby.",
+              "de": "Er nimmt beruflich an Wettkämpfen teil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hobbyläufer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Profisportler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuschauer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schiedsrichter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Profisportler earns a living through competitive sport.",
+              "de": "Ein Profisportler betreibt Sport beruflich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Profisportler verdient seinen Lebensunterhalt mit Wettkämpfen und Training.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Profisportler\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Hobbyläufer\" rejected: A hobby runner does not by definition earn a living from sport. \"Zuschauer\" rejected: A spectator watches competitions. \"Schiedsrichter\" rejected: A referee officiates competitions rather than being the competing athlete. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1858-v2",
+          "contextKey": "legacy-0139-L1858-context-2",
+          "transferKey": "legacy-0139-L1858-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013913",
+            "type": "choice",
+            "prompt": "Ein Mann spielt hauptberuflich Basketball in einer Profiliga. Wie nennt man ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The sport is his paid occupation.",
+              "de": "Der Sport ist sein bezahlter Beruf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Freizeitsportler"
+              },
+              {
+                "id": "1",
+                "text": "Trainerassistent"
+              },
+              {
+                "id": "2",
+                "text": "Fan"
+              },
+              {
+                "id": "3",
+                "text": "Profisportler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A full-time professional basketball player is a Profisportler.",
+              "de": "Ein hauptberuflicher Basketballspieler ist ein Profisportler."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Profisportler.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Profisportler\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Freizeitsportler\" rejected: A recreational athlete competes as a hobby. \"Trainerassistent\" rejected: A coaching assistant helps train players rather than necessarily competing. \"Fan\" rejected: A fan follows the sport rather than playing professionally. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013914",
+      "title": {
+        "en": "Understanding Profisportlerin in context",
+        "de": "Profisportlerin im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Profisportlerin in its female professional athlete sense.",
+        "de": "Profisportlerin in der Bedeutung weibliche Berufssportlerin erkennen."
+      },
+      "objective": "Recognize the noun Profisportlerin in the specified female professional athlete sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1859 (b3f695271104bdf8e06e44131c02ef8373ba090425857bea133f992916fc7e3a), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1859-v1",
+          "contextKey": "legacy-0139-L1859-context-1",
+          "transferKey": "legacy-0139-L1859-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013914",
+            "type": "gap_choice",
+            "prompt": "Die ___ trainiert täglich für internationale Wettkämpfe und wird dafür bezahlt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Her paid occupation is competing in sport.",
+              "de": "Sie betreibt Wettkampfsport als bezahlten Beruf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Profisportlerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hobbyspielerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuschauerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sportreporterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Profisportlerin is a woman who competes professionally.",
+              "de": "Eine Profisportlerin betreibt Sport beruflich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Profisportlerin trainiert täglich für internationale Wettkämpfe und wird dafür bezahlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Profisportlerin\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Hobbyspielerin\" rejected: A hobby player is not paid as a professional competitor. \"Zuschauerin\" rejected: A spectator watches competitions. \"Sportreporterin\" rejected: A sports reporter covers sport rather than competing professionally. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1859-v2",
+          "contextKey": "legacy-0139-L1859-context-2",
+          "transferKey": "legacy-0139-L1859-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013914",
+            "type": "choice",
+            "prompt": "Eine Frau verdient ihren Lebensunterhalt als professionelle Schwimmerin. Welche Bezeichnung passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "She earns money by competing as an athlete.",
+              "de": "Sie verdient Geld als aktive Wettkampfsportlerin."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schiedsrichterin"
+              },
+              {
+                "id": "1",
+                "text": "Sportärztin"
+              },
+              {
+                "id": "2",
+                "text": "Profisportlerin"
+              },
+              {
+                "id": "3",
+                "text": "Vereinsmanagerin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A professional female swimmer is a Profisportlerin.",
+              "de": "Eine professionelle Schwimmerin ist eine Profisportlerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist Profisportlerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Profisportlerin\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Schiedsrichterin\" rejected: A referee judges competitions. \"Sportärztin\" rejected: A sports physician treats athletes. \"Vereinsmanagerin\" rejected: A club manager organises club affairs. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013915",
+      "title": {
+        "en": "Understanding Prognose in context",
+        "de": "Prognose im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Prognose in its forecast or prediction based on information sense.",
+        "de": "Prognose in der Bedeutung Vorhersage auf Grundlage von Daten erkennen."
+      },
+      "objective": "Recognize the noun Prognose in the specified forecast or prediction based on information sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1860 (1e91603ee481efeb98f0320b89cd4aa9c7bfdd3c47ab583db8d3456a3b226adb), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1860-v1",
+          "contextKey": "legacy-0139-L1860-context-1",
+          "transferKey": "legacy-0139-L1860-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013915",
+            "type": "gap_choice",
+            "prompt": "Wirtschaftsforscher veröffentlichten eine ___ zur Preisentwicklung im nächsten Jahr.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The statement concerns what is expected in the future.",
+              "de": "Es geht um die erwartete Entwicklung in der Zukunft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bilanz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Quittung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beschwerde"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prognose"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Prognose predicts future developments.",
+              "de": "Eine Prognose sagt eine künftige Entwicklung voraus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wirtschaftsforscher veröffentlichten eine Prognose zur Preisentwicklung im nächsten Jahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Prognose\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Bilanz\" rejected: A balance sheet reports financial position, not a future price forecast. \"Quittung\" rejected: A receipt documents payment. \"Beschwerde\" rejected: A complaint expresses dissatisfaction. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1860-v2",
+          "contextKey": "legacy-0139-L1860-context-2",
+          "transferKey": "legacy-0139-L1860-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013915",
+            "type": "choice",
+            "prompt": "Ein Wetterdienst schätzt anhand von Messdaten, wie warm es morgen wird. Was erstellt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "It uses current data to estimate a future condition.",
+              "de": "Aktuelle Daten dienen zur Vorhersage eines künftigen Zustands."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückblick"
+              },
+              {
+                "id": "1",
+                "text": "Prognose"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Inventarliste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The estimate for tomorrow is a Prognose.",
+              "de": "Die Schätzung für morgen ist eine Prognose."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wetterdienst erstellt eine Prognose.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Prognose\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Rückblick\" rejected: A retrospective looks back at past events. \"Rechnung\" rejected: An invoice requests payment. \"Inventarliste\" rejected: An inventory list records existing stock. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013917",
+      "title": {
+        "en": "Understanding Programmierung in context",
+        "de": "Programmierung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Programmierung in its software programming activity sense.",
+        "de": "Programmierung in der Bedeutung Programmierung von Software erkennen."
+      },
+      "objective": "Recognize the noun Programmierung in the specified software programming activity sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1863 (0c8ad67f0383c28379e215c7c867244d8b17beaa900f379a86770d63c16557f5), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1863-v1",
+          "contextKey": "legacy-0139-L1863-context-1",
+          "transferKey": "legacy-0139-L1863-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013917",
+            "type": "gap_choice",
+            "prompt": "Die ___ der neuen App dauert länger, weil mehrere Funktionen noch entwickelt werden müssen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Developers are writing the application's functions.",
+              "de": "Entwickler schreiben die Funktionen der Anwendung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auslieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Programmierung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Programmierung is the activity of writing software code.",
+              "de": "Programmierung bedeutet, Softwarecode zu schreiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Programmierung der neuen App dauert länger, weil mehrere Funktionen noch entwickelt werden müssen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Programmierung\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Auslieferung\" rejected: Delivery distributes a finished product. \"Buchhaltung\" rejected: Accounting handles financial records. \"Bewerbung\" rejected: A job application is unrelated to creating app functions. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1863-v2",
+          "contextKey": "legacy-0139-L1863-context-2",
+          "transferKey": "legacy-0139-L1863-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013917",
+            "type": "choice",
+            "prompt": "Eine Entwicklerin schreibt und testet Code für eine Anwendung. Welche Tätigkeit ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The work involves creating executable instructions.",
+              "de": "Die Arbeit besteht darin, ausführbare Anweisungen zu schreiben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Übersetzung"
+              },
+              {
+                "id": "1",
+                "text": "Verpackung"
+              },
+              {
+                "id": "2",
+                "text": "Gebäudewartung"
+              },
+              {
+                "id": "3",
+                "text": "Programmierung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Writing and testing software code is Programmierung.",
+              "de": "Das Schreiben und Testen von Softwarecode ist Programmierung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Entwicklerin beschäftigt sich mit Programmierung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Programmierung\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Übersetzung\" rejected: Translation converts text between languages. \"Verpackung\" rejected: Packaging prepares goods for transport. \"Gebäudewartung\" rejected: Building maintenance concerns premises, not software code. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013918",
+      "title": {
+        "en": "Understanding Protest in context",
+        "de": "Protest im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Protest in its public protest against a decision sense.",
+        "de": "Protest in der Bedeutung öffentlicher Protest erkennen."
+      },
+      "objective": "Recognize the noun Protest in the specified public protest against a decision sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1866 (fce3311ac451cee31dd327b983df11e9660c7f41a2817120b6ddce58d3923343), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1866-v1",
+          "contextKey": "legacy-0139-L1866-context-1",
+          "transferKey": "legacy-0139-L1866-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013918",
+            "type": "gap_choice",
+            "prompt": "Vor dem Rathaus gab es einen friedlichen ___ gegen die geplante Schließung der Bibliothek.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "People publicly expressed opposition to the plan.",
+              "de": "Menschen äußerten öffentlich ihren Widerspruch."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Protest"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterricht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Protest is an expression of opposition.",
+              "de": "Ein Protest ist eine Äußerung des Widerspruchs."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Rathaus gab es einen friedlichen Protest gegen die geplante Schließung der Bibliothek.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Protest\" (option 0). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Empfang\" rejected: A reception welcomes guests rather than opposing a plan. \"Verkauf\" rejected: A sale transfers goods. \"Unterricht\" rejected: A lesson is instruction, not public opposition. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1866-v2",
+          "contextKey": "legacy-0139-L1866-context-2",
+          "transferKey": "legacy-0139-L1866-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013918",
+            "type": "choice",
+            "prompt": "Viele Menschen versammeln sich öffentlich, um gegen eine Entscheidung zu demonstrieren. Wie heißt das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The gathering expresses disagreement.",
+              "de": "Die Versammlung drückt Widerspruch aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wahl"
+              },
+              {
+                "id": "1",
+                "text": "Feier"
+              },
+              {
+                "id": "2",
+                "text": "Protest"
+              },
+              {
+                "id": "3",
+                "text": "Besichtigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A demonstration opposing a decision is a Protest.",
+              "de": "Eine Demonstration gegen eine Entscheidung ist ein Protest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Menschen äußern ihren Protest.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Protest\" (option 2). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Wahl\" rejected: An election chooses representatives or decides a ballot. \"Feier\" rejected: A celebration marks a happy occasion. \"Besichtigung\" rejected: A tour involves viewing a place. No human review or measured transfer."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013919",
+      "title": {
+        "en": "Understanding Protokoll in context",
+        "de": "Protokoll im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Protokoll in its written minutes of a meeting sense.",
+        "de": "Protokoll in der Bedeutung schriftliches Sitzungsprotokoll erkennen."
+      },
+      "objective": "Recognize the noun Protokoll in the specified written minutes of a meeting sense and choose its appropriate contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1867 (afe4889bccfc81abfedac683a26fd7b061e4ffcefc264c44f7d1d881b7dfe213), 2026-10-29. No inherited example sentence copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Question-by-question AI editorial notes in variants and batch report; human language, CEFR and rights approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0139-L1867-v1",
+          "contextKey": "legacy-0139-L1867-context-1",
+          "transferKey": "legacy-0139-L1867-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013919",
+            "type": "gap_choice",
+            "prompt": "Nach der Sitzung verschickte die Assistenz das ___ mit den Beschlüssen und Aufgaben.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The document records what was decided in the meeting.",
+              "de": "Das Dokument hält die Beschlüsse der Sitzung fest."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werbeplakat"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Angebot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dienstplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Protokoll"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A meeting Protokoll records decisions and tasks.",
+              "de": "Ein Sitzungsprotokoll hält Beschlüsse und Aufgaben fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Sitzung verschickte die Assistenz das Protokoll mit den Beschlüssen und Aufgaben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 1: independently selected \"Protokoll\" (option 3). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Werbeplakat\" rejected: An advertising poster promotes something. \"Angebot\" rejected: A quotation proposes terms for a sale. \"Dienstplan\" rejected: A duty roster assigns shifts rather than recording meeting decisions. No human review or measured transfer."
+        },
+        {
+          "variantKey": "legacy-0139-L1867-v2",
+          "contextKey": "legacy-0139-L1867-context-2",
+          "transferKey": "legacy-0139-L1867-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001390191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013919",
+            "type": "choice",
+            "prompt": "Eine Kollegin hält schriftlich fest, was in einer Besprechung beschlossen wurde. Welches Dokument erstellt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct interpretation.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Deutung."
+            },
+            "hint": {
+              "en": "The document is a record of the meeting.",
+              "de": "Das Dokument ist eine Niederschrift der Besprechung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Protokoll"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Urlaubsantrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The written record of meeting decisions is a Protokoll.",
+              "de": "Die schriftliche Niederschrift der Beschlüsse ist ein Protokoll."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kollegin erstellt ein Protokoll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29, question 2: independently selected \"Protokoll\" (option 1). Reviewed entire natural German sentence, target meaning, B1/B2 source label, bilingual hint/instruction/explanation, unique defensible answer, distinct context and all offered options. Distractor checks: \"Rechnung\" rejected: An invoice requests payment. \"Bewerbung\" rejected: An application requests a job. \"Urlaubsantrag\" rejected: A leave request asks for time off. No human review or measured transfer."
+        }
+      ]
+    }
+  ]
+}
