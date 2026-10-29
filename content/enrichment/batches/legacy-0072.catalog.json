@@ -1,0 +1,3028 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007200",
+      "title": {
+        "en": "Using korrigieren in context",
+        "de": "korrigieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use korrigieren: correct an inaccurate detail, in two distinct contexts.",
+        "de": "korrigieren in zwei unterschiedlichen Situationen erkennen und verwenden: eine falsche Angabe berichtigen."
+      },
+      "objective": "Recognize and use korrigieren to correct an inaccurate detail in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L537 (d94b41301678f19df92bc8cd38a263967c45d7494bfa0b10a9a659fe1c16588a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L537-v1",
+          "contextKey": "legacy-0072-L537-context-1",
+          "transferKey": "legacy-0072-L537-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007200",
+            "type": "choice",
+            "prompt": "Die Personalabteilung hat meine Adresse falsch gespeichert und muss sie ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The stored information must be made accurate.",
+              "de": "Die gespeicherte Angabe soll richtiggestellt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlängern"
+              },
+              {
+                "id": "1",
+                "text": "korrigieren"
+              },
+              {
+                "id": "2",
+                "text": "verteilen"
+              },
+              {
+                "id": "3",
+                "text": "übersetzen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Korrigieren means correcting an error in the stored address.",
+              "de": "Korrigieren bedeutet, einen Fehler in der gespeicherten Adresse zu berichtigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Personalabteilung hat meine Adresse falsch gespeichert und muss sie korrigieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Personalabteilung hat meine Adresse falsch gespeichert und muss sie korrigieren.\" checked against all four options (verlängern / korrigieren / verteilen / übersetzen); intended answer \"korrigieren\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L537-v2",
+          "contextKey": "legacy-0072-L537-context-2",
+          "transferKey": "legacy-0072-L537-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007200",
+            "type": "gap_choice",
+            "prompt": "Als sie den Tippfehler im Protokoll bemerkte, ___ sie den Namen sofort.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She changes the incorrect spelling to the right one.",
+              "de": "Sie verbessert die falsche Schreibweise."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "versandte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "archivierte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "korrigierte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kopierte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Korrigierte is the simple past of korrigieren; she fixes the misspelled name.",
+              "de": "Korrigierte ist das Präteritum von korrigieren; sie berichtigt den falsch geschriebenen Namen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie den Tippfehler im Protokoll bemerkte, korrigierte sie den Namen sofort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Als sie den Tippfehler im Protokoll bemerkte, korrigierte sie den Namen sofort.\" checked against all four options (versandte / archivierte / korrigierte / kopierte); intended answer \"korrigierte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007202",
+      "title": {
+        "en": "Using krankschreiben in context",
+        "de": "krankschreiben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use krankschreiben: certify someone medically unfit for work, in two distinct contexts.",
+        "de": "krankschreiben in zwei unterschiedlichen Situationen erkennen und verwenden: jemanden ärztlich arbeitsunfähig schreiben."
+      },
+      "objective": "Recognize and use krankschreiben to certify someone medically unfit for work in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L540 (07f95371d1e13378a0d150dc735b9f0a991be8e49ea3ed3ced9129bca79f7acd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L540-v1",
+          "contextKey": "legacy-0072-L540-context-1",
+          "transferKey": "legacy-0072-L540-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007202",
+            "type": "choice",
+            "prompt": "Wegen der Grippe konnte sie nicht arbeiten. Die Ärztin musste sie für fünf Tage ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A doctor certifies a temporary inability to work.",
+              "de": "Eine Ärztin bescheinigt vorübergehende Arbeitsunfähigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "einarbeiten"
+              },
+              {
+                "id": "1",
+                "text": "versetzen"
+              },
+              {
+                "id": "2",
+                "text": "krankschreiben"
+              },
+              {
+                "id": "3",
+                "text": "einstellen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Krankschreiben means to certify a patient as unable to work for a period.",
+              "de": "Krankschreiben bedeutet, die Arbeitsunfähigkeit für einen Zeitraum ärztlich festzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Grippe konnte sie nicht arbeiten. Die Ärztin musste sie für fünf Tage krankschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Wegen der Grippe konnte sie nicht arbeiten. Die Ärztin musste sie für fünf Tage krankschreiben.\" checked against all four options (einarbeiten / versetzen / krankschreiben / einstellen); intended answer \"krankschreiben\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L540-v2",
+          "contextKey": "legacy-0072-L540-context-2",
+          "transferKey": "legacy-0072-L540-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007202",
+            "type": "gap_choice",
+            "prompt": "Nach der Untersuchung ___ der Arzt den Patienten bis Freitag krank.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The separable verb ends with krank.",
+              "de": "Das trennbare Verb endet hier mit krank."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nahm"
+                  },
+                  {
+                    "id": "1",
+                    "text": "schrieb"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sah"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stellte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Schrieb ... krank is the simple-past separated form of krankschreiben.",
+              "de": "Schrieb ... krank ist die getrennte Präteritumform von krankschreiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Untersuchung schrieb der Arzt den Patienten bis Freitag krank.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach der Untersuchung schrieb der Arzt den Patienten bis Freitag krank.\" checked against all four options (nahm / schrieb / sah / stellte); intended answer \"schrieb\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007203",
+      "title": {
+        "en": "Using kritisieren in context",
+        "de": "kritisieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use kritisieren: express criticism of a shortcoming, in two distinct contexts.",
+        "de": "kritisieren in zwei unterschiedlichen Situationen erkennen und verwenden: einen Mangel ausdrücklich beanstanden."
+      },
+      "objective": "Recognize and use kritisieren to express criticism of a shortcoming in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L542 (fce07769bd52be591c781d1ead45351aa829efc26ca5049908eca3b262e978ae), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L542-v1",
+          "contextKey": "legacy-0072-L542-context-1",
+          "transferKey": "legacy-0072-L542-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007203",
+            "type": "choice",
+            "prompt": "Im Prüfbericht wollen die Fachleute die fehlenden Sicherheitsmaßnahmen ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They are pointing out a problem, not approving it.",
+              "de": "Sie beanstanden einen Mangel, statt ihn zu billigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "genehmigen"
+              },
+              {
+                "id": "1",
+                "text": "installieren"
+              },
+              {
+                "id": "2",
+                "text": "kritisieren"
+              },
+              {
+                "id": "3",
+                "text": "bestellen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Kritisieren means expressing disapproval of the missing safety measures.",
+              "de": "Kritisieren bedeutet, die fehlenden Sicherheitsmaßnahmen zu beanstanden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Prüfbericht wollen die Fachleute die fehlenden Sicherheitsmaßnahmen kritisieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Im Prüfbericht wollen die Fachleute die fehlenden Sicherheitsmaßnahmen kritisieren.\" checked against all four options (genehmigen / installieren / kritisieren / bestellen); intended answer \"kritisieren\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L542-v2",
+          "contextKey": "legacy-0072-L542-context-2",
+          "transferKey": "legacy-0072-L542-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007203",
+            "type": "gap_choice",
+            "prompt": "Die Mitarbeiterin ___ den Plan, weil darin wichtige Kosten fehlten.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She draws attention to a serious omission.",
+              "de": "Sie weist auf einen wichtigen Mangel hin."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lobte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "archivierte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "kritisierte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterschrieb"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kritisierte is the simple past: she objected to the incomplete plan.",
+              "de": "Kritisierte ist das Präteritum: Sie beanstandete den unvollständigen Plan."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin kritisierte den Plan, weil darin wichtige Kosten fehlten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Mitarbeiterin kritisierte den Plan, weil darin wichtige Kosten fehlten.\" checked against all four options (lobte / archivierte / kritisierte / unterschrieb); intended answer \"kritisierte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007204",
+      "title": {
+        "en": "Using küssen in context",
+        "de": "küssen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use küssen: kiss someone as a gesture of affection, in two distinct contexts.",
+        "de": "küssen in zwei unterschiedlichen Situationen erkennen und verwenden: jemanden als Zeichen der Zuneigung küssen."
+      },
+      "objective": "Recognize and use küssen to kiss someone as a gesture of affection in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L545 (44c32e53f5506be4137b769ad41cfa5630cc88ce509aea3cee5a4c68101f6bd1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L545-v1",
+          "contextKey": "legacy-0072-L545-context-1",
+          "transferKey": "legacy-0072-L545-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007204",
+            "type": "choice",
+            "prompt": "Zum Abschied wollte er seine Partnerin auf die Wange ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The gesture involves touching the cheek with the lips.",
+              "de": "Bei dieser Geste berühren die Lippen die Wange."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "rufen"
+              },
+              {
+                "id": "1",
+                "text": "küssen"
+              },
+              {
+                "id": "2",
+                "text": "tragen"
+              },
+              {
+                "id": "3",
+                "text": "suchen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Küssen is the verb for touching someone with the lips as an affectionate gesture.",
+              "de": "Küssen bezeichnet eine liebevolle Berührung mit den Lippen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Abschied wollte er seine Partnerin auf die Wange küssen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Zum Abschied wollte er seine Partnerin auf die Wange küssen.\" checked against all four options (rufen / küssen / tragen / suchen); intended answer \"küssen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L545-v2",
+          "contextKey": "legacy-0072-L545-context-2",
+          "transferKey": "legacy-0072-L545-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007204",
+            "type": "gap_choice",
+            "prompt": "Nach dem Ja-Wort ___ sich das Paar vor den Gästen.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The couple shows affection immediately after the vows.",
+              "de": "Das Paar zeigt nach dem Ja-Wort seine Zuneigung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verbeugte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verabschiedete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "küsste"
+                  },
+                  {
+                    "id": "3",
+                    "text": "versteckte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Küsste is the simple past of küssen, used reflexively here with sich.",
+              "de": "Küsste ist das Präteritum von küssen; hier steht es mit sich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Ja-Wort küsste sich das Paar vor den Gästen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach dem Ja-Wort küsste sich das Paar vor den Gästen.\" checked against all four options (verbeugte / verabschiedete / küsste / versteckte); intended answer \"küsste\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007205",
+      "title": {
+        "en": "Using lächeln in context",
+        "de": "lächeln im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lächeln: smile rather than laugh aloud, in two distinct contexts.",
+        "de": "lächeln in zwei unterschiedlichen Situationen erkennen und verwenden: freundlich lächeln statt laut lachen."
+      },
+      "objective": "Recognize and use lächeln to smile rather than laugh aloud in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L546 (6b80000f065ad5295d183fc3df12e7b60f5b443751176ce40ca629b93661b10d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L546-v1",
+          "contextKey": "legacy-0072-L546-context-1",
+          "transferKey": "legacy-0072-L546-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007205",
+            "type": "choice",
+            "prompt": "Als das Kind die vertraute Stimme hörte, begann es freundlich zu ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A friendly facial expression without loud laughter.",
+              "de": "Ein freundlicher Gesichtsausdruck ohne lautes Lachen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "niesen"
+              },
+              {
+                "id": "1",
+                "text": "lächeln"
+              },
+              {
+                "id": "2",
+                "text": "husten"
+              },
+              {
+                "id": "3",
+                "text": "schimpfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Lächeln describes a smile, not a cough or loud outburst.",
+              "de": "Lächeln bezeichnet ein Lächeln, keinen Husten oder lauten Ausruf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als das Kind die vertraute Stimme hörte, begann es freundlich zu lächeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Als das Kind die vertraute Stimme hörte, begann es freundlich zu lächeln.\" checked against all four options (niesen / lächeln / husten / schimpfen); intended answer \"lächeln\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L546-v2",
+          "contextKey": "legacy-0072-L546-context-2",
+          "transferKey": "legacy-0072-L546-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007205",
+            "type": "gap_choice",
+            "prompt": "Obwohl sie nervös war, ___ sie dem Publikum freundlich zu.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Her facial expression welcomes the audience.",
+              "de": "Mit ihrem Gesichtsausdruck begrüßt sie das Publikum."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "drohte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "widersprach"
+                  },
+                  {
+                    "id": "2",
+                    "text": "lächelte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "entkam"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lächelte ... zu is a natural simple-past form of jemandem zulächeln.",
+              "de": "Lächelte ... zu ist die natürliche Präteritumform von jemandem zulächeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Obwohl sie nervös war, lächelte sie dem Publikum freundlich zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Obwohl sie nervös war, lächelte sie dem Publikum freundlich zu.\" checked against all four options (drohte / widersprach / lächelte / entkam); intended answer \"lächelte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007206",
+      "title": {
+        "en": "Using lackieren in context",
+        "de": "lackieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lackieren: apply a lacquer or paint finish, in two distinct contexts.",
+        "de": "lackieren in zwei unterschiedlichen Situationen erkennen und verwenden: eine Oberfläche mit Lack beschichten."
+      },
+      "objective": "Recognize and use lackieren to apply a lacquer or paint finish in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L548 (48b8382fd75f1930bf56ee4f0eee9a78391059c897d60a7326ae7ac02e995d74), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L548-v1",
+          "contextKey": "legacy-0072-L548-context-1",
+          "transferKey": "legacy-0072-L548-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007206",
+            "type": "choice",
+            "prompt": "Die Oberfläche des Fahrradrahmens soll wieder glänzen. Er will den Rahmen neu ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A new coating is applied to the surface.",
+              "de": "Auf die Oberfläche kommt eine neue Lackschicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "falten"
+              },
+              {
+                "id": "1",
+                "text": "lackieren"
+              },
+              {
+                "id": "2",
+                "text": "sägen"
+              },
+              {
+                "id": "3",
+                "text": "zerlegen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Lackieren means coating a surface with lacquer or paint.",
+              "de": "Lackieren bedeutet, eine Oberfläche mit Lack zu beschichten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Oberfläche des Fahrradrahmens soll wieder glänzen. Er will den Rahmen neu lackieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Oberfläche des Fahrradrahmens soll wieder glänzen. Er will den Rahmen neu lackieren.\" checked against all four options (falten / lackieren / sägen / zerlegen); intended answer \"lackieren\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L548-v2",
+          "contextKey": "legacy-0072-L548-context-2",
+          "transferKey": "legacy-0072-L548-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007206",
+            "type": "gap_choice",
+            "prompt": "Nach dem Abschleifen ___ die Werkstatt die Autotür in Blau.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The workshop applies a colored finish.",
+              "de": "Die Werkstatt trägt eine farbige Lackschicht auf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verpackte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wog"
+                  },
+                  {
+                    "id": "2",
+                    "text": "lackierte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschraubte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lackierte is the simple past of lackieren; the door receives a blue finish.",
+              "de": "Lackierte ist das Präteritum von lackieren; die Tür erhält einen blauen Lack."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Abschleifen lackierte die Werkstatt die Autotür in Blau.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach dem Abschleifen lackierte die Werkstatt die Autotür in Blau.\" checked against all four options (verpackte / wog / lackierte / verschraubte); intended answer \"lackierte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007207",
+      "title": {
+        "en": "Using lagern in context",
+        "de": "lagern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lagern: store materials until needed, in two distinct contexts.",
+        "de": "lagern in zwei unterschiedlichen Situationen erkennen und verwenden: Material bis zur Verwendung aufbewahren."
+      },
+      "objective": "Recognize and use lagern to store materials until needed in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L549 (8ec0850d5fc407d6a2fc0fd018e7edd9c016243e346e1d6336e460469717fe40), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L549-v1",
+          "contextKey": "legacy-0072-L549-context-1",
+          "transferKey": "legacy-0072-L549-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007207",
+            "type": "choice",
+            "prompt": "Bis zur Verwendung müssen die Chemikalien kühl und trocken ___ werden.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They are kept under suitable conditions.",
+              "de": "Sie werden unter geeigneten Bedingungen aufbewahrt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "getrunken"
+              },
+              {
+                "id": "1",
+                "text": "gelagert"
+              },
+              {
+                "id": "2",
+                "text": "geschüttelt"
+              },
+              {
+                "id": "3",
+                "text": "verbraucht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Gelagert is the participle of lagern, meaning kept in storage.",
+              "de": "Gelagert ist das Partizip von lagern und bedeutet aufbewahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bis zur Verwendung müssen die Chemikalien kühl und trocken gelagert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Bis zur Verwendung müssen die Chemikalien kühl und trocken gelagert werden.\" checked against all four options (getrunken / gelagert / geschüttelt / verbraucht); intended answer \"gelagert\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L549-v2",
+          "contextKey": "legacy-0072-L549-context-2",
+          "transferKey": "legacy-0072-L549-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007207",
+            "type": "gap_choice",
+            "prompt": "Während der Renovierung ___ wir die Möbel vorübergehend in einer Halle.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The furniture stays there temporarily until the work is done.",
+              "de": "Die Möbel bleiben dort nur bis zum Ende der Arbeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verkauften"
+                  },
+                  {
+                    "id": "1",
+                    "text": "montierten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "lagerten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "reparierten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lagerten means we stored the furniture temporarily.",
+              "de": "Lagerten bedeutet, dass wir die Möbel vorübergehend aufbewahrten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Renovierung lagerten wir die Möbel vorübergehend in einer Halle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Während der Renovierung lagerten wir die Möbel vorübergehend in einer Halle.\" checked against all four options (verkauften / montierten / lagerten / reparierten); intended answer \"lagerten\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007208",
+      "title": {
+        "en": "Using landen in context",
+        "de": "landen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use landen: land or arrive at a destination, in two distinct contexts.",
+        "de": "landen in zwei unterschiedlichen Situationen erkennen und verwenden: aufsetzen oder an einem Zielort ankommen."
+      },
+      "objective": "Recognize and use landen to land or arrive at a destination in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L550 (ef547016168bbeb514e56268c077f595bc323f404270f2d082f95a545d58802e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L550-v1",
+          "contextKey": "legacy-0072-L550-context-1",
+          "transferKey": "legacy-0072-L550-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007208",
+            "type": "choice",
+            "prompt": "Der Pilot senkte das Fahrwerk, um auf der Landebahn zu ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The aircraft is about to touch down.",
+              "de": "Das Flugzeug setzt gleich auf der Landebahn auf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "tanken"
+              },
+              {
+                "id": "1",
+                "text": "landen"
+              },
+              {
+                "id": "2",
+                "text": "warten"
+              },
+              {
+                "id": "3",
+                "text": "parken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Landen describes the aircraft touching down on the runway.",
+              "de": "Landen bezeichnet das Aufsetzen des Flugzeugs auf der Landebahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Pilot senkte das Fahrwerk, um auf der Landebahn zu landen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Der Pilot senkte das Fahrwerk, um auf der Landebahn zu landen.\" checked against all four options (tanken / landen / warten / parken); intended answer \"landen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L550-v2",
+          "contextKey": "legacy-0072-L550-context-2",
+          "transferKey": "legacy-0072-L550-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007208",
+            "type": "gap_choice",
+            "prompt": "Nach der Reise ___ der Koffer versehentlich an einem anderen Flughafen.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The suitcase ended up at an unintended destination.",
+              "de": "Der Koffer kam an einem falschen Zielort an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wartete"
+                  },
+                  {
+                    "id": "1",
+                    "text": "blieb"
+                  },
+                  {
+                    "id": "2",
+                    "text": "landete"
+                  },
+                  {
+                    "id": "3",
+                    "text": "schlief"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Landete is also used figuratively when something ends up somewhere.",
+              "de": "Landete kann auch übertragen bedeuten, dass etwas an einem Ort ankommt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Reise landete der Koffer versehentlich an einem anderen Flughafen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach der Reise landete der Koffer versehentlich an einem anderen Flughafen.\" checked against all four options (wartete / blieb / landete / schlief); intended answer \"landete\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007209",
+      "title": {
+        "en": "Using langweilen in context",
+        "de": "langweilen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use langweilen: make someone bored or feel bored, in two distinct contexts.",
+        "de": "langweilen in zwei unterschiedlichen Situationen erkennen und verwenden: jemanden langweilen oder sich langweilen."
+      },
+      "objective": "Recognize and use langweilen to make someone bored or feel bored in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L551 (e36b6f11af68eea50fdda0afe7ad9cf0f12e17487bbb1b5ac7da223e7bd6699e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L551-v1",
+          "contextKey": "legacy-0072-L551-context-1",
+          "transferKey": "legacy-0072-L551-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007209",
+            "type": "choice",
+            "prompt": "Der eintönige Vortrag ___ die Zuhörer, die bald das Interesse verloren.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The listeners lost interest because it was dull.",
+              "de": "Die Zuhörer verloren wegen der Eintönigkeit das Interesse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "begeisterte"
+              },
+              {
+                "id": "1",
+                "text": "langweilte"
+              },
+              {
+                "id": "2",
+                "text": "überzeugte"
+              },
+              {
+                "id": "3",
+                "text": "motivierte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Langweilte is transitive here: the talk made the listeners bored.",
+              "de": "Langweilte wird hier transitiv gebraucht: Der Vortrag machte die Zuhörer unaufmerksam."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der eintönige Vortrag langweilte die Zuhörer, die bald das Interesse verloren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Der eintönige Vortrag langweilte die Zuhörer, die bald das Interesse verloren.\" checked against all four options (begeisterte / langweilte / überzeugte / motivierte); intended answer \"langweilte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L551-v2",
+          "contextKey": "legacy-0072-L551-context-2",
+          "transferKey": "legacy-0072-L551-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007209",
+            "type": "gap_choice",
+            "prompt": "Ohne Spielzeug oder Bücher ___ sich die Kinder während der langen Wartezeit.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They had nothing to do and found the wait dull.",
+              "de": "Sie hatten nichts zu tun und fanden das Warten öde."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beeilten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "trafen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "langweilten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "entschuldigten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Langweilten sich is the reflexive simple-past form for feeling bored.",
+              "de": "Langweilten sich ist die reflexive Präteritumform für das Gefühl der Langeweile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Spielzeug oder Bücher langweilten sich die Kinder während der langen Wartezeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Ohne Spielzeug oder Bücher langweilten sich die Kinder während der langen Wartezeit.\" checked against all four options (beeilten / trafen / langweilten / entschuldigten); intended answer \"langweilten\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007210",
+      "title": {
+        "en": "Using lauten in context",
+        "de": "lauten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lauten: be worded or read a certain way, in two distinct contexts.",
+        "de": "lauten in zwei unterschiedlichen Situationen erkennen und verwenden: einen bestimmten Wortlaut haben."
+      },
+      "objective": "Recognize and use lauten to be worded or read a certain way in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L554 (5ccf72293be21aa30c5f5bf218a1929ba3b316f4a8baeced81a3891a2af54db7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L554-v1",
+          "contextKey": "legacy-0072-L554-context-1",
+          "transferKey": "legacy-0072-L554-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007210",
+            "type": "choice",
+            "prompt": "Wie ___ die genaue Bezeichnung des neuen Gesetzes?",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question asks for the precise wording of the name.",
+              "de": "Gefragt ist der genaue Wortlaut der Bezeichnung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "endet"
+              },
+              {
+                "id": "1",
+                "text": "lautet"
+              },
+              {
+                "id": "2",
+                "text": "kostet"
+              },
+              {
+                "id": "3",
+                "text": "dauert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Lautet asks how a name or statement is worded; it does not mean ring.",
+              "de": "Lautet fragt nach dem Wortlaut; es bedeutet hier nicht klingeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wie lautet die genaue Bezeichnung des neuen Gesetzes?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Wie lautet die genaue Bezeichnung des neuen Gesetzes?\" checked against all four options (endet / lautet / kostet / dauert); intended answer \"lautet\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L554-v2",
+          "contextKey": "legacy-0072-L554-context-2",
+          "transferKey": "legacy-0072-L554-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007210",
+            "type": "gap_choice",
+            "prompt": "In der früheren Fassung ___ der erste Satz noch anders.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The wording of the sentence was different before.",
+              "de": "Früher hatte der Satz einen anderen Wortlaut."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "dauerte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "kostete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "lautete"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehörte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lautete is the simple past of lauten, meaning was worded.",
+              "de": "Lautete ist das Präteritum von lauten und bedeutet hatte den Wortlaut."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der früheren Fassung lautete der erste Satz noch anders.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"In der früheren Fassung lautete der erste Satz noch anders.\" checked against all four options (dauerte / kostete / lautete / gehörte); intended answer \"lautete\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007211",
+      "title": {
+        "en": "Using leichtfallen in context",
+        "de": "leichtfallen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use leichtfallen: find an activity easy, in two distinct contexts.",
+        "de": "leichtfallen in zwei unterschiedlichen Situationen erkennen und verwenden: eine Tätigkeit als leicht empfinden."
+      },
+      "objective": "Recognize and use leichtfallen to find an activity easy in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L557 (ea14b6a0e33568516f803e0b9f50b6d2016c5c069fe3321056a49dd07da50327), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L557-v1",
+          "contextKey": "legacy-0072-L557-context-1",
+          "transferKey": "legacy-0072-L557-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007211",
+            "type": "choice",
+            "prompt": "Nach viel Übung ___ ihr das Rechnen mit Brüchen leicht.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The activity presents little difficulty to her.",
+              "de": "Die Tätigkeit bereitet ihr wenig Schwierigkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "läuft"
+              },
+              {
+                "id": "1",
+                "text": "macht"
+              },
+              {
+                "id": "2",
+                "text": "fällt"
+              },
+              {
+                "id": "3",
+                "text": "setzt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fällt ... leicht is the separated present form of leichtfallen.",
+              "de": "Fällt ... leicht ist die getrennte Präsensform von leichtfallen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach viel Übung fällt ihr das Rechnen mit Brüchen leicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach viel Übung fällt ihr das Rechnen mit Brüchen leicht.\" checked against all four options (läuft / macht / fällt / setzt); intended answer \"fällt\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L557-v2",
+          "contextKey": "legacy-0072-L557-context-2",
+          "transferKey": "legacy-0072-L557-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007211",
+            "type": "gap_choice",
+            "prompt": "Die Aussprache ist ihm nach dem Training viel leichter ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The task became easier for him.",
+              "de": "Die Aufgabe wurde für ihn einfacher."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gesunken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gefallen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gestiegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gelaufen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ist ... leichter gefallen expresses that the task felt easier.",
+              "de": "Ist ... leichter gefallen drückt aus, dass die Aufgabe leichter zu bewältigen war."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Aussprache ist ihm nach dem Training viel leichter gefallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Aussprache ist ihm nach dem Training viel leichter gefallen.\" checked against all four options (gesunken / gefallen / gestiegen / gelaufen); intended answer \"gefallen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007212",
+      "title": {
+        "en": "Using leiden in context",
+        "de": "leiden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use leiden: suffer from a condition or circumstance, in two distinct contexts.",
+        "de": "leiden in zwei unterschiedlichen Situationen erkennen und verwenden: an etwas oder unter etwas leiden."
+      },
+      "objective": "Recognize and use leiden to suffer from a condition or circumstance in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L558 (585deaa2d866e86fef416169ea43317d9b0f4e041366067f63a928de7c104806), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L558-v1",
+          "contextKey": "legacy-0072-L558-context-1",
+          "transferKey": "legacy-0072-L558-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007212",
+            "type": "choice",
+            "prompt": "Viele Beschäftigte ___ unter dem ständigen Lärm in der Werkhalle.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The noise causes ongoing distress.",
+              "de": "Der Lärm belastet die Beschäftigten dauerhaft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "feiern"
+              },
+              {
+                "id": "1",
+                "text": "leiden"
+              },
+              {
+                "id": "2",
+                "text": "wohnen"
+              },
+              {
+                "id": "3",
+                "text": "planen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Leiden unter is used for distress caused by external conditions.",
+              "de": "Leiden unter verwendet man bei belastenden äußeren Umständen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Beschäftigte leiden unter dem ständigen Lärm in der Werkhalle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Viele Beschäftigte leiden unter dem ständigen Lärm in der Werkhalle.\" checked against all four options (feiern / leiden / wohnen / planen); intended answer \"leiden\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L558-v2",
+          "contextKey": "legacy-0072-L558-context-2",
+          "transferKey": "legacy-0072-L558-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007212",
+            "type": "gap_choice",
+            "prompt": "Seit Jahren ___ sie an einer seltenen Allergie.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The medical condition affects her over time.",
+              "de": "Die Erkrankung belastet sie über längere Zeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lacht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "lernt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "leidet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "arbeitet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Leidet an is the idiomatic expression for suffering from an illness.",
+              "de": "Leidet an ist die übliche Verbindung bei einer Krankheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit Jahren leidet sie an einer seltenen Allergie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Seit Jahren leidet sie an einer seltenen Allergie.\" checked against all four options (lacht / lernt / leidet / arbeitet); intended answer \"leidet\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007213",
+      "title": {
+        "en": "Using leisten in context",
+        "de": "leisten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use leisten: provide valuable help or afford something, in two distinct contexts.",
+        "de": "leisten in zwei unterschiedlichen Situationen erkennen und verwenden: Hilfe leisten oder sich etwas leisten können."
+      },
+      "objective": "Recognize and use leisten to provide valuable help or afford something in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L561 (f4f5a0d6028258f33f43af853c35fcaf5ae0083fee268f3c448a2b0dcd0a4f5e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L561-v1",
+          "contextKey": "legacy-0072-L561-context-1",
+          "transferKey": "legacy-0072-L561-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007213",
+            "type": "choice",
+            "prompt": "Die Freiwilligen konnten nach dem Hochwasser wertvolle Hilfe ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They contribute practical assistance.",
+              "de": "Sie tragen mit praktischer Unterstützung bei."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlieren"
+              },
+              {
+                "id": "1",
+                "text": "leisten"
+              },
+              {
+                "id": "2",
+                "text": "verlegen"
+              },
+              {
+                "id": "3",
+                "text": "verlangen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Hilfe leisten is a fixed collocation meaning to provide help.",
+              "de": "Hilfe leisten ist eine feste Verbindung für Unterstützung geben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Freiwilligen konnten nach dem Hochwasser wertvolle Hilfe leisten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Freiwilligen konnten nach dem Hochwasser wertvolle Hilfe leisten.\" checked against all four options (verlieren / leisten / verlegen / verlangen); intended answer \"leisten\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L561-v2",
+          "contextKey": "legacy-0072-L561-context-2",
+          "transferKey": "legacy-0072-L561-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007213",
+            "type": "gap_choice",
+            "prompt": "Mit diesem Gehalt kann er sich keine so teure Wohnung ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "His income is insufficient for the expense.",
+              "de": "Sein Einkommen reicht für diese Ausgabe nicht aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verzeihen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "erinnern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "leisten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bedanken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Sich etwas leisten können means being able to afford it.",
+              "de": "Sich etwas leisten können bedeutet, dass man es bezahlen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit diesem Gehalt kann er sich keine so teure Wohnung leisten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Mit diesem Gehalt kann er sich keine so teure Wohnung leisten.\" checked against all four options (verzeihen / erinnern / leisten / bedanken); intended answer \"leisten\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007214",
+      "title": {
+        "en": "Using leiten in context",
+        "de": "leiten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use leiten: lead a team or direct a flow, in two distinct contexts.",
+        "de": "leiten in zwei unterschiedlichen Situationen erkennen und verwenden: ein Team führen oder einen Strom führen."
+      },
+      "objective": "Recognize and use leiten to lead a team or direct a flow in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L562 (a26a58ae71e60470609810bd57f6f31bb6fef1b5c4bb0344908feea69da11ce9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L562-v1",
+          "contextKey": "legacy-0072-L562-context-1",
+          "transferKey": "legacy-0072-L562-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007214",
+            "type": "choice",
+            "prompt": "Ab Januar soll die Ingenieurin das neue Projektteam ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She takes responsibility for directing the team.",
+              "de": "Sie übernimmt die Führung des Teams."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "übersetzen"
+              },
+              {
+                "id": "1",
+                "text": "leiten"
+              },
+              {
+                "id": "2",
+                "text": "lagern"
+              },
+              {
+                "id": "3",
+                "text": "drucken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Leiten means to direct or manage a team.",
+              "de": "Leiten bedeutet hier, ein Team zu führen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ab Januar soll die Ingenieurin das neue Projektteam leiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Ab Januar soll die Ingenieurin das neue Projektteam leiten.\" checked against all four options (übersetzen / leiten / lagern / drucken); intended answer \"leiten\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L562-v2",
+          "contextKey": "legacy-0072-L562-context-2",
+          "transferKey": "legacy-0072-L562-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007214",
+            "type": "gap_choice",
+            "prompt": "Ein Rohr ___ das Regenwasser vom Dach in die Zisterne.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The pipe channels water to another place.",
+              "de": "Das Rohr führt Wasser an einen anderen Ort."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "löscht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "prüft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "leitet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bewahrt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Leitet can also mean channeling water through a pipe.",
+              "de": "Leitet kann auch bedeuten, Wasser durch ein Rohr zu führen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Rohr leitet das Regenwasser vom Dach in die Zisterne.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Ein Rohr leitet das Regenwasser vom Dach in die Zisterne.\" checked against all four options (löscht / prüft / leitet / bewahrt); intended answer \"leitet\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007215",
+      "title": {
+        "en": "Using loben in context",
+        "de": "loben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use loben: praise a person's achievement, in two distinct contexts.",
+        "de": "loben in zwei unterschiedlichen Situationen erkennen und verwenden: eine Leistung anerkennend loben."
+      },
+      "objective": "Recognize and use loben to praise a person's achievement in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L568 (30f2f3b915f98cacf51e257c0d92b2e16cacec25bf3636371e16d36e41b2d677), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L568-v1",
+          "contextKey": "legacy-0072-L568-context-1",
+          "transferKey": "legacy-0072-L568-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007215",
+            "type": "choice",
+            "prompt": "Nach dem Sieg wollte der Trainer die Mannschaft ausdrücklich ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He expresses approval of their performance.",
+              "de": "Er erkennt die gute Leistung ausdrücklich an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "warnen"
+              },
+              {
+                "id": "1",
+                "text": "ersetzen"
+              },
+              {
+                "id": "2",
+                "text": "loben"
+              },
+              {
+                "id": "3",
+                "text": "prüfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Loben means to praise someone for an achievement.",
+              "de": "Loben bedeutet, eine Leistung anerkennend hervorzuheben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sieg wollte der Trainer die Mannschaft ausdrücklich loben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach dem Sieg wollte der Trainer die Mannschaft ausdrücklich loben.\" checked against all four options (warnen / ersetzen / loben / prüfen); intended answer \"loben\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L568-v2",
+          "contextKey": "legacy-0072-L568-context-2",
+          "transferKey": "legacy-0072-L568-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007215",
+            "type": "gap_choice",
+            "prompt": "Weil sie den schwierigen Fall gut gelöst hatte, ___ der Chef ihre Arbeit.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The manager speaks positively about her work.",
+              "de": "Der Chef äußert sich anerkennend über ihre Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "übersah"
+                  },
+                  {
+                    "id": "1",
+                    "text": "lobte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verkürzte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbot"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lobte is the simple past of loben, praising good work.",
+              "de": "Lobte ist das Präteritum von loben und würdigt gute Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil sie den schwierigen Fall gut gelöst hatte, lobte der Chef ihre Arbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Weil sie den schwierigen Fall gut gelöst hatte, lobte der Chef ihre Arbeit.\" checked against all four options (übersah / lobte / verkürzte / verbot); intended answer \"lobte\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007216",
+      "title": {
+        "en": "Using lohnen in context",
+        "de": "lohnen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lohnen: be worth the effort or cost, in two distinct contexts.",
+        "de": "lohnen in zwei unterschiedlichen Situationen erkennen und verwenden: den Aufwand oder die Kosten wert sein."
+      },
+      "objective": "Recognize and use lohnen to be worth the effort or cost in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L569 (16e07d151ce3b3a973fe0dda3af7f8cd19aa3fa46271b0af196e70ccf1784346), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L569-v1",
+          "contextKey": "legacy-0072-L569-context-1",
+          "transferKey": "legacy-0072-L569-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007216",
+            "type": "choice",
+            "prompt": "Der lange Weg ___ sich, weil wir dort die seltene Ausstellung sehen können.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The benefit makes the journey worthwhile.",
+              "de": "Der Nutzen rechtfertigt den Aufwand."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "spart"
+              },
+              {
+                "id": "1",
+                "text": "hält"
+              },
+              {
+                "id": "2",
+                "text": "lohnt"
+              },
+              {
+                "id": "3",
+                "text": "trifft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Sich lohnen means that an effort is worthwhile.",
+              "de": "Sich lohnen bedeutet, dass sich ein Aufwand auszahlt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der lange Weg lohnt sich, weil wir dort die seltene Ausstellung sehen können.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Der lange Weg lohnt sich, weil wir dort die seltene Ausstellung sehen können.\" checked against all four options (spart / hält / lohnt / trifft); intended answer \"lohnt\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L569-v2",
+          "contextKey": "legacy-0072-L569-context-2",
+          "transferKey": "legacy-0072-L569-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007216",
+            "type": "gap_choice",
+            "prompt": "Die Reparatur hat sich ___, denn das Gerät funktioniert wieder zuverlässig.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The repair was worth its cost.",
+              "de": "Die Reparatur war ihr Geld wert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geändert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelohnt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gelöst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ergeben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hat sich gelohnt is the perfect tense of sich lohnen.",
+              "de": "Hat sich gelohnt ist das Perfekt von sich lohnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Reparatur hat sich gelohnt, denn das Gerät funktioniert wieder zuverlässig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Reparatur hat sich gelohnt, denn das Gerät funktioniert wieder zuverlässig.\" checked against all four options (geändert / gelohnt / gelöst / ergeben); intended answer \"gelohnt\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007217",
+      "title": {
+        "en": "Using löschen in context",
+        "de": "löschen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use löschen: extinguish a fire or delete a file, in two distinct contexts.",
+        "de": "löschen in zwei unterschiedlichen Situationen erkennen und verwenden: Feuer ausmachen oder Daten entfernen."
+      },
+      "objective": "Recognize and use löschen to extinguish a fire or delete a file in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L570 (981219ea77b996d85b53964d77a921afedc40d5fbb21cbbe6ba24b67ac09bd8c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L570-v1",
+          "contextKey": "legacy-0072-L570-context-1",
+          "transferKey": "legacy-0072-L570-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007217",
+            "type": "choice",
+            "prompt": "Die Feuerwehr musste den Brand im Lager vollständig ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The flames must be put out.",
+              "de": "Die Flammen müssen vollständig ausgehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beleuchten"
+              },
+              {
+                "id": "1",
+                "text": "löschen"
+              },
+              {
+                "id": "2",
+                "text": "verteilen"
+              },
+              {
+                "id": "3",
+                "text": "lagern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Löschen means extinguishing a fire.",
+              "de": "Löschen bedeutet hier, ein Feuer zu bekämpfen und auszumachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr musste den Brand im Lager vollständig löschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Die Feuerwehr musste den Brand im Lager vollständig löschen.\" checked against all four options (beleuchten / löschen / verteilen / lagern); intended answer \"löschen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L570-v2",
+          "contextKey": "legacy-0072-L570-context-2",
+          "transferKey": "legacy-0072-L570-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007217",
+            "type": "gap_choice",
+            "prompt": "Nach Ablauf der Aufbewahrungsfrist sollen Sie die Datei endgültig ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The file must no longer remain stored.",
+              "de": "Die Datei soll nicht mehr gespeichert sein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "öffnen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "kopieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "löschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "drucken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Löschen also means permanently removing a digital file.",
+              "de": "Löschen bedeutet auch, eine digitale Datei zu entfernen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Ablauf der Aufbewahrungsfrist sollen Sie die Datei endgültig löschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach Ablauf der Aufbewahrungsfrist sollen Sie die Datei endgültig löschen.\" checked against all four options (öffnen / kopieren / löschen / drucken); intended answer \"löschen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007218",
+      "title": {
+        "en": "Using lösen in context",
+        "de": "lösen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use lösen: solve a problem or detach something, in two distinct contexts.",
+        "de": "lösen in zwei unterschiedlichen Situationen erkennen und verwenden: ein Problem bewältigen oder etwas ablösen."
+      },
+      "objective": "Recognize and use lösen to solve a problem or detach something in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L571 (ac8dad82df8c6f0699762b4ae47f5eb0c2f7118227dba83030c927fc0a13c2da), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L571-v1",
+          "contextKey": "legacy-0072-L571-context-1",
+          "transferKey": "legacy-0072-L571-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007218",
+            "type": "choice",
+            "prompt": "Nach mehreren Versuchen konnte die Technikerin das komplizierte Problem ___.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She finds a working solution.",
+              "de": "Sie findet eine funktionierende Lösung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "lagern"
+              },
+              {
+                "id": "1",
+                "text": "lösen"
+              },
+              {
+                "id": "2",
+                "text": "zählen"
+              },
+              {
+                "id": "3",
+                "text": "leiten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Lösen means finding a solution to a problem.",
+              "de": "Lösen bedeutet hier, eine Lösung für ein Problem zu finden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach mehreren Versuchen konnte die Technikerin das komplizierte Problem lösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Nach mehreren Versuchen konnte die Technikerin das komplizierte Problem lösen.\" checked against all four options (lagern / lösen / zählen / leiten); intended answer \"lösen\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L571-v2",
+          "contextKey": "legacy-0072-L571-context-2",
+          "transferKey": "legacy-0072-L571-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007218",
+            "type": "gap_choice",
+            "prompt": "Um das alte Etikett zu entfernen, ___ er es vorsichtig vom Glas.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He separates the label from the glass.",
+              "de": "Er trennt das Etikett von der Glasoberfläche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "klebte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "drückte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "löste"
+                  },
+                  {
+                    "id": "3",
+                    "text": "malte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Löste ... vom Glas means detached it from the surface.",
+              "de": "Löste ... vom Glas bedeutet, dass er es von der Oberfläche abtrennte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um das alte Etikett zu entfernen, löste er es vorsichtig vom Glas.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Um das alte Etikett zu entfernen, löste er es vorsichtig vom Glas.\" checked against all four options (klebte / drückte / löste / malte); intended answer \"löste\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007219",
+      "title": {
+        "en": "Using losfahren in context",
+        "de": "losfahren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use losfahren: set off on a journey, in two distinct contexts.",
+        "de": "losfahren in zwei unterschiedlichen Situationen erkennen und verwenden: eine Fahrt beginnen."
+      },
+      "objective": "Recognize and use losfahren to set off on a journey in context, including appropriate forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical and grammar facts from pinned apps/web/data/pos/verbs.jsonl:L572 (b4db917dfcfa325d7bcc16890166f90da6a8ab5d34e7b3877f6acc6b7ced7be4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and per-variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0072-L572-v1",
+          "contextKey": "legacy-0072-L572-context-1",
+          "transferKey": "legacy-0072-L572-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007219",
+            "type": "choice",
+            "prompt": "Wir müssen um sechs Uhr ___, sonst verpassen wir die Fähre.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The journey needs to begin at six.",
+              "de": "Die Fahrt muss um sechs Uhr beginnen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ankommen"
+              },
+              {
+                "id": "1",
+                "text": "losfahren"
+              },
+              {
+                "id": "2",
+                "text": "aussteigen"
+              },
+              {
+                "id": "3",
+                "text": "umsteigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Losfahren means to set off, not to arrive or change vehicles.",
+              "de": "Losfahren bedeutet, die Fahrt zu beginnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir müssen um sechs Uhr losfahren, sonst verpassen wir die Fähre.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Wir müssen um sechs Uhr losfahren, sonst verpassen wir die Fähre.\" checked against all four options (ankommen / losfahren / aussteigen / umsteigen); intended answer \"losfahren\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Meaning and infinitive or contextual form assessed. Independent human review pending."
+        },
+        {
+          "variantKey": "legacy-0072-L572-v2",
+          "contextKey": "legacy-0072-L572-context-2",
+          "transferKey": "legacy-0072-L572-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000720191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007219",
+            "type": "gap_choice",
+            "prompt": "Als die Ampel grün wurde, ___ der Bus sofort los.",
+            "instruction": {
+              "en": "Choose the form that best completes the German sentence.",
+              "de": "Wähle die Form, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle starts moving from a stop.",
+              "de": "Das Fahrzeug setzt sich aus dem Stand in Bewegung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hielt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "fuhr"
+                  },
+                  {
+                    "id": "3",
+                    "text": "blieb"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fuhr ... los is the simple past separated form of losfahren.",
+              "de": "Fuhr ... los ist die getrennte Präteritumform von losfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als die Ampel grün wurde, fuhr der Bus sofort los.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: full sentence \"Als die Ampel grün wurde, fuhr der Bus sofort los.\" checked against all four options (stand / hielt / fuhr / blieb); intended answer \"fuhr\" is supported by the contextual clue. Other options do not express the specified action or grammatical form. Different situation and finite/perfect/participle usage assessed. Independent human review pending."
+        }
+      ]
+    }
+  ]
+}
