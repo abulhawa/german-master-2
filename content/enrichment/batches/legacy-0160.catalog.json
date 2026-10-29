@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000016000",
+      "title": {
+        "en": "Using Trennung accurately",
+        "de": "Trennung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Trennung as a separation ending a relationship.",
+        "de": "Trennung als eine Trennung als Ende einer Beziehung erkennen."
+      },
+      "objective": "Recognize Trennung in the specified a separation ending a relationship sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2413 (9bad4be891de057dc0970f1e820689d5f4eb08ae50d3a09b8e5f1ac6f9f98e7e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2413-v1",
+          "contextKey": "legacy-0160-L2413-context-1",
+          "transferKey": "legacy-0160-L2413-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016000",
+            "type": "gap_choice",
+            "prompt": "Nach der ___ lebten die beiden Partner in verschiedenen Wohnungen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Their relationship has ended.",
+              "de": "Ihre Beziehung ist zu Ende gegangen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hochzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beförderung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Trennung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Trennung can mean the end of a partnership.",
+              "de": "Eine Trennung kann das Ende einer Partnerschaft bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Trennung lebten die beiden Partner in verschiedenen Wohnungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Trennung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Hochzeit: A wedding begins or formalizes a union, not ends it.; Einladung: An invitation asks someone to attend, not ends a relationship.; Beförderung: A promotion advances a career, not separates partners.; Trennung: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2413-v2",
+          "contextKey": "legacy-0160-L2413-context-2",
+          "transferKey": "legacy-0160-L2413-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016000",
+            "type": "choice",
+            "prompt": "Ein Paar beendet seine Beziehung und zieht auseinander. Wie nennt man das Ende der Beziehung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The partners no longer continue their relationship.",
+              "de": "Die Partner führen ihre Beziehung nicht weiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Trennung"
+              },
+              {
+                "id": "1",
+                "text": "Verlobung"
+              },
+              {
+                "id": "2",
+                "text": "Versöhnung"
+              },
+              {
+                "id": "3",
+                "text": "Beförderung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Ending a partnership is a Trennung.",
+              "de": "Das Ende einer Partnerschaft ist eine Trennung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Paar erlebt eine Trennung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Trennung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Trennung: correct in the complete context; Verlobung: An engagement promises marriage, not a breakup.; Versöhnung: Reconciliation restores a relationship, not ends it.; Beförderung: A promotion concerns work, not partnership.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016001",
+      "title": {
+        "en": "Using Treppenhaus accurately",
+        "de": "Treppenhaus im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Treppenhaus as the shared stairwell of a building.",
+        "de": "Treppenhaus als ein Treppenhaus in einem Gebäude erkennen."
+      },
+      "objective": "Recognize Treppenhaus in the specified the shared stairwell of a building sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2415 (2791f59e6b489e7a518309082a2122f762f23e7a18b186fa438abaf6e1f80a73), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2415-v1",
+          "contextKey": "legacy-0160-L2415-context-1",
+          "transferKey": "legacy-0160-L2415-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016001",
+            "type": "gap_choice",
+            "prompt": "Im ___ eines Mehrfamilienhauses befinden sich die Treppen zwischen den Etagen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is the shared area connecting floors.",
+              "de": "Es ist der gemeinsame Bereich zwischen den Stockwerken."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wohnzimmer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Balkon"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Treppenhaus"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Keller"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Treppenhaus contains stairs connecting floors.",
+              "de": "Ein Treppenhaus enthält die Treppen zwischen Etagen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Treppenhaus eines Mehrfamilienhauses befinden sich die Treppen zwischen den Etagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Treppenhaus' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Wohnzimmer: A living room is inside a home, not the common stairs.; Balkon: A balcony is outside a room, not the building stairwell.; Treppenhaus: correct in the complete context; Keller: A basement is a level, not the stairs linking floors.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2415-v2",
+          "contextKey": "legacy-0160-L2415-context-2",
+          "transferKey": "legacy-0160-L2415-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016001",
+            "type": "choice",
+            "prompt": "Ein Hausbewohner steigt vom Erdgeschoss in den dritten Stock, ohne eine Wohnung zu betreten. In welchem gemeinsamen Gebäudebereich ist er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He uses the shared stairs.",
+              "de": "Er benutzt die gemeinsamen Treppen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schlafzimmer"
+              },
+              {
+                "id": "1",
+                "text": "Badezimmer"
+              },
+              {
+                "id": "2",
+                "text": "Garage"
+              },
+              {
+                "id": "3",
+                "text": "Treppenhaus"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The shared stair area is the Treppenhaus.",
+              "de": "Der gemeinsame Treppenbereich heißt Treppenhaus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hausbewohner ist im Treppenhaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Treppenhaus' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Schlafzimmer: A bedroom is a private room, not shared stairs.; Badezimmer: A bathroom is a washroom, not a stair area.; Garage: A garage stores vehicles, not the staircase between floors.; Treppenhaus: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016002",
+      "title": {
+        "en": "Using Trinkgeld accurately",
+        "de": "Trinkgeld im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Trinkgeld as a voluntary tip for service.",
+        "de": "Trinkgeld als ein freiwilliges Trinkgeld erkennen."
+      },
+      "objective": "Recognize Trinkgeld in the specified a voluntary tip for service sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2416 (ec63128d375f5438c9eace4ddda54d42df1e44c03e7cd3242a12f98f8e7b5755), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2416-v1",
+          "contextKey": "legacy-0160-L2416-context-1",
+          "transferKey": "legacy-0160-L2416-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016002",
+            "type": "gap_choice",
+            "prompt": "Nach dem Essen ließ sie dem Kellner ein ___ auf dem Tisch.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is extra money given for service.",
+              "de": "Es ist zusätzliches Geld für die Bedienung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pfand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Trinkgeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bußgeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaufpreis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Trinkgeld is a voluntary service tip.",
+              "de": "Trinkgeld ist eine freiwillige zusätzliche Zahlung für eine Dienstleistung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Essen ließ sie dem Kellner ein Trinkgeld auf dem Tisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Trinkgeld' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Pfand: A deposit is held as security, not a reward for service.; Trinkgeld: correct in the complete context; Bußgeld: A fine penalizes wrongdoing, not good service.; Kaufpreis: A purchase price pays for goods, not an extra tip.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2416-v2",
+          "contextKey": "legacy-0160-L2416-context-2",
+          "transferKey": "legacy-0160-L2416-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016002",
+            "type": "choice",
+            "prompt": "Eine Kundin gibt dem Taxifahrer freiwillig zwei Euro zusätzlich zum Fahrpreis. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The extra payment is voluntary.",
+              "de": "Die zusätzliche Zahlung ist freiwillig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Steuer"
+              },
+              {
+                "id": "1",
+                "text": "Kaution"
+              },
+              {
+                "id": "2",
+                "text": "Trinkgeld"
+              },
+              {
+                "id": "3",
+                "text": "Rabatt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Extra money for service is Trinkgeld.",
+              "de": "Freiwilliges zusätzliches Geld für Service ist Trinkgeld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die zusätzlichen zwei Euro sind Trinkgeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Trinkgeld' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Steuer: Tax is a legally imposed levy, not a voluntary extra.; Kaution: A deposit is refundable security, not a service tip.; Trinkgeld: correct in the complete context; Rabatt: A discount reduces the fare, not adds money.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016003",
+      "title": {
+        "en": "Using Tropen accurately",
+        "de": "Tropen im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tropen as the tropical zone between the tropics of latitude.",
+        "de": "Tropen als die Tropen als Klimazone erkennen."
+      },
+      "objective": "Recognize Tropen in the specified the tropical zone between the tropics of latitude sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2417 (7e330f4fd5fcbb9416f6aa06198d6e56ffd4e854c41de845a1847099d451f9cc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2417-v1",
+          "contextKey": "legacy-0160-L2417-context-1",
+          "transferKey": "legacy-0160-L2417-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016003",
+            "type": "gap_choice",
+            "prompt": "Viele Gebiete nahe dem Äquator liegen in den ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The zone surrounds the equator.",
+              "de": "Die Klimazone liegt rund um den Äquator."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tropen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Alpen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Polargebieten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mittelgebirgen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The Tropen are the tropical latitudes.",
+              "de": "Die Tropen sind die tropischen Breiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Gebiete nahe dem Äquator liegen in den Tropen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tropen' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tropen: correct in the complete context; Alpen: The Alps are a European mountain range far from the equator.; Polargebieten: Polar regions lie near the poles, not the equator.; Mittelgebirgen: Mid-mountain regions are not the global equatorial climate zone.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2417-v2",
+          "contextKey": "legacy-0160-L2417-context-2",
+          "transferKey": "legacy-0160-L2417-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016003",
+            "type": "choice",
+            "prompt": "Welche Klimazone liegt zwischen dem nördlichen und dem südlichen Wendekreis?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The two tropics bound the zone.",
+              "de": "Die beiden Wendekreise begrenzen diese Zone."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Polarzone"
+              },
+              {
+                "id": "1",
+                "text": "Tropen"
+              },
+              {
+                "id": "2",
+                "text": "gemäßigte Zone"
+              },
+              {
+                "id": "3",
+                "text": "Subpolarzone"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The tropical zone lies between the tropics.",
+              "de": "Die Tropen liegen zwischen den Wendekreisen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den Wendekreisen liegen die Tropen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tropen' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Polarzone: Polar zones lie near the poles.; Tropen: correct in the complete context; gemäßigte Zone: Temperate zones lie outside the tropics.; Subpolarzone: Subpolar zones lie between temperate and polar regions.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016004",
+      "title": {
+        "en": "Using Tropeninsel accurately",
+        "de": "Tropeninsel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tropeninsel as an island in a tropical climate.",
+        "de": "Tropeninsel als eine Tropeninsel erkennen."
+      },
+      "objective": "Recognize Tropeninsel in the specified an island in a tropical climate sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2418 (8b2d011d363833c2881797eace5812797a8eb994e2c5ad708167de41195a29d5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2418-v1",
+          "contextKey": "legacy-0160-L2418-context-1",
+          "transferKey": "legacy-0160-L2418-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016004",
+            "type": "gap_choice",
+            "prompt": "Die ___ liegt nahe dem Äquator und ist von warmem Meer umgeben.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is an island in a tropical region.",
+              "de": "Es ist eine Insel in einer tropischen Region."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bergstadt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wüstenoase"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hochebene"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tropeninsel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tropeninsel is an island in the tropics.",
+              "de": "Eine Tropeninsel ist eine Insel in den Tropen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tropeninsel liegt nahe dem Äquator und ist von warmem Meer umgeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tropeninsel' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bergstadt: A mountain town is a settlement, not necessarily an island.; Wüstenoase: A desert oasis is a water source in a desert, not a sea island.; Hochebene: A plateau is elevated land, not an island.; Tropeninsel: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2418-v2",
+          "contextKey": "legacy-0160-L2418-context-2",
+          "transferKey": "legacy-0160-L2418-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016004",
+            "type": "choice",
+            "prompt": "Ein Reiseführer beschreibt eine Insel mit tropischem Klima, Palmen und Stränden. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The location is an island in the tropical climate zone.",
+              "de": "Der Ort ist eine Insel in einer tropischen Klimazone."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tropeninsel"
+              },
+              {
+                "id": "1",
+                "text": "Gletscherinsel"
+              },
+              {
+                "id": "2",
+                "text": "Binnenstadt"
+              },
+              {
+                "id": "3",
+                "text": "Bergpass"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A tropical island is a Tropeninsel.",
+              "de": "Eine Insel in tropischem Klima heißt Tropeninsel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Reiseführer beschreibt eine Tropeninsel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tropeninsel' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tropeninsel: correct in the complete context; Gletscherinsel: A glacier island suggests ice, not the described tropical climate.; Binnenstadt: An inland town is not an island.; Bergpass: A mountain pass is a route through mountains, not a sea island.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016008",
+      "title": {
+        "en": "Using Türklinke accurately",
+        "de": "Türklinke im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Türklinke as a door handle operated by pressing.",
+        "de": "Türklinke als eine Türklinke erkennen."
+      },
+      "objective": "Recognize Türklinke in the specified a door handle operated by pressing sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2423 (9c0c1d60058cdb5791fda3fa558ce750a3640744063b5581b6c6fe118a458493), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2423-v1",
+          "contextKey": "legacy-0160-L2423-context-1",
+          "transferKey": "legacy-0160-L2423-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016008",
+            "type": "gap_choice",
+            "prompt": "Sie drückte die ___ nach unten und öffnete die Tür.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The moving lever opens the door.",
+              "de": "Der bewegliche Griff öffnet die Tür."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fensterscheibe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Treppenstufe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fußmatte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Türklinke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Türklinke is a lever door handle.",
+              "de": "Eine Türklinke ist ein beweglicher Türgriff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie drückte die Türklinke nach unten und öffnete die Tür.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Türklinke' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fensterscheibe: A windowpane is glass, not a door lever.; Treppenstufe: A stair step is walked on, not pressed to open a door.; Fußmatte: A doormat lies on the floor, not operates a door.; Türklinke: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2423-v2",
+          "contextKey": "legacy-0160-L2423-context-2",
+          "transferKey": "legacy-0160-L2423-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016008",
+            "type": "choice",
+            "prompt": "An einer Zimmertür ist der bewegliche Griff defekt, den man herunterdrückt. Welches Teil ist kaputt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The part is the lever you press.",
+              "de": "Es ist der Griff, den man nach unten drückt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Türklinke"
+              },
+              {
+                "id": "1",
+                "text": "Türrahmen"
+              },
+              {
+                "id": "2",
+                "text": "Schlosszylinder"
+              },
+              {
+                "id": "3",
+                "text": "Scharnier"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The pressed lever is the Türklinke.",
+              "de": "Der heruntergedrückte Griff heißt Türklinke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Türklinke ist kaputt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Türklinke' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Türklinke: correct in the complete context; Türrahmen: A doorframe surrounds the door, not the lever.; Schlosszylinder: A lock cylinder receives the key, not the pressed handle.; Scharnier: A hinge connects the door to its frame, not the handle.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016009",
+      "title": {
+        "en": "Using Turm accurately",
+        "de": "Turm im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Turm as a tall tower structure.",
+        "de": "Turm als einen hohen Turm erkennen."
+      },
+      "objective": "Recognize Turm in the specified a tall tower structure sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2424 (60a5b9dac05904a4ae40259a91b4ceeb75e098a5153c2c3947b9bfa4a56ebdae), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2424-v1",
+          "contextKey": "legacy-0160-L2424-context-1",
+          "transferKey": "legacy-0160-L2424-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016009",
+            "type": "gap_choice",
+            "prompt": "Vom hohen ___ der Burg sieht man die ganze Stadt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vantage point is a tall building element.",
+              "de": "Der Aussichtspunkt ist ein hohes Bauteil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Keller"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Turm"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Flur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Turm is a tall tower.",
+              "de": "Ein Turm ist ein hohes Bauwerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vom hohen Turm der Burg sieht man die ganze Stadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Turm' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Keller: A cellar is below ground, not a high viewpoint.; Garten: A garden is an outdoor area, not a tall castle structure.; Turm: correct in the complete context; Flur: A corridor is a passage, not a tower.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2424-v2",
+          "contextKey": "legacy-0160-L2424-context-2",
+          "transferKey": "legacy-0160-L2424-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016009",
+            "type": "choice",
+            "prompt": "Ein schlankes hohes Bauwerk einer Kirche trägt die Glocken. Wie nennt man es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The bells are high in the structure.",
+              "de": "Die Glocken hängen hoch im Bauwerk."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kreuzgang"
+              },
+              {
+                "id": "1",
+                "text": "Altar"
+              },
+              {
+                "id": "2",
+                "text": "Kirchenbank"
+              },
+              {
+                "id": "3",
+                "text": "Turm"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A church tower is a Turm.",
+              "de": "Ein Kirchturm ist ein Turm."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Bauwerk ist ein Kirchturm.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Turm' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kreuzgang: A cloister is a covered walkway, not a bell tower.; Altar: An altar is a place of worship inside, not a tall structure.; Kirchenbank: A pew is seating, not a tower.; Turm: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016010",
+      "title": {
+        "en": "Using Turnschuh accurately",
+        "de": "Turnschuh im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Turnschuh as a sports shoe or trainer.",
+        "de": "Turnschuh als einen Turnschuh erkennen."
+      },
+      "objective": "Recognize Turnschuh in the specified a sports shoe or trainer sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2425 (8b1484387cf9f02987b4c68012852015a182ec1776d5985e52375e916dee24f8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2425-v1",
+          "contextKey": "legacy-0160-L2425-context-1",
+          "transferKey": "legacy-0160-L2425-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016010",
+            "type": "gap_choice",
+            "prompt": "Für den Sportunterricht in der Halle braucht er bequeme ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The footwear is designed for exercise.",
+              "de": "Die Schuhe sind für Sport geeignet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gummistiefel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Turnschuhe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausschuhe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sandalen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Turnschuhe are athletic shoes.",
+              "de": "Turnschuhe sind Schuhe für sportliche Aktivitäten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Sportunterricht in der Halle braucht er bequeme Turnschuhe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Turnschuhe' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gummistiefel: Rubber boots are waterproof footwear, not typical indoor sports shoes.; Turnschuhe: correct in the complete context; Hausschuhe: Slippers are for home, not gym activity.; Sandalen: Sandals are open footwear, not suitable for the stated gym class.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2425-v2",
+          "contextKey": "legacy-0160-L2425-context-2",
+          "transferKey": "legacy-0160-L2425-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016010",
+            "type": "choice",
+            "prompt": "Eine Läuferin zieht leichte Schuhe mit flexibler Sohle für das Training an. Was sind das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The shoes are suited to sport.",
+              "de": "Die Schuhe sind für sportliche Bewegung gemacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sicherheitsschuhe"
+              },
+              {
+                "id": "1",
+                "text": "Stöckelschuhe"
+              },
+              {
+                "id": "2",
+                "text": "Turnschuhe"
+              },
+              {
+                "id": "3",
+                "text": "Filzpantoffeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Athletic training shoes are Turnschuhe.",
+              "de": "Sportschuhe können Turnschuhe heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Läuferin trägt Turnschuhe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Turnschuhe' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Sicherheitsschuhe: Safety shoes protect at work and are usually heavier.; Stöckelschuhe: High heels are unsuitable for running training.; Turnschuhe: correct in the complete context; Filzpantoffeln: Felt slippers are indoor leisure footwear, not running shoes.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016012",
+      "title": {
+        "en": "Using Typ accurately",
+        "de": "Typ im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Typ as a model or type of product.",
+        "de": "Typ als einen Typ als Bauart eines Produkts erkennen."
+      },
+      "objective": "Recognize Typ in the specified a model or type of product sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2427 (38ab19fca18ade26662b17b9366a436eb31ec7d96fe6bdde9382ce2996de13c5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2427-v1",
+          "contextKey": "legacy-0160-L2427-context-1",
+          "transferKey": "legacy-0160-L2427-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016012",
+            "type": "gap_choice",
+            "prompt": "Die Werkstatt verwendet nur einen bestimmten ___ von Schraube.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The workshop selects a particular design variant.",
+              "de": "Die Werkstatt wählt eine bestimmte Bauart."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Preis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Termin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kunde"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Typ"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Typ can mean a particular kind or model.",
+              "de": "Typ kann eine bestimmte Bauart oder Sorte bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Werkstatt verwendet nur einen bestimmten Typ von Schraube.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Typ' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Preis: A price is a cost, not a design variant.; Termin: An appointment is a time, not a screw model.; Kunde: A customer is a person, not a product type.; Typ: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2427-v2",
+          "contextKey": "legacy-0160-L2427-context-2",
+          "transferKey": "legacy-0160-L2427-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016012",
+            "type": "choice",
+            "prompt": "Ein Hersteller unterscheidet mehrere Varianten desselben Geräts nach Bauart. Welches Wort bezeichnet eine solche Bauart?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The products belong to different models.",
+              "de": "Die Produkte unterscheiden sich nach Modell."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Typ"
+              },
+              {
+                "id": "1",
+                "text": "Miete"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A product model can be called a Typ.",
+              "de": "Ein Gerätemodell kann als Typ bezeichnet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine solche Bauart heißt Typ.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Typ' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Typ: correct in the complete context; Miete: Rent is payment for use, not a product variant.; Rechnung: An invoice records a charge, not a model.; Termin: An appointment is a scheduled time, not a design category.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016013",
+      "title": {
+        "en": "Using U-Bahn accurately",
+        "de": "U-Bahn im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize U-Bahn as an urban underground railway.",
+        "de": "U-Bahn als eine U-Bahn im städtischen Schnellverkehr erkennen."
+      },
+      "objective": "Recognize U-Bahn in the specified an urban underground railway sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2428 (bbea709a340185fedde8c4ec652e9fefa3073d2ddd3397de976b1d45edd5ed2b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2428-v1",
+          "contextKey": "legacy-0160-L2428-context-1",
+          "transferKey": "legacy-0160-L2428-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016013",
+            "type": "gap_choice",
+            "prompt": "Wir fahren mit der ___ durch den Tunnel unter der Stadt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The urban train uses underground tracks.",
+              "de": "Der Stadtzug fährt auf unterirdischen Gleisen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fähre"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tram"
+                  },
+                  {
+                    "id": "2",
+                    "text": "U-Bahn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Seilbahn"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An U-Bahn is an urban rapid-transit train.",
+              "de": "Eine U-Bahn ist ein städtisches Schnellbahnverkehrsmittel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir fahren mit der U-Bahn durch den Tunnel unter der Stadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'U-Bahn' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fähre: A ferry travels on water, not underground rails.; Tram: A tram usually runs on street tracks; the tunnel rapid-transit context selects U-Bahn.; U-Bahn: correct in the complete context; Seilbahn: A cable car uses a cable system, not underground rail tunnels.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2428-v2",
+          "contextKey": "legacy-0160-L2428-context-2",
+          "transferKey": "legacy-0160-L2428-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016013",
+            "type": "choice",
+            "prompt": "Ein Zug fährt auf einem städtischen Schnellbahnnetz mit Stationen unter der Erde. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The system has underground rapid-transit stations.",
+              "de": "Das Netz hat unterirdische Schnellbahnstationen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Straßenbahn"
+              },
+              {
+                "id": "1",
+                "text": "Fernbus"
+              },
+              {
+                "id": "2",
+                "text": "Fähre"
+              },
+              {
+                "id": "3",
+                "text": "U-Bahn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "An underground city train is an U-Bahn.",
+              "de": "Ein unterirdischer Stadtzug ist eine U-Bahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug ist eine U-Bahn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'U-Bahn' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Straßenbahn: A streetcar typically uses street tracks rather than this rapid-transit network.; Fernbus: A coach is a road vehicle, not a rail train.; Fähre: A ferry travels by water, not underground rail.; U-Bahn: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016014",
+      "title": {
+        "en": "Using Überblick accurately",
+        "de": "Überblick im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überblick as an overview of key information.",
+        "de": "Überblick als einen Überblick über wichtige Informationen erkennen."
+      },
+      "objective": "Recognize Überblick in the specified an overview of key information sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2429 (5c10fe35706d0aca4b7d6f2dd1702424cd6169e02586f6189c3897ffae51e7f4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2429-v1",
+          "contextKey": "legacy-0160-L2429-context-1",
+          "transferKey": "legacy-0160-L2429-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016014",
+            "type": "gap_choice",
+            "prompt": "Damit sie den ___ über alle Projekte behält, nutzt sie eine Liste.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She wants to keep track of the big picture.",
+              "de": "Sie möchte die wichtigsten Informationen im Blick behalten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zufall"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Überblick"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fehler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lärm"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Überblick means a broad view of a situation.",
+              "de": "Überblick bedeutet, die wichtigsten Punkte zu erfassen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Damit sie den Überblick über alle Projekte behält, nutzt sie eine Liste.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überblick' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Zufall: Chance is randomness, not a summary view.; Überblick: correct in the complete context; Fehler: An error is a mistake, not a view of projects.; Lärm: Noise is sound, not information organization.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2429-v2",
+          "contextKey": "legacy-0160-L2429-context-2",
+          "transferKey": "legacy-0160-L2429-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016014",
+            "type": "choice",
+            "prompt": "Ein Projektleiter kann die wichtigsten Aufgaben und Fristen auf einen Blick erkennen. Was hat er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He sees the essential information together.",
+              "de": "Er erkennt die wichtigsten Informationen zusammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "eine Kündigung"
+              },
+              {
+                "id": "2",
+                "text": "einen Überblick"
+              },
+              {
+                "id": "3",
+                "text": "einen Mietvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Seeing the main points is having einen Überblick.",
+              "de": "Wer die Hauptpunkte erkennt, hat einen Überblick."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Projektleiter hat einen Überblick.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'einen Überblick' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Rechnung: An invoice lists charges, not the whole project picture.; eine Kündigung: Termination ends an agreement, not gives an overview.; einen Überblick: correct in the complete context; einen Mietvertrag: A rental contract sets tenancy terms, not a project summary.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016015",
+      "title": {
+        "en": "Using Übergabeprotokoll accurately",
+        "de": "Übergabeprotokoll im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übergabeprotokoll as a written record of a handover.",
+        "de": "Übergabeprotokoll als ein Übergabeprotokoll erkennen."
+      },
+      "objective": "Recognize Übergabeprotokoll in the specified a written record of a handover sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2430 (ca9ac2d3228ec5218018ae429fdd2bc7b2e10aaeb237d7d7294105550245f0a9), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2430-v1",
+          "contextKey": "legacy-0160-L2430-context-1",
+          "transferKey": "legacy-0160-L2430-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016015",
+            "type": "gap_choice",
+            "prompt": "Bei der Wohnungsübergabe wurden Schäden in einem ___ festgehalten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document records the condition at handover.",
+              "de": "Das Dokument hält den Zustand bei der Übergabe fest."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Übergabeprotokoll"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kassenbon"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Übergabeprotokoll records handover observations.",
+              "de": "Ein Übergabeprotokoll dokumentiert Feststellungen bei der Übergabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Wohnungsübergabe wurden Schäden in einem Übergabeprotokoll festgehalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übergabeprotokoll' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Übergabeprotokoll: correct in the complete context; Arbeitsvertrag: An employment contract sets job terms, not apartment condition.; Fahrplan: A timetable lists departure times, not handover damage.; Kassenbon: A receipt documents a purchase, not the state of the property.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2430-v2",
+          "contextKey": "legacy-0160-L2430-context-2",
+          "transferKey": "legacy-0160-L2430-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016015",
+            "type": "choice",
+            "prompt": "Mieter und Vermieter dokumentieren beim Auszug Zählerstände und den Zustand der Wohnung. Welches Dokument erstellen sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The document is made during property handover.",
+              "de": "Das Dokument entsteht bei der Wohnungsübergabe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reisepass"
+              },
+              {
+                "id": "1",
+                "text": "Übergabeprotokoll"
+              },
+              {
+                "id": "2",
+                "text": "Stellenanzeige"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A handover record is an Übergabeprotokoll.",
+              "de": "Ein Dokument zur Übergabe heißt Übergabeprotokoll."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie erstellen ein Übergabeprotokoll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übergabeprotokoll' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Reisepass: A passport identifies a person, not property condition.; Übergabeprotokoll: correct in the complete context; Stellenanzeige: A job ad recruits staff, not records meter readings.; Rechnung: An invoice bills money, not the complete handover observations.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016016",
+      "title": {
+        "en": "Using Übergang accurately",
+        "de": "Übergang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übergang as a transition from one state to another.",
+        "de": "Übergang als einen Übergang zwischen Zuständen erkennen."
+      },
+      "objective": "Recognize Übergang in the specified a transition from one state to another sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2431 (359a1d6df65c86b547eb95f570b2c4d994bc3638680cf83971e57e324a5794ca), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2431-v1",
+          "contextKey": "legacy-0160-L2431-context-1",
+          "transferKey": "legacy-0160-L2431-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016016",
+            "type": "gap_choice",
+            "prompt": "Der ___ von der Schule ins Berufsleben kann schwierig sein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person moves between life stages.",
+              "de": "Die Person wechselt zwischen Lebensphasen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umzug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Streit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Übergang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Übergang means a transition.",
+              "de": "Übergang bezeichnet den Wechsel von einem Zustand in einen anderen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Übergang von der Schule ins Berufsleben kann schwierig sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übergang' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Umzug: Moving house changes residence, not necessarily life stage.; Urlaub: Holiday is time off, not entry into work.; Streit: An argument is a conflict, not a transition.; Übergang: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2431-v2",
+          "contextKey": "legacy-0160-L2431-context-2",
+          "transferKey": "legacy-0160-L2431-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016016",
+            "type": "choice",
+            "prompt": "Ein Unternehmen stellt schrittweise von Papierakten auf digitale Dokumente um. Wie nennt man diesen Wechsel?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "One system is being replaced by another.",
+              "de": "Ein System wird schrittweise durch ein anderes ersetzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Übergang"
+              },
+              {
+                "id": "1",
+                "text": "Stillstand"
+              },
+              {
+                "id": "2",
+                "text": "Rücktritt"
+              },
+              {
+                "id": "3",
+                "text": "Ausflug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Changing systems is an Übergang.",
+              "de": "Der Wechsel zwischen Systemen ist ein Übergang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen vollzieht einen Übergang zu digitalen Dokumenten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übergang' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Übergang: correct in the complete context; Stillstand: Standstill means no progress, not an ongoing change.; Rücktritt: Resignation means stepping down, not digitization.; Ausflug: An outing is a trip, not a system change.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016017",
+      "title": {
+        "en": "Using Übernachtung accurately",
+        "de": "Übernachtung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übernachtung as an overnight stay in accommodation.",
+        "de": "Übernachtung als eine Übernachtung in einer Unterkunft erkennen."
+      },
+      "objective": "Recognize Übernachtung in the specified an overnight stay in accommodation sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2432 (fd0a35c117f14129ee73a6d9ded31c129a6486a9c84aa4c6ce7568817445ac02), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2432-v1",
+          "contextKey": "legacy-0160-L2432-context-1",
+          "transferKey": "legacy-0160-L2432-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016017",
+            "type": "gap_choice",
+            "prompt": "Für die Reise buchten wir eine ___ in einem Hotel.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The booking includes sleeping there for a night.",
+              "de": "Die Buchung umfasst eine Nacht in der Unterkunft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stadtrundfahrt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrkarte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Übernachtung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besprechung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Übernachtung is an overnight stay.",
+              "de": "Eine Übernachtung ist ein Aufenthalt über Nacht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reise buchten wir eine Übernachtung in einem Hotel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übernachtung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stadtrundfahrt: A city tour is sightseeing, not sleeping at a hotel.; Fahrkarte: A ticket permits travel, not hotel lodging.; Übernachtung: correct in the complete context; Besprechung: A meeting is a discussion, not an overnight stay.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2432-v2",
+          "contextKey": "legacy-0160-L2432-context-2",
+          "transferKey": "legacy-0160-L2432-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016017",
+            "type": "choice",
+            "prompt": "Die Gäste bleiben von Freitagabend bis Samstagmorgen in der Pension. Was haben sie gebucht?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They stay through the night.",
+              "de": "Sie bleiben die Nacht über dort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Tageskarte"
+              },
+              {
+                "id": "1",
+                "text": "eine Bahnfahrt"
+              },
+              {
+                "id": "2",
+                "text": "einen Mietwagen"
+              },
+              {
+                "id": "3",
+                "text": "eine Übernachtung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Staying overnight is eine Übernachtung.",
+              "de": "Ein Aufenthalt über Nacht ist eine Übernachtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gäste haben eine Übernachtung gebucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Übernachtung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Tageskarte: A day ticket is valid for a day, not lodging.; eine Bahnfahrt: A train ride is transport, not a night at a guesthouse.; einen Mietwagen: A rental car is a vehicle, not accommodation.; eine Übernachtung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016018",
+      "title": {
+        "en": "Using Überprüfung accurately",
+        "de": "Überprüfung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überprüfung as a careful review or check.",
+        "de": "Überprüfung als eine Überprüfung von Angaben oder Sicherheit erkennen."
+      },
+      "objective": "Recognize Überprüfung in the specified a careful review or check sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2433 (b685c9d7b89ef302a2bf11814ece5bd2cee37f863f1f76a17ddd69ad0c404c71), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2433-v1",
+          "contextKey": "legacy-0160-L2433-context-1",
+          "transferKey": "legacy-0160-L2433-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016018",
+            "type": "gap_choice",
+            "prompt": "Vor der Freigabe erfolgt eine sorgfältige ___ der Unterlagen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The documents are checked for correctness.",
+              "de": "Die Unterlagen werden auf Richtigkeit kontrolliert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Überprüfung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beförderung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Überprüfung means checking something carefully.",
+              "de": "Überprüfung bedeutet, etwas genau zu kontrollieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Freigabe erfolgt eine sorgfältige Überprüfung der Unterlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überprüfung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Einladung: An invitation requests attendance, not verifies documents.; Überprüfung: correct in the complete context; Lieferung: A delivery transports goods, not checks files.; Beförderung: A promotion advances an employee, not validates paperwork.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2433-v2",
+          "contextKey": "legacy-0160-L2433-context-2",
+          "transferKey": "legacy-0160-L2433-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016018",
+            "type": "choice",
+            "prompt": "Ein Techniker kontrolliert, ob alle Sicherheitsvorgaben eingehalten werden. Wie heißt dieser Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He checks compliance with requirements.",
+              "de": "Er kontrolliert die Einhaltung von Vorgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werbung"
+              },
+              {
+                "id": "1",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "2",
+                "text": "Überprüfung"
+              },
+              {
+                "id": "3",
+                "text": "Auszahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Checking compliance is an Überprüfung.",
+              "de": "Die Kontrolle der Einhaltung ist eine Überprüfung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Techniker führt eine Überprüfung durch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Überprüfung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Werbung: Advertising promotes goods, not safety compliance.; Bewerbung: An application seeks a position, not checks rules.; Überprüfung: correct in the complete context; Auszahlung: A payout transfers money, not inspects equipment.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016019",
+      "title": {
+        "en": "Using Überraschung accurately",
+        "de": "Überraschung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überraschung as an unexpected pleasant surprise.",
+        "de": "Überraschung als eine unerwartete Überraschung erkennen."
+      },
+      "objective": "Recognize Überraschung in the specified an unexpected pleasant surprise sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2434 (038c1af8a5159f0956f5fccebf2f6825598837d47ef8f2c1ff9ab572f6361e77), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0160-L2434-v1",
+          "contextKey": "legacy-0160-L2434-context-1",
+          "transferKey": "legacy-0160-L2434-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016019",
+            "type": "gap_choice",
+            "prompt": "Die heimlich organisierte Feier war eine schöne ___ für sie.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She did not know about the event beforehand.",
+              "de": "Sie wusste vorher nichts von der Feier."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Überraschung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beschwerde"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Strafe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Überraschung is something unexpected.",
+              "de": "Eine Überraschung ist etwas Unerwartetes."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die heimlich organisierte Feier war eine schöne Überraschung für sie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überraschung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Überraschung: correct in the complete context; Verspätung: A delay means lateness, not an unexpected party.; Beschwerde: A complaint expresses dissatisfaction, not the planned celebration.; Strafe: A punishment penalizes misconduct, not a pleasant party.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0160-L2434-v2",
+          "contextKey": "legacy-0160-L2434-context-2",
+          "transferKey": "legacy-0160-L2434-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001600191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016019",
+            "type": "choice",
+            "prompt": "Ein Freund erhält unerwartet ein Geschenk und hat vorher nichts davon gewusst. Was erlebt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The gift comes without advance warning.",
+              "de": "Das Geschenk kommt völlig unerwartet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückgabe"
+              },
+              {
+                "id": "1",
+                "text": "Überraschung"
+              },
+              {
+                "id": "2",
+                "text": "Kündigung"
+              },
+              {
+                "id": "3",
+                "text": "Mahnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An unexpected gift can be a Überraschung.",
+              "de": "Ein unerwartetes Geschenk kann eine Überraschung sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Freund erlebt eine Überraschung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Überraschung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rückgabe: A return gives something back, not an unexpected gift.; Überraschung: correct in the complete context; Kündigung: Termination ends a contract, not a gift event.; Mahnung: A reminder requests action, not surprises with a present.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
