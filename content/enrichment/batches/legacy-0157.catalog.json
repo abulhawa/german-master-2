@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015700",
+      "title": {
+        "en": "Using Tabaksteuer accurately",
+        "de": "Tabaksteuer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tabaksteuer as a tax specifically levied on tobacco products.",
+        "de": "Tabaksteuer als eine besondere Steuer auf Tabakwaren erkennen."
+      },
+      "objective": "Recognize Tabaksteuer in the specified a tax specifically levied on tobacco products sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2319 (c2c239613bd02eb196b69419d05257f499306565ea52756746ddaf21673dad90), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2319-v1",
+          "contextKey": "legacy-0157-L2319-context-1",
+          "transferKey": "legacy-0157-L2319-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015700",
+            "type": "gap_choice",
+            "prompt": "Der Staat erhebt auf Tabakwaren eine besondere ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The levy is tied to tobacco products.",
+              "de": "Die Abgabe bezieht sich ausdrücklich auf Tabakwaren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tabaksteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hundesteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kurtaxe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Maut"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tabaksteuer is a tax on tobacco products.",
+              "de": "Tabaksteuer ist eine Steuer auf Tabakwaren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Staat erhebt auf Tabakwaren eine besondere Tabaksteuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tabaksteuer' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tabaksteuer: correct in the complete context; Hundesteuer: Dog tax applies to dog ownership, not tobacco.; Kurtaxe: Visitor tax applies to certain stays, not tobacco products.; Maut: A toll applies to road use, not tobacco goods.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2319-v2",
+          "contextKey": "legacy-0157-L2319-context-2",
+          "transferKey": "legacy-0157-L2319-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015700",
+            "type": "choice",
+            "prompt": "Auf Tabakwaren wird eine spezielle Verbrauchsteuer erhoben. Wie heißt diese Steuer?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The taxable product determines the name.",
+              "de": "Das besteuerte Produkt bestimmt die Bezeichnung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Grundsteuer"
+              },
+              {
+                "id": "1",
+                "text": "Tabaksteuer"
+              },
+              {
+                "id": "2",
+                "text": "Erbschaftsteuer"
+              },
+              {
+                "id": "3",
+                "text": "Kraftfahrzeugsteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A tobacco excise is Tabaksteuer.",
+              "de": "Eine Verbrauchsteuer auf Tabakwaren heißt Tabaksteuer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Diese Verbrauchsteuer heißt Tabaksteuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tabaksteuer' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Grundsteuer: Property tax concerns real estate, not tobacco.; Tabaksteuer: correct in the complete context; Erbschaftsteuer: Inheritance tax concerns inherited assets, not tobacco sales.; Kraftfahrzeugsteuer: Vehicle tax concerns motor vehicles, not tobacco.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015701",
+      "title": {
+        "en": "Using Tabelle accurately",
+        "de": "Tabelle im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tabelle as data arranged in rows and columns.",
+        "de": "Tabelle als eine Tabelle mit Zeilen und Spalten erkennen."
+      },
+      "objective": "Recognize Tabelle in the specified data arranged in rows and columns sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2320 (744f8af115719eb0007aab6f52e206b7632da13dd69fa60e2a5fd7cdaf4f97a0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2320-v1",
+          "contextKey": "legacy-0157-L2320-context-1",
+          "transferKey": "legacy-0157-L2320-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015701",
+            "type": "gap_choice",
+            "prompt": "Trage die Messergebnisse in die ___ mit Zeilen und Spalten ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The information is organized in a grid.",
+              "de": "Die Informationen werden in einem Raster geordnet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Landkarte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tabelle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tabelle organizes values in rows and columns.",
+              "de": "Eine Tabelle ordnet Werte in Zeilen und Spalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trage die Messergebnisse in die Tabelle mit Zeilen und Spalten ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tabelle' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Einladung: An invitation requests attendance, not a data grid.; Landkarte: A map depicts geography, not a grid of measurements.; Bestellung: An order requests goods, not a data table.; Tabelle: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2320-v2",
+          "contextKey": "legacy-0157-L2320-context-2",
+          "transferKey": "legacy-0157-L2320-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015701",
+            "type": "choice",
+            "prompt": "Ein Bericht ordnet die Umsätze nach Monaten in Zeilen und Spalten. Welche Darstellung ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The structure is a grid of data.",
+              "de": "Die Darstellung besteht aus einem Datenraster."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Tabelle"
+              },
+              {
+                "id": "1",
+                "text": "ein Gedicht"
+              },
+              {
+                "id": "2",
+                "text": "ein Foto"
+              },
+              {
+                "id": "3",
+                "text": "eine Wegbeschreibung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Rows and columns form a Tabelle.",
+              "de": "Zeilen und Spalten bilden eine Tabelle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Umsätze sind in einer Tabelle dargestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Tabelle' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Tabelle: correct in the complete context; ein Gedicht: A poem is literary text, not tabulated sales.; ein Foto: A photo is an image, not organized numeric rows.; eine Wegbeschreibung: Directions explain a route, not monthly figures.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015702",
+      "title": {
+        "en": "Using Tabu accurately",
+        "de": "Tabu im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tabu as a socially avoided or forbidden topic.",
+        "de": "Tabu als ein gesellschaftliches Tabu erkennen."
+      },
+      "objective": "Recognize Tabu in the specified a socially avoided or forbidden topic sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2323 (988af4d906ce0451fa702495f92021a4053d19db7d3063da9a09079a2521f559), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2323-v1",
+          "contextKey": "legacy-0157-L2323-context-1",
+          "transferKey": "legacy-0157-L2323-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015702",
+            "type": "gap_choice",
+            "prompt": "In der Gruppe galt das Thema Gehalt lange als ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "People avoid discussing the topic for social reasons.",
+              "de": "Man meidet das Thema aus gesellschaftlichen Gründen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ziel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lob"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tabu"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erfolg"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tabu is a subject considered inappropriate to discuss.",
+              "de": "Ein Tabu ist ein Thema, über das man ungern oder nicht spricht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Gruppe galt das Thema Gehalt lange als Tabu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tabu' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Ziel: A goal is something to achieve, not a forbidden topic.; Lob: Praise is positive feedback, not social avoidance.; Tabu: correct in the complete context; Erfolg: Success is an achievement, not a conversational prohibition.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2323-v2",
+          "contextKey": "legacy-0157-L2323-context-2",
+          "transferKey": "legacy-0157-L2323-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015702",
+            "type": "choice",
+            "prompt": "Niemand spricht über ein bestimmtes Thema, weil es als gesellschaftlich unangebracht gilt. Wie bezeichnet man es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The avoidance comes from social norms.",
+              "de": "Die Zurückhaltung beruht auf gesellschaftlichen Normen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hobby"
+              },
+              {
+                "id": "1",
+                "text": "Pflicht"
+              },
+              {
+                "id": "2",
+                "text": "Vertrag"
+              },
+              {
+                "id": "3",
+                "text": "Tabu"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A socially avoided subject can be a Tabu.",
+              "de": "Ein gesellschaftlich gemiedenes Thema kann ein Tabu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Thema gilt als Tabu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tabu' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Hobby: A hobby is a leisure activity, not an avoided subject.; Pflicht: A duty is an obligation, not a socially forbidden discussion.; Vertrag: A contract is an agreement, not a social prohibition.; Tabu: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015703",
+      "title": {
+        "en": "Using Tadel accurately",
+        "de": "Tadel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tadel as a formal rebuke or reprimand.",
+        "de": "Tadel als einen ausdrücklichen Tadel erkennen."
+      },
+      "objective": "Recognize Tadel in the specified a formal rebuke or reprimand sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2324 (8304a68f61a20f0d33bdd105b64d6d27770b1580b9073730ccd9fb99ba3bfdc8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2324-v1",
+          "contextKey": "legacy-0157-L2324-context-1",
+          "transferKey": "legacy-0157-L2324-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015703",
+            "type": "gap_choice",
+            "prompt": "Für die grobe Unhöflichkeit erhielt er einen deutlichen ___ von seiner Vorgesetzten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The supervisor explicitly criticizes the behaviour.",
+              "de": "Die Vorgesetzte rügt das Verhalten ausdrücklich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bonus"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tadel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Applaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tadel is an explicit rebuke.",
+              "de": "Ein Tadel ist eine ausdrückliche Rüge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die grobe Unhöflichkeit erhielt er einen deutlichen Tadel von seiner Vorgesetzten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tadel' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bonus: A bonus rewards performance, not condemns rudeness.; Tadel: correct in the complete context; Urlaub: Holiday is leave, not a reprimand.; Applaus: Applause expresses approval, the opposite of a rebuke.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2324-v2",
+          "contextKey": "legacy-0157-L2324-context-2",
+          "transferKey": "legacy-0157-L2324-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015703",
+            "type": "choice",
+            "prompt": "Eine Lehrerin kritisiert das Verhalten eines Schülers ausdrücklich und förmlich. Wie kann man diese Rüge nennen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The action is a formal criticism.",
+              "de": "Es handelt sich um eine ausdrückliche Rüge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lob"
+              },
+              {
+                "id": "1",
+                "text": "Belohnung"
+              },
+              {
+                "id": "2",
+                "text": "Tadel"
+              },
+              {
+                "id": "3",
+                "text": "Einladung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A formal reprimand is a Tadel.",
+              "de": "Eine förmliche Rüge heißt Tadel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin erteilt einen Tadel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tadel' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lob: Praise approves behaviour, not reprimands it.; Belohnung: A reward encourages or recognizes conduct, not criticizes it.; Tadel: correct in the complete context; Einladung: An invitation asks someone to attend, not reprimands.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015704",
+      "title": {
+        "en": "Using Tagesablauf accurately",
+        "de": "Tagesablauf im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tagesablauf as the sequence of activities in a day.",
+        "de": "Tagesablauf als den Ablauf der Tätigkeiten eines Tages erkennen."
+      },
+      "objective": "Recognize Tagesablauf in the specified the sequence of activities in a day sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2327 (9ee43ad080578464f8f4aad1eca1d7901cd965f8bcf182f5d0aaae3193e20659), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2327-v1",
+          "contextKey": "legacy-0157-L2327-context-1",
+          "transferKey": "legacy-0157-L2327-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015704",
+            "type": "gap_choice",
+            "prompt": "Ihr ___ beginnt um sieben Uhr und endet mit dem Abendessen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is the sequence of daily activities.",
+              "de": "Es ist die Reihenfolge der Tätigkeiten eines Tages."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tagesablauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stundenlohn"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitsplatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tagesablauf describes how a day is organized.",
+              "de": "Tagesablauf beschreibt die Gestaltung eines Tages."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ihr Tagesablauf beginnt um sieben Uhr und endet mit dem Abendessen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tagesablauf' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tagesablauf: correct in the complete context; Stundenlohn: Hourly pay is money per hour, not a day's sequence.; Kaufvertrag: A sales contract is an agreement, not daily routine.; Arbeitsplatz: A workplace is a location, not the whole day's activities.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2327-v2",
+          "contextKey": "legacy-0157-L2327-context-2",
+          "transferKey": "legacy-0157-L2327-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015704",
+            "type": "choice",
+            "prompt": "Ein Auszubildender notiert, wann er aufsteht, arbeitet, Pausen macht und schlafen geht. Was beschreibt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The notes cover the whole day's routine.",
+              "de": "Die Notizen zeigen den Ablauf des gesamten Tages."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "seine Steuerklasse"
+              },
+              {
+                "id": "1",
+                "text": "seinen Tagesablauf"
+              },
+              {
+                "id": "2",
+                "text": "seinen Kontostand"
+              },
+              {
+                "id": "3",
+                "text": "seinen Wohnort"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A daily routine is a Tagesablauf.",
+              "de": "Die tägliche Reihenfolge von Tätigkeiten ist der Tagesablauf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er beschreibt seinen Tagesablauf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'seinen Tagesablauf' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: seine Steuerklasse: Tax class is payroll information, not a routine.; seinen Tagesablauf: correct in the complete context; seinen Kontostand: Account balance is financial data, not daily activities.; seinen Wohnort: Residence is a location, not the schedule of a day.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015706",
+      "title": {
+        "en": "Using Tagesordnung accurately",
+        "de": "Tagesordnung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tagesordnung as the ordered list of meeting topics.",
+        "de": "Tagesordnung als die Tagesordnung einer Sitzung erkennen."
+      },
+      "objective": "Recognize Tagesordnung in the specified the ordered list of meeting topics sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2329 (35a6a58e5172bc6537caa0d3f3244482c5d8814f4635ba0928af8fb2c01621ec), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2329-v1",
+          "contextKey": "legacy-0157-L2329-context-1",
+          "transferKey": "legacy-0157-L2329-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015706",
+            "type": "gap_choice",
+            "prompt": "Vor der Sitzung verschickt die Vorsitzende die ___ mit allen geplanten Themen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It lists the meeting's topics in order.",
+              "de": "Sie nennt die Themen der Sitzung in ihrer Reihenfolge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferliste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tagesordnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urlaubsplanung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tagesordnung is the agenda for a meeting.",
+              "de": "Eine Tagesordnung enthält die Themen einer Sitzung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Sitzung verschickt die Vorsitzende die Tagesordnung mit allen geplanten Themen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tagesordnung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lohnabrechnung: A payslip records wages, not meeting topics.; Lieferliste: A delivery list names goods, not discussion items.; Tagesordnung: correct in the complete context; Urlaubsplanung: Holiday planning concerns leave, not the whole meeting agenda.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2329-v2",
+          "contextKey": "legacy-0157-L2329-context-2",
+          "transferKey": "legacy-0157-L2329-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015706",
+            "type": "choice",
+            "prompt": "Zu Beginn einer Teamsitzung werden die geplanten Diskussionsthemen in Reihenfolge vorgestellt. Wie heißt diese Liste?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The list specifies what the meeting will discuss.",
+              "de": "Die Liste legt die Besprechungsthemen fest."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anwesenheitsliste"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Stellenanzeige"
+              },
+              {
+                "id": "3",
+                "text": "Tagesordnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A meeting's topic list is its Tagesordnung.",
+              "de": "Die Themenliste einer Sitzung heißt Tagesordnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Liste heißt Tagesordnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tagesordnung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Anwesenheitsliste: An attendance list records participants, not topics.; Rechnung: An invoice lists charges, not discussion points.; Stellenanzeige: A job advertisement recruits employees, not organizes a meeting.; Tagesordnung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015707",
+      "title": {
+        "en": "Using Tagesordnungspunkt accurately",
+        "de": "Tagesordnungspunkt im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tagesordnungspunkt as one individual item on a meeting agenda.",
+        "de": "Tagesordnungspunkt als einen einzelnen Tagesordnungspunkt erkennen."
+      },
+      "objective": "Recognize Tagesordnungspunkt in the specified one individual item on a meeting agenda sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2330 (5afe3861c7e7acd5f7405596334ad3918e786e6fef26297372f34aa9ce67f4ad), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2330-v1",
+          "contextKey": "legacy-0157-L2330-context-1",
+          "transferKey": "legacy-0157-L2330-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015707",
+            "type": "gap_choice",
+            "prompt": "Wir behandeln jetzt den dritten ___: die Budgetplanung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is one numbered topic of a meeting.",
+              "de": "Es ist ein einzelnes nummeriertes Sitzungsthema."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitstag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tagesordnungspunkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Feiertag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Monatslohn"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tagesordnungspunkt is one agenda item.",
+              "de": "Ein Tagesordnungspunkt ist ein einzelnes Thema der Tagesordnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir behandeln jetzt den dritten Tagesordnungspunkt: die Budgetplanung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tagesordnungspunkt' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Arbeitstag: A workday is a day of labour, not a numbered discussion item.; Tagesordnungspunkt: correct in the complete context; Feiertag: A holiday is a calendar day, not an agenda item.; Monatslohn: Monthly pay is salary, not a meeting topic label.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2330-v2",
+          "contextKey": "legacy-0157-L2330-context-2",
+          "transferKey": "legacy-0157-L2330-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015707",
+            "type": "choice",
+            "prompt": "Eine Besprechung hat fünf Themen. Das zweite Thema heißt „Neue Software“. Wie nennt man dieses einzelne Thema?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question asks for one topic, not the entire list.",
+              "de": "Gesucht ist ein Thema und nicht die ganze Liste."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tarifvertrag"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitsvertrag"
+              },
+              {
+                "id": "2",
+                "text": "Tagesordnungspunkt"
+              },
+              {
+                "id": "3",
+                "text": "Stellenanzeige"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Each individual agenda topic is a Tagesordnungspunkt.",
+              "de": "Jedes einzelne Sitzungsthema ist ein Tagesordnungspunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "„Neue Software“ ist ein Tagesordnungspunkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tagesordnungspunkt' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tarifvertrag: A collective agreement regulates work terms, not names a meeting item.; Arbeitsvertrag: An employment contract defines employment, not one agenda topic.; Tagesordnungspunkt: correct in the complete context; Stellenanzeige: A job ad seeks applicants, not a meeting item.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015708",
+      "title": {
+        "en": "Using Tal accurately",
+        "de": "Tal im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tal as a valley between mountains.",
+        "de": "Tal als ein Tal zwischen Bergen erkennen."
+      },
+      "objective": "Recognize Tal in the specified a valley between mountains sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2331 (d1e56f34ed6b0b29dd2d0269a6ac9e6dcc0f25749395ee887d83f356efea0465), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2331-v1",
+          "contextKey": "legacy-0157-L2331-context-1",
+          "transferKey": "legacy-0157-L2331-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015708",
+            "type": "gap_choice",
+            "prompt": "Das Dorf liegt in einem engen ___ zwischen zwei Bergen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The land lies lower between mountains.",
+              "de": "Das Gelände liegt tiefer zwischen Bergen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tal"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Meer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Feld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Haus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tal is a low area between higher land.",
+              "de": "Ein Tal ist eine Senke zwischen höher gelegenen Gebieten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Dorf liegt in einem engen Tal zwischen zwei Bergen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tal' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tal: correct in the complete context; Meer: The sea is a body of salt water, not a mountain depression.; Feld: A field is farmland, not specifically a valley.; Haus: A house is a building, not a landform.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2331-v2",
+          "contextKey": "legacy-0157-L2331-context-2",
+          "transferKey": "legacy-0157-L2331-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015708",
+            "type": "choice",
+            "prompt": "Ein Fluss fließt durch eine tiefe Senke zwischen zwei Bergketten. Welche Landschaftsform ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The river follows lower terrain between mountains.",
+              "de": "Der Fluss verläuft durch tiefer gelegenes Gelände."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gipfel"
+              },
+              {
+                "id": "1",
+                "text": "Tal"
+              },
+              {
+                "id": "2",
+                "text": "Insel"
+              },
+              {
+                "id": "3",
+                "text": "Küste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A valley often contains a river.",
+              "de": "Durch ein Tal kann ein Fluss fließen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fluss fließt durch ein Tal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tal' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gipfel: A summit is the top of a mountain, not the low area.; Tal: correct in the complete context; Insel: An island is land surrounded by water, not a mountain depression.; Küste: A coast borders a sea, not a valley between ranges.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015709",
+      "title": {
+        "en": "Using Talent accurately",
+        "de": "Talent im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Talent as a natural aptitude or ability.",
+        "de": "Talent als ein besonderes Talent für eine Tätigkeit erkennen."
+      },
+      "objective": "Recognize Talent in the specified a natural aptitude or ability sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2332 (ddb614538189b24ea5be1a289177093e43e7635bd8d596faad28487a1501a57f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2332-v1",
+          "contextKey": "legacy-0157-L2332-context-1",
+          "transferKey": "legacy-0157-L2332-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015709",
+            "type": "gap_choice",
+            "prompt": "Sie hat großes ___ für Musik und lernt Melodien sehr schnell.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has a special natural aptitude.",
+              "de": "Die Person besitzt eine besondere Begabung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gepäck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Material"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Talent"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Talent means a notable aptitude.",
+              "de": "Talent bedeutet eine besondere Begabung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat großes Talent für Musik und lernt Melodien sehr schnell.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Talent' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gepäck: Luggage is carried on trips, not musical aptitude.; Material: Material is physical substance, not natural ability.; Geld: Money is a resource, not a skill.; Talent: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2332-v2",
+          "contextKey": "legacy-0157-L2332-context-2",
+          "transferKey": "legacy-0157-L2332-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015709",
+            "type": "choice",
+            "prompt": "Ein Kind kann schon nach kurzer Übung schwierige Rhythmen spielen. Welche Eigenschaft zeigt sich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It learns a musical skill unusually easily.",
+              "de": "Es lernt eine musikalische Fähigkeit ungewöhnlich leicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "musikalisches Talent"
+              },
+              {
+                "id": "1",
+                "text": "eine Reisekrankheit"
+              },
+              {
+                "id": "2",
+                "text": "eine Wartezeit"
+              },
+              {
+                "id": "3",
+                "text": "ein Fahrplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Quick musical aptitude suggests Talent.",
+              "de": "Schnelle musikalische Begabung zeigt Talent."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind zeigt musikalisches Talent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'musikalisches Talent' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: musikalisches Talent: correct in the complete context; eine Reisekrankheit: Travel sickness causes discomfort, not rhythm ability.; eine Wartezeit: Waiting time is a duration, not a skill.; ein Fahrplan: A timetable lists departures, not musical aptitude.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015710",
+      "title": {
+        "en": "Using Tankstelle accurately",
+        "de": "Tankstelle im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tankstelle as a filling station for vehicles.",
+        "de": "Tankstelle als eine Tankstelle für Fahrzeuge erkennen."
+      },
+      "objective": "Recognize Tankstelle in the specified a filling station for vehicles sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2333 (3afa4d6c922e5e5e1a30a8c579d4e7ffef5ca5e97eb8823d32ce2159ab43163c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2333-v1",
+          "contextKey": "legacy-0157-L2333-context-1",
+          "transferKey": "legacy-0157-L2333-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015710",
+            "type": "gap_choice",
+            "prompt": "Der Fahrer hielt an einer ___, um den Wagen zu betanken.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The car needs fuel.",
+              "de": "Das Auto braucht Kraftstoff."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bäckerei"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Postfiliale"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tankstelle"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bibliothek"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tankstelle sells fuel for vehicles.",
+              "de": "Eine Tankstelle bietet Kraftstoff für Fahrzeuge an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fahrer hielt an einer Tankstelle, um den Wagen zu betanken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tankstelle' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bäckerei: A bakery sells baked goods, not vehicle fuel.; Postfiliale: A post office handles mail, not refuelling.; Tankstelle: correct in the complete context; Bibliothek: A library lends media, not fuel.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2333-v2",
+          "contextKey": "legacy-0157-L2333-context-2",
+          "transferKey": "legacy-0157-L2333-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015710",
+            "type": "choice",
+            "prompt": "Auf der Autobahn ist der Kraftstoff fast leer. Wo kann man normalerweise nachtanken?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The place has pumps for vehicle fuel.",
+              "de": "Der Ort hat Zapfsäulen für Kraftstoff."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "in einer Buchhandlung"
+              },
+              {
+                "id": "1",
+                "text": "im Rathaus"
+              },
+              {
+                "id": "2",
+                "text": "im Kino"
+              },
+              {
+                "id": "3",
+                "text": "an einer Tankstelle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A filling station provides refuelling.",
+              "de": "An einer Tankstelle kann man tanken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Man kann an einer Tankstelle nachtanken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'an einer Tankstelle' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: in einer Buchhandlung: A bookshop sells books, not fuel.; im Rathaus: A town hall provides municipal services, not refuelling.; im Kino: A cinema shows films, not fuel.; an einer Tankstelle: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015712",
+      "title": {
+        "en": "Using Tanz accurately",
+        "de": "Tanz im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tanz as a dance performed to music.",
+        "de": "Tanz als einen Tanz zur Musik erkennen."
+      },
+      "objective": "Recognize Tanz in the specified a dance performed to music sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2335 (9d5d8be9e67524b5d4acef146d46037f12ad2814b82075e3bc16ffe7e543d45b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2335-v1",
+          "contextKey": "legacy-0157-L2335-context-1",
+          "transferKey": "legacy-0157-L2335-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015712",
+            "type": "gap_choice",
+            "prompt": "Bei der Feier lernten alle einen traditionellen ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "People learn a sequence of movements to music.",
+              "de": "Man lernt eine Bewegungsfolge zur Musik."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tanz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bericht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kurs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tanz is a dance.",
+              "de": "Ein Tanz ist eine Bewegungsfolge zur Musik."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Feier lernten alle einen traditionellen Tanz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tanz' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tanz: correct in the complete context; Bericht: A report is written or spoken information, not dance movements.; Vertrag: A contract is a legal agreement, not a dance.; Kurs: A course is instruction over time, not the particular movement sequence.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2335-v2",
+          "contextKey": "legacy-0157-L2335-context-2",
+          "transferKey": "legacy-0157-L2335-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015712",
+            "type": "choice",
+            "prompt": "Zwei Personen bewegen sich zur Musik in festgelegten Schritten. Was führen sie auf?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Their coordinated movements follow music.",
+              "de": "Ihre abgestimmten Bewegungen folgen der Musik."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "einen Tanz"
+              },
+              {
+                "id": "2",
+                "text": "eine Reparatur"
+              },
+              {
+                "id": "3",
+                "text": "eine Bewerbung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "They are performing a dance.",
+              "de": "Sie führen einen Tanz auf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden führen einen Tanz auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'einen Tanz' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Rechnung: An invoice is a bill, not a performance.; einen Tanz: correct in the complete context; eine Reparatur: A repair fixes a fault, not coordinated dance steps.; eine Bewerbung: An application seeks a position, not a dance.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015713",
+      "title": {
+        "en": "Using Tarif accurately",
+        "de": "Tarif im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tarif as an agreed pay scale or tariff.",
+        "de": "Tarif als einen vereinbarten Lohntarif erkennen."
+      },
+      "objective": "Recognize Tarif in the specified an agreed pay scale or tariff sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2336 (92f993de7e7c42751c444506574df6900196046a7c2ef2c91357eab8ce5b5158), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2336-v1",
+          "contextKey": "legacy-0157-L2336-context-1",
+          "transferKey": "legacy-0157-L2336-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015713",
+            "type": "gap_choice",
+            "prompt": "Die Beschäftigten werden nach einem vereinbarten ___ bezahlt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The word concerns an agreed pay scale.",
+              "de": "Es geht um eine vereinbarte Vergütungsregelung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Standort"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kassenbon"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tarif"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tarif can define pay rates.",
+              "de": "Ein Tarif kann Vergütungssätze festlegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beschäftigten werden nach einem vereinbarten Tarif bezahlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tarif' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fahrplan: A timetable sets departures, not wages.; Standort: A location is a place, not pay rates.; Kassenbon: A receipt documents a purchase, not a pay scale.; Tarif: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2336-v2",
+          "contextKey": "legacy-0157-L2336-context-2",
+          "transferKey": "legacy-0157-L2336-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015713",
+            "type": "choice",
+            "prompt": "Ein Betrieb verwendet festgelegte Entgeltgruppen für die Löhne. Welcher Begriff bezeichnet die zugrunde liegende Vergütungsregelung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The categories define wage rates.",
+              "de": "Die Gruppen legen Vergütungssätze fest."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tarif"
+              },
+              {
+                "id": "1",
+                "text": "Stundenplan"
+              },
+              {
+                "id": "2",
+                "text": "Gutschein"
+              },
+              {
+                "id": "3",
+                "text": "Betriebsfeier"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An agreed wage tariff structures remuneration.",
+              "de": "Ein vereinbarter Lohntarif ordnet die Vergütung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vergütungsregelung ist ein Tarif.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tarif' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tarif: correct in the complete context; Stundenplan: A class timetable schedules lessons, not pay.; Gutschein: A voucher grants a purchase benefit, not a wage system.; Betriebsfeier: A company party is an event, not a pay scale.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015714",
+      "title": {
+        "en": "Using Tarifvertrag accurately",
+        "de": "Tarifvertrag im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tarifvertrag as a collective agreement on pay and working conditions.",
+        "de": "Tarifvertrag als einen Tarifvertrag zu Löhnen und Arbeitsbedingungen erkennen."
+      },
+      "objective": "Recognize Tarifvertrag in the specified a collective agreement on pay and working conditions sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2337 (179bb5eec21a510700654b2e9883dfbfa67c0c47535a3858e76114b7cd87a2d1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2337-v1",
+          "contextKey": "legacy-0157-L2337-context-1",
+          "transferKey": "legacy-0157-L2337-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015714",
+            "type": "gap_choice",
+            "prompt": "Gewerkschaft und Arbeitgeberverband verhandeln einen neuen ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The parties negotiate collective employment conditions.",
+              "de": "Die Parteien verhandeln gemeinsame Arbeitsbedingungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mietvertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tarifvertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Leihvertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tarifvertrag is a collective labour agreement.",
+              "de": "Ein Tarifvertrag ist eine kollektiv ausgehandelte Vereinbarung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Gewerkschaft und Arbeitgeberverband verhandeln einen neuen Tarifvertrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tarifvertrag' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Mietvertrag: A rental contract concerns use of property, not collective wages.; Kaufvertrag: A sales contract concerns purchase of goods, not labour terms.; Tarifvertrag: correct in the complete context; Leihvertrag: A loan contract concerns lending, not collective bargaining.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2337-v2",
+          "contextKey": "legacy-0157-L2337-context-2",
+          "transferKey": "legacy-0157-L2337-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015714",
+            "type": "choice",
+            "prompt": "Ein Dokument regelt zwischen Gewerkschaft und Arbeitgeberseite verbindlich Löhne und Arbeitsbedingungen. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The agreement covers a group of employees.",
+              "de": "Die Vereinbarung gilt für kollektiv geregelte Arbeitsbedingungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferschein"
+              },
+              {
+                "id": "1",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Tarifvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A collective agreement is a Tarifvertrag.",
+              "de": "Ein Tarifvertrag regelt kollektive Arbeitsbedingungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Dokument ist ein Tarifvertrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tarifvertrag' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lieferschein: A delivery note records goods, not labour rules.; Fahrkarte: A travel ticket grants transport, not wages.; Bewerbung: An application seeks employment, not collective conditions.; Tarifvertrag: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015715",
+      "title": {
+        "en": "Using Taschentuch accurately",
+        "de": "Taschentuch im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Taschentuch as a tissue or handkerchief for the nose.",
+        "de": "Taschentuch als ein Taschentuch zum Naseputzen erkennen."
+      },
+      "objective": "Recognize Taschentuch in the specified a tissue or handkerchief for the nose sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2340 (16254787894a0d6b5b21db90be3afd106f236396edec2efb4ee270adcd5aa1bc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2340-v1",
+          "contextKey": "legacy-0157-L2340-context-1",
+          "transferKey": "legacy-0157-L2340-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015715",
+            "type": "gap_choice",
+            "prompt": "Sie holte ein ___ aus der Tasche, um sich die Nase zu putzen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The small item is used to wipe the nose.",
+              "de": "Der kleine Gegenstand wird zum Naseputzen benutzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schraubenzieher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Taschentuch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrschein"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Taschentuch is used to blow or wipe the nose.",
+              "de": "Ein Taschentuch benutzt man zum Naseputzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie holte ein Taschentuch aus der Tasche, um sich die Nase zu putzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Taschentuch' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Schraubenzieher: A screwdriver turns screws, not wipes the nose.; Taschentuch: correct in the complete context; Fahrschein: A ticket permits travel, not nose cleaning.; Stift: A pen writes, not wipes the nose.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2340-v2",
+          "contextKey": "legacy-0157-L2340-context-2",
+          "transferKey": "legacy-0157-L2340-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015715",
+            "type": "choice",
+            "prompt": "Jemand niest und möchte ein kleines Stück Papier zum Naseputzen. Was braucht er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a disposable paper item for the nose.",
+              "de": "Es ist ein kleines Papierprodukt für die Nase."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klebeband"
+              },
+              {
+                "id": "1",
+                "text": "Briefumschlag"
+              },
+              {
+                "id": "2",
+                "text": "ein Taschentuch"
+              },
+              {
+                "id": "3",
+                "text": "Fahrkarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A paper tissue is a Taschentuch.",
+              "de": "Ein Papiertaschentuch ist ein Taschentuch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person braucht ein Taschentuch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'ein Taschentuch' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Klebeband: Tape sticks objects, not suitable for blowing the nose.; Briefumschlag: An envelope holds letters, not hygienic nose wiping.; ein Taschentuch: correct in the complete context; Fahrkarte: A travel ticket is not a tissue.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015716",
+      "title": {
+        "en": "Using Tastatur accurately",
+        "de": "Tastatur im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tastatur as a computer keyboard with many keys.",
+        "de": "Tastatur als eine Computertastatur erkennen."
+      },
+      "objective": "Recognize Tastatur in the specified a computer keyboard with many keys sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2342 (a19a827b79b289547a4d1871ba726487a81e1239dc3fb4fefde559feb8b8e7c2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2342-v1",
+          "contextKey": "legacy-0157-L2342-context-1",
+          "transferKey": "legacy-0157-L2342-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015716",
+            "type": "gap_choice",
+            "prompt": "Der Text lässt sich nicht eingeben, weil die ___ des Computers kaputt ist.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device has keys for typing letters.",
+              "de": "Das Gerät hat Tasten zum Eingeben von Buchstaben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tastatur"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Maus"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Webcam"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautsprecher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tastatur is used to type text.",
+              "de": "Mit einer Tastatur gibt man Text ein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Text lässt sich nicht eingeben, weil die Tastatur des Computers kaputt ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tastatur' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tastatur: correct in the complete context; Maus: A mouse controls the pointer, not ordinary text typing.; Webcam: A webcam captures video, not typed text.; Lautsprecher: Speakers play sound, not accept keyboard input.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2342-v2",
+          "contextKey": "legacy-0157-L2342-context-2",
+          "transferKey": "legacy-0157-L2342-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015716",
+            "type": "choice",
+            "prompt": "Ein Büroarbeitsplatz braucht ein Gerät mit vielen Buchstaben- und Zahlentasten. Welches?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The keys are used to enter text.",
+              "de": "Die Tasten dienen zur Texteingabe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Monitor"
+              },
+              {
+                "id": "1",
+                "text": "Tastatur"
+              },
+              {
+                "id": "2",
+                "text": "Drucker"
+              },
+              {
+                "id": "3",
+                "text": "Router"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A keyboard contains letter and number keys.",
+              "de": "Eine Tastatur hat Buchstaben- und Zahlentasten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät ist eine Tastatur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tastatur' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Monitor: A monitor displays images, not a set of typing keys.; Tastatur: correct in the complete context; Drucker: A printer produces paper output, not key input.; Router: A router connects networks, not types text.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015717",
+      "title": {
+        "en": "Using Taste accurately",
+        "de": "Taste im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Taste as one individual button or key.",
+        "de": "Taste als eine einzelne Taste erkennen."
+      },
+      "objective": "Recognize Taste in the specified one individual button or key sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2343 (f14a58703d04a8fc9808ca33961941eefc0b7f99e03a0d45f23ddf296867038f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2343-v1",
+          "contextKey": "legacy-0157-L2343-context-1",
+          "transferKey": "legacy-0157-L2343-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015717",
+            "type": "gap_choice",
+            "prompt": "Drücke die grüne ___, um den Vorgang zu starten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The control is pressed with a finger.",
+              "de": "Das Bedienelement wird mit dem Finger gedrückt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Leitung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Flasche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Taste"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Taste is a button or key.",
+              "de": "Eine Taste ist ein drückbares Bedienelement."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Drücke die grüne Taste, um den Vorgang zu starten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Taste' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Leitung: A wire carries electricity, not normally pressed to start a process.; Flasche: A bottle is a container, not a control key.; Rechnung: An invoice is a bill, not a pressable control.; Taste: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2343-v2",
+          "contextKey": "legacy-0157-L2343-context-2",
+          "transferKey": "legacy-0157-L2343-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015717",
+            "type": "choice",
+            "prompt": "Auf der Computertastatur ist die Leertaste beschädigt. Was ist kaputt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The broken part is one key, not the whole device.",
+              "de": "Defekt ist ein einzelnes Bedienelement."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Taste"
+              },
+              {
+                "id": "1",
+                "text": "ein Bildschirm"
+              },
+              {
+                "id": "2",
+                "text": "ein Kabel"
+              },
+              {
+                "id": "3",
+                "text": "eine Festplatte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The space bar is a Taste.",
+              "de": "Die Leertaste ist eine Taste."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Taste der Tastatur ist kaputt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Taste' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Taste: correct in the complete context; ein Bildschirm: A screen displays output, not the space bar.; ein Kabel: A cable connects devices, not an individual key.; eine Festplatte: A hard drive stores data, not the space bar.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015719",
+      "title": {
+        "en": "Using Täter accurately",
+        "de": "Täter im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Täter as a male perpetrator of an offence.",
+        "de": "Täter als einen Täter einer Straftat erkennen."
+      },
+      "objective": "Recognize Täter in the specified a male perpetrator of an offence sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2345 (f9358eb59ad2a35ebac7d2f795a714df7314acfe00872b983cf17f176015d1a8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0157-L2345-v1",
+          "contextKey": "legacy-0157-L2345-context-1",
+          "transferKey": "legacy-0157-L2345-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015719",
+            "type": "gap_choice",
+            "prompt": "Die Polizei hat den ___ des Einbruchs nach der Tat festgenommen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The arrested man committed the burglary.",
+              "de": "Der Festgenommene hat den Einbruch begangen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeugen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Täter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Richter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anwalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Täter is the person who commits an offence.",
+              "de": "Ein Täter ist die Person, die eine Tat begeht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei hat den Täter des Einbruchs nach der Tat festgenommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Täter' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Zeugen: A witness observes an event, not the offender identified here.; Täter: correct in the complete context; Richter: A judge decides cases, not the perpetrator of this burglary.; Anwalt: A lawyer represents clients, not the offender by role.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0157-L2345-v2",
+          "contextKey": "legacy-0157-L2345-context-2",
+          "transferKey": "legacy-0157-L2345-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001570191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015719",
+            "type": "choice",
+            "prompt": "Ein Mann hat nachweislich ein Fahrrad gestohlen. Wie nennt man ihn im Zusammenhang mit dieser Tat?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He committed the act, rather than witnessing it.",
+              "de": "Er hat die Tat begangen und nicht nur beobachtet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeuge"
+              },
+              {
+                "id": "1",
+                "text": "Opfer"
+              },
+              {
+                "id": "2",
+                "text": "Täter"
+              },
+              {
+                "id": "3",
+                "text": "Ermittler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The person who committed the theft is the Täter.",
+              "de": "Wer den Diebstahl begeht, ist der Täter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist der Täter des Diebstahls.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Täter' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Zeuge: A witness observes or knows of the event, not commits it.; Opfer: A victim suffers harm from the act, not perpetrates it.; Täter: correct in the complete context; Ermittler: An investigator examines the crime, not the thief by role.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
