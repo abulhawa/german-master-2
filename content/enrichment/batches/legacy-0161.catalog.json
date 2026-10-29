@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000016100",
+      "title": {
+        "en": "Using Überschrift accurately",
+        "de": "Überschrift im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überschrift as a heading or title above a text.",
+        "de": "Überschrift als eine Überschrift über einem Text erkennen."
+      },
+      "objective": "Recognize Überschrift in the specified a heading or title above a text sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2435 (432f5ee59b6abe6bf21633baf634b86878592f6d0f205b69c50921f2ae437acb), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2435-v1",
+          "contextKey": "legacy-0161-L2435-context-1",
+          "transferKey": "legacy-0161-L2435-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016100",
+            "type": "gap_choice",
+            "prompt": "Die ___ über dem Zeitungsartikel fasst das Thema zusammen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The text at the top names the subject.",
+              "de": "Der Text ganz oben nennt das Thema."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Überschrift"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unterschrift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fußnote"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Adresse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Überschrift is a heading.",
+              "de": "Eine Überschrift steht über einem Text und nennt sein Thema."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Überschrift über dem Zeitungsartikel fasst das Thema zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überschrift' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Überschrift: correct in the complete context; Unterschrift: A signature identifies a signer, not the article title.; Fußnote: A footnote appears below or beside text, not as the main heading.; Adresse: An address identifies a location, not the article's topic.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2435-v2",
+          "contextKey": "legacy-0161-L2435-context-2",
+          "transferKey": "legacy-0161-L2435-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016100",
+            "type": "choice",
+            "prompt": "Ganz oben auf einer Webseite steht in großen Buchstaben der Titel eines Abschnitts. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The text introduces the section.",
+              "de": "Der Text leitet den Abschnitt ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bildunterschrift"
+              },
+              {
+                "id": "1",
+                "text": "Überschrift"
+              },
+              {
+                "id": "2",
+                "text": "Quellenangabe"
+              },
+              {
+                "id": "3",
+                "text": "Seitennummer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A section title is an Überschrift.",
+              "de": "Ein Abschnittstitel ist eine Überschrift."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Titel des Abschnitts ist eine Überschrift.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Überschrift' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bildunterschrift: A caption describes an image, not the section title.; Überschrift: correct in the complete context; Quellenangabe: A citation identifies a source, not the main heading.; Seitennummer: A page number identifies a page, not a topic.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016101",
+      "title": {
+        "en": "Using Übersetzer accurately",
+        "de": "Übersetzer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übersetzer as a male translator of written texts.",
+        "de": "Übersetzer als einen männlichen Übersetzer schriftlicher Texte erkennen."
+      },
+      "objective": "Recognize Übersetzer in the specified a male translator of written texts sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2436 (c9550e77c622557ec2f48aab49cd376b147c0e4a45521c1c1a58f80f7625c1a9), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2436-v1",
+          "contextKey": "legacy-0161-L2436-context-1",
+          "transferKey": "legacy-0161-L2436-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016101",
+            "type": "gap_choice",
+            "prompt": "Der ___ übertrug den Roman aus dem Spanischen ins Deutsche.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person changes the language of a written work.",
+              "de": "Die Person überträgt ein schriftliches Werk in eine andere Sprache."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lektor"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verleger"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Drucker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Übersetzer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Übersetzer translates written texts.",
+              "de": "Ein Übersetzer überträgt schriftliche Texte in andere Sprachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Übersetzer übertrug den Roman aus dem Spanischen ins Deutsche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übersetzer' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lektor: An editor revises text, not necessarily changes its language.; Verleger: A publisher releases books, not necessarily translates them.; Drucker: A printer produces physical copies, not a new-language version.; Übersetzer: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2436-v2",
+          "contextKey": "legacy-0161-L2436-context-2",
+          "transferKey": "legacy-0161-L2436-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016101",
+            "type": "choice",
+            "prompt": "Ein Mann fertigt die deutsche Fassung eines französischen Vertrags an. Wie heißt sein Beruf?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He translates a written document.",
+              "de": "Er überträgt ein schriftliches Dokument."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Übersetzer"
+              },
+              {
+                "id": "1",
+                "text": "Dolmetscher"
+              },
+              {
+                "id": "2",
+                "text": "Buchhalter"
+              },
+              {
+                "id": "3",
+                "text": "Notar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Written translation is done by an Übersetzer.",
+              "de": "Schriftliche Übersetzungen erstellt ein Übersetzer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann arbeitet als Übersetzer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übersetzer' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Übersetzer: correct in the complete context; Dolmetscher: An interpreter usually translates speech, not the written contract task.; Buchhalter: An accountant handles financial records, not language translation.; Notar: A notary authenticates legal acts, not the described translation role.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016102",
+      "title": {
+        "en": "Using Übersetzerin accurately",
+        "de": "Übersetzerin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übersetzerin as a female translator of written texts.",
+        "de": "Übersetzerin als eine weibliche Übersetzerin schriftlicher Texte erkennen."
+      },
+      "objective": "Recognize Übersetzerin in the specified a female translator of written texts sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2437 (2ec14a15a241966702659513d8124710732c1d4873aaf135a67cff2095e0917b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2437-v1",
+          "contextKey": "legacy-0161-L2437-context-1",
+          "transferKey": "legacy-0161-L2437-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016102",
+            "type": "gap_choice",
+            "prompt": "Die ___ arbeitet an der deutschen Version einer englischen Bedienungsanleitung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She converts a written manual into another language.",
+              "de": "Sie überträgt eine schriftliche Anleitung in eine andere Sprache."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Autorin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fotografin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Übersetzerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Buchhalterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Übersetzerin translates written material.",
+              "de": "Eine Übersetzerin überträgt schriftliche Texte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Übersetzerin arbeitet an der deutschen Version einer englischen Bedienungsanleitung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übersetzerin' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Autorin: An author writes original material, not necessarily translates the manual.; Fotografin: A photographer creates images, not a new-language manual.; Übersetzerin: correct in the complete context; Buchhalterin: An accountant records finances, not translates instructions.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2437-v2",
+          "contextKey": "legacy-0161-L2437-context-2",
+          "transferKey": "legacy-0161-L2437-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016102",
+            "type": "choice",
+            "prompt": "Eine Frau überträgt schriftliche Texte von Italienisch ins Deutsche. Welche Berufsbezeichnung passt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The work concerns written, not spoken, language.",
+              "de": "Die Arbeit betrifft schriftliche und nicht mündliche Sprache."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dolmetscherin"
+              },
+              {
+                "id": "1",
+                "text": "Kellnerin"
+              },
+              {
+                "id": "2",
+                "text": "Technikerin"
+              },
+              {
+                "id": "3",
+                "text": "Übersetzerin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A female written-text translator is an Übersetzerin.",
+              "de": "Eine Frau, die Texte übersetzt, ist Übersetzerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist Übersetzerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übersetzerin' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Dolmetscherin: An interpreter works mainly with spoken communication, not this written task.; Kellnerin: A waitress serves food, not translates documents.; Technikerin: A technician handles technical equipment, not the language task.; Übersetzerin: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016103",
+      "title": {
+        "en": "Using Übersicht accurately",
+        "de": "Übersicht im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übersicht as a structured summary of information.",
+        "de": "Übersicht als eine Übersicht mit zusammengefassten Angaben erkennen."
+      },
+      "objective": "Recognize Übersicht in the specified a structured summary of information sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2439 (ed910b83251d3b56f7ca30b026a2a1cd6cd91725b64b28b409dd8994c4887883), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2439-v1",
+          "contextKey": "legacy-0161-L2439-context-1",
+          "transferKey": "legacy-0161-L2439-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016103",
+            "type": "gap_choice",
+            "prompt": "Eine kurze ___ zeigt alle offenen Aufgaben auf einer Seite.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It summarizes the important items compactly.",
+              "de": "Sie fasst die wichtigsten Punkte knapp zusammen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Übersicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Übersicht is a structured summary.",
+              "de": "Eine Übersicht ist eine geordnete Zusammenfassung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine kurze Übersicht zeigt alle offenen Aufgaben auf einer Seite.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übersicht' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kündigung: A termination ends an agreement, not summarizes tasks.; Übersicht: correct in the complete context; Rechnung: An invoice lists charges, not the project task overview.; Einladung: An invitation requests attendance, not a compact task summary.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2439-v2",
+          "contextKey": "legacy-0161-L2439-context-2",
+          "transferKey": "legacy-0161-L2439-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016103",
+            "type": "choice",
+            "prompt": "Eine Tabelle stellt die wichtigsten Projektdaten kompakt zusammen. Was bietet sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The reader sees a concise organized summary.",
+              "de": "Der Leser sieht eine kurze geordnete Zusammenfassung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vertrag"
+              },
+              {
+                "id": "1",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "2",
+                "text": "Übersicht"
+              },
+              {
+                "id": "3",
+                "text": "Lieferung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A table can provide an Übersicht.",
+              "de": "Eine Tabelle kann eine Übersicht bieten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tabelle bietet eine Übersicht über die Projektdaten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übersicht' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Vertrag: A contract defines obligations, not the data summary.; Bewerbung: An application seeks a job, not project overview.; Übersicht: correct in the complete context; Lieferung: A delivery transports goods, not summarizes data.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016104",
+      "title": {
+        "en": "Using Überstunde accurately",
+        "de": "Überstunde im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überstunde as one hour worked beyond normal working time.",
+        "de": "Überstunde als eine einzelne Überstunde erkennen."
+      },
+      "objective": "Recognize Überstunde in the specified one hour worked beyond normal working time sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2440 (96246c7219d5e73b7cb20af5a3213b99559de17c832f9dc41c3667e4d3544ecc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2440-v1",
+          "contextKey": "legacy-0161-L2440-context-1",
+          "transferKey": "legacy-0161-L2440-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016104",
+            "type": "gap_choice",
+            "prompt": "Sie arbeitete gestern eine ___ länger als vertraglich vereinbart.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Exactly one extra hour was worked.",
+              "de": "Es wurde genau eine Stunde zusätzlich gearbeitet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Überstunde"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Woche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Überstunde is an extra hour of work.",
+              "de": "Eine Überstunde ist eine zusätzlich geleistete Arbeitsstunde."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitete gestern eine Überstunde länger als vertraglich vereinbart.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überstunde' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Überstunde: correct in the complete context; Pause: A break is time off, not extra work.; Schicht: A shift is a larger scheduled work period, not the one-hour unit.; Woche: A week is much longer than the stated one hour.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2440-v2",
+          "contextKey": "legacy-0161-L2440-context-2",
+          "transferKey": "legacy-0161-L2440-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016104",
+            "type": "choice",
+            "prompt": "Ein Angestellter bleibt nach Feierabend genau eine zusätzliche Stunde im Büro und arbeitet weiter. Was leistet er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He works one hour beyond the normal schedule.",
+              "de": "Er arbeitet eine Stunde über die normale Zeit hinaus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "einen Urlaubstag"
+              },
+              {
+                "id": "1",
+                "text": "eine Überstunde"
+              },
+              {
+                "id": "2",
+                "text": "eine Krankmeldung"
+              },
+              {
+                "id": "3",
+                "text": "eine Dienstreise"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "One extra work hour is eine Überstunde.",
+              "de": "Eine zusätzliche Arbeitsstunde heißt Überstunde."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Angestellte leistet eine Überstunde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Überstunde' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: einen Urlaubstag: A vacation day is leave, not additional work.; eine Überstunde: correct in the complete context; eine Krankmeldung: A sick notice reports illness, not overtime.; eine Dienstreise: A business trip is travel for work, not the extra hour itself.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016106",
+      "title": {
+        "en": "Using Übertragung accurately",
+        "de": "Übertragung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Übertragung as a live broadcast or transmission.",
+        "de": "Übertragung als eine Übertragung einer Sendung erkennen."
+      },
+      "objective": "Recognize Übertragung in the specified a live broadcast or transmission sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2442 (c22e3cc9413f48b42a3fb08bfe51428a9a828523e24e3d496e0345a0b26e4c97), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2442-v1",
+          "contextKey": "legacy-0161-L2442-context-1",
+          "transferKey": "legacy-0161-L2442-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016106",
+            "type": "gap_choice",
+            "prompt": "Die Live-___ des Konzerts beginnt um 20 Uhr im Fernsehen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The concert is shown live to viewers.",
+              "de": "Das Konzert wird live für Zuschauer ausgestrahlt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Übersetzung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Übertragung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Übertragung can mean broadcasting an event.",
+              "de": "Übertragung kann die Ausstrahlung eines Ereignisses bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Live-Übertragung des Konzerts beginnt um 20 Uhr im Fernsehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Übertragung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Übersetzung: A translation changes language, not the live broadcast itself.; Bewerbung: An application seeks a job, not transmits a concert.; Übertragung: correct in the complete context; Rechnung: An invoice lists charges, not broadcasts an event.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2442-v2",
+          "contextKey": "legacy-0161-L2442-context-2",
+          "transferKey": "legacy-0161-L2442-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016106",
+            "type": "choice",
+            "prompt": "Ein Sportereignis wird gleichzeitig im Internet gestreamt. Wie heißt die Ausstrahlung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The event reaches viewers as it happens.",
+              "de": "Das Ereignis erreicht Zuschauer während es stattfindet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Unterbrechung"
+              },
+              {
+                "id": "1",
+                "text": "Aufzeichnung"
+              },
+              {
+                "id": "2",
+                "text": "Übersetzung"
+              },
+              {
+                "id": "3",
+                "text": "Übertragung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A live stream is an Übertragung.",
+              "de": "Ein Livestream ist eine Übertragung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ausstrahlung ist eine Übertragung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Übertragung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Unterbrechung: An interruption stops a broadcast, not carries it.; Aufzeichnung: A recording is stored material, not necessarily its live transmission.; Übersetzung: A translation changes language, not distributes the video.; Übertragung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016108",
+      "title": {
+        "en": "Using Überzeugung accurately",
+        "de": "Überzeugung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Überzeugung as a firmly held conviction or belief.",
+        "de": "Überzeugung als eine feste Überzeugung erkennen."
+      },
+      "objective": "Recognize Überzeugung in the specified a firmly held conviction or belief sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2444 (797dace6613270513d37ed9db9369e3827cb7b55ccca170e72a7ea9106e46b01), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2444-v1",
+          "contextKey": "legacy-0161-L2444-context-1",
+          "transferKey": "legacy-0161-L2444-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016108",
+            "type": "gap_choice",
+            "prompt": "Sie vertritt die feste ___, dass Bildung für alle zugänglich sein sollte.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She strongly believes in the stated principle.",
+              "de": "Sie glaubt fest an den genannten Grundsatz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Überzeugung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Überzeugung means a firmly held belief.",
+              "de": "Überzeugung bezeichnet eine feste Ansicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie vertritt die feste Überzeugung, dass Bildung für alle zugänglich sein sollte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Überzeugung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Überzeugung: correct in the complete context; Lieferung: A delivery moves goods, not expresses a principle.; Rechnung: An invoice records payment due, not a belief.; Einladung: An invitation requests attendance, not a conviction.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2444-v2",
+          "contextKey": "legacy-0161-L2444-context-2",
+          "transferKey": "legacy-0161-L2444-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016108",
+            "type": "choice",
+            "prompt": "Ein Mann hält nach gründlicher Überlegung an einer bestimmten Ansicht fest. Was ist diese Ansicht für ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He holds the view firmly, not tentatively.",
+              "de": "Er vertritt die Ansicht mit fester Sicherheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vermutung"
+              },
+              {
+                "id": "1",
+                "text": "Überzeugung"
+              },
+              {
+                "id": "2",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "3",
+                "text": "Mahnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A strongly held belief is an Überzeugung.",
+              "de": "Eine fest vertretene Ansicht ist eine Überzeugung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ansicht ist seine Überzeugung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Überzeugung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Vermutung: A supposition is tentative, unlike the firmly held belief.; Überzeugung: correct in the complete context; Fahrkarte: A ticket permits travel, not describes a viewpoint.; Mahnung: A reminder requests action, not a personal conviction.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016110",
+      "title": {
+        "en": "Using Ufer accurately",
+        "de": "Ufer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Ufer as the bank or shore of a body of water.",
+        "de": "Ufer als ein Ufer an einem Gewässer erkennen."
+      },
+      "objective": "Recognize Ufer in the specified the bank or shore of a body of water sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2446 (2da54d8604c22e9e72f206cd3a845a77b8e85c96e6b5413e83ba712e9c044aaa), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2446-v1",
+          "contextKey": "legacy-0161-L2446-context-1",
+          "transferKey": "legacy-0161-L2446-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016110",
+            "type": "gap_choice",
+            "prompt": "Wir saßen am ___ des Sees und sahen den Booten zu.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is the land at the edge of the water.",
+              "de": "Es ist das Land direkt am Wasser."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gipfel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tunnel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ufer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dach"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ufer means the shore or bank.",
+              "de": "Ufer bezeichnet den Rand eines Gewässers."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir saßen am Ufer des Sees und sahen den Booten zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Ufer' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gipfel: A summit is a mountain top, not a lakeside edge.; Tunnel: A tunnel is an underground passage, not the shore.; Ufer: correct in the complete context; Dach: A roof covers a building, not a lake bank.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2446-v2",
+          "contextKey": "legacy-0161-L2446-context-2",
+          "transferKey": "legacy-0161-L2446-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016110",
+            "type": "choice",
+            "prompt": "Ein Spazierweg verläuft direkt an der Grenze zwischen Fluss und Land. Wie nennt man diesen Bereich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The land borders the river.",
+              "de": "Das Land grenzt unmittelbar an den Fluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tal"
+              },
+              {
+                "id": "1",
+                "text": "Berg"
+              },
+              {
+                "id": "2",
+                "text": "Platz"
+              },
+              {
+                "id": "3",
+                "text": "Ufer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The riverbank is an Ufer.",
+              "de": "Der Rand eines Flusses heißt Ufer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Spazierweg verläuft am Ufer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Ufer' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tal: A valley is a broad landform, not specifically the immediate river edge.; Berg: A mountain is elevated land, not the bank.; Platz: A square is an open public area, not the water boundary.; Ufer: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016111",
+      "title": {
+        "en": "Using Umfeld accurately",
+        "de": "Umfeld im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umfeld as the surrounding working environment.",
+        "de": "Umfeld als ein Umfeld im beruflichen Zusammenhang erkennen."
+      },
+      "objective": "Recognize Umfeld in the specified the surrounding working environment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2448 (f3d8e385ee85aa89e388a51fbcb6b8a04736f26976e9834c2d9c4e7df0acb4eb), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2448-v1",
+          "contextKey": "legacy-0161-L2448-context-1",
+          "transferKey": "legacy-0161-L2448-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016111",
+            "type": "gap_choice",
+            "prompt": "Ein unterstützendes ___ erleichtert den Start im neuen Job.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The social conditions around a person are helpful.",
+              "de": "Die sozialen Bedingungen um eine Person sind hilfreich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehalt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umfeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gerät"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umfeld can describe the environment around a person.",
+              "de": "Umfeld kann die Bedingungen im Umfeld einer Person bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein unterstützendes Umfeld erleichtert den Start im neuen Job.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umfeld' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gehalt: Salary is payment, not the social setting.; Umfeld: correct in the complete context; Vertrag: A contract defines terms, not the surrounding atmosphere.; Gerät: A device is equipment, not the work environment.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2448-v2",
+          "contextKey": "legacy-0161-L2448-context-2",
+          "transferKey": "legacy-0161-L2448-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016111",
+            "type": "choice",
+            "prompt": "Kolleginnen, Vorgesetzte und Arbeitsbedingungen beeinflussen, wie wohl man sich im Beruf fühlt. Wie nennt man diesen Rahmen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It comprises people and conditions around work.",
+              "de": "Es umfasst Menschen und Bedingungen am Arbeitsplatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Arbeitsvertrag"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitszeit"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitsumfeld"
+              },
+              {
+                "id": "3",
+                "text": "Arbeitsweg"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Arbeitsumfeld is the work environment.",
+              "de": "Arbeitsumfeld bezeichnet die Umgebung und Bedingungen der Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dieser Rahmen ist das Arbeitsumfeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Arbeitsumfeld' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Arbeitsvertrag: An employment contract sets legal terms, not the whole environment.; Arbeitszeit: Working time measures hours, not all social conditions.; Arbeitsumfeld: correct in the complete context; Arbeitsweg: Commute is travel to work, not the workplace setting.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016112",
+      "title": {
+        "en": "Using Umfrage accurately",
+        "de": "Umfrage im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umfrage as a survey collecting answers from people.",
+        "de": "Umfrage als eine Umfrage mit Fragen an Personen erkennen."
+      },
+      "objective": "Recognize Umfrage in the specified a survey collecting answers from people sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2449 (f05dc3596f69457837e2941060387d0f30b03755ece91710a323374fc65e9055), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2449-v1",
+          "contextKey": "legacy-0161-L2449-context-1",
+          "transferKey": "legacy-0161-L2449-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016112",
+            "type": "gap_choice",
+            "prompt": "Die Firma führt eine ___ unter ihren Kunden durch, um Meinungen zu sammeln.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Many people answer questions about their views.",
+              "de": "Viele Personen beantworten Fragen zu ihren Ansichten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umfrage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Umfrage collects responses to questions.",
+              "de": "Eine Umfrage sammelt Antworten auf Fragen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma führt eine Umfrage unter ihren Kunden durch, um Meinungen zu sammeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umfrage' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Umfrage: correct in the complete context; Lieferung: A delivery moves goods, not gathers opinions.; Rechnung: An invoice requests payment, not survey responses.; Reparatur: A repair fixes something, not asks customers questions.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2449-v2",
+          "contextKey": "legacy-0161-L2449-context-2",
+          "transferKey": "legacy-0161-L2449-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016112",
+            "type": "choice",
+            "prompt": "500 Personen beantworten dieselben Fragen zu ihren Einkaufsgewohnheiten. Wie nennt man diese Erhebung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The same questions are asked to a group.",
+              "de": "Einer Gruppe werden dieselben Fragen gestellt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "1",
+                "text": "Umfrage"
+              },
+              {
+                "id": "2",
+                "text": "Inventur"
+              },
+              {
+                "id": "3",
+                "text": "Bestellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A questionnaire survey is an Umfrage.",
+              "de": "Eine Befragung mit Fragen heißt Umfrage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Erhebung ist eine Umfrage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umfrage' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bewerbung: An application seeks employment, not collects consumer responses.; Umfrage: correct in the complete context; Inventur: Inventory counts stock, not people's opinions.; Bestellung: An order requests goods, not gathers answers.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016113",
+      "title": {
+        "en": "Using Umgang accurately",
+        "de": "Umgang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umgang as the way of dealing with people or situations.",
+        "de": "Umgang als den Umgang mit Menschen oder Situationen erkennen."
+      },
+      "objective": "Recognize Umgang in the specified the way of dealing with people or situations sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2450 (9465e909d456d064d2492018ed899312d61a049b803b6adbf82733678a992a11), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2450-v1",
+          "contextKey": "legacy-0161-L2450-context-1",
+          "transferKey": "legacy-0161-L2450-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016113",
+            "type": "gap_choice",
+            "prompt": "Der professionelle ___ mit Beschwerden erfordert Geduld.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is about how complaints are handled.",
+              "de": "Es geht darum, wie Beschwerden behandelt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umsatz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Versand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einkauf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umgang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umgang mit means dealing with something.",
+              "de": "Umgang mit bedeutet, mit etwas umzugehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der professionelle Umgang mit Beschwerden erfordert Geduld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umgang' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Umsatz: Revenue is sales value, not the manner of handling complaints.; Versand: Shipping sends goods, not handles customer dissatisfaction.; Einkauf: Purchasing acquires goods, not the interpersonal approach.; Umgang: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2450-v2",
+          "contextKey": "legacy-0161-L2450-context-2",
+          "transferKey": "legacy-0161-L2450-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016113",
+            "type": "choice",
+            "prompt": "Eine Mitarbeiterin bleibt auch bei verärgerten Kunden ruhig und respektvoll. Was zeigt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Her manner of interacting is respectful.",
+              "de": "Ihre Art des Kontakts ist respektvoll."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "guten Umgang mit Kunden"
+              },
+              {
+                "id": "1",
+                "text": "einen hohen Lagerbestand"
+              },
+              {
+                "id": "2",
+                "text": "einen verspäteten Transport"
+              },
+              {
+                "id": "3",
+                "text": "eine niedrige Temperatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Good customer interaction is guter Umgang.",
+              "de": "Respektvoller Kundenkontakt zeigt guten Umgang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin zeigt guten Umgang mit Kunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'guten Umgang mit Kunden' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: guten Umgang mit Kunden: correct in the complete context; einen hohen Lagerbestand: Inventory level describes stock, not behaviour.; einen verspäteten Transport: Late transport is logistics, not her interpersonal manner.; eine niedrige Temperatur: Low temperature is a physical condition, not customer treatment.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016114",
+      "title": {
+        "en": "Using Umgangsform accurately",
+        "de": "Umgangsform im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umgangsform as a polite social manner.",
+        "de": "Umgangsform als eine höfliche Umgangsform erkennen."
+      },
+      "objective": "Recognize Umgangsform in the specified a polite social manner sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2451 (525cdb1bc36f9bb452a27e59428e82083ebfbabb07edd77612857ba7dde724b5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2451-v1",
+          "contextKey": "legacy-0161-L2451-context-1",
+          "transferKey": "legacy-0161-L2451-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016114",
+            "type": "gap_choice",
+            "prompt": "Ein höflicher Gruß gehört zu guten ___ im Berufsalltag.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The word concerns socially appropriate behaviour.",
+              "de": "Es geht um angemessenes Verhalten gegenüber anderen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitszeiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferungen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umgangsformen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umgangsformen are social manners.",
+              "de": "Umgangsformen sind Regeln höflichen Verhaltens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein höflicher Gruß gehört zu guten Umgangsformen im Berufsalltag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umgangsformen' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Arbeitszeiten: Working hours are schedules, not manners.; Lieferungen: Deliveries are shipments, not polite conduct.; Umgangsformen: correct in the complete context; Rechnungen: Invoices are billing documents, not social etiquette.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2451-v2",
+          "contextKey": "legacy-0161-L2451-context-2",
+          "transferKey": "legacy-0161-L2451-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016114",
+            "type": "choice",
+            "prompt": "Jemand begrüßt Gäste respektvoll, hört zu und lässt andere ausreden. Was zeigt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The behaviour is courteous and considerate.",
+              "de": "Das Verhalten ist höflich und rücksichtsvoll."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "hohe Umsätze"
+              },
+              {
+                "id": "1",
+                "text": "einen Tarifvertrag"
+              },
+              {
+                "id": "2",
+                "text": "eine Stellenanzeige"
+              },
+              {
+                "id": "3",
+                "text": "gute Umgangsformen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Courtesy is part of good Umgangsformen.",
+              "de": "Höflichkeit gehört zu guten Umgangsformen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person zeigt gute Umgangsformen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'gute Umgangsformen' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: hohe Umsätze: Sales figures are financial performance, not etiquette.; einen Tarifvertrag: A collective agreement sets labour terms, not courtesy.; eine Stellenanzeige: A vacancy advertisement recruits staff, not manners.; gute Umgangsformen: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016115",
+      "title": {
+        "en": "Using Umgebung accurately",
+        "de": "Umgebung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umgebung as the surroundings of a place.",
+        "de": "Umgebung als die Umgebung eines Ortes erkennen."
+      },
+      "objective": "Recognize Umgebung in the specified the surroundings of a place sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2452 (3562e2823848f975e32dd633a8bea387d9a6aa71a0b2364548169025c2d2248b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2452-v1",
+          "contextKey": "legacy-0161-L2452-context-1",
+          "transferKey": "legacy-0161-L2452-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016115",
+            "type": "gap_choice",
+            "prompt": "In der unbekannten ___ achtete sie auf Straßenschilder und Gebäude.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She observes the area around her.",
+              "de": "Sie beobachtet das Gebiet um sich herum."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umgebung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umgebung means the surrounding area.",
+              "de": "Umgebung bezeichnet das Gebiet ringsum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der unbekannten Umgebung achtete sie auf Straßenschilder und Gebäude.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umgebung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rechnung: An invoice is a bill, not a place.; Umgebung: correct in the complete context; Kündigung: Termination ends an agreement, not describes the area.; Bewerbung: An application is a document, not surroundings.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2452-v2",
+          "contextKey": "legacy-0161-L2452-context-2",
+          "transferKey": "legacy-0161-L2452-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016115",
+            "type": "choice",
+            "prompt": "Eine Wandergruppe beobachtet Wälder, Wege und Häuser rund um ihren Standort. Was betrachtet sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The focus is on nearby things.",
+              "de": "Es geht um Dinge in der Nähe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Steuerklasse"
+              },
+              {
+                "id": "1",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Umgebung"
+              },
+              {
+                "id": "3",
+                "text": "Terminbestätigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Nearby surroundings are the Umgebung.",
+              "de": "Die Dinge ringsum bilden die Umgebung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe betrachtet ihre Umgebung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umgebung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Steuerklasse: Tax class is payroll data, not landscape.; Gehaltsabrechnung: A payslip records salary, not nearby features.; Umgebung: correct in the complete context; Terminbestätigung: An appointment confirmation is a message, not the surrounding area.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016116",
+      "title": {
+        "en": "Using Umleitung accurately",
+        "de": "Umleitung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umleitung as a signposted detour around a closed route.",
+        "de": "Umleitung als eine Umleitung bei einer Straßensperrung erkennen."
+      },
+      "objective": "Recognize Umleitung in the specified a signposted detour around a closed route sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2453 (2220140825d5d81249a6e080afb94040e51289ad748886b1ec575161a0df74e4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2453-v1",
+          "contextKey": "legacy-0161-L2453-context-1",
+          "transferKey": "legacy-0161-L2453-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016116",
+            "type": "gap_choice",
+            "prompt": "Wegen der Baustelle müssen alle Autos der ausgeschilderten ___ folgen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The usual road is blocked.",
+              "de": "Die normale Straße ist gesperrt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umleitung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Umleitung directs traffic along another route.",
+              "de": "Eine Umleitung führt den Verkehr über einen anderen Weg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Baustelle müssen alle Autos der ausgeschilderten Umleitung folgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umleitung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Umleitung: correct in the complete context; Lieferung: A delivery transports goods, not directs drivers around works.; Einladung: An invitation asks someone to attend, not provides a road route.; Bewerbung: An application seeks a position, not replaces a road.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2453-v2",
+          "contextKey": "legacy-0161-L2453-context-2",
+          "transferKey": "legacy-0161-L2453-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016116",
+            "type": "choice",
+            "prompt": "Eine Brücke ist gesperrt, deshalb führt eine beschilderte Ersatzroute über die Nachbarstraße. Wie heißt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The route bypasses a closure.",
+              "de": "Der Weg umgeht die Sperrung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sackgasse"
+              },
+              {
+                "id": "1",
+                "text": "Umleitung"
+              },
+              {
+                "id": "2",
+                "text": "Parkplatz"
+              },
+              {
+                "id": "3",
+                "text": "Autobahn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A detour is an Umleitung.",
+              "de": "Ein ausgeschilderter Ersatzweg ist eine Umleitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ersatzroute ist eine Umleitung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umleitung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Sackgasse: A dead end has no through route, not a bypass.; Umleitung: correct in the complete context; Parkplatz: A parking area is for stopping vehicles, not rerouting.; Autobahn: A motorway is a road type, not specifically the replacement route.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016117",
+      "title": {
+        "en": "Using Umsatz accurately",
+        "de": "Umsatz im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umsatz as sales revenue before deducting costs.",
+        "de": "Umsatz als den Umsatz aus Verkäufen vor Kostenabzug erkennen."
+      },
+      "objective": "Recognize Umsatz in the specified sales revenue before deducting costs sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2454 (db888385df23582a74a080b8927e4d6115847117724849cd9f9a68b877084d87), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2454-v1",
+          "contextKey": "legacy-0161-L2454-context-1",
+          "transferKey": "legacy-0161-L2454-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016117",
+            "type": "gap_choice",
+            "prompt": "Der ___ bezeichnet den Wert der Verkäufe vor Abzug der Kosten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Costs have not yet been deducted.",
+              "de": "Die Kosten wurden noch nicht abgezogen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewinn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kredit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lohn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umsatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umsatz is sales revenue before costs.",
+              "de": "Umsatz ist der Verkaufswert vor Abzug der Kosten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Umsatz bezeichnet den Wert der Verkäufe vor Abzug der Kosten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umsatz' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gewinn: Profit is what remains after relevant costs, not gross sales.; Kredit: A loan is borrowed money, not sales revenue.; Lohn: Wages are employee pay, not the value of goods sold.; Umsatz: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2454-v2",
+          "contextKey": "legacy-0161-L2454-context-2",
+          "transferKey": "legacy-0161-L2454-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016117",
+            "type": "choice",
+            "prompt": "Ein Laden verkauft in einem Monat Waren im Wert von 50.000 Euro. Welche Kennzahl beschreibt diesen Verkaufswert?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question gives total sales, not net profit.",
+              "de": "Genannt ist der gesamte Verkaufswert und nicht der Reingewinn."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umsatz"
+              },
+              {
+                "id": "1",
+                "text": "Reingewinn"
+              },
+              {
+                "id": "2",
+                "text": "Miete"
+              },
+              {
+                "id": "3",
+                "text": "Steuerklasse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The sales total is Umsatz.",
+              "de": "Die Summe der Verkäufe ist der Umsatz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verkaufswert ist der Umsatz des Ladens.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umsatz' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Umsatz: correct in the complete context; Reingewinn: Net profit requires deducting costs, which are not given.; Miete: Rent is an expense, not the sales total.; Steuerklasse: Tax class is a payroll category, not sales performance.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016118",
+      "title": {
+        "en": "Using Umsatzsteuer accurately",
+        "de": "Umsatzsteuer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umsatzsteuer as value-added tax on taxable sales.",
+        "de": "Umsatzsteuer als die Umsatzsteuer auf steuerpflichtige Umsätze erkennen."
+      },
+      "objective": "Recognize Umsatzsteuer in the specified value-added tax on taxable sales sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2455 (3c16e0e634f53475901104653c937826b76b347a64046c311d672ceebec991c4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2455-v1",
+          "contextKey": "legacy-0161-L2455-context-1",
+          "transferKey": "legacy-0161-L2455-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016118",
+            "type": "gap_choice",
+            "prompt": "Auf der Rechnung wird die ___ als eigener Steuerbetrag ausgewiesen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The tax relates to taxable goods or services sold.",
+              "de": "Die Steuer betrifft steuerpflichtige Waren oder Dienstleistungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Grundsteuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hundesteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umsatzsteuer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kraftfahrzeugsteuer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Umsatzsteuer is VAT on taxable sales.",
+              "de": "Umsatzsteuer ist die Steuer auf steuerpflichtige Umsätze."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Rechnung wird die Umsatzsteuer als eigener Steuerbetrag ausgewiesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umsatzsteuer' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Grundsteuer: Property tax concerns real estate, not the sales invoice tax.; Hundesteuer: Dog tax concerns dog ownership, not goods sold.; Umsatzsteuer: correct in the complete context; Kraftfahrzeugsteuer: Vehicle tax concerns ownership of vehicles, not invoice sales.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2455-v2",
+          "contextKey": "legacy-0161-L2455-context-2",
+          "transferKey": "legacy-0161-L2455-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016118",
+            "type": "choice",
+            "prompt": "Beim Verkauf vieler Waren wird in Deutschland eine Steuer auf den Umsatz erhoben. Welche Steuer ist gemeint?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The levy concerns sales transactions.",
+              "de": "Die Abgabe betrifft Verkaufsvorgänge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erbschaftsteuer"
+              },
+              {
+                "id": "1",
+                "text": "Lohnsteuer"
+              },
+              {
+                "id": "2",
+                "text": "Grunderwerbsteuer"
+              },
+              {
+                "id": "3",
+                "text": "Umsatzsteuer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "German VAT is Umsatzsteuer.",
+              "de": "Die deutsche Mehrwertsteuer heißt Umsatzsteuer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Gemeint ist die Umsatzsteuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umsatzsteuer' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Erbschaftsteuer: Inheritance tax concerns inherited property, not ordinary sales.; Lohnsteuer: Wage tax is withheld from pay, not charged on sales.; Grunderwerbsteuer: Property transfer tax concerns real estate transactions, not most goods.; Umsatzsteuer: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016119",
+      "title": {
+        "en": "Using Umsatzsteuervoranmeldung accurately",
+        "de": "Umsatzsteuervoranmeldung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Umsatzsteuervoranmeldung as a periodic advance VAT return to the tax authority.",
+        "de": "Umsatzsteuervoranmeldung als eine regelmäßige Umsatzsteuervoranmeldung erkennen."
+      },
+      "objective": "Recognize Umsatzsteuervoranmeldung in the specified a periodic advance VAT return to the tax authority sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2456 (5a4be93438339d90d71e2e6598f8a4771fcfba1a36fe05f7ef9b35ec3d70e449), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0161-L2456-v1",
+          "contextKey": "legacy-0161-L2456-context-1",
+          "transferKey": "legacy-0161-L2456-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016119",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen meldet seine Umsatzsteuer für den Abrechnungszeitraum mit einer ___ an das Finanzamt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document reports VAT for a period.",
+              "de": "Das Dokument meldet Umsatzsteuer für einen Zeitraum."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stellenanzeige"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umsatzsteuervoranmeldung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferschein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Umsatzsteuervoranmeldung is an advance VAT filing.",
+              "de": "Eine Umsatzsteuervoranmeldung ist eine Voranmeldung zur Umsatzsteuer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen meldet seine Umsatzsteuer für den Abrechnungszeitraum mit einer Umsatzsteuervoranmeldung an das Finanzamt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Umsatzsteuervoranmeldung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stellenanzeige: A vacancy advertisement recruits staff, not reports VAT.; Umsatzsteuervoranmeldung: correct in the complete context; Kündigung: Termination ends an agreement, not declares VAT.; Lieferschein: A delivery note lists shipped goods, not tax amounts.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0161-L2456-v2",
+          "contextKey": "legacy-0161-L2456-context-2",
+          "transferKey": "legacy-0161-L2456-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001610191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016119",
+            "type": "choice",
+            "prompt": "Eine Firma übermittelt dem Finanzamt regelmäßig Angaben zu Umsatzsteuer und abziehbarer Vorsteuer. Wie heißt diese Meldung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The report concerns periodic VAT amounts.",
+              "de": "Die Meldung betrifft Umsatzsteuerbeträge eines Zeitraums."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Steuerklasse"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitsvertrag"
+              },
+              {
+                "id": "2",
+                "text": "Umsatzsteuervoranmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Reisekostenabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A periodic VAT filing is a Umsatzsteuervoranmeldung.",
+              "de": "Eine regelmäßige Umsatzsteuermeldung heißt Umsatzsteuervoranmeldung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Meldung ist eine Umsatzsteuervoranmeldung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Umsatzsteuervoranmeldung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Steuerklasse: Tax class is a payroll category, not a VAT filing.; Arbeitsvertrag: An employment contract sets job terms, not tax declarations.; Umsatzsteuervoranmeldung: correct in the complete context; Reisekostenabrechnung: An expense report records travel costs, not periodic VAT.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
