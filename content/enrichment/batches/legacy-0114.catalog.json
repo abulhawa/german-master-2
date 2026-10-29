@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011400",
+      "title": {
+        "en": "Using Infektion in context",
+        "de": "Infektion im Kontext"
+      },
+      "description": {
+        "en": "Recognize Infektion as infection caused by pathogens, in two distinct contexts.",
+        "de": "Infektion erkennen: Infektion durch Krankheitserreger, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Infektion meaning infection caused by pathogens and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1159 (4dea07d4cf9ff7ce7223eb76e496fa501415af5746651f75fad43c45d0d8d14e), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1159-v1",
+          "contextKey": "legacy-0114-L1159-context-1",
+          "transferKey": "legacy-0114-L1159-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011400",
+            "type": "gap_choice",
+            "prompt": "Krankheitserreger drangen in die Wunde ein und verursachten eine ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "Pathogens enter tissue and cause disease.",
+              "de": "Erreger dringen in Gewebe ein und lösen eine Erkrankung aus."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fraktur"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Infektion"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbrennung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verstauchung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Infektion refers to infection caused by pathogens here; \"Infektion\" fits the sentence.",
+              "de": "Infektion bezeichnet hier Infektion durch Krankheitserreger; „Infektion“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Krankheitserreger drangen in die Wunde ein und verursachten eine Infektion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Krankheitserreger drangen in die Wunde ein und verursachten eine Infektion.\" for natural German, agreement and meaning. Considered each option: Fraktur: not suitable for infection caused by pathogens in this full context; Infektion: correct meaning and noun form; Verbrennung: not suitable for infection caused by pathogens in this full context; Verstauchung: not suitable for infection caused by pathogens in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1159-v2",
+          "contextKey": "legacy-0114-L1159-context-2",
+          "transferKey": "legacy-0114-L1159-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011400",
+            "type": "choice",
+            "prompt": "Um eine ___ der Wunde zu vermeiden, reinigte sie die Stelle gründlich.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "Cleaning reduces the risk of germs entering a wound.",
+              "de": "Reinigen kann das Eindringen von Erregern verhindern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Blutung"
+              },
+              {
+                "id": "2",
+                "text": "Narbe"
+              },
+              {
+                "id": "3",
+                "text": "Infektion"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Infektion refers to infection caused by pathogens here; \"Infektion\" fits the sentence.",
+              "de": "Infektion bezeichnet hier Infektion durch Krankheitserreger; „Infektion“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um eine Infektion der Wunde zu vermeiden, reinigte sie die Stelle gründlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Um eine Infektion der Wunde zu vermeiden, reinigte sie die Stelle gründlich.\" for natural German, agreement and meaning. Considered each option: Rechnung: not suitable for infection caused by pathogens in this full context; Blutung: not suitable for infection caused by pathogens in this full context; Narbe: not suitable for infection caused by pathogens in this full context; Infektion: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011401",
+      "title": {
+        "en": "Using Infektionskrankheit in context",
+        "de": "Infektionskrankheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize Infektionskrankheit as infectious disease, in two distinct contexts.",
+        "de": "Infektionskrankheit erkennen: ansteckende Infektionskrankheit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Infektionskrankheit meaning infectious disease and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1160 (c15dc343c863dde9ed8ecc2b9bf81000b45b4ceb0bcb474b078b76e7b4c2b821), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1160-v1",
+          "contextKey": "legacy-0114-L1160-context-1",
+          "transferKey": "legacy-0114-L1160-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011401",
+            "type": "gap_choice",
+            "prompt": "Masern sind eine ansteckende ___, gegen die es eine Impfung gibt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "Measles spreads through infection.",
+              "de": "Masern werden durch Krankheitserreger übertragen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Infektionskrankheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Allergie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verletzung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stoffwechselstörung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Infektionskrankheit refers to infectious disease here; \"Infektionskrankheit\" fits the sentence.",
+              "de": "Infektionskrankheit bezeichnet hier ansteckende Infektionskrankheit; „Infektionskrankheit“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Masern sind eine ansteckende Infektionskrankheit, gegen die es eine Impfung gibt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Masern sind eine ansteckende Infektionskrankheit, gegen die es eine Impfung gibt.\" for natural German, agreement and meaning. Considered each option: Infektionskrankheit: correct meaning and noun form; Allergie: not suitable for infectious disease in this full context; Verletzung: not suitable for infectious disease in this full context; Stoffwechselstörung: not suitable for infectious disease in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1160-v2",
+          "contextKey": "legacy-0114-L1160-context-2",
+          "transferKey": "legacy-0114-L1160-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011401",
+            "type": "choice",
+            "prompt": "Die Klinik isolierte die Patientin, weil die ___ durch Tröpfchen übertragen werden konnte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The condition can spread between people.",
+              "de": "Die Krankheit kann von Mensch zu Mensch übertragen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Knochenverletzung"
+              },
+              {
+                "id": "1",
+                "text": "Fehlstellung"
+              },
+              {
+                "id": "2",
+                "text": "Infektionskrankheit"
+              },
+              {
+                "id": "3",
+                "text": "Mangelerscheinung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Infektionskrankheit refers to infectious disease here; \"Infektionskrankheit\" fits the sentence.",
+              "de": "Infektionskrankheit bezeichnet hier ansteckende Infektionskrankheit; „Infektionskrankheit“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Klinik isolierte die Patientin, weil die Infektionskrankheit durch Tröpfchen übertragen werden konnte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Klinik isolierte die Patientin, weil die Infektionskrankheit durch Tröpfchen übertragen werden konnte.\" for natural German, agreement and meaning. Considered each option: Knochenverletzung: not suitable for infectious disease in this full context; Fehlstellung: not suitable for infectious disease in this full context; Infektionskrankheit: correct meaning and noun form; Mangelerscheinung: not suitable for infectious disease in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011402",
+      "title": {
+        "en": "Using Ingenieur in context",
+        "de": "Ingenieur im Kontext"
+      },
+      "description": {
+        "en": "Recognize Ingenieur as engineer, in two distinct contexts.",
+        "de": "Ingenieur erkennen: Ingenieur als technischer Fachmann, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Ingenieur meaning engineer and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1162 (9a20ba2786d26a29d055ab6cf5dfd9d97c2065d08bf78ee91c29426e013e06cb), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1162-v1",
+          "contextKey": "legacy-0114-L1162-context-1",
+          "transferKey": "legacy-0114-L1162-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011402",
+            "type": "gap_choice",
+            "prompt": "Der ___ berechnete die Belastung der neuen Brücke.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "This specialist calculates technical loads.",
+              "de": "Diese Fachperson berechnet technische Belastungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Koch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fotograf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dolmetscher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ingenieur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ingenieur refers to engineer here; \"Ingenieur\" fits the sentence.",
+              "de": "Ingenieur bezeichnet hier Ingenieur als technischer Fachmann; „Ingenieur“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Ingenieur berechnete die Belastung der neuen Brücke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Ingenieur berechnete die Belastung der neuen Brücke.\" for natural German, agreement and meaning. Considered each option: Koch: not suitable for engineer in this full context; Fotograf: not suitable for engineer in this full context; Dolmetscher: not suitable for engineer in this full context; Ingenieur: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1162-v2",
+          "contextKey": "legacy-0114-L1162-context-2",
+          "transferKey": "legacy-0114-L1162-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011402",
+            "type": "choice",
+            "prompt": "Für die Entwicklung des Motors stellte das Unternehmen einen ___ ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The position involves technical product development.",
+              "de": "Die Stelle umfasst technische Entwicklung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buchhalter"
+              },
+              {
+                "id": "1",
+                "text": "Ingenieur"
+              },
+              {
+                "id": "2",
+                "text": "Friseur"
+              },
+              {
+                "id": "3",
+                "text": "Verkäufer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ingenieur refers to engineer here; \"Ingenieur\" fits the sentence.",
+              "de": "Ingenieur bezeichnet hier Ingenieur als technischer Fachmann; „Ingenieur“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Entwicklung des Motors stellte das Unternehmen einen Ingenieur ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Für die Entwicklung des Motors stellte das Unternehmen einen Ingenieur ein.\" for natural German, agreement and meaning. Considered each option: Buchhalter: not suitable for engineer in this full context; Ingenieur: correct meaning and noun form; Friseur: not suitable for engineer in this full context; Verkäufer: not suitable for engineer in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011403",
+      "title": {
+        "en": "Using Inhalt in context",
+        "de": "Inhalt im Kontext"
+      },
+      "description": {
+        "en": "Recognize Inhalt as contents of something, in two distinct contexts.",
+        "de": "Inhalt erkennen: Inhalt einer Sache, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Inhalt meaning contents of something and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1163 (c8c18a19ac252e0e3b5ef22e7cd94cade9ae331414871d8ec7edfd46d770fb85), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1163-v1",
+          "contextKey": "legacy-0114-L1163-context-1",
+          "transferKey": "legacy-0114-L1163-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011403",
+            "type": "gap_choice",
+            "prompt": "Welche Gegenstände darin liegen, steht auf der Liste: Der ___ des Pakets ist genau beschrieben.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The list names what is inside the parcel.",
+              "de": "Die Liste nennt die Dinge im Paket."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Absender"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Versand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Inhalt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Preis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Inhalt refers to contents of something here; \"Inhalt\" fits the sentence.",
+              "de": "Inhalt bezeichnet hier Inhalt einer Sache; „Inhalt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Welche Gegenstände darin liegen, steht auf der Liste: Der Inhalt des Pakets ist genau beschrieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Welche Gegenstände darin liegen, steht auf der Liste: Der Inhalt des Pakets ist genau beschrieben.\" for natural German, agreement and meaning. Considered each option: Absender: not suitable for contents of something in this full context; Versand: not suitable for contents of something in this full context; Inhalt: correct meaning and noun form; Preis: not suitable for contents of something in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1163-v2",
+          "contextKey": "legacy-0114-L1163-context-2",
+          "transferKey": "legacy-0114-L1163-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011403",
+            "type": "choice",
+            "prompt": "Sie fasste den ___ des langen Berichts in drei Sätzen zusammen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "She summarizes what the report says.",
+              "de": "Sie fasst zusammen, was im Bericht steht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Inhalt"
+              },
+              {
+                "id": "1",
+                "text": "Einband"
+              },
+              {
+                "id": "2",
+                "text": "Druck"
+              },
+              {
+                "id": "3",
+                "text": "Rand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Inhalt refers to contents of something here; \"Inhalt\" fits the sentence.",
+              "de": "Inhalt bezeichnet hier Inhalt einer Sache; „Inhalt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie fasste den Inhalt des langen Berichts in drei Sätzen zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Sie fasste den Inhalt des langen Berichts in drei Sätzen zusammen.\" for natural German, agreement and meaning. Considered each option: Inhalt: correct meaning and noun form; Einband: not suitable for contents of something in this full context; Druck: not suitable for contents of something in this full context; Rand: not suitable for contents of something in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011404",
+      "title": {
+        "en": "Using Innenstadt in context",
+        "de": "Innenstadt im Kontext"
+      },
+      "description": {
+        "en": "Recognize Innenstadt as city centre, in two distinct contexts.",
+        "de": "Innenstadt erkennen: Innenstadt als Stadtzentrum, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Innenstadt meaning city centre and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1164 (8a0ed67f3d904767beabbc52b7337a5547f810e3f51d4f95c04035c4631a53c3), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1164-v1",
+          "contextKey": "legacy-0114-L1164-context-1",
+          "transferKey": "legacy-0114-L1164-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011404",
+            "type": "gap_choice",
+            "prompt": "Im Zentrum der Stadt liegt die ___ mit Rathaus und Fußgängerzone.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The location is the central part of town.",
+              "de": "Gemeint ist der zentrale Teil der Stadt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorstadt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Innenstadt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Autobahn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Industriegebiet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Innenstadt refers to city centre here; \"Innenstadt\" fits the sentence.",
+              "de": "Innenstadt bezeichnet hier Innenstadt als Stadtzentrum; „Innenstadt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Zentrum der Stadt liegt die Innenstadt mit Rathaus und Fußgängerzone.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Im Zentrum der Stadt liegt die Innenstadt mit Rathaus und Fußgängerzone.\" for natural German, agreement and meaning. Considered each option: Vorstadt: not suitable for city centre in this full context; Innenstadt: correct meaning and noun form; Autobahn: not suitable for city centre in this full context; Industriegebiet: not suitable for city centre in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1164-v2",
+          "contextKey": "legacy-0114-L1164-context-2",
+          "transferKey": "legacy-0114-L1164-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011404",
+            "type": "choice",
+            "prompt": "Wer ins Zentrum zum Rathaus möchte, fährt mit der Bahn in die ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The destination is the central district.",
+              "de": "Das Ziel ist das Stadtzentrum."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werkstatt"
+              },
+              {
+                "id": "1",
+                "text": "Landschaft"
+              },
+              {
+                "id": "2",
+                "text": "Vorstadt"
+              },
+              {
+                "id": "3",
+                "text": "Innenstadt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Innenstadt refers to city centre here; \"Innenstadt\" fits the sentence.",
+              "de": "Innenstadt bezeichnet hier Innenstadt als Stadtzentrum; „Innenstadt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer ins Zentrum zum Rathaus möchte, fährt mit der Bahn in die Innenstadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Wer ins Zentrum zum Rathaus möchte, fährt mit der Bahn in die Innenstadt.\" for natural German, agreement and meaning. Considered each option: Werkstatt: not suitable for city centre in this full context; Landschaft: not suitable for city centre in this full context; Vorstadt: not suitable for city centre in this full context; Innenstadt: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011405",
+      "title": {
+        "en": "Using Innovation in context",
+        "de": "Innovation im Kontext"
+      },
+      "description": {
+        "en": "Recognize Innovation as new useful technical development, in two distinct contexts.",
+        "de": "Innovation erkennen: Innovation als Neuerung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Innovation meaning new useful technical development and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1165 (d898089034615536e34f99116a9d2c6fa65cb97300f10aa508485532d8ae754c), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1165-v1",
+          "contextKey": "legacy-0114-L1165-context-1",
+          "transferKey": "legacy-0114-L1165-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011405",
+            "type": "gap_choice",
+            "prompt": "Die neue Batterie hält doppelt so lange; diese technische ___ verändert den Markt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "It is a novel technical improvement.",
+              "de": "Es handelt sich um eine neue technische Verbesserung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Innovation"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tradition"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verzögerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Innovation refers to new useful technical development here; \"Innovation\" fits the sentence.",
+              "de": "Innovation bezeichnet hier Innovation als Neuerung; „Innovation“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Batterie hält doppelt so lange; diese technische Innovation verändert den Markt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die neue Batterie hält doppelt so lange; diese technische Innovation verändert den Markt.\" for natural German, agreement and meaning. Considered each option: Innovation: correct meaning and noun form; Tradition: not suitable for new useful technical development in this full context; Rechnung: not suitable for new useful technical development in this full context; Verzögerung: not suitable for new useful technical development in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1165-v2",
+          "contextKey": "legacy-0114-L1165-context-2",
+          "transferKey": "legacy-0114-L1165-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011405",
+            "type": "choice",
+            "prompt": "Das Forschungsteam erhielt einen Preis für eine ___, die den Energieverbrauch senkt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The award recognizes a new solution.",
+              "de": "Ausgezeichnet wird eine neue Lösung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reklamation"
+              },
+              {
+                "id": "1",
+                "text": "Wiederholung"
+              },
+              {
+                "id": "2",
+                "text": "Innovation"
+              },
+              {
+                "id": "3",
+                "text": "Verwaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Innovation refers to new useful technical development here; \"Innovation\" fits the sentence.",
+              "de": "Innovation bezeichnet hier Innovation als Neuerung; „Innovation“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Forschungsteam erhielt einen Preis für eine Innovation, die den Energieverbrauch senkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Das Forschungsteam erhielt einen Preis für eine Innovation, die den Energieverbrauch senkt.\" for natural German, agreement and meaning. Considered each option: Reklamation: not suitable for new useful technical development in this full context; Wiederholung: not suitable for new useful technical development in this full context; Innovation: correct meaning and noun form; Verwaltung: not suitable for new useful technical development in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011406",
+      "title": {
+        "en": "Using Inserat in context",
+        "de": "Inserat im Kontext"
+      },
+      "description": {
+        "en": "Recognize Inserat as advertisement, in two distinct contexts.",
+        "de": "Inserat erkennen: Inserat als Anzeige, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Inserat meaning advertisement and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1167 (7224d54829e639ca9a32690b5797235fa04266324a11f79cfabf9ab595faea1f), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1167-v1",
+          "contextKey": "legacy-0114-L1167-context-1",
+          "transferKey": "legacy-0114-L1167-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011406",
+            "type": "gap_choice",
+            "prompt": "In der Zeitung stand ein ___ für eine freie Wohnung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The text advertises available accommodation.",
+              "de": "Der Text bietet eine Wohnung an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wetterbericht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Inserat"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Inserat refers to advertisement here; \"Inserat\" fits the sentence.",
+              "de": "Inserat bezeichnet hier Inserat als Anzeige; „Inserat“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Zeitung stand ein Inserat für eine freie Wohnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"In der Zeitung stand ein Inserat für eine freie Wohnung.\" for natural German, agreement and meaning. Considered each option: Rezept: not suitable for advertisement in this full context; Fahrplan: not suitable for advertisement in this full context; Wetterbericht: not suitable for advertisement in this full context; Inserat: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1167-v2",
+          "contextKey": "legacy-0114-L1167-context-2",
+          "transferKey": "legacy-0114-L1167-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011406",
+            "type": "choice",
+            "prompt": "Sie schaltete ein ___ im Internet, um ihr Fahrrad zu verkaufen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "She posts an advertisement for a sale.",
+              "de": "Sie veröffentlicht eine Verkaufsanzeige."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Passwort"
+              },
+              {
+                "id": "1",
+                "text": "Inserat"
+              },
+              {
+                "id": "2",
+                "text": "Zeugnis"
+              },
+              {
+                "id": "3",
+                "text": "Protokoll"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Inserat refers to advertisement here; \"Inserat\" fits the sentence.",
+              "de": "Inserat bezeichnet hier Inserat als Anzeige; „Inserat“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie schaltete ein Inserat im Internet, um ihr Fahrrad zu verkaufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Sie schaltete ein Inserat im Internet, um ihr Fahrrad zu verkaufen.\" for natural German, agreement and meaning. Considered each option: Passwort: not suitable for advertisement in this full context; Inserat: correct meaning and noun form; Zeugnis: not suitable for advertisement in this full context; Protokoll: not suitable for advertisement in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011407",
+      "title": {
+        "en": "Using Inspektion in context",
+        "de": "Inspektion im Kontext"
+      },
+      "description": {
+        "en": "Recognize Inspektion as technical inspection, in two distinct contexts.",
+        "de": "Inspektion erkennen: Inspektion als technische Prüfung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Inspektion meaning technical inspection and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1168 (9b01400e2a53762c6c5e4632df8d43491498dd2206c2da014b2fba4dbe14a7f1), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1168-v1",
+          "contextKey": "legacy-0114-L1168-context-1",
+          "transferKey": "legacy-0114-L1168-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011407",
+            "type": "gap_choice",
+            "prompt": "Vor der langen Fahrt brachte er das Auto zur ___ in die Werkstatt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle is checked for technical condition.",
+              "de": "Das Auto wird technisch überprüft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anmeldung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Inspektion"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Renovierung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Inspektion refers to technical inspection here; \"Inspektion\" fits the sentence.",
+              "de": "Inspektion bezeichnet hier Inspektion als technische Prüfung; „Inspektion“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der langen Fahrt brachte er das Auto zur Inspektion in die Werkstatt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Vor der langen Fahrt brachte er das Auto zur Inspektion in die Werkstatt.\" for natural German, agreement and meaning. Considered each option: Bewerbung: not suitable for technical inspection in this full context; Anmeldung: not suitable for technical inspection in this full context; Inspektion: correct meaning and noun form; Renovierung: not suitable for technical inspection in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1168-v2",
+          "contextKey": "legacy-0114-L1168-context-2",
+          "transferKey": "legacy-0114-L1168-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011407",
+            "type": "choice",
+            "prompt": "Bei der jährlichen ___ prüft der Techniker die Bremsen und Reifen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "A technician examines safety-related components.",
+              "de": "Ein Techniker kontrolliert wichtige Bauteile."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Inspektion"
+              },
+              {
+                "id": "1",
+                "text": "Besprechung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferung"
+              },
+              {
+                "id": "3",
+                "text": "Abrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Inspektion refers to technical inspection here; \"Inspektion\" fits the sentence.",
+              "de": "Inspektion bezeichnet hier Inspektion als technische Prüfung; „Inspektion“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der jährlichen Inspektion prüft der Techniker die Bremsen und Reifen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Bei der jährlichen Inspektion prüft der Techniker die Bremsen und Reifen.\" for natural German, agreement and meaning. Considered each option: Inspektion: correct meaning and noun form; Besprechung: not suitable for technical inspection in this full context; Lieferung: not suitable for technical inspection in this full context; Abrechnung: not suitable for technical inspection in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011408",
+      "title": {
+        "en": "Using Installateur in context",
+        "de": "Installateur im Kontext"
+      },
+      "description": {
+        "en": "Recognize Installateur as plumber or installation technician, in two distinct contexts.",
+        "de": "Installateur erkennen: Installateur für Wasserleitungen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Installateur meaning plumber or installation technician and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1169 (5f1eb8d29dac81cd5279539aecd5f910eccc0cde9a17e41dd55c962a09b05bc8), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1169-v1",
+          "contextKey": "legacy-0114-L1169-context-1",
+          "transferKey": "legacy-0114-L1169-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011408",
+            "type": "gap_choice",
+            "prompt": "Als das Wasserrohr undicht wurde, riefen sie einen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "This tradesperson repairs water pipes.",
+              "de": "Diese Fachkraft repariert Wasserleitungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bäcker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Installateur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Maler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anwalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Installateur refers to plumber or installation technician here; \"Installateur\" fits the sentence.",
+              "de": "Installateur bezeichnet hier Installateur für Wasserleitungen; „Installateur“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als das Wasserrohr undicht wurde, riefen sie einen Installateur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Als das Wasserrohr undicht wurde, riefen sie einen Installateur.\" for natural German, agreement and meaning. Considered each option: Bäcker: not suitable for plumber or installation technician in this full context; Installateur: correct meaning and noun form; Maler: not suitable for plumber or installation technician in this full context; Anwalt: not suitable for plumber or installation technician in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1169-v2",
+          "contextKey": "legacy-0114-L1169-context-2",
+          "transferKey": "legacy-0114-L1169-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011408",
+            "type": "choice",
+            "prompt": "Der ___ montierte das neue Waschbecken und schloss die Wasserleitungen an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The task involves sanitary plumbing connections.",
+              "de": "Die Arbeit betrifft Sanitär- und Wasseranschlüsse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektriker"
+              },
+              {
+                "id": "1",
+                "text": "Schreiner"
+              },
+              {
+                "id": "2",
+                "text": "Gärtner"
+              },
+              {
+                "id": "3",
+                "text": "Installateur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Installateur refers to plumber or installation technician here; \"Installateur\" fits the sentence.",
+              "de": "Installateur bezeichnet hier Installateur für Wasserleitungen; „Installateur“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Installateur montierte das neue Waschbecken und schloss die Wasserleitungen an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Installateur montierte das neue Waschbecken und schloss die Wasserleitungen an.\" for natural German, agreement and meaning. Considered each option: Elektriker: not suitable for plumber or installation technician in this full context; Schreiner: not suitable for plumber or installation technician in this full context; Gärtner: not suitable for plumber or installation technician in this full context; Installateur: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011409",
+      "title": {
+        "en": "Using Installateurfirma in context",
+        "de": "Installateurfirma im Kontext"
+      },
+      "description": {
+        "en": "Recognize Installateurfirma as plumbing installation company, in two distinct contexts.",
+        "de": "Installateurfirma erkennen: Installateurfirma als Sanitärbetrieb, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Installateurfirma meaning plumbing installation company and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1170 (f9a48584f245c13f7fb8dce76bc6777322e70baa11209260d3c18e55f0d38941), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1170-v1",
+          "contextKey": "legacy-0114-L1170-context-1",
+          "transferKey": "legacy-0114-L1170-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011409",
+            "type": "gap_choice",
+            "prompt": "Für die Sanierung der Wasserleitungen beauftragte die Hausverwaltung eine ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The contractor specializes in plumbing installations.",
+              "de": "Der beauftragte Betrieb arbeitet an Wasserleitungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Installateurfirma"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbeagentur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spedition"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bäckerei"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Installateurfirma refers to plumbing installation company here; \"Installateurfirma\" fits the sentence.",
+              "de": "Installateurfirma bezeichnet hier Installateurfirma als Sanitärbetrieb; „Installateurfirma“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Sanierung der Wasserleitungen beauftragte die Hausverwaltung eine Installateurfirma.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Für die Sanierung der Wasserleitungen beauftragte die Hausverwaltung eine Installateurfirma.\" for natural German, agreement and meaning. Considered each option: Installateurfirma: correct meaning and noun form; Werbeagentur: not suitable for plumbing installation company in this full context; Spedition: not suitable for plumbing installation company in this full context; Bäckerei: not suitable for plumbing installation company in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1170-v2",
+          "contextKey": "legacy-0114-L1170-context-2",
+          "transferKey": "legacy-0114-L1170-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011409",
+            "type": "choice",
+            "prompt": "Die ___ schickte zwei Fachleute, um die Heizungsrohre zu erneuern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The business sends tradespeople to replace pipes.",
+              "de": "Die Firma schickt Fachkräfte für Rohrarbeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Druckerei"
+              },
+              {
+                "id": "1",
+                "text": "Reiseagentur"
+              },
+              {
+                "id": "2",
+                "text": "Installateurfirma"
+              },
+              {
+                "id": "3",
+                "text": "Buchhandlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Installateurfirma refers to plumbing installation company here; \"Installateurfirma\" fits the sentence.",
+              "de": "Installateurfirma bezeichnet hier Installateurfirma als Sanitärbetrieb; „Installateurfirma“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Installateurfirma schickte zwei Fachleute, um die Heizungsrohre zu erneuern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Installateurfirma schickte zwei Fachleute, um die Heizungsrohre zu erneuern.\" for natural German, agreement and meaning. Considered each option: Druckerei: not suitable for plumbing installation company in this full context; Reiseagentur: not suitable for plumbing installation company in this full context; Installateurfirma: correct meaning and noun form; Buchhandlung: not suitable for plumbing installation company in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011410",
+      "title": {
+        "en": "Using Institut in context",
+        "de": "Institut im Kontext"
+      },
+      "description": {
+        "en": "Recognize Institut as research institute, in two distinct contexts.",
+        "de": "Institut erkennen: Institut als Forschungseinrichtung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Institut meaning research institute and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1171 (152bb5a31fe90020882eace3afea9b1e0867441ed8998a01a33381304eb48403), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1171-v1",
+          "contextKey": "legacy-0114-L1171-context-1",
+          "transferKey": "legacy-0114-L1171-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011410",
+            "type": "gap_choice",
+            "prompt": "Das ___ für Meeresforschung veröffentlicht neue Ergebnisse über Korallen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The organization conducts scientific research.",
+              "de": "Die Einrichtung betreibt wissenschaftliche Forschung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Theater"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufhaus"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Restaurant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Institut"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Institut refers to research institute here; \"Institut\" fits the sentence.",
+              "de": "Institut bezeichnet hier Institut als Forschungseinrichtung; „Institut“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Institut für Meeresforschung veröffentlicht neue Ergebnisse über Korallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Das Institut für Meeresforschung veröffentlicht neue Ergebnisse über Korallen.\" for natural German, agreement and meaning. Considered each option: Theater: not suitable for research institute in this full context; Kaufhaus: not suitable for research institute in this full context; Restaurant: not suitable for research institute in this full context; Institut: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1171-v2",
+          "contextKey": "legacy-0114-L1171-context-2",
+          "transferKey": "legacy-0114-L1171-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011410",
+            "type": "choice",
+            "prompt": "Sie arbeitet an einem wissenschaftlichen ___, das neue Materialien untersucht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The workplace is a research organization.",
+              "de": "Der Arbeitsplatz ist eine Forschungseinrichtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rathaus"
+              },
+              {
+                "id": "1",
+                "text": "Institut"
+              },
+              {
+                "id": "2",
+                "text": "Hotel"
+              },
+              {
+                "id": "3",
+                "text": "Bahnhof"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Institut refers to research institute here; \"Institut\" fits the sentence.",
+              "de": "Institut bezeichnet hier Institut als Forschungseinrichtung; „Institut“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitet an einem wissenschaftlichen Institut, das neue Materialien untersucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Sie arbeitet an einem wissenschaftlichen Institut, das neue Materialien untersucht.\" for natural German, agreement and meaning. Considered each option: Rathaus: not suitable for research institute in this full context; Institut: correct meaning and noun form; Hotel: not suitable for research institute in this full context; Bahnhof: not suitable for research institute in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011411",
+      "title": {
+        "en": "Using Institution in context",
+        "de": "Institution im Kontext"
+      },
+      "description": {
+        "en": "Recognize Institution as established social or public organization, in two distinct contexts.",
+        "de": "Institution erkennen: Institution als gesellschaftliche Einrichtung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Institution meaning established social or public organization and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1172 (1c2b183a86c08f88776e7ea3a76b052eda5b94d2fddc5d6d4412157c7a8214ea), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1172-v1",
+          "contextKey": "legacy-0114-L1172-context-1",
+          "transferKey": "legacy-0114-L1172-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011411",
+            "type": "gap_choice",
+            "prompt": "Die Universität ist eine wichtige öffentliche ___ für Bildung und Forschung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The noun denotes an established organization.",
+              "de": "Gemeint ist eine dauerhaft bestehende Einrichtung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Maschine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ware"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Institution"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Haltestelle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Institution refers to established social or public organization here; \"Institution\" fits the sentence.",
+              "de": "Institution bezeichnet hier Institution als gesellschaftliche Einrichtung; „Institution“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Universität ist eine wichtige öffentliche Institution für Bildung und Forschung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Universität ist eine wichtige öffentliche Institution für Bildung und Forschung.\" for natural German, agreement and meaning. Considered each option: Maschine: not suitable for established social or public organization in this full context; Ware: not suitable for established social or public organization in this full context; Institution: correct meaning and noun form; Haltestelle: not suitable for established social or public organization in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1172-v2",
+          "contextKey": "legacy-0114-L1172-context-2",
+          "transferKey": "legacy-0114-L1172-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011411",
+            "type": "choice",
+            "prompt": "Eine unabhängige ___ überwacht die Einhaltung bestimmter Standards.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "An organization performs the oversight.",
+              "de": "Eine Einrichtung übernimmt die Aufsicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Institution"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferung"
+              },
+              {
+                "id": "3",
+                "text": "Schicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Institution refers to established social or public organization here; \"Institution\" fits the sentence.",
+              "de": "Institution bezeichnet hier Institution als gesellschaftliche Einrichtung; „Institution“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine unabhängige Institution überwacht die Einhaltung bestimmter Standards.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Eine unabhängige Institution überwacht die Einhaltung bestimmter Standards.\" for natural German, agreement and meaning. Considered each option: Institution: correct meaning and noun form; Rechnung: not suitable for established social or public organization in this full context; Lieferung: not suitable for established social or public organization in this full context; Schicht: not suitable for established social or public organization in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011412",
+      "title": {
+        "en": "Using Integration in context",
+        "de": "Integration im Kontext"
+      },
+      "description": {
+        "en": "Recognize Integration as integration into a group or society, in two distinct contexts.",
+        "de": "Integration erkennen: Integration als Eingliederung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Integration meaning integration into a group or society and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1174 (6d96ab12d75ad052c8108ad66409238cebb51ae539fde32ab0e375cb6fbdb8d8), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1174-v1",
+          "contextKey": "legacy-0114-L1174-context-1",
+          "transferKey": "legacy-0114-L1174-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011412",
+            "type": "gap_choice",
+            "prompt": "Die ___ neuer Mitarbeitender gelingt leichter mit einem strukturierten Einarbeitungsplan.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The process helps newcomers become part of a team.",
+              "de": "Neue Beschäftigte werden Teil des Teams."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Integration"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Trennung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verspätung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Integration refers to integration into a group or society here; \"Integration\" fits the sentence.",
+              "de": "Integration bezeichnet hier Integration als Eingliederung; „Integration“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Integration neuer Mitarbeitender gelingt leichter mit einem strukturierten Einarbeitungsplan.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Integration neuer Mitarbeitender gelingt leichter mit einem strukturierten Einarbeitungsplan.\" for natural German, agreement and meaning. Considered each option: Kündigung: not suitable for integration into a group or society in this full context; Integration: correct meaning and noun form; Trennung: not suitable for integration into a group or society in this full context; Verspätung: not suitable for integration into a group or society in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1174-v2",
+          "contextKey": "legacy-0114-L1174-context-2",
+          "transferKey": "legacy-0114-L1174-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011412",
+            "type": "choice",
+            "prompt": "Sprachkurse können die gesellschaftliche ___ von Zugewanderten unterstützen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The goal is participation in society.",
+              "de": "Es geht um gesellschaftliche Teilhabe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Isolation"
+              },
+              {
+                "id": "1",
+                "text": "Ausgrenzung"
+              },
+              {
+                "id": "2",
+                "text": "Abreise"
+              },
+              {
+                "id": "3",
+                "text": "Integration"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Integration refers to integration into a group or society here; \"Integration\" fits the sentence.",
+              "de": "Integration bezeichnet hier Integration als Eingliederung; „Integration“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sprachkurse können die gesellschaftliche Integration von Zugewanderten unterstützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Sprachkurse können die gesellschaftliche Integration von Zugewanderten unterstützen.\" for natural German, agreement and meaning. Considered each option: Isolation: not suitable for integration into a group or society in this full context; Ausgrenzung: not suitable for integration into a group or society in this full context; Abreise: not suitable for integration into a group or society in this full context; Integration: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011413",
+      "title": {
+        "en": "Using Intelligenz in context",
+        "de": "Intelligenz im Kontext"
+      },
+      "description": {
+        "en": "Recognize Intelligenz as ability to learn and solve problems, in two distinct contexts.",
+        "de": "Intelligenz erkennen: Intelligenz als geistige Fähigkeit, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Intelligenz meaning ability to learn and solve problems and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1175 (fb6aef7b45ba49ea409ca2cc2e9a7410ecc5008f7fc4fd60ad0c1a5460f2f7c8), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1175-v1",
+          "contextKey": "legacy-0114-L1175-context-1",
+          "transferKey": "legacy-0114-L1175-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011413",
+            "type": "gap_choice",
+            "prompt": "Die Forscher untersuchen, wie Tiere neue Probleme lösen; dabei spielt ihre ___ eine Rolle.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns cognitive problem-solving.",
+              "de": "Es geht um geistige Fähigkeiten beim Problemlösen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Intelligenz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fellfarbe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Körpergröße"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautstärke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Intelligenz refers to ability to learn and solve problems here; \"Intelligenz\" fits the sentence.",
+              "de": "Intelligenz bezeichnet hier Intelligenz als geistige Fähigkeit; „Intelligenz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forscher untersuchen, wie Tiere neue Probleme lösen; dabei spielt ihre Intelligenz eine Rolle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Forscher untersuchen, wie Tiere neue Probleme lösen; dabei spielt ihre Intelligenz eine Rolle.\" for natural German, agreement and meaning. Considered each option: Intelligenz: correct meaning and noun form; Fellfarbe: not suitable for ability to learn and solve problems in this full context; Körpergröße: not suitable for ability to learn and solve problems in this full context; Lautstärke: not suitable for ability to learn and solve problems in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1175-v2",
+          "contextKey": "legacy-0114-L1175-context-2",
+          "transferKey": "legacy-0114-L1175-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011413",
+            "type": "choice",
+            "prompt": "Der Test soll bestimmte Aspekte der ___ erfassen, nicht die Persönlichkeit.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The test concerns cognitive ability rather than personality.",
+              "de": "Der Test untersucht geistige Fähigkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausdauer"
+              },
+              {
+                "id": "1",
+                "text": "Sehschärfe"
+              },
+              {
+                "id": "2",
+                "text": "Intelligenz"
+              },
+              {
+                "id": "3",
+                "text": "Lautstärke"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Intelligenz refers to ability to learn and solve problems here; \"Intelligenz\" fits the sentence.",
+              "de": "Intelligenz bezeichnet hier Intelligenz als geistige Fähigkeit; „Intelligenz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Test soll bestimmte Aspekte der Intelligenz erfassen, nicht die Persönlichkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Test soll bestimmte Aspekte der Intelligenz erfassen, nicht die Persönlichkeit.\" for natural German, agreement and meaning. Considered each option: Ausdauer: not suitable for ability to learn and solve problems in this full context; Sehschärfe: not suitable for ability to learn and solve problems in this full context; Intelligenz: correct meaning and noun form; Lautstärke: not suitable for ability to learn and solve problems in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011414",
+      "title": {
+        "en": "Using Intensivkurs in context",
+        "de": "Intensivkurs im Kontext"
+      },
+      "description": {
+        "en": "Recognize Intensivkurs as intensive course with frequent lessons, in two distinct contexts.",
+        "de": "Intensivkurs erkennen: Intensivkurs mit häufigem Unterricht, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Intensivkurs meaning intensive course with frequent lessons and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1176 (501e9db6640048aea7ad5f339a26badccb1a8bd2d54e95383538c2417caa3bcd), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1176-v1",
+          "contextKey": "legacy-0114-L1176-context-1",
+          "transferKey": "legacy-0114-L1176-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011414",
+            "type": "gap_choice",
+            "prompt": "Im ___ hat sie jeden Werktag vier Stunden Deutschunterricht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The course meets many hours every weekday.",
+              "de": "Der Kurs findet an vielen Stunden pro Werktag statt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wochenendkurs"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einzeltermin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Intensivkurs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Intensivkurs refers to intensive course with frequent lessons here; \"Intensivkurs\" fits the sentence.",
+              "de": "Intensivkurs bezeichnet hier Intensivkurs mit häufigem Unterricht; „Intensivkurs“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Intensivkurs hat sie jeden Werktag vier Stunden Deutschunterricht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Im Intensivkurs hat sie jeden Werktag vier Stunden Deutschunterricht.\" for natural German, agreement and meaning. Considered each option: Wochenendkurs: not suitable for intensive course with frequent lessons in this full context; Einzeltermin: not suitable for intensive course with frequent lessons in this full context; Urlaub: not suitable for intensive course with frequent lessons in this full context; Intensivkurs: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1176-v2",
+          "contextKey": "legacy-0114-L1176-context-2",
+          "transferKey": "legacy-0114-L1176-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011414",
+            "type": "choice",
+            "prompt": "Weil er schnell B2 erreichen wollte, meldete er sich für einen ___ mit täglichem Unterricht an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The course offers concentrated daily instruction.",
+              "de": "Der Kurs bietet täglichen intensiven Unterricht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abendvortrag"
+              },
+              {
+                "id": "1",
+                "text": "Intensivkurs"
+              },
+              {
+                "id": "2",
+                "text": "Ausflug"
+              },
+              {
+                "id": "3",
+                "text": "Prüfung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Intensivkurs refers to intensive course with frequent lessons here; \"Intensivkurs\" fits the sentence.",
+              "de": "Intensivkurs bezeichnet hier Intensivkurs mit häufigem Unterricht; „Intensivkurs“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil er schnell B2 erreichen wollte, meldete er sich für einen Intensivkurs mit täglichem Unterricht an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Weil er schnell B2 erreichen wollte, meldete er sich für einen Intensivkurs mit täglichem Unterricht an.\" for natural German, agreement and meaning. Considered each option: Abendvortrag: not suitable for intensive course with frequent lessons in this full context; Intensivkurs: correct meaning and noun form; Ausflug: not suitable for intensive course with frequent lessons in this full context; Prüfung: not suitable for intensive course with frequent lessons in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011415",
+      "title": {
+        "en": "Using Interessenvertretung in context",
+        "de": "Interessenvertretung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Interessenvertretung as representation of members' interests, in two distinct contexts.",
+        "de": "Interessenvertretung erkennen: Interessenvertretung von Mitgliedern, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Interessenvertretung meaning representation of members' interests and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1178 (cdedebfacdbba87bc5eb4cbdaed45e9bc27b0cc5bbcb63530b58bae7ac8ff3ee), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1178-v1",
+          "contextKey": "legacy-0114-L1178-context-1",
+          "transferKey": "legacy-0114-L1178-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011415",
+            "type": "gap_choice",
+            "prompt": "Der Betriebsrat ist eine ___ der Beschäftigten im Unternehmen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The body represents employees' concerns.",
+              "de": "Das Gremium vertritt die Anliegen der Beschäftigten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkaufsabteilung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Interessenvertretung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbeagentur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Interessenvertretung refers to representation of members' interests here; \"Interessenvertretung\" fits the sentence.",
+              "de": "Interessenvertretung bezeichnet hier Interessenvertretung von Mitgliedern; „Interessenvertretung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betriebsrat ist eine Interessenvertretung der Beschäftigten im Unternehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Betriebsrat ist eine Interessenvertretung der Beschäftigten im Unternehmen.\" for natural German, agreement and meaning. Considered each option: Verkaufsabteilung: not suitable for representation of members' interests in this full context; Buchhaltung: not suitable for representation of members' interests in this full context; Interessenvertretung: correct meaning and noun form; Werbeagentur: not suitable for representation of members' interests in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1178-v2",
+          "contextKey": "legacy-0114-L1178-context-2",
+          "transferKey": "legacy-0114-L1178-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011415",
+            "type": "choice",
+            "prompt": "Die Gewerkschaft übernimmt die ___ ihrer Mitglieder bei Tarifverhandlungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The union speaks for its members in negotiations.",
+              "de": "Die Gewerkschaft vertritt die Interessen ihrer Mitglieder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Interessenvertretung"
+              },
+              {
+                "id": "1",
+                "text": "Warenlieferung"
+              },
+              {
+                "id": "2",
+                "text": "Qualitätsprüfung"
+              },
+              {
+                "id": "3",
+                "text": "Reiseplanung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Interessenvertretung refers to representation of members' interests here; \"Interessenvertretung\" fits the sentence.",
+              "de": "Interessenvertretung bezeichnet hier Interessenvertretung von Mitgliedern; „Interessenvertretung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gewerkschaft übernimmt die Interessenvertretung ihrer Mitglieder bei Tarifverhandlungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Gewerkschaft übernimmt die Interessenvertretung ihrer Mitglieder bei Tarifverhandlungen.\" for natural German, agreement and meaning. Considered each option: Interessenvertretung: correct meaning and noun form; Warenlieferung: not suitable for representation of members' interests in this full context; Qualitätsprüfung: not suitable for representation of members' interests in this full context; Reiseplanung: not suitable for representation of members' interests in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011416",
+      "title": {
+        "en": "Using Intranet in context",
+        "de": "Intranet im Kontext"
+      },
+      "description": {
+        "en": "Recognize Intranet as internal company network, in two distinct contexts.",
+        "de": "Intranet erkennen: Intranet als internes Firmennetz, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Intranet meaning internal company network and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1181 (c5ef50f755bb0515d00569b70923f6367aff845142f227d421702d0f7761d2e5), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1181-v1",
+          "contextKey": "legacy-0114-L1181-context-1",
+          "transferKey": "legacy-0114-L1181-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011416",
+            "type": "gap_choice",
+            "prompt": "Die internen Formulare sind nur für Mitarbeitende im ___ erreichbar.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "Access is restricted to an internal company network.",
+              "de": "Der Zugang erfolgt über ein internes Firmennetz."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schaufenster"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Intranet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Supermarkt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Parkplatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Intranet refers to internal company network here; \"Intranet\" fits the sentence.",
+              "de": "Intranet bezeichnet hier Intranet als internes Firmennetz; „Intranet“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die internen Formulare sind nur für Mitarbeitende im Intranet erreichbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die internen Formulare sind nur für Mitarbeitende im Intranet erreichbar.\" for natural German, agreement and meaning. Considered each option: Schaufenster: not suitable for internal company network in this full context; Intranet: correct meaning and noun form; Supermarkt: not suitable for internal company network in this full context; Parkplatz: not suitable for internal company network in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1181-v2",
+          "contextKey": "legacy-0114-L1181-context-2",
+          "transferKey": "legacy-0114-L1181-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011416",
+            "type": "choice",
+            "prompt": "Nach dem Login im Firmen-___ findet sie die Dienstpläne.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "She signs in to the company's internal network.",
+              "de": "Sie meldet sich im internen Firmennetz an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Prospekt"
+              },
+              {
+                "id": "1",
+                "text": "Stadtplan"
+              },
+              {
+                "id": "2",
+                "text": "Katalog"
+              },
+              {
+                "id": "3",
+                "text": "Intranet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Intranet refers to internal company network here; \"Intranet\" fits the sentence.",
+              "de": "Intranet bezeichnet hier Intranet als internes Firmennetz; „Intranet“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Login im Firmen-Intranet findet sie die Dienstpläne.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Nach dem Login im Firmen-Intranet findet sie die Dienstpläne.\" for natural German, agreement and meaning. Considered each option: Prospekt: not suitable for internal company network in this full context; Stadtplan: not suitable for internal company network in this full context; Katalog: not suitable for internal company network in this full context; Intranet: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011417",
+      "title": {
+        "en": "Using Intranetseite in context",
+        "de": "Intranetseite im Kontext"
+      },
+      "description": {
+        "en": "Recognize Intranetseite as page within an intranet, in two distinct contexts.",
+        "de": "Intranetseite erkennen: Intranetseite als interne Webseite, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Intranetseite meaning page within an intranet and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1182 (a71ede4abf7b7ca002812a9d65415c32b62ab9457b5c1d5ddae36aeded745601), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1182-v1",
+          "contextKey": "legacy-0114-L1182-context-1",
+          "transferKey": "legacy-0114-L1182-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011417",
+            "type": "gap_choice",
+            "prompt": "Auf der ___ der Personalabteilung steht der neue Urlaubsantrag.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The department posts the form on an internal web page.",
+              "de": "Die Abteilung veröffentlicht das Formular auf einer internen Webseite."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Intranetseite"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hausfassade"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Speisekarte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Intranetseite refers to page within an intranet here; \"Intranetseite\" fits the sentence.",
+              "de": "Intranetseite bezeichnet hier Intranetseite als interne Webseite; „Intranetseite“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Intranetseite der Personalabteilung steht der neue Urlaubsantrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Auf der Intranetseite der Personalabteilung steht der neue Urlaubsantrag.\" for natural German, agreement and meaning. Considered each option: Intranetseite: correct meaning and noun form; Hausfassade: not suitable for page within an intranet in this full context; Rechnung: not suitable for page within an intranet in this full context; Speisekarte: not suitable for page within an intranet in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1182-v2",
+          "contextKey": "legacy-0114-L1182-context-2",
+          "transferKey": "legacy-0114-L1182-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011417",
+            "type": "choice",
+            "prompt": "Die Abteilung aktualisiert ihre ___, damit alle Mitarbeitenden die neuen Regeln finden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The department updates an internal information page.",
+              "de": "Die Abteilung aktualisiert eine interne Informationsseite."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Parkfläche"
+              },
+              {
+                "id": "1",
+                "text": "Kaffeemaschine"
+              },
+              {
+                "id": "2",
+                "text": "Intranetseite"
+              },
+              {
+                "id": "3",
+                "text": "Gehaltsabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Intranetseite refers to page within an intranet here; \"Intranetseite\" fits the sentence.",
+              "de": "Intranetseite bezeichnet hier Intranetseite als interne Webseite; „Intranetseite“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Abteilung aktualisiert ihre Intranetseite, damit alle Mitarbeitenden die neuen Regeln finden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Abteilung aktualisiert ihre Intranetseite, damit alle Mitarbeitenden die neuen Regeln finden.\" for natural German, agreement and meaning. Considered each option: Parkfläche: not suitable for page within an intranet in this full context; Kaffeemaschine: not suitable for page within an intranet in this full context; Intranetseite: correct meaning and noun form; Gehaltsabrechnung: not suitable for page within an intranet in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011418",
+      "title": {
+        "en": "Using Investition in context",
+        "de": "Investition im Kontext"
+      },
+      "description": {
+        "en": "Recognize Investition as investment in future benefits, in two distinct contexts.",
+        "de": "Investition erkennen: Investition mit langfristigem Nutzen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Investition meaning investment in future benefits and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1183 (b8041c23bfc0f379c53dde926bd62edb88c97e66e74ed6eba99408be75910171), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1183-v1",
+          "contextKey": "legacy-0114-L1183-context-1",
+          "transferKey": "legacy-0114-L1183-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011418",
+            "type": "gap_choice",
+            "prompt": "Der Kauf der neuen Maschine kostet viel Geld und soll die Produktion verbessern; er ist eine große ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "Money is spent now for future productive benefit.",
+              "de": "Heute wird Geld für künftigen Nutzen ausgegeben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entschuldigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reklamation"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Investition"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Investition refers to investment in future benefits here; \"Investition\" fits the sentence.",
+              "de": "Investition bezeichnet hier Investition mit langfristigem Nutzen; „Investition“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kauf der neuen Maschine kostet viel Geld und soll die Produktion verbessern; er ist eine große Investition.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Kauf der neuen Maschine kostet viel Geld und soll die Produktion verbessern; er ist eine große Investition.\" for natural German, agreement and meaning. Considered each option: Kündigung: not suitable for investment in future benefits in this full context; Entschuldigung: not suitable for investment in future benefits in this full context; Reklamation: not suitable for investment in future benefits in this full context; Investition: correct meaning and noun form. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1183-v2",
+          "contextKey": "legacy-0114-L1183-context-2",
+          "transferKey": "legacy-0114-L1183-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011418",
+            "type": "choice",
+            "prompt": "Die ___ in energiesparende Technik soll sich nach fünf Jahren auszahlen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "A financial outlay is expected to pay off.",
+              "de": "Eine Ausgabe soll später wirtschaftlichen Nutzen bringen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "1",
+                "text": "Investition"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Verzögerung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Investition refers to investment in future benefits here; \"Investition\" fits the sentence.",
+              "de": "Investition bezeichnet hier Investition mit langfristigem Nutzen; „Investition“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Investition in energiesparende Technik soll sich nach fünf Jahren auszahlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Die Investition in energiesparende Technik soll sich nach fünf Jahren auszahlen.\" for natural German, agreement and meaning. Considered each option: Beschwerde: not suitable for investment in future benefits in this full context; Investition: correct meaning and noun form; Bewerbung: not suitable for investment in future benefits in this full context; Verzögerung: not suitable for investment in future benefits in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011419",
+      "title": {
+        "en": "Using Irrtum in context",
+        "de": "Irrtum im Kontext"
+      },
+      "description": {
+        "en": "Recognize Irrtum as mistaken belief or error of judgment, in two distinct contexts.",
+        "de": "Irrtum erkennen: Irrtum als falsche Annahme, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Irrtum meaning mistaken belief or error of judgment and choose the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1184 (509c13db4979c73cd32d4b7870ee7f78cf5b662d9f149f8c7c314ceaa239edaf), 2026-10-29. Inherited examples not reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in variant notes and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0114-L1184-v1",
+          "contextKey": "legacy-0114-L1184-context-1",
+          "transferKey": "legacy-0114-L1184-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011419",
+            "type": "gap_choice",
+            "prompt": "Ich dachte, der Termin sei morgen, aber das war ein ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The speaker's assumption was wrong.",
+              "de": "Die Annahme der Person war falsch."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erfolg"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Plan"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Irrtum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorschlag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Irrtum refers to mistaken belief or error of judgment here; \"Irrtum\" fits the sentence.",
+              "de": "Irrtum bezeichnet hier Irrtum als falsche Annahme; „Irrtum“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich dachte, der Termin sei morgen, aber das war ein Irrtum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Ich dachte, der Termin sei morgen, aber das war ein Irrtum.\" for natural German, agreement and meaning. Considered each option: Erfolg: not suitable for mistaken belief or error of judgment in this full context; Plan: not suitable for mistaken belief or error of judgment in this full context; Irrtum: correct meaning and noun form; Vorschlag: not suitable for mistaken belief or error of judgment in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0114-L1184-v2",
+          "contextKey": "legacy-0114-L1184-context-2",
+          "transferKey": "legacy-0114-L1184-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001140191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011419",
+            "type": "choice",
+            "prompt": "Der Verdacht beruhte auf einem ___; die beschuldigte Person war unschuldig.",
+            "instruction": {
+              "en": "Choose the noun or noun form that completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz ergänzt."
+            },
+            "hint": {
+              "en": "The suspicion was based on a mistaken belief.",
+              "de": "Der Verdacht beruhte auf einer falschen Annahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Irrtum"
+              },
+              {
+                "id": "1",
+                "text": "Erfolg"
+              },
+              {
+                "id": "2",
+                "text": "Vertrag"
+              },
+              {
+                "id": "3",
+                "text": "Plan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Irrtum refers to mistaken belief or error of judgment here; \"Irrtum\" fits the sentence.",
+              "de": "Irrtum bezeichnet hier Irrtum als falsche Annahme; „Irrtum“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verdacht beruhte auf einem Irrtum; die beschuldigte Person war unschuldig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked complete sentence \"Der Verdacht beruhte auf einem Irrtum; die beschuldigte Person war unschuldig.\" for natural German, agreement and meaning. Considered each option: Irrtum: correct meaning and noun form; Erfolg: not suitable for mistaken belief or error of judgment in this full context; Vertrag: not suitable for mistaken belief or error of judgment in this full context; Plan: not suitable for mistaken belief or error of judgment in this full context. Reviewed bilingual hint and feedback, unique offered answer and distinct sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
