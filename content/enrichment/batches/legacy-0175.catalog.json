@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000017501",
+      "title": {
+        "en": "Using Zuschauerin accurately",
+        "de": "Zuschauerin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuschauerin as a woman watching a performance or sporting event from the audience.",
+        "de": "Zuschauerin im Sinn von eine Frau, die eine Aufführung oder ein Spiel als Publikum verfolgt erkennen."
+      },
+      "objective": "Recognize Zuschauerin in the precise sense of a woman watching a performance or sporting event from the audience and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2791 (9c7d5c4f6c84491fcaeb9126ca9d5c0814267332e125812ec307d467d3492864), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2791-v1",
+          "contextKey": "legacy-0175-L2791-context-1",
+          "transferKey": "legacy-0175-L2791-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017501",
+            "type": "choice",
+            "prompt": "Bei einem Theaterstück sitzt Lara im Publikum und verfolgt die Aufführung. Welche Rolle hat sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She is watching, not working on the performance.",
+              "de": "Sie schaut zu und wirkt nicht an der Aufführung mit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schauspielerin"
+              },
+              {
+                "id": "1",
+                "text": "Regisseurin"
+              },
+              {
+                "id": "2",
+                "text": "Zuschauerin"
+              },
+              {
+                "id": "3",
+                "text": "Bühnenbildnerin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A Zuschauerin watches a performance as part of the audience.",
+              "de": "Eine Zuschauerin verfolgt die Aufführung als Teil des Publikums."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Lara ist eine Zuschauerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zuschauerin' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Schauspielerin: An actress performs on stage, not in the audience. Regisseurin: A director directs the production; that role is not stated. Zuschauerin: Correct: a female spectator in the audience. Bühnenbildnerin: A stage designer prepares scenery, not merely watches. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2791-v2",
+          "contextKey": "legacy-0175-L2791-context-2",
+          "transferKey": "legacy-0175-L2791-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017501",
+            "type": "gap_choice",
+            "prompt": "Eine Frau hat das Fußballspiel als Besucherin von der Tribüne aus angesehen. Sie ist eine ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She attended the match to watch it.",
+              "de": "Sie hat das Spiel als Besucherin angesehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Trainerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zuschauerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schiedsrichterin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Spielerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Zuschauerin is a female spectator, not a participant in the match.",
+              "de": "Eine Zuschauerin sieht als Besucherin zu und spielt nicht mit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Frau hat das Fußballspiel als Besucherin von der Tribüne aus angesehen. Sie ist eine Zuschauerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zuschauerin' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Trainerin: A trainer coaches the team; no coaching is described. Zuschauerin: Correct: a female spectator in the stands. Schiedsrichterin: A referee officiates on the field, not as a visitor. Spielerin: A player takes part in the match, unlike this visitor. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017502",
+      "title": {
+        "en": "Using Zuschlag accurately",
+        "de": "Zuschlag im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuschlag as an additional fee added to a basic price.",
+        "de": "Zuschlag im Sinn von ein zusätzlicher Betrag zum Grundpreis erkennen."
+      },
+      "objective": "Recognize Zuschlag in the precise sense of an additional fee added to a basic price and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2792 (add0992fdd7c06ac9b849bc5bbfcc27347222c2110815e7393d9e83ca331b881), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2792-v1",
+          "contextKey": "legacy-0175-L2792-context-1",
+          "transferKey": "legacy-0175-L2792-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017502",
+            "type": "gap_choice",
+            "prompt": "Für eine Lieferung am Sonntag verlangt der Händler einen ___ von fünf Euro.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The amount is added to the price.",
+              "de": "Der Betrag wird zusätzlich zum Preis berechnet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rabatt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gutschein"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuschlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pfand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Zuschlag is an extra charge, here for Sunday delivery.",
+              "de": "Ein Zuschlag ist ein zusätzlich berechneter Betrag, hier für die Sonntagslieferung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für eine Lieferung am Sonntag verlangt der Händler einen Zuschlag von fünf Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zuschlag' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Rabatt: A discount reduces the price, rather than adding a fee. Gutschein: A voucher is a payment benefit, not an extra charge. Zuschlag: Correct: a surcharge added to the base price. Pfand: A deposit is held as security and is not a delivery surcharge. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2792-v2",
+          "contextKey": "legacy-0175-L2792-context-2",
+          "transferKey": "legacy-0175-L2792-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017502",
+            "type": "choice",
+            "prompt": "Auf der Rechnung stehen 40 Euro Grundpreis und zusätzlich 8 Euro für Nachtarbeit. Wie nennt man die zusätzlichen 8 Euro?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The extra amount increases the base price.",
+              "de": "Der zusätzliche Betrag erhöht den Grundpreis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rückerstattung"
+              },
+              {
+                "id": "1",
+                "text": "Zuschlag"
+              },
+              {
+                "id": "2",
+                "text": "Anzahlung"
+              },
+              {
+                "id": "3",
+                "text": "Preisnachlass"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The eight euros are a Zuschlag for night work.",
+              "de": "Die acht Euro sind ein Zuschlag für Nachtarbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die acht Euro sind ein Zuschlag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zuschlag' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Rückerstattung: A refund returns money to the customer. Zuschlag: Correct: an extra fee for night work. Anzahlung: A down payment is an advance toward the price, not an extra fee. Preisnachlass: A reduction lowers the price rather than raising it. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017503",
+      "title": {
+        "en": "Using Zuschuss accurately",
+        "de": "Zuschuss im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuschuss as a non-repayable financial contribution subject to funding conditions.",
+        "de": "Zuschuss im Sinn von eine finanzielle Förderung ohne reguläre Rückzahlungspflicht erkennen."
+      },
+      "objective": "Recognize Zuschuss in the precise sense of a non-repayable financial contribution subject to funding conditions and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2793 (705ad0bb4c12871f64e51cfac9f7e4949b3ce6542512b7626e0f001f7bf95815), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2793-v1",
+          "contextKey": "legacy-0175-L2793-context-1",
+          "transferKey": "legacy-0175-L2793-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017503",
+            "type": "gap_choice",
+            "prompt": "Für neue Solaranlagen gewährt die Gemeinde einen ___, der bei Einhaltung der Bedingungen nicht zurückgezahlt werden muss.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The support is not a loan.",
+              "de": "Die Förderung muss bei Einhaltung der Bedingungen nicht zurückgezahlt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Darlehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zuschuss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorschuss"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pfand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Zuschuss is funding that normally need not be repaid if its conditions are met.",
+              "de": "Ein Zuschuss ist eine Förderung, die bei Einhaltung der Bedingungen normalerweise nicht zurückgezahlt werden muss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für neue Solaranlagen gewährt die Gemeinde einen Zuschuss, der bei Einhaltung der Bedingungen nicht zurückgezahlt werden muss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zuschuss' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Darlehen: A loan is normally repaid. Zuschuss: Correct: a non-repayable grant under its conditions. Vorschuss: An advance is later settled or offset, not this kind of grant. Pfand: A deposit is security, not a grant. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2793-v2",
+          "contextKey": "legacy-0175-L2793-context-2",
+          "transferKey": "legacy-0175-L2793-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017503",
+            "type": "choice",
+            "prompt": "Ein Sportverein erhält öffentliche Fördermittel ohne Rückzahlungspflicht, sofern er die Bedingungen einhält. Was erhält er?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The money supports the club rather than creating a debt.",
+              "de": "Das Geld fördert den Verein und begründet bei Einhaltung der Bedingungen keine Rückzahlungspflicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kaution"
+              },
+              {
+                "id": "1",
+                "text": "Mahnung"
+              },
+              {
+                "id": "2",
+                "text": "Darlehen"
+              },
+              {
+                "id": "3",
+                "text": "Zuschuss"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The club receives a Zuschuss, not a repayable loan.",
+              "de": "Der Verein erhält einen Zuschuss und kein zurückzuzahlendes Darlehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verein erhält einen Zuschuss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zuschuss' (option 3); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Kaution: A deposit is security for an obligation. Mahnung: A reminder demands an outstanding action or payment. Darlehen: A loan is ordinarily repayable. Zuschuss: Correct: a grant subject to funding conditions. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017504",
+      "title": {
+        "en": "Using Zusicherung accurately",
+        "de": "Zusicherung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusicherung as an explicit assurance or binding promise.",
+        "de": "Zusicherung im Sinn von eine ausdrückliche Zusage oder verbindliche Versicherung erkennen."
+      },
+      "objective": "Recognize Zusicherung in the precise sense of an explicit assurance or binding promise and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2794 (d4e5cffa77d1d910829f83cec0f2ffbd9e632b45bb77e3671b53188326866c07), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2794-v1",
+          "contextKey": "legacy-0175-L2794-context-1",
+          "transferKey": "legacy-0175-L2794-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017504",
+            "type": "gap_choice",
+            "prompt": "Der Lieferant gibt uns die schriftliche ___, dass die Ersatzteile bis Freitag ankommen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The supplier explicitly promises delivery.",
+              "de": "Der Lieferant verspricht die Lieferung ausdrücklich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ablehnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zusicherung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Zusicherung is an explicit assurance that something will happen.",
+              "de": "Eine Zusicherung ist die ausdrückliche Versicherung, dass etwas geschehen wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lieferant gibt uns die schriftliche Zusicherung, dass die Ersatzteile bis Freitag ankommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zusicherung' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Ablehnung: A refusal would deny the promise. Zusicherung: Correct: an explicit written assurance. Mahnung: A reminder asks for an outstanding action. Rechnung: An invoice requests payment, not a delivery promise. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2794-v2",
+          "contextKey": "legacy-0175-L2794-context-2",
+          "transferKey": "legacy-0175-L2794-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017504",
+            "type": "choice",
+            "prompt": "Ein Unternehmen verspricht ausdrücklich, die Reparatur kostenlos zu übernehmen. Wie nennt man dieses verbindliche Versprechen?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a promise, not a cancellation.",
+              "de": "Es handelt sich um ein Versprechen, nicht um eine Aufhebung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Widerruf"
+              },
+              {
+                "id": "1",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "2",
+                "text": "Zusicherung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "This explicit promise is a Zusicherung.",
+              "de": "Dieses ausdrückliche Versprechen ist eine Zusicherung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Zusicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zusicherung' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Widerruf: A withdrawal revokes a statement or agreement. Beschwerde: A complaint expresses dissatisfaction. Zusicherung: Correct: an explicit assurance or promise. Kündigung: A termination ends a contract, rather than promising a repair. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017505",
+      "title": {
+        "en": "Using Zustand accurately",
+        "de": "Zustand im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zustand as the condition or state of an object.",
+        "de": "Zustand im Sinn von die Beschaffenheit oder der aktuelle Zustand eines Gegenstands erkennen."
+      },
+      "objective": "Recognize Zustand in the precise sense of the condition or state of an object and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2795 (f605eb2bbcfd0254418324dddacdd13320a2e3e2097b1190585014791f833e06), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2795-v1",
+          "contextKey": "legacy-0175-L2795-context-1",
+          "transferKey": "legacy-0175-L2795-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017505",
+            "type": "gap_choice",
+            "prompt": "Das gebrauchte Fahrrad befindet sich in einem guten ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes how well preserved the bicycle is.",
+              "de": "Der Satz beschreibt, wie gut das Fahrrad erhalten ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeitraum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umfang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zustand"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zweck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zustand refers to the bicycle's condition.",
+              "de": "Zustand bezeichnet die Beschaffenheit des Fahrrads."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das gebrauchte Fahrrad befindet sich in einem guten Zustand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zustand' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Zeitraum: Zeitraum is a period of time, not the bicycle's condition. Umfang: Umfang is extent or circumference, not the intended condition. Zustand: Correct: in einem guten Zustand. Zweck: Zweck is purpose, not physical condition. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2795-v2",
+          "contextKey": "legacy-0175-L2795-context-2",
+          "transferKey": "legacy-0175-L2795-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017505",
+            "type": "choice",
+            "prompt": "Die Anzeige beschreibt, ob der Laptop Kratzer hat und noch einwandfrei funktioniert. Was beschreibt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Scratches and functionality describe the object's condition.",
+              "de": "Kratzer und Funktionsfähigkeit beschreiben die Beschaffenheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Marke"
+              },
+              {
+                "id": "1",
+                "text": "Preis"
+              },
+              {
+                "id": "2",
+                "text": "Herkunft"
+              },
+              {
+                "id": "3",
+                "text": "Zustand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The ad describes the laptop's Zustand.",
+              "de": "Die Anzeige beschreibt den Zustand des Laptops."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie beschreibt den Zustand des Laptops.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zustand' (option 3); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Marke: Brand identifies the manufacturer, not damage. Preis: Price states the cost, not functionality. Herkunft: Origin states where it comes from, not its condition. Zustand: Correct: the laptop's physical and functional condition. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017506",
+      "title": {
+        "en": "Using Zuständigkeit accurately",
+        "de": "Zuständigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuständigkeit as the responsibility or jurisdiction assigned to an office or person.",
+        "de": "Zuständigkeit im Sinn von die einer Stelle oder Person zugewiesene Verantwortung erkennen."
+      },
+      "objective": "Recognize Zuständigkeit in the precise sense of the responsibility or jurisdiction assigned to an office or person and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2796 (2e3cddc55dac50a816fcd6dc02d7b83584d3e69ce07a332df770135cf1457bb8), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2796-v1",
+          "contextKey": "legacy-0175-L2796-context-1",
+          "transferKey": "legacy-0175-L2796-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017506",
+            "type": "gap_choice",
+            "prompt": "Für die Bearbeitung der Bauanträge liegt die ___ beim Bauamt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Which office is responsible for the applications?",
+              "de": "Welche Stelle ist für die Anträge verantwortlich?"
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuständigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuständigkeit names the office responsible for handling an application.",
+              "de": "Zuständigkeit bezeichnet die Verantwortung einer Stelle für einen Vorgang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Bearbeitung der Bauanträge liegt die Zuständigkeit beim Bauamt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zuständigkeit' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Lieferung: A delivery is not the allocation of responsibility. Verspätung: A delay does not identify the responsible office. Zuständigkeit: Correct: the building office's responsibility. Kündigung: A termination is not a responsibility assignment. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2796-v2",
+          "contextKey": "legacy-0175-L2796-context-2",
+          "transferKey": "legacy-0175-L2796-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017506",
+            "type": "choice",
+            "prompt": "Ein Kunde wurde von Abteilung A an B verwiesen. Beide klären, wer seinen Antrag bearbeiten muss. Was klären sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are deciding who is responsible.",
+              "de": "Sie klären, wer die Verantwortung trägt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Öffnungszeiten"
+              },
+              {
+                "id": "1",
+                "text": "Zuständigkeit"
+              },
+              {
+                "id": "2",
+                "text": "Lieferfrist"
+              },
+              {
+                "id": "3",
+                "text": "Büromiete"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "They are clarifying Zuständigkeit for the application.",
+              "de": "Sie klären die Zuständigkeit für den Antrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie klären die Zuständigkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zuständigkeit' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Öffnungszeiten: Opening hours concern availability, not assigned responsibility. Zuständigkeit: Correct: who is responsible for the case. Lieferfrist: A delivery deadline concerns timing of goods. Büromiete: Office rent concerns costs of premises. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017507",
+      "title": {
+        "en": "Using Zustimmung accurately",
+        "de": "Zustimmung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zustimmung as consent or affirmative agreement to a proposal.",
+        "de": "Zustimmung im Sinn von die ausdrückliche Einwilligung oder Zustimmung zu einem Vorhaben erkennen."
+      },
+      "objective": "Recognize Zustimmung in the precise sense of consent or affirmative agreement to a proposal and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2797 (03b14921f56c4d62badb352380decdb8f766fbdd8e027f407c4234841d4e64a0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2797-v1",
+          "contextKey": "legacy-0175-L2797-context-1",
+          "transferKey": "legacy-0175-L2797-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017507",
+            "type": "gap_choice",
+            "prompt": "Die Schule braucht die ___ der Eltern, bevor sie das Foto veröffentlicht.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The parents must agree first.",
+              "de": "Die Eltern müssen vorher einverstanden sein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Absage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zustimmung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beschwerde"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anmeldung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zustimmung is consent to the publication.",
+              "de": "Zustimmung bedeutet hier die Einwilligung zur Veröffentlichung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule braucht die Zustimmung der Eltern, bevor sie das Foto veröffentlicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zustimmung' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Absage: A refusal would not authorize publication. Zustimmung: Correct: parental consent. Beschwerde: A complaint expresses dissatisfaction. Anmeldung: Registration is not consent to publishing a photo. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2797-v2",
+          "contextKey": "legacy-0175-L2797-context-2",
+          "transferKey": "legacy-0175-L2797-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017507",
+            "type": "choice",
+            "prompt": "Der Vorschlag wird angenommen, nachdem alle Beteiligten ausdrücklich Ja gesagt haben. Was haben sie gegeben?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "An explicit yes signals agreement.",
+              "de": "Ein ausdrückliches Ja bedeutet Einverständnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Warnung"
+              },
+              {
+                "id": "1",
+                "text": "Widerspruch"
+              },
+              {
+                "id": "2",
+                "text": "Zustimmung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "They have given Zustimmung to the proposal.",
+              "de": "Sie haben dem Vorschlag ihre Zustimmung gegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie haben ihre Zustimmung gegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zustimmung' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Warnung: A warning alerts to a risk. Widerspruch: An objection opposes the proposal. Zustimmung: Correct: affirmative consent. Kündigung: A termination ends an arrangement. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017508",
+      "title": {
+        "en": "Using Zutat accurately",
+        "de": "Zutat im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zutat as an ingredient used in preparing food.",
+        "de": "Zutat im Sinn von ein Bestandteil eines Rezepts oder Gerichts erkennen."
+      },
+      "objective": "Recognize Zutat in the precise sense of an ingredient used in preparing food and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2798 (0e2ee1313479a51d6d84042691856a4662f380f60e5bc4f6c53d752184b5da03), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2798-v1",
+          "contextKey": "legacy-0175-L2798-context-1",
+          "transferKey": "legacy-0175-L2798-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017508",
+            "type": "gap_choice",
+            "prompt": "Im Rezept steht Kreuzkümmel als zusätzliche ___ für die Suppe.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The spice is part of the recipe.",
+              "de": "Das Gewürz ist ein Bestandteil des Rezepts."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Beilage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zutat"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Portion"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mahlzeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A spice added to a recipe is a Zutat.",
+              "de": "Ein Gewürz im Rezept ist eine Zutat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Rezept steht Kreuzkümmel als zusätzliche Zutat für die Suppe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zutat' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Beilage: A side dish is served alongside a meal, not a spice in a recipe. Zutat: Correct: an ingredient. Portion: A portion is a quantity of food, not a component. Mahlzeit: A meal is a complete eating occasion or dish, not the spice. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2798-v2",
+          "contextKey": "legacy-0175-L2798-context-2",
+          "transferKey": "legacy-0175-L2798-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017508",
+            "type": "choice",
+            "prompt": "Mehl, Eier und Butter stehen auf der Einkaufsliste für einen Kuchen. Was sind sie im Rezept?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are combined to make the cake.",
+              "de": "Diese Dinge werden für den Kuchen verarbeitet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geräte"
+              },
+              {
+                "id": "1",
+                "text": "Bestellungen"
+              },
+              {
+                "id": "2",
+                "text": "Zutaten"
+              },
+              {
+                "id": "3",
+                "text": "Gerichte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Flour, eggs and butter are Zutaten.",
+              "de": "Mehl, Eier und Butter sind Zutaten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das sind Zutaten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zutaten' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Geräte: Equipment refers to tools, not foods used in the recipe. Bestellungen: Orders are purchases, not recipe components. Zutaten: Correct: ingredients. Gerichte: Dishes are prepared foods, not raw components. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017509",
+      "title": {
+        "en": "Using Zuverlässigkeit accurately",
+        "de": "Zuverlässigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuverlässigkeit as reliability in keeping commitments and performing consistently.",
+        "de": "Zuverlässigkeit im Sinn von Verlässlichkeit beim Einhalten von Zusagen und Aufgaben erkennen."
+      },
+      "objective": "Recognize Zuverlässigkeit in the precise sense of reliability in keeping commitments and performing consistently and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2799 (362949309c9bf582c32db555c21878da1ac86786611febb1e9ce651de67985ed), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2799-v1",
+          "contextKey": "legacy-0175-L2799-context-1",
+          "transferKey": "legacy-0175-L2799-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017509",
+            "type": "gap_choice",
+            "prompt": "Das Team schätzt ihre ___, denn sie hält Zusagen ein und liefert sorgfältige Arbeit.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She can be counted on to do what she promises.",
+              "de": "Auf sie ist Verlass; sie hält ihre Zusagen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Spontaneität"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Neugier"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuverlässigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kreativität"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuverlässigkeit is dependable performance and keeping promises.",
+              "de": "Zuverlässigkeit bedeutet, dass man sich auf jemanden verlassen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team schätzt ihre Zuverlässigkeit, denn sie hält Zusagen ein und liefert sorgfältige Arbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zuverlässigkeit' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Spontaneität: Spontaneity concerns acting without planning, not dependability. Neugier: Curiosity concerns wanting to learn, not keeping promises. Zuverlässigkeit: Correct: reliability. Kreativität: Creativity concerns original ideas, not consistently fulfilling commitments. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2799-v2",
+          "contextKey": "legacy-0175-L2799-context-2",
+          "transferKey": "legacy-0175-L2799-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017509",
+            "type": "choice",
+            "prompt": "Ein Kurierdienst liefert über Monate wie vereinbart, ohne Bestellungen zu vergessen. Welche Eigenschaft zeigt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Focus on consistent fulfillment, not speed.",
+              "de": "Es geht um die verlässliche Erfüllung, nicht um das Tempo."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Flexibilität"
+              },
+              {
+                "id": "1",
+                "text": "Originalität"
+              },
+              {
+                "id": "2",
+                "text": "Schnelligkeit"
+              },
+              {
+                "id": "3",
+                "text": "Zuverlässigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The service shows Zuverlässigkeit by consistently keeping its commitments.",
+              "de": "Der Dienst zeigt Zuverlässigkeit, weil er seine Zusagen dauerhaft einhält."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er zeigt Zuverlässigkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zuverlässigkeit' (option 3); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Flexibilität: Flexibility means adapting to changes; none are described. Originalität: Originality concerns novelty, not consistent service. Schnelligkeit: Speed concerns how fast delivery occurs, not whether it is dependable. Zuverlässigkeit: Correct: reliability over time. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017511",
+      "title": {
+        "en": "Using Zweck accurately",
+        "de": "Zweck im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zweck as the intended purpose or goal of an action.",
+        "de": "Zweck im Sinn von das beabsichtigte Ziel einer Handlung erkennen."
+      },
+      "objective": "Recognize Zweck in the precise sense of the intended purpose or goal of an action and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2801 (9bd844b43bc227eb20c35f2c8bf220b63018656afac9daa77a506324fff285e0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2801-v1",
+          "contextKey": "legacy-0175-L2801-context-1",
+          "transferKey": "legacy-0175-L2801-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017511",
+            "type": "gap_choice",
+            "prompt": "Der ___ der Schulung ist, den sicheren Umgang mit Maschinen zu üben.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence explains why the training is held.",
+              "de": "Der Satz erklärt, wozu die Schulung dient."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verlauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beginn"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zweck"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zufall"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zweck expresses the intended goal of the training.",
+              "de": "Zweck bezeichnet das beabsichtigte Ziel der Schulung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zweck der Schulung ist, den sicheren Umgang mit Maschinen zu üben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zweck' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Verlauf: Verlauf describes how an event unfolds, not its goal. Beginn: Beginn is the start, not the purpose. Zweck: Correct: the intended purpose. Zufall: Zufall means chance, not a planned goal. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2801-v2",
+          "contextKey": "legacy-0175-L2801-context-2",
+          "transferKey": "legacy-0175-L2801-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017511",
+            "type": "choice",
+            "prompt": "Warum wird ein zusätzlicher Sicherheitstest durchgeführt? Welche Information wird mit dieser Frage gesucht?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question asks for the reason or goal.",
+              "de": "Die Frage richtet sich auf das Ziel der Maßnahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dauer"
+              },
+              {
+                "id": "1",
+                "text": "Ort"
+              },
+              {
+                "id": "2",
+                "text": "Zweck"
+              },
+              {
+                "id": "3",
+                "text": "Preis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The question asks about the Zweck of the test.",
+              "de": "Die Frage betrifft den Zweck des Tests."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Gesucht wird der Zweck des Tests.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zweck' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Dauer: Duration answers how long, not why. Ort: Location answers where, not why. Zweck: Correct: the intended purpose. Preis: Price answers how much, not why. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017512",
+      "title": {
+        "en": "Using Zweifel accurately",
+        "de": "Zweifel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zweifel as uncertainty or doubt about whether a claim is true.",
+        "de": "Zweifel im Sinn von Unsicherheit darüber, ob eine Behauptung stimmt erkennen."
+      },
+      "objective": "Recognize Zweifel in the precise sense of uncertainty or doubt about whether a claim is true and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2802 (3734f0d76653ad1d5aae5cf1f1dfe7bb07b6eeec585f7339dd8eeb02e110d6d3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2802-v1",
+          "contextKey": "legacy-0175-L2802-context-1",
+          "transferKey": "legacy-0175-L2802-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017512",
+            "type": "gap_choice",
+            "prompt": "Nach den widersprüchlichen Aussagen hat die Richterin erhebliche ___ an der Darstellung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Conflicting statements make her uncertain.",
+              "de": "Widersprüchliche Aussagen lassen sie an der Darstellung zweifeln."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Beweise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gewissheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zweifel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrauen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zweifel an einer Darstellung means doubts about its truth.",
+              "de": "Zweifel an einer Darstellung bedeuten Unsicherheit über ihren Wahrheitsgehalt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach den widersprüchlichen Aussagen hat die Richterin erhebliche Zweifel an der Darstellung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zweifel' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Beweise: Beweise an der Darstellung is not the intended collocation. Gewissheit: Gewissheit an der Darstellung is not idiomatic and contradicts uncertainty. Zweifel: Correct: erhebliche Zweifel an der Darstellung. Vertrauen: Vertrauen an der Darstellung is not the intended construction. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2802-v2",
+          "contextKey": "legacy-0175-L2802-context-2",
+          "transferKey": "legacy-0175-L2802-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017512",
+            "type": "choice",
+            "prompt": "Er hält die Behauptung für möglicherweise falsch und ist nicht überzeugt. Was empfindet er?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is not certain that the statement is true.",
+              "de": "Er ist nicht sicher, ob die Aussage stimmt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erleichterung"
+              },
+              {
+                "id": "1",
+                "text": "Zweifel"
+              },
+              {
+                "id": "2",
+                "text": "Gewissheit"
+              },
+              {
+                "id": "3",
+                "text": "Begeisterung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "He has Zweifel about the claim.",
+              "de": "Er hat Zweifel an der Behauptung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat Zweifel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zweifel' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Erleichterung: Relief is feeling a burden lifted, not uncertainty. Zweifel: Correct: doubt. Gewissheit: Certainty is the opposite of doubt. Begeisterung: Enthusiasm is positive excitement, not skepticism. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017513",
+      "title": {
+        "en": "Using Zweigwerk accurately",
+        "de": "Zweigwerk im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zweigwerk as a secondary production plant of a company.",
+        "de": "Zweigwerk im Sinn von eine weitere Produktionsstätte neben dem Hauptwerk erkennen."
+      },
+      "objective": "Recognize Zweigwerk in the precise sense of a secondary production plant of a company and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2803 (21edd0deefa124ab11df4eb41aba367fe41b521e1ea22734c1a4de972e5d1e00), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2803-v1",
+          "contextKey": "legacy-0175-L2803-context-1",
+          "transferKey": "legacy-0175-L2803-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017513",
+            "type": "gap_choice",
+            "prompt": "Neben der Hauptfabrik betreibt der Hersteller ein ___ in einer anderen Stadt, in dem ebenfalls produziert wird.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This additional site also manufactures goods.",
+              "de": "An diesem weiteren Standort wird ebenfalls produziert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkaufsbüro"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zweigwerk"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kundencenter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lagerhaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Zweigwerk is an additional production plant.",
+              "de": "Ein Zweigwerk ist eine weitere Produktionsstätte eines Unternehmens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Neben der Hauptfabrik betreibt der Hersteller ein Zweigwerk in einer anderen Stadt, in dem ebenfalls produziert wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zweigwerk' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Verkaufsbüro: A sales office handles sales rather than production. Zweigwerk: Correct: an additional manufacturing plant. Kundencenter: A customer center serves customers, not manufacturing. Lagerhaus: A warehouse stores goods rather than producing them. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2803-v2",
+          "contextKey": "legacy-0175-L2803-context-2",
+          "transferKey": "legacy-0175-L2803-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017513",
+            "type": "choice",
+            "prompt": "Eine Autofirma eröffnet eine zweite Produktionsstätte außerhalb ihres Hauptstandorts. Wie nennt sie diese zusätzliche Fabrik?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The new site manufactures vehicles.",
+              "de": "Am neuen Standort werden Fahrzeuge produziert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausstellungsraum"
+              },
+              {
+                "id": "1",
+                "text": "Zentrale"
+              },
+              {
+                "id": "2",
+                "text": "Zweigwerk"
+              },
+              {
+                "id": "3",
+                "text": "Verkaufsfiliale"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A secondary factory is a Zweigwerk.",
+              "de": "Eine zusätzliche Fabrik außerhalb des Hauptwerks heißt Zweigwerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Zweigwerk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zweigwerk' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Ausstellungsraum: A showroom displays products, not manufactures them. Zentrale: Headquarters is the central office or main site. Zweigwerk: Correct: a secondary production plant. Verkaufsfiliale: A sales branch sells vehicles, not necessarily makes them. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017514",
+      "title": {
+        "en": "Using Zweitsprache accurately",
+        "de": "Zweitsprache im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zweitsprache as a second language acquired in addition to one's first language in everyday surroundings.",
+        "de": "Zweitsprache im Sinn von eine weitere Sprache, die zusätzlich zur Erstsprache im Alltag erworben wird erkennen."
+      },
+      "objective": "Recognize Zweitsprache in the precise sense of a second language acquired in addition to one's first language in everyday surroundings and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2804 (df6f6e9d1d2f9d1b0c22f683eece964734971fd03a3513acb520d3b4e28d066f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2804-v1",
+          "contextKey": "legacy-0175-L2804-context-1",
+          "transferKey": "legacy-0175-L2804-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017514",
+            "type": "gap_choice",
+            "prompt": "Nach dem Umzug nach Deutschland lernt Elena im Alltag Deutsch neben ihrer Erstsprache. Deutsch ist ihre ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She is learning German in addition to her first language.",
+              "de": "Sie lernt Deutsch zusätzlich zu ihrer Erstsprache."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Muttersprache"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geheimsprache"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zweitsprache"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fachsprache"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "German is her Zweitsprache in this context.",
+              "de": "Deutsch ist in diesem Kontext ihre Zweitsprache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Umzug nach Deutschland lernt Elena im Alltag Deutsch neben ihrer Erstsprache. Deutsch ist ihre Zweitsprache.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zweitsprache' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Muttersprache: Her mother tongue is the first language already mentioned. Geheimsprache: A secret language is used to conceal meaning, not described here. Zweitsprache: Correct: a second language learned in daily life. Fachsprache: A technical language is specialist terminology, not everyday German. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2804-v2",
+          "contextKey": "legacy-0175-L2804-context-2",
+          "transferKey": "legacy-0175-L2804-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017514",
+            "type": "choice",
+            "prompt": "Ein Kind spricht zu Hause Türkisch und erwirbt in einer deutschsprachigen Schule Deutsch als weitere Alltagssprache. Wie nennt man Deutsch hier?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is another language used in the child's surroundings.",
+              "de": "Es ist eine weitere Sprache im Alltag des Kindes."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erstsprache"
+              },
+              {
+                "id": "1",
+                "text": "Zweitsprache"
+              },
+              {
+                "id": "2",
+                "text": "Dialekt"
+              },
+              {
+                "id": "3",
+                "text": "Kunstsprache"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "German is the child's Zweitsprache in this situation.",
+              "de": "Deutsch ist in dieser Situation die Zweitsprache des Kindes."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Deutsch ist die Zweitsprache.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zweitsprache' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Erstsprache: The first language is Turkish in this scenario. Zweitsprache: Correct: a second language used in daily life. Dialekt: A dialect is a variety of a language, not German as a second language. Kunstsprache: An artificial language is constructed, unlike German. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017515",
+      "title": {
+        "en": "Using Zwiebel accurately",
+        "de": "Zwiebel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zwiebel as an onion used as a cooking ingredient.",
+        "de": "Zwiebel im Sinn von die Zwiebel als Gemüse und Kochzutat erkennen."
+      },
+      "objective": "Recognize Zwiebel in the precise sense of an onion used as a cooking ingredient and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2805 (74d4af17416b7b1af42a9470b8d34c99fbeb6147c8a1c32aff863c9f93ade57d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2805-v1",
+          "contextKey": "legacy-0175-L2805-context-1",
+          "transferKey": "legacy-0175-L2805-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017515",
+            "type": "gap_choice",
+            "prompt": "Für die Tomatensoße brät er fein gewürfelte ___ glasig an.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This vegetable is commonly sautéed until translucent.",
+              "de": "Dieses Gemüse wird häufig glasig angebraten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nudeln"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Oliven"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zwiebeln"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bohnen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Finely diced onions are often sautéed until translucent.",
+              "de": "Fein gewürfelte Zwiebeln werden häufig glasig angebraten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Tomatensoße brät er fein gewürfelte Zwiebeln glasig an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zwiebeln' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Nudeln: Noodles are cooked, not normally sautéed until translucent. Oliven: Olives do not become translucent in this preparation. Zwiebeln: Correct: diced onions. Bohnen: Beans do not normally become translucent when sautéed. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2805-v2",
+          "contextKey": "legacy-0175-L2805-context-2",
+          "transferKey": "legacy-0175-L2805-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017515",
+            "type": "choice",
+            "prompt": "Beim Schneiden welcher Zutat können reizende Stoffe die Augen zum Tränen bringen?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Think of the vegetable that often makes people cry when cut.",
+              "de": "Denk an das Gemüse, das beim Schneiden häufig Tränen auslöst."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kartoffel"
+              },
+              {
+                "id": "1",
+                "text": "Zwiebel"
+              },
+              {
+                "id": "2",
+                "text": "Gurke"
+              },
+              {
+                "id": "3",
+                "text": "Karotte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Cutting an onion can release irritating compounds that make eyes water.",
+              "de": "Beim Schneiden einer Zwiebel können reizende Stoffe Tränen auslösen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Zwiebel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zwiebel' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Kartoffel: Potatoes do not typically release tear-inducing compounds when cut. Zwiebel: Correct: onion. Gurke: Cucumbers do not typically cause this reaction. Karotte: Carrots do not typically cause this reaction. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017516",
+      "title": {
+        "en": "Using Zwischenraum accurately",
+        "de": "Zwischenraum im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zwischenraum as the free space between two objects or parts.",
+        "de": "Zwischenraum im Sinn von der freie Bereich zwischen zwei Gegenständen oder Bauteilen erkennen."
+      },
+      "objective": "Recognize Zwischenraum in the precise sense of the free space between two objects or parts and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2806 (4b4fa563439ee4b3ed6864fdfb08606fd2b8a9b2cb3ae50701b979c634665b34), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence for each question and all options in variants and batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0175-L2806-v1",
+          "contextKey": "legacy-0175-L2806-context-1",
+          "transferKey": "legacy-0175-L2806-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017516",
+            "type": "gap_choice",
+            "prompt": "Zwischen zwei Maschinen bleibt ein schmaler ___, der zur Reinigung zugänglich sein muss.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The space lies between the machines.",
+              "de": "Der freie Bereich liegt zwischen den Maschinen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wohnraum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stauraum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zwischenraum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Innenraum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zwischenraum names the space separating the machines.",
+              "de": "Zwischenraum bezeichnet den freien Bereich zwischen den Maschinen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen zwei Maschinen bleibt ein schmaler Zwischenraum, der zur Reinigung zugänglich sein muss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 1: independently selected 'Zwischenraum' (option 2); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Wohnraum: Wohnraum is living space, not an industrial gap. Stauraum: Stauraum is storage space; no storage function is described. Zwischenraum: Correct: the gap between the machines. Innenraum: Innenraum is an interior space, not specifically the gap between objects. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0175-L2806-v2",
+          "contextKey": "legacy-0175-L2806-context-2",
+          "transferKey": "legacy-0175-L2806-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001750161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017516",
+            "type": "choice",
+            "prompt": "Ein Monteur misst den freien Bereich zwischen zwei Rohren. Wie nennt man diesen Bereich?",
+            "instruction": {
+              "en": "Read the German situation and choose the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The area is between two components.",
+              "de": "Der Bereich liegt zwischen zwei Bauteilen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Innenfläche"
+              },
+              {
+                "id": "1",
+                "text": "Zwischenraum"
+              },
+              {
+                "id": "2",
+                "text": "Außenwand"
+              },
+              {
+                "id": "3",
+                "text": "Lagerraum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The measured gap is a Zwischenraum.",
+              "de": "Der gemessene Bereich zwischen den Rohren ist ein Zwischenraum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist der Zwischenraum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass, 2026-10-29, variant 2: independently selected 'Zwischenraum' (option 1); reviewed full German prompt, grammatical form, bilingual feedback, CEFR/lexical objective, context distinction and all options. Innenfläche: Innenfläche is the inside surface of an object. Zwischenraum: Correct: the space between two pipes. Außenwand: Außenwand is an outer wall, not the gap. Lagerraum: Lagerraum is a storage room, not a measured gap. Human linguistic, CEFR and rights review pending; no measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
