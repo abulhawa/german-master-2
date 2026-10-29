@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000017000",
+      "title": {
+        "en": "Using Waschmittel accurately",
+        "de": "Waschmittel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Waschmittel in the sense of laundry detergent for washing clothes.",
+        "de": "Waschmittel im Sinn von Waschmittel zum Reinigen von Kleidung erkennen."
+      },
+      "objective": "Recognize Waschmittel in the specified laundry detergent for washing clothes sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2647 (0e675538198c3d5e34007c5d4ea6668c7d76c3ab146fe150cc6502b9170d0f01), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2647-v1",
+          "contextKey": "legacy-0170-L2647-context-1",
+          "transferKey": "legacy-0170-L2647-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017000",
+            "type": "gap_choice",
+            "prompt": "Für die schmutzige Kleidung gibt sie ___ in die Waschmaschine.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The product cleans laundry.",
+              "de": "Das Mittel reinigt Wäsche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Shampoo"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Waschmittel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spülmittel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zahnpasta"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Waschmittel is detergent for washing textiles.",
+              "de": "Waschmittel dient zum Reinigen von Textilien."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die schmutzige Kleidung gibt sie Waschmittel in die Waschmaschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Waschmittel' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Shampoo: Hair cleanser. Waschmittel: Correct: laundry detergent. Spülmittel: Dishwashing liquid. Zahnpasta: Toothpaste. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2647-v2",
+          "contextKey": "legacy-0170-L2647-context-2",
+          "transferKey": "legacy-0170-L2647-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017000",
+            "type": "choice",
+            "prompt": "Ein Pulver entfernt Flecken aus Hemden während des Waschgangs. Welches Produkt ist das?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is used in a washing machine.",
+              "de": "Es wird in der Waschmaschine benutzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Backpulver"
+              },
+              {
+                "id": "1",
+                "text": "Salz"
+              },
+              {
+                "id": "2",
+                "text": "Kaffeepulver"
+              },
+              {
+                "id": "3",
+                "text": "Waschmittel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Waschmittel is detergent for washing textiles.",
+              "de": "Waschmittel dient zum Reinigen von Textilien."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Pulver ist Waschmittel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Waschmittel' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Backpulver: Used in baking. Salz: A seasoning. Kaffeepulver: Ground coffee. Waschmittel: Correct: laundry detergent. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017001",
+      "title": {
+        "en": "Using Webdesigner accurately",
+        "de": "Webdesigner im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Webdesigner in the sense of a male professional who designs websites.",
+        "de": "Webdesigner im Sinn von männlicher Gestalter von Websites erkennen."
+      },
+      "objective": "Recognize Webdesigner in the specified a male professional who designs websites sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2650 (84a279bf21d63d8c0dd546b72f12d011fdd48a3faa4d4ec8d8f1f5a8ead4bb47), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2650-v1",
+          "contextKey": "legacy-0170-L2650-context-1",
+          "transferKey": "legacy-0170-L2650-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017001",
+            "type": "gap_choice",
+            "prompt": "Der ___ entwirft das Layout und die Farben der neuen Website.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He designs the site's visual appearance.",
+              "de": "Er gestaltet das Aussehen der Website."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lagerist"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Koch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Webdesigner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Buchhalter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Webdesigner designs the visual structure of websites.",
+              "de": "Ein Webdesigner gestaltet das Erscheinungsbild von Websites."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Webdesigner entwirft das Layout und die Farben der neuen Website.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Webdesigner' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lagerist: Manages warehouse stock. Koch: Prepares food. Webdesigner: Correct: website designer. Buchhalter: Handles accounting. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2650-v2",
+          "contextKey": "legacy-0170-L2650-context-2",
+          "transferKey": "legacy-0170-L2650-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017001",
+            "type": "choice",
+            "prompt": "Ein Kunde möchte, dass eine Internetseite übersichtlicher und optisch ansprechender wird. Welche Fachkraft hilft bei der Gestaltung?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The task concerns web layout and visual design.",
+              "de": "Die Aufgabe betrifft Layout und Gestaltung im Web."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Webdesigner"
+              },
+              {
+                "id": "1",
+                "text": "Installateur"
+              },
+              {
+                "id": "2",
+                "text": "Fahrlehrer"
+              },
+              {
+                "id": "3",
+                "text": "Steuerberater"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Webdesigner designs the visual structure of websites.",
+              "de": "Ein Webdesigner gestaltet das Erscheinungsbild von Websites."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Webdesigner hilft bei der Gestaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Webdesigner' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Webdesigner: Correct: designs websites. Installateur: Installs plumbing. Fahrlehrer: Teaches driving. Steuerberater: Advises on taxes. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017003",
+      "title": {
+        "en": "Using Wechselschicht accurately",
+        "de": "Wechselschicht im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wechselschicht in the sense of a rotating work-shift schedule.",
+        "de": "Wechselschicht im Sinn von wechselnde Arbeitszeiten in Schichten erkennen."
+      },
+      "objective": "Recognize Wechselschicht in the specified a rotating work-shift schedule sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2653 (f1db1115504dc4c6fe5da47de280967bcadfc2cddf40c9047396c9e696751605), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2653-v1",
+          "contextKey": "legacy-0170-L2653-context-1",
+          "transferKey": "legacy-0170-L2653-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017003",
+            "type": "gap_choice",
+            "prompt": "In der ___ arbeitet das Team eine Woche früh und die nächste Woche spät.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shift changes regularly.",
+              "de": "Die Arbeitszeiten wechseln regelmäßig."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gleitzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Elternzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Freizeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wechselschicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wechselschicht means alternating work shifts.",
+              "de": "Wechselschicht bedeutet regelmäßig wechselnde Arbeitszeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Wechselschicht arbeitet das Team eine Woche früh und die nächste Woche spät.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wechselschicht' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Gleitzeit: Flexible starting times. Elternzeit: Parental leave. Freizeit: Nonworking time. Wechselschicht: Correct: rotating shifts. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2653-v2",
+          "contextKey": "legacy-0170-L2653-context-2",
+          "transferKey": "legacy-0170-L2653-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017003",
+            "type": "choice",
+            "prompt": "Eine Mitarbeiterin arbeitet abwechselnd morgens, abends und nachts. Welche Arbeitsform hat sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Her shifts rotate.",
+              "de": "Ihre Schichten wechseln."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urlaub"
+              },
+              {
+                "id": "1",
+                "text": "Wechselschicht"
+              },
+              {
+                "id": "2",
+                "text": "feste Tagschicht"
+              },
+              {
+                "id": "3",
+                "text": "Homeoffice ohne Schichtplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Wechselschicht means alternating work shifts.",
+              "de": "Wechselschicht bedeutet regelmäßig wechselnde Arbeitszeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitet in Wechselschicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wechselschicht' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Urlaub: Vacation is leave from work. Wechselschicht: Correct: alternating shifts. feste Tagschicht: A fixed daytime shift does not rotate. Homeoffice ohne Schichtplan: Remote work does not imply rotating shifts. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017004",
+      "title": {
+        "en": "Using Wecker accurately",
+        "de": "Wecker im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wecker in the sense of an alarm clock that wakes someone.",
+        "de": "Wecker im Sinn von Wecker zum Aufwachen erkennen."
+      },
+      "objective": "Recognize Wecker in the specified an alarm clock that wakes someone sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2654 (4740fa1d5a47f100dca5c354cc4a1d1b6dfceff90bdf2ace5c38b57a43ac6cd1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2654-v1",
+          "contextKey": "legacy-0170-L2654-context-1",
+          "transferKey": "legacy-0170-L2654-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017004",
+            "type": "gap_choice",
+            "prompt": "Der ___ klingelt jeden Morgen um sechs Uhr.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device wakes someone at a set time.",
+              "de": "Das Gerät weckt jemanden zu einer bestimmten Uhrzeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wecker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kalender"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Thermometer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kompass"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wecker is a device that wakes someone at a set time.",
+              "de": "Ein Wecker weckt jemanden zu einer eingestellten Uhrzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wecker klingelt jeden Morgen um sechs Uhr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wecker' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wecker: Correct: alarm clock. Kalender: Shows dates. Thermometer: Measures temperature. Kompass: Shows directions. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2654-v2",
+          "contextKey": "legacy-0170-L2654-context-2",
+          "transferKey": "legacy-0170-L2654-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017004",
+            "type": "choice",
+            "prompt": "Vor dem Schlafen stellt Eva ein Gerät auf 6:30 Uhr, damit sie rechtzeitig aufsteht. Was stellt sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It will ring in the morning.",
+              "de": "Es klingelt am Morgen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Taschenlampe"
+              },
+              {
+                "id": "1",
+                "text": "Radioantenne"
+              },
+              {
+                "id": "2",
+                "text": "Wecker"
+              },
+              {
+                "id": "3",
+                "text": "Waage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Wecker is a device that wakes someone at a set time.",
+              "de": "Ein Wecker weckt jemanden zu einer eingestellten Uhrzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eva stellt den Wecker.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wecker' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Taschenlampe: Provides light. Radioantenne: Receives radio signals. Wecker: Correct: alarm clock. Waage: Measures weight. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017005",
+      "title": {
+        "en": "Using Weisung accurately",
+        "de": "Weisung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Weisung in the sense of a binding instruction from an authorized superior.",
+        "de": "Weisung im Sinn von verbindliche Weisung einer zuständigen Person erkennen."
+      },
+      "objective": "Recognize Weisung in the specified a binding instruction from an authorized superior sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2657 (f9a3842b5e4814ea43938841d4913396ff89c2c6528b064c6c091fa2d7b0fae5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2657-v1",
+          "contextKey": "legacy-0170-L2657-context-1",
+          "transferKey": "legacy-0170-L2657-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017005",
+            "type": "gap_choice",
+            "prompt": "Die Mitarbeiter müssen die schriftliche ___ der Abteilungsleitung befolgen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The instruction is binding.",
+              "de": "Die Anordnung ist verbindlich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermutung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Weisung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Empfehlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Weisung is an authoritative instruction.",
+              "de": "Eine Weisung ist eine verbindliche Anordnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiter müssen die schriftliche Weisung der Abteilungsleitung befolgen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Weisung' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vermutung: Unconfirmed assumption. Weisung: Correct: formal directive. Empfehlung: Optional advice. Einladung: Request to attend. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2657-v2",
+          "contextKey": "legacy-0170-L2657-context-2",
+          "transferKey": "legacy-0170-L2657-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017005",
+            "type": "choice",
+            "prompt": "Eine Vorgesetzte ordnet im Rahmen ihrer Zuständigkeit verbindlich eine Arbeitsweise an. Was erteilt sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The order must be followed.",
+              "de": "Die Anordnung muss befolgt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bitte"
+              },
+              {
+                "id": "1",
+                "text": "Vorschlag"
+              },
+              {
+                "id": "2",
+                "text": "Lob"
+              },
+              {
+                "id": "3",
+                "text": "Weisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Weisung is an authoritative instruction.",
+              "de": "Eine Weisung ist eine verbindliche Anordnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie erteilt eine Weisung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Weisung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Bitte: A request may be optional. Vorschlag: A proposal suggests an option. Lob: Praise recognizes achievement. Weisung: Correct: binding instruction. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017006",
+      "title": {
+        "en": "Using Weiterbildung accurately",
+        "de": "Weiterbildung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Weiterbildung in the sense of further training after initial education.",
+        "de": "Weiterbildung im Sinn von berufliche Weiterbildung nach der Erstausbildung erkennen."
+      },
+      "objective": "Recognize Weiterbildung in the specified further training after initial education sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2658 (4864d7792b760f89fc8b28c910fd4d2c86057a33fd0fbbcc9dc588c761ec608b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2658-v1",
+          "contextKey": "legacy-0170-L2658-context-1",
+          "transferKey": "legacy-0170-L2658-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017006",
+            "type": "gap_choice",
+            "prompt": "Nach der Ausbildung besucht sie eine ___ zu neuen Softwarewerkzeugen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She develops skills after initial training.",
+              "de": "Sie erweitert ihre Kenntnisse nach der Ausbildung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Weiterbildung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einschulung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Weiterbildung expands knowledge after initial training.",
+              "de": "Weiterbildung erweitert Kenntnisse nach einer ersten Ausbildung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Ausbildung besucht sie eine Weiterbildung zu neuen Softwarewerkzeugen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Weiterbildung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Entlassung: Dismissal. Bewerbung: Job application. Weiterbildung: Correct: further training. Einschulung: Starting school. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2658-v2",
+          "contextKey": "legacy-0170-L2658-context-2",
+          "transferKey": "legacy-0170-L2658-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017006",
+            "type": "choice",
+            "prompt": "Ein erfahrener Mitarbeiter besucht einen Kurs, um aktuelle Fachkenntnisse zu erwerben. Wie nennt man diese Maßnahme?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The course expands existing professional skills.",
+              "de": "Der Kurs erweitert vorhandene berufliche Fähigkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Weiterbildung"
+              },
+              {
+                "id": "1",
+                "text": "Grundschule"
+              },
+              {
+                "id": "2",
+                "text": "Urlaub"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Weiterbildung expands knowledge after initial training.",
+              "de": "Weiterbildung erweitert Kenntnisse nach einer ersten Ausbildung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Weiterbildung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Weiterbildung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Weiterbildung: Correct: continuing education. Grundschule: Primary education. Urlaub: Time off. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017007",
+      "title": {
+        "en": "Using Weiterentwicklung accurately",
+        "de": "Weiterentwicklung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Weiterentwicklung in the sense of continued improvement or development.",
+        "de": "Weiterentwicklung im Sinn von weitere Entwicklung oder Verbesserung erkennen."
+      },
+      "objective": "Recognize Weiterentwicklung in the specified continued improvement or development sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2659 (bc83678e3cdccd7dbcd37e5cc93b78f9944bf5824ddbf0bd5a6da78bdfdb1b58), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2659-v1",
+          "contextKey": "legacy-0170-L2659-context-1",
+          "transferKey": "legacy-0170-L2659-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017007",
+            "type": "gap_choice",
+            "prompt": "Die ___ der App soll die Bedienung einfacher machen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The existing app is improved.",
+              "de": "Die vorhandene App wird verbessert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stilllegung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abschaffung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rückgabe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Weiterentwicklung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Weiterentwicklung means further development of something existing.",
+              "de": "Weiterentwicklung bedeutet, etwas Bestehendes weiterzuentwickeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Weiterentwicklung der App soll die Bedienung einfacher machen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Weiterentwicklung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Stilllegung: Taking something out of service. Abschaffung: Abolition. Rückgabe: Returning goods. Weiterentwicklung: Correct: ongoing improvement. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2659-v2",
+          "contextKey": "legacy-0170-L2659-context-2",
+          "transferKey": "legacy-0170-L2659-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017007",
+            "type": "choice",
+            "prompt": "Ein Unternehmen verbessert sein bestehendes Produkt in mehreren Versionen. Wie nennt man diesen Prozess?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The product evolves over time.",
+              "de": "Das Produkt wird schrittweise verbessert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Weiterentwicklung"
+              },
+              {
+                "id": "2",
+                "text": "Stillstand"
+              },
+              {
+                "id": "3",
+                "text": "Entsorgung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Weiterentwicklung means further development of something existing.",
+              "de": "Weiterentwicklung bedeutet, etwas Bestehendes weiterzuentwickeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Weiterentwicklung des Produkts.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Weiterentwicklung' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Kündigung: Contract termination. Weiterentwicklung: Correct: continued development. Stillstand: No progress. Entsorgung: Disposal. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017010",
+      "title": {
+        "en": "Using Weltleitmesse accurately",
+        "de": "Weltleitmesse im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Weltleitmesse in the sense of an internationally important leading trade fair.",
+        "de": "Weltleitmesse im Sinn von international bedeutende Leitmesse erkennen."
+      },
+      "objective": "Recognize Weltleitmesse in the specified an internationally important leading trade fair sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2663 (32f951eacacc2f0175e3bf6fa517234efbdd029e99acbc3b294f7d5c5c1f93bc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2663-v1",
+          "contextKey": "legacy-0170-L2663-context-1",
+          "transferKey": "legacy-0170-L2663-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017010",
+            "type": "gap_choice",
+            "prompt": "Auf der internationalen ___ präsentieren führende Hersteller ihre neuesten Maschinen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a major international industry exhibition.",
+              "de": "Es ist eine bedeutende internationale Fachausstellung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Weltleitmesse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wochenmarkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Flohmarkt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betriebsversammlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Weltleitmesse describes a trade fair regarded as globally leading.",
+              "de": "Weltleitmesse bezeichnet eine als weltweit führend geltende Fachmesse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der internationalen Weltleitmesse präsentieren führende Hersteller ihre neuesten Maschinen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Weltleitmesse' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Weltleitmesse: Correct: internationally leading trade fair. Wochenmarkt: Local weekly market. Flohmarkt: Secondhand market. Betriebsversammlung: Internal company meeting. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2663-v2",
+          "contextKey": "legacy-0170-L2663-context-2",
+          "transferKey": "legacy-0170-L2663-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017010",
+            "type": "choice",
+            "prompt": "Eine Fachmesse zieht Aussteller und Besucher aus vielen Ländern an und gilt als weltweit führend in ihrer Branche. Wie wird sie bezeichnet?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The claim concerns a leading global trade fair.",
+              "de": "Die Bezeichnung meint eine weltweit führende Fachmesse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wochenmarkt"
+              },
+              {
+                "id": "1",
+                "text": "Vereinsabend"
+              },
+              {
+                "id": "2",
+                "text": "Weltleitmesse"
+              },
+              {
+                "id": "3",
+                "text": "Straßenfest"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Weltleitmesse describes a trade fair regarded as globally leading.",
+              "de": "Weltleitmesse bezeichnet eine als weltweit führend geltende Fachmesse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wird als Weltleitmesse bezeichnet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Weltleitmesse' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wochenmarkt: Local weekly market. Vereinsabend: Club evening. Weltleitmesse: Correct: global leading trade fair. Straßenfest: Street festival. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017012",
+      "title": {
+        "en": "Using Werbegeschenk accurately",
+        "de": "Werbegeschenk im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbegeschenk in the sense of a small promotional gift given by a company.",
+        "de": "Werbegeschenk im Sinn von kleines Werbegeschenk eines Unternehmens erkennen."
+      },
+      "objective": "Recognize Werbegeschenk in the specified a small promotional gift given by a company sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2665 (874cd0720265e441140deba379913a085716c8ef8d94b508dc345c862fe620c3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2665-v1",
+          "contextKey": "legacy-0170-L2665-context-1",
+          "transferKey": "legacy-0170-L2665-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017012",
+            "type": "gap_choice",
+            "prompt": "Am Messestand bekommen Besucher einen Kugelschreiber als ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The free item advertises the company.",
+              "de": "Der kostenlose Gegenstand wirbt für die Firma."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mahngebühr"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbegeschenk"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbegeschenk is a free branded promotional item.",
+              "de": "Ein Werbegeschenk ist ein kostenloser Werbeartikel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Messestand bekommen Besucher einen Kugelschreiber als Werbegeschenk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbegeschenk' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Mahngebühr: Late-payment fee. Werbegeschenk: Correct: promotional gift. Rechnung: Bill for payment. Vertrag: Legal agreement. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2665-v2",
+          "contextKey": "legacy-0170-L2665-context-2",
+          "transferKey": "legacy-0170-L2665-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017012",
+            "type": "choice",
+            "prompt": "Eine Firma verteilt kostenlos Taschen mit ihrem Logo, damit Besucher sich an die Marke erinnern. Was sind diese Taschen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are free branded items.",
+              "de": "Es sind kostenlose Gegenstände mit Firmenlogo."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reklamationen"
+              },
+              {
+                "id": "1",
+                "text": "Rechnungen"
+              },
+              {
+                "id": "2",
+                "text": "Lieferscheine"
+              },
+              {
+                "id": "3",
+                "text": "Werbegeschenke"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Werbegeschenk is a free branded promotional item.",
+              "de": "Ein Werbegeschenk ist ein kostenloser Werbeartikel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Taschen sind Werbegeschenke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbegeschenke' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Reklamationen: Complaints. Rechnungen: Invoices. Lieferscheine: Delivery notes. Werbegeschenke: Correct: promotional gifts. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017013",
+      "title": {
+        "en": "Using Werbekosten accurately",
+        "de": "Werbekosten im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbekosten in the sense of expenses for advertising activities.",
+        "de": "Werbekosten im Sinn von Kosten für Werbung erkennen."
+      },
+      "objective": "Recognize Werbekosten in the specified expenses for advertising activities sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2666 (97f0bcf7069f50437fc902f30f83f4ca5f1e2da23af06d616bb67de664b1f357), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2666-v1",
+          "contextKey": "legacy-0170-L2666-context-1",
+          "transferKey": "legacy-0170-L2666-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017013",
+            "type": "gap_choice",
+            "prompt": "Die Firma plant im Budget 2.000 Euro ___ für Online-Anzeigen ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The money pays for advertisements.",
+              "de": "Das Geld wird für Anzeigen ausgegeben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reisekosten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reparaturkosten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werbekosten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mietkosten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbekosten are expenses incurred for advertising.",
+              "de": "Werbekosten sind Ausgaben für Werbung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma plant im Budget 2.000 Euro Werbekosten für Online-Anzeigen ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbekosten' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Reisekosten: Travel expenses. Reparaturkosten: Repair expenses. Werbekosten: Correct: advertising expenses. Mietkosten: Rent expenses. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2666-v2",
+          "contextKey": "legacy-0170-L2666-context-2",
+          "transferKey": "legacy-0170-L2666-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017013",
+            "type": "choice",
+            "prompt": "Ein Unternehmen bezahlt für Plakate und Internetanzeigen. Wie heißen diese Ausgaben zusammen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The spending promotes products.",
+              "de": "Die Ausgaben dienen der Werbung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werbekosten"
+              },
+              {
+                "id": "1",
+                "text": "Lohnsteuer"
+              },
+              {
+                "id": "2",
+                "text": "Versandkosten"
+              },
+              {
+                "id": "3",
+                "text": "Kaution"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Werbekosten are expenses incurred for advertising.",
+              "de": "Werbekosten sind Ausgaben für Werbung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das sind Werbekosten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbekosten' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werbekosten: Correct: advertising costs. Lohnsteuer: Tax on wages. Versandkosten: Shipping fees. Kaution: Refundable deposit. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017014",
+      "title": {
+        "en": "Using Werbemaßnahme accurately",
+        "de": "Werbemaßnahme im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbemaßnahme in the sense of a specific measure used to advertise a product.",
+        "de": "Werbemaßnahme im Sinn von einzelne Maßnahme zur Werbung erkennen."
+      },
+      "objective": "Recognize Werbemaßnahme in the specified a specific measure used to advertise a product sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2667 (6b81c4355e724154a7113e3751ce32044b1aeecafdc9ef2ba093c9ddfbdfe0ba), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2667-v1",
+          "contextKey": "legacy-0170-L2667-context-1",
+          "transferKey": "legacy-0170-L2667-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017014",
+            "type": "gap_choice",
+            "prompt": "Eine Rabattaktion auf Plakaten ist eine ___ zur Gewinnung neuer Kunden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action attracts potential buyers.",
+              "de": "Die Aktion soll neue Käufer anziehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbemaßnahme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbemaßnahme is a concrete advertising activity.",
+              "de": "Eine Werbemaßnahme ist eine konkrete Werbeaktion."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Rabattaktion auf Plakaten ist eine Werbemaßnahme zur Gewinnung neuer Kunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbemaßnahme' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wartung: Equipment servicing. Inventur: Stock count. Abrechnung: Financial settlement. Werbemaßnahme: Correct: promotional measure. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2667-v2",
+          "contextKey": "legacy-0170-L2667-context-2",
+          "transferKey": "legacy-0170-L2667-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017014",
+            "type": "choice",
+            "prompt": "Ein Geschäft schaltet gezielt Anzeigen, um eine neue Produktlinie bekannt zu machen. Was ist das Schalten der Anzeigen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is an action intended to increase awareness.",
+              "de": "Die Handlung soll Aufmerksamkeit für Produkte schaffen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferung"
+              },
+              {
+                "id": "1",
+                "text": "Werbemaßnahme"
+              },
+              {
+                "id": "2",
+                "text": "Reklamation"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Werbemaßnahme is a concrete advertising activity.",
+              "de": "Eine Werbemaßnahme ist eine konkrete Werbeaktion."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Werbemaßnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbemaßnahme' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lieferung: Delivery of goods. Werbemaßnahme: Correct: advertising action. Reklamation: Complaint about a defect. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017015",
+      "title": {
+        "en": "Using Werbeveranstaltung accurately",
+        "de": "Werbeveranstaltung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbeveranstaltung in the sense of an event organized to promote a product or brand.",
+        "de": "Werbeveranstaltung im Sinn von Veranstaltung zur Bewerbung eines Produkts erkennen."
+      },
+      "objective": "Recognize Werbeveranstaltung in the specified an event organized to promote a product or brand sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2668 (b684cbb49e923c0001a9055f2536614a55e2347b85d6b2e4d7638ed4ded340b1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2668-v1",
+          "contextKey": "legacy-0170-L2668-context-1",
+          "transferKey": "legacy-0170-L2668-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017015",
+            "type": "gap_choice",
+            "prompt": "Die Firma lädt Kunden zu einer ___ für ihr neues Produkt ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The event presents and promotes a product.",
+              "de": "Die Veranstaltung stellt ein Produkt werbend vor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werbeveranstaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Betriebsprüfung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gerichtsverhandlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Inventur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbeveranstaltung is an event for promotion.",
+              "de": "Eine Werbeveranstaltung dient der Werbung für Produkte oder Marken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma lädt Kunden zu einer Werbeveranstaltung für ihr neues Produkt ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbeveranstaltung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werbeveranstaltung: Correct: promotional event. Betriebsprüfung: Official audit. Gerichtsverhandlung: Court hearing. Inventur: Stock count. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2668-v2",
+          "contextKey": "legacy-0170-L2668-context-2",
+          "transferKey": "legacy-0170-L2668-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017015",
+            "type": "choice",
+            "prompt": "Bei einem öffentlichen Event zeigt ein Hersteller seine neue Kamera und möchte Käufer gewinnen. Welche Art von Event ist das?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The event aims to advertise the camera.",
+              "de": "Die Veranstaltung soll für die Kamera werben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elternabend"
+              },
+              {
+                "id": "1",
+                "text": "Prüfung"
+              },
+              {
+                "id": "2",
+                "text": "Werbeveranstaltung"
+              },
+              {
+                "id": "3",
+                "text": "Mitarbeitergespräch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Werbeveranstaltung is an event for promotion.",
+              "de": "Eine Werbeveranstaltung dient der Werbung für Produkte oder Marken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Event ist eine Werbeveranstaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbeveranstaltung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Elternabend: Parents' evening. Prüfung: Examination. Werbeveranstaltung: Correct: product promotion event. Mitarbeitergespräch: Staff meeting. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017016",
+      "title": {
+        "en": "Using Werbevideo accurately",
+        "de": "Werbevideo im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbevideo in the sense of a video produced to advertise something.",
+        "de": "Werbevideo im Sinn von Video zur Werbung für ein Produkt erkennen."
+      },
+      "objective": "Recognize Werbevideo in the specified a video produced to advertise something sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2669 (3d02fd0d2721fbe3295c6445a10a6b588abe098b8bebc522450eb5ca00ece184), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2669-v1",
+          "contextKey": "legacy-0170-L2669-context-1",
+          "transferKey": "legacy-0170-L2669-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017016",
+            "type": "gap_choice",
+            "prompt": "Das kurze ___ zeigt die Vorteile des neuen Fahrrads und soll Käufer ansprechen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Its purpose is to promote a product.",
+              "de": "Das Video soll ein Produkt bewerben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaubsvideo"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbevideo"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schulungsvideo"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Überwachungsvideo"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbevideo is a video used for advertising.",
+              "de": "Ein Werbevideo ist ein Video mit Werbezweck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das kurze Werbevideo zeigt die Vorteile des neuen Fahrrads und soll Käufer ansprechen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbevideo' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Urlaubsvideo: Documents a holiday. Werbevideo: Correct: advertisement video. Schulungsvideo: Teaches a skill. Überwachungsvideo: Records surveillance. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2669-v2",
+          "contextKey": "legacy-0170-L2669-context-2",
+          "transferKey": "legacy-0170-L2669-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017016",
+            "type": "choice",
+            "prompt": "Ein Hersteller veröffentlicht einen Clip, der Lust auf den Kauf seiner Schuhe machen soll. Was veröffentlicht er?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The clip tries to persuade customers.",
+              "de": "Der Clip soll Kunden zum Kauf anregen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wetterbericht"
+              },
+              {
+                "id": "1",
+                "text": "Kochanleitung"
+              },
+              {
+                "id": "2",
+                "text": "Sicherheitsprotokoll"
+              },
+              {
+                "id": "3",
+                "text": "Werbevideo"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Werbevideo is a video used for advertising.",
+              "de": "Ein Werbevideo ist ein Video mit Werbezweck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er veröffentlicht ein Werbevideo.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbevideo' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wetterbericht: Weather forecast. Kochanleitung: Cooking instructions. Sicherheitsprotokoll: Safety record. Werbevideo: Correct: promotional clip. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017017",
+      "title": {
+        "en": "Using Werbung accurately",
+        "de": "Werbung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werbung in the sense of advertising intended to attract customers.",
+        "de": "Werbung im Sinn von Werbung zur Gewinnung von Kunden erkennen."
+      },
+      "objective": "Recognize Werbung in the specified advertising intended to attract customers sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2670 (3173bcb6d78ac3e2ce633e9ae9c6da6f2c0f68a430a5c9045194a529d21ab795), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2670-v1",
+          "contextKey": "legacy-0170-L2670-context-1",
+          "transferKey": "legacy-0170-L2670-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017017",
+            "type": "gap_choice",
+            "prompt": "Mit Plakaten und Online-Anzeigen macht das Geschäft ___ für seine Produkte.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The business tries to attract buyers.",
+              "de": "Das Geschäft möchte Käufer gewinnen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verwaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wäsche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wartung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werbung promotes products, services or brands.",
+              "de": "Werbung macht auf Produkte, Dienstleistungen oder Marken aufmerksam."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit Plakaten und Online-Anzeigen macht das Geschäft Werbung für seine Produkte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werbung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verwaltung: Administration. Wäsche: Laundry. Werbung: Correct: advertising. Wartung: Equipment maintenance. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2670-v2",
+          "contextKey": "legacy-0170-L2670-context-2",
+          "transferKey": "legacy-0170-L2670-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017017",
+            "type": "choice",
+            "prompt": "Eine Firma bezahlt für Anzeigen, um ihre Marke bekannter zu machen. Wie nennt man diese Kommunikation?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The message promotes a brand.",
+              "de": "Die Botschaft macht eine Marke bekannt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werbung"
+              },
+              {
+                "id": "1",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "2",
+                "text": "Reparatur"
+              },
+              {
+                "id": "3",
+                "text": "Entsorgung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Werbung promotes products, services or brands.",
+              "de": "Werbung macht auf Produkte, Dienstleistungen oder Marken aufmerksam."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist Werbung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werbung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werbung: Correct: advertising. Buchhaltung: Financial accounting. Reparatur: Repairing a defect. Entsorgung: Waste disposal. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017018",
+      "title": {
+        "en": "Using Werk accurately",
+        "de": "Werk im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werk in the sense of a completed artistic or literary work.",
+        "de": "Werk im Sinn von fertiges künstlerisches oder literarisches Werk erkennen."
+      },
+      "objective": "Recognize Werk in the specified a completed artistic or literary work sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2671 (1679b53607f232d804cf07809d43dc86b308778686f20b6ce070882f86dc0bcc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2671-v1",
+          "contextKey": "legacy-0170-L2671-context-1",
+          "transferKey": "legacy-0170-L2671-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017018",
+            "type": "gap_choice",
+            "prompt": "Der Roman gilt als bedeutendes ___ der deutschen Literatur.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The novel is a literary creation.",
+              "de": "Der Roman ist eine literarische Schöpfung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkhalle"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werk"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werk can mean an artistic or literary creation.",
+              "de": "Werk kann eine künstlerische oder literarische Schöpfung sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Roman gilt als bedeutendes Werk der deutschen Literatur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werk' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werkzeug: A tool. Werkstatt: A workshop. Werkhalle: A factory hall. Werk: Correct: artistic or literary work. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2671-v2",
+          "contextKey": "legacy-0170-L2671-context-2",
+          "transferKey": "legacy-0170-L2671-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017018",
+            "type": "choice",
+            "prompt": "Ein Museum zeigt mehrere Gemälde einer Künstlerin. Wie nennt man die einzelnen künstlerischen Schöpfungen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are creations made by the artist.",
+              "de": "Es sind Schöpfungen der Künstlerin."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wartungen"
+              },
+              {
+                "id": "1",
+                "text": "Werke"
+              },
+              {
+                "id": "2",
+                "text": "Werkzeuge"
+              },
+              {
+                "id": "3",
+                "text": "Warenkörbe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Werk can mean an artistic or literary creation.",
+              "de": "Werk kann eine künstlerische oder literarische Schöpfung sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gemälde sind Werke der Künstlerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werke' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wartungen: Maintenance activities. Werke: Correct: artistic works. Werkzeuge: Tools. Warenkörbe: Shopping carts. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017019",
+      "title": {
+        "en": "Using Werkhalle accurately",
+        "de": "Werkhalle im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werkhalle in the sense of a large hall for industrial work.",
+        "de": "Werkhalle im Sinn von große Halle für industrielle Arbeiten erkennen."
+      },
+      "objective": "Recognize Werkhalle in the specified a large hall for industrial work sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2672 (4d3ab325628d487403a9b35e5fafec23d2f9df684e84d51ab40842f3c791e57c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0170-L2672-v1",
+          "contextKey": "legacy-0170-L2672-context-1",
+          "transferKey": "legacy-0170-L2672-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017019",
+            "type": "gap_choice",
+            "prompt": "In der ___ werden große Maschinen montiert.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a large industrial working space.",
+              "de": "Es ist ein großer Raum für industrielle Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkhalle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Büroküche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umkleide"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werkhalle is a large hall used for industrial work.",
+              "de": "Eine Werkhalle ist eine große Halle für industrielle Arbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Werkhalle werden große Maschinen montiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werkhalle' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werkhalle: Correct: industrial workshop hall. Büroküche: Office kitchen. Bibliothek: Library. Umkleide: Changing room. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0170-L2672-v2",
+          "contextKey": "legacy-0170-L2672-context-2",
+          "transferKey": "legacy-0170-L2672-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001700191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017019",
+            "type": "choice",
+            "prompt": "Ein Betrieb hat einen großen überdachten Raum, in dem Beschäftigte schwere Bauteile bearbeiten. Wie heißt dieser Raum?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The space is used for production work.",
+              "de": "Der Raum dient der industriellen Fertigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfang"
+              },
+              {
+                "id": "1",
+                "text": "Pausenraum"
+              },
+              {
+                "id": "2",
+                "text": "Werkhalle"
+              },
+              {
+                "id": "3",
+                "text": "Besprechungszimmer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Werkhalle is a large hall used for industrial work.",
+              "de": "Eine Werkhalle ist eine große Halle für industrielle Arbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Raum ist eine Werkhalle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werkhalle' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Empfang: Reception area. Pausenraum: Break room. Werkhalle: Correct: factory hall. Besprechungszimmer: Meeting room. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
