@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010400",
+      "title": {
+        "en": "Using weglassen in context",
+        "de": "weglassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use weglassen: leave out or omit something, in two different situations.",
+        "de": "weglassen erkennen und verwenden: etwas weglassen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb weglassen meaning leave out or omit something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L968 (1d5f46584257f0300bc0f79c56bf67eec3085a58893cd4606cbf0ec691fad6ef), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L968-v1",
+          "contextKey": "legacy-0104-L968-context-1",
+          "transferKey": "legacy-0104-L968-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010400",
+            "type": "gap_choice",
+            "prompt": "Wenn du den Bericht kürzen willst, kannst du diesen Absatz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The paragraph can be omitted to shorten the report.",
+              "de": "Der Absatz kann aus dem Bericht entfernt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "weiterleiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "weglassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wiedergeben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "weglassen means leave out or omit something here; \"weglassen\" is the appropriate form.",
+              "de": "weglassen bedeutet hier: etwas weglassen. Die Form „weglassen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn du den Bericht kürzen willst, kannst du diesen Absatz weglassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Wenn du den Bericht kürzen willst, kannst du diesen Absatz weglassen.\" checked for naturalness and grammar. All offered options evaluated: weiterleiten: rejected; not appropriate for the intended meaning, construction or inflection; weglassen: correct for meaning and verb form; wiedergeben: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L968-v2",
+          "contextKey": "legacy-0104-L968-context-2",
+          "transferKey": "legacy-0104-L968-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010400",
+            "type": "choice",
+            "prompt": "Beim Backen hat sie den Zucker bewusst ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She intentionally did not add sugar.",
+              "de": "Sie hat absichtlich keinen Zucker hinzugefügt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergegeben"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "weggelassen"
+              },
+              {
+                "id": "3",
+                "text": "gewogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "weglassen means leave out or omit something here; \"weggelassen\" is the appropriate form.",
+              "de": "weglassen bedeutet hier: etwas weglassen. Die Form „weggelassen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Backen hat sie den Zucker bewusst weggelassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Beim Backen hat sie den Zucker bewusst weggelassen.\" checked for naturalness and grammar. All offered options evaluated: weitergegeben: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; weggelassen: correct for meaning and verb form; gewogen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010401",
+      "title": {
+        "en": "Using weigern in context",
+        "de": "weigern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use weigern: refuse, in the reflexive form sich weigern, in two different situations.",
+        "de": "weigern erkennen und verwenden: sich weigern, etwas zu tun, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb weigern meaning refuse, in the reflexive form sich weigern, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L971 (5c57826be42bbdea02d9abdd83789fa8923dc45a722a3101dff3657286e3e82f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L971-v1",
+          "contextKey": "legacy-0104-L971-context-1",
+          "transferKey": "legacy-0104-L971-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010401",
+            "type": "gap_choice",
+            "prompt": "Er ___ sich, die falsche Erklärung zu unterschreiben.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He refuses to sign the false statement.",
+              "de": "Er lehnt es ab, die Erklärung zu unterschreiben."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "weigert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wundert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wiegt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "winkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "weigern means refuse, in the reflexive form sich weigern here; \"weigert\" is the appropriate form.",
+              "de": "weigern bedeutet hier: sich weigern, etwas zu tun. Die Form „weigert“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er weigert sich, die falsche Erklärung zu unterschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Er weigert sich, die falsche Erklärung zu unterschreiben.\" checked for naturalness and grammar. All offered options evaluated: weigert: correct for meaning and verb form; wundert: rejected; not appropriate for the intended meaning, construction or inflection; wiegt: rejected; not appropriate for the intended meaning, construction or inflection; winkt: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L971-v2",
+          "contextKey": "legacy-0104-L971-context-2",
+          "transferKey": "legacy-0104-L971-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010401",
+            "type": "choice",
+            "prompt": "Die Zeugin hat sich ___, eine Aussage zu machen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She refused to give a statement.",
+              "de": "Sie lehnte eine Aussage ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewinkt"
+              },
+              {
+                "id": "1",
+                "text": "gewogen"
+              },
+              {
+                "id": "2",
+                "text": "gewettet"
+              },
+              {
+                "id": "3",
+                "text": "geweigert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "weigern means refuse, in the reflexive form sich weigern here; \"geweigert\" is the appropriate form.",
+              "de": "weigern bedeutet hier: sich weigern, etwas zu tun. Die Form „geweigert“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zeugin hat sich geweigert, eine Aussage zu machen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Zeugin hat sich geweigert, eine Aussage zu machen.\" checked for naturalness and grammar. All offered options evaluated: gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: rejected; not appropriate for the intended meaning, construction or inflection; geweigert: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010402",
+      "title": {
+        "en": "Using weitergeben in context",
+        "de": "weitergeben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use weitergeben: pass information or an object to someone else, in two different situations.",
+        "de": "weitergeben erkennen und verwenden: etwas an andere weitergeben, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb weitergeben meaning pass information or an object to someone else, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L973 (aa9fcb227d8ffbe951655d81d18c5e71c60676fabf2e86408e4e3ffe723e47e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L973-v1",
+          "contextKey": "legacy-0104-L973-context-1",
+          "transferKey": "legacy-0104-L973-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010402",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ die Information an die nächste Schicht weiter.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The next shift should receive the information.",
+              "de": "Die nächste Schicht soll die Information bekommen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lies"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gib"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wende"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wiege"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "weitergeben means pass information or an object to someone else here; \"gib\" is the appropriate form.",
+              "de": "weitergeben bedeutet hier: etwas an andere weitergeben. Die Form „gib“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte gib die Information an die nächste Schicht weiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Bitte gib die Information an die nächste Schicht weiter.\" checked for naturalness and grammar. All offered options evaluated: lies: rejected; not appropriate for the intended meaning, construction or inflection; gib: correct for meaning and verb form; wende: rejected; not appropriate for the intended meaning, construction or inflection; wiege: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L973-v2",
+          "contextKey": "legacy-0104-L973-context-2",
+          "transferKey": "legacy-0104-L973-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010402",
+            "type": "choice",
+            "prompt": "Sie hat den Hinweis sofort an ihre Kollegin ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She passed the information on.",
+              "de": "Sie gab die Information an ihre Kollegin weiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "weitergegeben"
+              },
+              {
+                "id": "3",
+                "text": "gewogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "weitergeben means pass information or an object to someone else here; \"weitergegeben\" is the appropriate form.",
+              "de": "weitergeben bedeutet hier: etwas an andere weitergeben. Die Form „weitergegeben“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat den Hinweis sofort an ihre Kollegin weitergegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Sie hat den Hinweis sofort an ihre Kollegin weitergegeben.\" checked for naturalness and grammar. All offered options evaluated: vorgelesen: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; weitergegeben: correct for meaning and verb form; gewogen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010403",
+      "title": {
+        "en": "Using weiterleiten in context",
+        "de": "weiterleiten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use weiterleiten: forward a message or call, in two different situations.",
+        "de": "weiterleiten erkennen und verwenden: eine Nachricht oder einen Anruf weiterleiten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb weiterleiten meaning forward a message or call, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L974 (b9a5cc0214159cd5a63d51e102ce100c60fa55866ebb60672e134f3912a3c7cb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L974-v1",
+          "contextKey": "legacy-0104-L974-context-1",
+          "transferKey": "legacy-0104-L974-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010403",
+            "type": "gap_choice",
+            "prompt": "Der Support wird deine E-Mail an die Technikabteilung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The message will be forwarded to another department.",
+              "de": "Die Nachricht wird an eine andere Abteilung geschickt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "weiterleiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wiedergeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "weglassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "weiterleiten means forward a message or call here; \"weiterleiten\" is the appropriate form.",
+              "de": "weiterleiten bedeutet hier: eine Nachricht oder einen Anruf weiterleiten. Die Form „weiterleiten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Support wird deine E-Mail an die Technikabteilung weiterleiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Der Support wird deine E-Mail an die Technikabteilung weiterleiten.\" checked for naturalness and grammar. All offered options evaluated: weiterleiten: correct for meaning and verb form; wiedergeben: rejected; not appropriate for the intended meaning, construction or inflection; weglassen: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L974-v2",
+          "contextKey": "legacy-0104-L974-context-2",
+          "transferKey": "legacy-0104-L974-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010403",
+            "type": "choice",
+            "prompt": "Die Mitarbeiterin hat den Anruf an ihren Vorgesetzten ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The call was transferred to a supervisor.",
+              "de": "Der Anruf wurde zum Vorgesetzten durchgestellt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewendet"
+              },
+              {
+                "id": "1",
+                "text": "gewogen"
+              },
+              {
+                "id": "2",
+                "text": "gewettet"
+              },
+              {
+                "id": "3",
+                "text": "weitergeleitet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "weiterleiten means forward a message or call here; \"weitergeleitet\" is the appropriate form.",
+              "de": "weiterleiten bedeutet hier: eine Nachricht oder einen Anruf weiterleiten. Die Form „weitergeleitet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin hat den Anruf an ihren Vorgesetzten weitergeleitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Mitarbeiterin hat den Anruf an ihren Vorgesetzten weitergeleitet.\" checked for naturalness and grammar. All offered options evaluated: gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: rejected; not appropriate for the intended meaning, construction or inflection; weitergeleitet: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010404",
+      "title": {
+        "en": "Using wenden in context",
+        "de": "wenden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wenden: turn something over, in two different situations.",
+        "de": "wenden erkennen und verwenden: etwas umdrehen oder wenden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wenden meaning turn something over, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L975 (e6242fd94859b417f9847f8c6950141456cbe1a96f9e6d0ef5fa4d0c4397b5ce), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L975-v1",
+          "contextKey": "legacy-0104-L975-context-1",
+          "transferKey": "legacy-0104-L975-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010404",
+            "type": "gap_choice",
+            "prompt": "Wenn die Unterseite braun ist, musst du den Pfannkuchen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The other side should cook too.",
+              "de": "Auch die andere Seite soll gebraten werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "weglassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "winken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wenden means turn something over here; \"wenden\" is the appropriate form.",
+              "de": "wenden bedeutet hier: etwas umdrehen oder wenden. Die Form „wenden“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn die Unterseite braun ist, musst du den Pfannkuchen wenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Wenn die Unterseite braun ist, musst du den Pfannkuchen wenden.\" checked for naturalness and grammar. All offered options evaluated: wiegen: rejected; not appropriate for the intended meaning, construction or inflection; wenden: correct for meaning and verb form; weglassen: rejected; not appropriate for the intended meaning, construction or inflection; winken: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L975-v2",
+          "contextKey": "legacy-0104-L975-context-2",
+          "transferKey": "legacy-0104-L975-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010404",
+            "type": "choice",
+            "prompt": "Die Köchin hat das Gemüse in der Pfanne mehrfach ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The vegetables were turned repeatedly.",
+              "de": "Das Gemüse wurde mehrfach umgedreht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewogen"
+              },
+              {
+                "id": "1",
+                "text": "gewinkt"
+              },
+              {
+                "id": "2",
+                "text": "gewendet"
+              },
+              {
+                "id": "3",
+                "text": "gewettet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "wenden means turn something over here; \"gewendet\" is the appropriate form.",
+              "de": "wenden bedeutet hier: etwas umdrehen oder wenden. Die Form „gewendet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Köchin hat das Gemüse in der Pfanne mehrfach gewendet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Köchin hat das Gemüse in der Pfanne mehrfach gewendet.\" checked for naturalness and grammar. All offered options evaluated: gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: correct for meaning and verb form; gewettet: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010405",
+      "title": {
+        "en": "Using werfen in context",
+        "de": "werfen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use werfen: throw something, in two different situations.",
+        "de": "werfen erkennen und verwenden: etwas werfen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb werfen meaning throw something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L977 (962d98dfb1015f186c83703fdf8e33d280138414a7ab2dd97eca7180918be83d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L977-v1",
+          "contextKey": "legacy-0104-L977-context-1",
+          "transferKey": "legacy-0104-L977-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010405",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ den Ball zu mir!",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The ball should travel through the air to the speaker.",
+              "de": "Der Ball soll durch die Luft zur Person gelangen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wirf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wieg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wink"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wende"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "werfen means throw something here; \"wirf\" is the appropriate form.",
+              "de": "werfen bedeutet hier: etwas werfen. Die Form „wirf“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte wirf den Ball zu mir!",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Bitte wirf den Ball zu mir!\" checked for naturalness and grammar. All offered options evaluated: wirf: correct for meaning and verb form; wieg: rejected; not appropriate for the intended meaning, construction or inflection; wink: rejected; not appropriate for the intended meaning, construction or inflection; wende: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L977-v2",
+          "contextKey": "legacy-0104-L977-context-2",
+          "transferKey": "legacy-0104-L977-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010405",
+            "type": "choice",
+            "prompt": "Der Spieler hat den Ball über den Zaun ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The ball was thrown over the fence.",
+              "de": "Der Ball flog nach einem Wurf über den Zaun."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewendet"
+              },
+              {
+                "id": "1",
+                "text": "gewogen"
+              },
+              {
+                "id": "2",
+                "text": "gewinkt"
+              },
+              {
+                "id": "3",
+                "text": "geworfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "werfen means throw something here; \"geworfen\" is the appropriate form.",
+              "de": "werfen bedeutet hier: etwas werfen. Die Form „geworfen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Spieler hat den Ball über den Zaun geworfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Der Spieler hat den Ball über den Zaun geworfen.\" checked for naturalness and grammar. All offered options evaluated: gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; geworfen: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010406",
+      "title": {
+        "en": "Using wetten in context",
+        "de": "wetten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wetten: bet on an outcome, in two different situations.",
+        "de": "wetten erkennen und verwenden: auf ein Ergebnis wetten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wetten meaning bet on an outcome, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L978 (a68ebc778bafd0e90c1fb535eb9b708950f123f9aa32ca62332a9106ada6fa49), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L978-v1",
+          "contextKey": "legacy-0104-L978-context-1",
+          "transferKey": "legacy-0104-L978-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010406",
+            "type": "gap_choice",
+            "prompt": "Ich würde nicht darauf ___, dass der Zug pünktlich kommt.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker would not stake a prediction on punctuality.",
+              "de": "Die Person möchte nicht auf die Pünktlichkeit setzen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "werfen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wetten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "winken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wiegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wetten means bet on an outcome here; \"wetten\" is the appropriate form.",
+              "de": "wetten bedeutet hier: auf ein Ergebnis wetten. Die Form „wetten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich würde nicht darauf wetten, dass der Zug pünktlich kommt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Ich würde nicht darauf wetten, dass der Zug pünktlich kommt.\" checked for naturalness and grammar. All offered options evaluated: werfen: rejected; not appropriate for the intended meaning, construction or inflection; wetten: correct for meaning and verb form; winken: rejected; not appropriate for the intended meaning, construction or inflection; wiegen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L978-v2",
+          "contextKey": "legacy-0104-L978-context-2",
+          "transferKey": "legacy-0104-L978-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010406",
+            "type": "choice",
+            "prompt": "Die Freunde haben um eine Tasse Kaffee ___, wer das Spiel gewinnt.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They made a small wager about the winner.",
+              "de": "Sie schlossen eine kleine Wette über den Sieger ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewendet"
+              },
+              {
+                "id": "1",
+                "text": "gewogen"
+              },
+              {
+                "id": "2",
+                "text": "gewettet"
+              },
+              {
+                "id": "3",
+                "text": "gewinkt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "wetten means bet on an outcome here; \"gewettet\" is the appropriate form.",
+              "de": "wetten bedeutet hier: auf ein Ergebnis wetten. Die Form „gewettet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Freunde haben um eine Tasse Kaffee gewettet, wer das Spiel gewinnt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Freunde haben um eine Tasse Kaffee gewettet, wer das Spiel gewinnt.\" checked for naturalness and grammar. All offered options evaluated: gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: correct for meaning and verb form; gewinkt: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010407",
+      "title": {
+        "en": "Using widersprechen in context",
+        "de": "widersprechen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use widersprechen: disagree with someone (dative), in two different situations.",
+        "de": "widersprechen erkennen und verwenden: jemandem widersprechen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb widersprechen meaning disagree with someone (dative), including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L979 (8e179a1932fa1c97ad8c9738b2d4079e61e7d8d6f2e77efe3783d690ecbbe59e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L979-v1",
+          "contextKey": "legacy-0104-L979-context-1",
+          "transferKey": "legacy-0104-L979-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010407",
+            "type": "gap_choice",
+            "prompt": "Ich muss dir ___, weil die Zahlen etwas anderes zeigen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker disagrees with the other person's claim.",
+              "de": "Die Person ist anderer Meinung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "widersprechen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "weitergeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "weglassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorlesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "widersprechen means disagree with someone (dative) here; \"widersprechen\" is the appropriate form.",
+              "de": "widersprechen bedeutet hier: jemandem widersprechen. Die Form „widersprechen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich muss dir widersprechen, weil die Zahlen etwas anderes zeigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Ich muss dir widersprechen, weil die Zahlen etwas anderes zeigen.\" checked for naturalness and grammar. All offered options evaluated: widersprechen: correct for meaning and verb form; weitergeben: rejected; not appropriate for the intended meaning, construction or inflection; weglassen: rejected; not appropriate for the intended meaning, construction or inflection; vorlesen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L979-v2",
+          "contextKey": "legacy-0104-L979-context-2",
+          "transferKey": "legacy-0104-L979-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010407",
+            "type": "choice",
+            "prompt": "Die Mitarbeiterin hat dem Vorschlag ihres Chefs offen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She expressed disagreement with the proposal.",
+              "de": "Sie widersprach dem Vorschlag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergeleitet"
+              },
+              {
+                "id": "1",
+                "text": "weggelassen"
+              },
+              {
+                "id": "2",
+                "text": "gewendet"
+              },
+              {
+                "id": "3",
+                "text": "widersprochen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "widersprechen means disagree with someone (dative) here; \"widersprochen\" is the appropriate form.",
+              "de": "widersprechen bedeutet hier: jemandem widersprechen. Die Form „widersprochen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin hat dem Vorschlag ihres Chefs offen widersprochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Mitarbeiterin hat dem Vorschlag ihres Chefs offen widersprochen.\" checked for naturalness and grammar. All offered options evaluated: weitergeleitet: rejected; not appropriate for the intended meaning, construction or inflection; weggelassen: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; widersprochen: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010408",
+      "title": {
+        "en": "Using wiedergeben in context",
+        "de": "wiedergeben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wiedergeben: reproduce or recount information, in two different situations.",
+        "de": "wiedergeben erkennen und verwenden: Informationen wiedergeben, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wiedergeben meaning reproduce or recount information, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L981 (a8d72980d038418043ed46445fc3183b8f1e6185449ca70f0d6ae3c0d7926436), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L981-v1",
+          "contextKey": "legacy-0104-L981-context-1",
+          "transferKey": "legacy-0104-L981-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010408",
+            "type": "gap_choice",
+            "prompt": "Kannst du den Inhalt des Gesprächs in eigenen Worten ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker should recount what was said.",
+              "de": "Die Person soll das Gesagte mit eigenen Worten darstellen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wiedergeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "winken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wiedergeben means reproduce or recount information here; \"wiedergeben\" is the appropriate form.",
+              "de": "wiedergeben bedeutet hier: Informationen wiedergeben. Die Form „wiedergeben“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du den Inhalt des Gesprächs in eigenen Worten wiedergeben?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Kannst du den Inhalt des Gesprächs in eigenen Worten wiedergeben?\" checked for naturalness and grammar. All offered options evaluated: vorlesen: rejected; not appropriate for the intended meaning, construction or inflection; wiedergeben: correct for meaning and verb form; wenden: rejected; not appropriate for the intended meaning, construction or inflection; winken: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L981-v2",
+          "contextKey": "legacy-0104-L981-context-2",
+          "transferKey": "legacy-0104-L981-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010408",
+            "type": "choice",
+            "prompt": "Die Aufnahme hat das Konzert in hoher Qualität ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The recording reproduced the sound of the concert.",
+              "de": "Die Aufnahme gab den Klang des Konzerts wieder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergeleitet"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "wiedergegeben"
+              },
+              {
+                "id": "3",
+                "text": "gewettet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "wiedergeben means reproduce or recount information here; \"wiedergegeben\" is the appropriate form.",
+              "de": "wiedergeben bedeutet hier: Informationen wiedergeben. Die Form „wiedergegeben“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Aufnahme hat das Konzert in hoher Qualität wiedergegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Aufnahme hat das Konzert in hoher Qualität wiedergegeben.\" checked for naturalness and grammar. All offered options evaluated: weitergeleitet: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; wiedergegeben: correct for meaning and verb form; gewettet: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010409",
+      "title": {
+        "en": "Using wiegen in context",
+        "de": "wiegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wiegen: weigh or measure weight, in two different situations.",
+        "de": "wiegen erkennen und verwenden: etwas wiegen oder Gewicht messen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wiegen meaning weigh or measure weight, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L983 (1d94381f0d039e027c3d8de4b1c9f17aceb3d75a89c9a27d603d23afbd15823a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L983-v1",
+          "contextKey": "legacy-0104-L983-context-1",
+          "transferKey": "legacy-0104-L983-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010409",
+            "type": "gap_choice",
+            "prompt": "Vor dem Backen musst du das Mehl genau ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The flour's weight must be measured.",
+              "de": "Das Gewicht des Mehls muss bestimmt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "werfen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "winken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wiegen means weigh or measure weight here; \"wiegen\" is the appropriate form.",
+              "de": "wiegen bedeutet hier: etwas wiegen oder Gewicht messen. Die Form „wiegen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Backen musst du das Mehl genau wiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Vor dem Backen musst du das Mehl genau wiegen.\" checked for naturalness and grammar. All offered options evaluated: wiegen: correct for meaning and verb form; werfen: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection; winken: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L983-v2",
+          "contextKey": "legacy-0104-L983-context-2",
+          "transferKey": "legacy-0104-L983-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010409",
+            "type": "choice",
+            "prompt": "Das Paket hat auf der Waage fünf Kilogramm ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The scale showed a weight of five kilograms.",
+              "de": "Die Waage zeigte fünf Kilogramm an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewinkt"
+              },
+              {
+                "id": "1",
+                "text": "gewettet"
+              },
+              {
+                "id": "2",
+                "text": "gewendet"
+              },
+              {
+                "id": "3",
+                "text": "gewogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "wiegen means weigh or measure weight here; \"gewogen\" is the appropriate form.",
+              "de": "wiegen bedeutet hier: etwas wiegen oder Gewicht messen. Die Form „gewogen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Paket hat auf der Waage fünf Kilogramm gewogen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Das Paket hat auf der Waage fünf Kilogramm gewogen.\" checked for naturalness and grammar. All offered options evaluated: gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010410",
+      "title": {
+        "en": "Using winken in context",
+        "de": "winken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use winken: wave to someone, in two different situations.",
+        "de": "winken erkennen und verwenden: jemandem winken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb winken meaning wave to someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L984 (233111059d933fc7c0a04aa90769d636df14badcb7da86cdb8238249445cb861), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L984-v1",
+          "contextKey": "legacy-0104-L984-context-1",
+          "transferKey": "legacy-0104-L984-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010410",
+            "type": "gap_choice",
+            "prompt": "Am Bahnsteig ___ die Kinder ihrer Oma zum Abschied.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They gesture goodbye with their hands.",
+              "de": "Sie verabschieden sich mit einer Handbewegung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "winken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "werfen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "winken means wave to someone here; \"winken\" is the appropriate form.",
+              "de": "winken bedeutet hier: jemandem winken. Die Form „winken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Bahnsteig winken die Kinder ihrer Oma zum Abschied.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Am Bahnsteig winken die Kinder ihrer Oma zum Abschied.\" checked for naturalness and grammar. All offered options evaluated: wiegen: rejected; not appropriate for the intended meaning, construction or inflection; winken: correct for meaning and verb form; wenden: rejected; not appropriate for the intended meaning, construction or inflection; werfen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L984-v2",
+          "contextKey": "legacy-0104-L984-context-2",
+          "transferKey": "legacy-0104-L984-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010410",
+            "type": "choice",
+            "prompt": "Sie hat uns vom Fenster aus freundlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She greeted them with a hand gesture.",
+              "de": "Sie grüßte mit einer Handbewegung vom Fenster."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewogen"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "gewinkt"
+              },
+              {
+                "id": "3",
+                "text": "gewettet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "winken means wave to someone here; \"gewinkt\" is the appropriate form.",
+              "de": "winken bedeutet hier: jemandem winken. Die Form „gewinkt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat uns vom Fenster aus freundlich gewinkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Sie hat uns vom Fenster aus freundlich gewinkt.\" checked for naturalness and grammar. All offered options evaluated: gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gewinkt: correct for meaning and verb form; gewettet: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010411",
+      "title": {
+        "en": "Using wirken in context",
+        "de": "wirken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wirken: have an effect, in two different situations.",
+        "de": "wirken erkennen und verwenden: eine Wirkung haben, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wirken meaning have an effect, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L985 (8aa63574933aedcdbf649ca3dcf7e82a5f1cbabeb5b929320b8c544ef9e6a491), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L985-v1",
+          "contextKey": "legacy-0104-L985-context-1",
+          "transferKey": "legacy-0104-L985-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010411",
+            "type": "gap_choice",
+            "prompt": "Das neue Schmerzmittel soll innerhalb einer Stunde ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The medicine should start having an effect.",
+              "de": "Das Medikament soll seine Wirkung entfalten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wirken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "winken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wirken means have an effect here; \"wirken\" is the appropriate form.",
+              "de": "wirken bedeutet hier: eine Wirkung haben. Die Form „wirken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das neue Schmerzmittel soll innerhalb einer Stunde wirken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Das neue Schmerzmittel soll innerhalb einer Stunde wirken.\" checked for naturalness and grammar. All offered options evaluated: wirken: correct for meaning and verb form; wiegen: rejected; not appropriate for the intended meaning, construction or inflection; winken: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L985-v2",
+          "contextKey": "legacy-0104-L985-context-2",
+          "transferKey": "legacy-0104-L985-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010411",
+            "type": "choice",
+            "prompt": "Die Maßnahmen haben schneller ___ als erwartet.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The measures became effective sooner than expected.",
+              "de": "Die Maßnahmen zeigten früher als erwartet eine Wirkung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "geworfen"
+              },
+              {
+                "id": "1",
+                "text": "gewogen"
+              },
+              {
+                "id": "2",
+                "text": "gewinkt"
+              },
+              {
+                "id": "3",
+                "text": "gewirkt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "wirken means have an effect here; \"gewirkt\" is the appropriate form.",
+              "de": "wirken bedeutet hier: eine Wirkung haben. Die Form „gewirkt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Maßnahmen haben schneller gewirkt als erwartet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Maßnahmen haben schneller gewirkt als erwartet.\" checked for naturalness and grammar. All offered options evaluated: geworfen: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; gewirkt: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010412",
+      "title": {
+        "en": "Using wohlfühlen in context",
+        "de": "wohlfühlen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wohlfühlen: feel comfortable, reflexive sich wohlfühlen, in two different situations.",
+        "de": "wohlfühlen erkennen und verwenden: sich wohlfühlen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wohlfühlen meaning feel comfortable, reflexive sich wohlfühlen, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L987 (be724b989c141c4dda6829c96658128a8e8413c786b847b47cf343be05b2c845), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L987-v1",
+          "contextKey": "legacy-0104-L987-context-1",
+          "transferKey": "legacy-0104-L987-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010412",
+            "type": "gap_choice",
+            "prompt": "In der neuen Wohnung kann ich mich endlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker feels comfortable at home.",
+              "de": "Die Person fühlt sich zu Hause angenehm und sicher."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wiedergeben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wohlfühlen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "weiterleiten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "weglassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wohlfühlen means feel comfortable, reflexive sich wohlfühlen here; \"wohlfühlen\" is the appropriate form.",
+              "de": "wohlfühlen bedeutet hier: sich wohlfühlen. Die Form „wohlfühlen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der neuen Wohnung kann ich mich endlich wohlfühlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"In der neuen Wohnung kann ich mich endlich wohlfühlen.\" checked for naturalness and grammar. All offered options evaluated: wiedergeben: rejected; not appropriate for the intended meaning, construction or inflection; wohlfühlen: correct for meaning and verb form; weiterleiten: rejected; not appropriate for the intended meaning, construction or inflection; weglassen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L987-v2",
+          "contextKey": "legacy-0104-L987-context-2",
+          "transferKey": "legacy-0104-L987-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010412",
+            "type": "choice",
+            "prompt": "Nach einigen Wochen hat sie sich im Team richtig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She became comfortable among her colleagues.",
+              "de": "Sie fühlte sich unter den Kolleginnen und Kollegen wohl."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergegeben"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "wohlgefühlt"
+              },
+              {
+                "id": "3",
+                "text": "gewogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "wohlfühlen means feel comfortable, reflexive sich wohlfühlen here; \"wohlgefühlt\" is the appropriate form.",
+              "de": "wohlfühlen bedeutet hier: sich wohlfühlen. Die Form „wohlgefühlt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach einigen Wochen hat sie sich im Team richtig wohlgefühlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Nach einigen Wochen hat sie sich im Team richtig wohlgefühlt.\" checked for naturalness and grammar. All offered options evaluated: weitergegeben: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; wohlgefühlt: correct for meaning and verb form; gewogen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010413",
+      "title": {
+        "en": "Using wundern in context",
+        "de": "wundern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wundern: surprise or astonish someone, in two different situations.",
+        "de": "wundern erkennen und verwenden: jemanden wundern oder überraschen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wundern meaning surprise or astonish someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L990 (23dc33878db3fb7dca78e5bd98fded3bdd68b8529d7c746d2bd6c63803113551), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L990-v1",
+          "contextKey": "legacy-0104-L990-context-1",
+          "transferKey": "legacy-0104-L990-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010413",
+            "type": "gap_choice",
+            "prompt": "Es würde mich ___, wenn der Zug heute pünktlich wäre.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Punctuality would be unexpected.",
+              "de": "Pünktlichkeit wäre überraschend."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wundern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "werfen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wundern means surprise or astonish someone here; \"wundern\" is the appropriate form.",
+              "de": "wundern bedeutet hier: jemanden wundern oder überraschen. Die Form „wundern“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es würde mich wundern, wenn der Zug heute pünktlich wäre.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Es würde mich wundern, wenn der Zug heute pünktlich wäre.\" checked for naturalness and grammar. All offered options evaluated: wundern: correct for meaning and verb form; wiegen: rejected; not appropriate for the intended meaning, construction or inflection; werfen: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L990-v2",
+          "contextKey": "legacy-0104-L990-context-2",
+          "transferKey": "legacy-0104-L990-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010413",
+            "type": "choice",
+            "prompt": "Die plötzliche Absage hat uns sehr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The cancellation surprised them.",
+              "de": "Die Absage kam für sie überraschend."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewogen"
+              },
+              {
+                "id": "1",
+                "text": "gewettet"
+              },
+              {
+                "id": "2",
+                "text": "gewinkt"
+              },
+              {
+                "id": "3",
+                "text": "gewundert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "wundern means surprise or astonish someone here; \"gewundert\" is the appropriate form.",
+              "de": "wundern bedeutet hier: jemanden wundern oder überraschen. Die Form „gewundert“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die plötzliche Absage hat uns sehr gewundert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die plötzliche Absage hat uns sehr gewundert.\" checked for naturalness and grammar. All offered options evaluated: gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: rejected; not appropriate for the intended meaning, construction or inflection; gewinkt: rejected; not appropriate for the intended meaning, construction or inflection; gewundert: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010414",
+      "title": {
+        "en": "Using zählen in context",
+        "de": "zählen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zählen: count objects or votes, in two different situations.",
+        "de": "zählen erkennen und verwenden: Gegenstände oder Stimmen zählen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb zählen meaning count objects or votes, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L993 (0e6d238e7076870d9999e0ab7468eafa9dfab3c67be854b5b60a2ebc4fd47a4a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L993-v1",
+          "contextKey": "legacy-0104-L993-context-1",
+          "transferKey": "legacy-0104-L993-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010414",
+            "type": "gap_choice",
+            "prompt": "Kannst du bitte die Stühle im Raum ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants to know the number of chairs.",
+              "de": "Die Anzahl der Stühle soll bestimmt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zelten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zählen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "winken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zählen means count objects or votes here; \"zählen\" is the appropriate form.",
+              "de": "zählen bedeutet hier: Gegenstände oder Stimmen zählen. Die Form „zählen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du bitte die Stühle im Raum zählen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Kannst du bitte die Stühle im Raum zählen?\" checked for naturalness and grammar. All offered options evaluated: zelten: rejected; not appropriate for the intended meaning, construction or inflection; zählen: correct for meaning and verb form; wenden: rejected; not appropriate for the intended meaning, construction or inflection; winken: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L993-v2",
+          "contextKey": "legacy-0104-L993-context-2",
+          "transferKey": "legacy-0104-L993-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010414",
+            "type": "choice",
+            "prompt": "Vor der Wahlentscheidung wurden alle Stimmen zweimal ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The votes were counted twice.",
+              "de": "Die Anzahl der Stimmen wurde zweimal ermittelt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gezeltet"
+              },
+              {
+                "id": "1",
+                "text": "gewendet"
+              },
+              {
+                "id": "2",
+                "text": "gezählt"
+              },
+              {
+                "id": "3",
+                "text": "gewogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zählen means count objects or votes here; \"gezählt\" is the appropriate form.",
+              "de": "zählen bedeutet hier: Gegenstände oder Stimmen zählen. Die Form „gezählt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Wahlentscheidung wurden alle Stimmen zweimal gezählt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Vor der Wahlentscheidung wurden alle Stimmen zweimal gezählt.\" checked for naturalness and grammar. All offered options evaluated: gezeltet: rejected; not appropriate for the intended meaning, construction or inflection; gewendet: rejected; not appropriate for the intended meaning, construction or inflection; gezählt: correct for meaning and verb form; gewogen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010415",
+      "title": {
+        "en": "Using zelten in context",
+        "de": "zelten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zelten: camp in a tent, in two different situations.",
+        "de": "zelten erkennen und verwenden: in einem Zelt übernachten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb zelten meaning camp in a tent, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L996 (1498689e0c9e63dd59ebd2746e6fcdf3087ff244a46a4d72e1c10d9179834d3b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L996-v1",
+          "contextKey": "legacy-0104-L996-context-1",
+          "transferKey": "legacy-0104-L996-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010415",
+            "type": "gap_choice",
+            "prompt": "Im Sommer möchten wir am See ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They plan to sleep outdoors in a tent.",
+              "de": "Sie möchten draußen im Zelt übernachten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zelten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zählen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wiegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zelten means camp in a tent here; \"zelten\" is the appropriate form.",
+              "de": "zelten bedeutet hier: in einem Zelt übernachten. Die Form „zelten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Sommer möchten wir am See zelten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Im Sommer möchten wir am See zelten.\" checked for naturalness and grammar. All offered options evaluated: zelten: correct for meaning and verb form; zählen: rejected; not appropriate for the intended meaning, construction or inflection; wenden: rejected; not appropriate for the intended meaning, construction or inflection; wiegen: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L996-v2",
+          "contextKey": "legacy-0104-L996-context-2",
+          "transferKey": "legacy-0104-L996-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010415",
+            "type": "choice",
+            "prompt": "Die Gruppe hat drei Nächte auf dem Campingplatz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They stayed in tents for three nights.",
+              "de": "Die Gruppe übernachtete drei Nächte in Zelten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gezählt"
+              },
+              {
+                "id": "1",
+                "text": "gewettet"
+              },
+              {
+                "id": "2",
+                "text": "gewogen"
+              },
+              {
+                "id": "3",
+                "text": "gezeltet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zelten means camp in a tent here; \"gezeltet\" is the appropriate form.",
+              "de": "zelten bedeutet hier: in einem Zelt übernachten. Die Form „gezeltet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe hat drei Nächte auf dem Campingplatz gezeltet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Gruppe hat drei Nächte auf dem Campingplatz gezeltet.\" checked for naturalness and grammar. All offered options evaluated: gezählt: rejected; not appropriate for the intended meaning, construction or inflection; gewettet: rejected; not appropriate for the intended meaning, construction or inflection; gewogen: rejected; not appropriate for the intended meaning, construction or inflection; gezeltet: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010418",
+      "title": {
+        "en": "Using zerstören in context",
+        "de": "zerstören im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zerstören: destroy something completely or severely, in two different situations.",
+        "de": "zerstören erkennen und verwenden: etwas zerstören, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb zerstören meaning destroy something completely or severely, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L999 (a5beb692fe117f0951ba056a7c734d1a9b334a5dd4bd1eef9279440c8f10d5e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L999-v1",
+          "contextKey": "legacy-0104-L999-context-1",
+          "transferKey": "legacy-0104-L999-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010418",
+            "type": "gap_choice",
+            "prompt": "Das Feuer könnte das gesamte Lager ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The fire could ruin the storage facility.",
+              "de": "Das Feuer könnte das Lager vollständig vernichten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zubereiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zerstören"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zählen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zelten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zerstören means destroy something completely or severely here; \"zerstören\" is the appropriate form.",
+              "de": "zerstören bedeutet hier: etwas zerstören. Die Form „zerstören“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Feuer könnte das gesamte Lager zerstören.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Das Feuer könnte das gesamte Lager zerstören.\" checked for naturalness and grammar. All offered options evaluated: zubereiten: rejected; not appropriate for the intended meaning, construction or inflection; zerstören: correct for meaning and verb form; zählen: rejected; not appropriate for the intended meaning, construction or inflection; zelten: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L999-v2",
+          "contextKey": "legacy-0104-L999-context-2",
+          "transferKey": "legacy-0104-L999-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010418",
+            "type": "choice",
+            "prompt": "Der Sturm hat mehrere Dächer vollständig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The roofs were ruined by the storm.",
+              "de": "Der Sturm richtete an den Dächern vollständige Zerstörung an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zubereitet"
+              },
+              {
+                "id": "1",
+                "text": "gezählt"
+              },
+              {
+                "id": "2",
+                "text": "zerstört"
+              },
+              {
+                "id": "3",
+                "text": "gezeltet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zerstören means destroy something completely or severely here; \"zerstört\" is the appropriate form.",
+              "de": "zerstören bedeutet hier: etwas zerstören. Die Form „zerstört“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Sturm hat mehrere Dächer vollständig zerstört.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Der Sturm hat mehrere Dächer vollständig zerstört.\" checked for naturalness and grammar. All offered options evaluated: zubereitet: rejected; not appropriate for the intended meaning, construction or inflection; gezählt: rejected; not appropriate for the intended meaning, construction or inflection; zerstört: correct for meaning and verb form; gezeltet: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010419",
+      "title": {
+        "en": "Using zubereiten in context",
+        "de": "zubereiten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zubereiten: prepare food, in two different situations.",
+        "de": "zubereiten erkennen und verwenden: Speisen zubereiten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb zubereiten meaning prepare food, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1002 (c920c8cbf224b4bd6a715af9435066db0797ee45a9abfce732aaa2c2fbeefed5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0104-L1002-v1",
+          "contextKey": "legacy-0104-L1002-context-1",
+          "transferKey": "legacy-0104-L1002-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010419",
+            "type": "gap_choice",
+            "prompt": "Für die Gäste möchte ich ein vegetarisches Abendessen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker plans to cook a meal.",
+              "de": "Die Person möchte ein Essen kochen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zubereiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zerstören"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zählen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zelten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zubereiten means prepare food here; \"zubereiten\" is the appropriate form.",
+              "de": "zubereiten bedeutet hier: Speisen zubereiten. Die Form „zubereiten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Gäste möchte ich ein vegetarisches Abendessen zubereiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Für die Gäste möchte ich ein vegetarisches Abendessen zubereiten.\" checked for naturalness and grammar. All offered options evaluated: zubereiten: correct for meaning and verb form; zerstören: rejected; not appropriate for the intended meaning, construction or inflection; zählen: rejected; not appropriate for the intended meaning, construction or inflection; zelten: rejected; not appropriate for the intended meaning, construction or inflection. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0104-L1002-v2",
+          "contextKey": "legacy-0104-L1002-context-2",
+          "transferKey": "legacy-0104-L1002-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001040191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010419",
+            "type": "choice",
+            "prompt": "Die Köchin hat die Suppe frisch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The soup was freshly prepared.",
+              "de": "Die Suppe wurde frisch gekocht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zerstört"
+              },
+              {
+                "id": "1",
+                "text": "gezählt"
+              },
+              {
+                "id": "2",
+                "text": "gezeltet"
+              },
+              {
+                "id": "3",
+                "text": "zubereitet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zubereiten means prepare food here; \"zubereitet\" is the appropriate form.",
+              "de": "zubereiten bedeutet hier: Speisen zubereiten. Die Form „zubereitet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Köchin hat die Suppe frisch zubereitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: complete German sentence \"Die Köchin hat die Suppe frisch zubereitet.\" checked for naturalness and grammar. All offered options evaluated: zerstört: rejected; not appropriate for the intended meaning, construction or inflection; gezählt: rejected; not appropriate for the intended meaning, construction or inflection; gezeltet: rejected; not appropriate for the intended meaning, construction or inflection; zubereitet: correct for meaning and verb form. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer in intended reading. Human review pending."
+        }
+      ]
+    }
+  ]
+}
