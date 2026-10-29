@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000008000",
+      "title": {
+        "en": "Using platzieren in context",
+        "de": "platzieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use platzieren (position or place deliberately) in two distinct contexts.",
+        "de": "platzieren (etwas gezielt an einer Stelle anordnen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb platzieren meaning position or place deliberately, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L635 (27ef8049e7e0c7222bd1b931ca960dc1ec0df25f20fb03198faeaa32ca71ef99), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L635-v1",
+          "contextKey": "legacy-0080-L635-context-1",
+          "transferKey": "legacy-0080-L635-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008000",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie das Logo oben rechts auf dem Plakat.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The logo should be positioned in a specified location.",
+              "de": "Das Logo soll an einer bestimmten Stelle angeordnet werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entfernen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verbergen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "löschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "platzieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "platzieren means position or place deliberately. The logo should be positioned in a specified location.",
+              "de": "platzieren bedeutet etwas gezielt an einer Stelle anordnen. Das Logo soll an einer bestimmten Stelle angeordnet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte platzieren Sie das Logo oben rechts auf dem Plakat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bitte platzieren Sie das Logo oben rechts auf dem Plakat.\", verb form and construction, all four offered options (entfernen / verbergen / löschen / platzieren), unique answer \"platzieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L635-v2",
+          "contextKey": "legacy-0080-L635-context-2",
+          "transferKey": "legacy-0080-L635-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008000",
+            "type": "choice",
+            "prompt": "Die Ausstellung hat die Skulptur mitten im Raum auf einem Sockel ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The artwork was deliberately positioned for visitors.",
+              "de": "Das Kunstwerk wurde für die Besucher an einem Ort aufgestellt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "platziert"
+              },
+              {
+                "id": "1",
+                "text": "verkauft"
+              },
+              {
+                "id": "2",
+                "text": "beschädigt"
+              },
+              {
+                "id": "3",
+                "text": "ersetzt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "platzieren means position or place deliberately. The artwork was deliberately positioned for visitors.",
+              "de": "platzieren bedeutet etwas gezielt an einer Stelle anordnen. Das Kunstwerk wurde für die Besucher an einem Ort aufgestellt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ausstellung hat die Skulptur mitten im Raum auf einem Sockel platziert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Ausstellung hat die Skulptur mitten im Raum auf einem Sockel platziert.\", verb form and construction, all four offered options (platziert / verkauft / beschädigt / ersetzt), unique answer \"platziert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008001",
+      "title": {
+        "en": "Using plaudern in context",
+        "de": "plaudern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use plaudern (chat informally) in two distinct contexts.",
+        "de": "plaudern (sich ungezwungen unterhalten) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb plaudern meaning chat informally, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L636 (c61b6574cfcd15102a06440f411ab3d3e183dd624185921b6ea544686507c427), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L636-v1",
+          "contextKey": "legacy-0080-L636-context-1",
+          "transferKey": "legacy-0080-L636-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008001",
+            "type": "gap_choice",
+            "prompt": "In der Pause ___ die Kolleginnen entspannt über ihren Urlaub.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The conversation is casual and relaxed.",
+              "de": "Das Gespräch ist locker und ungezwungen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verhandeln"
+                  },
+                  {
+                    "id": "1",
+                    "text": "schweigen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "plaudern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "streiten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "plaudern means chat informally. The conversation is casual and relaxed.",
+              "de": "plaudern bedeutet sich ungezwungen unterhalten. Das Gespräch ist locker und ungezwungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Pause plaudern die Kolleginnen entspannt über ihren Urlaub.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"In der Pause plaudern die Kolleginnen entspannt über ihren Urlaub.\", verb form and construction, all four offered options (verhandeln / schweigen / plaudern / streiten), unique answer \"plaudern\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L636-v2",
+          "contextKey": "legacy-0080-L636-context-2",
+          "transferKey": "legacy-0080-L636-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008001",
+            "type": "choice",
+            "prompt": "Nach der Sitzung blieben zwei Gäste, um noch ein wenig miteinander zu ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They stayed for an informal conversation.",
+              "de": "Sie blieben für eine ungezwungene Unterhaltung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "protokollieren"
+              },
+              {
+                "id": "1",
+                "text": "referieren"
+              },
+              {
+                "id": "2",
+                "text": "verhandeln"
+              },
+              {
+                "id": "3",
+                "text": "plaudern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "plaudern means chat informally. They stayed for an informal conversation.",
+              "de": "plaudern bedeutet sich ungezwungen unterhalten. Sie blieben für eine ungezwungene Unterhaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Sitzung blieben zwei Gäste, um noch ein wenig miteinander zu plaudern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Sitzung blieben zwei Gäste, um noch ein wenig miteinander zu plaudern.\", verb form and construction, all four offered options (protokollieren / referieren / verhandeln / plaudern), unique answer \"plaudern\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008002",
+      "title": {
+        "en": "Using präsentieren in context",
+        "de": "präsentieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use präsentieren (present or showcase to an audience) in two distinct contexts.",
+        "de": "präsentieren (etwas vor anderen vorstellen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb präsentieren meaning present or showcase to an audience, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L637 (ee0b45ddbd1e0ef16b76abfa2b2a4ca5be6f587009654a27736b63b307303f95), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L637-v1",
+          "contextKey": "legacy-0080-L637-context-1",
+          "transferKey": "legacy-0080-L637-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008002",
+            "type": "gap_choice",
+            "prompt": "Morgen muss sie die Ergebnisse vor dem Vorstand ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The findings will be shown and explained to decision-makers.",
+              "de": "Die Ergebnisse sollen vor Entscheidungsträgern vorgestellt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verstecken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "präsentieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verändern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vergessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "präsentieren means present or showcase to an audience. The findings will be shown and explained to decision-makers.",
+              "de": "präsentieren bedeutet etwas vor anderen vorstellen. Die Ergebnisse sollen vor Entscheidungsträgern vorgestellt werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Morgen muss sie die Ergebnisse vor dem Vorstand präsentieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Morgen muss sie die Ergebnisse vor dem Vorstand präsentieren.\", verb form and construction, all four offered options (verstecken / präsentieren / verändern / vergessen), unique answer \"präsentieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L637-v2",
+          "contextKey": "legacy-0080-L637-context-2",
+          "transferKey": "legacy-0080-L637-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008002",
+            "type": "choice",
+            "prompt": "Auf der Messe hat das Team seinen Prototyp vor Publikum ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The team showed its prototype to an audience.",
+              "de": "Das Team stellte seinen Prototyp vor Zuschauern vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "repariert"
+              },
+              {
+                "id": "1",
+                "text": "verkauft"
+              },
+              {
+                "id": "2",
+                "text": "präsentiert"
+              },
+              {
+                "id": "3",
+                "text": "verpackt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "präsentieren means present or showcase to an audience. The team showed its prototype to an audience.",
+              "de": "präsentieren bedeutet etwas vor anderen vorstellen. Das Team stellte seinen Prototyp vor Zuschauern vor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Messe hat das Team seinen Prototyp vor Publikum präsentiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf der Messe hat das Team seinen Prototyp vor Publikum präsentiert.\", verb form and construction, all four offered options (repariert / verkauft / präsentiert / verpackt), unique answer \"präsentiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008003",
+      "title": {
+        "en": "Using präzisieren in context",
+        "de": "präzisieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use präzisieren (make more precise) in two distinct contexts.",
+        "de": "präzisieren (eine Aussage genauer formulieren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb präzisieren meaning make more precise, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L638 (a54968b10e5d843d8cf05ce5a76686dc7d8a4bc7f361eea052ea3ab0d630168c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L638-v1",
+          "contextKey": "legacy-0080-L638-context-1",
+          "transferKey": "legacy-0080-L638-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008003",
+            "type": "gap_choice",
+            "prompt": "Ihre Anfrage ist noch unklar. Können Sie sie bitte ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks for clearer details.",
+              "de": "Die Anfrage soll genauer formuliert werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "präzisieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abbrechen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschicken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ignorieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "präzisieren means make more precise. The speaker asks for clearer details.",
+              "de": "präzisieren bedeutet eine Aussage genauer formulieren. Die Anfrage soll genauer formuliert werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ihre Anfrage ist noch unklar. Können Sie sie bitte präzisieren?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ihre Anfrage ist noch unklar. Können Sie sie bitte präzisieren?\", verb form and construction, all four offered options (präzisieren / abbrechen / verschicken / ignorieren), unique answer \"präzisieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L638-v2",
+          "contextKey": "legacy-0080-L638-context-2",
+          "transferKey": "legacy-0080-L638-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008003",
+            "type": "choice",
+            "prompt": "Im zweiten Entwurf wurden die technischen Anforderungen genauer ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The new version states the requirements more exactly.",
+              "de": "Die neue Fassung beschreibt die Anforderungen genauer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestrichen"
+              },
+              {
+                "id": "1",
+                "text": "präzisiert"
+              },
+              {
+                "id": "2",
+                "text": "verschoben"
+              },
+              {
+                "id": "3",
+                "text": "verheimlicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "präzisieren means make more precise. The new version states the requirements more exactly.",
+              "de": "präzisieren bedeutet eine Aussage genauer formulieren. Die neue Fassung beschreibt die Anforderungen genauer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im zweiten Entwurf wurden die technischen Anforderungen genauer präzisiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im zweiten Entwurf wurden die technischen Anforderungen genauer präzisiert.\", verb form and construction, all four offered options (gestrichen / präzisiert / verschoben / verheimlicht), unique answer \"präzisiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008004",
+      "title": {
+        "en": "Using preisgeben in context",
+        "de": "preisgeben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use preisgeben (disclose or reveal confidential information) in two distinct contexts.",
+        "de": "preisgeben (geheime Informationen offenbaren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb preisgeben meaning disclose or reveal confidential information, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L639 (fbcc2bfdd232a17e1a6e5c87002d41f209798af29d2767db0ff22791ece224e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L639-v1",
+          "contextKey": "legacy-0080-L639-context-1",
+          "transferKey": "legacy-0080-L639-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008004",
+            "type": "gap_choice",
+            "prompt": "Aus Datenschutzgründen darf sie die vertraulichen Kundendaten nicht an Unbefugte ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The issue is revealing protected information to others.",
+              "de": "Es geht darum, geschützte Informationen anderen mitzuteilen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "überprüfen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "speichern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "löschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "preisgeben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "preisgeben means disclose or reveal confidential information. The issue is revealing protected information to others.",
+              "de": "preisgeben bedeutet geheime Informationen offenbaren. Es geht darum, geschützte Informationen anderen mitzuteilen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus Datenschutzgründen darf sie die vertraulichen Kundendaten nicht an Unbefugte preisgeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Aus Datenschutzgründen darf sie die vertraulichen Kundendaten nicht an Unbefugte preisgeben.\", verb form and construction, all four offered options (überprüfen / speichern / löschen / preisgeben), unique answer \"preisgeben\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L639-v2",
+          "contextKey": "legacy-0080-L639-context-2",
+          "transferKey": "legacy-0080-L639-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008004",
+            "type": "choice",
+            "prompt": "Er wollte das Passwort geheim halten und unter keinen Umständen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The password must not be disclosed.",
+              "de": "Das Passwort darf niemandem verraten werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "preisgeben"
+              },
+              {
+                "id": "1",
+                "text": "zurücksetzen"
+              },
+              {
+                "id": "2",
+                "text": "ändern"
+              },
+              {
+                "id": "3",
+                "text": "vergessen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "preisgeben means disclose or reveal confidential information. The password must not be disclosed.",
+              "de": "preisgeben bedeutet geheime Informationen offenbaren. Das Passwort darf niemandem verraten werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er wollte das Passwort geheim halten und unter keinen Umständen preisgeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Er wollte das Passwort geheim halten und unter keinen Umständen preisgeben.\", verb form and construction, all four offered options (preisgeben / zurücksetzen / ändern / vergessen), unique answer \"preisgeben\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008005",
+      "title": {
+        "en": "Using produzieren in context",
+        "de": "produzieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use produzieren (manufacture or produce) in two distinct contexts.",
+        "de": "produzieren (Waren oder Stoffe herstellen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb produzieren meaning manufacture or produce, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L641 (4d625a9ad01fda1de38b48ff44274ae61a789a331535a6b3f2c3d6b981eed25c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L641-v1",
+          "contextKey": "legacy-0080-L641-context-1",
+          "transferKey": "legacy-0080-L641-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008005",
+            "type": "gap_choice",
+            "prompt": "Aus den angelieferten Einzelteilen kann die Fabrik täglich 500 Fahrräder ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The factory makes finished goods from components.",
+              "de": "Die Fabrik stellt aus Teilen fertige Waren her."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestellen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "reparieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "produzieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verkaufen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "produzieren means manufacture or produce. The factory makes finished goods from components.",
+              "de": "produzieren bedeutet Waren oder Stoffe herstellen. Die Fabrik stellt aus Teilen fertige Waren her."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus den angelieferten Einzelteilen kann die Fabrik täglich 500 Fahrräder produzieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Aus den angelieferten Einzelteilen kann die Fabrik täglich 500 Fahrräder produzieren.\", verb form and construction, all four offered options (bestellen / reparieren / produzieren / verkaufen), unique answer \"produzieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L641-v2",
+          "contextKey": "legacy-0080-L641-context-2",
+          "transferKey": "legacy-0080-L641-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008005",
+            "type": "choice",
+            "prompt": "Weil ein Hochofen ausfiel, hat der Betrieb weniger Stahl ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A furnace failure reduced manufacturing output.",
+              "de": "Der Ausfall des Ofens verringerte die Herstellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gekauft"
+              },
+              {
+                "id": "1",
+                "text": "gelagert"
+              },
+              {
+                "id": "2",
+                "text": "verkauft"
+              },
+              {
+                "id": "3",
+                "text": "produziert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "produzieren means manufacture or produce. A furnace failure reduced manufacturing output.",
+              "de": "produzieren bedeutet Waren oder Stoffe herstellen. Der Ausfall des Ofens verringerte die Herstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil ein Hochofen ausfiel, hat der Betrieb weniger Stahl produziert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Weil ein Hochofen ausfiel, hat der Betrieb weniger Stahl produziert.\", verb form and construction, all four offered options (gekauft / gelagert / verkauft / produziert), unique answer \"produziert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008006",
+      "title": {
+        "en": "Using programmieren in context",
+        "de": "programmieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use programmieren (write software or control instructions) in two distinct contexts.",
+        "de": "programmieren (Software oder Steuerungsabläufe durch Code festlegen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb programmieren meaning write software or control instructions, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L642 (e06e56f7444a80bb352ef77497986ba3305150dd895c79928fc9003940b6f5c8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L642-v1",
+          "contextKey": "legacy-0080-L642-context-1",
+          "transferKey": "legacy-0080-L642-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008006",
+            "type": "gap_choice",
+            "prompt": "Sie lernt, wie man eine App in Python ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The task involves writing code for an app.",
+              "de": "Die Aufgabe besteht darin, Code für eine App zu schreiben."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "übersetzt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "programmiert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "druckt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zeichnet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "programmieren means write software or control instructions. The task involves writing code for an app.",
+              "de": "programmieren bedeutet Software oder Steuerungsabläufe durch Code festlegen. Die Aufgabe besteht darin, Code für eine App zu schreiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie lernt, wie man eine App in Python programmiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie lernt, wie man eine App in Python programmiert.\", verb form and construction, all four offered options (übersetzt / programmiert / druckt / zeichnet), unique answer \"programmiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L642-v2",
+          "contextKey": "legacy-0080-L642-context-2",
+          "transferKey": "legacy-0080-L642-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008006",
+            "type": "choice",
+            "prompt": "Für den Roboter mussten die Ingenieure eine neue Steuerung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The machine needs new control instructions.",
+              "de": "Die Maschine benötigt neue Steuerungsanweisungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpacken"
+              },
+              {
+                "id": "1",
+                "text": "lackieren"
+              },
+              {
+                "id": "2",
+                "text": "programmieren"
+              },
+              {
+                "id": "3",
+                "text": "transportieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "programmieren means write software or control instructions. The machine needs new control instructions.",
+              "de": "programmieren bedeutet Software oder Steuerungsabläufe durch Code festlegen. Die Maschine benötigt neue Steuerungsanweisungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Roboter mussten die Ingenieure eine neue Steuerung programmieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für den Roboter mussten die Ingenieure eine neue Steuerung programmieren.\", verb form and construction, all four offered options (verpacken / lackieren / programmieren / transportieren), unique answer \"programmieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008007",
+      "title": {
+        "en": "Using protestieren in context",
+        "de": "protestieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use protestieren (publicly object or demonstrate) in two distinct contexts.",
+        "de": "protestieren (öffentlich gegen etwas Einspruch erheben) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb protestieren meaning publicly object or demonstrate, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L643 (c0ca188c6ac94ec1982184466452e09e4abab2190691b9e1f75c088b26482211), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L643-v1",
+          "contextKey": "legacy-0080-L643-context-1",
+          "transferKey": "legacy-0080-L643-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008007",
+            "type": "gap_choice",
+            "prompt": "Die Beschäftigten wollen gegen die Kürzungen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The workers intend to voice their opposition.",
+              "de": "Die Beschäftigten wollen ihren Widerstand öffentlich ausdrücken."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "protestieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bezahlen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verkaufen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschweigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "protestieren means publicly object or demonstrate. The workers intend to voice their opposition.",
+              "de": "protestieren bedeutet öffentlich gegen etwas Einspruch erheben. Die Beschäftigten wollen ihren Widerstand öffentlich ausdrücken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beschäftigten wollen gegen die Kürzungen protestieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Beschäftigten wollen gegen die Kürzungen protestieren.\", verb form and construction, all four offered options (protestieren / bezahlen / verkaufen / verschweigen), unique answer \"protestieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L643-v2",
+          "contextKey": "legacy-0080-L643-context-2",
+          "transferKey": "legacy-0080-L643-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008007",
+            "type": "choice",
+            "prompt": "Vor dem Rathaus haben gestern Hunderte Menschen gegen die Schließung des Krankenhauses ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The crowd expressed opposition to a planned closure.",
+              "de": "Die Menschen äußerten ihren Widerstand gegen die Schließung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gearbeitet"
+              },
+              {
+                "id": "1",
+                "text": "protestiert"
+              },
+              {
+                "id": "2",
+                "text": "gewartet"
+              },
+              {
+                "id": "3",
+                "text": "gefeiert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "protestieren means publicly object or demonstrate. The crowd expressed opposition to a planned closure.",
+              "de": "protestieren bedeutet öffentlich gegen etwas Einspruch erheben. Die Menschen äußerten ihren Widerstand gegen die Schließung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Rathaus haben gestern Hunderte Menschen gegen die Schließung des Krankenhauses protestiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Vor dem Rathaus haben gestern Hunderte Menschen gegen die Schließung des Krankenhauses protestiert.\", verb form and construction, all four offered options (gearbeitet / protestiert / gewartet / gefeiert), unique answer \"protestiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008008",
+      "title": {
+        "en": "Using protokollieren in context",
+        "de": "protokollieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use protokollieren (record proceedings or measurements systematically) in two distinct contexts.",
+        "de": "protokollieren (Vorgänge oder Messwerte schriftlich festhalten) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb protokollieren meaning record proceedings or measurements systematically, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L644 (1afb63b4d04cc209f6cdc780d30b161c41fc38be9c6394695a12a08c5eb8794e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L644-v1",
+          "contextKey": "legacy-0080-L644-context-1",
+          "transferKey": "legacy-0080-L644-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008008",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie alle Beschlüsse der Sitzung schriftlich.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Decisions should be recorded in meeting minutes.",
+              "de": "Die Beschlüsse sollen im Sitzungsprotokoll festgehalten werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verwerfen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verschweigen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "protokollieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "protokollieren means record proceedings or measurements systematically. Decisions should be recorded in meeting minutes.",
+              "de": "protokollieren bedeutet Vorgänge oder Messwerte schriftlich festhalten. Die Beschlüsse sollen im Sitzungsprotokoll festgehalten werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte protokollieren Sie alle Beschlüsse der Sitzung schriftlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bitte protokollieren Sie alle Beschlüsse der Sitzung schriftlich.\", verb form and construction, all four offered options (verwerfen / verschweigen / verschieben / protokollieren), unique answer \"protokollieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L644-v2",
+          "contextKey": "legacy-0080-L644-context-2",
+          "transferKey": "legacy-0080-L644-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008008",
+            "type": "choice",
+            "prompt": "Während des Versuchs wurden Temperatur und Druck in einem Laborbuch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The readings were documented in a formal record.",
+              "de": "Die Messwerte wurden schriftlich dokumentiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "protokolliert"
+              },
+              {
+                "id": "1",
+                "text": "verändert"
+              },
+              {
+                "id": "2",
+                "text": "geschätzt"
+              },
+              {
+                "id": "3",
+                "text": "ignoriert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "protokollieren means record proceedings or measurements systematically. The readings were documented in a formal record.",
+              "de": "protokollieren bedeutet Vorgänge oder Messwerte schriftlich festhalten. Die Messwerte wurden schriftlich dokumentiert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während des Versuchs wurden Temperatur und Druck in einem Laborbuch protokolliert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Während des Versuchs wurden Temperatur und Druck in einem Laborbuch protokolliert.\", verb form and construction, all four offered options (protokolliert / verändert / geschätzt / ignoriert), unique answer \"protokolliert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008009",
+      "title": {
+        "en": "Using qualifizieren in context",
+        "de": "qualifizieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use qualifizieren (make or become eligible through ability or performance) in two distinct contexts.",
+        "de": "qualifizieren (für eine Aufgabe oder Stufe geeignet machen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb qualifizieren meaning make or become eligible through ability or performance, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L647 (cb34bc5802f766718cdda0f715b277161e6a2ff7783e631825f0b01a3d0659e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L647-v1",
+          "contextKey": "legacy-0080-L647-context-1",
+          "transferKey": "legacy-0080-L647-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008009",
+            "type": "gap_choice",
+            "prompt": "Ihre Ausbildung ___ sie für die Leitungsposition.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Her training makes her eligible for the role.",
+              "de": "Die Ausbildung befähigt sie für diese Position."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verbietet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ersetzt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "qualifiziert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "entlässt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "qualifizieren means make or become eligible through ability or performance. Her training makes her eligible for the role.",
+              "de": "qualifizieren bedeutet für eine Aufgabe oder Stufe geeignet machen. Die Ausbildung befähigt sie für diese Position."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ihre Ausbildung qualifiziert sie für die Leitungsposition.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ihre Ausbildung qualifiziert sie für die Leitungsposition.\", verb form and construction, all four offered options (verbietet / ersetzt / qualifiziert / entlässt), unique answer \"qualifiziert\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L647-v2",
+          "contextKey": "legacy-0080-L647-context-2",
+          "transferKey": "legacy-0080-L647-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008009",
+            "type": "choice",
+            "prompt": "Durch seinen Sieg hat er sich für das Finale ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Winning gave him a place in the next round.",
+              "de": "Durch den Sieg erreichte er die Teilnahmeberechtigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beworben"
+              },
+              {
+                "id": "1",
+                "text": "bedankt"
+              },
+              {
+                "id": "2",
+                "text": "entschuldigt"
+              },
+              {
+                "id": "3",
+                "text": "qualifiziert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "qualifizieren means make or become eligible through ability or performance. Winning gave him a place in the next round.",
+              "de": "qualifizieren bedeutet für eine Aufgabe oder Stufe geeignet machen. Durch den Sieg erreichte er die Teilnahmeberechtigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch seinen Sieg hat er sich für das Finale qualifiziert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Durch seinen Sieg hat er sich für das Finale qualifiziert.\", verb form and construction, all four offered options (beworben / bedankt / entschuldigt / qualifiziert), unique answer \"qualifiziert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008010",
+      "title": {
+        "en": "Using rasieren in context",
+        "de": "rasieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use rasieren (shave hair from the body) in two distinct contexts.",
+        "de": "rasieren (Haare mit einer Klinge entfernen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb rasieren meaning shave hair from the body, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L648 (f94cb88e07e9c84495a8d2c5f36cf00c71b0c28eb02a0316f8fc592c095dae62), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L648-v1",
+          "contextKey": "legacy-0080-L648-context-1",
+          "transferKey": "legacy-0080-L648-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008010",
+            "type": "gap_choice",
+            "prompt": "Er wollte seinen Bart entfernen und sich vor dem Gespräch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The beard will be removed with a razor.",
+              "de": "Der Bart wird mit einem Rasiergerät entfernt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "eincremen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "rasieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schminken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "föhnen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "rasieren means shave hair from the body. The beard will be removed with a razor.",
+              "de": "rasieren bedeutet Haare mit einer Klinge entfernen. Der Bart wird mit einem Rasiergerät entfernt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er wollte seinen Bart entfernen und sich vor dem Gespräch rasieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Er wollte seinen Bart entfernen und sich vor dem Gespräch rasieren.\", verb form and construction, all four offered options (eincremen / rasieren / schminken / föhnen), unique answer \"rasieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L648-v2",
+          "contextKey": "legacy-0080-L648-context-2",
+          "transferKey": "legacy-0080-L648-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008010",
+            "type": "choice",
+            "prompt": "Der Friseur hat ihm die Haare am Nacken ganz kurz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The hair was cut very close to the skin.",
+              "de": "Die Haare wurden direkt an der Haut sehr kurz entfernt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gefärbt"
+              },
+              {
+                "id": "1",
+                "text": "gekämmt"
+              },
+              {
+                "id": "2",
+                "text": "rasiert"
+              },
+              {
+                "id": "3",
+                "text": "getrocknet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "rasieren means shave hair from the body. The hair was cut very close to the skin.",
+              "de": "rasieren bedeutet Haare mit einer Klinge entfernen. Die Haare wurden direkt an der Haut sehr kurz entfernt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Friseur hat ihm die Haare am Nacken ganz kurz rasiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Friseur hat ihm die Haare am Nacken ganz kurz rasiert.\", verb form and construction, all four offered options (gefärbt / gekämmt / rasiert / getrocknet), unique answer \"rasiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008011",
+      "title": {
+        "en": "Using reagieren in context",
+        "de": "reagieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reagieren (respond to an event or stimulus) in two distinct contexts.",
+        "de": "reagieren (auf etwas antworten oder handeln) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reagieren meaning respond to an event or stimulus, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L651 (b38ee96af64de51aad53f681b46c7ffe2aa663848cd227074267f2d1a769d78c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L651-v1",
+          "contextKey": "legacy-0080-L651-context-1",
+          "transferKey": "legacy-0080-L651-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008011",
+            "type": "gap_choice",
+            "prompt": "Auf die Beschwerde sollten wir innerhalb von zwei Tagen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A complaint requires a timely response.",
+              "de": "Eine Beschwerde soll zeitnah beantwortet werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "reagieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verzichten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verkaufen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reagieren means respond to an event or stimulus. A complaint requires a timely response.",
+              "de": "reagieren bedeutet auf etwas antworten oder handeln. Eine Beschwerde soll zeitnah beantwortet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf die Beschwerde sollten wir innerhalb von zwei Tagen reagieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf die Beschwerde sollten wir innerhalb von zwei Tagen reagieren.\", verb form and construction, all four offered options (reagieren / verzichten / verschieben / verkaufen), unique answer \"reagieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L651-v2",
+          "contextKey": "legacy-0080-L651-context-2",
+          "transferKey": "legacy-0080-L651-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008011",
+            "type": "choice",
+            "prompt": "Als der Alarm losging, ___ alle sofort und verließen das Gebäude.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "People responded immediately to the warning.",
+              "de": "Die Menschen handelten sofort nach dem Warnsignal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "schliefen"
+              },
+              {
+                "id": "1",
+                "text": "reagierten"
+              },
+              {
+                "id": "2",
+                "text": "lachten"
+              },
+              {
+                "id": "3",
+                "text": "zögerten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "reagieren means respond to an event or stimulus. People responded immediately to the warning.",
+              "de": "reagieren bedeutet auf etwas antworten oder handeln. Die Menschen handelten sofort nach dem Warnsignal."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als der Alarm losging, reagierten alle sofort und verließen das Gebäude.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Als der Alarm losging, reagierten alle sofort und verließen das Gebäude.\", verb form and construction, all four offered options (schliefen / reagierten / lachten / zögerten), unique answer \"reagierten\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008012",
+      "title": {
+        "en": "Using realisieren in context",
+        "de": "realisieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use realisieren (implement or make a plan real) in two distinct contexts.",
+        "de": "realisieren (einen Plan oder ein Vorhaben verwirklichen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb realisieren meaning implement or make a plan real, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L652 (c6bd61b9afaf613fde42d817785dcbf3933a997df40746a95f4350dffe006695), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L652-v1",
+          "contextKey": "legacy-0080-L652-context-1",
+          "transferKey": "legacy-0080-L652-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008012",
+            "type": "gap_choice",
+            "prompt": "Nach jahrelanger Planung konnte die Gemeinde das Bauprojekt endlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The project is being put into practice.",
+              "de": "Das geplante Vorhaben wird tatsächlich umgesetzt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verschieben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verhindern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "realisieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "realisieren means implement or make a plan real. The project is being put into practice.",
+              "de": "realisieren bedeutet einen Plan oder ein Vorhaben verwirklichen. Das geplante Vorhaben wird tatsächlich umgesetzt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach jahrelanger Planung konnte die Gemeinde das Bauprojekt endlich realisieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach jahrelanger Planung konnte die Gemeinde das Bauprojekt endlich realisieren.\", verb form and construction, all four offered options (verschieben / verhindern / absagen / realisieren), unique answer \"realisieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L652-v2",
+          "contextKey": "legacy-0080-L652-context-2",
+          "transferKey": "legacy-0080-L652-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008012",
+            "type": "choice",
+            "prompt": "Die Firma hat ihre Idee für ein neues Produkt erfolgreich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The concept became an actual product.",
+              "de": "Aus der Idee wurde ein wirkliches Produkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "realisiert"
+              },
+              {
+                "id": "1",
+                "text": "verworfen"
+              },
+              {
+                "id": "2",
+                "text": "verschwiegen"
+              },
+              {
+                "id": "3",
+                "text": "verzögert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "realisieren means implement or make a plan real. The concept became an actual product.",
+              "de": "realisieren bedeutet einen Plan oder ein Vorhaben verwirklichen. Aus der Idee wurde ein wirkliches Produkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat ihre Idee für ein neues Produkt erfolgreich realisiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Firma hat ihre Idee für ein neues Produkt erfolgreich realisiert.\", verb form and construction, all four offered options (realisiert / verworfen / verschwiegen / verzögert), unique answer \"realisiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008013",
+      "title": {
+        "en": "Using recherchieren in context",
+        "de": "recherchieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use recherchieren (investigate facts using sources) in two distinct contexts.",
+        "de": "recherchieren (Informationen systematisch suchen und prüfen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb recherchieren meaning investigate facts using sources, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L653 (350c565e7635067dae7f78f81d4db6c3357589655bedb694d502f0b0c21b6e65), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L653-v1",
+          "contextKey": "legacy-0080-L653-context-1",
+          "transferKey": "legacy-0080-L653-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008013",
+            "type": "gap_choice",
+            "prompt": "Für den Artikel muss die Journalistin die Fakten gründlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She must verify information from sources.",
+              "de": "Sie muss Angaben anhand von Quellen prüfen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erfinden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ignorieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "recherchieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verheimlichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "recherchieren means investigate facts using sources. She must verify information from sources.",
+              "de": "recherchieren bedeutet Informationen systematisch suchen und prüfen. Sie muss Angaben anhand von Quellen prüfen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Artikel muss die Journalistin die Fakten gründlich recherchieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für den Artikel muss die Journalistin die Fakten gründlich recherchieren.\", verb form and construction, all four offered options (erfinden / ignorieren / recherchieren / verheimlichen), unique answer \"recherchieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L653-v2",
+          "contextKey": "legacy-0080-L653-context-2",
+          "transferKey": "legacy-0080-L653-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008013",
+            "type": "choice",
+            "prompt": "Er hat online zu den Sicherheitsmerkmalen des Modells ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He looked for information about the model.",
+              "de": "Er suchte Informationen über das Modell."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verkauft"
+              },
+              {
+                "id": "1",
+                "text": "repariert"
+              },
+              {
+                "id": "2",
+                "text": "gemessen"
+              },
+              {
+                "id": "3",
+                "text": "recherchiert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "recherchieren means investigate facts using sources. He looked for information about the model.",
+              "de": "recherchieren bedeutet Informationen systematisch suchen und prüfen. Er suchte Informationen über das Modell."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat online zu den Sicherheitsmerkmalen des Modells recherchiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Er hat online zu den Sicherheitsmerkmalen des Modells recherchiert.\", verb form and construction, all four offered options (verkauft / repariert / gemessen / recherchiert), unique answer \"recherchiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008014",
+      "title": {
+        "en": "Using reduzieren in context",
+        "de": "reduzieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reduzieren (reduce a quantity) in two distinct contexts.",
+        "de": "reduzieren (eine Menge oder Größe verringern) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reduzieren meaning reduce a quantity, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L656 (1b53bdba7972471699bf2b193abd02de4d0fce3a4ae3050a51da374517862b03), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L656-v1",
+          "contextKey": "legacy-0080-L656-context-1",
+          "transferKey": "legacy-0080-L656-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008014",
+            "type": "gap_choice",
+            "prompt": "Mit LED-Lampen lässt sich der Stromverbrauch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Efficient lighting lowers energy use.",
+              "de": "Sparsame Beleuchtung senkt den Energieverbrauch."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erhöhen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "reduzieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "messen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ignorieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reduzieren means reduce a quantity. Efficient lighting lowers energy use.",
+              "de": "reduzieren bedeutet eine Menge oder Größe verringern. Sparsame Beleuchtung senkt den Energieverbrauch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit LED-Lampen lässt sich der Stromverbrauch reduzieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit LED-Lampen lässt sich der Stromverbrauch reduzieren.\", verb form and construction, all four offered options (erhöhen / reduzieren / messen / ignorieren), unique answer \"reduzieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L656-v2",
+          "contextKey": "legacy-0080-L656-context-2",
+          "transferKey": "legacy-0080-L656-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008014",
+            "type": "choice",
+            "prompt": "Das Unternehmen hat die Verpackungsmenge um ein Drittel ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The quantity became one-third smaller.",
+              "de": "Die Menge wurde um ein Drittel verringert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verdoppelt"
+              },
+              {
+                "id": "1",
+                "text": "erhöht"
+              },
+              {
+                "id": "2",
+                "text": "reduziert"
+              },
+              {
+                "id": "3",
+                "text": "verschoben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "reduzieren means reduce a quantity. The quantity became one-third smaller.",
+              "de": "reduzieren bedeutet eine Menge oder Größe verringern. Die Menge wurde um ein Drittel verringert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen hat die Verpackungsmenge um ein Drittel reduziert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Unternehmen hat die Verpackungsmenge um ein Drittel reduziert.\", verb form and construction, all four offered options (verdoppelt / erhöht / reduziert / verschoben), unique answer \"reduziert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008015",
+      "title": {
+        "en": "Using regeln in context",
+        "de": "regeln im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use regeln (settle or regulate a matter) in two distinct contexts.",
+        "de": "regeln (eine Angelegenheit verbindlich festlegen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb regeln meaning settle or regulate a matter, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L657 (f836019ef5cc7524797dba3a95e96a98d3ad4e20a78b78dc91bedacb30653e34), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L657-v1",
+          "contextKey": "legacy-0080-L657-context-1",
+          "transferKey": "legacy-0080-L657-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008015",
+            "type": "gap_choice",
+            "prompt": "Der Mietvertrag soll die Pflichten beider Seiten klar ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The contract defines responsibilities.",
+              "de": "Der Vertrag legt die Pflichten verbindlich fest."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "regeln"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verheimlichen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ignorieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zerstören"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "regeln means settle or regulate a matter. The contract defines responsibilities.",
+              "de": "regeln bedeutet eine Angelegenheit verbindlich festlegen. Der Vertrag legt die Pflichten verbindlich fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mietvertrag soll die Pflichten beider Seiten klar regeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Mietvertrag soll die Pflichten beider Seiten klar regeln.\", verb form and construction, all four offered options (regeln / verheimlichen / ignorieren / zerstören), unique answer \"regeln\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L657-v2",
+          "contextKey": "legacy-0080-L657-context-2",
+          "transferKey": "legacy-0080-L657-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008015",
+            "type": "choice",
+            "prompt": "Wer ___ die Vertretung, wenn die Teamleiterin Urlaub hat?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Someone must organize who takes over.",
+              "de": "Jemand muss die Stellvertretung organisieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpasst"
+              },
+              {
+                "id": "1",
+                "text": "regelt"
+              },
+              {
+                "id": "2",
+                "text": "bezahlt"
+              },
+              {
+                "id": "3",
+                "text": "beendet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "regeln means settle or regulate a matter. Someone must organize who takes over.",
+              "de": "regeln bedeutet eine Angelegenheit verbindlich festlegen. Jemand muss die Stellvertretung organisieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer regelt die Vertretung, wenn die Teamleiterin Urlaub hat?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wer regelt die Vertretung, wenn die Teamleiterin Urlaub hat?\", verb form and construction, all four offered options (verpasst / regelt / bezahlt / beendet), unique answer \"regelt\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008016",
+      "title": {
+        "en": "Using reichen in context",
+        "de": "reichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reichen (extend to a point or be sufficient) in two distinct contexts.",
+        "de": "reichen (bis zu einem Punkt gehen oder genügen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reichen meaning extend to a point or be sufficient, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L659 (39ac5e3334bbcac51dd09da58f1a0aaa0b38585b78eb3df6a7f7fb76e6c35a35), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L659-v1",
+          "contextKey": "legacy-0080-L659-context-1",
+          "transferKey": "legacy-0080-L659-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008016",
+            "type": "gap_choice",
+            "prompt": "Die Leiter ___ bis zum Dach.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The ladder extends up to the roof.",
+              "de": "Die Leiter reicht bis zur Dachkante."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "sinkt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "fällt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "liegt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "reicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reichen means extend to a point or be sufficient. The ladder extends up to the roof.",
+              "de": "reichen bedeutet bis zu einem Punkt gehen oder genügen. Die Leiter reicht bis zur Dachkante."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Leiter reicht bis zum Dach.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Leiter reicht bis zum Dach.\", verb form and construction, all four offered options (sinkt / fällt / liegt / reicht), unique answer \"reicht\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L659-v2",
+          "contextKey": "legacy-0080-L659-context-2",
+          "transferKey": "legacy-0080-L659-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008016",
+            "type": "choice",
+            "prompt": "Der Vorrat ___ noch für drei Tage.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The available amount is sufficient for three days.",
+              "de": "Die vorhandene Menge genügt für drei Tage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "reicht"
+              },
+              {
+                "id": "1",
+                "text": "wächst"
+              },
+              {
+                "id": "2",
+                "text": "steigt"
+              },
+              {
+                "id": "3",
+                "text": "sinkt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "reichen means extend to a point or be sufficient. The available amount is sufficient for three days.",
+              "de": "reichen bedeutet bis zu einem Punkt gehen oder genügen. Die vorhandene Menge genügt für drei Tage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vorrat reicht noch für drei Tage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Vorrat reicht noch für drei Tage.\", verb form and construction, all four offered options (reicht / wächst / steigt / sinkt), unique answer \"reicht\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008017",
+      "title": {
+        "en": "Using reinigen in context",
+        "de": "reinigen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reinigen (clean thoroughly) in two distinct contexts.",
+        "de": "reinigen (Schmutz oder Rückstände entfernen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reinigen meaning clean thoroughly, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L660 (2fbeed234016739b94b8f8229b9010f2b0c97d3f5bd6e2a131e96ac91a10da3a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L660-v1",
+          "contextKey": "legacy-0080-L660-context-1",
+          "transferKey": "legacy-0080-L660-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008017",
+            "type": "gap_choice",
+            "prompt": "Nach der Operation müssen die Instrumente gründlich ___ werden.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The instruments must be free of residue before reuse.",
+              "de": "Die Instrumente müssen vor der Wiederverwendung sauber sein."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bemalt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verpackt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gereinigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verkauft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reinigen means clean thoroughly. The instruments must be free of residue before reuse.",
+              "de": "reinigen bedeutet Schmutz oder Rückstände entfernen. Die Instrumente müssen vor der Wiederverwendung sauber sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Operation müssen die Instrumente gründlich gereinigt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Operation müssen die Instrumente gründlich gereinigt werden.\", verb form and construction, all four offered options (bemalt / verpackt / gereinigt / verkauft), unique answer \"gereinigt\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L660-v2",
+          "contextKey": "legacy-0080-L660-context-2",
+          "transferKey": "legacy-0080-L660-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008017",
+            "type": "choice",
+            "prompt": "Mit einem feuchten Tuch kannst du die Oberfläche vorsichtig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The cloth is used to remove dirt gently.",
+              "de": "Mit dem Tuch wird Schmutz schonend entfernt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zerkratzen"
+              },
+              {
+                "id": "1",
+                "text": "streichen"
+              },
+              {
+                "id": "2",
+                "text": "schleifen"
+              },
+              {
+                "id": "3",
+                "text": "reinigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "reinigen means clean thoroughly. The cloth is used to remove dirt gently.",
+              "de": "reinigen bedeutet Schmutz oder Rückstände entfernen. Mit dem Tuch wird Schmutz schonend entfernt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einem feuchten Tuch kannst du die Oberfläche vorsichtig reinigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit einem feuchten Tuch kannst du die Oberfläche vorsichtig reinigen.\", verb form and construction, all four offered options (zerkratzen / streichen / schleifen / reinigen), unique answer \"reinigen\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008018",
+      "title": {
+        "en": "Using reizen in context",
+        "de": "reizen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reizen (appeal to someone or irritate physically) in two distinct contexts.",
+        "de": "reizen (interessieren oder körperlich reizen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reizen meaning appeal to someone or irritate physically, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L663 (7bf92496df5407af75a7e8c8629e0c6c5d1522ce63933d7a700e81ff767afc5a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L663-v1",
+          "contextKey": "legacy-0080-L663-context-1",
+          "transferKey": "legacy-0080-L663-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008018",
+            "type": "gap_choice",
+            "prompt": "Ich finde die neue Aufgabe spannend. Sie würde mich beruflich sehr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The opportunity is attractive to the speaker.",
+              "de": "Die Aufgabe wirkt auf die Person besonders interessant."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stören"
+                  },
+                  {
+                    "id": "1",
+                    "text": "reizen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "langweilen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "belasten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reizen means appeal to someone or irritate physically. The opportunity is attractive to the speaker.",
+              "de": "reizen bedeutet interessieren oder körperlich reizen. Die Aufgabe wirkt auf die Person besonders interessant."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich finde die neue Aufgabe spannend. Sie würde mich beruflich sehr reizen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ich finde die neue Aufgabe spannend. Sie würde mich beruflich sehr reizen.\", verb form and construction, all four offered options (stören / reizen / langweilen / belasten), unique answer \"reizen\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L663-v2",
+          "contextKey": "legacy-0080-L663-context-2",
+          "transferKey": "legacy-0080-L663-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008018",
+            "type": "choice",
+            "prompt": "Der starke Rauch kann die Augen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Smoke can cause physical irritation.",
+              "de": "Rauch kann die Augen körperlich irritieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beruhigen"
+              },
+              {
+                "id": "1",
+                "text": "schützen"
+              },
+              {
+                "id": "2",
+                "text": "reizen"
+              },
+              {
+                "id": "3",
+                "text": "heilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "reizen means appeal to someone or irritate physically. Smoke can cause physical irritation.",
+              "de": "reizen bedeutet interessieren oder körperlich reizen. Rauch kann die Augen körperlich irritieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der starke Rauch kann die Augen reizen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der starke Rauch kann die Augen reizen.\", verb form and construction, all four offered options (beruhigen / schützen / reizen / heilen), unique answer \"reizen\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008019",
+      "title": {
+        "en": "Using reklamieren in context",
+        "de": "reklamieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use reklamieren (complain about defective purchased goods) in two distinct contexts.",
+        "de": "reklamieren (fehlerhafte Ware beim Verkäufer beanstanden) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb reklamieren meaning complain about defective purchased goods, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L664 (ddb9ed98815d3b4b437472f9ab3e3dd739ec54f027b797e8f88d2f1f0107471d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0080-L664-v1",
+          "contextKey": "legacy-0080-L664-context-1",
+          "transferKey": "legacy-0080-L664-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008019",
+            "type": "gap_choice",
+            "prompt": "Die Ware kam beschädigt an; wir müssen sie beim Händler ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A damaged delivery is being formally reported.",
+              "de": "Eine beschädigte Lieferung wird beim Händler beanstandet."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "reklamieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "loben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bezahlen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestellen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "reklamieren means complain about defective purchased goods. A damaged delivery is being formally reported.",
+              "de": "reklamieren bedeutet fehlerhafte Ware beim Verkäufer beanstanden. Eine beschädigte Lieferung wird beim Händler beanstandet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ware kam beschädigt an; wir müssen sie beim Händler reklamieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Ware kam beschädigt an; wir müssen sie beim Händler reklamieren.\", verb form and construction, all four offered options (reklamieren / loben / bezahlen / bestellen), unique answer \"reklamieren\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0080-L664-v2",
+          "contextKey": "legacy-0080-L664-context-2",
+          "transferKey": "legacy-0080-L664-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000800191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008019",
+            "type": "choice",
+            "prompt": "Nach dem Kauf hat sie den defekten Wasserkocher beim Händler sofort ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She reported the defect to the seller.",
+              "de": "Sie meldete den Mangel direkt dem Verkäufer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "repariert"
+              },
+              {
+                "id": "1",
+                "text": "reklamiert"
+              },
+              {
+                "id": "2",
+                "text": "verschenkt"
+              },
+              {
+                "id": "3",
+                "text": "gereinigt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "reklamieren means complain about defective purchased goods. She reported the defect to the seller.",
+              "de": "reklamieren bedeutet fehlerhafte Ware beim Verkäufer beanstanden. Sie meldete den Mangel direkt dem Verkäufer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kauf hat sie den defekten Wasserkocher beim Händler sofort reklamiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Kauf hat sie den defekten Wasserkocher beim Händler sofort reklamiert.\", verb form and construction, all four offered options (repariert / reklamiert / verschenkt / gereinigt), unique answer \"reklamiert\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
