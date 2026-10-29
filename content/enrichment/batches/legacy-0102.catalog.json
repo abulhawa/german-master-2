@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010200",
+      "title": {
+        "en": "Using verwenden in context",
+        "de": "verwenden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verwenden: use or employ something for a purpose, in two different situations.",
+        "de": "verwenden erkennen und verwenden: etwas zu einem Zweck verwenden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verwenden meaning use or employ something for a purpose, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L939 (ff2fa4d1abf33ec62909f0078ba5c8025b270d3b2c576add4d8f0d91c207710c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L939-v1",
+          "contextKey": "legacy-0102-L939-context-1",
+          "transferKey": "legacy-0102-L939-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010200",
+            "type": "gap_choice",
+            "prompt": "Für die Präsentation dürfen wir nur lizenzfreie Bilder ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The images may be used in the presentation.",
+              "de": "Die Bilder dürfen in der Präsentation benutzt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verzeihen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verwenden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wachsen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verwenden means use or employ something for a purpose here; \"verwenden\" is the appropriate form.",
+              "de": "verwenden bedeutet hier: etwas zu einem Zweck verwenden. Die Form „verwenden“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Präsentation dürfen wir nur lizenzfreie Bilder verwenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Für die Präsentation dürfen wir nur lizenzfreie Bilder verwenden.\" reviewed for naturalness and verb form. All four choices checked: verzeihen: rejected; does not fit the intended meaning, construction or inflection; verwenden: correct for contextual meaning and grammatical form; vorlesen: rejected; does not fit the intended meaning, construction or inflection; wachsen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L939-v2",
+          "contextKey": "legacy-0102-L939-context-2",
+          "transferKey": "legacy-0102-L939-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010200",
+            "type": "choice",
+            "prompt": "Die Firma hat für die Verpackung recyceltes Papier ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Recycled paper was used as packaging material.",
+              "de": "Recyceltes Papier wurde als Verpackungsmaterial benutzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verziehen"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "verwendet"
+              },
+              {
+                "id": "3",
+                "text": "vorgegangen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "verwenden means use or employ something for a purpose here; \"verwendet\" is the appropriate form.",
+              "de": "verwenden bedeutet hier: etwas zu einem Zweck verwenden. Die Form „verwendet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat für die Verpackung recyceltes Papier verwendet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Firma hat für die Verpackung recyceltes Papier verwendet.\" reviewed for naturalness and verb form. All four choices checked: verziehen: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; verwendet: correct for contextual meaning and grammatical form; vorgegangen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010201",
+      "title": {
+        "en": "Using verzeihen in context",
+        "de": "verzeihen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verzeihen: forgive an error or offence, in two different situations.",
+        "de": "verzeihen erkennen und verwenden: jemandem einen Fehler verzeihen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verzeihen meaning forgive an error or offence, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L940 (4c75d7f5133ceafcf9dcf4f696f3cbb0ec2064d1c4b2040c777b161a2a9b9816), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L940-v1",
+          "contextKey": "legacy-0102-L940-context-1",
+          "transferKey": "legacy-0102-L940-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010201",
+            "type": "gap_choice",
+            "prompt": "Kannst du mir meinen Fehler ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks to be forgiven.",
+              "de": "Die Person bittet um Vergebung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verzeihen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "warnen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorziehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verzeihen means forgive an error or offence here; \"verzeihen\" is the appropriate form.",
+              "de": "verzeihen bedeutet hier: jemandem einen Fehler verzeihen. Die Form „verzeihen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du mir meinen Fehler verzeihen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Kannst du mir meinen Fehler verzeihen?\" reviewed for naturalness and verb form. All four choices checked: verzeihen: correct for contextual meaning and grammatical form; warnen: rejected; does not fit the intended meaning, construction or inflection; vorlegen: rejected; does not fit the intended meaning, construction or inflection; vorziehen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L940-v2",
+          "contextKey": "legacy-0102-L940-context-2",
+          "transferKey": "legacy-0102-L940-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010201",
+            "type": "choice",
+            "prompt": "Nach der Entschuldigung hat sie ihm den Ausbruch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She forgave him after his apology.",
+              "de": "Sie hat ihm nach der Entschuldigung vergeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verwendet"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "verschrieben"
+              },
+              {
+                "id": "3",
+                "text": "verziehen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verzeihen means forgive an error or offence here; \"verziehen\" is the appropriate form.",
+              "de": "verzeihen bedeutet hier: jemandem einen Fehler verzeihen. Die Form „verziehen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Entschuldigung hat sie ihm den Ausbruch verziehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Nach der Entschuldigung hat sie ihm den Ausbruch verziehen.\" reviewed for naturalness and verb form. All four choices checked: verwendet: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; verschrieben: rejected; does not fit the intended meaning, construction or inflection; verziehen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010202",
+      "title": {
+        "en": "Using verzichten in context",
+        "de": "verzichten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verzichten: go without something voluntarily, in two different situations.",
+        "de": "verzichten erkennen und verwenden: freiwillig auf etwas verzichten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verzichten meaning go without something voluntarily, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L941 (8868cadeee2fbb30f700c1105659d65811decfdc4e5c7cad1a19db6bea386c17), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L941-v1",
+          "contextKey": "legacy-0102-L941-context-1",
+          "transferKey": "legacy-0102-L941-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010202",
+            "type": "gap_choice",
+            "prompt": "Aus gesundheitlichen Gründen möchte er auf Alkohol ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He chooses not to consume alcohol.",
+              "de": "Er entscheidet sich, keinen Alkohol zu trinken."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wachsen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verzichten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorlesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verzichten means go without something voluntarily here; \"verzichten\" is the appropriate form.",
+              "de": "verzichten bedeutet hier: freiwillig auf etwas verzichten. Die Form „verzichten“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus gesundheitlichen Gründen möchte er auf Alkohol verzichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Aus gesundheitlichen Gründen möchte er auf Alkohol verzichten.\" reviewed for naturalness and verb form. All four choices checked: wachsen: rejected; does not fit the intended meaning, construction or inflection; verzichten: correct for contextual meaning and grammatical form; vorlegen: rejected; does not fit the intended meaning, construction or inflection; vorlesen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L941-v2",
+          "contextKey": "legacy-0102-L941-context-2",
+          "transferKey": "legacy-0102-L941-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010202",
+            "type": "choice",
+            "prompt": "Während der Reise haben wir auf das Auto ___ und sind Zug gefahren.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They travelled without using a car.",
+              "de": "Sie nutzten auf der Reise kein Auto."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verwendet"
+              },
+              {
+                "id": "1",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "2",
+                "text": "verzichtet"
+              },
+              {
+                "id": "3",
+                "text": "verziehen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "verzichten means go without something voluntarily here; \"verzichtet\" is the appropriate form.",
+              "de": "verzichten bedeutet hier: freiwillig auf etwas verzichten. Die Form „verzichtet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Reise haben wir auf das Auto verzichtet und sind Zug gefahren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Während der Reise haben wir auf das Auto verzichtet und sind Zug gefahren.\" reviewed for naturalness and verb form. All four choices checked: verwendet: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; verzichtet: correct for contextual meaning and grammatical form; verziehen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010203",
+      "title": {
+        "en": "Using vorbeikommen in context",
+        "de": "vorbeikommen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorbeikommen: come by for a visit, in two different situations.",
+        "de": "vorbeikommen erkennen und verwenden: kurz zu Besuch vorbeikommen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorbeikommen meaning come by for a visit, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L942 (258d94fb466b0fc63643336933685b65dae953813b58b52835aba2a3b064e84f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L942-v1",
+          "contextKey": "legacy-0102-L942-context-1",
+          "transferKey": "legacy-0102-L942-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010203",
+            "type": "gap_choice",
+            "prompt": "Wenn du Zeit hast, kannst du nach der Arbeit kurz bei uns ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person is invited to make a short visit.",
+              "de": "Die Person ist zu einem kurzen Besuch eingeladen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorbeikommen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorgehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorliegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorschreiben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorbeikommen means come by for a visit here; \"vorbeikommen\" is the appropriate form.",
+              "de": "vorbeikommen bedeutet hier: kurz zu Besuch vorbeikommen. Die Form „vorbeikommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn du Zeit hast, kannst du nach der Arbeit kurz bei uns vorbeikommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Wenn du Zeit hast, kannst du nach der Arbeit kurz bei uns vorbeikommen.\" reviewed for naturalness and verb form. All four choices checked: vorbeikommen: correct for contextual meaning and grammatical form; vorgehen: rejected; does not fit the intended meaning, construction or inflection; vorliegen: rejected; does not fit the intended meaning, construction or inflection; vorschreiben: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L942-v2",
+          "contextKey": "legacy-0102-L942-context-2",
+          "transferKey": "legacy-0102-L942-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010203",
+            "type": "choice",
+            "prompt": "Gestern ist meine Nachbarin spontan auf einen Kaffee ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The neighbour came for an unplanned visit.",
+              "de": "Die Nachbarin kam ohne vorherige Planung zu Besuch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgeschlagen"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "3",
+                "text": "vorbeigekommen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorbeikommen means come by for a visit here; \"vorbeigekommen\" is the appropriate form.",
+              "de": "vorbeikommen bedeutet hier: kurz zu Besuch vorbeikommen. Die Form „vorbeigekommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Gestern ist meine Nachbarin spontan auf einen Kaffee vorbeigekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Gestern ist meine Nachbarin spontan auf einen Kaffee vorbeigekommen.\" reviewed for naturalness and verb form. All four choices checked: vorgeschlagen: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; vorbeigekommen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010204",
+      "title": {
+        "en": "Using vorgehen in context",
+        "de": "vorgehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorgehen: proceed in a particular manner, in two different situations.",
+        "de": "vorgehen erkennen und verwenden: auf bestimmte Weise vorgehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorgehen meaning proceed in a particular manner, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L944 (42d5fcfb09ad07262025c4ebab62065030933385f6d31c5e6149665cfd70bf57), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L944-v1",
+          "contextKey": "legacy-0102-L944-context-1",
+          "transferKey": "legacy-0102-L944-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010204",
+            "type": "gap_choice",
+            "prompt": "Bei der Fehlersuche müssen wir Schritt für Schritt ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The work should proceed systematically.",
+              "de": "Die Arbeit soll systematisch ablaufen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorbeikommen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorgehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wachsen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorgehen means proceed in a particular manner here; \"vorgehen\" is the appropriate form.",
+              "de": "vorgehen bedeutet hier: auf bestimmte Weise vorgehen. Die Form „vorgehen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Fehlersuche müssen wir Schritt für Schritt vorgehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Bei der Fehlersuche müssen wir Schritt für Schritt vorgehen.\" reviewed for naturalness and verb form. All four choices checked: vorbeikommen: rejected; does not fit the intended meaning, construction or inflection; vorgehen: correct for contextual meaning and grammatical form; vorlesen: rejected; does not fit the intended meaning, construction or inflection; wachsen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L944-v2",
+          "contextKey": "legacy-0102-L944-context-2",
+          "transferKey": "legacy-0102-L944-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010204",
+            "type": "choice",
+            "prompt": "Die Ermittler sind bei der Befragung sehr behutsam ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They handled the questioning carefully.",
+              "de": "Sie gingen bei der Befragung vorsichtig vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "vorgegangen"
+              },
+              {
+                "id": "3",
+                "text": "verzichtet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorgehen means proceed in a particular manner here; \"vorgegangen\" is the appropriate form.",
+              "de": "vorgehen bedeutet hier: auf bestimmte Weise vorgehen. Die Form „vorgegangen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ermittler sind bei der Befragung sehr behutsam vorgegangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Ermittler sind bei der Befragung sehr behutsam vorgegangen.\" reviewed for naturalness and verb form. All four choices checked: vorgelegt: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgegangen: correct for contextual meaning and grammatical form; verzichtet: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010205",
+      "title": {
+        "en": "Using vorhaben in context",
+        "de": "vorhaben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorhaben: intend or plan to do something, in two different situations.",
+        "de": "vorhaben erkennen und verwenden: etwas vorhaben oder beabsichtigen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorhaben meaning intend or plan to do something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L945 (04c15b51aef18f7b198feb448a8b51eb0347fa96a99b028abd02634dd8c0dd0b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L945-v1",
+          "contextKey": "legacy-0102-L945-context-1",
+          "transferKey": "legacy-0102-L945-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010205",
+            "type": "gap_choice",
+            "prompt": "Was hast du am Wochenende ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The question asks about plans.",
+              "de": "Die Frage bezieht sich auf Pläne."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vor"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorhanden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorgeschrieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorgelesen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorhaben means intend or plan to do something here; \"vor\" is the appropriate form.",
+              "de": "vorhaben bedeutet hier: etwas vorhaben oder beabsichtigen. Die Form „vor“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Was hast du am Wochenende vor?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Was hast du am Wochenende vor?\" reviewed for naturalness and verb form. All four choices checked: vor: correct for contextual meaning and grammatical form; vorhanden: rejected; does not fit the intended meaning, construction or inflection; vorgeschrieben: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L945-v2",
+          "contextKey": "legacy-0102-L945-context-2",
+          "transferKey": "legacy-0102-L945-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010205",
+            "type": "choice",
+            "prompt": "Sie hat ___, im nächsten Jahr eine Ausbildung zu beginnen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She intends to start training next year.",
+              "de": "Sie plant, nächstes Jahr eine Ausbildung anzufangen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorhanden"
+              },
+              {
+                "id": "1",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "2",
+                "text": "verziehen"
+              },
+              {
+                "id": "3",
+                "text": "vor"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorhaben means intend or plan to do something here; \"vor\" is the appropriate form.",
+              "de": "vorhaben bedeutet hier: etwas vorhaben oder beabsichtigen. Die Form „vor“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat vor, im nächsten Jahr eine Ausbildung zu beginnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Sie hat vor, im nächsten Jahr eine Ausbildung zu beginnen.\" reviewed for naturalness and verb form. All four choices checked: vorhanden: rejected; does not fit the intended meaning, construction or inflection; vorgelegt: rejected; does not fit the intended meaning, construction or inflection; verziehen: rejected; does not fit the intended meaning, construction or inflection; vor: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010207",
+      "title": {
+        "en": "Using vorherrschen in context",
+        "de": "vorherrschen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorherrschen: predominate or prevail, in two different situations.",
+        "de": "vorherrschen erkennen und verwenden: vorherrschen oder überwiegend bestehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorherrschen meaning predominate or prevail, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L947 (d3b2ba6c080081cacdc4c97716363609ebad681c183b1c1c4228f54ef1533c6e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L947-v1",
+          "contextKey": "legacy-0102-L947-context-1",
+          "transferKey": "legacy-0102-L947-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010207",
+            "type": "gap_choice",
+            "prompt": "Im Hochgebirge können im Winter starke Winde ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Strong winds can be the dominant weather condition.",
+              "de": "Starke Winde können das Wetter bestimmen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorherrschen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verzeihen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorherrschen means predominate or prevail here; \"vorherrschen\" is the appropriate form.",
+              "de": "vorherrschen bedeutet hier: vorherrschen oder überwiegend bestehen. Die Form „vorherrschen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Hochgebirge können im Winter starke Winde vorherrschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Im Hochgebirge können im Winter starke Winde vorherrschen.\" reviewed for naturalness and verb form. All four choices checked: vorlesen: rejected; does not fit the intended meaning, construction or inflection; vorherrschen: correct for contextual meaning and grammatical form; vorlegen: rejected; does not fit the intended meaning, construction or inflection; verzeihen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L947-v2",
+          "contextKey": "legacy-0102-L947-context-2",
+          "transferKey": "legacy-0102-L947-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010207",
+            "type": "choice",
+            "prompt": "Nach dem Streit hat in der Abteilung lange Misstrauen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Distrust was the prevailing mood for a long time.",
+              "de": "Misstrauen bestimmte lange die Stimmung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelegen"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "vorgeherrscht"
+              },
+              {
+                "id": "3",
+                "text": "vorgezogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorherrschen means predominate or prevail here; \"vorgeherrscht\" is the appropriate form.",
+              "de": "vorherrschen bedeutet hier: vorherrschen oder überwiegend bestehen. Die Form „vorgeherrscht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Streit hat in der Abteilung lange Misstrauen vorgeherrscht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Nach dem Streit hat in der Abteilung lange Misstrauen vorgeherrscht.\" reviewed for naturalness and verb form. All four choices checked: vorgelegen: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgeherrscht: correct for contextual meaning and grammatical form; vorgezogen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010208",
+      "title": {
+        "en": "Using vorkommen in context",
+        "de": "vorkommen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorkommen: occur or be found, in two different situations.",
+        "de": "vorkommen erkennen und verwenden: vorkommen oder auftreten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorkommen meaning occur or be found, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L948 (556129ef1fd19d266eb85bda56f51e07975416c3ea5e1a481d8e8450b5e04b76), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L948-v1",
+          "contextKey": "legacy-0102-L948-context-1",
+          "transferKey": "legacy-0102-L948-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010208",
+            "type": "gap_choice",
+            "prompt": "Solche Fehler können bei der Dateneingabe ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Errors of this kind may occur.",
+              "de": "Solche Fehler können auftreten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorkommen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verwenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorkommen means occur or be found here; \"vorkommen\" is the appropriate form.",
+              "de": "vorkommen bedeutet hier: vorkommen oder auftreten. Die Form „vorkommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Solche Fehler können bei der Dateneingabe vorkommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Solche Fehler können bei der Dateneingabe vorkommen.\" reviewed for naturalness and verb form. All four choices checked: vorkommen: correct for contextual meaning and grammatical form; vorlesen: rejected; does not fit the intended meaning, construction or inflection; vorziehen: rejected; does not fit the intended meaning, construction or inflection; verwenden: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L948-v2",
+          "contextKey": "legacy-0102-L948-context-2",
+          "transferKey": "legacy-0102-L948-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010208",
+            "type": "choice",
+            "prompt": "In diesem Wald ___ seltene Vogelarten vor.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Rare bird species are found in the forest.",
+              "de": "In diesem Wald gibt es seltene Vogelarten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "legen"
+              },
+              {
+                "id": "1",
+                "text": "lesen"
+              },
+              {
+                "id": "2",
+                "text": "schreiben"
+              },
+              {
+                "id": "3",
+                "text": "kommen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorkommen means occur or be found here; \"kommen\" is the appropriate form.",
+              "de": "vorkommen bedeutet hier: vorkommen oder auftreten. Die Form „kommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In diesem Wald kommen seltene Vogelarten vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"In diesem Wald kommen seltene Vogelarten vor.\" reviewed for naturalness and verb form. All four choices checked: legen: rejected; does not fit the intended meaning, construction or inflection; lesen: rejected; does not fit the intended meaning, construction or inflection; schreiben: rejected; does not fit the intended meaning, construction or inflection; kommen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010209",
+      "title": {
+        "en": "Using vorlegen in context",
+        "de": "vorlegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorlegen: present or submit a document, in two different situations.",
+        "de": "vorlegen erkennen und verwenden: ein Dokument vorlegen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorlegen meaning present or submit a document, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L949 (61b8bc3e338554fc09d99edf1f3adc659a073e8a17e943d45dce57cbd90b9306), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L949-v1",
+          "contextKey": "legacy-0102-L949-context-1",
+          "transferKey": "legacy-0102-L949-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010209",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie bei der Anmeldung Ihren Ausweis vor.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The identification document must be shown.",
+              "de": "Der Ausweis muss gezeigt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "legen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kommen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorlegen means present or submit a document here; \"legen\" is the appropriate form.",
+              "de": "vorlegen bedeutet hier: ein Dokument vorlegen. Die Form „legen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte legen Sie bei der Anmeldung Ihren Ausweis vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Bitte legen Sie bei der Anmeldung Ihren Ausweis vor.\" reviewed for naturalness and verb form. All four choices checked: lesen: rejected; does not fit the intended meaning, construction or inflection; legen: correct for contextual meaning and grammatical form; ziehen: rejected; does not fit the intended meaning, construction or inflection; kommen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L949-v2",
+          "contextKey": "legacy-0102-L949-context-2",
+          "transferKey": "legacy-0102-L949-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010209",
+            "type": "choice",
+            "prompt": "Die Firma hat der Behörde alle erforderlichen Unterlagen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The documents were formally submitted.",
+              "de": "Die Unterlagen wurden der Behörde vorgezeigt oder eingereicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "1",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "2",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "3",
+                "text": "vorgegangen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorlegen means present or submit a document here; \"vorgelegt\" is the appropriate form.",
+              "de": "vorlegen bedeutet hier: ein Dokument vorlegen. Die Form „vorgelegt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat der Behörde alle erforderlichen Unterlagen vorgelegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Firma hat der Behörde alle erforderlichen Unterlagen vorgelegt.\" reviewed for naturalness and verb form. All four choices checked: vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; vorgelegt: correct for contextual meaning and grammatical form; vorgegangen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010210",
+      "title": {
+        "en": "Using vorlesen in context",
+        "de": "vorlesen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorlesen: read aloud to someone, in two different situations.",
+        "de": "vorlesen erkennen und verwenden: jemandem etwas vorlesen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorlesen meaning read aloud to someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L950 (0850385d00a9e6b169361dc0696355e0839fac6cf4eaee37e939d00926eafe19), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L950-v1",
+          "contextKey": "legacy-0102-L950-context-1",
+          "transferKey": "legacy-0102-L950-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010210",
+            "type": "gap_choice",
+            "prompt": "Kannst du den Kindern die Geschichte laut ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The children should hear the story being read.",
+              "de": "Die Kinder sollen die Geschichte hören."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorlegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorgehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorlesen means read aloud to someone here; \"vorlesen\" is the appropriate form.",
+              "de": "vorlesen bedeutet hier: jemandem etwas vorlesen. Die Form „vorlesen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du den Kindern die Geschichte laut vorlesen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Kannst du den Kindern die Geschichte laut vorlesen?\" reviewed for naturalness and verb form. All four choices checked: vorlesen: correct for contextual meaning and grammatical form; vorlegen: rejected; does not fit the intended meaning, construction or inflection; vorziehen: rejected; does not fit the intended meaning, construction or inflection; vorgehen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L950-v2",
+          "contextKey": "legacy-0102-L950-context-2",
+          "transferKey": "legacy-0102-L950-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010210",
+            "type": "choice",
+            "prompt": "Am Abend hat der Vater seiner Tochter ein Märchen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He read a fairy tale aloud to her.",
+              "de": "Er las ihr ein Märchen laut vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "1",
+                "text": "vorgeschlagen"
+              },
+              {
+                "id": "2",
+                "text": "vorgeherrscht"
+              },
+              {
+                "id": "3",
+                "text": "vorgelesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorlesen means read aloud to someone here; \"vorgelesen\" is the appropriate form.",
+              "de": "vorlesen bedeutet hier: jemandem etwas vorlesen. Die Form „vorgelesen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Abend hat der Vater seiner Tochter ein Märchen vorgelesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Am Abend hat der Vater seiner Tochter ein Märchen vorgelesen.\" reviewed for naturalness and verb form. All four choices checked: vorgelegt: rejected; does not fit the intended meaning, construction or inflection; vorgeschlagen: rejected; does not fit the intended meaning, construction or inflection; vorgeherrscht: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010211",
+      "title": {
+        "en": "Using vorliegen in context",
+        "de": "vorliegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorliegen: be available or present, of information or documents, in two different situations.",
+        "de": "vorliegen erkennen und verwenden: vorliegen oder verfügbar sein, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorliegen meaning be available or present, of information or documents, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L951 (e96e25a9d033ae68548afa81e7c336663332159265ca3633918afc73448dac78), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L951-v1",
+          "contextKey": "legacy-0102-L951-context-1",
+          "transferKey": "legacy-0102-L951-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010211",
+            "type": "gap_choice",
+            "prompt": "Die Ergebnisse ___ uns noch nicht vor.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The results are not yet available.",
+              "de": "Die Ergebnisse sind noch nicht verfügbar."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "liegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "wachsen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verwenden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorliegen means be available or present, of information or documents here; \"liegen\" is the appropriate form.",
+              "de": "vorliegen bedeutet hier: vorliegen oder verfügbar sein. Die Form „liegen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ergebnisse liegen uns noch nicht vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Ergebnisse liegen uns noch nicht vor.\" reviewed for naturalness and verb form. All four choices checked: lesen: rejected; does not fit the intended meaning, construction or inflection; liegen: correct for contextual meaning and grammatical form; wachsen: rejected; does not fit the intended meaning, construction or inflection; verwenden: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L951-v2",
+          "contextKey": "legacy-0102-L951-context-2",
+          "transferKey": "legacy-0102-L951-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010211",
+            "type": "choice",
+            "prompt": "Zum Zeitpunkt der Entscheidung haben keine vollständigen Unterlagen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Complete documents were not available at the time.",
+              "de": "Vollständige Unterlagen waren damals nicht vorhanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "1",
+                "text": "vorgeschlagen"
+              },
+              {
+                "id": "2",
+                "text": "vorgelegen"
+              },
+              {
+                "id": "3",
+                "text": "vorgezogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorliegen means be available or present, of information or documents here; \"vorgelegen\" is the appropriate form.",
+              "de": "vorliegen bedeutet hier: vorliegen oder verfügbar sein. Die Form „vorgelegen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Zeitpunkt der Entscheidung haben keine vollständigen Unterlagen vorgelegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Zum Zeitpunkt der Entscheidung haben keine vollständigen Unterlagen vorgelegen.\" reviewed for naturalness and verb form. All four choices checked: vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgeschlagen: rejected; does not fit the intended meaning, construction or inflection; vorgelegen: correct for contextual meaning and grammatical form; vorgezogen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010212",
+      "title": {
+        "en": "Using vorschlagen in context",
+        "de": "vorschlagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorschlagen: suggest or propose, in two different situations.",
+        "de": "vorschlagen erkennen und verwenden: etwas vorschlagen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorschlagen meaning suggest or propose, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L952 (657cdf2742f2defa8cd9ff4d95399e704b15c038ef059fab6a37d18eee330478), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L952-v1",
+          "contextKey": "legacy-0102-L952-context-1",
+          "transferKey": "legacy-0102-L952-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010212",
+            "type": "gap_choice",
+            "prompt": "Darf ich für das Treffen einen anderen Termin ___?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants to suggest a different date.",
+              "de": "Die Person möchte einen anderen Termin anregen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorschlagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorschreiben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorliegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorschlagen means suggest or propose here; \"vorschlagen\" is the appropriate form.",
+              "de": "vorschlagen bedeutet hier: etwas vorschlagen. Die Form „vorschlagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Darf ich für das Treffen einen anderen Termin vorschlagen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Darf ich für das Treffen einen anderen Termin vorschlagen?\" reviewed for naturalness and verb form. All four choices checked: vorschlagen: correct for contextual meaning and grammatical form; vorschreiben: rejected; does not fit the intended meaning, construction or inflection; vorlesen: rejected; does not fit the intended meaning, construction or inflection; vorliegen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L952-v2",
+          "contextKey": "legacy-0102-L952-context-2",
+          "transferKey": "legacy-0102-L952-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010212",
+            "type": "choice",
+            "prompt": "Sie hat dem Team eine einfachere Lösung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She made a suggestion to the team.",
+              "de": "Sie brachte eine einfachere Lösung als Vorschlag ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgeschrieben"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "3",
+                "text": "vorgeschlagen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorschlagen means suggest or propose here; \"vorgeschlagen\" is the appropriate form.",
+              "de": "vorschlagen bedeutet hier: etwas vorschlagen. Die Form „vorgeschlagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat dem Team eine einfachere Lösung vorgeschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Sie hat dem Team eine einfachere Lösung vorgeschlagen.\" reviewed for naturalness and verb form. All four choices checked: vorgeschrieben: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; vorgeschlagen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010213",
+      "title": {
+        "en": "Using vorschreiben in context",
+        "de": "vorschreiben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorschreiben: require or prescribe by a rule, in two different situations.",
+        "de": "vorschreiben erkennen und verwenden: durch Vorschrift verbindlich verlangen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorschreiben meaning require or prescribe by a rule, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L953 (2bbc4467d36895c872469e61026c65e4226bb42c13990c39d5b0185717680b3c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L953-v1",
+          "contextKey": "legacy-0102-L953-context-1",
+          "transferKey": "legacy-0102-L953-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010213",
+            "type": "gap_choice",
+            "prompt": "Die Sicherheitsordnung kann das Tragen eines Helms ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The regulation makes wearing a helmet mandatory.",
+              "de": "Die Vorschrift macht das Tragen eines Helms verpflichtend."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorschlagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorschreiben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorliegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorschreiben means require or prescribe by a rule here; \"vorschreiben\" is the appropriate form.",
+              "de": "vorschreiben bedeutet hier: durch Vorschrift verbindlich verlangen. Die Form „vorschreiben“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sicherheitsordnung kann das Tragen eines Helms vorschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Sicherheitsordnung kann das Tragen eines Helms vorschreiben.\" reviewed for naturalness and verb form. All four choices checked: vorschlagen: rejected; does not fit the intended meaning, construction or inflection; vorschreiben: correct for contextual meaning and grammatical form; vorlesen: rejected; does not fit the intended meaning, construction or inflection; vorliegen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L953-v2",
+          "contextKey": "legacy-0102-L953-context-2",
+          "transferKey": "legacy-0102-L953-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010213",
+            "type": "choice",
+            "prompt": "Das Gesetz hat für diese Geräte eine regelmäßige Prüfung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The law makes regular inspection compulsory.",
+              "de": "Das Gesetz verlangt eine regelmäßige Prüfung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgeschlagen"
+              },
+              {
+                "id": "1",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "2",
+                "text": "vorgeschrieben"
+              },
+              {
+                "id": "3",
+                "text": "vorgelegen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorschreiben means require or prescribe by a rule here; \"vorgeschrieben\" is the appropriate form.",
+              "de": "vorschreiben bedeutet hier: durch Vorschrift verbindlich verlangen. Die Form „vorgeschrieben“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gesetz hat für diese Geräte eine regelmäßige Prüfung vorgeschrieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Das Gesetz hat für diese Geräte eine regelmäßige Prüfung vorgeschrieben.\" reviewed for naturalness and verb form. All four choices checked: vorgeschlagen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; vorgeschrieben: correct for contextual meaning and grammatical form; vorgelegen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010214",
+      "title": {
+        "en": "Using vorsehen in context",
+        "de": "vorsehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorsehen: provide for something in a plan, in two different situations.",
+        "de": "vorsehen erkennen und verwenden: etwas in einem Plan vorsehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorsehen meaning provide for something in a plan, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L954 (f7e5cd0848a80283517256562ad64c7d0503c779ce238aa4515421fdd4931e3b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L954-v1",
+          "contextKey": "legacy-0102-L954-context-1",
+          "transferKey": "legacy-0102-L954-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010214",
+            "type": "gap_choice",
+            "prompt": "Der Plan ___ zusätzliche Mittel für die Reparatur vor.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The plan allocates additional funds.",
+              "de": "Der Plan berücksichtigt zusätzliches Geld."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "sieht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "liest"
+                  },
+                  {
+                    "id": "2",
+                    "text": "legt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kommt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorsehen means provide for something in a plan here; \"sieht\" is the appropriate form.",
+              "de": "vorsehen bedeutet hier: etwas in einem Plan vorsehen. Die Form „sieht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Plan sieht zusätzliche Mittel für die Reparatur vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Der Plan sieht zusätzliche Mittel für die Reparatur vor.\" reviewed for naturalness and verb form. All four choices checked: sieht: correct for contextual meaning and grammatical form; liest: rejected; does not fit the intended meaning, construction or inflection; legt: rejected; does not fit the intended meaning, construction or inflection; kommt: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L954-v2",
+          "contextKey": "legacy-0102-L954-context-2",
+          "transferKey": "legacy-0102-L954-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010214",
+            "type": "choice",
+            "prompt": "Der neue Vertrag hat eine Probezeit von sechs Monaten ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A six-month probation period is included in the contract.",
+              "de": "Der Vertrag enthält eine sechsmonatige Probezeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "1",
+                "text": "vorbereitet"
+              },
+              {
+                "id": "2",
+                "text": "vorhergesagt"
+              },
+              {
+                "id": "3",
+                "text": "vorgesehen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vorsehen means provide for something in a plan here; \"vorgesehen\" is the appropriate form.",
+              "de": "vorsehen bedeutet hier: etwas in einem Plan vorsehen. Die Form „vorgesehen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Vertrag hat eine Probezeit von sechs Monaten vorgesehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Der neue Vertrag hat eine Probezeit von sechs Monaten vorgesehen.\" reviewed for naturalness and verb form. All four choices checked: vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorbereitet: rejected; does not fit the intended meaning, construction or inflection; vorhergesagt: rejected; does not fit the intended meaning, construction or inflection; vorgesehen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010215",
+      "title": {
+        "en": "Using vorziehen in context",
+        "de": "vorziehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vorziehen: prefer one option over another, in two different situations.",
+        "de": "vorziehen erkennen und verwenden: etwas anderem vorziehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vorziehen meaning prefer one option over another, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L956 (966738b74470e1dd9698e809b8fee98dffa820749721647de628023fd7caef71), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L956-v1",
+          "contextKey": "legacy-0102-L956-context-1",
+          "transferKey": "legacy-0102-L956-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010215",
+            "type": "gap_choice",
+            "prompt": "Ich würde einen ruhigen Arbeitsplatz dem Großraumbüro ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker prefers a quieter workspace.",
+              "de": "Die Person bevorzugt einen ruhigeren Arbeitsplatz."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorziehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorliegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vorherrschen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vorziehen means prefer one option over another here; \"vorziehen\" is the appropriate form.",
+              "de": "vorziehen bedeutet hier: etwas anderem vorziehen. Die Form „vorziehen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich würde einen ruhigen Arbeitsplatz dem Großraumbüro vorziehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Ich würde einen ruhigen Arbeitsplatz dem Großraumbüro vorziehen.\" reviewed for naturalness and verb form. All four choices checked: vorlesen: rejected; does not fit the intended meaning, construction or inflection; vorziehen: correct for contextual meaning and grammatical form; vorliegen: rejected; does not fit the intended meaning, construction or inflection; vorherrschen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L956-v2",
+          "contextKey": "legacy-0102-L956-context-2",
+          "transferKey": "legacy-0102-L956-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010215",
+            "type": "choice",
+            "prompt": "Sie hat den Zug dem Auto ___, weil sie unterwegs lesen wollte.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She preferred travelling by train.",
+              "de": "Sie entschied sich lieber für den Zug."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "1",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "2",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "3",
+                "text": "verziehen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "vorziehen means prefer one option over another here; \"vorgezogen\" is the appropriate form.",
+              "de": "vorziehen bedeutet hier: etwas anderem vorziehen. Die Form „vorgezogen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat den Zug dem Auto vorgezogen, weil sie unterwegs lesen wollte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Sie hat den Zug dem Auto vorgezogen, weil sie unterwegs lesen wollte.\" reviewed for naturalness and verb form. All four choices checked: vorgelegt: rejected; does not fit the intended meaning, construction or inflection; vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: correct for contextual meaning and grammatical form; verziehen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010216",
+      "title": {
+        "en": "Using wachsen in context",
+        "de": "wachsen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wachsen: grow in size or quantity, in two different situations.",
+        "de": "wachsen erkennen und verwenden: wachsen oder größer werden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wachsen meaning grow in size or quantity, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L957 (43218d350ffd0e5356e53ced5f05414781939982ad9a7ab2146658f81e99114d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L957-v1",
+          "contextKey": "legacy-0102-L957-context-1",
+          "transferKey": "legacy-0102-L957-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010216",
+            "type": "gap_choice",
+            "prompt": "Die Tomatenpflanzen ___ bei genügend Licht schneller.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Plants increase in size with enough light.",
+              "de": "Die Pflanzen werden bei ausreichend Licht größer."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wachsen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verwenden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verzeihen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wachsen means grow in size or quantity here; \"wachsen\" is the appropriate form.",
+              "de": "wachsen bedeutet hier: wachsen oder größer werden. Die Form „wachsen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tomatenpflanzen wachsen bei genügend Licht schneller.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Tomatenpflanzen wachsen bei genügend Licht schneller.\" reviewed for naturalness and verb form. All four choices checked: wachsen: correct for contextual meaning and grammatical form; verwenden: rejected; does not fit the intended meaning, construction or inflection; vorlegen: rejected; does not fit the intended meaning, construction or inflection; verzeihen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L957-v2",
+          "contextKey": "legacy-0102-L957-context-2",
+          "transferKey": "legacy-0102-L957-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010216",
+            "type": "choice",
+            "prompt": "Das Unternehmen ist im letzten Jahr deutlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The business became larger.",
+              "de": "Das Unternehmen wurde größer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verwendet"
+              },
+              {
+                "id": "1",
+                "text": "vorgegangen"
+              },
+              {
+                "id": "2",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "3",
+                "text": "gewachsen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "wachsen means grow in size or quantity here; \"gewachsen\" is the appropriate form.",
+              "de": "wachsen bedeutet hier: wachsen oder größer werden. Die Form „gewachsen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen ist im letzten Jahr deutlich gewachsen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Das Unternehmen ist im letzten Jahr deutlich gewachsen.\" reviewed for naturalness and verb form. All four choices checked: verwendet: rejected; does not fit the intended meaning, construction or inflection; vorgegangen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; gewachsen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010218",
+      "title": {
+        "en": "Using warnen in context",
+        "de": "warnen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use warnen: warn someone of danger, in two different situations.",
+        "de": "warnen erkennen und verwenden: vor einer Gefahr warnen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb warnen meaning warn someone of danger, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L961 (8533e2fa17a9d23275846b09801074fb37f2dc1fbec9ff88634b7f1af5fc9405), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L961-v1",
+          "contextKey": "legacy-0102-L961-context-1",
+          "transferKey": "legacy-0102-L961-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010218",
+            "type": "gap_choice",
+            "prompt": "Die Polizei ___ vor Glatteis auf den Straßen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Drivers are alerted to icy roads.",
+              "de": "Die Polizei macht auf gefährlich glatte Straßen aufmerksam."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wächst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "warnt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "liest"
+                  },
+                  {
+                    "id": "3",
+                    "text": "legt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "warnen means warn someone of danger here; \"warnt\" is the appropriate form.",
+              "de": "warnen bedeutet hier: vor einer Gefahr warnen. Die Form „warnt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei warnt vor Glatteis auf den Straßen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Die Polizei warnt vor Glatteis auf den Straßen.\" reviewed for naturalness and verb form. All four choices checked: wächst: rejected; does not fit the intended meaning, construction or inflection; warnt: correct for contextual meaning and grammatical form; liest: rejected; does not fit the intended meaning, construction or inflection; legt: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L961-v2",
+          "contextKey": "legacy-0102-L961-context-2",
+          "transferKey": "legacy-0102-L961-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010218",
+            "type": "choice",
+            "prompt": "Der Wetterdienst hat die Bevölkerung vor einem Sturm ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "People were alerted to an approaching storm.",
+              "de": "Die Menschen wurden vor dem Sturm gewarnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewachsen"
+              },
+              {
+                "id": "1",
+                "text": "vorgelegt"
+              },
+              {
+                "id": "2",
+                "text": "gewarnt"
+              },
+              {
+                "id": "3",
+                "text": "vorgelesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "warnen means warn someone of danger here; \"gewarnt\" is the appropriate form.",
+              "de": "warnen bedeutet hier: vor einer Gefahr warnen. Die Form „gewarnt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wetterdienst hat die Bevölkerung vor einem Sturm gewarnt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Der Wetterdienst hat die Bevölkerung vor einem Sturm gewarnt.\" reviewed for naturalness and verb form. All four choices checked: gewachsen: rejected; does not fit the intended meaning, construction or inflection; vorgelegt: rejected; does not fit the intended meaning, construction or inflection; gewarnt: correct for contextual meaning and grammatical form; vorgelesen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010219",
+      "title": {
+        "en": "Using wegfallen in context",
+        "de": "wegfallen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use wegfallen: be eliminated or cease to apply, in two different situations.",
+        "de": "wegfallen erkennen und verwenden: wegfallen oder nicht mehr gelten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb wegfallen meaning be eliminated or cease to apply, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L967 (552cd8e7c767fd368698e46914b644d04e8516b9c2c870adfc475b98ce0fd531), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0102-L967-v1",
+          "contextKey": "legacy-0102-L967-context-1",
+          "transferKey": "legacy-0102-L967-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010219",
+            "type": "gap_choice",
+            "prompt": "Ab Januar soll die zusätzliche Gebühr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The extra fee is to be abolished.",
+              "de": "Die zusätzliche Gebühr soll abgeschafft werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wegfallen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorlesen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verwenden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verzeihen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "wegfallen means be eliminated or cease to apply here; \"wegfallen\" is the appropriate form.",
+              "de": "wegfallen bedeutet hier: wegfallen oder nicht mehr gelten. Die Form „wegfallen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ab Januar soll die zusätzliche Gebühr wegfallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Ab Januar soll die zusätzliche Gebühr wegfallen.\" reviewed for naturalness and verb form. All four choices checked: wegfallen: correct for contextual meaning and grammatical form; vorlesen: rejected; does not fit the intended meaning, construction or inflection; verwenden: rejected; does not fit the intended meaning, construction or inflection; verzeihen: rejected; does not fit the intended meaning, construction or inflection. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0102-L967-v2",
+          "contextKey": "legacy-0102-L967-context-2",
+          "transferKey": "legacy-0102-L967-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001020191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010219",
+            "type": "choice",
+            "prompt": "Durch die Vereinfachung sind mehrere Arbeitsschritte ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Some steps are no longer necessary.",
+              "de": "Einige Arbeitsschritte werden nicht mehr benötigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vorgelesen"
+              },
+              {
+                "id": "1",
+                "text": "vorgezogen"
+              },
+              {
+                "id": "2",
+                "text": "verziehen"
+              },
+              {
+                "id": "3",
+                "text": "weggefallen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "wegfallen means be eliminated or cease to apply here; \"weggefallen\" is the appropriate form.",
+              "de": "wegfallen bedeutet hier: wegfallen oder nicht mehr gelten. Die Form „weggefallen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die Vereinfachung sind mehrere Arbeitsschritte weggefallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass 2026-10-29: complete German sentence \"Durch die Vereinfachung sind mehrere Arbeitsschritte weggefallen.\" reviewed for naturalness and verb form. All four choices checked: vorgelesen: rejected; does not fit the intended meaning, construction or inflection; vorgezogen: rejected; does not fit the intended meaning, construction or inflection; verziehen: rejected; does not fit the intended meaning, construction or inflection; weggefallen: correct for contextual meaning and grammatical form. Bilingual hint and explanation checked; no second defensible offered answer for the intended reading. Distinct sibling context; human review pending."
+        }
+      ]
+    }
+  ]
+}
