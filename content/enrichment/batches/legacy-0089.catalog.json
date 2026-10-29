@@ -1,0 +1,3028 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000008900",
+      "title": {
+        "en": "Using Fachbereich in context",
+        "de": "Fachbereich im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachbereich (department or academic division) in two distinct situations.",
+        "de": "Fachbereich (fachliche Abteilung einer Einrichtung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachbereich meaning department or academic division, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L718 (8d3f05041c67b1896f608f681c0e8ddfa3a54c273206e6dffec874777d409ac8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L718-v1",
+          "contextKey": "legacy-0089-L718-context-1",
+          "transferKey": "legacy-0089-L718-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008900",
+            "type": "gap_choice",
+            "prompt": "Die Fakultät ist in mehrere ___ gegliedert.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The university is organized into subject divisions.",
+              "de": "Die Hochschule ist in fachliche Abteilungen gegliedert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Seminare"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wohnungen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fachbereiche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorlesungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachbereich means department or academic division. The university is organized into subject divisions.",
+              "de": "Fachbereich bedeutet fachliche Abteilung einer Einrichtung. Die Hochschule ist in fachliche Abteilungen gegliedert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fakultät ist in mehrere Fachbereiche gegliedert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Fakultät ist in mehrere Fachbereiche gegliedert.\", noun form/case, all offered choices (Seminare / Wohnungen / Fachbereiche / Vorlesungen), unique accepted answer \"Fachbereiche\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L718-v2",
+          "contextKey": "legacy-0089-L718-context-2",
+          "transferKey": "legacy-0089-L718-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008900",
+            "type": "choice",
+            "prompt": "Sie arbeitet im ___ Informatik der Hochschule.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This is a university academic department.",
+              "de": "Es geht um eine fachliche Abteilung der Hochschule."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fachmarkt"
+              },
+              {
+                "id": "1",
+                "text": "Fachbereich"
+              },
+              {
+                "id": "2",
+                "text": "Fachgeschäft"
+              },
+              {
+                "id": "3",
+                "text": "Fachbuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fachbereich means department or academic division. This is a university academic department.",
+              "de": "Fachbereich bedeutet fachliche Abteilung einer Einrichtung. Es geht um eine fachliche Abteilung der Hochschule."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie arbeitet im Fachbereich Informatik der Hochschule.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie arbeitet im Fachbereich Informatik der Hochschule.\", noun form/case, all offered choices (Fachmarkt / Fachbereich / Fachgeschäft / Fachbuch), unique accepted answer \"Fachbereich\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008901",
+      "title": {
+        "en": "Using Fachbereichsleiter in context",
+        "de": "Fachbereichsleiter im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachbereichsleiter (head of a specialist department) in two distinct situations.",
+        "de": "Fachbereichsleiter (Leiter einer fachlichen Abteilung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachbereichsleiter meaning head of a specialist department, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L719 (c31f53b4547875e52a071cdef25597daea99b81ef79f9aa178fb027b503b795f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L719-v1",
+          "contextKey": "legacy-0089-L719-context-1",
+          "transferKey": "legacy-0089-L719-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008901",
+            "type": "gap_choice",
+            "prompt": "Der ___ koordiniert die Mitarbeitenden seiner Abteilung.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person manages a department.",
+              "de": "Diese Person leitet eine Abteilung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auszubildende"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Besucher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fachbereichsleiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachbereichsleiter means head of a specialist department. The person manages a department.",
+              "de": "Fachbereichsleiter bedeutet Leiter einer fachlichen Abteilung. Diese Person leitet eine Abteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fachbereichsleiter koordiniert die Mitarbeitenden seiner Abteilung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Fachbereichsleiter koordiniert die Mitarbeitenden seiner Abteilung.\", noun form/case, all offered choices (Auszubildende / Hausmeister / Besucher / Fachbereichsleiter), unique accepted answer \"Fachbereichsleiter\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L719-v2",
+          "contextKey": "legacy-0089-L719-context-2",
+          "transferKey": "legacy-0089-L719-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008901",
+            "type": "choice",
+            "prompt": "Für die Freigabe des Budgets wandte sie sich an den ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The department head can authorize the budget.",
+              "de": "Die Abteilungsleitung kann das Budget freigeben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fahrer"
+              },
+              {
+                "id": "1",
+                "text": "Kunden"
+              },
+              {
+                "id": "2",
+                "text": "Fachbereichsleiter"
+              },
+              {
+                "id": "3",
+                "text": "Praktikanten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fachbereichsleiter means head of a specialist department. The department head can authorize the budget.",
+              "de": "Fachbereichsleiter bedeutet Leiter einer fachlichen Abteilung. Die Abteilungsleitung kann das Budget freigeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Freigabe des Budgets wandte sie sich an den Fachbereichsleiter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Freigabe des Budgets wandte sie sich an den Fachbereichsleiter.\", noun form/case, all offered choices (Fahrer / Kunden / Fachbereichsleiter / Praktikanten), unique accepted answer \"Fachbereichsleiter\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008902",
+      "title": {
+        "en": "Using Fachfrau in context",
+        "de": "Fachfrau im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachfrau (female specialist) in two distinct situations.",
+        "de": "Fachfrau (weibliche Person mit besonderen Fachkenntnissen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachfrau meaning female specialist, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L720 (41276799892dfd9b6b5f3e3231c492180606569dadfe5ec70c4c511c0387fc99), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L720-v1",
+          "contextKey": "legacy-0089-L720-context-1",
+          "transferKey": "legacy-0089-L720-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008902",
+            "type": "gap_choice",
+            "prompt": "Bei technischen Fragen ist sie eine erfahrene ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She has specialist expertise.",
+              "de": "Sie verfügt über besondere Fachkenntnisse."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fachfrau"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anfängerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Besucherin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kundin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachfrau means female specialist. She has specialist expertise.",
+              "de": "Fachfrau bedeutet weibliche Person mit besonderen Fachkenntnissen. Sie verfügt über besondere Fachkenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei technischen Fragen ist sie eine erfahrene Fachfrau.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei technischen Fragen ist sie eine erfahrene Fachfrau.\", noun form/case, all offered choices (Fachfrau / Anfängerin / Besucherin / Kundin), unique accepted answer \"Fachfrau\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L720-v2",
+          "contextKey": "legacy-0089-L720-context-2",
+          "transferKey": "legacy-0089-L720-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008902",
+            "type": "choice",
+            "prompt": "Die ___ für Datenschutz erklärte die Regeln.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A knowledgeable specialist explains the rules.",
+              "de": "Eine fachkundige Spezialistin erläutert die Vorschriften."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verkäuferin"
+              },
+              {
+                "id": "1",
+                "text": "Nachbarin"
+              },
+              {
+                "id": "2",
+                "text": "Touristin"
+              },
+              {
+                "id": "3",
+                "text": "Fachfrau"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fachfrau means female specialist. A knowledgeable specialist explains the rules.",
+              "de": "Fachfrau bedeutet weibliche Person mit besonderen Fachkenntnissen. Eine fachkundige Spezialistin erläutert die Vorschriften."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fachfrau für Datenschutz erklärte die Regeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Fachfrau für Datenschutz erklärte die Regeln.\", noun form/case, all offered choices (Verkäuferin / Nachbarin / Touristin / Fachfrau), unique accepted answer \"Fachfrau\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008903",
+      "title": {
+        "en": "Using Fachkraft in context",
+        "de": "Fachkraft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachkraft (qualified skilled worker) in two distinct situations.",
+        "de": "Fachkraft (ausgebildete Fachperson) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachkraft meaning qualified skilled worker, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L721 (7be157748439102f0647084ecde74c33c5ab711a64a36430eb9a257118532245), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L721-v1",
+          "contextKey": "legacy-0089-L721-context-1",
+          "transferKey": "legacy-0089-L721-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008903",
+            "type": "gap_choice",
+            "prompt": "Das Krankenhaus sucht eine qualifizierte ___ für die Pflege.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The job requires professional training.",
+              "de": "Die Stelle erfordert eine fachliche Ausbildung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Besucherin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fachkraft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kundin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Patientin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachkraft means qualified skilled worker. The job requires professional training.",
+              "de": "Fachkraft bedeutet ausgebildete Fachperson. Die Stelle erfordert eine fachliche Ausbildung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Krankenhaus sucht eine qualifizierte Fachkraft für die Pflege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Krankenhaus sucht eine qualifizierte Fachkraft für die Pflege.\", noun form/case, all offered choices (Besucherin / Fachkraft / Kundin / Patientin), unique accepted answer \"Fachkraft\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L721-v2",
+          "contextKey": "legacy-0089-L721-context-2",
+          "transferKey": "legacy-0089-L721-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008903",
+            "type": "choice",
+            "prompt": "Ohne ausgebildete ___ kann die Maschine nicht sicher bedient werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Trained staff are needed to operate equipment.",
+              "de": "Für die Bedienung sind ausgebildete Beschäftigte nötig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fachkräfte"
+              },
+              {
+                "id": "1",
+                "text": "Besucher"
+              },
+              {
+                "id": "2",
+                "text": "Kunden"
+              },
+              {
+                "id": "3",
+                "text": "Touristen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Fachkraft means qualified skilled worker. Trained staff are needed to operate equipment.",
+              "de": "Fachkraft bedeutet ausgebildete Fachperson. Für die Bedienung sind ausgebildete Beschäftigte nötig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne ausgebildete Fachkräfte kann die Maschine nicht sicher bedient werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ohne ausgebildete Fachkräfte kann die Maschine nicht sicher bedient werden.\", noun form/case, all offered choices (Fachkräfte / Besucher / Kunden / Touristen), unique accepted answer \"Fachkräfte\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008904",
+      "title": {
+        "en": "Using Fachleute in context",
+        "de": "Fachleute im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachleute (experts (plural)) in two distinct situations.",
+        "de": "Fachleute (Personen mit besonderem Fachwissen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachleute meaning experts (plural), using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L722 (3a60f937d83928fb00c3e0ea0dc951b83a68cb00139261bb0d8446a6bc537617), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L722-v1",
+          "contextKey": "legacy-0089-L722-context-1",
+          "transferKey": "legacy-0089-L722-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008904",
+            "type": "gap_choice",
+            "prompt": "Für die Reparatur der komplexen Anlage wurden ___ hinzugezogen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Specialists were called for a technical problem.",
+              "de": "Für das technische Problem wurden Fachpersonen hinzugezogen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gäste"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Touristen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fachleute"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kinder"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachleute means experts (plural). Specialists were called for a technical problem.",
+              "de": "Fachleute bedeutet Personen mit besonderem Fachwissen. Für das technische Problem wurden Fachpersonen hinzugezogen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reparatur der komplexen Anlage wurden Fachleute hinzugezogen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Reparatur der komplexen Anlage wurden Fachleute hinzugezogen.\", noun form/case, all offered choices (Gäste / Touristen / Fachleute / Kinder), unique accepted answer \"Fachleute\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L722-v2",
+          "contextKey": "legacy-0089-L722-context-2",
+          "transferKey": "legacy-0089-L722-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008904",
+            "type": "choice",
+            "prompt": "Die ___ aus verschiedenen Ländern diskutierten die Forschungsergebnisse.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The discussion involves experts in the field.",
+              "de": "An der Diskussion nehmen Fachpersonen teil."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Passanten"
+              },
+              {
+                "id": "1",
+                "text": "Fachleute"
+              },
+              {
+                "id": "2",
+                "text": "Nachbarn"
+              },
+              {
+                "id": "3",
+                "text": "Kunden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fachleute means experts (plural). The discussion involves experts in the field.",
+              "de": "Fachleute bedeutet Personen mit besonderem Fachwissen. An der Diskussion nehmen Fachpersonen teil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fachleute aus verschiedenen Ländern diskutierten die Forschungsergebnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Fachleute aus verschiedenen Ländern diskutierten die Forschungsergebnisse.\", noun form/case, all offered choices (Passanten / Fachleute / Nachbarn / Kunden), unique accepted answer \"Fachleute\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008905",
+      "title": {
+        "en": "Using Fachmann in context",
+        "de": "Fachmann im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachmann (male specialist or expert) in two distinct situations.",
+        "de": "Fachmann (männliche Person mit Fachkenntnissen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachmann meaning male specialist or expert, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L723 (b8bcf80ec2d3951018a269083556f098a083e1d4f3fa1f85ba894b95f27a5494), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L723-v1",
+          "contextKey": "legacy-0089-L723-context-1",
+          "transferKey": "legacy-0089-L723-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008905",
+            "type": "gap_choice",
+            "prompt": "Bei einem komplizierten Elektroproblem rief sie einen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A technical specialist is needed.",
+              "de": "Für das Problem wird ein Fachkundiger gebraucht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Touristen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schüler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nachbarn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fachmann"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachmann means male specialist or expert. A technical specialist is needed.",
+              "de": "Fachmann bedeutet männliche Person mit Fachkenntnissen. Für das Problem wird ein Fachkundiger gebraucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einem komplizierten Elektroproblem rief sie einen Fachmann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei einem komplizierten Elektroproblem rief sie einen Fachmann.\", noun form/case, all offered choices (Touristen / Schüler / Nachbarn / Fachmann), unique accepted answer \"Fachmann\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L723-v2",
+          "contextKey": "legacy-0089-L723-context-2",
+          "transferKey": "legacy-0089-L723-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008905",
+            "type": "choice",
+            "prompt": "Der ___ für Heizungsanlagen fand den Defekt sofort.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person has expertise in heating systems.",
+              "de": "Die Person kennt sich mit Heizungsanlagen aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anfänger"
+              },
+              {
+                "id": "1",
+                "text": "Besucher"
+              },
+              {
+                "id": "2",
+                "text": "Fachmann"
+              },
+              {
+                "id": "3",
+                "text": "Patient"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fachmann means male specialist or expert. The person has expertise in heating systems.",
+              "de": "Fachmann bedeutet männliche Person mit Fachkenntnissen. Die Person kennt sich mit Heizungsanlagen aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fachmann für Heizungsanlagen fand den Defekt sofort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Fachmann für Heizungsanlagen fand den Defekt sofort.\", noun form/case, all offered choices (Anfänger / Besucher / Fachmann / Patient), unique accepted answer \"Fachmann\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008906",
+      "title": {
+        "en": "Using Fachmesse in context",
+        "de": "Fachmesse im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachmesse (specialized trade fair) in two distinct situations.",
+        "de": "Fachmesse (Messe für eine bestimmte Branche) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachmesse meaning specialized trade fair, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L724 (fe661fbb4b25994fcd0edb4684b46f416f3996f35caf706554bf2e874f2dcd3c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L724-v1",
+          "contextKey": "legacy-0089-L724-context-1",
+          "transferKey": "legacy-0089-L724-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008906",
+            "type": "gap_choice",
+            "prompt": "Auf der ___ zeigten Firmen ihre neuen Maschinen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Businesses exhibit products to industry visitors.",
+              "de": "Unternehmen präsentieren Produkte einem Fachpublikum."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fachmesse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hochzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Konferenz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schule"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachmesse means specialized trade fair. Businesses exhibit products to industry visitors.",
+              "de": "Fachmesse bedeutet Messe für eine bestimmte Branche. Unternehmen präsentieren Produkte einem Fachpublikum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Fachmesse zeigten Firmen ihre neuen Maschinen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf der Fachmesse zeigten Firmen ihre neuen Maschinen.\", noun form/case, all offered choices (Fachmesse / Hochzeit / Konferenz / Schule), unique accepted answer \"Fachmesse\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L724-v2",
+          "contextKey": "legacy-0089-L724-context-2",
+          "transferKey": "legacy-0089-L724-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008906",
+            "type": "choice",
+            "prompt": "Die ___ für Medizintechnik brachte Hersteller und Fachpublikum zusammen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This event connects industry suppliers and professionals.",
+              "de": "Die Veranstaltung bringt Anbieter und Fachleute einer Branche zusammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geburtstagsfeier"
+              },
+              {
+                "id": "1",
+                "text": "Schulstunde"
+              },
+              {
+                "id": "2",
+                "text": "Sportveranstaltung"
+              },
+              {
+                "id": "3",
+                "text": "Fachmesse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fachmesse means specialized trade fair. This event connects industry suppliers and professionals.",
+              "de": "Fachmesse bedeutet Messe für eine bestimmte Branche. Die Veranstaltung bringt Anbieter und Fachleute einer Branche zusammen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fachmesse für Medizintechnik brachte Hersteller und Fachpublikum zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Fachmesse für Medizintechnik brachte Hersteller und Fachpublikum zusammen.\", noun form/case, all offered choices (Geburtstagsfeier / Schulstunde / Sportveranstaltung / Fachmesse), unique accepted answer \"Fachmesse\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008907",
+      "title": {
+        "en": "Using Fachwissen in context",
+        "de": "Fachwissen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachwissen (specialist knowledge) in two distinct situations.",
+        "de": "Fachwissen (Kenntnisse in einem bestimmten Fachgebiet) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachwissen meaning specialist knowledge, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L725 (65c2a015aee634c4f648176b4b7888844e24e297be07d8d9d6459fc7815eb813), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L725-v1",
+          "contextKey": "legacy-0089-L725-context-1",
+          "transferKey": "legacy-0089-L725-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008907",
+            "type": "gap_choice",
+            "prompt": "Für diese Aufgabe braucht man spezielles ___ über Netzwerke.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The task requires technical knowledge.",
+              "de": "Die Aufgabe verlangt besondere technische Kenntnisse."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Taschengeld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fachwissen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Glück"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachwissen means specialist knowledge. The task requires technical knowledge.",
+              "de": "Fachwissen bedeutet Kenntnisse in einem bestimmten Fachgebiet. Die Aufgabe verlangt besondere technische Kenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für diese Aufgabe braucht man spezielles Fachwissen über Netzwerke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für diese Aufgabe braucht man spezielles Fachwissen über Netzwerke.\", noun form/case, all offered choices (Taschengeld / Fachwissen / Werkzeug / Glück), unique accepted answer \"Fachwissen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L725-v2",
+          "contextKey": "legacy-0089-L725-context-2",
+          "transferKey": "legacy-0089-L725-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008907",
+            "type": "choice",
+            "prompt": "Durch Fortbildungen hat sie ihr ___ im Steuerrecht erweitert.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Training deepened her specialist knowledge.",
+              "de": "Die Fortbildung vertiefte ihre Kenntnisse im Fachgebiet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fachwissen"
+              },
+              {
+                "id": "1",
+                "text": "Eigentum"
+              },
+              {
+                "id": "2",
+                "text": "Einkommen"
+              },
+              {
+                "id": "3",
+                "text": "Alter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Fachwissen means specialist knowledge. Training deepened her specialist knowledge.",
+              "de": "Fachwissen bedeutet Kenntnisse in einem bestimmten Fachgebiet. Die Fortbildung vertiefte ihre Kenntnisse im Fachgebiet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch Fortbildungen hat sie ihr Fachwissen im Steuerrecht erweitert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Durch Fortbildungen hat sie ihr Fachwissen im Steuerrecht erweitert.\", noun form/case, all offered choices (Fachwissen / Eigentum / Einkommen / Alter), unique accepted answer \"Fachwissen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008908",
+      "title": {
+        "en": "Using Fähigkeit in context",
+        "de": "Fähigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fähigkeit (ability or skill) in two distinct situations.",
+        "de": "Fähigkeit (Vermögen, etwas zu tun) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fähigkeit meaning ability or skill, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L726 (db90de2f4d15bd022f99ebe8ac230e54523f62e28156d52eecdf724e601005e9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L726-v1",
+          "contextKey": "legacy-0089-L726-context-1",
+          "transferKey": "legacy-0089-L726-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008908",
+            "type": "gap_choice",
+            "prompt": "Sie besitzt die ___, komplexe Probleme verständlich zu erklären.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She is able to explain difficult concepts.",
+              "de": "Sie kann schwierige Sachverhalte verständlich machen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erlaubnis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Absicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fähigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pflicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fähigkeit means ability or skill. She is able to explain difficult concepts.",
+              "de": "Fähigkeit bedeutet Vermögen, etwas zu tun. Sie kann schwierige Sachverhalte verständlich machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie besitzt die Fähigkeit, komplexe Probleme verständlich zu erklären.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie besitzt die Fähigkeit, komplexe Probleme verständlich zu erklären.\", noun form/case, all offered choices (Erlaubnis / Absicht / Fähigkeit / Pflicht), unique accepted answer \"Fähigkeit\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L726-v2",
+          "contextKey": "legacy-0089-L726-context-2",
+          "transferKey": "legacy-0089-L726-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008908",
+            "type": "choice",
+            "prompt": "Teamarbeit gehört zu den wichtigsten sozialen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Cooperation is a learned interpersonal skill.",
+              "de": "Zusammenarbeit ist eine soziale Kompetenz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebühren"
+              },
+              {
+                "id": "1",
+                "text": "Fähigkeiten"
+              },
+              {
+                "id": "2",
+                "text": "Aufgaben"
+              },
+              {
+                "id": "3",
+                "text": "Pflichten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fähigkeit means ability or skill. Cooperation is a learned interpersonal skill.",
+              "de": "Fähigkeit bedeutet Vermögen, etwas zu tun. Zusammenarbeit ist eine soziale Kompetenz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Teamarbeit gehört zu den wichtigsten sozialen Fähigkeiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Teamarbeit gehört zu den wichtigsten sozialen Fähigkeiten.\", noun form/case, all offered choices (Gebühren / Fähigkeiten / Aufgaben / Pflichten), unique accepted answer \"Fähigkeiten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008909",
+      "title": {
+        "en": "Using Fähigkeitsprofil in context",
+        "de": "Fähigkeitsprofil im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fähigkeitsprofil (profile of a person's skills) in two distinct situations.",
+        "de": "Fähigkeitsprofil (Übersicht über vorhandene Fähigkeiten) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fähigkeitsprofil meaning profile of a person's skills, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L727 (2463decd739eeaf14189ec966867000b01dc5d83255ee17b2e542fdfbc1b9729), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L727-v1",
+          "contextKey": "legacy-0089-L727-context-1",
+          "transferKey": "legacy-0089-L727-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008909",
+            "type": "gap_choice",
+            "prompt": "Im ___ des Bewerbers sind Python und SQL aufgeführt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This document lists the applicant's technical skills.",
+              "de": "Das Dokument nennt die Kenntnisse des Bewerbers."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigungsschreiben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietvertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fähigkeitsprofil"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fähigkeitsprofil means profile of a person's skills. This document lists the applicant's technical skills.",
+              "de": "Fähigkeitsprofil bedeutet Übersicht über vorhandene Fähigkeiten. Das Dokument nennt die Kenntnisse des Bewerbers."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Fähigkeitsprofil des Bewerbers sind Python und SQL aufgeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Fähigkeitsprofil des Bewerbers sind Python und SQL aufgeführt.\", noun form/case, all offered choices (Arbeitsvertrag / Kündigungsschreiben / Mietvertrag / Fähigkeitsprofil), unique accepted answer \"Fähigkeitsprofil\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L727-v2",
+          "contextKey": "legacy-0089-L727-context-2",
+          "transferKey": "legacy-0089-L727-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008909",
+            "type": "choice",
+            "prompt": "Das Unternehmen verglich das ___ der Kandidatin mit den Stellenanforderungen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The employer compares competencies with job requirements.",
+              "de": "Der Arbeitgeber gleicht Fähigkeiten mit Anforderungen ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geburtsdatum"
+              },
+              {
+                "id": "1",
+                "text": "Eigentum"
+              },
+              {
+                "id": "2",
+                "text": "Fähigkeitsprofil"
+              },
+              {
+                "id": "3",
+                "text": "Gehalt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fähigkeitsprofil means profile of a person's skills. The employer compares competencies with job requirements.",
+              "de": "Fähigkeitsprofil bedeutet Übersicht über vorhandene Fähigkeiten. Der Arbeitgeber gleicht Fähigkeiten mit Anforderungen ab."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen verglich das Fähigkeitsprofil der Kandidatin mit den Stellenanforderungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Unternehmen verglich das Fähigkeitsprofil der Kandidatin mit den Stellenanforderungen.\", noun form/case, all offered choices (Geburtsdatum / Eigentum / Fähigkeitsprofil / Gehalt), unique accepted answer \"Fähigkeitsprofil\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008910",
+      "title": {
+        "en": "Using Fahrbahn in context",
+        "de": "Fahrbahn im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fahrbahn (roadway used by vehicles) in two distinct situations.",
+        "de": "Fahrbahn (für Fahrzeuge bestimmter Teil einer Straße) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fahrbahn meaning roadway used by vehicles, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L728 (7f730627d5e8cc192011079c25abee805d709f10a990d68344ba85007b2200b1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L728-v1",
+          "contextKey": "legacy-0089-L728-context-1",
+          "transferKey": "legacy-0089-L728-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008910",
+            "type": "gap_choice",
+            "prompt": "Auf der ___ liegen Glassplitter, deshalb fahren alle langsam.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The glass is on the surface used by vehicles.",
+              "de": "Die Splitter liegen auf der Fläche für Fahrzeuge."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrbahn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehweg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Treppe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wiese"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fahrbahn means roadway used by vehicles. The glass is on the surface used by vehicles.",
+              "de": "Fahrbahn bedeutet für Fahrzeuge bestimmter Teil einer Straße. Die Splitter liegen auf der Fläche für Fahrzeuge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Fahrbahn liegen Glassplitter, deshalb fahren alle langsam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf der Fahrbahn liegen Glassplitter, deshalb fahren alle langsam.\", noun form/case, all offered choices (Fahrbahn / Gehweg / Treppe / Wiese), unique accepted answer \"Fahrbahn\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L728-v2",
+          "contextKey": "legacy-0089-L728-context-2",
+          "transferKey": "legacy-0089-L728-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008910",
+            "type": "choice",
+            "prompt": "Die Bauarbeiter erneuern die beschädigte ___ der Autobahn.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The road surface is being repaired.",
+              "de": "Die Fahrfläche der Autobahn wird erneuert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hauswand"
+              },
+              {
+                "id": "1",
+                "text": "Dachrinne"
+              },
+              {
+                "id": "2",
+                "text": "Tür"
+              },
+              {
+                "id": "3",
+                "text": "Fahrbahn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fahrbahn means roadway used by vehicles. The road surface is being repaired.",
+              "de": "Fahrbahn bedeutet für Fahrzeuge bestimmter Teil einer Straße. Die Fahrfläche der Autobahn wird erneuert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bauarbeiter erneuern die beschädigte Fahrbahn der Autobahn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Bauarbeiter erneuern die beschädigte Fahrbahn der Autobahn.\", noun form/case, all offered choices (Hauswand / Dachrinne / Tür / Fahrbahn), unique accepted answer \"Fahrbahn\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008911",
+      "title": {
+        "en": "Using Fähre in context",
+        "de": "Fähre im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fähre (ferry boat) in two distinct situations.",
+        "de": "Fähre (Schiff zum Übersetzen über Wasser) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fähre meaning ferry boat, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L729 (b1e2e9c9824503008b948c1dcb20475941de41bf3689968094388d228cb891d0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L729-v1",
+          "contextKey": "legacy-0089-L729-context-1",
+          "transferKey": "legacy-0089-L729-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008911",
+            "type": "gap_choice",
+            "prompt": "Um auf die Insel zu kommen, nahmen wir die ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The route crosses water.",
+              "de": "Der Weg führt über Wasser."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Straßenbahn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fähre"
+                  },
+                  {
+                    "id": "2",
+                    "text": "U-Bahn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Seilbahn"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fähre means ferry boat. The route crosses water.",
+              "de": "Fähre bedeutet Schiff zum Übersetzen über Wasser. Der Weg führt über Wasser."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um auf die Insel zu kommen, nahmen wir die Fähre.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Um auf die Insel zu kommen, nahmen wir die Fähre.\", noun form/case, all offered choices (Straßenbahn / Fähre / U-Bahn / Seilbahn), unique accepted answer \"Fähre\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L729-v2",
+          "contextKey": "legacy-0089-L729-context-2",
+          "transferKey": "legacy-0089-L729-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008911",
+            "type": "choice",
+            "prompt": "Die ___ transportiert Autos und Passagiere über den Fluss.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The vessel carries people and vehicles across a river.",
+              "de": "Das Schiff bringt Menschen und Autos über den Fluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fähre"
+              },
+              {
+                "id": "1",
+                "text": "Straßenbahn"
+              },
+              {
+                "id": "2",
+                "text": "Lokomotive"
+              },
+              {
+                "id": "3",
+                "text": "U-Bahn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Fähre means ferry boat. The vessel carries people and vehicles across a river.",
+              "de": "Fähre bedeutet Schiff zum Übersetzen über Wasser. Das Schiff bringt Menschen und Autos über den Fluss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fähre transportiert Autos und Passagiere über den Fluss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Fähre transportiert Autos und Passagiere über den Fluss.\", noun form/case, all offered choices (Fähre / Straßenbahn / Lokomotive / U-Bahn), unique accepted answer \"Fähre\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008912",
+      "title": {
+        "en": "Using Fahrtkosten in context",
+        "de": "Fahrtkosten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fahrtkosten (travel or transportation expenses) in two distinct situations.",
+        "de": "Fahrtkosten (Kosten für eine Fahrt) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fahrtkosten meaning travel or transportation expenses, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L734 (61d81c7f624620d6b64686eeda1b9fef42e93a8d1d1457b4992e8a1022318341), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L734-v1",
+          "contextKey": "legacy-0089-L734-context-1",
+          "transferKey": "legacy-0089-L734-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008912",
+            "type": "gap_choice",
+            "prompt": "Die Firma erstattet die ___ für das Vorstellungsgespräch.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company reimburses transportation expenses.",
+              "de": "Die Firma zahlt Ausgaben für die Anreise zurück."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mietkosten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stromkosten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrtkosten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Heizkosten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fahrtkosten means travel or transportation expenses. The company reimburses transportation expenses.",
+              "de": "Fahrtkosten bedeutet Kosten für eine Fahrt. Die Firma zahlt Ausgaben für die Anreise zurück."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma erstattet die Fahrtkosten für das Vorstellungsgespräch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Firma erstattet die Fahrtkosten für das Vorstellungsgespräch.\", noun form/case, all offered choices (Mietkosten / Stromkosten / Fahrtkosten / Heizkosten), unique accepted answer \"Fahrtkosten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L734-v2",
+          "contextKey": "legacy-0089-L734-context-2",
+          "transferKey": "legacy-0089-L734-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008912",
+            "type": "choice",
+            "prompt": "Für die Dienstreise sammelte er Belege über seine ___ für Bahn und Taxi.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Train and taxi tickets document travel expenses.",
+              "de": "Bahn- und Taxibelege zeigen die Kosten der Fahrt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Telefonkosten"
+              },
+              {
+                "id": "1",
+                "text": "Fahrtkosten"
+              },
+              {
+                "id": "2",
+                "text": "Heizkosten"
+              },
+              {
+                "id": "3",
+                "text": "Mietkosten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fahrtkosten means travel or transportation expenses. Train and taxi tickets document travel expenses.",
+              "de": "Fahrtkosten bedeutet Kosten für eine Fahrt. Bahn- und Taxibelege zeigen die Kosten der Fahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Dienstreise sammelte er Belege über seine Fahrtkosten für Bahn und Taxi.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Dienstreise sammelte er Belege über seine Fahrtkosten für Bahn und Taxi.\", noun form/case, all offered choices (Telefonkosten / Fahrtkosten / Heizkosten / Mietkosten), unique accepted answer \"Fahrtkosten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008913",
+      "title": {
+        "en": "Using Fahrzeug in context",
+        "de": "Fahrzeug im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fahrzeug (vehicle used for transportation) in two distinct situations.",
+        "de": "Fahrzeug (Verkehrsmittel zur Beförderung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fahrzeug meaning vehicle used for transportation, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L735 (5ffe59a25032e2997fad4fbef2fc79aa2ac068b9ae318977ddfe7676d894fce0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L735-v1",
+          "contextKey": "legacy-0089-L735-context-1",
+          "transferKey": "legacy-0089-L735-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008913",
+            "type": "gap_choice",
+            "prompt": "Bitte stellen Sie Ihr ___ auf dem Parkplatz ab.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The object is something that can be parked.",
+              "de": "Der Gegenstand ist ein parkbares Verkehrsmittel."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrradschloss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gepäck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ticket"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrzeug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fahrzeug means vehicle used for transportation. The object is something that can be parked.",
+              "de": "Fahrzeug bedeutet Verkehrsmittel zur Beförderung. Der Gegenstand ist ein parkbares Verkehrsmittel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte stellen Sie Ihr Fahrzeug auf dem Parkplatz ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bitte stellen Sie Ihr Fahrzeug auf dem Parkplatz ab.\", noun form/case, all offered choices (Fahrradschloss / Gepäck / Ticket / Fahrzeug), unique accepted answer \"Fahrzeug\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L735-v2",
+          "contextKey": "legacy-0089-L735-context-2",
+          "transferKey": "legacy-0089-L735-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008913",
+            "type": "choice",
+            "prompt": "Das elektrische ___ wird an einer Ladesäule geladen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The transport device uses electric power.",
+              "de": "Das Verkehrsmittel wird mit Strom geladen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebäude"
+              },
+              {
+                "id": "1",
+                "text": "Werkzeug"
+              },
+              {
+                "id": "2",
+                "text": "Fahrzeug"
+              },
+              {
+                "id": "3",
+                "text": "Möbelstück"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fahrzeug means vehicle used for transportation. The transport device uses electric power.",
+              "de": "Fahrzeug bedeutet Verkehrsmittel zur Beförderung. Das Verkehrsmittel wird mit Strom geladen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das elektrische Fahrzeug wird an einer Ladesäule geladen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das elektrische Fahrzeug wird an einer Ladesäule geladen.\", noun form/case, all offered choices (Gebäude / Werkzeug / Fahrzeug / Möbelstück), unique accepted answer \"Fahrzeug\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008914",
+      "title": {
+        "en": "Using Fakt in context",
+        "de": "Fakt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fakt (fact that can be verified) in two distinct situations.",
+        "de": "Fakt (überprüfbare Tatsache) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fakt meaning fact that can be verified, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L736 (89da75571f42855a96a5960bc0abe0db38241ed7336235f69dad5aa655a32141), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L736-v1",
+          "contextKey": "legacy-0089-L736-context-1",
+          "transferKey": "legacy-0089-L736-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008914",
+            "type": "gap_choice",
+            "prompt": "Die Straße ist gesperrt. Das ist ein überprüfbarer ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The statement was confirmed as true.",
+              "de": "Die Aussage wurde als wahr bestätigt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fakt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verdacht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wunsch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Plan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fakt means fact that can be verified. The statement was confirmed as true.",
+              "de": "Fakt bedeutet überprüfbare Tatsache. Die Aussage wurde als wahr bestätigt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Straße ist gesperrt. Das ist ein überprüfbarer Fakt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Straße ist gesperrt. Das ist ein überprüfbarer Fakt.\", noun form/case, all offered choices (Fakt / Verdacht / Wunsch / Plan), unique accepted answer \"Fakt\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L736-v2",
+          "contextKey": "legacy-0089-L736-context-2",
+          "transferKey": "legacy-0089-L736-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008914",
+            "type": "choice",
+            "prompt": "In der Diskussion sollten wir uns auf überprüfbare ___ stützen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The argument needs verifiable information.",
+              "de": "Die Argumentation braucht überprüfbare Tatsachen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gerüchte"
+              },
+              {
+                "id": "1",
+                "text": "Wünsche"
+              },
+              {
+                "id": "2",
+                "text": "Vermutungen"
+              },
+              {
+                "id": "3",
+                "text": "Fakten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fakt means fact that can be verified. The argument needs verifiable information.",
+              "de": "Fakt bedeutet überprüfbare Tatsache. Die Argumentation braucht überprüfbare Tatsachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Diskussion sollten wir uns auf überprüfbare Fakten stützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"In der Diskussion sollten wir uns auf überprüfbare Fakten stützen.\", noun form/case, all offered choices (Gerüchte / Wünsche / Vermutungen / Fakten), unique accepted answer \"Fakten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008915",
+      "title": {
+        "en": "Using Faktor in context",
+        "de": "Faktor im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Faktor (contributing element or influence) in two distinct situations.",
+        "de": "Faktor (Einflussgröße) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Faktor meaning contributing element or influence, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L737 (e8ca71db98101bd8edd121efb0ad8974f65ce879792b696012595169e9e6bb61), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L737-v1",
+          "contextKey": "legacy-0089-L737-context-1",
+          "transferKey": "legacy-0089-L737-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008915",
+            "type": "gap_choice",
+            "prompt": "Die Entfernung ist ein wichtiger ___ bei der Wahl des Arbeitswegs.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Distance influences the choice.",
+              "de": "Der Abstand beeinflusst die Entscheidung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fehler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Faktor"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorteil"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zufall"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Faktor means contributing element or influence. Distance influences the choice.",
+              "de": "Faktor bedeutet Einflussgröße. Der Abstand beeinflusst die Entscheidung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Entfernung ist ein wichtiger Faktor bei der Wahl des Arbeitswegs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Entfernung ist ein wichtiger Faktor bei der Wahl des Arbeitswegs.\", noun form/case, all offered choices (Fehler / Faktor / Vorteil / Zufall), unique accepted answer \"Faktor\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L737-v2",
+          "contextKey": "legacy-0089-L737-context-2",
+          "transferKey": "legacy-0089-L737-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008915",
+            "type": "choice",
+            "prompt": "Beim Energieverbrauch spielen mehrere ___ eine Rolle.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Several variables affect consumption.",
+              "de": "Mehrere Einflussgrößen bestimmen den Verbrauch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Faktoren"
+              },
+              {
+                "id": "1",
+                "text": "Kosten"
+              },
+              {
+                "id": "2",
+                "text": "Geräte"
+              },
+              {
+                "id": "3",
+                "text": "Rechnungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Faktor means contributing element or influence. Several variables affect consumption.",
+              "de": "Faktor bedeutet Einflussgröße. Mehrere Einflussgrößen bestimmen den Verbrauch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Energieverbrauch spielen mehrere Faktoren eine Rolle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Beim Energieverbrauch spielen mehrere Faktoren eine Rolle.\", noun form/case, all offered choices (Faktoren / Kosten / Geräte / Rechnungen), unique accepted answer \"Faktoren\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008916",
+      "title": {
+        "en": "Using Fall in context",
+        "de": "Fall im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fall (act of falling) in two distinct situations.",
+        "de": "Fall (Vorgang des Fallens) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fall meaning act of falling, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L738 (b1d0c9832aab2200f50e6c62a955cfddd386a498df72ca7eb22341fd36cf33eb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L738-v1",
+          "contextKey": "legacy-0089-L738-context-1",
+          "transferKey": "legacy-0089-L738-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008916",
+            "type": "gap_choice",
+            "prompt": "Beim freien ___ bewegt sich ein Körper nur unter dem Einfluss der Schwerkraft.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The phrase describes motion under gravity alone.",
+              "de": "Der Ausdruck beschreibt Bewegung nur unter dem Einfluss der Schwerkraft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Streit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verlust"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fall"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fehler"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fall means falling. The phrase 'freier Fall' describes motion under gravity alone.",
+              "de": "Fall bezeichnet hier das Fallen. 'Freier Fall' beschreibt Bewegung nur unter dem Einfluss der Schwerkraft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim freien Fall bewegt sich ein Körper nur unter dem Einfluss der Schwerkraft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Beim freien Fall bewegt sich ein Körper nur unter dem Einfluss der Schwerkraft.\", noun form/case, all offered choices (Streit / Verlust / Fall / Fehler), unique accepted answer \"Fall\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L738-v2",
+          "contextKey": "legacy-0089-L738-context-2",
+          "transferKey": "legacy-0089-L738-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008916",
+            "type": "choice",
+            "prompt": "Der ___ des Steins aus großer Höhe wurde gefilmt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The stone moved downward under gravity.",
+              "de": "Der Stein bewegte sich durch die Schwerkraft nach unten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lauf"
+              },
+              {
+                "id": "1",
+                "text": "Fall"
+              },
+              {
+                "id": "2",
+                "text": "Wurf"
+              },
+              {
+                "id": "3",
+                "text": "Schlag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fall means act of falling. The stone moved downward under gravity.",
+              "de": "Fall bedeutet Vorgang des Fallens. Der Stein bewegte sich durch die Schwerkraft nach unten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fall des Steins aus großer Höhe wurde gefilmt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Fall des Steins aus großer Höhe wurde gefilmt.\", noun form/case, all offered choices (Lauf / Fall / Wurf / Schlag), unique accepted answer \"Fall\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008917",
+      "title": {
+        "en": "Using Familienkreis in context",
+        "de": "Familienkreis im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Familienkreis (circle of close family members) in two distinct situations.",
+        "de": "Familienkreis (engere Familie) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Familienkreis meaning circle of close family members, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L740 (b5e766a4133051c3e9999559359d8512899e48d99285de1416ee96c0285c8636), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L740-v1",
+          "contextKey": "legacy-0089-L740-context-1",
+          "transferKey": "legacy-0089-L740-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008917",
+            "type": "gap_choice",
+            "prompt": "Den Geburtstag feierten sie nur im engsten ___, mit Eltern und Geschwistern.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Only close relatives attended.",
+              "de": "Nur enge Verwandte waren dabei."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Familienkreis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kollegenkreis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Freundeskreis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kundenkreis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Familienkreis means circle of close family members. Only close relatives attended.",
+              "de": "Familienkreis bedeutet engere Familie. Nur enge Verwandte waren dabei."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Den Geburtstag feierten sie nur im engsten Familienkreis, mit Eltern und Geschwistern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Den Geburtstag feierten sie nur im engsten Familienkreis, mit Eltern und Geschwistern.\", noun form/case, all offered choices (Familienkreis / Kollegenkreis / Freundeskreis / Kundenkreis), unique accepted answer \"Familienkreis\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L740-v2",
+          "contextKey": "legacy-0089-L740-context-2",
+          "transferKey": "legacy-0089-L740-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008917",
+            "type": "choice",
+            "prompt": "Die Nachricht wurde zunächst nur im ___ unter Verwandten besprochen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The discussion stayed within the family.",
+              "de": "Die Nachricht blieb zunächst innerhalb der Familie."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betrieb"
+              },
+              {
+                "id": "1",
+                "text": "Verein"
+              },
+              {
+                "id": "2",
+                "text": "Internet"
+              },
+              {
+                "id": "3",
+                "text": "Familienkreis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Familienkreis means circle of close family members. The discussion stayed within the family.",
+              "de": "Familienkreis bedeutet engere Familie. Die Nachricht blieb zunächst innerhalb der Familie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nachricht wurde zunächst nur im Familienkreis unter Verwandten besprochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Nachricht wurde zunächst nur im Familienkreis unter Verwandten besprochen.\", noun form/case, all offered choices (Betrieb / Verein / Internet / Familienkreis), unique accepted answer \"Familienkreis\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008918",
+      "title": {
+        "en": "Using Fantasie in context",
+        "de": "Fantasie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fantasie (imagination or creative mental images) in two distinct situations.",
+        "de": "Fantasie (Vorstellungskraft) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fantasie meaning imagination or creative mental images, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L744 (ebc3a17b5b26853980585aad61ef7b9ef29487ec42868a5a91e202400262b83b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0089-L744-v1",
+          "contextKey": "legacy-0089-L744-context-1",
+          "transferKey": "legacy-0089-L744-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008918",
+            "type": "gap_choice",
+            "prompt": "Beim Schreiben von Märchen braucht man viel ___, um erfundene Welten zu gestalten.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Imagining fictional worlds requires creativity.",
+              "de": "Erfundene Welten entstehen durch Vorstellungskraft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fantasie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fantasie means imagination or creative mental images. Imagining fictional worlds requires creativity.",
+              "de": "Fantasie bedeutet Vorstellungskraft. Erfundene Welten entstehen durch Vorstellungskraft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Schreiben von Märchen braucht man viel Fantasie, um erfundene Welten zu gestalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Beim Schreiben von Märchen braucht man viel Fantasie, um erfundene Welten zu gestalten.\", noun form/case, all offered choices (Fantasie / Geduld / Geld / Zeit), unique accepted answer \"Fantasie\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0089-L744-v2",
+          "contextKey": "legacy-0089-L744-context-2",
+          "transferKey": "legacy-0089-L744-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000890181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008918",
+            "type": "choice",
+            "prompt": "Das Kind erfand eine Geschichte über fliegende Häuser; seine ___ ist groß.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The child invented an imaginative story.",
+              "de": "Das Kind dachte sich eine fantasievolle Geschichte aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Angst"
+              },
+              {
+                "id": "1",
+                "text": "Müdigkeit"
+              },
+              {
+                "id": "2",
+                "text": "Wut"
+              },
+              {
+                "id": "3",
+                "text": "Fantasie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fantasie means imagination or creative mental images. The child invented an imaginative story.",
+              "de": "Fantasie bedeutet Vorstellungskraft. Das Kind dachte sich eine fantasievolle Geschichte aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind erfand eine Geschichte über fliegende Häuser; seine Fantasie ist groß.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Kind erfand eine Geschichte über fliegende Häuser; seine Fantasie ist groß.\", noun form/case, all offered choices (Angst / Müdigkeit / Wut / Fantasie), unique accepted answer \"Fantasie\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
