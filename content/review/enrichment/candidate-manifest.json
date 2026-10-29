@@ -4,15 +4,26 @@
   "publicationApproved": false,
   "candidateReadyBatches": [],
   "overlays": [
-    "legacy-0001.overlay.json"
+    "legacy-0001.overlay.json",
+    "legacy-0002.overlay.json",
+    "legacy-0003.overlay.json",
+    "legacy-0004.overlay.json",
+    "legacy-0005.overlay.json",
+    "legacy-0006.overlay.json"
   ],
   "blockers": [
     "Finish question-by-question editorial review and recheck every proposed correction.",
-    "Resolve semantic duplicates against existing production/draft objectives, including noun/verb Abarbeiten; preserve existing identities where objectives coincide.",
+    "Complete semantic identity review against prior objectives; exact-title triage distinguishes the noun/verb Nutzen and Abarbeiten pairs and must not merge them automatically.",
     "Assign explicit topic and general/work learningContext using current application contracts, not category=vocabulary alone.",
     "Prepare additive immutable database release offline; no live database writes authorized.",
     "Prepare one shared web/Android offline bundle after editorial acceptance; preserve revision and grading identity.",
     "Keep saved rounds/adoption payloads at most 125 questions; larger corpus needs compatible bounded selection/queueing, not one oversized saved round.",
-    "Canonical rubric validator and cross-corpus conformance remain pending."
-  ]
+    "Validate future corrected/mapped candidates and client lifecycle behavior; passing source schema/grading checks alone is not release acceptance."
+  ],
+  "structuralEvidence": [
+    "structural-671e9d19f4f5.json",
+    "structural-206ed84bd7f3.json"
+  ],
+  "coverageReport": "coverage.json",
+  "overlayValidationReport": "overlay-validation.json"
 }

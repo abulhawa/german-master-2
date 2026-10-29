@@ -43,6 +43,15 @@ validator. Dependency workspace package sources must match the pinned snapshot.
 No install, network request or database is involved. Saved `structural-*.json`
 reports cover both the frozen 49-batch editorial queue and a separate 137-batch
 authoring snapshot. The latter does not expand or silently mark the editorial queue.
+`compare-snapshots.py <earlier-full-commit> <later-full-commit>` compares those
+validated inventories without changing the queue. All 49 frozen completed
+catalogs and author reports are unchanged in the 137-batch snapshot, so findings
+remain bound to the same inputs while the other task authors later batches.
+
+`review-packet.py <batch-id>` prints compact JSONL from the fixed Git snapshot:
+full exercise/rubric fields, target metadata and lexical source records, omitting
+only repeated author self-assessment prose. Source/author approval flags remain
+untrusted claims. This reduces reading overhead without generating judgments.
 
 `quality-signals.py --snapshot <full-commit>` checks every saved completion against
 its selected option where a single gap permits exact reconstruction, normalized

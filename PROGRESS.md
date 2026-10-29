@@ -29,10 +29,17 @@ category/lexical kind, topic/context assignment, immutable release identity and
 shared queue lifecycle. Initial generated review defects were caught before
 commit; exact coverage checks and a fresh substantive pass correct them.
 
-Next: finish the bounded editorial slice, synchronize and validate coverage and
-inactive proposals, then save and push only the review branch. Resume the first
-unfinished frozen batch. No merge, deployment, live database write or Android
-publication is authorized by this review.
+First saved editorial slice: batches 0001–0007 cover 210 exact source variants;
+23 inactive correction proposals pass source preconditions and canonical
+exercise/rubric conformance. Optional precision/style and sentence-initial
+typography findings are distinct from genuine competing answers and grammar
+errors. The initial positional-template defects were independently rechecked.
+All 49 frozen completed catalogs/reports are unchanged in the 137-batch snapshot,
+so current findings apply to those same authoring inputs without duplicating work.
+
+Next: continue at frozen batch 0008, synchronize/validate each meaningful slice
+and push only the review branch. No merge, deployment, live database write or
+Android publication is authorized by this review.
 
 ## Android learner-text encoding correction — 28 October 2026
 

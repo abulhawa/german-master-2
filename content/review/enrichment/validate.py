@@ -32,7 +32,7 @@ def validate(sync):
     require(len(q['entries']) == len(inv['completed']) == 49, 'Frozen queue must contain 49 batches')
     require(len({e['key'] for e in q['entries']}) == 49, 'Duplicate queue keys')
     require(q['snapshot'] == inv['snapshot'], 'Queue/inventory snapshot mismatch')
-    coverage, dispositions, patches = [], Counter(), 0
+    coverage, dispositions, patches, overlays = [], Counter(), 0, []
     for entry in q['entries']:
         batch = entry['batchId']
         require(entry['key'] == batch + ':' + entry['catalogSha256'] and entry['candidateReady'] is False,
@@ -68,6 +68,7 @@ def validate(sync):
                 require(state != 'complete' or keys == set(source),
                         f'{batch}: incomplete review marked complete; missing {sorted(set(source)-keys)}')
             elif suffix == 'overlay':
+                overlays.append(name)
                 require(artifact['active'] is False and artifact['candidateReady'] is False, f'{batch}: overlay must stay inactive')
                 patched = set()
                 for patch in artifact['patches']:
@@ -98,7 +99,14 @@ def validate(sync):
         else:
             require(entry['state'] == state and sorted(entry['reviewedVariantKeys']) == sorted(keys), f'{batch}: queue stale; use --sync-queue')
         coverage.append({'batchId': batch, 'state': state, 'reviewedQuestions': len(keys), 'totalQuestions': len(source), 'candidateReady': False})
-    require(load('candidate-manifest.json')['active'] is False, 'Candidate must stay inactive')
+    manifest = load('candidate-manifest.json')
+    require(manifest['active'] is False and manifest['publicationApproved'] is False and
+            manifest['candidateReadyBatches'] == [], 'Candidate must stay inactive and unapproved')
+    if sync:
+        manifest['overlays'] = sorted(overlays)
+        save('candidate-manifest.json', manifest)
+    else:
+        require(manifest['overlays'] == sorted(overlays), 'Candidate overlay list stale; use --sync-queue')
     summary = {'snapshot': q['snapshot'], 'aiAssistedOnly': True,
                'completedBatches': sum(c['state'] == 'complete' for c in coverage),
                'partialBatches': sum(c['state'] == 'partial' for c in coverage),
