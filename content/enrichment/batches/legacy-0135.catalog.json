@@ -1,0 +1,1438 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013502",
+      "title": {
+        "en": "Using Paragraf in context",
+        "de": "Paragraf im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Paragraf: numbered section of a law.",
+        "de": "Paragraf erkennen und verstehen: nummerierter Abschnitt eines Gesetzes."
+      },
+      "objective": "Recognize the German noun Paragraf (numbered section of a law) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1739 (7c15693c9b70bedbcaa1ac61982f8d7044caf54c6c3409cb0cc54bd5d568378e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1739-v1",
+          "contextKey": "legacy-0135-L1739-context-1",
+          "transferKey": "legacy-0135-L1739-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013502",
+            "type": "gap_choice",
+            "prompt": "Der ___ des Gesetzes regelt, welche Unterlagen erforderlich sind.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence refers to a section of legislation.",
+              "de": "Es geht um einen Abschnitt im Gesetz."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Paragraf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Warenkorb"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lagerraum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Paragraf is a numbered legal section.",
+              "de": "Ein Paragraf ist ein nummerierter Abschnitt eines Gesetzes."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Paragraf des Gesetzes regelt, welche Unterlagen erforderlich sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Paragraf). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Shopping cart, timetable and storage room are not sections of legislation. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1739-v2",
+          "contextKey": "legacy-0135-L1739-context-2",
+          "transferKey": "legacy-0135-L1739-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013502",
+            "type": "choice",
+            "prompt": "Im Paragrafen steht, welche Unterlagen eingereicht werden müssen. Wo steht diese Regel?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The rule is part of legal text.",
+              "de": "Die Regel steht in einem Gesetzestext."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "In einem Abschnitt eines Gesetzes"
+              },
+              {
+                "id": "1",
+                "text": "Auf einem Kassenzettel"
+              },
+              {
+                "id": "2",
+                "text": "In einem privaten Tagebuch"
+              },
+              {
+                "id": "3",
+                "text": "Auf einem Fahrplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is in a legal section.",
+              "de": "Die Vorschrift steht in einem Paragrafen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Regel ist in einem Gesetzesabschnitt festgelegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (In einem Abschnitt eines Gesetzes). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Receipt, diary and timetable are not the legal section described. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013503",
+      "title": {
+        "en": "Using Paragrafzeichen in context",
+        "de": "Paragrafzeichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Paragrafzeichen: section sign §.",
+        "de": "Paragrafzeichen erkennen und verstehen: Schriftzeichen für einen Paragrafen."
+      },
+      "objective": "Recognize the German noun Paragrafzeichen (section sign §) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1740 (72aaad2d413402a4a53983186cfa84abdd8269fba7af2d5ac024c5939d540e90), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1740-v1",
+          "contextKey": "legacy-0135-L1740-context-1",
+          "transferKey": "legacy-0135-L1740-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013503",
+            "type": "gap_choice",
+            "prompt": "In Gesetzestexten steht vor der Nummer eines Abschnitts häufig das ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A special symbol marks numbered legal sections.",
+              "de": "Ein Zeichen kennzeichnet Gesetzesabschnitte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Paragrafzeichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fragezeichen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prozentzeichen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gleichheitszeichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Paragrafzeichen is the section sign.",
+              "de": "Das Paragrafzeichen kennzeichnet einen Paragrafen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In Gesetzestexten steht vor der Nummer eines Abschnitts häufig das Paragrafzeichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Paragrafzeichen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Question, percent and equality signs do not label numbered legal sections. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1740-v2",
+          "contextKey": "legacy-0135-L1740-context-2",
+          "transferKey": "legacy-0135-L1740-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013503",
+            "type": "choice",
+            "prompt": "Das Paragrafzeichen § steht vor einer Nummer im Gesetz. Was kennzeichnet es?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The symbol appears in legal citations.",
+              "de": "Das Zeichen wird in Gesetzestexten verwendet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einen nummerierten Gesetzesabschnitt"
+              },
+              {
+                "id": "1",
+                "text": "Eine Prozentangabe"
+              },
+              {
+                "id": "2",
+                "text": "Eine mathematische Gleichung"
+              },
+              {
+                "id": "3",
+                "text": "Das Ende einer Frage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It marks a legal section.",
+              "de": "Das Zeichen § kennzeichnet einen Paragrafen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Paragrafzeichen verweist auf einen Gesetzesabschnitt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Einen nummerierten Gesetzesabschnitt). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Percentage, equation and question ending are marked by other symbols. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013504",
+      "title": {
+        "en": "Using Parkausweis in context",
+        "de": "Parkausweis im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Parkausweis: parking permit.",
+        "de": "Parkausweis erkennen und verstehen: Berechtigungsnachweis zum Parken."
+      },
+      "objective": "Recognize the German noun Parkausweis (parking permit) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1744 (119324a69b8a82fc1d67d222c6a85ff4fdb69488285f3f112f2e3c06d4937f30), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1744-v1",
+          "contextKey": "legacy-0135-L1744-context-1",
+          "transferKey": "legacy-0135-L1744-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013504",
+            "type": "gap_choice",
+            "prompt": "Für den Bewohnerparkplatz braucht man einen gültigen ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Parking there requires a special permit.",
+              "de": "Für den Parkplatz braucht man eine Berechtigung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Parkausweis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stundenplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrschein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Parkausweis is a parking permit.",
+              "de": "Ein Parkausweis berechtigt zum Parken in bestimmten Bereichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Bewohnerparkplatz braucht man einen gültigen Parkausweis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Parkausweis). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Purchase contract, timetable and transit ticket are not a resident parking permit. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1744-v2",
+          "contextKey": "legacy-0135-L1744-context-2",
+          "transferKey": "legacy-0135-L1744-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013504",
+            "type": "choice",
+            "prompt": "Der Parkausweis liegt sichtbar hinter der Windschutzscheibe. Was zeigt er?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It is displayed to show permission.",
+              "de": "Der Ausweis zeigt eine Parkerlaubnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Berechtigung zum Parken"
+              },
+              {
+                "id": "1",
+                "text": "Eine abgeschlossene Fahrprüfung"
+              },
+              {
+                "id": "2",
+                "text": "Den Kaufpreis des Autos"
+              },
+              {
+                "id": "3",
+                "text": "Die nächste Inspektion"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a parking permit.",
+              "de": "Der Parkausweis weist eine Parkberechtigung nach."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der sichtbare Parkausweis zeigt, dass das Parken erlaubt ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Berechtigung zum Parken). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Driving test, purchase price and inspection date are not the permit's function. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013505",
+      "title": {
+        "en": "Using Partnerschaft in context",
+        "de": "Partnerschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Partnerschaft: partnership or cooperation.",
+        "de": "Partnerschaft erkennen und verstehen: längerfristige Zusammenarbeit zwischen Partnern."
+      },
+      "objective": "Recognize the German noun Partnerschaft (partnership or cooperation) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1747 (a19e336739376da34e47f504e23dd27a9b508e233168c2219826646575f44d79), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1747-v1",
+          "contextKey": "legacy-0135-L1747-context-1",
+          "transferKey": "legacy-0135-L1747-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013505",
+            "type": "gap_choice",
+            "prompt": "Die beiden Unternehmen schließen eine langfristige ___ für gemeinsame Forschungsprojekte.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The firms plan to work together.",
+              "de": "Die Firmen möchten längerfristig zusammenarbeiten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Partnerschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Partnerschaft means partnership.",
+              "de": "Eine Partnerschaft ist eine Zusammenarbeit zwischen Partnern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Unternehmen schließen eine langfristige Partnerschaft für gemeinsame Forschungsprojekte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Partnerschaft). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Termination, invoice and application are not a long-term cooperation agreement for joint research. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1747-v2",
+          "contextKey": "legacy-0135-L1747-context-2",
+          "transferKey": "legacy-0135-L1747-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013505",
+            "type": "choice",
+            "prompt": "Die Partnerschaft ermöglicht beiden Firmen, gemeinsam neue Produkte zu entwickeln. Was verbindet sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "They cooperate on product development.",
+              "de": "Die Unternehmen arbeiten an einem gemeinsamen Ziel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine vereinbarte Zusammenarbeit"
+              },
+              {
+                "id": "1",
+                "text": "Eine gegenseitige Kündigung"
+              },
+              {
+                "id": "2",
+                "text": "Ein Streit über unbezahlte Miete"
+              },
+              {
+                "id": "3",
+                "text": "Eine gemeinsame Busfahrkarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "They have a business partnership.",
+              "de": "Die Firmen arbeiten partnerschaftlich zusammen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Firmen entwickeln in einer Partnerschaft neue Produkte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine vereinbarte Zusammenarbeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Termination, rent dispute and bus ticket are not the collaborative relationship described. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013506",
+      "title": {
+        "en": "Using Passagier in context",
+        "de": "Passagier im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Passagier: passenger.",
+        "de": "Passagier erkennen und verstehen: Person, die in einem Verkehrsmittel mitreist."
+      },
+      "objective": "Recognize the German noun Passagier (passenger) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1750 (8813c26a6509b5e54c665e885b7ee3c59658ae56d78c3d373695594af075e5b0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1750-v1",
+          "contextKey": "legacy-0135-L1750-context-1",
+          "transferKey": "legacy-0135-L1750-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013506",
+            "type": "gap_choice",
+            "prompt": "Der ___ zeigte beim Einsteigen seine Bordkarte und suchte seinen Sitzplatz in der Kabine.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He is travelling on the aircraft.",
+              "de": "Die Person reist mit dem Flugzeug."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Passagier"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fluglotse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bodenarbeiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Passagier is a passenger.",
+              "de": "Ein Passagier ist eine Person, die in einem Verkehrsmittel mitreist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Passagier zeigte beim Einsteigen seine Bordkarte und suchte seinen Sitzplatz in der Kabine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Passagier). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Air-traffic controller, mechanic and ground worker do not board as travellers with a seat assignment in this context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1750-v2",
+          "contextKey": "legacy-0135-L1750-context-2",
+          "transferKey": "legacy-0135-L1750-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013506",
+            "type": "choice",
+            "prompt": "Die Passagiere steigen nach der Landung aus dem Flugzeug. Wer verlässt die Maschine?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "They travelled aboard the aircraft.",
+              "de": "Sie sind im Flugzeug mitgereist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die mitreisenden Fluggäste"
+              },
+              {
+                "id": "1",
+                "text": "Nur die Fluglotsen am Boden"
+              },
+              {
+                "id": "2",
+                "text": "Nur die Techniker der Werkstatt"
+              },
+              {
+                "id": "3",
+                "text": "Die Beschäftigten der Gepäckabfertigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The passengers are leaving.",
+              "de": "Die Fluggäste steigen aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Landung verlassen die Passagiere das Flugzeug.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die mitreisenden Fluggäste). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Controllers, workshop technicians and baggage handlers are not the passengers who travelled aboard. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013510",
+      "title": {
+        "en": "Using Pauschalreise in context",
+        "de": "Pauschalreise im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pauschalreise: package holiday.",
+        "de": "Pauschalreise erkennen und verstehen: Reise mit gemeinsam gebuchten Reiseleistungen."
+      },
+      "objective": "Recognize the German noun Pauschalreise (package holiday) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1755 (ee03ee48b0af7fa8f97112ab535f27626d39ddacdb6a38be1f786a74acd50ce5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1755-v1",
+          "contextKey": "legacy-0135-L1755-context-1",
+          "transferKey": "legacy-0135-L1755-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013510",
+            "type": "gap_choice",
+            "prompt": "Die ___ umfasst Flug und Hotel zu einem gemeinsamen Preis.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Several travel services are sold together.",
+              "de": "Flug und Unterkunft werden zusammen gebucht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pauschalreise"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietzahlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pauschalreise is a package holiday.",
+              "de": "Eine Pauschalreise kombiniert mehrere Reiseleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pauschalreise umfasst Flug und Hotel zu einem gemeinsamen Preis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pauschalreise). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Job application, rent payment and repair are not combined flight-and-hotel holiday bookings. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1755-v2",
+          "contextKey": "legacy-0135-L1755-context-2",
+          "transferKey": "legacy-0135-L1755-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013510",
+            "type": "choice",
+            "prompt": "Bei der Pauschalreise hat sie Flug und Unterkunft zusammen gebucht. Was ist das Besondere?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Flight and accommodation form one booking.",
+              "de": "Flug und Unterkunft gehören zum selben Reisepaket."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mehrere Reiseleistungen werden als Paket angeboten."
+              },
+              {
+                "id": "1",
+                "text": "Nur das Frühstück wird einzeln gekauft."
+              },
+              {
+                "id": "2",
+                "text": "Es wird ausschließlich ein Fahrrad gemietet."
+              },
+              {
+                "id": "3",
+                "text": "Es handelt sich um eine berufliche Gehaltszahlung."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a package booking.",
+              "de": "Die Reiseleistungen werden gemeinsam angeboten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Flug und Unterkunft gehören zur gebuchten Pauschalreise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Mehrere Reiseleistungen werden als Paket angeboten.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Breakfast alone, bicycle rental and salary payment are not the package of travel services. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013517",
+      "title": {
+        "en": "Using Personal in context",
+        "de": "Personal im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Personal: staff or personnel.",
+        "de": "Personal erkennen und verstehen: Gesamtheit der Beschäftigten."
+      },
+      "objective": "Recognize the German noun Personal (staff or personnel) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1764 (9863716118697fc13af06ca730c658af5110fa586835599c0f2ffe5c69fd2753), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1764-v1",
+          "contextKey": "legacy-0135-L1764-context-1",
+          "transferKey": "legacy-0135-L1764-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013517",
+            "type": "gap_choice",
+            "prompt": "Das Krankenhaus sucht zusätzliches ___ für die Nachtschicht.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The hospital needs more people to work.",
+              "de": "Das Krankenhaus braucht zusätzliche Beschäftigte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personal"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Material"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Inventar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkzeug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Personal means staff.",
+              "de": "Personal bezeichnet die Beschäftigten einer Einrichtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Krankenhaus sucht zusätzliches Personal für die Nachtschicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Personal). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Materials, inventory and tools are not the employees needed for a night shift. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1764-v2",
+          "contextKey": "legacy-0135-L1764-context-2",
+          "transferKey": "legacy-0135-L1764-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013517",
+            "type": "choice",
+            "prompt": "Das Personal des Restaurants wird für den Service geschult. Wer nimmt an der Schulung teil?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Training is for people who work there.",
+              "de": "Die Schulung richtet sich an Mitarbeitende."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Beschäftigten des Restaurants"
+              },
+              {
+                "id": "1",
+                "text": "Die Gäste des Restaurants"
+              },
+              {
+                "id": "2",
+                "text": "Die Lieferfahrzeuge des Restaurants"
+              },
+              {
+                "id": "3",
+                "text": "Die Küchengeräte des Restaurants"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is the restaurant staff.",
+              "de": "Das Personal sind die Beschäftigten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeitenden des Restaurants erhalten eine Schulung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Beschäftigten des Restaurants). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Guests, delivery vehicles and kitchen equipment are not staff receiving service training. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013518",
+      "title": {
+        "en": "Using Personalabteilung in context",
+        "de": "Personalabteilung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Personalabteilung: human resources department.",
+        "de": "Personalabteilung erkennen und verstehen: Abteilung für Personalangelegenheiten."
+      },
+      "objective": "Recognize the German noun Personalabteilung (human resources department) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1765 (3da55e0c3032fe8284576009a729a0ec065bc442308ddc924adcc20a7c94e49a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1765-v1",
+          "contextKey": "legacy-0135-L1765-context-1",
+          "transferKey": "legacy-0135-L1765-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013518",
+            "type": "gap_choice",
+            "prompt": "Die ___ bearbeitet Bewerbungen und organisiert Vorstellungsgespräche.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The department deals with hiring.",
+              "de": "Die Abteilung kümmert sich um Bewerbungen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalabteilung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerverwaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kantine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparaturwerkstatt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Personalabteilung is the HR department.",
+              "de": "Die Personalabteilung bearbeitet Personalangelegenheiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Personalabteilung bearbeitet Bewerbungen und organisiert Vorstellungsgespräche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Personalabteilung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Warehouse management, canteen and repair workshop do not manage job applications and interviews. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1765-v2",
+          "contextKey": "legacy-0135-L1765-context-2",
+          "transferKey": "legacy-0135-L1765-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013518",
+            "type": "choice",
+            "prompt": "Sie schickt ihre Bewerbung an die Personalabteilung. Wer erhält die Unterlagen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Recruitment documents go to HR.",
+              "de": "Bewerbungen werden von der Personalstelle bearbeitet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Abteilung für Personalangelegenheiten"
+              },
+              {
+                "id": "1",
+                "text": "Die Abteilung für Maschinenreparaturen"
+              },
+              {
+                "id": "2",
+                "text": "Die Warenannahme des Lagers"
+              },
+              {
+                "id": "3",
+                "text": "Die Betriebskantine"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The HR department receives them.",
+              "de": "Die Personalabteilung erhält die Bewerbung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bewerbung geht an die Personalabteilung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Abteilung für Personalangelegenheiten). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Machine repairs, goods receiving and canteen do not handle recruitment applications. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013519",
+      "title": {
+        "en": "Using Personalengpass in context",
+        "de": "Personalengpass im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Personalengpass: staff shortage.",
+        "de": "Personalengpass erkennen und verstehen: vorübergehender Mangel an verfügbaren Mitarbeitenden."
+      },
+      "objective": "Recognize the German noun Personalengpass (staff shortage) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1766 (866c5a6bbc90b93c4623a35913840efb715bb3a0200e1077cd0e561900eeb3d5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0135-L1766-v1",
+          "contextKey": "legacy-0135-L1766-context-1",
+          "transferKey": "legacy-0135-L1766-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013519",
+            "type": "gap_choice",
+            "prompt": "Weil mehrere Mitarbeitende gleichzeitig fehlen, hat das Team einen ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Too few staff are available for the work.",
+              "de": "Es sind zu wenige Beschäftigte im Einsatz."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalengpass"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferüberschuss"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewinnanstieg"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mietvertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Personalengpass is a staff shortage.",
+              "de": "Ein Personalengpass bedeutet, dass zu wenig Personal verfügbar ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil mehrere Mitarbeitende gleichzeitig fehlen, hat das Team einen Personalengpass.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Personalengpass). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Excess deliveries, rising profits and a rental contract are not staff availability shortages. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0135-L1766-v2",
+          "contextKey": "legacy-0135-L1766-context-2",
+          "transferKey": "legacy-0135-L1766-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001350191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013519",
+            "type": "choice",
+            "prompt": "Der Personalengpass führt dazu, dass die Öffnungszeiten verkürzt werden. Warum?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "There are not enough workers for the usual schedule.",
+              "de": "Für die normalen Öffnungszeiten fehlt Personal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Es sind nicht genügend Mitarbeitende verfügbar."
+              },
+              {
+                "id": "1",
+                "text": "Es sind mehr Mitarbeitende als nötig im Einsatz."
+              },
+              {
+                "id": "2",
+                "text": "Die Ware wurde günstiger."
+              },
+              {
+                "id": "3",
+                "text": "Das Gebäude wurde vergrößert."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Staff shortage reduces available working capacity.",
+              "de": "Wegen fehlender Beschäftigter muss kürzer geöffnet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Öffnungszeiten werden wegen fehlenden Personals verkürzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Es sind nicht genügend Mitarbeitende verfügbar.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Excess staff, cheaper goods and a larger building do not explain reduced hours caused by a shortage. Human review pending."
+        }
+      ]
+    }
+  ]
+}
