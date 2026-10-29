@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000017300",
+      "title": {
+        "en": "Using Zeichentisch accurately",
+        "de": "Zeichentisch im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeichentisch in the sense of a specialized desk for technical drawing.",
+        "de": "Zeichentisch im Sinn von Tisch für technische Zeichnungen erkennen."
+      },
+      "objective": "Recognize Zeichentisch in the specified a specialized desk for technical drawing sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2733 (13baa0db8cc3695b9acb13b6b3eb0f80f415a30bd60a7e6b10f7034471f0c47c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2733-v1",
+          "contextKey": "legacy-0173-L2733-context-1",
+          "transferKey": "legacy-0173-L2733-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017300",
+            "type": "gap_choice",
+            "prompt": "Die Architektin fertigt den Bauplan an einem großen ___ an.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The desk is designed for drawing plans.",
+              "de": "Der Tisch ist zum Zeichnen von Plänen geeignet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Esstisch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Nachttisch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Couchtisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeichentisch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeichentisch is a desk for technical drawing.",
+              "de": "Ein Zeichentisch ist ein Tisch für technische Zeichnungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Architektin fertigt den Bauplan an einem großen Zeichentisch an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeichentisch' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Esstisch: Dining table. Nachttisch: Bedside table. Couchtisch: Coffee table. Zeichentisch: Correct: drafting table. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2733-v2",
+          "contextKey": "legacy-0173-L2733-context-2",
+          "transferKey": "legacy-0173-L2733-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017300",
+            "type": "choice",
+            "prompt": "Ein Konstrukteur nutzt eine geneigte Arbeitsfläche, um technische Pläne zu zeichnen. Wie heißt dieser spezielle Tisch?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The furniture supports technical drawing.",
+              "de": "Das Möbelstück dient dem technischen Zeichnen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gartentisch"
+              },
+              {
+                "id": "1",
+                "text": "Zeichentisch"
+              },
+              {
+                "id": "2",
+                "text": "Küchentisch"
+              },
+              {
+                "id": "3",
+                "text": "Konferenztisch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zeichentisch is a desk for technical drawing.",
+              "de": "Ein Zeichentisch ist ein Tisch für technische Zeichnungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er nutzt einen Zeichentisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeichentisch' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Gartentisch: Garden table. Zeichentisch: Correct: drawing table. Küchentisch: Kitchen table. Konferenztisch: Meeting table. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017301",
+      "title": {
+        "en": "Using Zeichnung accurately",
+        "de": "Zeichnung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeichnung in the sense of a drawing made with lines or shapes.",
+        "de": "Zeichnung im Sinn von Zeichnung aus Linien und Formen erkennen."
+      },
+      "objective": "Recognize Zeichnung in the specified a drawing made with lines or shapes sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2734 (7b54747821637baefaf41632ff6d0e508d1b5f43212feacfd1c622f82bd2811e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2734-v1",
+          "contextKey": "legacy-0173-L2734-context-1",
+          "transferKey": "legacy-0173-L2734-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017301",
+            "type": "gap_choice",
+            "prompt": "Die ___ zeigt das Gebäude mit Bleistiftlinien.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The image was drawn by hand.",
+              "de": "Das Bild wurde mit Linien gezeichnet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeichnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fotografie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tonaufnahme"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeichnung is a picture created by drawing.",
+              "de": "Eine Zeichnung ist ein durch Zeichnen entstandenes Bild."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zeichnung zeigt das Gebäude mit Bleistiftlinien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeichnung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zeichnung: Correct: drawing. Fotografie: Camera image. Tonaufnahme: Audio recording. Rechnung: Invoice. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2734-v2",
+          "contextKey": "legacy-0173-L2734-context-2",
+          "transferKey": "legacy-0173-L2734-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017301",
+            "type": "choice",
+            "prompt": "Ein Kind stellt ein Tier mit Buntstiften auf Papier dar. Was hat es angefertigt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It uses colored pencils.",
+              "de": "Es benutzt Buntstifte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Foto"
+              },
+              {
+                "id": "1",
+                "text": "Tabelle"
+              },
+              {
+                "id": "2",
+                "text": "Zeichnung"
+              },
+              {
+                "id": "3",
+                "text": "Video"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zeichnung is a picture created by drawing.",
+              "de": "Eine Zeichnung ist ein durch Zeichnen entstandenes Bild."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es hat eine Zeichnung angefertigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeichnung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Foto: Camera photograph. Tabelle: Organized data grid. Zeichnung: Correct: drawing. Video: Moving-image recording. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017303",
+      "title": {
+        "en": "Using Zeitaufwand accurately",
+        "de": "Zeitaufwand im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeitaufwand in the sense of the amount of time needed for a task.",
+        "de": "Zeitaufwand im Sinn von Zeitaufwand für eine Aufgabe erkennen."
+      },
+      "objective": "Recognize Zeitaufwand in the specified the amount of time needed for a task sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2737 (d4b59ce2bb8d8d2602543559f4ecd4c992d16679f96cbf977c814003574fb58b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2737-v1",
+          "contextKey": "legacy-0173-L2737-context-1",
+          "transferKey": "legacy-0173-L2737-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017303",
+            "type": "gap_choice",
+            "prompt": "Der ___ für die Datenauswertung beträgt ungefähr drei Stunden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The quantity is measured in hours.",
+              "de": "Die Größe wird in Stunden gemessen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Raumbedarf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeitaufwand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geldbetrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Warenbestand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeitaufwand is the time a task requires.",
+              "de": "Zeitaufwand ist die für eine Aufgabe benötigte Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zeitaufwand für die Datenauswertung beträgt ungefähr drei Stunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeitaufwand' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Raumbedarf: Space needed. Zeitaufwand: Correct: time required. Geldbetrag: Amount of money. Warenbestand: Stock of goods. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2737-v2",
+          "contextKey": "legacy-0173-L2737-context-2",
+          "transferKey": "legacy-0173-L2737-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017303",
+            "type": "choice",
+            "prompt": "Eine Reparatur dauert normalerweise vier Arbeitsstunden. Welche Größe wird damit beschrieben?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The estimate concerns duration of work.",
+              "de": "Die Schätzung betrifft die Arbeitsdauer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Materialpreis"
+              },
+              {
+                "id": "1",
+                "text": "Stromverbrauch"
+              },
+              {
+                "id": "2",
+                "text": "Gewicht"
+              },
+              {
+                "id": "3",
+                "text": "Zeitaufwand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zeitaufwand is the time a task requires.",
+              "de": "Zeitaufwand ist die für eine Aufgabe benötigte Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beschrieben wird der Zeitaufwand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeitaufwand' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Materialpreis: Cost of materials. Stromverbrauch: Electricity use. Gewicht: Mass. Zeitaufwand: Correct: labor time. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017304",
+      "title": {
+        "en": "Using Zeitdruck accurately",
+        "de": "Zeitdruck im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeitdruck in the sense of pressure caused by too little available time.",
+        "de": "Zeitdruck im Sinn von Zeitdruck durch knappe Fristen erkennen."
+      },
+      "objective": "Recognize Zeitdruck in the specified pressure caused by too little available time sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2738 (e1e958860b689d0563edf70dc0d33addb13aa67ae8640cea8e9c3d7eea2b49ef), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2738-v1",
+          "contextKey": "legacy-0173-L2738-context-1",
+          "transferKey": "legacy-0173-L2738-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017304",
+            "type": "gap_choice",
+            "prompt": "Wegen der knappen Abgabefrist steht das Team unter starkem ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "There is not much time left.",
+              "de": "Es bleibt nur wenig Zeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Luftdruck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Preisdruck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zeitdruck"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wasserdruck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeitdruck is stress from limited time.",
+              "de": "Zeitdruck entsteht durch knappe Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der knappen Abgabefrist steht das Team unter starkem Zeitdruck.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeitdruck' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Luftdruck: Air pressure. Preisdruck: Pressure on prices. Zeitdruck: Correct: time pressure. Wasserdruck: Pressure in water pipes. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2738-v2",
+          "contextKey": "legacy-0173-L2738-context-2",
+          "transferKey": "legacy-0173-L2738-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017304",
+            "type": "choice",
+            "prompt": "Eine Aufgabe muss in einer Stunde fertig sein, obwohl sie normalerweise einen Tag dauert. Was empfindet das Team?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The deadline creates urgency.",
+              "de": "Die Frist erzeugt großen Zeitmangel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeitdruck"
+              },
+              {
+                "id": "1",
+                "text": "Langeweile"
+              },
+              {
+                "id": "2",
+                "text": "Erholung"
+              },
+              {
+                "id": "3",
+                "text": "Freizeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zeitdruck is stress from limited time.",
+              "de": "Zeitdruck entsteht durch knappe Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team empfindet Zeitdruck.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeitdruck' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zeitdruck: Correct: time pressure. Langeweile: Boredom. Erholung: Rest. Freizeit: Free time. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017305",
+      "title": {
+        "en": "Using Zeitpunkt accurately",
+        "de": "Zeitpunkt im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeitpunkt in the sense of a specific point in time.",
+        "de": "Zeitpunkt im Sinn von bestimmter Zeitpunkt erkennen."
+      },
+      "objective": "Recognize Zeitpunkt in the specified a specific point in time sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2739 (a25d66e55dc330b1fd6f56d9beb0375ea801204f3410aabcb663c81f8d1dbd9f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2739-v1",
+          "contextKey": "legacy-0173-L2739-context-1",
+          "transferKey": "legacy-0173-L2739-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017305",
+            "type": "gap_choice",
+            "prompt": "Der genaue ___ des Treffens wird morgen bekannt gegeben.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question is when exactly it occurs.",
+              "de": "Es geht darum, wann genau es stattfindet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeitraum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeitdruck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zeitaufwand"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeitpunkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeitpunkt means a specific moment.",
+              "de": "Zeitpunkt bezeichnet einen bestimmten Moment."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der genaue Zeitpunkt des Treffens wird morgen bekannt gegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeitpunkt' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zeitraum: A period. Zeitdruck: Pressure from deadlines. Zeitaufwand: Time required. Zeitpunkt: Correct: exact point in time. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2739-v2",
+          "contextKey": "legacy-0173-L2739-context-2",
+          "transferKey": "legacy-0173-L2739-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017305",
+            "type": "choice",
+            "prompt": "Die Prüfung beginnt am Montag um 9:00 Uhr. Was ist mit dieser Angabe festgelegt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It names one specific instant.",
+              "de": "Es bezeichnet einen bestimmten Moment."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fristverlängerung"
+              },
+              {
+                "id": "1",
+                "text": "Zeitpunkt"
+              },
+              {
+                "id": "2",
+                "text": "Zeitspanne"
+              },
+              {
+                "id": "3",
+                "text": "Dauer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zeitpunkt means a specific moment.",
+              "de": "Zeitpunkt bezeichnet einen bestimmten Moment."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zeitpunkt des Beginns ist festgelegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeitpunkt' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Fristverlängerung: Extended deadline. Zeitpunkt: Correct: point in time. Zeitspanne: Interval of time. Dauer: Length of time. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017306",
+      "title": {
+        "en": "Using Zeitraum accurately",
+        "de": "Zeitraum im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeitraum in the sense of a calendar period between dates.",
+        "de": "Zeitraum im Sinn von Zeitraum zwischen zwei Daten erkennen."
+      },
+      "objective": "Recognize Zeitraum in the specified a calendar period between dates sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2740 (007034c66707fbc3ef835576b2ade1a3ccf70378ffcd6e5ca085d126d8ec95ac), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2740-v1",
+          "contextKey": "legacy-0173-L2740-context-1",
+          "transferKey": "legacy-0173-L2740-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017306",
+            "type": "gap_choice",
+            "prompt": "Der Kurs findet im ___ von März bis Mai statt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It covers several weeks or months.",
+              "de": "Es umfasst mehrere Wochen oder Monate."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeitraum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeitpunkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zeitdruck"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeitwert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeitraum is a period with a beginning and end.",
+              "de": "Ein Zeitraum ist eine Zeit zwischen Anfang und Ende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kurs findet im Zeitraum von März bis Mai statt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeitraum' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zeitraum: Correct: period. Zeitpunkt: Single instant. Zeitdruck: Deadline pressure. Zeitwert: Time-based value. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2740-v2",
+          "contextKey": "legacy-0173-L2740-context-2",
+          "transferKey": "legacy-0173-L2740-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017306",
+            "type": "choice",
+            "prompt": "Eine Förderung gilt vom 1. Januar bis zum 31. Dezember. Wie nennt man dieses festgelegte Kalenderintervall?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The interval has a start and end date.",
+              "de": "Das Intervall hat einen Anfang und ein Ende."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Uhrzeit"
+              },
+              {
+                "id": "1",
+                "text": "Stichtag"
+              },
+              {
+                "id": "2",
+                "text": "Zeitraum"
+              },
+              {
+                "id": "3",
+                "text": "Augenblick"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zeitraum is a period with a beginning and end.",
+              "de": "Ein Zeitraum ist eine Zeit zwischen Anfang und Ende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Zeitraum von einem Jahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeitraum' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Uhrzeit: Clock time. Stichtag: One reference date. Zeitraum: Correct: period of time. Augenblick: A brief moment. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017307",
+      "title": {
+        "en": "Using Zeitspanne accurately",
+        "de": "Zeitspanne im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeitspanne in the sense of the length of a time interval.",
+        "de": "Zeitspanne im Sinn von Dauer einer Zeitspanne erkennen."
+      },
+      "objective": "Recognize Zeitspanne in the specified the length of a time interval sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2742 (de55a0c2709068a29bd0881124e8ad19b7c0a53da905f215e9ac53e5f2af94ed), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2742-v1",
+          "contextKey": "legacy-0173-L2742-context-1",
+          "transferKey": "legacy-0173-L2742-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017307",
+            "type": "gap_choice",
+            "prompt": "Zwischen Anmeldung und Rückmeldung liegt eine ___ von zwei Wochen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The interval lasts two weeks.",
+              "de": "Das Intervall dauert zwei Wochen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stichtag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeitspanne"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Uhrzeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sekunde"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeitspanne is the duration between two points in time.",
+              "de": "Eine Zeitspanne ist die Dauer zwischen zwei Zeitpunkten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen Anmeldung und Rückmeldung liegt eine Zeitspanne von zwei Wochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeitspanne' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Stichtag: One fixed date. Zeitspanne: Correct: span of time. Uhrzeit: Clock time. Sekunde: A one-second unit. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2742-v2",
+          "contextKey": "legacy-0173-L2742-context-2",
+          "transferKey": "legacy-0173-L2742-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017307",
+            "type": "choice",
+            "prompt": "Vom Start bis zum Ende eines Experiments vergehen 45 Minuten. Wie nennt man diese Dauer?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is the interval between two moments.",
+              "de": "Es ist die Dauer zwischen zwei Zeitpunkten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeitpunkt"
+              },
+              {
+                "id": "1",
+                "text": "Datum"
+              },
+              {
+                "id": "2",
+                "text": "Uhrzeit"
+              },
+              {
+                "id": "3",
+                "text": "Zeitspanne"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zeitspanne is the duration between two points in time.",
+              "de": "Eine Zeitspanne ist die Dauer zwischen zwei Zeitpunkten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zeitspanne beträgt 45 Minuten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeitspanne' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zeitpunkt: Single point in time. Datum: Calendar date. Uhrzeit: Time of day. Zeitspanne: Correct: time span. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017308",
+      "title": {
+        "en": "Using Zentrale accurately",
+        "de": "Zentrale im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zentrale in the sense of the headquarters or central office of an organization.",
+        "de": "Zentrale im Sinn von Zentrale eines Unternehmens erkennen."
+      },
+      "objective": "Recognize Zentrale in the specified the headquarters or central office of an organization sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2746 (5d525cca8abd0cb12cf26154027a5fe096d5f67af70dd7ef86146c7716485b3a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2746-v1",
+          "contextKey": "legacy-0173-L2746-context-1",
+          "transferKey": "legacy-0173-L2746-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017308",
+            "type": "gap_choice",
+            "prompt": "Alle regionalen Filialen melden ihre Zahlen an die ___ des Unternehmens.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It coordinates the branches.",
+              "de": "Sie koordiniert die Filialen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kantine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerhalle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zentrale"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkstatt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zentrale is the central office or headquarters.",
+              "de": "Die Zentrale ist die Hauptstelle einer Organisation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle regionalen Filialen melden ihre Zahlen an die Zentrale des Unternehmens.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zentrale' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Kantine: Canteen. Lagerhalle: Storage hall. Zentrale: Correct: head office. Werkstatt: Workshop. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2746-v2",
+          "contextKey": "legacy-0173-L2746-context-2",
+          "transferKey": "legacy-0173-L2746-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017308",
+            "type": "choice",
+            "prompt": "Eine Firma hat viele Niederlassungen, aber ihre wichtigsten Entscheidungen werden an einem Hauptstandort getroffen. Wie heißt dieser Standort?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The location directs the whole organization.",
+              "de": "Der Ort steuert das gesamte Unternehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zentrale"
+              },
+              {
+                "id": "1",
+                "text": "Filiale"
+              },
+              {
+                "id": "2",
+                "text": "Kundenparkplatz"
+              },
+              {
+                "id": "3",
+                "text": "Lagerraum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zentrale is the central office or headquarters.",
+              "de": "Die Zentrale ist die Hauptstelle einer Organisation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hauptstandort ist die Zentrale.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zentrale' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zentrale: Correct: headquarters. Filiale: One branch office. Kundenparkplatz: Parking area. Lagerraum: Storage room. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017309",
+      "title": {
+        "en": "Using Zentrallager accurately",
+        "de": "Zentrallager im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zentrallager in the sense of a central warehouse serving several branches.",
+        "de": "Zentrallager im Sinn von zentrales Lager für mehrere Filialen erkennen."
+      },
+      "objective": "Recognize Zentrallager in the specified a central warehouse serving several branches sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2747 (535393644bebea1de6c42b7621b1c084abb7a4cb1cdfb8c0d5c8a58207d1fc8c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2747-v1",
+          "contextKey": "legacy-0173-L2747-context-1",
+          "transferKey": "legacy-0173-L2747-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017309",
+            "type": "gap_choice",
+            "prompt": "Die Waren für alle Filialen werden zuerst im ___ gesammelt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The stock is held centrally before distribution.",
+              "de": "Die Waren werden vor der Verteilung zentral gelagert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkaufsraum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Besprechungsraum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zentrallager"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zentrallager stores goods for multiple locations.",
+              "de": "Ein Zentrallager versorgt mehrere Standorte mit Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Waren für alle Filialen werden zuerst im Zentrallager gesammelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zentrallager' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verkaufsraum: Retail sales room. Besprechungsraum: Meeting room. Empfang: Reception. Zentrallager: Correct: central warehouse. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2747-v2",
+          "contextKey": "legacy-0173-L2747-context-2",
+          "transferKey": "legacy-0173-L2747-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017309",
+            "type": "choice",
+            "prompt": "Ein Handelsunternehmen beliefert zwanzig Geschäfte aus einem einzigen großen Lager. Wie nennt man dieses Lager?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "One warehouse supplies many stores.",
+              "de": "Ein Lager beliefert viele Geschäfte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pausenraum"
+              },
+              {
+                "id": "1",
+                "text": "Zentrallager"
+              },
+              {
+                "id": "2",
+                "text": "Schaufenster"
+              },
+              {
+                "id": "3",
+                "text": "Kassenbereich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zentrallager stores goods for multiple locations.",
+              "de": "Ein Zentrallager versorgt mehrere Standorte mit Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Lager ist ein Zentrallager.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zentrallager' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Pausenraum: Break room. Zentrallager: Correct: central warehouse. Schaufenster: Shop display window. Kassenbereich: Checkout area. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017310",
+      "title": {
+        "en": "Using Zertifikat accurately",
+        "de": "Zertifikat im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zertifikat in the sense of a certificate documenting achievement or completion.",
+        "de": "Zertifikat im Sinn von Zertifikat als Nachweis einer Leistung erkennen."
+      },
+      "objective": "Recognize Zertifikat in the specified a certificate documenting achievement or completion sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2749 (f96fb919492e138c74c97f2293e00d26dc56a1a3298a54608b3f0710e8d86e81), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2749-v1",
+          "contextKey": "legacy-0173-L2749-context-1",
+          "transferKey": "legacy-0173-L2749-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017310",
+            "type": "gap_choice",
+            "prompt": "Nach dem Kurs erhält sie ein ___ über die erfolgreiche Teilnahme.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document confirms a completed course.",
+              "de": "Das Dokument bestätigt einen abgeschlossenen Kurs."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zertifikat"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrkarte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mahnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zertifikat is a document certifying a result.",
+              "de": "Ein Zertifikat ist ein schriftlicher Nachweis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kurs erhält sie ein Zertifikat über die erfolgreiche Teilnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zertifikat' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zertifikat: Correct: certificate. Rezept: Medical prescription. Fahrkarte: Travel ticket. Mahnung: Payment reminder. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2749-v2",
+          "contextKey": "legacy-0173-L2749-context-2",
+          "transferKey": "legacy-0173-L2749-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017310",
+            "type": "choice",
+            "prompt": "Ein Anbieter bestätigt schriftlich, dass ein Teilnehmer eine Schulung erfolgreich abgeschlossen hat. Was stellt er aus?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The paper documents a qualification or completion.",
+              "de": "Das Papier dokumentiert einen Abschluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferschein"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Zertifikat"
+              },
+              {
+                "id": "3",
+                "text": "Kaufvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zertifikat is a document certifying a result.",
+              "de": "Ein Zertifikat ist ein schriftlicher Nachweis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er stellt ein Zertifikat aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zertifikat' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lieferschein: Delivery note. Rechnung: Invoice. Zertifikat: Correct: certificate. Kaufvertrag: Sales contract. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017312",
+      "title": {
+        "en": "Using Zeuge accurately",
+        "de": "Zeuge im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zeuge in the sense of a male witness who observed an event.",
+        "de": "Zeuge im Sinn von männlicher Zeuge eines Ereignisses erkennen."
+      },
+      "objective": "Recognize Zeuge in the specified a male witness who observed an event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2752 (a36ec6717600acc3796f6dc35f1bddd816c0fd46324f16e9b072e5ca6031f20b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2752-v1",
+          "contextKey": "legacy-0173-L2752-context-1",
+          "transferKey": "legacy-0173-L2752-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017312",
+            "type": "gap_choice",
+            "prompt": "Der ___ beschreibt vor Gericht, was er am Unfallort gesehen hat.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He reports his observations.",
+              "de": "Er berichtet von seinen Beobachtungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Staatsanwalt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zeuge"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Richter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Angeklagter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zeuge is a male person who witnesses an event.",
+              "de": "Ein Zeuge ist ein Mann, der ein Ereignis beobachtet hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zeuge beschreibt vor Gericht, was er am Unfallort gesehen hat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zeuge' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Staatsanwalt: Represents the prosecution. Zeuge: Correct: witness. Richter: Decides the case. Angeklagter: Is accused. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2752-v2",
+          "contextKey": "legacy-0173-L2752-context-2",
+          "transferKey": "legacy-0173-L2752-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017312",
+            "type": "choice",
+            "prompt": "Ein Mann hat einen Zusammenstoß beobachtet und berichtet der Polizei davon. Welche Rolle hat er?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He saw the event happen.",
+              "de": "Er hat das Ereignis beobachtet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Täter"
+              },
+              {
+                "id": "1",
+                "text": "Richter"
+              },
+              {
+                "id": "2",
+                "text": "Verteidiger"
+              },
+              {
+                "id": "3",
+                "text": "Zeuge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zeuge is a male person who witnesses an event.",
+              "de": "Ein Zeuge ist ein Mann, der ein Ereignis beobachtet hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er ist ein Zeuge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zeuge' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Täter: Perpetrator. Richter: Judge. Verteidiger: Defense lawyer. Zeuge: Correct: eyewitness. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017314",
+      "title": {
+        "en": "Using Zielvereinbarung accurately",
+        "de": "Zielvereinbarung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zielvereinbarung in the sense of a formal agreement on performance goals.",
+        "de": "Zielvereinbarung im Sinn von Vereinbarung über konkrete Arbeitsziele erkennen."
+      },
+      "objective": "Recognize Zielvereinbarung in the specified a formal agreement on performance goals sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2756 (48dece5e2547050f196f487a2158e1283c2e0a0dcc22570766bfefdfb8973e56), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2756-v1",
+          "contextKey": "legacy-0173-L2756-context-1",
+          "transferKey": "legacy-0173-L2756-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017314",
+            "type": "gap_choice",
+            "prompt": "Mitarbeiterin und Vorgesetzter halten die Jahresziele in einer ___ fest.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Both parties agree on objectives.",
+              "de": "Beide Seiten einigen sich auf Ziele."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zielvereinbarung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zielvereinbarung records agreed objectives.",
+              "de": "Eine Zielvereinbarung hält gemeinsam festgelegte Ziele fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mitarbeiterin und Vorgesetzter halten die Jahresziele in einer Zielvereinbarung fest.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zielvereinbarung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnung: Invoice. Mahnung: Reminder. Zielvereinbarung: Correct: goal agreement. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2756-v2",
+          "contextKey": "legacy-0173-L2756-context-2",
+          "transferKey": "legacy-0173-L2756-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017314",
+            "type": "choice",
+            "prompt": "Ein Team und seine Leitung legen gemeinsam messbare Ziele für das nächste Quartal fest. Was schließen sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The parties agree on measurable targets.",
+              "de": "Die Beteiligten vereinbaren messbare Ziele."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zielvereinbarung"
+              },
+              {
+                "id": "1",
+                "text": "Versicherung"
+              },
+              {
+                "id": "2",
+                "text": "Mietvertrag"
+              },
+              {
+                "id": "3",
+                "text": "Bestellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zielvereinbarung records agreed objectives.",
+              "de": "Eine Zielvereinbarung hält gemeinsam festgelegte Ziele fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie schließen eine Zielvereinbarung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zielvereinbarung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zielvereinbarung: Correct: agreement on goals. Versicherung: Risk coverage. Mietvertrag: Rental contract. Bestellung: Order for goods. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017315",
+      "title": {
+        "en": "Using Zielvereinbarungsgespräch accurately",
+        "de": "Zielvereinbarungsgespräch im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zielvereinbarungsgespräch in the sense of a meeting to agree on performance goals.",
+        "de": "Zielvereinbarungsgespräch im Sinn von Gespräch zur Vereinbarung von Arbeitszielen erkennen."
+      },
+      "objective": "Recognize Zielvereinbarungsgespräch in the specified a meeting to agree on performance goals sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2757 (00ca790da6cc3804c94c9a0ab694dd4d90e8940816d547cc2dfb0db3dc835af2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2757-v1",
+          "contextKey": "legacy-0173-L2757-context-1",
+          "transferKey": "legacy-0173-L2757-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017315",
+            "type": "gap_choice",
+            "prompt": "Im ___ besprechen Leitung und Mitarbeiter die Ziele für das kommende Jahr.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They discuss and agree on work objectives.",
+              "de": "Sie besprechen und vereinbaren Arbeitsziele."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkaufsgespräch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vorstellungsgespräch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Elterngespräch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zielvereinbarungsgespräch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zielvereinbarungsgespräch is a meeting to agree on goals.",
+              "de": "Ein Zielvereinbarungsgespräch dient dem Vereinbaren von Zielen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Zielvereinbarungsgespräch besprechen Leitung und Mitarbeiter die Ziele für das kommende Jahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zielvereinbarungsgespräch' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verkaufsgespräch: Sales conversation. Vorstellungsgespräch: Job interview. Elterngespräch: Parent meeting. Zielvereinbarungsgespräch: Correct: goal-setting meeting. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2757-v2",
+          "contextKey": "legacy-0173-L2757-context-2",
+          "transferKey": "legacy-0173-L2757-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017315",
+            "type": "choice",
+            "prompt": "Eine Führungskraft trifft sich mit einer Angestellten, um messbare Ziele gemeinsam festzulegen. Wie heißt dieser Termin?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The meeting sets future performance targets.",
+              "de": "Das Gespräch legt zukünftige Leistungsziele fest."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reparaturtermin"
+              },
+              {
+                "id": "1",
+                "text": "Zielvereinbarungsgespräch"
+              },
+              {
+                "id": "2",
+                "text": "Kundengespräch"
+              },
+              {
+                "id": "3",
+                "text": "Gerichtsverhandlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zielvereinbarungsgespräch is a meeting to agree on goals.",
+              "de": "Ein Zielvereinbarungsgespräch dient dem Vereinbaren von Zielen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Zielvereinbarungsgespräch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zielvereinbarungsgespräch' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Reparaturtermin: Repair appointment. Zielvereinbarungsgespräch: Correct: goal-setting discussion. Kundengespräch: Customer conversation. Gerichtsverhandlung: Court hearing. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017316",
+      "title": {
+        "en": "Using Zins accurately",
+        "de": "Zins im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zins in the sense of interest paid or charged on money.",
+        "de": "Zins im Sinn von Zins für geliehenes oder angelegtes Geld erkennen."
+      },
+      "objective": "Recognize Zins in the specified interest paid or charged on money sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2760 (8c82712045bfcce592423d5a8f99aeaf99e6679e5026e1345163eb22f35db83b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0173-L2760-v1",
+          "contextKey": "legacy-0173-L2760-context-1",
+          "transferKey": "legacy-0173-L2760-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017316",
+            "type": "gap_choice",
+            "prompt": "Für das Darlehen berechnet die Bank einen jährlichen ___ von vier Prozent.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The percentage is charged for borrowed money.",
+              "de": "Der Prozentsatz wird für geliehenes Geld berechnet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zins"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rabatt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lohn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Preisnachlass"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zins is interest on borrowed or invested money.",
+              "de": "Zins ist ein Entgelt für geliehenes oder angelegtes Geld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Darlehen berechnet die Bank einen jährlichen Zins von vier Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zins' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zins: Correct: loan interest. Rabatt: Discount. Lohn: Wage. Preisnachlass: Price reduction. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0173-L2760-v2",
+          "contextKey": "legacy-0173-L2760-context-2",
+          "transferKey": "legacy-0173-L2760-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001730161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017316",
+            "type": "choice",
+            "prompt": "Ein Sparkonto bringt dem Inhaber jährlich einen zusätzlichen Betrag als Gegenleistung für das angelegte Geld. Wie heißt dieser Ertrag?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The bank pays for money held in the account.",
+              "de": "Die Bank vergütet das angelegte Geld."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Trinkgeld"
+              },
+              {
+                "id": "1",
+                "text": "Gehalt"
+              },
+              {
+                "id": "2",
+                "text": "Zins"
+              },
+              {
+                "id": "3",
+                "text": "Miete"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zins is interest on borrowed or invested money.",
+              "de": "Zins ist ein Entgelt für geliehenes oder angelegtes Geld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dieser Ertrag ist ein Zins.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zins' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Trinkgeld: Voluntary tip. Gehalt: Salary. Zins: Correct: interest. Miete: Rent for property. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
