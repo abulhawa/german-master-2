@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000016400",
+      "title": {
+        "en": "Using Verband accurately",
+        "de": "Verband im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verband in the sense of trade association representing member businesses.",
+        "de": "Verband im Sinn von Wirtschaftsverband, der Mitgliedsbetriebe vertritt erkennen."
+      },
+      "objective": "Recognize Verband in the specified trade association representing member businesses sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2507 (a82f1afb9358abb9741492218cc429c525ff5ccac56b8c35c165f54e03dca7a2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2507-v1",
+          "contextKey": "legacy-0164-L2507-context-1",
+          "transferKey": "legacy-0164-L2507-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016400",
+            "type": "gap_choice",
+            "prompt": "Der ___ vertritt die Interessen kleiner Betriebe gegenüber der Politik.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of an organization representing several businesses.",
+              "de": "Gesucht ist eine Organisation, die mehrere Betriebe vertritt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verband"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Versand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Verband can represent shared business interests.",
+              "de": "Ein Verband kann gemeinsame Interessen von Betrieben vertreten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verband vertritt die Interessen kleiner Betriebe gegenüber der Politik.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verband' (option 0). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verband: Correct: an association represents its members. Vertrag: A contract is an agreement, not an organization. Verlag: A publisher produces publications, not this representative body. Versand: Dispatch concerns shipping, not representation. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2507-v2",
+          "contextKey": "legacy-0164-L2507-context-2",
+          "transferKey": "legacy-0164-L2507-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016400",
+            "type": "choice",
+            "prompt": "Mehrere Handwerksbetriebe schließen sich zusammen, um ihre Interessen gemeinsam zu vertreten. Was gründen sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Look for a collective representative organization.",
+              "de": "Gesucht ist eine gemeinsame Interessenvertretung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Filiale"
+              },
+              {
+                "id": "1",
+                "text": "einen Verband"
+              },
+              {
+                "id": "2",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "eine Versicherung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A Verband is a collective association.",
+              "de": "Ein Verband ist ein Zusammenschluss zur Interessenvertretung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie gründen einen Verband.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'einen Verband' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: eine Filiale: A branch office belongs to an individual organization. einen Verband: Correct: businesses form an association. eine Rechnung: An invoice records a payment claim. eine Versicherung: Insurance provides financial protection, not collective representation. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016401",
+      "title": {
+        "en": "Using Verbandmaterial accurately",
+        "de": "Verbandmaterial im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbandmaterial in the sense of sterile bandaging supplies used for first aid.",
+        "de": "Verbandmaterial im Sinn von Material zum Verbinden von Wunden erkennen."
+      },
+      "objective": "Recognize Verbandmaterial in the specified sterile bandaging supplies used for first aid sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2508 (6e13439423345670f5f49ab48604ed0ecf5c1724969cb23de8ae6247599ac278), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2508-v1",
+          "contextKey": "legacy-0164-L2508-context-1",
+          "transferKey": "legacy-0164-L2508-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016401",
+            "type": "gap_choice",
+            "prompt": "Im Erste-Hilfe-Kasten fehlt steriles ___, um die Wunde abzudecken.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of sterile supplies for dressing wounds.",
+              "de": "Gesucht sind sterile Hilfsmittel zum Verbinden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verpackungsmaterial"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbandmaterial"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büromaterial"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkzeug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verbandmaterial includes dressings and bandages.",
+              "de": "Verbandmaterial umfasst zum Beispiel Kompressen und Binden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Erste-Hilfe-Kasten fehlt steriles Verbandmaterial, um die Wunde abzudecken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbandmaterial' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verpackungsmaterial: Packaging protects parcels, not wounds. Verbandmaterial: Correct: sterile dressings are bandaging supplies. Büromaterial: Office supplies are not used to dress wounds. Werkzeug: Tools are not sterile wound dressings. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2508-v2",
+          "contextKey": "legacy-0164-L2508-context-2",
+          "transferKey": "legacy-0164-L2508-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016401",
+            "type": "choice",
+            "prompt": "Eine Praxis bestellt Mullbinden und sterile Kompressen. Wie nennt man diese Dinge zusammen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The items are used to cover and protect injuries.",
+              "de": "Die Gegenstände dienen der Versorgung von Verletzungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schreibwaren"
+              },
+              {
+                "id": "1",
+                "text": "Reinigungsmittel"
+              },
+              {
+                "id": "2",
+                "text": "Verbandmaterial"
+              },
+              {
+                "id": "3",
+                "text": "Büromöbel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Mullbinden and compresses are Verbandmaterial.",
+              "de": "Mullbinden und Kompressen gehören zum Verbandmaterial."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Praxis bestellt Verbandmaterial.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbandmaterial' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Schreibwaren: Stationery is for writing. Reinigungsmittel: Cleaning products clean surfaces. Verbandmaterial: Correct: both are bandaging supplies. Büromöbel: Office furniture is unrelated to first aid. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016402",
+      "title": {
+        "en": "Using Verbindung accurately",
+        "de": "Verbindung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbindung in the sense of a direct connection or link between places.",
+        "de": "Verbindung im Sinn von direkte Verbindung zwischen Orten erkennen."
+      },
+      "objective": "Recognize Verbindung in the specified a direct connection or link between places sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2509 (4a54a3f7912bc2a9eaa66d26b44f2936033298dd1b95b6d7ae54a7ce59cff865), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2509-v1",
+          "contextKey": "legacy-0164-L2509-context-1",
+          "transferKey": "legacy-0164-L2509-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016402",
+            "type": "gap_choice",
+            "prompt": "Zwischen den Gebäuden gibt es eine direkte ___ durch einen überdachten Gang.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The corridor links the buildings.",
+              "de": "Der Gang verbindet die Gebäude miteinander."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verwechslung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verlängerung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbindung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vereinbarung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verbindung names a link between two places.",
+              "de": "Verbindung bezeichnet eine Verknüpfung zwischen zwei Orten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwischen den Gebäuden gibt es eine direkte Verbindung durch einen überdachten Gang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbindung' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verwechslung: Confusion does not connect buildings. Verlängerung: An extension lengthens something rather than links places. Verbindung: Correct: the corridor creates a physical connection. Vereinbarung: An agreement is a decision by parties, not a corridor. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2509-v2",
+          "contextKey": "legacy-0164-L2509-context-2",
+          "transferKey": "legacy-0164-L2509-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016402",
+            "type": "choice",
+            "prompt": "Ein Zug fährt ohne Umsteigen von Köln nach Bonn. Wie nennt man dieses Angebot?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "No change of trains is required.",
+              "de": "Man muss unterwegs nicht umsteigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine direkte Verbindung"
+              },
+              {
+                "id": "1",
+                "text": "eine Verspätung"
+              },
+              {
+                "id": "2",
+                "text": "eine Fahrkartenkontrolle"
+              },
+              {
+                "id": "3",
+                "text": "eine Reservierung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A direct rail connection requires no transfer.",
+              "de": "Bei einer direkten Zugverbindung ist kein Umsteigen nötig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es gibt eine direkte Verbindung von Köln nach Bonn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine direkte Verbindung' (option 0). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: eine direkte Verbindung: Correct: the train offers a direct connection. eine Verspätung: A delay describes late arrival. eine Fahrkartenkontrolle: A ticket inspection checks passengers' tickets. eine Reservierung: A reservation secures a seat, not the route. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016403",
+      "title": {
+        "en": "Using Verbot accurately",
+        "de": "Verbot im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbot in the sense of an official prohibition of an action.",
+        "de": "Verbot im Sinn von Verbot einer Handlung erkennen."
+      },
+      "objective": "Recognize Verbot in the specified an official prohibition of an action sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2510 (da7f254bb8cc63afd0a445526dc3f029ca538d31ff7a852b9f5d86220d94cad3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2510-v1",
+          "contextKey": "legacy-0164-L2510-context-1",
+          "transferKey": "legacy-0164-L2510-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016403",
+            "type": "gap_choice",
+            "prompt": "Wegen der Waldbrandgefahr gilt ein strenges ___ für offenes Feuer.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action is not permitted, rather than merely discouraged.",
+              "de": "Die Handlung ist nicht erlaubt, nicht nur unerwünscht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Angebot"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vorschlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Versprechen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Verbot formally forbids an action.",
+              "de": "Ein Verbot untersagt eine Handlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der Waldbrandgefahr gilt ein strenges Verbot für offenes Feuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbot' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Angebot: An offer makes something available. Verbot: Correct: fire is prohibited. Vorschlag: A proposal is not binding. Versprechen: A promise is a commitment, not a ban. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2510-v2",
+          "contextKey": "legacy-0164-L2510-context-2",
+          "transferKey": "legacy-0164-L2510-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016403",
+            "type": "choice",
+            "prompt": "Eine Vorschrift untersagt das Rauchen auf dem gesamten Gelände. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The rule says something must not be done.",
+              "de": "Die Vorschrift untersagt eine Handlung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Einladung"
+              },
+              {
+                "id": "1",
+                "text": "eine Ausnahme"
+              },
+              {
+                "id": "2",
+                "text": "ein Verbot"
+              },
+              {
+                "id": "3",
+                "text": "eine Erlaubnis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A rule forbidding smoking is a Verbot.",
+              "de": "Eine Vorschrift gegen das Rauchen ist ein Verbot."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Gelände gilt ein Verbot.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'ein Verbot' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: eine Einladung: An invitation asks someone to participate. eine Ausnahme: An exception suspends a rule in a specific case. ein Verbot: Correct: the rule forbids smoking. eine Erlaubnis: Permission allows an action. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016404",
+      "title": {
+        "en": "Using Verbotsschild accurately",
+        "de": "Verbotsschild im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbotsschild in the sense of a physical sign indicating a prohibition.",
+        "de": "Verbotsschild im Sinn von Schild, das eine Handlung untersagt erkennen."
+      },
+      "objective": "Recognize Verbotsschild in the specified a physical sign indicating a prohibition sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2511 (45fd5841ef5857a18180e7df80e372e3c5bc47ce7db6cdfd8b80827fc7e57343), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2511-v1",
+          "contextKey": "legacy-0164-L2511-context-1",
+          "transferKey": "legacy-0164-L2511-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016404",
+            "type": "gap_choice",
+            "prompt": "Am Werkstor hängt ein ___ mit der Aufschrift „Zutritt verboten“.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The notice tells visitors what they may not do.",
+              "de": "Das Schild sagt, was Besucher nicht tun dürfen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Namensschild"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbotsschild"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Preisschild"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplanschild"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Verbotsschild displays a prohibition.",
+              "de": "Ein Verbotsschild weist auf ein Verbot hin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Werkstor hängt ein Verbotsschild mit der Aufschrift „Zutritt verboten“.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbotsschild' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Namensschild: A nameplate displays a name. Verbotsschild: Correct: the sign forbids entry. Preisschild: A price tag displays a price. Fahrplanschild: A timetable sign displays travel times. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2511-v2",
+          "contextKey": "legacy-0164-L2511-context-2",
+          "transferKey": "legacy-0164-L2511-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016404",
+            "type": "choice",
+            "prompt": "Vor dem Labor steht ein Schild, das den Zutritt ohne Schutzkleidung untersagt. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It communicates a restriction, not a direction.",
+              "de": "Es zeigt eine Einschränkung, keine Wegbeschreibung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Willkommensschild"
+              },
+              {
+                "id": "1",
+                "text": "Wegweiser"
+              },
+              {
+                "id": "2",
+                "text": "Verbotsschild"
+              },
+              {
+                "id": "3",
+                "text": "Werbeschild"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A sign prohibiting entry is a Verbotsschild.",
+              "de": "Ein Schild, das den Zutritt untersagt, ist ein Verbotsschild."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Labor steht ein Verbotsschild.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbotsschild' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Willkommensschild: A welcome sign greets visitors. Wegweiser: A signpost gives directions. Verbotsschild: Correct: the sign communicates a prohibition. Werbeschild: An advertising sign promotes goods. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016406",
+      "title": {
+        "en": "Using Verbrecher accurately",
+        "de": "Verbrecher im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbrecher in the sense of a man who has committed serious crimes.",
+        "de": "Verbrecher im Sinn von männlicher Straftäter erkennen."
+      },
+      "objective": "Recognize Verbrecher in the specified a man who has committed serious crimes sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2513 (02fea9d672eb9ec11e98b63dae9bdcef135a3f6b5ec926729b173b70361bf67e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2513-v1",
+          "contextKey": "legacy-0164-L2513-context-1",
+          "transferKey": "legacy-0164-L2513-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016406",
+            "type": "gap_choice",
+            "prompt": "Die Polizei bezeichnet den Mann, der den Raub begangen hat, als ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The man committed the robbery himself.",
+              "de": "Der Mann hat den Raub selbst begangen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeugen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Richter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbrecher"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Ermittler"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verbrecher refers to a male criminal.",
+              "de": "Verbrecher bezeichnet einen männlichen Straftäter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei bezeichnet den Mann, der den Raub begangen hat, als Verbrecher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbrecher' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Zeugen: A witness observes events, and Zeugen is plural. Richter: A judge decides cases, not the described offender. Verbrecher: Correct: the man committed a serious crime. Ermittler: An investigator examines crimes rather than being the described offender. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2513-v2",
+          "contextKey": "legacy-0164-L2513-context-2",
+          "transferKey": "legacy-0164-L2513-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016406",
+            "type": "choice",
+            "prompt": "Ein Mann hat nachweislich mehrere Raubüberfälle begangen. Welche Bezeichnung passt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Choose the word for the perpetrator, not an observer.",
+              "de": "Gesucht ist der Täter, nicht ein Beobachter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschädigter"
+              },
+              {
+                "id": "1",
+                "text": "Verbrecher"
+              },
+              {
+                "id": "2",
+                "text": "Zeuge"
+              },
+              {
+                "id": "3",
+                "text": "Verteidiger"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The perpetrator of serious crimes can be called a Verbrecher.",
+              "de": "Der Täter schwerer Straftaten kann als Verbrecher bezeichnet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist ein Verbrecher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbrecher' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Geschädigter: An injured party suffers harm. Verbrecher: Correct: the man committed the crimes. Zeuge: A witness observes or reports events. Verteidiger: A defense lawyer represents someone in court. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016407",
+      "title": {
+        "en": "Using Verbrecherin accurately",
+        "de": "Verbrecherin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbrecherin in the sense of a woman who has committed serious crimes.",
+        "de": "Verbrecherin im Sinn von weibliche Straftäterin erkennen."
+      },
+      "objective": "Recognize Verbrecherin in the specified a woman who has committed serious crimes sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2514 (b5d4f776029522863da93c6e698a18c899af085bf17ecc4c1655c8f8226080b2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2514-v1",
+          "contextKey": "legacy-0164-L2514-context-1",
+          "transferKey": "legacy-0164-L2514-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016407",
+            "type": "gap_choice",
+            "prompt": "Die Polizei bezeichnet die Frau, die den Raub begangen hat, als ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The woman is the perpetrator of the robbery.",
+              "de": "Die Frau hat den Raub selbst begangen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeugin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbrecherin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ermittlerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Richterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verbrecherin names a female criminal.",
+              "de": "Verbrecherin bezeichnet eine weibliche Straftäterin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei bezeichnet die Frau, die den Raub begangen hat, als Verbrecherin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbrecherin' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Zeugin: A witness observes or reports a crime. Verbrecherin: Correct: the woman committed the robbery. Ermittlerin: An investigator investigates crimes. Richterin: A judge decides legal cases. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2514-v2",
+          "contextKey": "legacy-0164-L2514-context-2",
+          "transferKey": "legacy-0164-L2514-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016407",
+            "type": "choice",
+            "prompt": "Eine Frau begeht absichtlich mehrere schwere Straftaten. Welcher Begriff bezeichnet sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Select the feminine noun for a perpetrator.",
+              "de": "Gesucht ist die weibliche Bezeichnung für eine Täterin."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Klägerin"
+              },
+              {
+                "id": "1",
+                "text": "Beamtin"
+              },
+              {
+                "id": "2",
+                "text": "Verbrecherin"
+              },
+              {
+                "id": "3",
+                "text": "Zuschauerin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The feminine noun is Verbrecherin.",
+              "de": "Die weibliche Form lautet Verbrecherin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist eine Verbrecherin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbrecherin' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Klägerin: A plaintiff brings a case. Beamtin: A civil servant holds a public role. Verbrecherin: Correct: the woman committed serious crimes. Zuschauerin: A spectator watches events. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016408",
+      "title": {
+        "en": "Using Verbreitung accurately",
+        "de": "Verbreitung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbreitung in the sense of the spread or dissemination of information.",
+        "de": "Verbreitung im Sinn von Ausbreitung oder Weitergabe von Informationen erkennen."
+      },
+      "objective": "Recognize Verbreitung in the specified the spread or dissemination of information sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2515 (4ada3e6f98f5d83d85c9a14cad6608810552aa00c7f2979dfe83b97129c864e5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2515-v1",
+          "contextKey": "legacy-0164-L2515-context-1",
+          "transferKey": "legacy-0164-L2515-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016408",
+            "type": "gap_choice",
+            "prompt": "Die schnelle ___ der Nachricht über soziale Netzwerke überraschte alle.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The message reached many people.",
+              "de": "Die Nachricht erreichte viele Menschen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Löschung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbreitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erfindung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verwechslung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verbreitung is the spreading of information.",
+              "de": "Verbreitung bezeichnet das Weitergeben von Informationen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die schnelle Verbreitung der Nachricht über soziale Netzwerke überraschte alle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbreitung' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Löschung: Deletion removes information. Verbreitung: Correct: the news spread widely. Erfindung: Invention creates something new. Verwechslung: Confusion mixes things up. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2515-v2",
+          "contextKey": "legacy-0164-L2515-context-2",
+          "transferKey": "legacy-0164-L2515-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016408",
+            "type": "choice",
+            "prompt": "Eine Meldung erreicht innerhalb weniger Stunden Menschen in vielen Städten. Wie heißt dieser Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Focus on information reaching more recipients.",
+              "de": "Die Information erreicht immer mehr Empfänger."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verzögerung"
+              },
+              {
+                "id": "1",
+                "text": "Speicherung"
+              },
+              {
+                "id": "2",
+                "text": "Verbreitung"
+              },
+              {
+                "id": "3",
+                "text": "Beschränkung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Rapid dissemination is schnelle Verbreitung.",
+              "de": "Die rasche Weitergabe heißt schnelle Verbreitung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Verbreitung einer Meldung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbreitung' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verzögerung: A delay slows a process. Speicherung: Storage keeps information without necessarily sharing it. Verbreitung: Correct: the message spreads. Beschränkung: A restriction limits access or scope. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016409",
+      "title": {
+        "en": "Using Verbrennungsmotor accurately",
+        "de": "Verbrennungsmotor im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verbrennungsmotor in the sense of an engine powered by burning fuel internally.",
+        "de": "Verbrennungsmotor im Sinn von Motor, der Kraftstoff im Inneren verbrennt erkennen."
+      },
+      "objective": "Recognize Verbrennungsmotor in the specified an engine powered by burning fuel internally sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2516 (1ad5d8b6617efccaeb8740b1be389b7e07616a5b7d1a337cf29f76651c049d00), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2516-v1",
+          "contextKey": "legacy-0164-L2516-context-1",
+          "transferKey": "legacy-0164-L2516-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016409",
+            "type": "gap_choice",
+            "prompt": "Der Wagen fährt mit Benzin. Sein ___ verbrennt Kraftstoff im Zylinder.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The engine gets power by burning fuel.",
+              "de": "Der Antrieb gewinnt Energie durch das Verbrennen von Kraftstoff."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Elektromotor"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Akku"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbrennungsmotor"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Solarpanel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Verbrennungsmotor burns fuel to produce mechanical power.",
+              "de": "Ein Verbrennungsmotor wandelt die Energie des Kraftstoffs durch Verbrennung in Bewegung um."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wagen fährt mit Benzin. Sein Verbrennungsmotor verbrennt Kraftstoff im Zylinder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verbrennungsmotor' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Elektromotor: An electric motor uses electrical energy. Akku: A battery stores energy rather than burning fuel. Verbrennungsmotor: Correct: fuel burns inside this engine. Solarpanel: A solar panel converts light to electricity. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2516-v2",
+          "contextKey": "legacy-0164-L2516-context-2",
+          "transferKey": "legacy-0164-L2516-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016409",
+            "type": "choice",
+            "prompt": "Welcher Antrieb gewinnt seine Energie unmittelbar aus der Verbrennung von Diesel?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Choose the engine with internal fuel combustion.",
+              "de": "Gesucht ist ein Motor mit innerer Kraftstoffverbrennung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektromotor"
+              },
+              {
+                "id": "1",
+                "text": "Verbrennungsmotor"
+              },
+              {
+                "id": "2",
+                "text": "Fahrradkette"
+              },
+              {
+                "id": "3",
+                "text": "Solarzelle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Diesel combustion powers a Verbrennungsmotor.",
+              "de": "Die Verbrennung von Diesel treibt einen Verbrennungsmotor an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Verbrennungsmotor verbrennt Diesel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verbrennungsmotor' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Elektromotor: An electric motor is powered by electricity. Verbrennungsmotor: Correct: a diesel engine is an internal combustion engine. Fahrradkette: A bicycle chain transmits force but is not an engine. Solarzelle: A solar cell converts sunlight into electricity. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016410",
+      "title": {
+        "en": "Using Verdacht accurately",
+        "de": "Verdacht im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verdacht in the sense of a suspicion without established proof.",
+        "de": "Verdacht im Sinn von Verdacht ohne gesicherten Beweis erkennen."
+      },
+      "objective": "Recognize Verdacht in the specified a suspicion without established proof sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2517 (2a83e19d69f9c249700c57063f1d5781604a6ed2ef24f4913bab0fb608e65381), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2517-v1",
+          "contextKey": "legacy-0164-L2517-context-1",
+          "transferKey": "legacy-0164-L2517-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016410",
+            "type": "gap_choice",
+            "prompt": "Die Polizei hat einen ___, aber noch keinen Beweis.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "There is a possibility, not certainty.",
+              "de": "Es gibt einen Hinweis, aber noch keine Gewissheit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Beschluss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verdacht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Freispruch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Verdacht is suspicion, not proven guilt.",
+              "de": "Ein Verdacht ist eine Vermutung, kein Beweis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei hat einen Verdacht, aber noch keinen Beweis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verdacht' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Beschluss: A decision is an official conclusion. Verdacht: Correct: suspicion exists before proof. Vertrag: A contract is an agreement. Freispruch: An acquittal is a court outcome. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2517-v2",
+          "contextKey": "legacy-0164-L2517-context-2",
+          "transferKey": "legacy-0164-L2517-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016410",
+            "type": "choice",
+            "prompt": "Jemand könnte die Akte verändert haben. Die Hinweise reichen jedoch nicht für einen Beweis. Was besteht?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The facts have not been established.",
+              "de": "Der Sachverhalt ist noch nicht bewiesen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewissheit"
+              },
+              {
+                "id": "1",
+                "text": "Geständnis"
+              },
+              {
+                "id": "2",
+                "text": "Verdacht"
+              },
+              {
+                "id": "3",
+                "text": "Urteil"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A possibility supported by clues is a Verdacht.",
+              "de": "Eine durch Hinweise gestützte Vermutung ist ein Verdacht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es besteht ein Verdacht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verdacht' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Gewissheit: Certainty means the facts are established. Geständnis: A confession is an admission by a person. Verdacht: Correct: suspicion is not yet proof. Urteil: A judgment is a court decision. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016412",
+      "title": {
+        "en": "Using Vereinbarung accurately",
+        "de": "Vereinbarung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vereinbarung in the sense of an agreement reached between parties.",
+        "de": "Vereinbarung im Sinn von Abmachung zwischen Beteiligten erkennen."
+      },
+      "objective": "Recognize Vereinbarung in the specified an agreement reached between parties sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2520 (f93af8b18bf51707fc467d24b9891ba2e6a9bcc2c05a79875de08660f24425b0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2520-v1",
+          "contextKey": "legacy-0164-L2520-context-1",
+          "transferKey": "legacy-0164-L2520-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016412",
+            "type": "gap_choice",
+            "prompt": "Beide Firmen unterschreiben eine schriftliche ___ über die Liefertermine.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The firms agree on shared conditions.",
+              "de": "Die Firmen legen gemeinsame Bedingungen fest."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verwechslung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vereinbarung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Vereinbarung records agreed terms.",
+              "de": "Eine Vereinbarung hält gemeinsam festgelegte Bedingungen fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beide Firmen unterschreiben eine schriftliche Vereinbarung über die Liefertermine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vereinbarung' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verwechslung: Confusion is a mistake, not signed terms. Vereinbarung: Correct: both parties sign an agreement. Verspätung: A delay is not an agreed document. Einladung: An invitation requests attendance. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2520-v2",
+          "contextKey": "legacy-0164-L2520-context-2",
+          "transferKey": "legacy-0164-L2520-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016412",
+            "type": "choice",
+            "prompt": "Zwei Teams legen gemeinsam fest, wer welche Aufgabe übernimmt. Was haben sie getroffen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Both teams consent to a common arrangement.",
+              "de": "Beide Teams einigen sich auf eine gemeinsame Regelung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Beschwerde"
+              },
+              {
+                "id": "1",
+                "text": "eine Warnung"
+              },
+              {
+                "id": "2",
+                "text": "eine Vereinbarung"
+              },
+              {
+                "id": "3",
+                "text": "eine Ausrede"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The collocation is eine Vereinbarung treffen.",
+              "de": "Die passende Verbindung lautet eine Vereinbarung treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Teams haben eine Vereinbarung getroffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Vereinbarung' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: eine Beschwerde: A complaint expresses dissatisfaction. eine Warnung: A warning alerts someone to danger. eine Vereinbarung: Correct: the teams reached an agreement. eine Ausrede: An excuse justifies behavior. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016414",
+      "title": {
+        "en": "Using Verfahrensweise accurately",
+        "de": "Verfahrensweise im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verfahrensweise in the sense of an established method or procedure.",
+        "de": "Verfahrensweise im Sinn von festgelegte Vorgehensweise erkennen."
+      },
+      "objective": "Recognize Verfahrensweise in the specified an established method or procedure sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2522 (435ff08f2bdc27c8f1c119c6cc73aa75ff495c391820aa4a9277ea40d511c9d4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2522-v1",
+          "contextKey": "legacy-0164-L2522-context-1",
+          "transferKey": "legacy-0164-L2522-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016414",
+            "type": "gap_choice",
+            "prompt": "Für die Bearbeitung von Reklamationen gilt eine einheitliche ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "All employees follow the same process.",
+              "de": "Alle Mitarbeitenden folgen demselben Ablauf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorhersage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verfahrensweise"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abwesenheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterbrechung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verfahrensweise means a defined way of proceeding.",
+              "de": "Verfahrensweise bezeichnet eine festgelegte Vorgehensweise."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Bearbeitung von Reklamationen gilt eine einheitliche Verfahrensweise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verfahrensweise' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Vorhersage: A forecast predicts future events. Verfahrensweise: Correct: the process is standardized. Abwesenheit: Absence means someone is not present. Unterbrechung: An interruption stops a process temporarily. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2522-v2",
+          "contextKey": "legacy-0164-L2522-context-2",
+          "transferKey": "legacy-0164-L2522-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016414",
+            "type": "choice",
+            "prompt": "Alle Beschwerden werden in denselben drei Schritten geprüft. Welcher Begriff bezeichnet diesen festgelegten Ablauf?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Look for the method, not the result.",
+              "de": "Gesucht ist die Methode, nicht das Ergebnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zufall"
+              },
+              {
+                "id": "1",
+                "text": "Auszeichnung"
+              },
+              {
+                "id": "2",
+                "text": "Verfahrensweise"
+              },
+              {
+                "id": "3",
+                "text": "Ergebnis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The sequence of steps is a Verfahrensweise.",
+              "de": "Die festgelegte Schrittfolge ist eine Verfahrensweise."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine festgelegte Verfahrensweise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verfahrensweise' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Zufall: Chance is not a fixed procedure. Auszeichnung: An award recognizes achievement. Verfahrensweise: Correct: a prescribed process is a procedure. Ergebnis: A result is the outcome, not the method. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016415",
+      "title": {
+        "en": "Using Vergabe accurately",
+        "de": "Vergabe im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vergabe in the sense of the awarding of a contract.",
+        "de": "Vergabe im Sinn von Vergabe eines Auftrags erkennen."
+      },
+      "objective": "Recognize Vergabe in the specified the awarding of a contract sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2523 (83633662ff85c4b4f7968b181006b5b47e55576302f4929401c04344f0af5525), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2523-v1",
+          "contextKey": "legacy-0164-L2523-context-1",
+          "transferKey": "legacy-0164-L2523-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016415",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Bauauftrags erfolgt nach einer öffentlichen Ausschreibung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A company will be selected to receive the contract.",
+              "de": "Ein Unternehmen erhält den Auftrag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verlegung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vergabe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verspätung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vergabe means awarding a contract.",
+              "de": "Vergabe bezeichnet die Erteilung eines Auftrags."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vergabe des Bauauftrags erfolgt nach einer öffentlichen Ausschreibung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vergabe' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verlegung: Relocation moves something elsewhere. Vergabe: Correct: a contract is awarded. Kündigung: Termination ends an existing contract. Verspätung: A delay postpones an event. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2523-v2",
+          "contextKey": "legacy-0164-L2523-context-2",
+          "transferKey": "legacy-0164-L2523-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016415",
+            "type": "choice",
+            "prompt": "Nach Prüfung aller Angebote erhält eine Firma den Auftrag. Wie heißt dieser Schritt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The selection results in a contract being awarded.",
+              "de": "Die Auswahl endet damit, dass ein Auftrag erteilt wird."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "2",
+                "text": "Vergabe"
+              },
+              {
+                "id": "3",
+                "text": "Rechnungstellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The decision to award the contract is its Vergabe.",
+              "de": "Die Erteilung des Auftrags heißt Vergabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Vergabe des Auftrags.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vergabe' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Kündigung: Termination cancels a contract. Beschwerde: A complaint challenges a situation. Vergabe: Correct: the firm receives the contract. Rechnungstellung: Invoicing requests payment after a service. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016416",
+      "title": {
+        "en": "Using Vergangenheit accurately",
+        "de": "Vergangenheit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vergangenheit in the sense of the past as a period of time.",
+        "de": "Vergangenheit im Sinn von vergangene Zeit erkennen."
+      },
+      "objective": "Recognize Vergangenheit in the specified the past as a period of time sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2524 (8cf3c607b452cb1340e0b09f1ba3d08d55839f0733d68abfb851c72d6a675de4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2524-v1",
+          "contextKey": "legacy-0164-L2524-context-1",
+          "transferKey": "legacy-0164-L2524-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016416",
+            "type": "gap_choice",
+            "prompt": "Über die ___ können wir sprechen, aber wir können sie nicht ändern.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of events that have already happened.",
+              "de": "Es geht um Ereignisse, die bereits geschehen sind."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zukunft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vergangenheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gegenwart"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gelegenheit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vergangenheit refers to time before the present.",
+              "de": "Vergangenheit bezeichnet die Zeit vor der Gegenwart."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Über die Vergangenheit können wir sprechen, aber wir können sie nicht ändern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vergangenheit' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Zukunft: The future has not yet happened. Vergangenheit: Correct: past events cannot be changed. Gegenwart: The present is happening now. Gelegenheit: An opportunity is a favorable chance. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2524-v2",
+          "contextKey": "legacy-0164-L2524-context-2",
+          "transferKey": "legacy-0164-L2524-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016416",
+            "type": "choice",
+            "prompt": "In einem Museum betrachtet Lea Fotos aus ihrer Kindheit. Welche Zeit zeigen die Bilder?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Childhood happened years earlier.",
+              "de": "Die Kindheit liegt schon viele Jahre zurück."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "die Zukunft"
+              },
+              {
+                "id": "1",
+                "text": "die Gegenwart"
+              },
+              {
+                "id": "2",
+                "text": "die Vergangenheit"
+              },
+              {
+                "id": "3",
+                "text": "die Planung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Old childhood photographs depict the past.",
+              "de": "Alte Kinderfotos zeigen die Vergangenheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bilder zeigen die Vergangenheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'die Vergangenheit' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: die Zukunft: The future lies ahead. die Gegenwart: The present is current time. die Vergangenheit: Correct: the photographs show earlier years. die Planung: Planning concerns intended future actions. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016417",
+      "title": {
+        "en": "Using Vergleich accurately",
+        "de": "Vergleich im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vergleich in the sense of a comparison between alternatives.",
+        "de": "Vergleich im Sinn von Vergleich von Alternativen erkennen."
+      },
+      "objective": "Recognize Vergleich in the specified a comparison between alternatives sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2525 (cdde5e62bbc2533f5d459cd1ca6b312d9a3061e7f4e48bdef64130f65851360a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2525-v1",
+          "contextKey": "legacy-0164-L2525-context-1",
+          "transferKey": "legacy-0164-L2525-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016417",
+            "type": "gap_choice",
+            "prompt": "Ein ___ der beiden Tarife zeigt, welcher günstiger ist.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The prices are evaluated side by side.",
+              "de": "Die Preise werden einander gegenübergestellt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verzicht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vergleich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verdacht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Vergleich reveals similarities and differences.",
+              "de": "Ein Vergleich zeigt Gemeinsamkeiten und Unterschiede."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Vergleich der beiden Tarife zeigt, welcher günstiger ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vergleich' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verzicht: Waiver means giving up a right. Vergleich: Correct: the tariffs are compared. Verdacht: Suspicion is not a side-by-side evaluation. Vertrag: A contract defines obligations. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2525-v2",
+          "contextKey": "legacy-0164-L2525-context-2",
+          "transferKey": "legacy-0164-L2525-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016417",
+            "type": "choice",
+            "prompt": "Mara legt die Eigenschaften zweier Geräte nebeneinander und prüft Unterschiede. Was führt sie durch?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She evaluates two alternatives.",
+              "de": "Sie bewertet zwei Alternativen nebeneinander."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Rückgabe"
+              },
+              {
+                "id": "1",
+                "text": "eine Bestellung"
+              },
+              {
+                "id": "2",
+                "text": "einen Vergleich"
+              },
+              {
+                "id": "3",
+                "text": "eine Reparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Examining two devices side by side is a Vergleich.",
+              "de": "Die Gegenüberstellung zweier Geräte ist ein Vergleich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mara führt einen Vergleich durch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'einen Vergleich' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: eine Rückgabe: A return sends a product back. eine Bestellung: An order requests goods. einen Vergleich: Correct: she compares features. eine Reparatur: A repair fixes a defect. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016418",
+      "title": {
+        "en": "Using Vergnügen accurately",
+        "de": "Vergnügen im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vergnügen in the sense of pleasure or enjoyment.",
+        "de": "Vergnügen im Sinn von Freude oder angenehmes Erleben erkennen."
+      },
+      "objective": "Recognize Vergnügen in the specified pleasure or enjoyment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2526 (7f0907cec2cd9112dc329461b13b9b64d83e432acd156b05e82cf967c909e131), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2526-v1",
+          "contextKey": "legacy-0164-L2526-context-1",
+          "transferKey": "legacy-0164-L2526-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016418",
+            "type": "gap_choice",
+            "prompt": "Es war mir ein ___, Sie persönlich kennenzulernen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This is a polite way to express pleasure.",
+              "de": "Das ist eine höfliche Formulierung für Freude."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verdacht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verbot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Vergnügen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ein Vergnügen expresses pleasure or enjoyment.",
+              "de": "Ein Vergnügen drückt Freude aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es war mir ein Vergnügen, Sie persönlich kennenzulernen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vergnügen' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verdacht: Suspicion expresses uncertainty. Verbot: A prohibition forbids something. Vergnügen: Correct: the polite phrase expresses pleasure. Vertrag: A contract is an agreement. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2526-v2",
+          "contextKey": "legacy-0164-L2526-context-2",
+          "transferKey": "legacy-0164-L2526-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016418",
+            "type": "choice",
+            "prompt": "Nina tanzt in ihrer Freizeit und hat dabei große Freude. Welches Wort beschreibt dieses Gefühl?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The activity is enjoyable, not obligatory.",
+              "de": "Die Tätigkeit macht Freude und ist keine Pflicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verpflichtung"
+              },
+              {
+                "id": "1",
+                "text": "Verspätung"
+              },
+              {
+                "id": "2",
+                "text": "Vergnügen"
+              },
+              {
+                "id": "3",
+                "text": "Verlegenheit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Vergnügen is enjoyment of an activity.",
+              "de": "Vergnügen bezeichnet die Freude an einer Tätigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Tanzen bereitet Nina Vergnügen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vergnügen' (option 2). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verpflichtung: An obligation is a duty. Verspätung: A delay concerns late timing. Vergnügen: Correct: she enjoys dancing. Verlegenheit: Embarrassment is an uncomfortable feeling. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016419",
+      "title": {
+        "en": "Using Vergütung accurately",
+        "de": "Vergütung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Vergütung in the sense of payment for work or services.",
+        "de": "Vergütung im Sinn von Bezahlung für geleistete Arbeit erkennen."
+      },
+      "objective": "Recognize Vergütung in the specified payment for work or services sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2527 (f544bec66eee2dcab8d3f3fffd514e682cb65020adf818838b323942229a2c71), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0164-L2527-v1",
+          "contextKey": "legacy-0164-L2527-context-1",
+          "transferKey": "legacy-0164-L2527-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016419",
+            "type": "gap_choice",
+            "prompt": "Im Vertrag steht, welche ___ die Praktikantin für ihre Arbeit erhält.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The amount is money paid for work.",
+              "de": "Es geht um Geld als Gegenleistung für Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verpflegung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vergütung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verantwortung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Versicherung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vergütung is remuneration for work.",
+              "de": "Vergütung ist die Bezahlung für geleistete Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Vertrag steht, welche Vergütung die Praktikantin für ihre Arbeit erhält.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Vergütung' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Verpflegung: Meals or catering are Verpflegung. Vergütung: Correct: the contract specifies pay. Verantwortung: Responsibility is an obligation, not pay. Versicherung: Insurance protects against risks. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0164-L2527-v2",
+          "contextKey": "legacy-0164-L2527-context-2",
+          "transferKey": "legacy-0164-L2527-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001640191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016419",
+            "type": "choice",
+            "prompt": "Eine freie Mitarbeiterin erhält für ihren Auftrag 500 Euro. Wie nennt man diese Bezahlung im beruflichen Kontext?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Choose the term for monetary compensation.",
+              "de": "Gesucht ist der Begriff für eine finanzielle Gegenleistung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "1",
+                "text": "Vergütung"
+              },
+              {
+                "id": "2",
+                "text": "Verpflichtung"
+              },
+              {
+                "id": "3",
+                "text": "Bestätigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Payment for a service is a Vergütung.",
+              "de": "Die Bezahlung für eine Leistung heißt Vergütung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin erhält eine Vergütung von 500 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Vergütung' (option 1). Full German sentence, article/inflection, objective, CEFR label, bilingual hint and explanation checked. Every offered option: Bewerbung: An application seeks a position. Vergütung: Correct: the sum compensates her work. Verpflichtung: An obligation is a duty. Bestätigung: A confirmation acknowledges something. Context differs from the other variant. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
